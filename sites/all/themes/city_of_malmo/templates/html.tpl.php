@@ -69,7 +69,7 @@
   </div>
   <?php print $page_top; ?>
   <?php print $page; ?>
-  <script src='//assets.malmo.se/external/v4/malmo.js'></script>
+  // <script src='//assets.malmo.se/external/v4/malmo.js'></script>
   <?php print $scripts; ?>
   <?php print $page_bottom; ?>
 </body>
