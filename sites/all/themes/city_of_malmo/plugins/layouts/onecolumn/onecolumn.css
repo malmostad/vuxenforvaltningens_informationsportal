@@ -1,0 +1,38 @@
+/*
+  Styles for backend headers
+*/
+#panels-dnd-main div.panel-region {
+  padding-bottom: 1em !important;
+}
+
+#panels-dnd-main div.panel-region h2.label {
+  background-color: #e3e3e3;
+  padding: 2px;
+  box-shadow:  0px 1px 2px 0px #fff;
+  font-size: 13px !important;
+}
+
+/*
+  Grid styles
+*/
+
+#panels-dnd-main div.panel-region {
+  padding-bottom: 1em !important;
+}
+
+#panels-dnd-main div.panel-region h2.label {
+  background-color: #e3e3e3;
+  padding: 2px;
+  box-shadow:  0px 1px 2px 0px #fff;
+  font-size: 13px !important;
+}
+
+#panels-dnd-main .panel-onecolumn .section-header,
+#panels-dnd-main .panel-onecolumn .section-content,
+#panels-dnd-main .panel-onecolumn .section-footer {
+  clear: both;
+  margin: 0 0 1em 0;
+}
+#panels-dnd-main .last {
+  margin-right: 0;
+}
