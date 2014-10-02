@@ -1,0 +1,68 @@
+/* Zentropy Form Tooltip Styles */
+
+form div.form-item {
+  position: relative;
+}
+
+form div.form-item div.description {
+  max-width: 200px;
+  padding: 4px 8px;
+  -moz-box-shadow: 0 0 0 transparent;
+  -webkit-box-shadow: 0 0 0 transparent;
+  box-shadow: 0 0 0 transparent;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  border-color: transparent;
+  border-style: none none solid;
+  border-width: medium medium 1px;
+  position: absolute;
+  bottom: -30px;
+  right: 0;
+  color: transparent;
+  background: transparent;
+  -moz-transition-property: background;
+  -webkit-transition-property: background;
+  -o-transition-property: background;
+  -ms-transition-property: background;
+  transition-property: background;
+  -moz-transition-duration: 70ms;
+  -webkit-transition-duration: 70ms;
+  -o-transition-duration: 70ms;
+  -ms-transition-duration: 70ms;
+  transition-duration: 70ms;
+  -moz-transition-timing-function: ease-in;
+  -webkit-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  -ms-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+  z-index: 9999;
+  visibility: hidden;
+  font-size: 0.9em;
+}
+
+form div.form-item:hover div.description {
+  visibility: visible;
+  -moz-box-shadow: 0 1px 3px #c8c8c8;
+  -webkit-box-shadow: 0 1px 3px #c8c8c8;
+  box-shadow: 0 1px 3px #c8c8c8;
+  text-shadow: 1px 1px 1px black;
+  background-color: #007BBB;
+  color: white;
+  border-color: #cccccc;
+  -moz-transition-property: background;
+  -webkit-transition-property: background;
+  -o-transition-property: background;
+  -ms-transition-property: background;
+  transition-property: background;
+  -moz-transition-duration: 150ms;
+  -webkit-transition-duration: 150ms;
+  -o-transition-duration: 150ms;
+  -ms-transition-duration: 150ms;
+  transition-duration: 150ms;
+  -moz-transition-timing-function: ease-out;
+  -webkit-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  -ms-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}

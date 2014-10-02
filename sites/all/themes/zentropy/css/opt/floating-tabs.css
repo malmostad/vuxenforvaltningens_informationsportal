@@ -1,0 +1,50 @@
+/* Zentropy Floating Tabs */
+
+div.floating-tabs {
+  position: fixed;
+  top: 20%;
+  left: 0;
+}
+
+div.floating-tabs ul a {
+  display: block;
+}
+
+div.floating-tabs ul.primary {
+  margin: 0;
+  padding: 0;
+  border-bottom: 0 none;
+  -moz-box-shadow: 0 0 4px #222222;
+  -webkit-box-shadow: 0 0 4px #222222;
+  box-shadow: 0 0 4px #222222;
+}
+
+div.floating-tabs ul.primary li {
+  display: block;
+  margin: 0;
+  border-top: 0 none;
+}
+
+div.floating-tabs ul.secondary {
+  padding: 0;
+  border-bottom: 0 none;
+  position: relative;
+  left: 0;
+  top:10px;
+  -moz-box-shadow: 0 0 4px #222222;
+  -webkit-box-shadow: 0 0 4px #222222;
+  box-shadow: 0 0 4px #222222;
+  background: white;
+}
+
+div.floating-tabs ul.secondary li {
+  line-height: 1.4em;
+  display: block;
+  padding: 0 4px;
+  margin: 0;
+  background: white;
+}
+
+div.floating-tabs ul.secondary a.active {
+  border-bottom: 0;
+}

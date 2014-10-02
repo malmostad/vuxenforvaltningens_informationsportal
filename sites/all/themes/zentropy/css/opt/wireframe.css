@@ -1,0 +1,29 @@
+/* Zentropy Wireframe styles */
+/* Adds background colours to different regions and layout elements to make the theme's structure easier to see */
+/* !important is used to really enforce the colors, this is kinda ugly but harmless since this is a development feature */
+
+.wireframe-mode .page { background-color: #FEFFC2 !important; }
+.wireframe-mode header { background-color: #B4BA6C !important; }
+.wireframe-mode footer { background-color: #2E5A5C !important; }
+.wireframe-mode .featured { background-color: #634AA6 !important; }
+.wireframe-mode .highlighted { background-color: #FFD90D !important; }
+.wireframe-mode aside.sidebar-first { background-color: #7D2A35 !important; }
+.wireframe-mode aside.sidebar-second { background-color: #FFA335 !important; }
+.wireframe-mode article { background-color: #CC9258 !important; }
+.wireframe-mode section.comments{ background-color: #FF0073 !important; }
+
+.wireframe-mode div.tabs { background-color: #BF0413 !important; }
+.wireframe-mode ul.pager { background-color: #BF0413 !important; }
+
+.wireframe-mode .region-content-top { background-color: #917A56 !important; }
+.wireframe-mode .region-content-bottom { background-color: #9E352C !important; }
+
+.wireframe-mode .triptych-wrapper { background-color: #c8c8c8 !important; }
+.wireframe-mode .region-triptych-first { background-color: #E79A05 !important; }
+.wireframe-mode .region-triptych-middle { background-color: #908500 !important; }
+.wireframe-mode .region-triptych-last { background-color: #8C3503 !important; }
+
+.wireframe-mode .region-footer-firstcolumn { background-color: #FA6043 !important; }
+.wireframe-mode .region-footer-secondcolumn { background-color: #C6BF39 !important; }
+.wireframe-mode .region-footer-thirdcolumn { background-color: #2AB8CF !important; }
+.wireframe-mode .region-footer-fourthcolumn { background-color: #F52E63 !important; }

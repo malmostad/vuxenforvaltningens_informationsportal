@@ -1,0 +1,331 @@
+/* Zentropy base layout styles
+   ----------------------------------------------------------
+   These are highly-optimized device-agnostic styles that combine:
+    * HTML5 Reset
+    * HTML5 Boilerplate
+    * Mobile Boilerplate
+    * Zentropy base styles
+
+    The styles from the above resources were combined and optimized for Drupal.
+-------------------------------------------------------------------------------*/
+
+/* HTML5 Reset
+  ----------------------------------------------------------
+  We have learned much from/been inspired by/taken code where offered from:
+
+  Eric Meyer					:: http://ericmeyer.com
+  HTML5 Doctor				:: http://html5doctor.com
+  and the HTML5 Boilerplate	:: http://html5boilerplate.com
+-------------------------------------------------------------------------------*/
+
+/* HTML5 ‚ú∞ Boilerplate
+ ----------------------------------------------------------
+ What follows is the result of much research on cross-browser styling.
+ Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ Kroc Camen, and the H5BP dev community and team.
+
+ Detailed information about this CSS: h5bp.com/css
+-------------------------------------------------------------------------------*/
+
+/* Let's default this puppy out
+-------------------------------------------------------------------------------*/
+
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+/* HTML5 Display Definitions
+-------------------------------------------------------------------------------*/
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+
+audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
+audio:not([controls]) { display: none; }
+[hidden] { display: none; }
+
+/* Base
+-------------------------------------------------------------------------------*/
+
+/*
+ * 1. Force a vertical scrollbar to prevent a jumpy page
+ * 2. Correct text resizing oddly in IE6/7 when body font-size is set using em units
+ * 3. Prevent iOS text size adjust on device orientation change, without disabling user zoom: h5bp.com/g
+ * 4. New Linux- and Windows-friendly sans-serif font stack: http://mky.be/fontstack
+*/
+html { overflow-y: scroll; font-size: 62.5%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+body { font-size: 13px; font-size: 1.3rem; line-height: 1.231; font-family: Helmet, Freesans, sans-serif; color: #000;}
+
+/* Links
+-------------------------------------------------------------------------------*/
+
+a { margin: 0; padding: 0; font-size: 100%; vertical-align: baseline; background: transparent; color: #00e; }
+a:visited { color: #551a8b; }
+a:hover { color: #06e; }
+a:focus { outline: thin dotted; }
+
+/* Improve readability when focused and hovered in all browsers: h5bp.com/h */
+a:hover, a:active { outline: 0; }
+
+/*	j.mp/webkit-tap-highlight-color */
+a:link { -webkit-tap-highlight-color: #007BBB; }
+
+/* Typography
+-------------------------------------------------------------------------------*/
+
+p {
+  -webkit-hyphens: auto;
+  -webkit-hyphenate-character: "\2010";
+  -webkit-hyphenate-limit-after: 1;
+  -webkit-hyphenate-limit-before: 3;
+  -moz-hyphens: auto;
+}
+
+blockquote { margin: 1em 40px; quotes: none; }
+q { quotes: none; }
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after { content: ''; content: none; }
+
+dfn { font-style: italic; }
+
+del { text-decoration: line-through; }
+
+abbr[title], dfn[title] { border-bottom: 1px dotted #000; cursor: help; }
+
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+
+ins { background: #ff9; color: #000; text-decoration: none; }
+
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+
+/* Redeclare monospace font family to standardize any monospaced elements: h5bp.com/j */
+pre, code, kbd, samp { font-family: monospace, serif; _font-family: 'courier new', monospace; font-size: 1em; }
+
+/* Improve readability of pre-formatted text in all browsers */
+pre {
+  white-space: pre; /* CSS2 */
+  white-space: pre-wrap; /* CSS 2.1 */
+  white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word; /* IE */
+}
+
+small { font-size: 85%; }
+
+b, strong { font-weight: bold; }
+
+/* Position subscript and superscript content without affecting line-height: h5bp.com/k */
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+/* Text selection colors */
+/* These selection declarations have to be separate */
+::-moz-selection { background: #007BBB; color: #fff; text-shadow: none; }
+::selection { background: #007BBB; color: #fff; text-shadow: none; }
+
+/* Embedded Content
+-------------------------------------------------------------------------------*/
+
+/* Responsive images and other embedded objects
+   Note: keeping IMG here will cause problems if you're using foreground images as sprites.
+   If this default setting for images is causing issues, you might want to replace it with a .responsive class instead. */
+img, object, embed { max-width: 100%; height: auto; width: auto; }
+
+/*
+ * 1. Improve image quality when scaled in IE7: h5bp.com/d
+ * 2. Remove the gap between images and borders on image containers: h5bp.com/e
+*/
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+
+/* Correct overflow not hidden in IE9 */
+svg:not(:root) { overflow: hidden; }
+
+/* Scale images in IE7 more attractively */
+.ie7 img, iem7 img { -ms-interpolation-mode: bicubic; }
+
+/* Prevent BG image flicker upon hover */
+.ie6 html { filter: expression(document.execCommand("BackgroundImageCache", false, true)); }
+
+/* Lists
+-------------------------------------------------------------------------------*/
+
+ul, ol { margin: 1em 0; padding: 0; }
+dd { margin: 0 0 0 40px; }
+nav ul.menu { margin: 0; padding: 0; }
+nav ul.menu li { list-style: none; list-style-image: none; margin: 0; padding: 0; }
+
+
+/* Tables
+-------------------------------------------------------------------------------*/
+
+/* Tables still need cellspacing="0" in the markup */
+table { border-collapse: collapse; border-spacing: 0; font-size: inherit; }
+th { font-weight: bold; vertical-align: bottom; }
+td { font-weight: normal; vertical-align: top; }
+td img {vertical-align: top;}
+
+/* Forms
+-------------------------------------------------------------------------------*/
+
+input, select { vertical-align: middle; }
+input[type="radio"] { vertical-align: text-bottom; }
+input[type="checkbox"] { vertical-align: bottom; *vertical-align: baseline; }
+.ie6 input { vertical-align: text-bottom; }
+select, input, textarea { font: 99% sans-serif; }
+
+/* Correct alignment displayed oddly in IE6/7 */
+legend { *margin-left: -7px; }
+
+/*
+ * 1. Display hand cursor for clickable form elements
+ * 2. Allow styling of clickable form elements in iOS
+*/
+button, input[type="button"], input[type="reset"], input[type="submit"], [role="button"] { cursor: pointer; -webkit-appearance: button; }
+
+/* Hand cursor on additional clickable elements */
+.clickable, label { cursor: pointer; }
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea { margin: 0; font-size: 100%; vertical-align: baseline; *vertical-align: middle; }
+
+/* Correct inner spacing displayed oddly in IE6/7 */
+button, input { line-height: normal; *overflow: visible; }
+
+/* Make buttons play nice in IE */
+button { width: auto; overflow: visible; }
+
+/* Remove inner padding and border in FF3/4: h5bp.com/l */
+button::-moz-focus-inner { border: 0; padding: 0; }
+
+/* Consistent box sizing and appearance */
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; padding: 0; }
+input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
+input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+
+/*
+ * 1. Remove default vertical scrollbar in IE6/7/8/9
+ * 2. Allow only vertical resizing
+*/
+textarea { overflow: auto; vertical-align: top; resize: vertical; }
+
+/* Colors for form validity */
+input:valid, textarea:valid {  }
+input:invalid, textarea:invalid { background-color: #f0dddd; }
+
+/* Reintroduce inner spacing in 'table' to avoid overlap and whitespace issues in IE6/7 */
+table button, table input { *overflow: auto; }
+
+/* Non-semantic helper classes
+-------------------------------------------------------------------------------*/
+
+/* prevent callout */
+.nocallout { -webkit-touch-callout: none; }
+
+/* A hack for HTML5 contenteditable attribute on mobile */
+textarea[contenteditable] { -webkit-appearance: none; }
+
+/* A workaround for S60 3.x and 5.0 devices which do not animated gif images if they have been set as display: none */
+.gifhidden { position: absolute; left: -100%; }
+
+/* For image replacement */
+.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; }
+.ir br { display: none; }
+
+/* Hide from both screenreaders and browsers: h5bp.com/u */
+.totallyhidden { display: none !important; visibility: hidden; }
+
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
+
+/* Let's clear some floats */
+.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+/* Print styles, inlined to avoid required HTTP connection: h5bp.com/r
+-------------------------------------------------------------------------------*/
+@media print {
+  * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */
+  a, a:visited { text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* h5bp.com/t */
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
+
+/* Default Drupal-specific styles
+-------------------------------------------------------------------------------*/
+
+.ahem { display: none; }
+
+/* Tab styles */
+
+div.tabs { border-bottom: 0 none; margin: 0.4em 0; padding: 0; }
+
+ul.primary { margin: 0; padding: 0.25em 0; }
+
+ul.primary li { background: none; margin: 0 0.5em 0 0; padding: 0.25em 0; }
+
+ul.secondary { border: none; margin: 0; padding: 0.5em 1em; }
+
+ul.secondary li { background: none; border: none; display: inline; line-height: 2em; margin: 0; padding: 0 1em 0 0; }
+
+ul.primary li a,
+ul.primary li.active a,
+ul.primary li a:hover,
+ul.primary li a:visited {
+  background: none;
+  border: 0;
+  margin: 0;
+  padding: 0 1em;
+  text-decoration: none;
+}
+
+ul.secondary li a,
+ul.secondary li a:visited {
+  background: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+ul.secondary a.active { border: 0 none; }
+
+/* Table styles */
+
+table { width: 99%; }
+table.sticky-header { z-index: 9; }
+tr.odd { background-color: white; }
+
+/* Maintenance page styles */
+
+.maintenance-page #page-wrapper {
+  background: none repeat scroll 0 0 #FFFFFF;
+  border: 1px solid #DDDDDD;
+  margin: 40px auto 0 auto;
+  min-height: 0;
+  min-width: 0;
+  width: 800px;
+  padding: 10px;
+}

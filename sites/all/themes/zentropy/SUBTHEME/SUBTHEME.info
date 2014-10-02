@@ -1,0 +1,130 @@
+; Theme Info -----------------------------------------------------------------
+; required information about the theme
+
+name = Zentropy Subtheme
+description = To create your own Zentropy Subtheme please follow the instructions in Zentropy's README.txt file or the Zentropy project page: http://drupal.org/project/zentropy
+screenshot = images/SUBTHEME.png
+;core = 7.x
+base theme = zentropy
+
+; Stylesheets  ---------------------------------------------------------------
+; All devices get base stylesheet.
+; Layout styles are determined with media queries.
+
+; Want to know more about these styles or create your own responsive styles?
+;   Check out css/README.txt for detailed information on all things CSS.
+
+; Uncomment this line to disable the standard Zentropy base stylesheet.
+;   WARNING: don't do this unless you really know what you are doing!
+;stylesheets[all][] = css/zentropy.css
+
+; This is your base stylesheet, it is added to all pages.
+stylesheets[all][] = css/SUBTHEME.css
+
+; Responsive styles are added in template.php
+
+; If you are targetting Internet Explorer 6-8 you are not using the "css3-mediaqueries-js" polyfill you should uncomment the below line and create the print stylesheet.
+; stylesheets[print][] = css/SUBTHEME-print.css
+
+; Javascript ---------------------------------------------------------------
+; Add your awesome javascript in the below file.
+scripts[] = js/SUBTHEME.js
+
+; Regions --------------------------------------------------------------------
+; These content regions are available for block placement.
+; Some are special hidden regions: page_top, page_bottom, and help.
+; Subthemes must re-declare regions.
+
+regions[header_top] = Header top
+regions[header] = Header
+regions[header_bottom] = Header bottom
+regions[help] = Help
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
+regions[highlighted] = Highlighted
+
+regions[featured] = Featured
+regions[content_top] = Content top
+regions[content] = Content
+regions[content_bottom] = Content bottom
+
+regions[sidebar_first] = First Sidebar
+regions[sidebar_second] = Second Sidebar
+
+regions[triptych_first] = Triptych first
+regions[triptych_middle] = Triptych middle
+regions[triptych_last] = Triptych last
+
+regions[footer_firstcolumn] = Footer first column
+regions[footer_secondcolumn] = Footer second column
+regions[footer_thirdcolumn] = Footer third column
+regions[footer_fourthcolumn] = Footer fourth column
+regions[footer] = Footer
+
+; Options --------------------------------------------------------------------
+; These are the checkboxes that are available on the theme settings page.
+; They are replicated here to persist defaults in subthemes.
+
+; General settings
+settings[zentropy_feed_icons] = 0
+
+; HTML5 settings
+settings[zentropy_shiv] = 1
+settings[zentropy_shiv_google] = 0
+settings[zentropy_prompt_cf] = 'IE 7'
+settings[zentropy_ie_edge] = 1
+
+; Responsive settings
+settings[zentropy_responsive_enable] = 1
+settings[zentropy_responsive_fallback] = 768
+
+; Polyfills
+settings[zentropy_polyfill_scalefix] = 0
+settings[zentropy_polyfill_mediaquery] = 1
+settings[zentropy_polyfill_mediaquery_type] = 0
+settings[zentropy_polyfill_selectivizr] = 1
+settings[zentropy_polyfill_ie7] = 0
+settings[zentropy_polyfill_ie8] = 0
+settings[zentropy_polyfill_ie9] = 0
+settings[zentropy_polyfill_ie_google] = 0
+settings[zentropy_polyfill_ie_png] = 0
+
+; Mobile settings
+settings[zentropy_mobile_viewport] = 'width=device-width, target-densitydpi=160dpi, initial-scale=1.0'
+settings[zentropy_mobile_touch] = 1
+settings[zentropy_mobile_touch_57] = ''
+settings[zentropy_mobile_touch_72] = ''
+settings[zentropy_mobile_touch_114] = ''
+
+; Form settings
+settings[zentropy_form_css] = 0
+settings[zentropy_form_tooltip] = 0
+settings[zentropy_coolinput] = 1
+settings[zentropy_coolinput_labels] = 0
+
+; Tab settings
+settings[zentropy_zen_tabs] = 0
+settings[zentropy_tabs_float] = 0
+settings[zentropy_tabs_node] = 1
+
+; Breadcrumb settings
+settings[zentropy_breadcrumb_show] = 1
+settings[zentropy_breadcrumb_hideonlyfront] = 1
+settings[zentropy_breadcrumb_showtitle] = 0
+settings[zentropy_breadcrumb_separator] = ' &#187; '
+
+; Development settings
+settings[zentropy_clear_registry] = 0
+settings[zentropy_wireframe_mode] = 0
+settings[zentropy_cachebuster_css] = 0
+
+; Extra settings
+settings[zentropy_ajax_loader] = 0
+settings[zentropy_scripts_footer] = 1
+settings[zentropy_menu_span] = 0
+; Information added by drupal.org packaging script on 2012-04-12
+version = "7.x-2.0-rc5"
+core = "7.x"
+project = "zentropy"
+datestamp = "1334261772"
+

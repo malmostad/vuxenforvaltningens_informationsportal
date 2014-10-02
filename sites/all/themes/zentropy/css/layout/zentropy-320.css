@@ -1,0 +1,10 @@
+/* Zentropy layout styles */
+/* Targets screens between 320px and 480px */
+
+/* Hide sidebars, tryptich and footer-columns in smaller screens */
+
+aside.sidebar,
+div.triptych-wrapper,
+div.footer-columns {
+  display: none;
+}

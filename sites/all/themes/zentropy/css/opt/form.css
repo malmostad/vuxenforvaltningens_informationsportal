@@ -1,0 +1,136 @@
+/* Zentropy Form Styles */
+
+form label,
+form div.field-label {
+  color: #262626;
+  font: 12px HelveticaNeue, "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+  margin-bottom: 4px;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+form select.form-select,
+form input.form-checkbox,
+form input.form-radio,
+form input.form-text,
+form textarea.form-textarea {
+  -moz-border-radius: 4px 4px 4px 4px;
+  -webkit-border-radius: 4px 4px 4px 4px;
+  border-radius: 4px 4px 4px 4px;
+  border-color: #CECECE #CECECE #A7A7A7;
+  border-style: solid;
+  border-width: 1px;
+  color: #747474;
+  font: 14px/18px Georgia, "Times New Roman", Times, serif;
+  padding: 6px;
+  -moz-box-shadow: 1px 1px 3px #C8C8C8;
+  -webkit-box-shadow: 1px 1px 3px #C8C8C8;
+  box-shadow: 1px 1px 3px #C8C8C8;
+}
+
+/* Fix for Ajax Throbber */
+
+html.js input.form-autocomplete {
+  background-position: 100% 9px;
+}
+
+a.button,
+form input.form-submit {
+  padding: 4px 8px;
+  position: relative;
+  font-weight: 700;
+  text-shadow: 1px 1px 1px black;
+  color: white;
+  font: 1.1em HelveticaNeue, "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+  background-color: #007BBB;
+  -moz-box-shadow: 0 1px 3px #C8C8C8;
+  -webkit-box-shadow: 0 1px 3px #C8C8C8;
+  box-shadow: 0 1px 3px #C8C8C8;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border-color: #cccccc;
+  border-style: none none solid;
+  border-width: medium medium 1px;
+  cursor: pointer;
+  text-decoration: none;
+  -moz-transition-property: background, top;
+  -webkit-transition-property: background, top;
+  -o-transition-property: background, top;
+  -ms-transition-property: background, top;
+  transition-property: background, top;
+  -moz-transition-duration: 0.3s, 2s;
+  -webkit-transition-duration: 0.3s, 2s;
+  -o-transition-duration: 0.3s, 2s;
+  -ms-transition-duration: 0.3s, 2s;
+  transition-duration: 0.3s, 2s;
+  -moz-transition-timing-function: ease-out, ease-in;
+  -webkit-transition-timing-function: ease-out, ease-in;
+  -o-transition-timing-function: ease-out, ease-in;
+  -ms-transition-timing-function: ease-out, ease-in;
+  transition-timing-function: ease-out, ease-in;
+  margin-right: 1em;
+  display: inline-block;
+  /* IE7 Fixes */
+  zoom: 1;
+  *display: block;
+}
+
+a.button:hover,
+form input.form-submit:hover {
+  -moz-box-shadow: 0 2px 4px #C8C8C8;
+  -webkit-box-shadow: 0 2px 4px #C8C8C8;
+  box-shadow: 0 2px 4px #C8C8C8;
+  top: -1px;
+  background-color: #005E91;
+  -moz-transition-property: background, top;
+  -webkit-transition-property: background, top;
+  -o-transition-property: background, top;
+  -ms-transition-property: background, top;
+  transition-property: background, top;
+  -moz-transition-duration: 0.3s, 2s;
+  -webkit-transition-duration: 0.3s, 2s;
+  -o-transition-duration: 0.3s, 2s;
+  -ms-transition-duration: 0.3s, 2s;
+  transition-duration: 0.3s, 2s;
+  -moz-transition-timing-function: ease-in-out, ease-out;
+  -webkit-transition-timing-function: ease-in-out, ease-out;
+  -o-transition-timing-function: ease-in-out, ease-out;
+  -ms-transition-timing-function: ease-in-out, ease-out;
+  transition-timing-function: ease-in-out, ease-out;
+}
+
+form fieldset,
+div.vertical-tabs .vertical-tabs-panes .vertical-tabs-pane fieldset {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  -moz-border-radius: 4px 4px 4px 4px;
+  -webkit-border-radius: 4px 4px 4px 4px;
+  border-radius: 4px 4px 4px 4px;
+  border-color: #CECECE #CECECE #A7A7A7;
+  border-style: solid;
+  border-width: 1px;
+  margin-top: 10px;
+  background: #F6F6F6;
+}
+
+html.js fieldset.collapsed {
+  border-style: solid;
+  border-width: 1px;
+  height: 0;
+  padding-bottom: 12px;
+}
+
+form fieldset legend {
+  color: #303030;
+  font: 1.2em/1em HelveticaNeue, "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+  letter-spacing: -1px;
+  padding-right: 4px;
+  text-transform: uppercase;
+}
+
+html.js fieldset.collapsible legend a {
+  padding-right: 0;
+  text-decoration: none;
+}

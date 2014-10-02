@@ -1,0 +1,7 @@
+/* Zentropy Subtheme layout styles */
+/* Targets screens between 480px and 768px */
+
+div.page {
+  max-width: 744px; /* change this as you see fit */
+  margin: 0 auto; /* this will keep the page centered if we have a width */
+}

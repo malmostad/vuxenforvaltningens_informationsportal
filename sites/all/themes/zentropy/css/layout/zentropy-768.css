@@ -1,0 +1,107 @@
+/* Zentropy layout styles */
+/* Targets screens between 768px and 992px */
+
+/* A lot of these were borrowed from Basic */
+/* @link http://drupal.org/project/basic */
+
+/* Holy Grail Layout ---------------------------------------------------------
+   ref: http://www.alistapart.com/articles/holygrail
+   This layout takes advantage of negative margins to float the sidebars to
+   either side of the main content. It also floats the navigation above the
+   content, but you could just as easily absolutely position it.
+   
+   LC stands for Left Column, RC for Right Column
+   
+   Obvously, this layout is for left-to-right languages. For a
+   right-to-left layout, just swap all the left and rights below.
+*/
+div.page {
+  width: 742px;
+  margin: 0 auto;
+}
+
+div.content-main,
+aside.sidebar-first,
+aside.sidebar-second {
+  float: left;
+}
+
+div.content-main {
+  width: 100%;
+  margin-right: -100%;
+}
+
+/* Sidebars */
+/* Changing the width of the sidebars is dead easy, just change the
+   values below corresponding to the sidebar you want to modify.
+   Make sure you keep negative values as negative values.
+
+   We have slightly thinner sidebars with this resolution
+*/
+
+body.sidebar-first div.content-main .content-inner {
+  padding-left: 160px;   /* LC width */
+}
+
+body.sidebar-second div.content-main .content-inner {
+  padding-right: 160px;  /* RC width */
+}
+
+body.two-sidebars div.content-main .content-inner {
+  padding-left: 160px;   /* LC width */
+  padding-right: 160px;  /* RC width */
+}
+
+aside.sidebar-first {
+  width: 160px;          /* LC width */
+  margin-right: -160px; /* LC width */
+}
+
+aside.sidebar-second {
+  float: right;
+  width: 160px;          /* RC width */
+  margin-left: -160px;   /* RC width */
+}
+
+/* Triptychs */
+
+.region-triptych-first,
+.region-triptych-middle,
+.region-triptych-last,
+.region-footer-firstcolumn,
+.region-footer-secondcolumn,
+.region-footer-thirdcolumn,
+.region-footer-fourthcolumn {
+  display: inline;
+  float: left; /* LTR */
+  position: relative;
+}
+
+.region-triptych-first,
+.region-triptych-middle,
+.region-triptych-last {
+  margin: 20px 20px 30px 20px;
+  width: 206px;
+}
+
+/* Use extra pixels leftover from each individual column */
+div.triptych {
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+/* Footer columns */
+
+.region-footer-firstcolumn,
+.region-footer-secondcolumn,
+.region-footer-thirdcolumn,
+.region-footer-fourthcolumn {
+  padding: 0 10px;
+  width: 165px;
+}
+
+/* Use extra pixels leftover from each individual column */
+div.footer-columns {
+  padding-left: 1px;
+  padding-right: 1px;
+}

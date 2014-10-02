@@ -1,0 +1,61 @@
+/* Place your theme's base styles here! */
+/* Remember, this theme uses media queries for responsive layouts by default! */
+/* This means that you should only put styles here that are common to all screen sizes. */
+
+
+
+
+/* If you are using the "Enable Ajax Loader" option from Zentropy, you can customize the loader using the below selector */
+/* Zentropy ships with a sweet spinning Druplicon Ajax Loader but we understand it may be a bit too awesome for everyday use. */
+
+/*.zentropy-loader .zentropy-loader-image {
+  background-image: url('../images/your-awesome-loader.gif');
+}*/
+
+
+
+/* If you are using the CSS3Pie to enable CSS3 in older versions of Internet Explorer/ */
+/* Add the following extra line to the selectors you want to support: */
+/* behavior: url('/sites/all/themes/zentropy/js/opt/PIE.htc'); */
+/*  For example:
+
+    .rounded-corners {
+      -moz-border-radius: 6px;
+      -webkit-border-radius: 6px;
+      border-radius: 6px;
+      behavior: url('/sites/all/themes/zentropy/js/opt/PIE.htc');
+    }
+
+    NOTE: If you are having trouble with certain elements, adding "position: relative;" can help fix things!
+    NOTE2: For more information, check out "README-PIE.txt".
+*/
+
+
+
+/* If you are using the box-sizing polyfill to enable "box-sizing: border-box;" in Internet Explorer 6 & 7. */
+/* Add the following extra line to the selectors you want to support: */
+/* *behavior: url('/sites/all/themes/zentropy/js/opt/boxsizing.htc'); */
+/*  For example:
+
+    .border-box {
+      box-sizing: border-box;
+      *behavior: url('/sites/all/themes/zentropy/js/opt/boxsizing.htc'); // notice the star hack and absolute path!
+    }
+
+    NOTE: For more information, check out "README-boxsizing.txt".
+*/
+
+
+
+/* Print Styles
+-------------------------------------------------------------------------------
+  Inlined to avoid required HTTP connection: h5bp.com/r
+
+  If you are targeting Internet Explorer 6-8 you can:
+    * Either enable the "css3-mediaqueries-js" additional component (for more info on components please see Zentropy's README.txt or project page: http://drupal.org/project/zentropy
+    * Delete the below lines and uncomment the print stylesheet in SUBTHEME.info
+  If not, uncomment the below lines and add your print styles!
+
+/* @media print {
+
+}*/
