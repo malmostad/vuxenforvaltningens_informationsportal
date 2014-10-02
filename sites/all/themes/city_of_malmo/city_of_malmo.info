@@ -17,3 +17,6 @@ scripts[] = js/init.js
 
 ; Regions --------------------------------------------------------------------
 ; regions[content] = Content
+
+; Panels layouts. You can place multiple layouts under the "layouts" folder.
+plugins[panels][layouts] = plugins/layouts
