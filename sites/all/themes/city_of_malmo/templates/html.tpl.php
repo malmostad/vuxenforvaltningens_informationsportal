@@ -53,7 +53,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!--[if lte IE 8]><script src='//assets.malmo.se/external/v4/html5shiv-printshiv.js' type='text/javascript'></script><![endif]-->
   <link href='//assets.malmo.se/external/v4/malmo.css' media='all' rel='stylesheet' type='text/css'/>
-  <?php print $custom_head_script; ?>
+  <!-- <?php print $custom_head_script; ?> -->
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
