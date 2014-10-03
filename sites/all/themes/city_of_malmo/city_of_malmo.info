@@ -8,12 +8,13 @@ core = 7.x
 base theme = zentropy
 
 ; Stylesheets  ---------------------------------------------------------------
-stylesheets[screen][] = css/screen.css
-stylesheets[screen][] = css/ie.css
+stylesheets[screen][] = assets/stylesheets/malmo.css
+stylesheets[screen][] = assets/stylesheets/ie.css
 
 ; Javascript ---------------------------------------------------------------
 ; Add your awesome javascript in the below file.
-scripts[] = js/init.js
+scripts[] = assets/javascripts/init.js
+scripts[] = javascripts/init.js
 
 ; Regions --------------------------------------------------------------------
 ; regions[content] = Content
