@@ -22,7 +22,7 @@
 
 
 
-<div class="panel-onecolumn" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
+<div class="panel-front-page" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
   
   <div class="wrapper">
     
