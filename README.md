@@ -1,4 +1,4 @@
-Vuxenförvaltingens informationsportal
+Vuxenförvaltningens informationsportal
 ==========================
 
 ## Dependencies
