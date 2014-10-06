@@ -174,9 +174,9 @@
   display: block;
   margin: 1.5em 0;
   a {
-    // @extend .btn;
-    // @extend .btn-primary;
-    // @extend .btn-lg;
+    @extend .btn;
+    @extend .btn-primary;
+    @extend .btn-lg;
     &::before {
       display: inline-block;
       width: 1.4em;

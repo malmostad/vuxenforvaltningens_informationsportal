@@ -13,7 +13,7 @@
 // Global assets
 
 // @import 'malmo_<%= APP_CONFIG['audience'] %>';
-// @import 'global_assets/bootstrap_custom';
+@import 'global_assets/bootstrap_custom';
 @import 'global_assets/jquery-ui.helpers.min';
 @import 'global_assets/masthead_standalone';
 @import 'global_assets/autocomplete';
@@ -40,6 +40,6 @@
 @import 'global_assets/utils';
 @import 'global_assets/token_input_theme';
 // @import 'global_assets/bootstrap-datepicker3';
-// @import 'global_assets/print';
+@import 'global_assets/print';
 @import 'global_assets/hacks';
 @import 'global_assets/custom';
