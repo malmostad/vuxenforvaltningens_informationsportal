@@ -1,0 +1,43 @@
+// We use a small subset of Bootstrap Sass
+
+@import "bootstrap-sprockets";
+@import 'bootstrap/variables';
+@import 'bootstrap/mixins';
+
+$btn-primary-bg: $btn-success-bg;
+
+$dropdown-border:            $border-color;
+$dropdown-link-color:        #000;
+$dropdown-link-hover-color:  #fff;
+$dropdown-link-hover-bg:     $background-dark;
+$dropdown-link-active-color: $dropdown-link-hover-color;
+$dropdown-link-active-bg:    $dropdown-link-hover-bg;
+
+$pagination-active-color:    #000;
+$pagination-active-bg:       $background-light-hover;
+$pagination-hover-bg:        $background-light-hover;
+$pagination-border:          $border-color;
+$pagination-hover-border:    $border-color;
+$pagination-active-border:   $border-color;
+
+// Prevent the url() to glyphicons font to start with /assets/
+$bootstrap-sass-asset-helper: false;
+@import 'bootstrap/glyphicons';
+$bootstrap-sass-asset-helper: true; // and restore it
+
+@import 'bootstrap/pagination';
+@import 'bootstrap/utilities';
+
+// Limit the scope so third-party apps can have their own form styling
+.mf-v4 {
+  @import 'bootstrap/forms';
+  @import 'bootstrap/buttons';
+  @import 'bootstrap/button-groups';
+  @import 'bootstrap/input-groups';
+
+  @import 'bootstrap/dropdowns';
+
+  @import 'bootstrap/theme';
+}
+
+@import 'bootstrap_overrides';

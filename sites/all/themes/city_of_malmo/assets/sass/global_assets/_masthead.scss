@@ -1,0 +1,168 @@
+#malmo-masthead {
+  background-color: $masthead-background;
+  position: fixed;
+  height: emize(43);
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  .nav-logo a {
+    position: absolute;
+    top: emize(5);
+    left: .6em;
+    background: url('logo-x1.png') no-repeat;
+    @media (min-resolution: 2dppx), (-webkit-min-device-pixel-ratio: 2) {
+      background-image: url('logo-x2.png');
+    }
+    background-size: 178px 27px;
+    height: 30px;
+    width: 180px;
+  }
+
+  #main-nav {
+    button {
+      font-size: 1em;
+      float: right;
+      height: emize(30);
+      padding: 0;
+      margin: emize(6) .8em 0 0;
+      cursor: pointer;
+      background-color: $masthead-background;
+      background-position: 85% 50%;
+      border: 1px solid #fff;
+      @include radius(3px);
+      .text {
+        font-size: emize(16);
+        display: inline-block;
+        margin: emize(2) 2.8em emize(4) emize(12);
+        line-height:  1;
+        font-family: $sans-serif;
+        color: #fff;
+      }
+
+      @media (max-width: 23em) {
+        border: none;
+        margin-right: .4em;
+        width: emize(40);
+        span.text {
+          display: none;
+        }
+      }
+    }
+
+    ul.dropdown-menu {
+      position: absolute;
+      top: 43px;
+      right: 0;
+      left: auto;
+      height: auto;
+      overflow-x: hidden;
+      min-width: 18em;
+      background: #fff;
+      padding: 0;
+      @include radius(0 0 0 4px);
+      border-width: 0 0 1px 1px;
+      border-color: $border-color;
+      @media (max-width: 23em) {
+        width: 100%;
+      }
+      li a {
+        color: #000;
+        display: block;
+        font-family: $sans-serif;
+        font-size: emize(14, 13);
+        line-height: 1.2;
+        border: $border;
+        border-width: 0 0 1px;
+        padding: .9em 1em;
+        background: $background-light;
+      }
+      li:first-child a {
+        @include radius(0);
+      }
+      li:last-child a {
+        border-width: 0;
+      }
+    }
+  }
+
+  #search-trigger {
+    font-size: 1em;
+    display: block;
+    float: right;
+    width: emize(40);
+    height: emize(30);
+    padding: 0;
+    margin: emize(6) .6em 0 0;
+    color: #fff;
+    background-color: $masthead-background;
+    background-position: 50% 50%;
+    border: none;
+    cursor: pointer;
+    @media (max-width: 23em) {
+      margin-right: 0;
+    }
+    @media (min-width: 42em) {
+      display: none;
+    }
+  }
+
+  #masthead-search {
+    float: right;
+    margin: emize(6) 1em 0 0;
+    width: 20em;
+    input[type=text] {
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+      font-size: 14px;
+      padding-top: 4px;
+    }
+    .btn {
+      font-size: 14px;
+      padding-top: 2px;
+    }
+
+    @media (max-width: 41.99em) {
+      display: none;
+    }
+    &.boxed {
+      position: absolute;
+      display: block;
+      @include box-sizing(border-box);
+      top: emize(43);
+      right: 0;
+      left: 0;
+      margin: 0;
+      width: 100%;
+      overflow: hidden;
+      padding: 1.4em .8em;
+      border-bottom: $border;
+      background: $background-light;
+      @include box-shadow(0 2px 5px rgba(0, 0, 0, .5));
+    }
+
+    form {
+      margin-bottom: 0;
+    }
+  }
+  a {
+    color: #fff;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+// Don't enable the hover effect for touch devices
+body:not(.touch) #main-nav ul li {
+  a:hover, a:active, a:focus {
+    background-color: $background-dark !important;
+    color: #fff !important;
+  }
+}
+
+body.touch #main-nav ul {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}

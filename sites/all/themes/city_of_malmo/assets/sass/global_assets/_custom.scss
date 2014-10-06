@@ -1,0 +1,13 @@
+.logged-in {
+  padding-top: 73px !important;
+  &.toolbar-drawer {
+    padding-top: 107px !important;
+    #malmo-masthead {
+      top: 64px;
+    }
+  }
+
+  #malmo-masthead {
+    top: 30px;
+  }
+}

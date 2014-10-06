@@ -1,12 +1,13 @@
 # Require any additional compass plugins here.
 
 # Set this to the root of your project when deployed:
+preferred_syntax = :sass
 http_path = '/'
-css_dir = 'assets/stylesheets'
-sass_dir = 'assets/sass'
-images_dir = 'assets/images'
-javascripts_dir = 'assets/javascripts'
-fonts_dir = "fonts/"
+css_dir = 'stylesheets'
+sass_dir = 'sass'
+images_dir = 'images'
+javascripts_dir = 'javascripts'
+fonts_dir = 'fonts'
 relative_assets = true
 line_comments = true
 # output_style = :compressed

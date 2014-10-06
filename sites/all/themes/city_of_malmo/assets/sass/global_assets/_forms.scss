@@ -1,0 +1,53 @@
+.mf-v4 {
+  h2.group-title {
+    font-size: 14px;
+    border-bottom: $border;
+    margin: 1em 0;
+    padding-bottom: .2em;
+  }
+  .form-group.warning, .field_with_errors {
+    padding: 0;
+    background: transparent;
+    border: 0;
+    font-size: 13px;
+    label, .checkbox {
+      color: #000;
+    }
+    .control-label {
+      color: $warning-color;
+    }
+    input, textarea, select, input, input:focus {
+      border: $warning-border;
+      color: #000;
+    }
+    .help-block {
+      color: $warning-color;
+    }
+  }
+  .input-group.date {
+    width: 12em;
+    .m-icon-calendar {
+      display: inline-block;
+      width: 1.1em;
+      height: 1.1em;
+    }
+  }
+}
+
+.dropdown-menu.datepicker-dropdown * {
+  font-size: 14px;
+}
+
+// Reset for body-copy's ul trashing the bootstrap dropdown
+.body-copy ul.dropdown-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li {
+    padding: 0;
+    margin: 0;
+    &.divider {
+      margin: .2em 0;
+    }
+  }
+}
