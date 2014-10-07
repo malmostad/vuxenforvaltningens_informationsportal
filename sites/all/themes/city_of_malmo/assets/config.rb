@@ -3,11 +3,11 @@
 # Set this to the root of your project when deployed:
 preferred_syntax = :sass
 http_path = '/'
+fonts_dir = 'fonts'
 css_dir = 'stylesheets'
 sass_dir = 'sass'
 images_dir = 'images'
 javascripts_dir = 'javascripts'
-fonts_dir = 'fonts'
 relative_assets = true
 line_comments = true
 # require 'bootstrap-sass'
