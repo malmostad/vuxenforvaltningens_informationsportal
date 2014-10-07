@@ -50,7 +50,7 @@
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
   <!--[if lte IE 8]><script src='//assets.malmo.se/external/v4/html5shiv-printshiv.js' type='text/javascript'></script><![endif]-->
   <!-- <link href='//assets.malmo.se/external/v4/malmo.css' media='all' rel='stylesheet' type='text/css'/> -->
   <!-- <?php print $custom_head_script; ?> -->
