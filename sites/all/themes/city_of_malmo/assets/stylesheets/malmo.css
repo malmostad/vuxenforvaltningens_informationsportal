@@ -4241,57 +4241,71 @@ a:hover {
   text-decoration: none;
 }
 
-/* jQuery UI Autocomplete. CSS is not theme rolled */
-/* line 2, ../sass/global_assets/_autocomplete.scss */
-.ui-autocomplete {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  float: left;
-  display: none;
-  min-width: 100px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  background: #fff;
-  -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-  border: #b5b5b5 1px solid;
+/* line 2, ../sass/global_assets/_announcement.scss */
+.announcement,
+.important-announcement {
+  *zoom: 1;
 }
-/* line 17, ../sass/global_assets/_autocomplete.scss */
-.ui-autocomplete .ui-menu-item > a {
-  display: block;
-  font-family: "OpenSans", "Droid Sans", "Verdana", "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
-  font-size: 0.875em;
+/* line 96, ../sass/shared_assets/shared/_mixins.scss */
+.announcement:before, .announcement:after,
+.important-announcement:before,
+.important-announcement:after {
+  display: table;
+  content: '';
+  line-height: 0;
+}
+/* line 101, ../sass/shared_assets/shared/_mixins.scss */
+.announcement:after,
+.important-announcement:after {
   clear: both;
+}
+/* line 4, ../sass/global_assets/_announcement.scss */
+.announcement a,
+.important-announcement a {
+  display: block;
+  position: relative;
+  margin: 1em 0;
+  padding: .8em 1.5em 1em;
+  border: #b5b5b5 1px solid;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  font-family: "OpenSans", "Droid Sans", "Verdana", "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
+  font-size: 1.5em;
+  font-weight: bold;
   color: #000;
-  margin: 0 !important;
-  padding: .4em .5em;
 }
-/* line 27, ../sass/global_assets/_autocomplete.scss */
-.ui-autocomplete .ui-state-focus {
-  background: #888888;
-  color: #fff !important;
-  cursor: pointer;
-  margin: 0;
+/* line 15, ../sass/global_assets/_announcement.scss */
+.announcement a::before,
+.important-announcement a::before {
+  position: absolute;
+  display: block;
+  -moz-border-radius: 2px 0 0 2px;
+  -webkit-border-radius: 2px 0 0 2px;
+  border-radius: 2px 0 0 2px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0.5em;
+  content: '';
 }
 
-/* line 35, ../sass/global_assets/_autocomplete.scss */
-.ui-autocomplete.ui-menu .ui-menu-item {
-  list-style-image: none !important;
+/* line 29, ../sass/global_assets/_announcement.scss */
+.announcement a::before {
+  background: #ffd100;
+}
+/* line 32, ../sass/global_assets/_announcement.scss */
+.announcement a:hover {
+  background: #fff6cc;
 }
 
-/* line 41, ../sass/global_assets/_autocomplete.scss */
-.more-search-results.ui-menu-item {
-  border-top: #b5b5b5 1px solid;
-  background-color: whitesmoke;
+/* line 38, ../sass/global_assets/_announcement.scss */
+.important-announcement a::before {
+  background: #cc0000;
 }
-/* line 44, ../sass/global_assets/_autocomplete.scss */
-.more-search-results.ui-menu-item a {
-  padding-top: .5em;
-  padding-bottom: .6em;
+/* line 41, ../sass/global_assets/_announcement.scss */
+.important-announcement a:hover {
+  background: #ffeae0;
 }
 
 /* jQuery UI Autocomplete. CSS is not theme rolled */
