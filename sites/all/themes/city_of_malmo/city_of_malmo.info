@@ -13,7 +13,7 @@ stylesheets[screen][] = assets/stylesheets/ie.css
 
 ; Javascript ---------------------------------------------------------------
 ; Add your awesome javascript in the below file.
-scripts[] = assets/javascripts/init.js
+; scripts[] = assets/javascripts/init.js
 scripts[] = javascripts/init.js
 
 ; Regions --------------------------------------------------------------------
