@@ -8,8 +8,12 @@
     }
   }
 
+  #admin-menu {
+    z-index: 1001;
+  }
+
   #malmo-masthead {
-    top: 30px;
+    top: 21px;
   }
 }
 
@@ -275,8 +279,6 @@ h2 + .example {
     margin-top:0;
   }
 }
-
-
 
 .example::before,
 .highlight code::before {
