@@ -5,10 +5,21 @@
   "use strict";
 
   // To learn more about Javascript in Drupal 7 check out: http://drupal.org/node/756722
+  
+  //------FAQ question/answer-------
   Drupal.behaviors.city_of_malmo = {
     attach: function(context, settings) {
-      // Do something awesome...
+    	$('.faq-list-questions').find('.question').on('click',openListFAQ);
     }
   };
 
 })(jQuery);
+
+
+// FAQ question/answer
+function openListFAQ(){
+	$(this).parent().toggleClass('icon-open-close');
+	$(this).next().toggleClass('open-close',300);
+}
+
+
