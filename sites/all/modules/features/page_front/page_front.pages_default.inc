@@ -250,7 +250,7 @@ function page_front_default_page_manager_pages() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => 'zagolovok',
+      'css_class' => '',
     );
     $pane->extras = array();
     $pane->position = 0;
