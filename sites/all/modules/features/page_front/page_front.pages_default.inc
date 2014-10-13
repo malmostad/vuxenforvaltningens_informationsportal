@@ -248,7 +248,10 @@ function page_front_default_page_manager_pages() {
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'zagolovok',
+    );
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
