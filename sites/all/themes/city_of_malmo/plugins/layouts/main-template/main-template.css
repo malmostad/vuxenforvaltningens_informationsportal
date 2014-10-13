@@ -3,19 +3,19 @@
 
 #panels-dnd-main .breadcrumbs,
 #panels-dnd-main .top-block,
-#panels-dnd-main .page-content,
-#panels-dnd-main .side-bar {
+#panels-dnd-main article.body-copy,
+#panels-dnd-main nav.content {
   margin: 10px 0 0;
 }
 #panels-dnd-main .wrapper {
   width: 100%;
 }
-#panels-dnd-main .page-content {
+#panels-dnd-main article.body-copy {
   width: 69%;
   float: left;
   margin-right: 0.5%;
 }
-#panels-dnd-main .side-bar {
+#panels-dnd-main nav.content {
   width: 30.5%;
   float: left;
   margin-top: 10px;
