@@ -28,7 +28,7 @@ function view_faq_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   /* Field: Content: Title */
@@ -76,6 +76,14 @@ function view_faq_views_default_views() {
 
   /* Display: FAQ */
   $handler = $view->new_display('panel_pane', 'FAQ', 'faq');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_options']['wrapper_class'] = 'faq-list-questions';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $export['faq'] = $view;
 
   return $export;
