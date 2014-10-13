@@ -24,20 +24,8 @@
 
 <div class="panel-main-layout" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
   
-
-
-  
-  <div class="wrapper">
-    
       <?php if ($content['region-one']): ?>
-        <div class="general-layout">
           <?php print $content['region-one']; ?>
-        </div>
       <?php endif; ?>
-
-  </div>
-
-
-
 
 </div>

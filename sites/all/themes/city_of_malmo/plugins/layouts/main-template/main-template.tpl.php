@@ -39,15 +39,15 @@
       <?php endif; ?>
 
       <?php if ($content['region-three']): ?>
-        <div class="page-content">
+       <article class="body-copy">
           <?php print $content['region-three']; ?>
-        </div>
+      </article>
       <?php endif; ?>
 
       <?php if ($content['region-four']): ?>
-        <div class="side-bar">
+        <nav class="content">
           <?php print $content['region-four']; ?>
-        </div>
+        </nav>
       <?php endif; ?>
 
   </div>
