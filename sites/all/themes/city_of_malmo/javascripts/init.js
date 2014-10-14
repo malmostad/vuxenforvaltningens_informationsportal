@@ -6,10 +6,13 @@
 
   // To learn more about Javascript in Drupal 7 check out: http://drupal.org/node/756722
   
-  //------FAQ question/answer-------
+  
   Drupal.behaviors.city_of_malmo = {
     attach: function(context, settings) {
+
+    	//------FAQ question/answer-------
     	$('.faq-list-questions').find('.question').on('click',openListFAQ);
+    
     }
   };
 

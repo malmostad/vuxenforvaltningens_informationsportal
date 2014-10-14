@@ -6826,14 +6826,38 @@ h2 + .example {
   color: #099;
 }
 
+/*------FOOTER------*/
+/* line 725, ../sass/global_assets/_custom.scss */
+body {
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* line 731, ../sass/global_assets/_custom.scss */
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+/* line 736, ../sass/global_assets/_custom.scss */
+.wrapper {
+  padding: 0 0 150px 0;
+}
+
+/*------CLOSE FOOTER------*/
 /*----------FAQ----------*/
-/* line 726, ../sass/global_assets/_custom.scss */
+/* line 741, ../sass/global_assets/_custom.scss */
 .faq-list-questions ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* line 731, ../sass/global_assets/_custom.scss */
+/* line 746, ../sass/global_assets/_custom.scss */
 .faq-list-questions .question {
   position: relative;
   margin: 10px 0;
@@ -6849,16 +6873,16 @@ h2 + .example {
   top: 50%;
   margin-top: -9px;
 }
-/* line 744, ../sass/global_assets/_custom.scss */
+/* line 759, ../sass/global_assets/_custom.scss */
 .faq-list-questions .answer {
   height: 0;
   overflow: hidden;
 }
 /* line 38, ../sass/global_assets/_custom.scss */
 .faq-list-questions .icon-open-close .question:before {
-  background-position: -1px -25px !important;
+  background-position: -1px -25px;
 }
-/* line 753, ../sass/global_assets/_custom.scss */
+/* line 768, ../sass/global_assets/_custom.scss */
 .faq-list-questions .open-close {
   height: auto;
 }

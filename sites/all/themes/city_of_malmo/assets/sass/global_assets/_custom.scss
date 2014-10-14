@@ -721,6 +721,21 @@ h2 + .example {
 
 
 
+/*------FOOTER------*/
+body {
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 0; left: 0;
+}
+footer {
+  position: absolute;
+  left: 0;bottom: 0;
+  width: 100%;
+}
+.wrapper { padding: 0 0 150px 0; }
+/*------CLOSE FOOTER------*/
+
 /*----------FAQ----------*/
 .faq-list-questions {
   & ul {
@@ -747,7 +762,7 @@ h2 + .example {
   }
   & .icon-open-close .question {
     @include before_content() {
-      background-position: -1px -25px !important;
+      background-position: -1px -25px;
     }
   }
   & .open-close { height: auto; }
