@@ -21,8 +21,9 @@
 
 // FAQ question/answer
 function openListFAQ(){
-	$(this).parent().toggleClass('icon-open-close');
-	$(this).next().toggleClass('open-close',300);
+	$(this).next()
+		.toggleClass('open-close',300)
+			.parent().toggleClass('icon-open-close');
 }
 
 
