@@ -23,48 +23,11 @@
 
 
 <div class="panel-front-page" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
-  
-  <div class="wrapper">
-    
-      <?php if ($content['region-one']): ?>
-        <nav class="breadcrumbs">
-          <?php print $content['region-one']; ?>
-        </nav>
-      <?php endif; ?>
 
-      <?php if ($content['region-two']): ?>
-        <div class="title">
-          <?php print $content['region-two']; ?>
-        </div>
-      <?php endif; ?>
+ 
+        <?php if ($content['region-one']): ?>
+              <?php print $content['region-one']; ?>
+        <?php endif; ?>
 
-      <?php if ($content['region-three']): ?>
-        <div class="slider">
-          <?php print $content['region-three']; ?>
-        </div>
-      <?php endif; ?>
-
-      <?php if ($content['region-four']): ?>
-        <div class="search">
-          <?php print $content['region-four']; ?>
-        </div>
-      <?php endif; ?>
-
-      <?php if ($content['region-five']): ?>
-        <div class="middle-block">
-          <?php print $content['region-five']; ?>
-        </div>
-      <?php endif; ?>
-
-
-      <?php if ($content['region-six']): ?>
-        <div class="site-bar">
-          <?php print $content['region-six']; ?>
-        </div>
-      <?php endif; ?>
-
-  </div>
-
-  
 
 </div>

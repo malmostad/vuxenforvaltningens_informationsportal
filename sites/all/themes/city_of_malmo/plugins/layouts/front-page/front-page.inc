@@ -8,11 +8,6 @@ $plugin = array(
   'theme' => 'front-page',
   'css' => 'front-page.css',
   'regions' => array(
-    'region-one' => t('Breadcrumbs'),
-    'region-two' => t('Title'),
-    'region-three' => t('Slider'),
-    'region-four' => t('Search'),
-    'region-five' => t('Middle block'),
-    'region-six' => t('Site bar')
+    'region-one' => t('News')
   ),
 );
