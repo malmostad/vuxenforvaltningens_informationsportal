@@ -16,14 +16,16 @@
     }
   };
 
+
+  // FAQ question/answer
+  function openListFAQ(){
+    $(this).next()
+      .toggleClass('open-close',300)
+        .parent().toggleClass('icon-open-close');
+  }
+
+
 })(jQuery);
 
-
-// FAQ question/answer
-function openListFAQ(){
-	$(this).next()
-		.toggleClass('open-close',300)
-			.parent().toggleClass('icon-open-close');
-}
 
 
