@@ -10,6 +10,8 @@ images_dir = 'images'
 javascripts_dir = 'javascripts'
 relative_assets = true
 line_comments = true
+
+require 'susy'
 # require 'bootstrap-sass'
 # output_style = :compressed
 

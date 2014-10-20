@@ -1,3 +1,5 @@
+@import "susy";
+
 /*----------EXTENDS-------------*/
 .main-button { 
   -moz-user-select: none;-khtml-user-select: none;-webkit-user-select: none;
@@ -749,6 +751,7 @@ h2 + .example {
       background-position: -1px -25px;
     }
   }
-  & .open-close { height: auto; }
+  & .open-close {
+   height: auto; 
+  }
 }
-
