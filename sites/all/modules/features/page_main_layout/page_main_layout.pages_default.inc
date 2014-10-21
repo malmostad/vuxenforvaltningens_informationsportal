@@ -55,7 +55,7 @@ function page_main_layout_default_page_manager_handlers() {
     $pane->access = array();
     $pane->configuration = array(
       'override_title' => 1,
-      'override_title_text' => '',
+      'override_title_text' => 'Meny',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -68,6 +68,28 @@ function page_main_layout_default_page_manager_handlers() {
     $pane->uuid = '0dad5122-a1d6-449e-a38e-8462dd565291';
     $display->content['new-0dad5122-a1d6-449e-a38e-8462dd565291'] = $pane;
     $display->panels['region-four'][0] = 'new-0dad5122-a1d6-449e-a38e-8462dd565291';
+    $pane = new stdClass();
+    $pane->pid = 'new-515be1a3-6af5-4da1-b336-2f23dc97f3a4';
+    $pane->panel = 'region-four';
+    $pane->type = 'block';
+    $pane->subtype = 'system-user-menu';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Min planering',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '515be1a3-6af5-4da1-b336-2f23dc97f3a4';
+    $display->content['new-515be1a3-6af5-4da1-b336-2f23dc97f3a4'] = $pane;
+    $display->panels['region-four'][1] = 'new-515be1a3-6af5-4da1-b336-2f23dc97f3a4';
     $pane = new stdClass();
     $pane->pid = 'new-db383758-486c-45d6-871c-69be35f14b5b';
     $pane->panel = 'region-one';

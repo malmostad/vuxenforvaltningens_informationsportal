@@ -56,7 +56,7 @@ function page_faq_default_page_manager_pages() {
     'style' => 'naked',
   );
   $display->cache = array();
-  $display->title = 'Questions and Answers';
+  $display->title = 'Frågor och svar';
   $display->uuid = '35445ac0-bfe1-480d-bf22-5b44bbac984f';
   $display->content = array();
   $display->panels = array();
