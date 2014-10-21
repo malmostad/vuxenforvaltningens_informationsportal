@@ -15,14 +15,14 @@
     
 
 
-      
-      $('.nav-logo').children('a')
-          .attr('href','/')
-              .css('background','url("http://assets.malmo.se/external/v4/logo-x1.png") no-repeat');
-      
-      $('.dropdown-menu')
-          .html('<li><a role="menuitem" href="/node/1">Detail content</a></li>'+
-                '<li><a role="menuitem" href="/faq">FAQ</a></li>');
+      //
+      //$('.nav-logo').children('a')
+      //    .attr('href','/')
+      //        .css('background','url("http://assets.malmo.se/external/v4/logo-x1.png") no-repeat');
+      //
+      //$('.dropdown-menu')
+      //    .html('<li><a role="menuitem" href="/node/1">Detail content</a></li>'+
+      //          '<li><a role="menuitem" href="/faq">FAQ</a></li>');
 
     }
   };
