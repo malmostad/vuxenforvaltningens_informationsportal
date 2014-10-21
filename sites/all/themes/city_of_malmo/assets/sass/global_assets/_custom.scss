@@ -722,6 +722,25 @@ h2 + .example {
 
 
 
+
+
+/* ------body-------- */
+body {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  top: 0;left: 0;
+}
+/* --------wrapper------- */
+.wrapper {margin-bottom: 180px;}
+
+/* --------footer---------- */
+footer#malmo-footer {
+  width: 100%;
+  position: absolute !important;
+  bottom: 0;
+}
+
 /*----------FAQ----------*/
 .faq-list-questions {
   & ul {
@@ -754,4 +773,10 @@ h2 + .example {
   & .open-close {
    height: auto; 
   }
+}
+
+
+/* media */
+@media only screen and (max-width: 515px) { 
+  .wrapper { margin-bottom: 470px; }
 }

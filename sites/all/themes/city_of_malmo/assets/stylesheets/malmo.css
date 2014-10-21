@@ -6826,14 +6826,38 @@ h2 + .example {
   color: #099;
 }
 
+/* ------body-------- */
+/* line 728, ../sass/global_assets/_custom.scss */
+body {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  top: 0;
+  left: 0;
+}
+
+/* --------wrapper------- */
+/* line 735, ../sass/global_assets/_custom.scss */
+.wrapper {
+  margin-bottom: 180px;
+}
+
+/* --------footer---------- */
+/* line 738, ../sass/global_assets/_custom.scss */
+footer#malmo-footer {
+  width: 100%;
+  position: absolute !important;
+  bottom: 0;
+}
+
 /*----------FAQ----------*/
-/* line 727, ../sass/global_assets/_custom.scss */
+/* line 746, ../sass/global_assets/_custom.scss */
 .faq-list-questions ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-/* line 732, ../sass/global_assets/_custom.scss */
+/* line 751, ../sass/global_assets/_custom.scss */
 .faq-list-questions .question {
   position: relative;
   margin: 10px 0;
@@ -6849,7 +6873,7 @@ h2 + .example {
   top: 50%;
   margin-top: -9px;
 }
-/* line 745, ../sass/global_assets/_custom.scss */
+/* line 764, ../sass/global_assets/_custom.scss */
 .faq-list-questions .answer {
   height: 0;
   overflow: hidden;
@@ -6858,7 +6882,15 @@ h2 + .example {
 .faq-list-questions .icon-open-close .question:before {
   background-position: -1px -25px;
 }
-/* line 754, ../sass/global_assets/_custom.scss */
+/* line 773, ../sass/global_assets/_custom.scss */
 .faq-list-questions .open-close {
   height: auto;
+}
+
+/* media */
+@media only screen and (max-width: 515px) {
+  /* line 781, ../sass/global_assets/_custom.scss */
+  .wrapper {
+    margin-bottom: 470px;
+  }
 }
