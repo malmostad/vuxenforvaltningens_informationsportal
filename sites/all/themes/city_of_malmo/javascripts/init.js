@@ -14,6 +14,9 @@
     	$('.faq-list-questions').find('.question').on('click',openListFAQ);
     
 
+    }
+  };
+
 })(jQuery);
 
 
