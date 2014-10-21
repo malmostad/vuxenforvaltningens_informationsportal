@@ -1,14 +1,14 @@
 @import "susy";
 
 /*----------EXTENDS-------------*/
-.main-button { 
+%main-button { 
   -moz-user-select: none;-khtml-user-select: none;-webkit-user-select: none;
   -o-user-select: none;-ms-user-select: none;user-select: none;
   -webkit-touch-callout: none;-webkit-text-size-adjust: none;             
   -webkit-tap-highlight-color: rgba(0,0,0,0);
    cursor: pointer; 
  }
- .before-after {content: "";display: block;}
+ %before-after {content: "";display: block;}
 /*----------CLOSE EXTENDS-------------*/
 
 /*--------MIXINS----------*/
@@ -38,13 +38,13 @@
 /*BEFORE / AFTER*/
 @mixin before_content() {
    &:before {
-    @extend .before-after;
+    @extend %before-after;
     @content;
   } 
 }
 @mixin after_content() {
    &:after {
-    @extend .before-after;
+    @extend %before-after;
     @content;
   } 
 }
@@ -751,7 +751,7 @@ footer#malmo-footer {
   & .question {
     position: relative;
     @extend h2.body-copy;
-    @extend .main-button;
+    @extend %main-button;
     margin: 10px 0;
     padding-left: 25px;
     @include before_content() {

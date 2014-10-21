@@ -6123,7 +6123,7 @@ div.token-input-dropdown-malmo ul li.token-input-selected-dropdown-item-malmo {
 }
 /*----------EXTENDS-------------*/
 /* line 4, ../sass/global_assets/_custom.scss */
-.main-button, .faq-list-questions .question {
+.faq-list-questions .question {
   -moz-user-select: none;
   -khtml-user-select: none;
   -webkit-user-select: none;
@@ -6137,7 +6137,7 @@ div.token-input-dropdown-malmo ul li.token-input-selected-dropdown-item-malmo {
 }
 
 /* line 11, ../sass/global_assets/_custom.scss */
-.before-after, .faq-list-questions .question:before, .faq-list-questions .icon-open-close .question:before {
+.faq-list-questions .question:before, .faq-list-questions .icon-open-close .question:before {
   content: "";
   display: block;
 }
