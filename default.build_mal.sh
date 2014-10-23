@@ -1,5 +1,10 @@
 #!/bin/bash
-.  "mal.properties"
+# Fill the properties and rename to build_mal.sh.
+# ++++++++ Properties ++++++++
+site_folder=build_mal
+dburl="mysql://user:password@path/database"
+mysql://root:penis242@mysql.loc/valera_mal2
+
 echo Operation : clearing files
 rm -rf ${site_folder}
 #echo Operation : clearing drush cache
@@ -18,7 +23,7 @@ rm mal_working.build
 cd ${site_folder}/profiles/mal
 
 echo Operation : site install
-drush site-install mal --yes --db-url="${drupal.db.url}"
+drush site-install mal --yes --db-url="${dburl}"
 echo Operation : Clear cache
 drush cc all
 echo Finished

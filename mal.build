@@ -9,5 +9,5 @@ projects[drupal][version] = 7.28
 
 projects[mal][type] = "profile"
 projects[mal][download][type] = "git"
-projects[mal][download][url] = "ssh://git@github.com:malmostad/vuxenforvaltningens_informationsportal.git"
+projects[mal][download][url] = "git@github.com:malmostad/vuxenforvaltningens_informationsportal.git"
 projects[mal][download][branch] =

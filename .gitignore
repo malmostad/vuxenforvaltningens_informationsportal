@@ -7,3 +7,5 @@ modules/contrib/
 themes/contrib/
 .idea
 .DS_Store
+build_mal.sh
+build_mal/
