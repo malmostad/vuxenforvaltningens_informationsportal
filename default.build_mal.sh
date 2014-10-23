@@ -3,7 +3,6 @@
 # ++++++++ Properties ++++++++
 site_folder=build_mal
 dburl="mysql://user:password@path/database"
-mysql://root:penis242@mysql.loc/valera_mal2
 
 echo Operation : clearing files
 rm -rf ${site_folder}
