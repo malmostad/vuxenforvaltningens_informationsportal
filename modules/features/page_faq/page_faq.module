@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Page faq feature.
+ */
+
+include_once 'page_faq.features.inc';

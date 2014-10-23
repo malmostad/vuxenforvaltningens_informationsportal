@@ -1,0 +1,41 @@
+.notice, .success, .warning, .error, .flash {
+  font-size: 14px;
+  @include radius(3px);
+  font-family: $sans-serif;
+  padding: .5em .8em;
+  margin-bottom: 1em;
+}
+
+.notice, .success {
+  background: $success-background;
+  border: $success-border;
+}
+.warning {
+  background: $warning-background;
+  border: $warning-border;
+}
+.error {
+  background: $error-background;
+  border: $error-border;
+}
+
+.field_with_errors input {
+  background: $warning-background;
+  border: $warning-background solid 1px;
+}
+.field_with_errors label {
+  color: #000;
+}
+
+.not-found, .server-error {
+  margin-bottom: 12em;
+  h1 {
+    font-size: emize(32);
+    font-weight: normal;
+    padding: 0;
+    margin: 0 0 .3em;
+  }
+  p {
+    font-size: emize(18);
+  }
+}

@@ -1,0 +1,25 @@
+@media print {
+  body {
+    font-size: 80%;
+    padding: 0 5em 1em !important;
+    a {
+      color: #000 !important;
+    }
+    > footer, > header, aside,
+    .dropdown, .toggle-instructions {
+      display: none !important;
+    }
+    .box {
+      border: none;
+      .box-title {
+        background-color: transparent;
+        color: #000;
+        font-size: emize(16, 13);
+        font-weight: bold;
+        border-bottom: $border;
+        padding: 0 !important;
+        margin-left: 0;
+      }
+    }
+  }
+}

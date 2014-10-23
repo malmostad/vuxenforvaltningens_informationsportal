@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Page front feature.
+ */
+
+include_once 'page_front.features.inc';

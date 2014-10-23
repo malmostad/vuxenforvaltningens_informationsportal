@@ -1,0 +1,44 @@
+.announcement,
+.important-announcement {
+  @include clearfix();
+  a {
+    display: block;
+    position: relative;
+    margin: 1em 0;
+    padding: .8em 1.5em 1em;
+    border: $border;
+    @include radius(3px);
+    font-family: $sans-serif;
+    font-size: emize(24);
+    font-weight: bold;
+    color: #000;
+    &::before {
+      position: absolute;
+      display: block;
+      @include radius(2px 0 0 2px);
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: emize(8);
+      content: '';
+    }
+  }
+}
+
+.announcement {
+  a::before {
+    background: #ffd100;
+  }
+  a:hover {
+    background: lighten(#ffd100, 40%);
+  }
+}
+
+.important-announcement {
+  a::before {
+    background: $danger-color;
+  }
+  a:hover {
+    background: $error-background;
+  }
+}

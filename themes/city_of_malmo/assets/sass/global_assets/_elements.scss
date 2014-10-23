@@ -1,0 +1,90 @@
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 3em 0 0;
+  font-size: 100%;
+  font-family: $serif;
+  background-color: $body-background;
+  color: $body-color;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-font-feature-settings: 'liga', 'kern';
+  -ms-font-feature-settings: 'liga', 'kern';
+  // -webkit-font-feature-settings: 'liga', 'kern'; // Bug in Chrome 35 removes space before links in text
+  -o-font-feature-settings: 'liga', 'kern';
+  font-feature-settings: 'liga', 'kern';
+}
+
+// HTML5 elements
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, main {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+form {
+  margin: 0;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+img, img a {
+  border: none;
+}
+
+p {
+  margin: 0 0 1em;
+  padding: 0;
+}
+
+blockquote {
+  font-style: italic;
+}
+
+table {
+  border-collapse: collapse;
+  margin-bottom: 1.5em;
+  th {
+    text-align: left;
+  }
+  th,
+  td {
+    font-family: $sans-serif;
+    font-size: emize(14);
+    line-height: emize(19, 14);
+    padding: .4em .6em;
+    border-top: $border;
+    border-bottom: $border;
+    border-collapse: collapse;
+  }
+  &.full {
+    width: 100%;
+  }
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow: auto;
+  margin-bottom: 1.5em;
+}
+
+input[type='button'],
+input[type='submit'],
+input[type='reset'],
+button {
+  margin-top: 0;
+}
+
+*,
+*:before,
+*:after {
+  @include box-sizing(border-box);
+}
