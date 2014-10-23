@@ -33,6 +33,7 @@ function mal_install() {
     'page_faq',
     'page_front',
     'page_main_layout',
+    'menu_main',
     'view_faq'
   );
   features_revert($features);
