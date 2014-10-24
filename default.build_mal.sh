@@ -27,6 +27,10 @@ echo Operation : Clear cache
 drush cc all
 echo Operation : Create dummy content
 drush generate-content 50 0 --kill --types=page,course,question_and_answer
+echo Operation : Compass compile
+cd ${site_folder}/profiles/themes/city_of_malmo/assets
+compass compile
+cd ${site_folder}/profiles/mal
 echo Finished
 branch_name="$(git symbolic-ref HEAD 2>/dev/null)" ||
 branch_name="(unnamed branch)"     # detached HEAD
