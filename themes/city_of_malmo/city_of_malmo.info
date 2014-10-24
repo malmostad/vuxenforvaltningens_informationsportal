@@ -2,10 +2,9 @@
 ; required information about the theme
 
 name = City Of Malmo
-description = City Of Malmo is a Zentropy subtheme. Zentropy is a highly-optimized, extensible and responive HTML5 base theme.
 screenshot = images/city_of_malmo.png
 core = 7.x
-base theme = zentropy
+base theme = bootstrap
 
 ; Stylesheets  ---------------------------------------------------------------
 stylesheets[screen][] = assets/stylesheets/malmo.css

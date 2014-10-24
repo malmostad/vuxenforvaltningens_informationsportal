@@ -8,3 +8,6 @@ themes/contrib/
 .DS_Store
 build_mal.sh
 build_mal/
+
+themes/city_of_malmo/assets/stylesheets
+themes/city_of_malmo/assets/.sass-cache

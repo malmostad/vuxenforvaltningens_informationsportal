@@ -1,4 +1,7 @@
-
+/* Override bootstrap */
+html {
+  font-size: 100%;
+}
 /* Style header for logged in users */
 .logged-in {
   padding-top: 73px !important;

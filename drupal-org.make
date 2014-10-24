@@ -57,8 +57,7 @@ projects[views][subdir] = "contrib"
 
 ; +++++ Themes +++++
 
-; zentropy
-projects[zentropy][type] = "theme"
-projects[zentropy][version] = "2.0-rc5"
-projects[zentropy][subdir] = "contrib"
+; bootstrap
+projects[bootstrap][type] = "theme"
+projects[bootstrap][version] = "3.0"
 
