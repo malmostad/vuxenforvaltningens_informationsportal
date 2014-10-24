@@ -54,12 +54,6 @@ projects[views][subdir] = "contrib"
 
 ; +++++ Libraries +++++
 
-libraries[ckeditor][download][type] = get
-libraries[ckeditor][download][url] =
-"http://download.cksource.com/CKEditor/CKEditor/CKEditor%204.4.3/ckeditor_4.4.3_standard.zip"
-libraries[ckeditor][destination] = libraries
-libraries[ckeditor][directory_name] = ckeditor
-
 
 ; +++++ Themes +++++
 
