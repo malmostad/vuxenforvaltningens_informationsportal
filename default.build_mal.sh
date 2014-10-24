@@ -25,6 +25,8 @@ echo Operation : site install
 drush site-install mal --yes --db-url="${dburl}"
 echo Operation : Clear cache
 drush cc all
+echo Operation : Create dummy content
+drush generate-content 50 0 --kill --types=page,course,question_and_answer
 echo Finished
 branch_name="$(git symbolic-ref HEAD 2>/dev/null)" ||
 branch_name="(unnamed branch)"     # detached HEAD
