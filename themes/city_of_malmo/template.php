@@ -77,7 +77,7 @@ function city_of_malmo_css_alter(&$css) {
   $exclude = array(
     'modules/system/system.theme.css' => FALSE,
     'modules/system/system.menus.css' => FALSE,
-    'sites/all/themes/zentropy/css/zentropy.css' => FALSE
+    drupal_get_path('theme','zentropy') . '/css/zentropy.css' => FALSE
   );
   $css = array_diff_key($css, $exclude);
 }

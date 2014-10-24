@@ -47,10 +47,10 @@ function page_main_layout_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-0dad5122-a1d6-449e-a38e-8462dd565291';
+    $pane->pid = 'new-e8c840e5-c7ed-4d67-98a3-c20e67fa8ff0';
     $pane->panel = 'region-four';
     $pane->type = 'block';
-    $pane->subtype = 'system-main-menu';
+    $pane->subtype = 'menu-menu-global-menu';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -65,9 +65,9 @@ function page_main_layout_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '0dad5122-a1d6-449e-a38e-8462dd565291';
-    $display->content['new-0dad5122-a1d6-449e-a38e-8462dd565291'] = $pane;
-    $display->panels['region-four'][0] = 'new-0dad5122-a1d6-449e-a38e-8462dd565291';
+    $pane->uuid = 'e8c840e5-c7ed-4d67-98a3-c20e67fa8ff0';
+    $display->content['new-e8c840e5-c7ed-4d67-98a3-c20e67fa8ff0'] = $pane;
+    $display->panels['region-four'][0] = 'new-e8c840e5-c7ed-4d67-98a3-c20e67fa8ff0';
     $pane = new stdClass();
     $pane->pid = 'new-515be1a3-6af5-4da1-b336-2f23dc97f3a4';
     $pane->panel = 'region-four';

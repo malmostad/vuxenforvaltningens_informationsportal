@@ -30,13 +30,5 @@ function mal_install() {
   variable_set('page_manager_node_view_disabled', 0);
   variable_set('panels_everywhere_site_template_enabled', 1);
 
-  // Add faq page.
-  $menu_item = array(
-    'link_path' => 'faq',
-    'link_title' => 'Frågor och svar',
-    'menu_name' => 'main-menu',
-  );
-  menu_link_save($menu_item);
-
   menu_rebuild();
 }
