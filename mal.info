@@ -68,7 +68,6 @@ dependencies[] = features
 dependencies[] = config_jquery_update
 dependencies[] = content_type_basic_page
 dependencies[] = content_type_course
-dependencies[] = menu_main
 dependencies[] = content_type_question_and_answer
 dependencies[] = page_course_view
 dependencies[] = page_faq

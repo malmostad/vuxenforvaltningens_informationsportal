@@ -22,21 +22,6 @@ function mal_install() {
   // Disable the default Bartik theme
   theme_disable(array('bartik'));
 
-
-  // revert features to ensure they are all installed
-  $features = array(
-    'config_jquery_update',
-    'content_type_course',
-    'content_type_basic_page',
-    'content_type_question_and_answer',
-    'page_course_view',
-    'page_faq',
-    'page_front',
-    'page_main_layout',
-    'menu_main',
-    'view_faq'
-  );
-  features_revert($features);
   // ignore any rebuild messages
   node_access_needs_rebuild(FALSE);
   // ignore any other install messages
@@ -44,6 +29,14 @@ function mal_install() {
   variable_set('site_frontpage', 'front_page');
   variable_set('page_manager_node_view_disabled', 0);
   variable_set('panels_everywhere_site_template_enabled', 1);
-  // Update the menu router information.
+
+  // Add faq page.
+  $menu_item = array(
+    'link_path' => 'faq',
+    'link_title' => 'Frågor och svar',
+    'menu_name' => 'main-menu',
+  );
+  menu_link_save($menu_item);
+
   menu_rebuild();
 }
