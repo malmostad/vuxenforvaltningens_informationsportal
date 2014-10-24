@@ -1,7 +1,6 @@
 sites/*/settings*.php
 sites/*/files
 sites/*/private
-libraries
 drush/contrib/
 modules/contrib/
 themes/contrib/

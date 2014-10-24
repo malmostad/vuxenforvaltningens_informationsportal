@@ -69,6 +69,7 @@ dependencies[] = config_jquery_update
 dependencies[] = content_type_basic_page
 dependencies[] = content_type_course
 dependencies[] = content_type_question_and_answer
+dependencies[] = config_wysiwyg
 dependencies[] = page_course_view
 dependencies[] = page_faq
 dependencies[] = page_front
