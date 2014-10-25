@@ -1,0 +1,35 @@
+.ui-autocomplete.site-search {
+  .ui-menu-item {
+    > a.ui-corner-all {
+      padding-top: .6em;
+      padding-bottom: .6em;
+    }
+    .hits {
+      float: right;
+    }
+  }
+  .more-search-results.ui-menu-item {
+    border-top: $border;
+    background-color: $background-light;
+  }
+  .ui-autocomplete-category {
+    border-top: $border;
+    border-bottom: $border;
+    background-color: $background-light;
+    padding: .7em .6em;
+    font-family: $sans-serif;
+    font-size: emize(13);
+  }
+  .recommendation a {
+    @include clearfix();
+    min-height: 32px;
+    img {
+      float: left;
+      width: 32px;
+      height: auto;
+    }
+    p {
+      margin: 2px 0 0 40px;
+    }
+  }
+}

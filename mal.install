@@ -1,0 +1,34 @@
+<?php
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ */
+function mal_install() {
+  // Any themes without keys here will get numeric keys and so will be enabled,
+  // but not placed into variables.
+  $enable = array(
+    'theme_default' => 'city_of_malmo',
+    'admin_theme' => 'seven',
+  );
+  theme_enable($enable);
+
+  foreach ($enable as $var => $theme) {
+    if (!is_numeric($var)) {
+      variable_set($var, $theme);
+    }
+  }
+
+  // Disable the default Bartik theme
+  theme_disable(array('bartik'));
+
+  // ignore any rebuild messages
+  node_access_needs_rebuild(FALSE);
+  // ignore any other install messages
+  drupal_get_messages();
+  variable_set('site_frontpage', 'front_page');
+  variable_set('page_manager_node_view_disabled', 0);
+  variable_set('panels_everywhere_site_template_enabled', 1);
+
+  menu_rebuild();
+}

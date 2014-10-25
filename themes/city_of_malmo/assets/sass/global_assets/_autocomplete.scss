@@ -1,0 +1,48 @@
+/* jQuery UI Autocomplete. CSS is not theme rolled */
+.ui-autocomplete {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  float: left;
+  display: none;
+  min-width: 100px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  background: #fff;
+  @include box-shadow(0 2px 5px rgba(0, 0, 0, .5));
+  border: $border;
+
+  .ui-menu-item > a {
+    display: block;
+    font-family: $sans-serif;
+    font-size: emize(14);
+    clear: both;
+    color: #000;
+    margin: 0 !important;
+    padding: .4em .5em;
+  }
+
+  .ui-state-focus {
+    background: $background-dark;
+    color: #fff !important;
+    cursor: pointer;
+    margin: 0;
+  }
+}
+
+.ui-autocomplete.ui-menu .ui-menu-item {
+  // overrides jquery ui helper css that makes items very heigh
+  // Bug introduce as a fix http://bugs.jqueryui.com/ticket/8844
+  list-style-image: none !important;
+}
+
+.more-search-results.ui-menu-item {
+  border-top: $border;
+  background-color: $background-light;
+  a {
+    padding-top: .5em;
+    padding-bottom: .6em;
+  }
+}

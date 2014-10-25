@@ -1,0 +1,32 @@
+.contact-us {
+  margin-top: 1em;
+  > div {
+    font-size: emize(14);
+    line-height: 1.7;
+  }
+  .write-to-us-form {
+    display: none;
+  }
+  .show-on-map {
+    background-size: 1em;
+    background-position: 0 3px;
+    padding-left: 1.4em;
+  }
+  .contact-us-map {
+    display: none;
+    width: 100%;
+    height: 40em;
+    margin: 1em 0;
+    border: $border;
+    iframe {
+      width: 100%;
+      height: 40em;
+    }
+    @media (max-width: 40em) {
+      height: 30em;
+      iframe {
+        height: 30em;
+      }
+    }
+  }
+}

@@ -1,0 +1,87 @@
+a.close-map {
+  position: absolute;
+  top: .15em;
+  left: .5em;
+  font-family: $sans-serif;
+  font-size: emize(14);
+  color: #000;
+  padding-left: 1.4em;
+  background-size: 12px;
+  background-position: 0 40%;
+}
+
+.a11y, .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+.loading {
+  min-width: 14px;
+  min-height: 14px;
+  background-image: url('loading.gif');
+  background-repeat: no-repeat;
+}
+
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+
+body.test,
+body.staging,
+body.development,
+body.prototype {
+  &::after {
+    position: fixed;
+    bottom: 3.4em;
+    left: -3.4em;
+    @include rotate(45deg);
+    @include opacity(.7);
+    z-index: 100;
+    background: $danger-color;
+    color: #fff;
+    font-family: $sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    padding-top: .3em;
+    padding-bottom: .3em;
+    @media (max-width: 43em) {
+      font-size: 14px;
+    }
+    @media (max-width: 34em) {
+      font-size: 9px;
+    }
+  }
+}
+
+body.development::after {
+  content: 'Utvecklingsversion';
+  padding-left: 3em;
+  padding-right: 3em;
+}
+
+body.test::after {
+  content: 'Testversion';
+  padding-left: 4.9em;
+  padding-right: 4.9em;
+}
+
+body.staging::after {
+  content: 'Staging';
+  padding-left: 5.5em;
+  padding-right: 5.5em;
+}
+
+body.prototype::after {
+  content: 'Prototype';
+  padding-left: 5.5em;
+  padding-right: 5.5em;
+}

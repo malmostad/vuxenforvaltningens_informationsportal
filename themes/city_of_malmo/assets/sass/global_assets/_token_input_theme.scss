@@ -1,0 +1,132 @@
+ul.token-input-list-malmo {
+  overflow: hidden;
+  height: 1%;
+  width: 90%;
+  cursor: text;
+  font-family: $sans-serif;
+  font-size: 14px;
+  min-height: 1px;
+  z-index: 999;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  list-style-type: none;
+  border: $border;
+  @include radius(4px);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border linear .2s, box-shadow linear .2s;
+  -moz-transition: border linear .2s, box-shadow linear .2s;
+  -o-transition: border linear .2s, box-shadow linear .2s;
+  transition: border linear .2s, box-shadow linear .2s;
+}
+
+ul.token-input-list-malmo li input {
+  width: 200px;
+  padding: 3px 8px;
+  background-color: #fff;
+  margin: 2px 0;
+  -webkit-appearance: caret;
+  border: none !important;
+  height: auto !important;
+  box-shadow: none !important;
+}
+
+li.token-input-token-malmo {
+  overflow: hidden;
+  height: 15px;
+  margin: 3px;
+  padding: .1em .4em;
+  background-color: $background-light;
+  color: #000;
+  cursor: default;
+  border: 1px solid $border-color-dark;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  float: left;
+  white-space: nowrap;
+}
+
+li.token-input-token-malmo p {
+  display: inline;
+  padding: 0;
+  margin: 0;
+}
+
+li.token-input-token-malmo span {
+  color: #999;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+li.token-input-selected-token-malmo {
+  background: $background-dark;
+  border: $border-dark;
+  color: #fff;
+  span {
+    color: #fff;
+  }
+}
+
+li.token-input-input-token-malmo {
+  float: left;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+div.token-input-dropdown-malmo {
+  position: absolute;
+  width: 400px;
+  background-color: #fff;
+  overflow: hidden;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  cursor: default;
+  font-size: 14px;
+  font-family: $sans-serif;
+  z-index: 1;
+}
+
+div.token-input-dropdown-malmo p {
+  margin: 0;
+  padding: 5px;
+  color: #777;
+}
+
+div.token-input-dropdown-malmo ul {
+  margin: 0;
+  padding: 0;
+}
+
+div.token-input-dropdown-malmo ul li {
+  background-color: #fff;
+  padding: 3px;
+  margin: 0;
+  list-style-type: none;
+}
+
+div.token-input-dropdown-malmo ul li.token-input-dropdown-item-malmo {
+  background-color: #fff;
+}
+
+div.token-input-dropdown-malmo ul li.token-input-dropdown-item2-malmo {
+  background-color: #fff;
+}
+
+div.token-input-dropdown-malmo ul li b {
+  font-weight: bold;
+  font-style: normal;
+}
+div.token-input-dropdown-malmo ul li:first-child b {
+  font-weight: normal;
+}
+
+div.token-input-dropdown-malmo ul li.token-input-selected-dropdown-item-malmo {
+  background: $background-dark;
+  color: #fff;
+  font-weight: normal;
+}

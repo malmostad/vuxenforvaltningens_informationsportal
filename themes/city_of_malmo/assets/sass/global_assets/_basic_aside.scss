@@ -1,0 +1,26 @@
+aside.basic {
+  font-family: $sans-serif;
+  h1 {
+    @extend %h1.aside;
+  }
+  h2 {
+    font-size: emize(14);
+    font-weight: bold;
+    line-height: 1.2;
+    margin: 1em 0 .1em;
+    padding: 0;
+  }
+  h1 + h2 {
+    margin-top: 1em;
+  }
+  p {
+    font-size: emize(14);
+    line-height: 1.4em;
+  }
+}
+
+// Convenience duplications of core styles to
+// make them available outside a .body-copy block
+h1.aside {
+  @extend %h1.aside;
+}
