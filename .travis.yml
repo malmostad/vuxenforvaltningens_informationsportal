@@ -67,11 +67,14 @@ install:
   - echo sendmail_path=`which true` >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
 before_script:
+#  - drush pm-disable dblog --yes\
 
   # Do the site install (either the current revision or old for the upgrade).
   - cd drupal
   - drush si mal --db-url=mysql://root:@127.0.0.1/drupal --account-name=admin --account-pass=admin --site-mail=admin@example.com --site-name="City of malmo" --yes
-#  - drush pm-disable dblog --yes
+
+  # Generate dummy content.
+  - drush generate-content 50 0 --kill --types=page,course,question_and_answer
   - cd ../drupal
 
   # Start server
