@@ -2,6 +2,10 @@
 core = "7.x"
 api = "2"
 
+; Core
+projects[drupal][type] = core
+projects[drupal][version] = 7.32
+
 ; +++++ Modules +++++
 
 projects[admin_menu][version] = "3.0-rc4"
