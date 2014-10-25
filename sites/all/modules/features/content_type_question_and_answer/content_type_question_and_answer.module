@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Content type question and answer feature.
- */
-
-include_once 'content_type_question_and_answer.features.inc';

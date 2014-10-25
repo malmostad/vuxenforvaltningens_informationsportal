@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Content type course feature.
- */
-
-include_once 'content_type_course.features.inc';

@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Page course view feature.
- */
-
-include_once 'page_course_view.features.inc';
