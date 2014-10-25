@@ -229,4 +229,22 @@ class FeatureContext extends DrupalContext {
   public function iWaitForSeconds($arg1) {
     sleep($arg1);
   }
+
+  /**
+   * @Then /^I should not see container with class "([^"]*)"$/
+   */
+  public function iShouldNotSeeContainerWithClass($class) {
+    $session = $this->getSession(); // assume extends RawMinkContext
+    $page = $session->getPage();
+
+    $element = $page->find('css', '.' . $class);
+
+    if (null === $element) {
+      throw new \LogicException('Could not find the element');
+    }
+
+    if ($element->isVisible()) {
+      throw new \LogicException('Element is visible...');
+    }
+  }
 }
