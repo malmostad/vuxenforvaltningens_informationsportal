@@ -43,6 +43,12 @@ projects[panels_everywhere][subdir] = "contrib"
 projects[registration][version] = "1.3"
 projects[registration][subdir] = "contrib"
 
+projects[search_api][version] = "1.13"
+projects[search_api][subdir] = "contrib"
+
+projects[search_api_solr][version] = "1.6"
+projects[search_api_solr][subdir] = "contrib"
+
 projects[jquery_update][version] = "2.4"
 projects[jquery_update][subdir] = "contrib"
 
@@ -52,12 +58,10 @@ projects[wysiwyg][subdir] = "contrib"
 projects[views][version] = "3.8"
 projects[views][subdir] = "contrib"
 
-; +++++ Libraries +++++
-
-
 ; +++++ Themes +++++
 
 ; bootstrap
 projects[bootstrap][type] = "theme"
 projects[bootstrap][version] = "3.0"
+projects[bootstrap][subdir] = "contrib"
 

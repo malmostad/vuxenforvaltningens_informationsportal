@@ -1,4 +1,4 @@
-; Packaging information for mal
+; Packaging information for city_of_malmo
 name = "City of Malmo"
 description = ""
 exclusive = "1"
@@ -29,13 +29,13 @@ dependencies[] = filter
 dependencies[] = help
 dependencies[] = image
 dependencies[] = list
+dependencies[] = locale
 dependencies[] = menu
 dependencies[] = node
 dependencies[] = number
 dependencies[] = options
 dependencies[] = path
 dependencies[] = rdf
-dependencies[] = search
 dependencies[] = shortcut
 dependencies[] = system
 dependencies[] = taxonomy
@@ -57,6 +57,10 @@ dependencies[] = panels_everywhere
 ; Registration
 dependencies[] = registration
 dependencies[] = registration_views
+; Search
+dependencies[] = search_api
+dependencies[] = search_api_solr
+dependencies[] = search_api_views
 ; User interface
 dependencies[] = jquery_update
 dependencies[] = wysiwyg
@@ -66,13 +70,14 @@ dependencies[] = views_ui
 ; Features
 dependencies[] = features
 dependencies[] = config_jquery_update
+dependencies[] = config_wysiwyg
 dependencies[] = content_type_basic_page
 dependencies[] = content_type_course
 dependencies[] = content_type_question_and_answer
-dependencies[] = config_wysiwyg
 dependencies[] = menu_global
 dependencies[] = page_course_view
 dependencies[] = page_faq
 dependencies[] = page_front
 dependencies[] = page_main_layout
 dependencies[] = view_faq
+
