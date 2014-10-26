@@ -1,9 +1,7 @@
 #!/bin/bash
-# Fill the properties and rename to build_mal.sh.
-# ++++++++ Properties ++++++++
-site_folder=build_mal
-dburl="mysql://user:password@path/database"
+# usage sh local.build_mal.sh branchname mysql://user:password@path/database
 
+site_folder=build_mal
 echo Operation : clearing files
 rm -rf ${site_folder}
 #echo Operation : clearing drush cache
@@ -12,7 +10,7 @@ echo Operation : drush make build file
 cp mal.build mal_working.build
 if [  -z $1 ]
 then
-        echo "'profile'" >> mal_working.build
+        echo "'profile-new'" >> mal_working.build
 else
 
         echo "'$1'" >> mal_working.build
@@ -22,13 +20,13 @@ rm mal_working.build
 cd ${site_folder}/profiles/mal
 
 echo Operation : site install
-drush site-install mal --yes --db-url="${dburl}"
+drush site-install mal --yes --db-url="$2"
 echo Operation : Clear cache
 drush cc all
 echo Operation : Create dummy content
 drush generate-content 50 0 --kill --types=page,course,question_and_answer
 echo Operation : Compass compile
-cd ${site_folder}/profiles/themes/city_of_malmo/assets
+cd ${site_folder}/profiles/mal/themes/city_of_malmo/assets
 compass compile
 cd ${site_folder}/profiles/mal
 echo Finished
