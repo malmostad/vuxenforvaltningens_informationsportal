@@ -85,7 +85,7 @@ before_script:
   # Generate CSS
   - cd profiles/mal/themes/city_of_malmo/assets
   - compass compile
-  - cd profiles/mal
+  - cd ../../../../../
   # Start server
   - drush runserver --server=builtin 8888 > /dev/null 2>&1 &
   - until netstat -an 2>/dev/null | grep '8888.*LISTEN'; do true; done
