@@ -83,9 +83,9 @@ before_script:
   - cd ../drupal
 
   # Generate CSS
-  - cd ${site_folder}/profiles/mal/themes/city_of_malmo/assets
+  - cd profiles/mal/themes/city_of_malmo/assets
   - compass compile
-  - cd ${site_folder}/profiles/mal
+  - cd profiles/mal
   # Start server
   - drush runserver --server=builtin 8888 > /dev/null 2>&1 &
   - until netstat -an 2>/dev/null | grep '8888.*LISTEN'; do true; done
