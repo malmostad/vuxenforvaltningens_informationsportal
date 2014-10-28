@@ -11,7 +11,7 @@
  * @param $component
  *   String name of the component that has just been enabled.
  */
-function config_taxonomy_post_features_enable_feature($component) {
+function config_taxonomy_enable() {
   $vid = taxonomy_vocabulary_machine_name_load('type_of_education')->vid;
   $options_source = taxonomy_get_tree($vid);
 

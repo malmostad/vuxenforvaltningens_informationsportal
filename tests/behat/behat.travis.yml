@@ -9,6 +9,9 @@ default:
       files_path: ../../
     Drupal\DrupalExtension\Extension:
       blackbox: ~
+      api_driver: 'drupal'
+      drupal:
+        drupal_root: '../../../../'
       drush:
         alias: self
       # You need to set drupal - drupal_root with BEHAT_PARAMS
