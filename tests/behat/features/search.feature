@@ -13,7 +13,7 @@ Feature: Search the site
       | title      | field_course_type_education |
       | Course 1   | Test course 1                      |
       | Course 2   | Test course 1                      |
-    And Search index "node" is fresh
+    And Search index "node" on "apache_solr" server is fresh
   @api
   Scenario: Use the global search field
     Given I am on the homepage

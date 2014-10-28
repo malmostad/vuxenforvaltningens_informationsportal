@@ -100,7 +100,7 @@ before_script:
 #  - sleep 6
   # 3) Return to Drupal directory.
   - cd drupal
-  - drush vset search_api_path '"/solr/collection1"'
+  - drush vset search_api_path '"/solr/core0"'
   - drush vset search_api_port '"8983"'
   - drush fr config_search --force -y
   # Generate dummy content.

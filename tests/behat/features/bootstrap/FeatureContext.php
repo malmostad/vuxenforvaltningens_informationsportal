@@ -249,9 +249,10 @@ class FeatureContext extends DrupalContext {
   }
 
   /**
-   * @Given /^Search index "([^"]*)" is fresh$/
+   * @Given /^Search index "([^"]*)" on "([^"]*)" server is fresh$/
    */
-  public function searchIndexIsFresh($index) {
+  public function searchIndexIsFresh($index, $server) {
+    search_api_server_clear($server);
     $search_api_index = search_api_index_load($index);
     $search_api_index->clear();
     search_api_index_items($search_api_index, -1);
