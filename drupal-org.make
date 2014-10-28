@@ -5,6 +5,7 @@ api = "2"
 ; Core
 projects[drupal][type] = core
 projects[drupal][version] = 7.32
+
 ; +++++ Modules +++++
 
 projects[admin_menu][version] = "3.0-rc4"
@@ -39,6 +40,9 @@ projects[entity_view_mode][subdir] = "contrib"
 
 projects[strongarm][version] = "2.0"
 projects[strongarm][subdir] = "contrib"
+
+projects[ultimate_cron][version] = "2.0-beta7"
+projects[ultimate_cron][subdir] = "contrib"
 
 projects[panels][version] = "3.4"
 projects[panels][subdir] = "contrib"
