@@ -1,0 +1,35 @@
+<?php
+/**
+ * @file
+ * Drupal needs this blank file.
+ */
+
+/**
+ * Feature module hook. Invoked on a Feature module after that module is
+ * enabled.
+ *
+ * @param $component
+ *   String name of the component that has just been enabled.
+ */
+function config_taxonomy_post_features_enable_feature($component) {
+  $vid = taxonomy_vocabulary_machine_name_load('type_of_education')->vid;
+  $options_source = taxonomy_get_tree($vid);
+
+  foreach($options_source as $item ) {
+    $value = $item->name;
+    $options[] = $value;
+  }
+
+  foreach(array_diff(
+    array(
+      'Grundläggande vuxenutbildning',
+      'Gymnasial vuxenutbildning, enstaka kurser',
+      'Gymnasial yrkesutbildning',
+      'Lärlingsutbildning',
+    ), $options) as $name) {
+    $term = new stdClass();
+    $term->name = $name;
+    $term->vid = $vid;
+    taxonomy_term_save($term);
+  }
+}

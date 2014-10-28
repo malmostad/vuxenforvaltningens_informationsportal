@@ -247,4 +247,13 @@ class FeatureContext extends DrupalContext {
       throw new \LogicException('Element is visible...');
     }
   }
+
+  /**
+   * @Given /^Search index "([^"]*)" is fresh$/
+   */
+  public function searchIndexIsFresh($index) {
+    $search_api_index = search_api_index_load($index);
+    $search_api_index->clear();
+    search_api_index_items($search_api_index, -1);
+  }
 }

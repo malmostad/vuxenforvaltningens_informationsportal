@@ -132,6 +132,37 @@ function page_main_layout_default_page_manager_handlers() {
     $pane->uuid = '91244761-8678-4220-88b8-191d40f5547a';
     $display->content['new-91244761-8678-4220-88b8-191d40f5547a'] = $pane;
     $display->panels['region-three'][0] = 'new-91244761-8678-4220-88b8-191d40f5547a';
+    $pane = new stdClass();
+    $pane->pid = 'new-3c993f1f-49e7-462e-b122-1c3aaf5fd067';
+    $pane->panel = 'region-two';
+    $pane->type = 'global_search_content_type';
+    $pane->subtype = 'global_search_content_type';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'front',
+          'settings' => NULL,
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'search_path' => 'search-courses',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '3c993f1f-49e7-462e-b122-1c3aaf5fd067';
+    $display->content['new-3c993f1f-49e7-462e-b122-1c3aaf5fd067'] = $pane;
+    $display->panels['region-two'][0] = 'new-3c993f1f-49e7-462e-b122-1c3aaf5fd067';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-91244761-8678-4220-88b8-191d40f5547a';
   $handler->conf['display'] = $display;

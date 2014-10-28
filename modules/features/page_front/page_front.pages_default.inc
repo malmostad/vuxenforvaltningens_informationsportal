@@ -62,6 +62,28 @@ function page_front_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
+    $pane->pid = 'new-b96f56b0-9590-4123-b75a-472f982fd079';
+    $pane->panel = 'region-one';
+    $pane->type = 'block';
+    $pane->subtype = 'search_api_page-search_courses';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'b96f56b0-9590-4123-b75a-472f982fd079';
+    $display->content['new-b96f56b0-9590-4123-b75a-472f982fd079'] = $pane;
+    $display->panels['region-one'][0] = 'new-b96f56b0-9590-4123-b75a-472f982fd079';
+    $pane = new stdClass();
     $pane->pid = 'new-3de73bc9-282c-48b5-90ea-61d7e763c70c';
     $pane->panel = 'region-one';
     $pane->type = 'custom';
@@ -89,11 +111,11 @@ Pellentesque in ipsum id orci porta dapibus. Vivamus suscipit tortor eget felis 
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = '3de73bc9-282c-48b5-90ea-61d7e763c70c';
     $display->content['new-3de73bc9-282c-48b5-90ea-61d7e763c70c'] = $pane;
-    $display->panels['region-one'][0] = 'new-3de73bc9-282c-48b5-90ea-61d7e763c70c';
+    $display->panels['region-one'][1] = 'new-3de73bc9-282c-48b5-90ea-61d7e763c70c';
     $pane = new stdClass();
     $pane->pid = 'new-860f71a0-d847-4833-b4aa-f544ca33a558';
     $pane->panel = 'region-one';
@@ -126,11 +148,11 @@ Pellentesque in ipsum id orci porta dapibus. Vivamus suscipit tortor eget felis 
       'css_class' => 'main-news',
     );
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 2;
     $pane->locks = array();
     $pane->uuid = '860f71a0-d847-4833-b4aa-f544ca33a558';
     $display->content['new-860f71a0-d847-4833-b4aa-f544ca33a558'] = $pane;
-    $display->panels['region-one'][1] = 'new-860f71a0-d847-4833-b4aa-f544ca33a558';
+    $display->panels['region-one'][2] = 'new-860f71a0-d847-4833-b4aa-f544ca33a558';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

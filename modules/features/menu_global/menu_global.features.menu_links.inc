@@ -30,9 +30,30 @@ function menu_global_menu_default_menu_links() {
     'weight' => 0,
     'customized' => 1,
   );
+  // Exported menu link: menu-global-menu_kurser-och-utbildningar:search-courses
+  $menu_links['menu-global-menu_kurser-och-utbildningar:search-courses'] = array(
+    'menu_name' => 'menu-global-menu',
+    'link_path' => 'search-courses',
+    'router_path' => 'search-courses',
+    'link_title' => 'Kurser och utbildningar',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'menu-global-menu_kurser-och-utbildningar:search-courses',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+  );
   // Translatables
   // Included for use with string extractors like potx.
   t('Frågor och svar');
+  t('Kurser och utbildningar');
 
 
   return $menu_links;

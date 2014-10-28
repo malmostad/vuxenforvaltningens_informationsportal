@@ -77,7 +77,30 @@ before_script:
   # Do the site install (either the current revision or old for the upgrade).
   - cd drupal
   - drush si mal --db-url=mysql://root:@127.0.0.1/drupal --account-name=admin --account-pass=admin --site-mail=admin@example.com --site-name="City of malmo" --yes
-
+  # 1) Download and configure Apachesolr before enabling Drupal module.
+  # @todo Do not hardcode current version, use the latest.
+  - cd ..
+  # 1.1) Download & extract the latest Apachesolr.
+  - wget http://archive.apache.org/dist/lucene/solr/4.4.0/solr-4.4.0.tgz
+  - tar -xzf solr-4.4.0.tgz
+  # 1.2) Replace configuration files.
+  - cd solr-*
+  # 1.2.1) Backup configuration files.
+#   - mv example/solr/conf/schema.xml schema.bak
+#   - mv example/solr/conf/solrconfig.xml solrconfig.bak
+#   - mv example/solr/conf/protwords.txt protwords.bak
+#  # 1.2.2) Copy necessary configuration files.
+#   - cp ../apachesolr/solr-conf/solr-3.x/* example/solr/conf
+  # 2) Start Apachesolr.
+  - cd example
+  # & means running in background.
+  - java -jar start.jar &
+  - sleep 6
+  # 3) Return to Drupal directory.
+  - cd ../../drupal
+  - drush vset search_api_path '"\\/solr\\/collection1"'
+  - drush vset search_api_port '"8983"'
+  - drush fr config_search --force -y
   # Generate dummy content.
   - drush generate-content 50 0 --kill --types=page,course,question_and_answer
   - cd ../drupal

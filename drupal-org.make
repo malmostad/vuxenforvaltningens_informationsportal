@@ -5,7 +5,6 @@ api = "2"
 ; Core
 projects[drupal][type] = core
 projects[drupal][version] = 7.32
-
 ; +++++ Modules +++++
 
 projects[admin_menu][version] = "3.0-rc4"
@@ -35,6 +34,9 @@ projects[diff][subdir] = "contrib"
 projects[entity][version] = "1.5"
 projects[entity][subdir] = "contrib"
 
+projects[entity_view_mode][version] = "1.0-rc1"
+projects[entity_view_mode][subdir] = "contrib"
+
 projects[strongarm][version] = "2.0"
 projects[strongarm][subdir] = "contrib"
 
@@ -53,6 +55,10 @@ projects[search_api][subdir] = "contrib"
 projects[search_api_solr][version] = "1.6"
 projects[search_api_solr][subdir] = "contrib"
 
+projects[facetapi][version] = "1.5"
+projects[facetapi][subdir] = "contrib"
+projects[facetapi][patch][] = "https://www.drupal.org/files/issues/facetapi-how-to-hide-facet-counts-1615434.patch"
+
 projects[jquery_update][version] = "2.4"
 projects[jquery_update][subdir] = "contrib"
 
@@ -68,4 +74,5 @@ projects[views][subdir] = "contrib"
 projects[bootstrap][type] = "theme"
 projects[bootstrap][version] = "3.0"
 projects[bootstrap][subdir] = "contrib"
+
 
