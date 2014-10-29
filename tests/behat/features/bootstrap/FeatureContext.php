@@ -252,9 +252,23 @@ class FeatureContext extends DrupalContext {
    * @Given /^Search index "([^"]*)" on "([^"]*)" server is fresh$/
    */
   public function searchIndexIsFresh($index, $server) {
-    search_api_server_clear($server);
+// Load Search API Index.
     $search_api_index = search_api_index_load($index);
+// Clear the index.
     $search_api_index->clear();
+// Run!
     search_api_index_items($search_api_index, -1);
   }
+
+  /**
+   * @Given /^I am reset the session$/
+   */
+  public function iAmResetTheSession()
+  {
+    $session = $this->getSession();
+    $session->restart();
+    $session->reset();
+    $session->reload();
+  }
+
 }
