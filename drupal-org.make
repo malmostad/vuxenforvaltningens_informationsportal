@@ -46,6 +46,7 @@ projects[ultimate_cron][subdir] = "contrib"
 
 projects[panels][version] = "3.4"
 projects[panels][subdir] = "contrib"
+projects[panels][patch][] = "patches/panels-add-render-last-for-minipanel-1669918.patch"
 
 projects[panels_everywhere][version] = "1.0-rc1"
 projects[panels_everywhere][subdir] = "contrib"
@@ -61,7 +62,8 @@ projects[search_api_solr][subdir] = "contrib"
 
 projects[facetapi][version] = "1.5"
 projects[facetapi][subdir] = "contrib"
-projects[facetapi][patch][] = "https://www.drupal.org/files/issues/facetapi-how-to-hide-facet-counts-1615434.patch"
+projects[facetapi][patch][] = "patches/facetapi-new-title.patch"
+projects[facetapi][patch][] = "patches/facetapi-how-to-hide-facet-counts-1615434.patch"
 
 projects[jquery_update][version] = "2.4"
 projects[jquery_update][subdir] = "contrib"
