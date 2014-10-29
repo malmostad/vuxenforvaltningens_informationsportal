@@ -338,6 +338,8 @@ function config_facet_facetapi_default_facet_settings() {
       'format' => 'filtered_html',
     ),
     'show_count' => 0,
+    'title_override' => 1,
+    'title' => 'Utbildningsform',
   );
   $export['search_api@node:block:field_course_type_education'] = $facet;
 

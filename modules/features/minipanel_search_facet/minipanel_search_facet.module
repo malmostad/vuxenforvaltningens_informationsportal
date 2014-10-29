@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Minipanel search facet feature.
+ */
+
+include_once 'minipanel_search_facet.features.inc';

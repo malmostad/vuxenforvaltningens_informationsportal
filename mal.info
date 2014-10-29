@@ -56,6 +56,7 @@ dependencies[] = ultimate_cron
 ; Panels
 dependencies[] = panels
 dependencies[] = panels_everywhere
+dependencies[] = panels_mini
 ; Registration
 dependencies[] = registration
 dependencies[] = registration_views
@@ -84,6 +85,7 @@ dependencies[] = content_type_basic_page
 dependencies[] = content_type_course
 dependencies[] = content_type_question_and_answer
 dependencies[] = menu_global
+dependencies[] = minipanel_search_facet
 dependencies[] = page_course_view
 dependencies[] = page_faq
 dependencies[] = page_front
