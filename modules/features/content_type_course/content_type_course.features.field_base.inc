@@ -131,6 +131,40 @@ function content_type_course_field_default_field_bases() {
     'type' => 'text',
   );
 
+  // Exported field_base: 'field_course_gymnasie_program'
+  $field_bases['field_course_gymnasie_program'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_course_gymnasie_program',
+    'foreign keys' => array(
+      'tid' => array(
+        'columns' => array(
+          'tid' => 'tid',
+        ),
+        'table' => 'taxonomy_term_data',
+      ),
+    ),
+    'indexes' => array(
+      'tid' => array(
+        0 => 'tid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'taxonomy',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'course_gymnasie_program',
+          'parent' => 0,
+        ),
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'taxonomy_term_reference',
+  );
+
   // Exported field_base: 'field_course_national_code'
   $field_bases['field_course_national_code'] = array(
     'active' => 1,
@@ -176,6 +210,40 @@ function content_type_course_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
+  // Exported field_base: 'field_course_orientation'
+  $field_bases['field_course_orientation'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_course_orientation',
+    'foreign keys' => array(
+      'tid' => array(
+        'columns' => array(
+          'tid' => 'tid',
+        ),
+        'table' => 'taxonomy_term_data',
+      ),
+    ),
+    'indexes' => array(
+      'tid' => array(
+        0 => 'tid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'taxonomy',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'course_orientation',
+          'parent' => 0,
+        ),
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'taxonomy_term_reference',
+  );
+
   // Exported field_base: 'field_course_prerequisites'
   $field_bases['field_course_prerequisites'] = array(
     'active' => 1,
@@ -213,25 +281,64 @@ function content_type_course_field_default_field_bases() {
     'entity_types' => array(),
     'field_name' => 'field_course_school',
     'foreign keys' => array(
-      'format' => array(
+      'tid' => array(
         'columns' => array(
-          'format' => 'format',
+          'tid' => 'tid',
         ),
-        'table' => 'filter_format',
+        'table' => 'taxonomy_term_data',
       ),
     ),
     'indexes' => array(
-      'format' => array(
-        0 => 'format',
+      'tid' => array(
+        0 => 'tid',
       ),
     ),
     'locked' => 0,
-    'module' => 'text',
+    'module' => 'taxonomy',
     'settings' => array(
-      'max_length' => 255,
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'course_school',
+          'parent' => 0,
+        ),
+      ),
     ),
     'translatable' => 0,
-    'type' => 'text',
+    'type' => 'taxonomy_term_reference',
+  );
+
+  // Exported field_base: 'field_course_subject_areas'
+  $field_bases['field_course_subject_areas'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_course_subject_areas',
+    'foreign keys' => array(
+      'tid' => array(
+        'columns' => array(
+          'tid' => 'tid',
+        ),
+        'table' => 'taxonomy_term_data',
+      ),
+    ),
+    'indexes' => array(
+      'tid' => array(
+        0 => 'tid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'taxonomy',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'course_subject_areas',
+          'parent' => 0,
+        ),
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'taxonomy_term_reference',
   );
 
   // Exported field_base: 'field_course_type_education'
@@ -259,7 +366,7 @@ function content_type_course_field_default_field_bases() {
     'settings' => array(
       'allowed_values' => array(
         0 => array(
-          'vocabulary' => 'type_of_education',
+          'vocabulary' => 'course_type_of_education',
           'parent' => 0,
         ),
       ),
