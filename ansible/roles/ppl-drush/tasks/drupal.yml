@@ -1,0 +1,5 @@
+---
+- name: Reinstall Drupal
+  shell: >
+    chdir={{ drupal_profile_dir }}
+    sh local.build_mal.sh {{ drupal_branch }} {{ drupal_db_url }}
