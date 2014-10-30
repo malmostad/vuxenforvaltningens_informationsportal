@@ -2,9 +2,13 @@
 core = "7.x"
 api = "2"
 
-; Core
+; +++++ Core +++++
 projects[drupal][type] = core
 projects[drupal][version] = 7.32
+
+; +++++ Patches +++++
+projects[panels][patch][] = "https://www.drupal.org/files/issues/panels-add-render-last-for-minipanel-1669918-14.patch"
+projects[facetapi][patch][] = "https://www.drupal.org/files/issues/facetapi-override_facet_label-1665164-22.patch"
 
 ; +++++ Modules +++++
 
@@ -46,7 +50,6 @@ projects[ultimate_cron][subdir] = "contrib"
 
 projects[panels][version] = "3.4"
 projects[panels][subdir] = "contrib"
-projects[panels][patch][] = "https://www.drupal.org/files/issues/panels-add-render-last-for-minipanel-1669918-14.patch"
 
 projects[panels_everywhere][version] = "1.0-rc1"
 projects[panels_everywhere][subdir] = "contrib"
@@ -62,7 +65,6 @@ projects[search_api_solr][subdir] = "contrib"
 
 projects[facetapi][version] = "1.5"
 projects[facetapi][subdir] = "contrib"
-projects[facetapi][patch][] = "https://www.drupal.org/files/issues/facetapi-override_facet_label-1665164-22.patch"
 
 projects[jquery_update][version] = "2.4"
 projects[jquery_update][subdir] = "contrib"
@@ -79,5 +81,3 @@ projects[views][subdir] = "contrib"
 projects[bootstrap][type] = "theme"
 projects[bootstrap][version] = "3.0"
 projects[bootstrap][subdir] = "contrib"
-
-
