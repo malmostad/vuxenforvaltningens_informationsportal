@@ -1,0 +1,125 @@
+language: php
+
+php:
+  - 5.4
+
+branches:
+  except:
+    - 7.x-1.x
+
+mysql:
+  database: drupal
+  username: root
+  encoding: utf8
+
+matrix:
+  fast_finish: true
+
+install:
+  - sudo apt-get update > /dev/null
+  - "mysql -e 'create database drupal;'"
+
+  # Install compass
+  - gem install sass -v 3.2.19
+  - gem install compass -v 0.12.6
+  - gem install susy -v 1.0.9
+
+  # Install latest Drush 6.
+  - export PATH="$HOME/.composer/vendor/bin:$PATH"
+  - composer global require --no-interaction --prefer-source drush/drush:6.*
+  - drush dl -y drupalorg_drush-7.x-1.x-dev --destination=$HOME/.drush
+  - drush cc drush
+
+  # Build Behat dependencies
+  - cd ./tests/behat
+  - composer install --no-interaction --prefer-source
+  - cd ../../../
+
+  # Setting Behat environment
+  - DISTRO=`echo $TRAVIS_BUILD_DIR | sed -e "s/\/[^\/]*$//"`
+  - export BEHAT_PARAMS="extensions[Drupal\\DrupalExtension\\Extension][drupal][drupal_root]=$DISTRO/drupal"
+
+  # Build Codebase
+  - mkdir private_files
+  - mkdir profiles
+  - mv $TRAVIS_BUILD_DIR profiles/mal
+  - mkdir drupal
+  - mv profiles drupal/
+
+  # Build the current branch
+  - cd drupal
+  - drush make --yes profiles/mal/drupal-org.make --contrib-destination=profiles/mal
+  - cd ../
+
+  # Verify that all the .make files will work on Drupal.org.
+#  - drush verify-makefile drupal/profiles/mal/drupal-org.make
+#  - find drupal/profiles/mal/modules -name \*.make -print0 | xargs -0 -n1 drush verify-makefile
+
+  # Setup files
+  - sudo chmod -R 777 drupal/sites/all
+
+  # Setup display for Selenium
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - sleep 5
+
+  # Get Selenium
+  - wget http://selenium-release.storage.googleapis.com/2.42/selenium-server-standalone-2.42.1.jar
+  - java -jar selenium-server-standalone-2.42.1.jar > /dev/null 2>&1 &
+  - until netstat -an 2>/dev/null | grep '4444.*LISTEN'; do true; done
+
+   # Disable sendmail
+  - echo sendmail_path=`which true` >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+
+before_script:
+#  - drush pm-disable dblog --yes\
+
+  # Do the site install (either the current revision or old for the upgrade).
+  - cd drupal
+  - drush si mal --db-url=mysql://root:@127.0.0.1/drupal --account-name=admin --account-pass=admin --site-mail=admin@example.com --site-name="City of malmo" --yes
+  # 1) Download and configure Apachesolr before enabling Drupal module.
+  # @todo Do not hardcode current version, use the latest.
+  - cd ..
+  #  Download & extract the latest Apachesolr.
+  - curl -sSL https://raw.githubusercontent.com/moliware/travis-solr/master/travis-solr.sh | SOLR_VERSION=4.4.0 SOLR_CONFS="drupal/profiles/mal/solr-conf"  bash
+#
+#  - wget http://archive.apache.org/dist/lucene/solr/4.4.0/solr-4.4.0.tgz
+#  - tar -xzf solr-4.4.0.tgz
+#  # 1.2) Replace configuration files.
+#  - cd solr-*
+#  # 1.2.1) Backup configuration files.
+##   - mv example/solr/conf/schema.xml schema.bak
+##   - mv example/solr/conf/solrconfig.xml solrconfig.bak
+##   - mv example/solr/conf/protwords.txt protwords.bak
+##  # 1.2.2) Copy necessary configuration files.
+##   - cp ../apachesolr/solr-conf/solr-3.x/* example/solr/conf
+#  # 2) Start Apachesolr.
+#  - cd example
+#  # & means running in background.
+#  - java -jar start.jar &
+#  - sleep 6
+  # 3) Return to Drupal directory.
+  - cd drupal
+  - drush vset search_api_path '"/solr/core0"'
+  - drush vset search_api_port '"8983"'
+  - drush fr config_search --force -y
+  # Generate dummy content.
+  - drush generate-content 50 0 --kill --types=page,course,question_and_answer
+  - cd ../drupal
+
+  # Generate CSS
+  - cd profiles/mal/themes/city_of_malmo/assets
+  - compass compile
+  - cd ../../../../../
+  # Start server
+  - drush runserver --server=builtin 8888 > /dev/null 2>&1 &
+  - until netstat -an 2>/dev/null | grep '8888.*LISTEN'; do true; done
+  - cd profiles/mal/tests/behat
+
+script:
+
+  - ./bin/behat --config behat.travis.yml
+
+notifications:
+
+  irc: "chat.freenode.net#drupal-propeople-mal"
