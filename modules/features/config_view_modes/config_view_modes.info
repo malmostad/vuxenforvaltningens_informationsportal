@@ -1,0 +1,8 @@
+name = Config view modes
+core = 7.x
+package = Config
+dependencies[] = ctools
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[variable][] = entity_view_modes

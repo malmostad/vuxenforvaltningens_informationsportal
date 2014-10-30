@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Config view modes feature.
+ */
+
+include_once 'config_view_modes.features.inc';

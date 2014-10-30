@@ -66,3 +66,36 @@ function city_of_malmo_css_alter(&$css) {
 function city_of_malmo_facetapi_title($variables) {
   return $variables['title'];
 }
+
+/**
+ * Returns HTML for the active facet item's count.
+ *
+ * @param $variables
+ *   An associative array containing:
+ *   - count: The item's facet count.
+ *
+ * @ingroup themeable
+ */
+function city_of_malmo_facetapi_count($variables) {
+  return '';
+}
+
+/**
+ * Returns HTML for an active facet item.
+ *
+ * @param $variables
+ *   An associative array containing the keys 'text', 'path', and 'options'. See
+ *   the l() function for information about these variables.
+ *
+ * @see l()
+ *
+ * @ingroup themeable
+ */
+function city_of_malmo_facetapi_link_active($variables) {
+  $sanitize = empty($variables['options']['html']);
+  $link_text = ($sanitize) ? check_plain($variables['text']) : $variables['text'];
+
+  $variables['text'] = $link_text;
+  $variables['options']['html'] = TRUE;
+  return theme_link($variables);
+}

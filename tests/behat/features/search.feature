@@ -1,5 +1,5 @@
-  @api @search
-  Feature: Search the site
+@api @search
+Feature: Search the site
   In order to find courses on the site
   As any user
   I should be able to search for courses
@@ -12,12 +12,23 @@
     Given "course" nodes:
       | title      | field_course_type_education |
       | Course 235   | Test course 235                      |
-    And Search index "node" on "apache_solr" server is fresh
-    And I am reset the session
 
   @api @javascript
   Scenario: Use the global search field
     Given I am on the homepage
     When I fill in "edit-keys" with "Course"
     And I press "Search"
-    # add tests
+    Then I should be on "search-courses/Course"
+  # add tests
+
+  @api
+  Scenario: Check facets
+    Given I am on the homepage
+    And I press "Search"
+    Then I should see the text "Utbildningsform"
+    And I should see the text "Kursform"
+    And I should see the text "Skolor"
+    And I should see the text "Ämnesområden"
+    And I should see the text "Inriktning"
+    And I should see the text "Gymnasieprogram"
+      # add tests
