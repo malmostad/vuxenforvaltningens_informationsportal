@@ -1,0 +1,22 @@
+; Theme Info -----------------------------------------------------------------
+; required information about the theme
+
+name = City Of Malmo
+screenshot = images/city_of_malmo.png
+core = 7.x
+base theme = bootstrap
+
+; Stylesheets  ---------------------------------------------------------------
+stylesheets[screen][] = assets/stylesheets/malmo.css
+stylesheets[screen][] = assets/stylesheets/ie.css
+
+; Javascript ---------------------------------------------------------------
+; Add your awesome javascript in the below file.
+; scripts[] = assets/javascripts/init.js
+scripts[] = javascripts/init.js
+
+; Regions --------------------------------------------------------------------
+; regions[content] = Content
+
+; Panels layouts. You can place multiple layouts under the "layouts" folder.
+plugins[panels][layouts] = plugins/layouts
