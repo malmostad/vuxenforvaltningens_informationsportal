@@ -1,0 +1,6 @@
+name = Pane global search
+core = 7.x
+package = Panes
+dependencies[] = ctools
+dependencies[] = page_manager
+features[features_api][] = api:2

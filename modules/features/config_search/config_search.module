@@ -1,0 +1,48 @@
+<?php
+/**
+ * @file
+ * Code for the Config search feature.
+ */
+
+include_once 'config_search.features.inc';
+
+/**
+ * Invoked before a restore operation is run.
+ *
+ * This hook is called before any of the restore operations on the components is
+ * run.
+ *
+ * @param string $op
+ *   The operation that is triggered: revert, rebuild, disable, enable
+ * @param array $items
+ *   The items handled by the operation.
+ */
+function config_search_features_pre_restore($op, $items) {
+  if ($op == 'revert') {
+    $items['apache_solr'] = entity_import('search_api_server', '{
+    "name" : "Apache solr",
+    "machine_name" : "apache_solr",
+    "description" : "",
+    "class" : "search_api_solr_service",
+    "options" : {
+      "clean_ids" : true,
+      "site_hash" : true,
+      "scheme" : "http",
+      "host" : ' . variable_get('search_api_host','"localhost"') . ',
+      "port" : ' . variable_get('search_api_port','"8080"') . ',
+      "path" : ' . variable_get('search_api_path','"\\/solr\\/valera_dkf"') . ',
+      "http_user" : "",
+      "http_pass" : "",
+      "excerpt" : 0,
+      "retrieve_data" : 0,
+      "highlight_data" : 0,
+      "skip_schema_check" : 0,
+      "solr_version" : "",
+      "http_method" : "AUTO"
+    },
+    "enabled" : "1",
+    "rdf_mapping" : []
+  }');
+  }
+  return $items;
+}

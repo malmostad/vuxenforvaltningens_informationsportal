@@ -1,0 +1,9 @@
+name = Menu global
+core = 7.x
+package = Menus
+dependencies[] = features
+dependencies[] = menu
+features[features_api][] = api:2
+features[menu_custom][] = menu-global-menu
+features[menu_links][] = menu-global-menu_frgor-och-svar:faq
+features[menu_links][] = menu-global-menu_kurser-och-utbildningar:search-courses

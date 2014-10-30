@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Config Facet feature.
+ */
+
+include_once 'config_facet.features.inc';
