@@ -1,0 +1,8 @@
+name = Config taxonomy
+core = 7.x
+package = Config
+dependencies[] = features
+dependencies[] = taxonomy
+features[features_api][] = api:2
+features[taxonomy][] = course_form
+features[taxonomy][] = type_of_education
