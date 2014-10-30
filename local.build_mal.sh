@@ -1,5 +1,5 @@
 #!/bin/bash
-# usage sh local.build_mal.sh branchname mysql://user:password@path/database
+# usage sh local.build_mal.sh branchname mysql://user:password@mysql_host/database
 
 site_folder=build_mal
 echo Operation : clearing files
