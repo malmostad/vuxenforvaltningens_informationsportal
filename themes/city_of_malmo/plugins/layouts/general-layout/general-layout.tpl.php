@@ -22,8 +22,8 @@
 
 
 
-<div class="panel-main-layout" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
-  
+<div class="onecol-layout" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
+
       <?php if ($content['region-one']): ?>
           <?php print $content['region-one']; ?>
       <?php endif; ?>
