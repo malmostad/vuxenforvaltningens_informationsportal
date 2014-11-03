@@ -29,7 +29,7 @@ function content_type_course_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 7,
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -81,7 +81,7 @@ function content_type_course_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 4,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -106,6 +106,65 @@ function content_type_course_field_default_field_instances() {
       ),
       'type' => 'text_textfield',
       'weight' => 9,
+    ),
+  );
+
+  // Exported field_instance: 'node-course-field_course_date'
+  $field_instances['node-course-field_course_date'] = array(
+    'bundle' => 'course',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 15,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_course_date',
+    'label' => 'Course date',
+    'required' => 0,
+    'settings' => array(
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'm/d/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '-3:+3',
+      ),
+      'type' => 'date_select',
+      'weight' => 14,
     ),
   );
 
@@ -175,7 +234,7 @@ function content_type_course_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 6,
+        'weight' => 8,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -221,7 +280,7 @@ function content_type_course_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 10,
+        'weight' => 11,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -268,7 +327,7 @@ function content_type_course_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 5,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -372,7 +431,7 @@ function content_type_course_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 12,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -397,6 +456,76 @@ function content_type_course_field_default_field_instances() {
       ),
       'type' => 'taxonomy_autocomplete',
       'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'node-course-field_course_periods'
+  $field_instances['node-course-field_course_periods'] = array(
+    'bundle' => 'course',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'timefield',
+        'settings' => array(
+          'display_format' => array(
+            'hour' => 'g',
+            'minute' => 'i',
+            'period' => 'a',
+            'period_separator' => '',
+            'separator' => ':',
+          ),
+        ),
+        'type' => 'timefield_default',
+        'weight' => 14,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_course_periods',
+    'label' => 'Course periods',
+    'required' => 0,
+    'settings' => array(
+      'disable_plugin' => 0,
+      'input_format' => array(
+        'am_text' => 'AM',
+        'atPosition' => 'left bottom',
+        'closeButtonText' => 'Done',
+        'deselectButtonText' => 'Deselect',
+        'myPosition' => 'left top',
+        'nowButtonText' => 'Now',
+        'periodSeparator' => '',
+        'pm_text' => 'PM',
+        'separator' => ':',
+        'showCloseButton' => 0,
+        'showDeselectButton' => 0,
+        'showLeadingZero' => 0,
+        'showNowButton' => 0,
+        'showPeriod' => 1,
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'timefield',
+      'settings' => array(
+        'label_position' => 'above',
+      ),
+      'type' => 'timefield_standard',
+      'weight' => 13,
     ),
   );
 
@@ -463,9 +592,10 @@ function content_type_course_field_default_field_instances() {
       ),
       'search_result' => array(
         'label' => 'above',
+        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 9,
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -511,7 +641,7 @@ function content_type_course_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 10,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -590,7 +720,9 @@ function content_type_course_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Application Period');
   t('Course Group');
+  t('Course date');
   t('Course form');
+  t('Course periods');
   t('Description / content');
   t('Gymnasie program');
   t('National course code');

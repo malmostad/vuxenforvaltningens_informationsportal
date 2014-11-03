@@ -24,6 +24,9 @@ projects[module_filter][subdir] = "contrib"
 projects[ctools][version] = "1.4"
 projects[ctools][subdir] = "contrib"
 
+projects[date][version] = "2.8"
+projects[date][subdir] = "contrib"
+
 projects[devel][version] = "1.5"
 projects[devel][subdir] = "contrib"
 
@@ -33,6 +36,12 @@ projects[profiler_builder][subdir] = "contrib"
 projects[features][version] = "2.2"
 projects[features][subdir] = "contrib"
 
+projects[field_collection][version] = "1.0-beta7"
+projects[field_collection][subdir] = "contrib"
+
+projects[timefield][version] = "1.0-alpha2"
+projects[timefield][subdir] = "contrib"
+
 projects[diff][version] = "3.2"
 projects[diff][subdir] = "contrib"
 
@@ -41,6 +50,9 @@ projects[entity][subdir] = "contrib"
 
 projects[entity_view_mode][version] = "1.0-rc1"
 projects[entity_view_mode][subdir] = "contrib"
+
+projects[libraries][version] = "2.2"
+projects[libraries][subdir] = "contrib"
 
 projects[strongarm][version] = "2.0"
 projects[strongarm][subdir] = "contrib"
@@ -75,9 +87,28 @@ projects[wysiwyg][subdir] = "contrib"
 projects[views][version] = "3.8"
 projects[views][subdir] = "contrib"
 
+projects[facetapi_date_popup_calendar][download][type] = "git"
+projects[facetapi_date_popup_calendar][download][url] = "http://git.drupal.org/sandbox/uzlov/2160651.git"
+
 ; +++++ Themes +++++
 
 ; bootstrap
 projects[bootstrap][type] = "theme"
 projects[bootstrap][version] = "3.0"
 projects[bootstrap][subdir] = "contrib"
+
+; +++++ Libraries +++++
+
+; CKEditor
+libraries[ckeditor][directory_name] = "ckeditor"
+libraries[ckeditor][type] = "library"
+libraries[ckeditor][destination] = "libraries"
+libraries[ckeditor][download][type] = "get"
+libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%203.6.6.1/ckeditor_3.6.6.1.tar.gz"
+
+; jquery.timepicker
+libraries[jquery.timepicker][directory_name] = "jquery.timepicker"
+libraries[jquery.timepicker][type] = "library"
+libraries[jquery.timepicker][destination] = "libraries"
+libraries[jquery.timepicker][download][type] = "get"
+libraries[jquery.timepicker][download][url] = "https://fgelinas.com/code/timepicker/releases/jquery-ui-timepicker-0.3.3.zip"
