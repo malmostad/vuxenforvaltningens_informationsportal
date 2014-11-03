@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Minipanel Search facet date feature.
+ */
+
+include_once 'minipanel_search_facet_date.features.inc';
