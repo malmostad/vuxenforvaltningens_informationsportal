@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * Implements hook_entity_property_info_alter().
+ */
+function mal_search_entity_property_info_alter(&$info) {
+  $info['node']['properties']['duration_days'] = array(
+    'type' => 'list<text>',
+    'label' => t('Duration days'),
+    'bundle' => 'course',
+    'schema field' => 'field_course_periods',
+    'field' => TRUE,
+    'sanitized' => TRUE,
+    'getter callback' => 'mal_search_property_duration_days_getter_callback',
+    //'schema field' => 'language',
+  );
+}
+
+/**
+ * Getter callback for multiple field.
+ */
+function mal_search_property_duration_days_getter_callback($item) {
+  if (empty($item->field_course_periods[LANGUAGE_NONE])) {
+    return array();
+  }
+
+  $values = array();
+  // todo add more flex: not hard code field name and values
+  $strings = array(
+    'mon' => 'Måndag',
+    'tue' => 'Tisdag',
+    'wed' => 'Onsdag',
+    'thu' => 'Torsdag',
+    'fri' => 'Fredag',
+    'sat' => 'Lördag',
+    'sun' => 'Söndag',
+  );
+
+  foreach($item->field_course_periods[LANGUAGE_NONE] as $period) {
+    foreach($strings as $machine_day => $day) {
+      if ($period[$machine_day]) {
+        $values[$machine_day] = $day;
+      }
+    }
+  }
+
+  return $values;
+}

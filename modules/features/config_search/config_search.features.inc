@@ -19,7 +19,10 @@ function config_search_default_search_api_index() {
       "index_directly" : 0,
       "cron_limit" : "50",
       "fields" : {
+        "duration_days" : { "type" : "list\\u003Ctext\\u003E" },
         "field_course_application_period" : { "type" : "text" },
+        "field_course_date:value" : { "type" : "date" },
+        "field_course_date:value2" : { "type" : "date" },
         "field_course_form" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_course_group" : { "type" : "text" },
         "field_course_gymnasie_program" : { "type" : "integer", "entity_type" : "taxonomy_term" },

@@ -31,6 +31,7 @@ function minipanel_search_facet_default_panels_mini() {
       'region-three' => NULL,
       'region-four' => NULL,
     ),
+    'style' => 'naked',
   );
   $display->cache = array();
   $display->title = '';
