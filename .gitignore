@@ -4,6 +4,7 @@ sites/*/private
 drush/contrib/
 modules/contrib/
 themes/contrib/
+libraries
 .idea
 .DS_Store
 build_mal.sh
