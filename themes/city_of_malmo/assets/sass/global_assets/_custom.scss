@@ -670,9 +670,24 @@ h2 + .example {
   }
 }
 
-
-
-
+/* Style sidebar menu header */
+nav.content {
+  .menu {
+    margin-bottom: 2em;
+  }
+  h2 {
+    border-bottom: #b5b5b5 1px solid;
+    font-size: 1em;
+    font-family: "OpenSans", "Droid Sans", "Verdana", "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
+    font-weight: bold;
+    line-height: 1.2;
+    margin: 0;
+    overflow: hidden;
+    padding: 0 .3em .2em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
 
 /* header LOGIN IN  */
 .logged-in #malmo-masthead { top: 0; }
@@ -697,8 +712,6 @@ footer#malmo-footer {
 /* --------CLOSE FOOTER BOTTOM---------  */
 
 
-
-
 /*----------FAQ----------*/
 .faq-list-questions {
   & ul {
@@ -716,7 +729,7 @@ footer#malmo-footer {
       width: 18px;
       left: 0;
       background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAlCAYAAABCr8kFAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjlEQ0QzRDEwNTJFRTExRTQ4NkRGRkU5NjUwMzQ3NDUyIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjlEQ0QzRDExNTJFRTExRTQ4NkRGRkU5NjUwMzQ3NDUyIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OURDRDNEMEU1MkVFMTFFNDg2REZGRTk2NTAzNDc0NTIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OURDRDNEMEY1MkVFMTFFNDg2REZGRTk2NTAzNDc0NTIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6eR5ndAAAAdklEQVR42mL4//8/AzYMBVuA+D8aBokx4NLHxEBlMGrgSDCQEZq2RsNwEBnIAsSz8Mh7ALEcmtgjIN6BU8doaTNqIHnpEB+4A8RnsYjhLm2Q0hyqBCMjXptw6WMhVcNoLA9BA6kOQInNeLQaHQFtmzRqGggQYADu02N2yLhjCwAAAABJRU5ErkJggg==') -1px -2px no-repeat;
-      @include center-vertical(18); 
+      @include center-vertical(18);
     }
   }
   & .answer {
@@ -729,19 +742,44 @@ footer#malmo-footer {
     }
   }
   & .open-close {
-   height: auto; 
+   height: auto;
   }
 }
 
 
 /* ----FORM INPUT---- */
-.form-item { 
+.form-item {
   margin: 10px 0;
   & input { margin: 0 0 5px; }
+}
+#global-search-form {
+  position: relative;
+  input,
+  button {
+    @include border-radius(3px);
+    height: 40px;
+  }
+  .form-text {
+    color: #474747;
+    font-size: 18px;
+    padding: 0 80px 0 10px;
+  }
+  .form-submit {
+    @include background-image(linear-gradient(rgb(255, 255, 255), rgb(224, 224, 224)));
+    @include border-left-radius(0);
+    border: 1px solid #ccc;
+    color: #333;
+    font-weight: bold;
+    padding: 4px 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    @include text-shadow(none);
+  }
 }
 
 
 /* ---------media-------- */
-@media only screen and (max-width: 515px) { 
+@media only screen and (max-width: 515px) {
   .wrapper { margin-bottom: 470px; }
 }
