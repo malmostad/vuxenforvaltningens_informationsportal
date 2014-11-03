@@ -102,7 +102,10 @@ function page_search_default_page_manager_pages() {
       'settings' => NULL,
       'style' => 'default',
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'search-filter',
+    );
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
@@ -124,7 +127,10 @@ function page_search_default_page_manager_pages() {
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'search-filter',
+    );
     $pane->extras = array();
     $pane->position = 2;
     $pane->locks = array();
