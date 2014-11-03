@@ -87,8 +87,12 @@ projects[wysiwyg][subdir] = "contrib"
 projects[views][version] = "3.8"
 projects[views][subdir] = "contrib"
 
-projects[facetapi_date_popup_calendar][download][type] = "git"
-projects[facetapi_date_popup_calendar][download][url] = "http://git.drupal.org/sandbox/uzlov/2160651.git"
+; Sandbox
+projects[facetapi_date_popup_calendar][type] = module
+projects[facetapi_date_popup_calendar][download][type] = git
+projects[facetapi_date_popup_calendar][download][branch] = "master"
+projects[facetapi_date_popup_calendar][download][url] = http://git.drupal.org/sandbox/uzlov/2160651.git
+projects[facetapi_date_popup_calendar][download][revision] = b78ef393cec1486523d921eb658780ed760a7c86
 
 ; +++++ Themes +++++
 

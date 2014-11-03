@@ -31,4 +31,9 @@ Feature: Search the site
     And I should see the text "Ämnesområden"
     And I should see the text "Inriktning"
     And I should see the text "Gymnasieprogram"
+    And I should see the text "Filtrera sökresultat"
+    And I should see the text "Kursstart, tider och veckodagar"
+    And I should see the text "Välj kursstart"
+    And I should see the text "Veckodagar"
+    And I should see the text "tisdag"
       # add tests
