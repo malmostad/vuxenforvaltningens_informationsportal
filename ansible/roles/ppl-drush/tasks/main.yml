@@ -24,6 +24,7 @@
   changed_when: "'Execute a drush command' not in drush_result.stdout"
 
 #- name: Reinstall Drupal
+#  debug: msg="Profile dir = {{ drupal_profile_dir }}. Drupal branch = {{ drupal_branch }}. Drupal DB Url = {{ drupal_db_url }}"
 #  shell: >
 #    chdir={{ drupal_profile_dir }}
 #    sh local.build_mal.sh {{ drupal_branch }} {{ drupal_db_url }}

@@ -22,6 +22,7 @@
     - geerlingguy.tomcat6
 #    - geerlingguy.solr
     - geerlingguy.ruby
+    - known-hosts
     - apache
     - compass
     - php5
