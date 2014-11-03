@@ -64,6 +64,7 @@ dependencies[] = ultimate_cron
 dependencies[] = panels
 dependencies[] = panels_everywhere
 dependencies[] = panels_mini
+dependencies[] = pps
 ; Registration
 dependencies[] = registration
 dependencies[] = registration_views

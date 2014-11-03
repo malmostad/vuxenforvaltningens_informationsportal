@@ -51,6 +51,9 @@ function page_search_default_page_manager_pages() {
       'region-one' => NULL,
     ),
     'style' => 'naked',
+    'region-one' => array(
+      'style' => 'naked',
+    ),
   );
   $display->cache = array();
   $display->title = '';
@@ -105,6 +108,7 @@ function page_search_default_page_manager_pages() {
     $pane->css = array(
       'css_id' => '',
       'css_class' => 'search-filter',
+      'template_suggestion' => 'panels_mini_search',
     );
     $pane->extras = array();
     $pane->position = 1;
@@ -130,6 +134,7 @@ function page_search_default_page_manager_pages() {
     $pane->css = array(
       'css_id' => '',
       'css_class' => 'search-filter',
+      'template_suggestion' => 'panels_mini_search',
     );
     $pane->extras = array();
     $pane->position = 2;
