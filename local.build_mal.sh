@@ -15,7 +15,7 @@ else
 
         echo "'$1'" >> mal_working.build
 fi
-drush make mal_working.build --no-cache --working-copy --yes ${site_folder}
+drush make mal_working.build --no-clean --prepare-install --debug --working-copy --yes ${site_folder}
 rm mal_working.build
 cd ${site_folder}/profiles/mal
 
