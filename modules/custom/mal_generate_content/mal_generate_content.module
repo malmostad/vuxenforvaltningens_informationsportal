@@ -61,7 +61,7 @@ function mal_generate_content_enable() {
 }
 
 /**
- * Add missing terms to vocabulary.
+ *    Add missing terms to vocabulary
  * @param $voc_name
  * @param $terms
  */
