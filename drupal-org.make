@@ -92,6 +92,7 @@ projects[views][subdir] = "contrib"
 
 ; Sandbox
 projects[facetapi_date_popup_calendar][type] = module
+projects[facetapi_date_popup_calendar][subdir] = "contrib"
 projects[facetapi_date_popup_calendar][download][type] = git
 projects[facetapi_date_popup_calendar][download][branch] = "master"
 projects[facetapi_date_popup_calendar][download][url] = http://git.drupal.org/sandbox/uzlov/2160651.git
