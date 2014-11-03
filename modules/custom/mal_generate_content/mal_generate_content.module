@@ -1,0 +1,94 @@
+<?php
+
+/**
+ * Feature module hook. Invoked on a Feature module after that module is
+ * enabled.
+ *
+ * @param $component
+ *   String name of the component that has just been enabled.
+ */
+function mal_generate_content_enable() {
+  mal_generate_content_add_taxonomy_terms('course_type_of_education',
+    array(
+      'Grundläggande vuxenutbildning',
+      'Gymnasial vuxenutbildning, enstaka kurser',
+      'Gymnasial yrkesutbildning',
+      'Lärlingsutbildning',
+    )
+  );
+
+  mal_generate_content_add_taxonomy_terms('course_form',
+    array(
+      'Klassrumsundervisning',
+      'Distanskurs',
+      'Flexkurs',
+    )
+  );
+
+  mal_generate_content_add_taxonomy_terms('course_school',
+    array(
+      'Malmö borgarskola',
+      'Malmö bygggymnasium',
+      'Malmö södervärn',
+      'Malmö universitetsholmen',
+    )
+  );
+
+  mal_generate_content_add_taxonomy_terms('course_subject_areas',
+    array(
+      'Språk',
+      'Naturvetenskap',
+      'Mattematik',
+    )
+  );
+
+  mal_generate_content_add_taxonomy_terms('course_orientation',
+    array(
+      'Fordon',
+      'Försäljning, ekonomi, administration, service',
+      'Hantverk, bygg-och verkstadsteknik',
+      'Hotell och turism',
+    )
+  );
+
+  mal_generate_content_add_taxonomy_terms('course_gymnasie_program',
+    array(
+      'Natur',
+      'Samhälle',
+      'Ekonomi',
+    )
+  );
+}
+
+/**
+ * Add missing terms to vocabulary.
+ * @param $voc_name
+ * @param $terms
+ */
+function mal_generate_content_add_taxonomy_terms($voc_name, $terms) {
+  $vid = taxonomy_vocabulary_machine_name_load($voc_name)->vid;
+
+  if (!$vid) {
+    $new_vocab = (object) array(
+      'name' => str_replace('_', ' ', strtoupper($voc_name)),
+      'machine_name' => $voc_name,
+    );
+
+    taxonomy_vocabulary_save($new_vocab);
+    $vid = taxonomy_vocabulary_machine_name_load($voc_name)->vid;
+  }
+
+  $options_source = taxonomy_get_tree($vid);
+  $options = array();
+  foreach($options_source as $item ) {
+    $value = $item->name;
+    $options[] = $value;
+  }
+
+  foreach(array_diff($terms, $options) as $name) {
+    $term = new stdClass();
+    $term->name = $name;
+    $term->vid = $vid;
+    taxonomy_term_save($term);
+  }
+}

@@ -42,15 +42,22 @@ dependencies[] = taxonomy
 dependencies[] = text
 dependencies[] = update
 dependencies[] = user
+; Date/Time
+dependencies[] = date
+dependencies[] = date_api
 ; Development
 dependencies[] = devel
 dependencies[] = devel_generate
 dependencies[] = profiler_builder
 dependencies[] = profiler_builder_extras
+; Fields
+dependencies[] = field_collection
+dependencies[] = timefield
 ; Other
 dependencies[] = diff
 dependencies[] = entity
 dependencies[] = entity_view_mode
+dependencies[] = libraries
 dependencies[] = strongarm
 dependencies[] = ultimate_cron
 ; Panels
@@ -67,6 +74,7 @@ dependencies[] = search_api_solr
 dependencies[] = search_api_views
 ; Search Toolkit
 dependencies[] = facetapi
+dependencies[] = facetapi_date_popup_calendar
 ; User interface
 dependencies[] = jquery_update
 dependencies[] = wysiwyg
@@ -87,6 +95,7 @@ dependencies[] = content_type_course
 dependencies[] = content_type_question_and_answer
 dependencies[] = menu_global
 dependencies[] = minipanel_search_facet
+dependencies[] = minipanel_search_facet_date
 dependencies[] = page_course_view
 dependencies[] = page_faq
 dependencies[] = page_front
@@ -95,4 +104,6 @@ dependencies[] = page_search
 dependencies[] = pane_global_search
 dependencies[] = view_faq
 dependencies[] = view_search
-
+; Customization
+dependencies[] = mal_search
+dependencies[] = mal_generate_content
