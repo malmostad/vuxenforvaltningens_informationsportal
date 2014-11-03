@@ -765,6 +765,7 @@ footer#malmo-footer {
     padding: 0 80px 0 10px;
   }
   .form-submit {
+    background: none;
     @include background-image(linear-gradient(rgb(255, 255, 255), rgb(224, 224, 224)));
     @include border-left-radius(0);
     border: 1px solid #ccc;
@@ -775,6 +776,15 @@ footer#malmo-footer {
     top: 0;
     right: 0;
     @include text-shadow(none);
+  }
+}
+
+/* ------- Search filter block -------- */
+.search-filter {
+  .pane-title {
+    color: #4f4f4f;
+    font-size: 12px;
+    font-family: "OpenSans", "Droid Sans", "Verdana", "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
   }
 }
 
