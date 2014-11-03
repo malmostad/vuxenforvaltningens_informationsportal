@@ -781,10 +781,25 @@ footer#malmo-footer {
 
 /* ------- Search filter block -------- */
 .search-filter {
-  .pane-title {
+  float: left;
+  margin-right: 20px;
+  position: relative;
+  & > .pane-title {
     color: #4f4f4f;
+    cursor: pointer;
     font-size: 12px;
     font-family: "OpenSans", "Droid Sans", "Verdana", "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
+    margin: 0 20px 0 0;
+  }
+  .search-minipanel {
+    background: #fff;
+    border: 1px solid #ccc;
+    display: none;
+    padding: 30px;
+    position: absolute;
+    left: 0;
+    top: 30px;
+    z-index: 1;
   }
 }
 
