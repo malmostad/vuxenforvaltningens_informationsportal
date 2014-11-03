@@ -1,0 +1,11 @@
+#panels-dnd-main {
+  overflow: hidden;
+}
+#panels-dnd-main .desc {
+  float: left;
+  width: 33%;
+}
+#panels-dnd-main .filter {
+  float: right;
+  width: 66%;
+}
