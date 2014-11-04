@@ -24,8 +24,18 @@
 
 <div class="onecol-layout" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
 
-      <?php if ($content['region-one']): ?>
-          <?php print $content['region-one']; ?>
-      <?php endif; ?>
+    <?php if ($content['region-one']): ?>
+        <?php print $content['region-one']; ?>
+    <?php endif; ?>
+
+    <?php if ($content['region-two']): ?>
+      <div class="search-filter">
+        <?php print $content['region-two']; ?>
+      </div>
+    <?php endif; ?>
+
+    <?php if ($content['region-three']): ?>
+        <?php print $content['region-three']; ?>
+    <?php endif; ?>
 
 </div>
