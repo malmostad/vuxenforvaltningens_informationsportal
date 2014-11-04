@@ -90,14 +90,6 @@ projects[wysiwyg][subdir] = "contrib"
 projects[views][version] = "3.8"
 projects[views][subdir] = "contrib"
 
-; Sandbox
-projects[facetapi_date_popup_calendar][type] = module
-projects[facetapi_date_popup_calendar][subdir] = "contrib"
-projects[facetapi_date_popup_calendar][download][type] = git
-projects[facetapi_date_popup_calendar][download][branch] = "master"
-projects[facetapi_date_popup_calendar][download][url] = http://git.drupal.org/sandbox/uzlov/2160651.git
-projects[facetapi_date_popup_calendar][download][revision] = b78ef393cec1486523d921eb658780ed760a7c86
-
 ; +++++ Themes +++++
 
 ; bootstrap
@@ -106,13 +98,6 @@ projects[bootstrap][version] = "3.0"
 projects[bootstrap][subdir] = "contrib"
 
 ; +++++ Libraries +++++
-
-; CKEditor
-libraries[ckeditor][directory_name] = "ckeditor"
-libraries[ckeditor][type] = "library"
-libraries[ckeditor][destination] = "libraries"
-libraries[ckeditor][download][type] = "get"
-libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor/CKEditor/CKEditor%203.6.6.1/ckeditor_3.6.6.1.tar.gz"
 
 ; jquery.timepicker
 libraries[jquery.timepicker][directory_name] = "jquery.timepicker"
