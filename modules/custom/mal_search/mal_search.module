@@ -73,9 +73,9 @@ function mal_search_search_api_views_query_alter(view &$view, SearchApiViewsQuer
   $get_param = variable_get('search_date_filter_get_param', 'search-start-date');
 
   if ($view->name == 'search'
-        && isset($_GET[$get_param])
-        && $get_param = strtotime($_GET[$get_param])
-     ) {
+    && isset($_GET[$get_param])
+    && $get_param = strtotime($_GET[$get_param])
+  ) {
     $group_id = $query->set_where_group();
     $query->condition('field_course_date:value', $get_param, '>=', $group_id);
   }
