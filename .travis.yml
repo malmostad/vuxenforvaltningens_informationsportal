@@ -58,7 +58,7 @@ install:
   - ln -s ~/.composer/vendor/drupal/coder/coder_sniffer/Drupal ~/.composer/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards
 
   # Run the Coder sniffer before all heavy tasks.
-  - phpcs --report=full --standard=Drupal $TRAVIS_BUILD_DIR/modules/custom
+  - phpcs --report=full --standard=Drupal --extensions=php,inc,module,install $TRAVIS_BUILD_DIR/modules/custom
 
   # Build Codebase
   - mkdir private_files
