@@ -781,25 +781,66 @@ footer#malmo-footer {
 
 /* ------- Search filter block -------- */
 .search-filter {
-  float: left;
-  margin-right: 20px;
   position: relative;
+  &:after {
+    content:"";
+    display:table;
+    clear:both;
+  }
   & > .pane-title {
     color: #4f4f4f;
     cursor: pointer;
     font-size: 12px;
     font-family: "OpenSans", "Droid Sans", "Verdana", "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
+    float: left;
     margin: 0 20px 0 0;
+    padding-bottom: 20px;
+    &:before {
+      content: "";
+      @include inline-block(top);
+      background: url(../../images/icon-sprite.png) center -34px no-repeat;;
+      height: 12px;
+      margin: 1px 5px 0 0;
+      width: 12px;
+    }
+    &.active {
+      background: url(../../images/icon-sprite.png) center 19px no-repeat;
+      & + .search-minipanel {
+        display: block;
+      }
+    }
   }
   .search-minipanel {
     background: #fff;
     border: 1px solid #ccc;
     display: none;
-    padding: 30px;
+    padding: 15px 20px;
     position: absolute;
     left: 0;
-    top: 30px;
+    top: 33px;
     z-index: 1;
+  }
+  .desc {
+    color: #4F4F4F;
+    font-family: "OpenSans", "Droid Sans", "Verdana", "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
+    float: left;
+    margin-right: 5%;
+    width: 32%;
+    & * {
+      font-size: 14px;
+    }
+  }
+  .filter {
+    color: #4F4F4F;
+    float: left;
+    width: 63%;
+    .pane-title {
+      font-size: 14px;
+      margin-top: 0;
+    }
+    & * {
+      font-size: 12px;
+    }
   }
 }
 
