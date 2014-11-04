@@ -13,6 +13,7 @@
     - vars/drupal.yml
     - vars/gems.yml
     - vars/ruby.yml
+    - vars/solr.yml
   roles:
     - init
     - php5-cli
@@ -20,7 +21,7 @@
     - geerlingguy.git
     - geerlingguy.java
     - geerlingguy.tomcat6
-#    - geerlingguy.solr
+    - geerlingguy.solr
     - geerlingguy.ruby
     - known-hosts
     - apache

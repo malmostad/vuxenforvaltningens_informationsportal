@@ -8,6 +8,7 @@ libraries
 .idea
 .DS_Store
 build_mal.sh
+.vagrant/
 build_mal/
 
 themes/city_of_malmo/assets/stylesheets
