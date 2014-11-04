@@ -6,7 +6,7 @@ php:
 env:
   global:
     - PHPCS_VERSION='1.5.5'
-    - CODER_VERSION='dev-8.x-2.x'
+    - CODER_VERSION='7.2.2'
 
 branches:
   except:
