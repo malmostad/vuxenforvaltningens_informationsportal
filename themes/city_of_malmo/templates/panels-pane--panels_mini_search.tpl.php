@@ -20,9 +20,6 @@
 <?php if ($pane_prefix): ?>
   <?php print $pane_prefix; ?>
 <?php endif; ?>
-  <?php if ($admin_links): ?>
-    <?php print $admin_links; ?>
-  <?php endif; ?>
 
   <?php print render($title_prefix); ?>
   <?php if ($title): ?>
@@ -47,6 +44,7 @@
       <?php print $more; ?>
     </div>
   <?php endif; ?>
+
 <?php if ($pane_suffix): ?>
   <?php print $pane_suffix; ?>
 <?php endif; ?>
