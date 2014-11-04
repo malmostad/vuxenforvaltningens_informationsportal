@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * @file
+ * mal_search.module file.
+ */
+
+/**
  * Implements hook_entity_property_info_alter().
  */
 function mal_search_entity_property_info_alter(&$info) {
@@ -12,12 +17,18 @@ function mal_search_entity_property_info_alter(&$info) {
     'field' => TRUE,
     'sanitized' => TRUE,
     'getter callback' => 'mal_search_property_duration_days_getter_callback',
-    //'schema field' => 'language',
+    // 'schema field' => 'language',
   );
 }
 
 /**
  * Getter callback for multiple field.
+ *
+ * @param array $item
+ *   Fieldable entity object.
+ *
+ * @return array
+ *   Set of valid values for given field.
  */
 function mal_search_property_duration_days_getter_callback($item) {
   if (empty($item->field_course_periods[LANGUAGE_NONE])) {
@@ -25,7 +36,8 @@ function mal_search_property_duration_days_getter_callback($item) {
   }
 
   $values = array();
-  // todo add more flex: not hard code field name and values
+  // @todo add more flex: not hard code field name and values
+  // and swedish translation.
   $strings = array(
     'mon' => 'Måndag',
     'tue' => 'Tisdag',
@@ -36,8 +48,8 @@ function mal_search_property_duration_days_getter_callback($item) {
     'sun' => 'Söndag',
   );
 
-  foreach($item->field_course_periods[LANGUAGE_NONE] as $period) {
-    foreach($strings as $machine_day => $day) {
+  foreach ($item->field_course_periods[LANGUAGE_NONE] as $period) {
+    foreach ($strings as $machine_day => $day) {
       if ($period[$machine_day]) {
         $values[$machine_day] = $day;
       }
