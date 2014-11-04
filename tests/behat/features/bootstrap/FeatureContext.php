@@ -240,7 +240,7 @@ class FeatureContext extends DrupalContext {
     $element = $page->find('css', '.' . $class);
 
     if (null === $element) {
-      throw new \LogicException('Could not find the element');
+      return;
     }
 
     if ($element->isVisible()) {
@@ -270,5 +270,42 @@ class FeatureContext extends DrupalContext {
     $session->reset();
     $session->reload();
   }
+
+  /**
+   * @When /^I press element "([^"]*)"$/
+   */
+  public function iPressElement($selector) {
+    $session = $this->getSession(); // assume extends RawMinkContext
+    $page = $session->getPage();
+
+    $element = $page->find('css', $selector);
+    $element->press();
+  }
+
+  /**
+   * @Then /^I should see container with class "([^"]*)"$/
+   */
+  public function iShouldSeeContainerWithClass($selector) {
+    $session = $this->getSession(); // assume extends RawMinkContext
+    $page = $session->getPage();
+
+    $element = $page->find('css', '.' . $selector);
+
+    if (null === $element) {
+      throw new \LogicException('Could not find the element');
+    }
+
+    if (!$element->isVisible()) {
+      throw new \LogicException('Element is not visible...');
+    }
+  }
+
+  /**
+   * @Then /^I should have "([^"]*)" get params$/
+   */
+  public function iShouldHaveGetParams($arg1) {
+    var_dump($_GET);
+  }
+
 
 }

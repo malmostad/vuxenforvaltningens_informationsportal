@@ -33,7 +33,15 @@ Feature: Search the site
     And I should see the text "Gymnasieprogram"
     And I should see the text "Filtrera sökresultat"
     And I should see the text "Kursstart, tider och veckodagar"
-    And I should see the text "Välj kursstart"
+    And I should see an "#edit-date" element
     And I should see the text "Veckodagar"
     And I should see the text "tisdag"
-      # add tests
+
+  @javascript @search-facet
+  Scenario: Use start date facet
+    Given I am on the homepage
+    Then I should not see container with class "ui-datepicker"
+    And I press "Search"
+    When I press element "#edit-date"
+    Then I should see container with class "ui-datepicker"
+    When I press element ".ui-datepicker-week-end"
