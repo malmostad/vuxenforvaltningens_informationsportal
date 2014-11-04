@@ -1,0 +1,6 @@
+name = Mal pane global search
+core = 7.x
+package = Propeople
+dependencies[] = ctools
+dependencies[] = page_manager
+dependencies[] = panels

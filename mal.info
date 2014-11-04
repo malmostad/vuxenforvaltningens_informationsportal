@@ -81,6 +81,8 @@ dependencies[] = wysiwyg
 ; Views
 dependencies[] = views
 dependencies[] = views_ui
+; Customization
+dependencies[] = mal_ctools_global_search
 ; Features
 dependencies[] = features
 dependencies[] = config_facet

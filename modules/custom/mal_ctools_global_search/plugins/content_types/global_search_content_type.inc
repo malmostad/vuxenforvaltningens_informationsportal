@@ -17,7 +17,7 @@ $plugin = array(
  * Block render callback.
  */
 function global_search_edit_form($form, &$form_state)  {
-  ctools_form_include($form_state, 'global_search_content_type', 'pane_global_search', 'plugins/content_types');
+  ctools_form_include($form_state, 'global_search_content_type', 'mal_ctools_global_search', 'plugins/content_types');
   $conf = $form_state['conf'];
   $form['search_path'] = array(
     '#type' => 'textfield',
@@ -54,7 +54,7 @@ function global_search_block_render($subtype, $conf, $args, $context)  {
  * Displays a search form.
  */
 function global_search_form(array $form, array &$form_state, $conf) {
-  ctools_form_include($form_state, 'global_search_content_type', 'pane_global_search', 'plugins/content_types');
+  ctools_form_include($form_state, 'global_search_content_type', 'mal_ctools_global_search', 'plugins/content_types');
 
   // todo rewrite to context
   $search_keys = isset($conf['search_path']) && (arg(0) == $conf['search_path']) ? arg(1) : '';
