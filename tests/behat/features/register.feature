@@ -15,4 +15,4 @@ Feature: User register
     Then I should be on homepage
     And I should see the text "Thank you for applying for an account"
     And the response should not contain "not-logged-in"
-    # add tests
+    # add tests 
