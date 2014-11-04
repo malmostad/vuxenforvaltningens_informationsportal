@@ -14,5 +14,5 @@ Feature: User register
     And I press "Create new account"
     Then I should be on homepage
     And I should see the text "Thank you for applying for an account"
-    And the response should not contain "not-logged-in"
-    # add tests 
+    And the response should contain "not-logged-in"
+    # add tests
