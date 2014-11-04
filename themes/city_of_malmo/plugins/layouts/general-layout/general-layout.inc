@@ -8,6 +8,8 @@ $plugin = array(
   'theme' => 'general-layout',
   'css' => 'general-layout.css',
   'regions' => array(
-    'region-one' => t('General_layout'),
+    'region-one' => t('Region one'),
+    'region-two' => t('Region two'),
+    'region-three' => t('Region three'),
   ),
 );
