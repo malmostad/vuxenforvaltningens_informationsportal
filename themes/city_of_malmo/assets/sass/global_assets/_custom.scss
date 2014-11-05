@@ -814,6 +814,7 @@ footer#malmo-footer {
     background: #fff;
     border: 1px solid #ccc;
     display: none;
+    font-family: "OpenSans", "Droid Sans", "Verdana", "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
     padding: 15px 20px;
     position: absolute;
     left: 0;
@@ -822,7 +823,6 @@ footer#malmo-footer {
   }
   .desc {
     color: #4F4F4F;
-    font-family: "OpenSans", "Droid Sans", "Verdana", "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
     float: left;
     margin-right: 5%;
     width: 32%;
@@ -836,10 +836,34 @@ footer#malmo-footer {
     width: 63%;
     .pane-title {
       font-size: 14px;
-      margin-top: 0;
+      margin: 0 0 10px;
     }
     * {
       font-size: 12px;
+    }
+    ul {
+      margin: 0 0 10px;
+      padding: 0;
+    }
+    li {
+      display: inline;
+      margin: 0;
+      &:before {
+        content: "\00B7";
+        margin-right: 3px;
+      }
+      &:first-child:before {
+        content: none;
+      }
+    }
+    a {
+      color: #4f4f4f;
+      &.facetapi-active {
+        background: url(../../images/icon-sprite.png) -3px -118px no-repeat;
+        color: #007896;
+        font-weight: bold;
+        padding-left: 15px;
+      }
     }
   }
 }
