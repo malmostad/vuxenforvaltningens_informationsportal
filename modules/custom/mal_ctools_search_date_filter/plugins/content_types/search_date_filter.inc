@@ -31,7 +31,7 @@ function search_date_filter_form(array $form, array &$form_state, $conf) {
   $get_param = variable_get('search_date_filter_get_param', 'search-start-date');
   $form['date'] = array(
     '#type' => 'textfield',
-    '#default_value' => !empty($query[$get_param]) ? $query[$get_param] : NULL,
+    '#default_value' => empty($query[$get_param]) ? NULL : $query[$get_param],
     '#size' => 'auto',
     '#attributes' => array(
       'class' => array('date-popup-calendar-form-input', 'ctools-auto-submit'),
