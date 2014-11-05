@@ -5,8 +5,8 @@ php:
 
 env:
   global:
-    - PHPCS_VERSION='2.0.0RC1'
-    - CODER_VERSION='dev-8.x-2.x'
+    - PHPCS_VERSION='1.5.5'
+    - CODER_VERSION='dev-7.x-2.x'
 
 branches:
   except:
@@ -58,7 +58,7 @@ install:
   - ln -s ~/.composer/vendor/drupal/coder/coder_sniffer/Drupal ~/.composer/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards
 
   # Run the Coder sniffer before all heavy tasks.
-  - phpcs --report=full --standard=Drupal $TRAVIS_BUILD_DIR/modules/custom
+  - phpcs --report=full --standard=Drupal --extensions=php,inc,module,install $TRAVIS_BUILD_DIR/modules/custom
 
   # Build Codebase
   - mkdir private_files

@@ -45,6 +45,17 @@ function view_search_views_default_views() {
   $handler->display->display_options['arguments']['search_api_views_fulltext']['break_phrase'] = 0;
   $handler->display->display_options['arguments']['search_api_views_fulltext']['not'] = 0;
   $handler->display->display_options['arguments']['search_api_views_fulltext']['conjunction'] = 'OR';
+  /* Contextual filter: Filter by startdate */
+  $handler->display->display_options['arguments']['null']['id'] = 'null';
+  $handler->display->display_options['arguments']['null']['table'] = 'views';
+  $handler->display->display_options['arguments']['null']['field'] = 'null';
+  $handler->display->display_options['arguments']['null']['ui_name'] = 'Filter by startdate';
+  $handler->display->display_options['arguments']['null']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['null']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['null']['default_argument_options']['argument'] = '@see mal_search_search_api_views_query_alter() ';
+  $handler->display->display_options['arguments']['null']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['null']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['null']['summary_options']['items_per_page'] = '25';
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
@@ -56,6 +67,14 @@ function view_search_views_default_views() {
       'panel' => '0',
       'fixed' => '',
       'label' => 'Search: Fulltext search',
+    ),
+    'null' => array(
+      'type' => 'user',
+      'context' => 'entity:comment.author',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Global: Null',
     ),
   );
   $handler->display->display_options['inherit_panels_path'] = '1';

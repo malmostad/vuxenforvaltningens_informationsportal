@@ -1,5 +1,5 @@
 #!/bin/bash
-# usage sh local.build_mal.sh branchname mysql://user:password@path/database
+# usage sh local.build_mal.sh branchname mysql://user:password@mysql_host/database
 
 site_folder=build_mal
 echo Operation : clearing files
@@ -15,7 +15,7 @@ else
 
         echo "'$1'" >> mal_working.build
 fi
-drush make mal_working.build --no-cache --working-copy --yes ${site_folder}
+drush make mal_working.build --no-clean --prepare-install --debug --working-copy --yes ${site_folder}
 rm mal_working.build
 cd ${site_folder}/profiles/mal
 

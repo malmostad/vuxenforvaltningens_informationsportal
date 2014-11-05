@@ -7,7 +7,7 @@
 /**
  * Implements hook_ctools_plugin_directory().
  */
-function pane_global_search_ctools_plugin_directory($owner, $plugin_type) {
+function mal_ctools_global_search_ctools_plugin_directory($owner, $plugin_type) {
   if ($owner == 'ctools' && $plugin_type == 'content_types') {
     return 'plugins/content_types';
   }
