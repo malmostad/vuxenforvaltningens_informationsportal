@@ -68,23 +68,23 @@ function mal_generate_content_enable() {
  *
  * @param string $voc_name
  *   Vocabulary machine name.
- * @param string $terms
- *   Term name.
+ * @param array $terms
+ *   Term names.
  */
 function mal_generate_content_add_taxonomy_terms($voc_name, $terms) {
-  $vid = taxonomy_vocabulary_machine_name_load($voc_name)->vid;
+  $vocabulary = taxonomy_vocabulary_machine_name_load($voc_name);
 
-  if (!$vid) {
+  if (!$vocabulary) {
     $new_vocab = (object) array(
       'name' => str_replace('_', ' ', strtoupper($voc_name)),
       'machine_name' => $voc_name,
     );
 
     taxonomy_vocabulary_save($new_vocab);
-    $vid = taxonomy_vocabulary_machine_name_load($voc_name)->vid;
+    $vocabulary = taxonomy_vocabulary_machine_name_load($voc_name);
   }
 
-  $options_source = taxonomy_get_tree($vid);
+  $options_source = taxonomy_get_tree($vocabulary->vid);
   $options = array();
   foreach ($options_source as $item) {
     $value = $item->name;
@@ -94,7 +94,7 @@ function mal_generate_content_add_taxonomy_terms($voc_name, $terms) {
   foreach (array_diff($terms, $options) as $name) {
     $term = new stdClass();
     $term->name = $name;
-    $term->vid = $vid;
+    $term->vid = $vocabulary->vid;
     taxonomy_term_save($term);
   }
 }
