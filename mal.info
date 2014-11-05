@@ -103,6 +103,8 @@ dependencies[] = page_front
 dependencies[] = page_main_layout
 dependencies[] = page_search
 dependencies[] = pane_global_search
+dependencies[] = page_user_register
+dependencies[] = page_user_profile
 dependencies[] = view_faq
 dependencies[] = view_search
 ; Customization

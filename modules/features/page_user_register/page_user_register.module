@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * @file
+ * Code for the Page user register feature.
+ */
+
+include_once 'page_user_register.features.inc';

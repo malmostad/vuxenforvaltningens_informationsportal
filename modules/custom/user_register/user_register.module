@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Modifications in user register logic.
+ */
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function user_register_ctools_plugin_directory($owner, $plugin_type) {
+  if ($owner == 'ctools' && $plugin_type == 'content_types') {
+    return 'plugins/content_types';
+  }
+}
+
+/**
+ * Implements hook_element_info_alter().
+ *
+ * Remove default user process, that adds client-side validation.
+ */
+function user_register_element_info_alter(&$type) {
+  if (!empty($type['password_confirm'])) {
+    $user_process_key = array_search('user_form_process_password_confirm', $type['password_confirm']['#process']);
+    if ($user_process_key !== FALSE) {
+      unset($type['password_confirm']['#process'][$user_process_key]);
+    }
+  }
+}
+
+/**
+ * Implements hook_menu_alter().
+ *
+ * Restrict access to default register page.
+ */
+function user_register_menu_alter(&$items) {
+  $items['user/register']['access callback'] = FALSE;
+}
