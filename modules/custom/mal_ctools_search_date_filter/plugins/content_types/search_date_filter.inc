@@ -35,7 +35,7 @@ function search_date_filter_form(array $form, array &$form_state, $conf) {
     '#attributes' => array(
       'class' => array('date-popup-calendar-form-input', 'ctools-auto-submit'),
       'autocomplete' => array('off'),
-      'readonly' => array('true')
+      'readonly' => array('true'),
     ),
   );
 
@@ -48,7 +48,7 @@ function search_date_filter_form(array $form, array &$form_state, $conf) {
     '#type' => 'submit',
     '#attributes' => array(
       'class' => array('date-popup-calendar-form-submit', 'ctools-auto-submit-click'),
-      'style' => array('display:none;')
+      'style' => array('display:none;'),
     ),
     '#value' => t('Submit'),
   );
