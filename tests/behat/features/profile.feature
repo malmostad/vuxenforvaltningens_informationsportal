@@ -6,7 +6,7 @@ Feature: Profile page
 
   @api
   Scenario: Visit profile
-    Given I am logged in as a user with the "authenticated" role
+    Given I am logged in as a user with the "authenticated user" role
     And I am on "user"
     Then I should see the text "Profilsida"
     And I should see the text "Lorem ipsum dolor sit amet"
