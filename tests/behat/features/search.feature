@@ -4,22 +4,12 @@ Feature: Search the site
   As any user
   I should be able to search for courses
 
-  Background:
-    Given "type_of_education" terms:
-      | name      |
-      | Test course 235    |
-
-    Given "course" nodes:
-      | title      | field_course_type_education |
-      | Course 235   | Test course 235                      |
-
   @api @javascript
   Scenario: Use the global search field
     Given I am on the homepage
     When I fill in "edit-keys" with "Course"
     And I press "Search"
     Then I should be on "search-courses/Course"
-  # add tests
 
   @api
   Scenario: Check facets
@@ -41,14 +31,17 @@ Feature: Search the site
   Scenario: Check sort
     Given I am on the homepage
     And I press "Search"
-    Then the response should contain "Sort by startdate"
-
+    Then the response should contain "Sort by"
+    Then the response should contain "Relevance"
+    Then the response should contain "Alfabetic"
+    Then the response should contain "Strartdate"
 
   @javascript @search-facet
   Scenario: Use start date facet
     Given I am on the homepage
     Then I should not see container with class "ui-datepicker"
     And I press "Search"
+    And I press element ".minipanel-search-facet-date"
     When I press element "#edit-date"
     Then I should see container with class "ui-datepicker"
     When I press element ".ui-datepicker-week-end"

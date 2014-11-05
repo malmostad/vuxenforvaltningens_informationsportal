@@ -138,7 +138,7 @@ function page_search_default_page_manager_pages() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => '',
+      'css_class' => 'minipanel-search-facet',
       'template_suggestion' => 'panels_mini_search',
     );
     $pane->extras = array();
@@ -164,7 +164,7 @@ function page_search_default_page_manager_pages() {
     );
     $pane->css = array(
       'css_id' => '',
-      'css_class' => '',
+      'css_class' => 'minipanel-search-facet-date',
       'template_suggestion' => 'panels_mini_search',
     );
     $pane->extras = array();
@@ -172,51 +172,33 @@ function page_search_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '4f82866f-5ff5-4536-b77b-49fb3ba5f601';
     $display->content['new-4f82866f-5ff5-4536-b77b-49fb3ba5f601'] = $pane;
-    $display->panels['region-one'][2] = 'new-4f82866f-5ff5-4536-b77b-49fb3ba5f601';
+    $display->panels['region-two'][1] = 'new-4f82866f-5ff5-4536-b77b-49fb3ba5f601';
     $pane = new stdClass();
-    $pane->pid = 'new-6c26334e-d673-4487-b9bd-ee4d52f059c8';
-    $pane->panel = 'region-one';
-    $pane->type = 'block';
-    $pane->subtype = 'search_api_sorts-search-sorts';
+    $pane->pid = 'new-accce895-141d-48d6-acbe-9d476290bee6';
+    $pane->panel = 'region-two';
+    $pane->type = 'panels_mini';
+    $pane->subtype = 'minipanel_search_sort';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
       'override_title' => 1,
-      'override_title_text' => '',
+      'override_title_text' => 'Sortera',
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 3;
-    $pane->locks = array();
-    $pane->uuid = '6c26334e-d673-4487-b9bd-ee4d52f059c8';
-    $display->content['new-6c26334e-d673-4487-b9bd-ee4d52f059c8'] = $pane;
-    $display->panels['region-one'][3] = 'new-6c26334e-d673-4487-b9bd-ee4d52f059c8';
-    $pane = new stdClass();
-    $pane->pid = 'new-94649275-3af9-4d47-92c1-91e658859bee';
-    $pane->panel = 'region-one';
-    $pane->type = 'views_panes';
-    $pane->subtype = 'search-panel_pane_1';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array();
-    $pane->cache = array(
-      'method' => '0',
-      'settings' => array(),
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'minipanel-search-sort',
+      'template_suggestion' => 'panels_mini_search',
     );
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
     $pane->extras = array();
-    $pane->position = 4;
+    $pane->position = 2;
     $pane->locks = array();
-    $pane->uuid = '94649275-3af9-4d47-92c1-91e658859bee';
-    $display->content['new-94649275-3af9-4d47-92c1-91e658859bee'] = $pane;
-    $display->panels['region-one'][4] = 'new-94649275-3af9-4d47-92c1-91e658859bee';
+    $pane->uuid = 'accce895-141d-48d6-acbe-9d476290bee6';
+    $display->content['new-accce895-141d-48d6-acbe-9d476290bee6'] = $pane;
+    $display->panels['region-two'][2] = 'new-accce895-141d-48d6-acbe-9d476290bee6';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
