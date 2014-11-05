@@ -21,6 +21,13 @@ html {
   }
 }
 
+.breadcrumb {
+  background: none;
+  &>li+li:before {
+    content: none;
+  }
+}
+
 /* Styles for main wrapper */
 .wrapper {
   margin:1em auto;
