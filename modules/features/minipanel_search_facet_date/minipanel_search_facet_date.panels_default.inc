@@ -69,16 +69,13 @@ function minipanel_search_facet_date_default_panels_mini() {
     $display->content['new-c4e4812e-1fcb-4c6e-9807-4d5022d3dcf3'] = $pane;
     $display->panels['region-one'][0] = 'new-c4e4812e-1fcb-4c6e-9807-4d5022d3dcf3';
     $pane = new stdClass();
-    $pane->pid = 'new-8c28701e-f6c1-4802-8cc6-3a2e2479b266';
+    $pane->pid = 'new-3361f4a7-6df3-4017-a4a7-4ccd0825d1f7';
     $pane->panel = 'region-two';
-    $pane->type = 'block';
-    $pane->subtype = 'facetapi-fgqUTew3cDS8vd7VKbZoXa7a13q1iKQw';
+    $pane->type = 'search_date_filter';
+    $pane->subtype = 'search_date_filter';
     $pane->shown = TRUE;
     $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-    );
+    $pane->configuration = array();
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
@@ -87,9 +84,9 @@ function minipanel_search_facet_date_default_panels_mini() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = '8c28701e-f6c1-4802-8cc6-3a2e2479b266';
-    $display->content['new-8c28701e-f6c1-4802-8cc6-3a2e2479b266'] = $pane;
-    $display->panels['region-two'][0] = 'new-8c28701e-f6c1-4802-8cc6-3a2e2479b266';
+    $pane->uuid = '3361f4a7-6df3-4017-a4a7-4ccd0825d1f7';
+    $display->content['new-3361f4a7-6df3-4017-a4a7-4ccd0825d1f7'] = $pane;
+    $display->panels['region-two'][0] = 'new-3361f4a7-6df3-4017-a4a7-4ccd0825d1f7';
     $pane = new stdClass();
     $pane->pid = 'new-5b42c05f-ccd6-4980-8a44-d58c798aacb4';
     $pane->panel = 'region-two';
