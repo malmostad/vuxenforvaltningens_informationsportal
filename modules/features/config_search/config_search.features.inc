@@ -33,9 +33,10 @@ function config_search_default_search_api_index() {
         "field_course_school" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_course_subject_areas" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_course_type_education" : { "type" : "integer", "entity_type" : "taxonomy_term" },
+        "search_api_aggregation_1" : { "type" : "text" },
         "search_api_language" : { "type" : "string" },
         "search_api_url" : { "type" : "uri" },
-        "title" : { "type" : "text" }
+        "title" : { "type" : "string" }
       },
       "data_alter_callbacks" : {
         "search_api_alter_bundle_filter" : {
@@ -52,7 +53,18 @@ function config_search_default_search_api_index() {
         },
         "search_api_alter_add_viewed_entity" : { "status" : 0, "weight" : "0", "settings" : { "mode" : "full" } },
         "search_api_alter_add_url" : { "status" : 1, "weight" : "0", "settings" : [] },
-        "search_api_alter_add_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] },
+        "search_api_alter_add_aggregation" : {
+          "status" : 1,
+          "weight" : "0",
+          "settings" : { "fields" : { "search_api_aggregation_1" : {
+                "name" : "Title Fulltext",
+                "type" : "fulltext",
+                "fields" : [ "title" ],
+                "description" : "A Fulltext aggregation of the following fields: Title."
+              }
+            }
+          }
+        },
         "search_api_alter_add_hierarchy" : { "status" : 0, "weight" : "0", "settings" : { "fields" : [] } }
       },
       "processors" : {
@@ -97,12 +109,9 @@ function config_search_default_search_api_index() {
             "fields" : {
               "title" : true,
               "field_course_application_period" : true,
-              "field_course_form" : true,
               "field_course_group" : true,
               "field_course_national_code" : true,
-              "field_course_prerequisites" : true,
-              "field_course_school" : true,
-              "field_course_type_education" : true
+              "field_course_prerequisites" : true
             },
             "spaces" : "[^[:alnum:]]",
             "ignorable" : "[\\u0027]"

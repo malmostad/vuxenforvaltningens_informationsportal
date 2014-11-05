@@ -104,6 +104,7 @@ dependencies[] = content_type_question_and_answer
 dependencies[] = menu_global
 dependencies[] = minipanel_search_facet
 dependencies[] = minipanel_search_facet_date
+dependencies[] = minipanel_search_sort
 dependencies[] = page_course_view
 dependencies[] = page_faq
 dependencies[] = page_front
