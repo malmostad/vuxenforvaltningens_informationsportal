@@ -172,7 +172,51 @@ function page_search_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '4f82866f-5ff5-4536-b77b-49fb3ba5f601';
     $display->content['new-4f82866f-5ff5-4536-b77b-49fb3ba5f601'] = $pane;
-    $display->panels['region-two'][1] = 'new-4f82866f-5ff5-4536-b77b-49fb3ba5f601';
+    $display->panels['region-one'][2] = 'new-4f82866f-5ff5-4536-b77b-49fb3ba5f601';
+    $pane = new stdClass();
+    $pane->pid = 'new-6c26334e-d673-4487-b9bd-ee4d52f059c8';
+    $pane->panel = 'region-one';
+    $pane->type = 'block';
+    $pane->subtype = 'search_api_sorts-search-sorts';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = '6c26334e-d673-4487-b9bd-ee4d52f059c8';
+    $display->content['new-6c26334e-d673-4487-b9bd-ee4d52f059c8'] = $pane;
+    $display->panels['region-one'][3] = 'new-6c26334e-d673-4487-b9bd-ee4d52f059c8';
+    $pane = new stdClass();
+    $pane->pid = 'new-94649275-3af9-4d47-92c1-91e658859bee';
+    $pane->panel = 'region-one';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'search-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array(
+      'method' => '0',
+      'settings' => array(),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->locks = array();
+    $pane->uuid = '94649275-3af9-4d47-92c1-91e658859bee';
+    $display->content['new-94649275-3af9-4d47-92c1-91e658859bee'] = $pane;
+    $display->panels['region-one'][4] = 'new-94649275-3af9-4d47-92c1-91e658859bee';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

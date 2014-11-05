@@ -78,6 +78,9 @@ projects[search_api][subdir] = "contrib"
 projects[search_api_solr][version] = "1.6"
 projects[search_api_solr][subdir] = "contrib"
 
+projects[search_api_sorts][version] = "1.x-dev"
+projects[search_api_sorts][subdir] = "contrib"
+
 projects[facetapi][version] = "1.5"
 projects[facetapi][subdir] = "contrib"
 

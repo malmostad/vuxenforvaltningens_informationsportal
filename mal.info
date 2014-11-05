@@ -79,6 +79,7 @@ dependencies[] = search_api
 dependencies[] = search_api_facetapi
 dependencies[] = search_api_solr
 dependencies[] = search_api_views
+dependencies[] = search_api_sorts
 ; Search Toolkit
 dependencies[] = facetapi
 ; User interface
@@ -93,6 +94,7 @@ dependencies[] = config_facet
 dependencies[] = config_jquery_update
 dependencies[] = config_permissions
 dependencies[] = config_search
+dependencies[] = config_search_sort
 dependencies[] = config_taxonomy
 dependencies[] = config_view_modes
 dependencies[] = config_wysiwyg
