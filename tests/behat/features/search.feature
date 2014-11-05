@@ -35,13 +35,14 @@ Feature: Search the site
     And I should see the text "Kursstart, tider och veckodagar"
     And I should see an "#edit-date" element
     And I should see the text "Veckodagar"
-    And I should see the text "tisdag"
+    And I should see the text "monday"
 
-  @api
+  @api @sort
   Scenario: Check sort
     Given I am on the homepage
     And I press "Search"
-    Then I should see the text "Sort by startdate"
+    Then the response should contain "Sort by startdate"
+
 
   @javascript @search-facet
   Scenario: Use start date facet
