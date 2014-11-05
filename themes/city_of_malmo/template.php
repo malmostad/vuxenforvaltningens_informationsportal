@@ -238,10 +238,15 @@ function city_of_malmo_form_element(&$variables) {
  *   An associative array containing:
  *   - items: The sort options
  *   - options: Various options to pass
+ * @return string
+ *
+ * @see theme_search_api_sorts_list().
  */
 function city_of_malmo_search_api_sorts_list(array $variables) {
   $items = array_map('render', $variables['items']);
-  return $items ? implode($items) : '';
+  $options = $variables['options'];
+
+  return $items ? theme('item_list', array('items' => $items) + $options) : '';
 }
 
 /**
@@ -255,6 +260,8 @@ function city_of_malmo_search_api_sorts_list(array $variables) {
  *   - active: A boolean telling whether this sort filter is active or not.
  *   - order_options: If active, a set of options to reverse the order
  * @return string
+ *
+ * @see theme_search_api_sorts_sort().
  */
 function city_of_malmo_search_api_sorts_sort(array $variables) {
   $name = $variables['name'];
@@ -265,7 +272,14 @@ function city_of_malmo_search_api_sorts_sort(array $variables) {
   $order_options = $variables['order_options'] + array('query' => array(), 'attributes' => array(), 'html' => TRUE);
   $order_options['attributes'] += array('class' => array());
 
-  $return_html = l($name, $path, $options);
+  if ($variables['active']) {
+    $return_html = '<span class="search-api-sort-active">';
+    $return_html .= l(t($name) . theme('tablesort_indicator', array('style' => $order_options['query']['order'])), $path, $order_options);
+    $return_html .= '</span>';
+  }
+  else {
+    $return_html = l($name, $path, $options);
+  }
 
   return $return_html;
 }
