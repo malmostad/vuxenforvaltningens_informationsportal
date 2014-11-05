@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * @file
+ * mal_search.module file.
+ */
+
+/**
  * Implements hook_entity_property_info_alter().
  */
 function mal_search_entity_property_info_alter(&$info) {
@@ -12,37 +17,72 @@ function mal_search_entity_property_info_alter(&$info) {
     'field' => TRUE,
     'sanitized' => TRUE,
     'getter callback' => 'mal_search_property_duration_days_getter_callback',
-    //'schema field' => 'language',
+    // 'schema field' => 'language',
   );
 }
 
 /**
- * Getter callback for multiple field.
+ * Getter callback for time field.
+ *
+ * It returns translated week days names.
+ *
+ * @param array $item
+ *   Fieldable entity object.
+ * @param array $options
+ *   Option for particular get callback.
+ * @param string $name
+ *   Schema field name.
+ * @param string $type
+ *   Entity type.
+ * @param array $info
+ *   Structure from hook_entity_property_info().
+ *
+ * @return array
+ *   Set of valid values for given field.
  */
-function mal_search_property_duration_days_getter_callback($item) {
-  if (empty($item->field_course_periods[LANGUAGE_NONE])) {
-    return array();
-  }
-
+function mal_search_property_duration_days_getter_callback($item, array $options, $name, $type, $info) {
   $values = array();
-  // todo add more flex: not hard code field name and values
+  // @todo add more flex: not hard code field name and values
+  // and swedish translation.
   $strings = array(
-    'mon' => 'Måndag',
-    'tue' => 'Tisdag',
-    'wed' => 'Onsdag',
-    'thu' => 'Torsdag',
-    'fri' => 'Fredag',
-    'sat' => 'Lördag',
-    'sun' => 'Söndag',
+    'mon' => t('Monday'),
+    'tue' => t('Tuesday'),
+    'wed' => t('Wednesday'),
+    'thu' => t('Thursday'),
+    'fri' => t('Friday'),
+    'sat' => t('Saturday'),
+    'sun' => t('Sunday'),
   );
 
-  foreach($item->field_course_periods[LANGUAGE_NONE] as $period) {
-    foreach($strings as $machine_day => $day) {
-      if ($period[$machine_day]) {
+  foreach (field_get_items($type, $item, 'field_course_periods', $options['language']) as $delta => $period) {
+    foreach ($strings as $machine_day => $day) {
+      if (!empty($period[$machine_day])) {
         $values[$machine_day] = $day;
       }
     }
   }
 
   return $values;
+}
+
+/**
+ * Alter the query before executing the query.
+ *
+ * @param view $view
+ *   The view object about to be processed.
+ * @param SearchApiViewsQuery $query
+ *   The Search API Views query to be altered.
+ *
+ * @see hook_views_query_alter()
+ */
+function mal_search_search_api_views_query_alter(view &$view, SearchApiViewsQuery &$query) {
+  $get_param = variable_get('search_date_filter_get_param', 'search-start-date');
+
+  if ($view->name == 'search'
+    && isset($_GET[$get_param])
+    && $get_param = strtotime($_GET[$get_param])
+  ) {
+    $group_id = $query->set_where_group();
+    $query->condition('field_course_date:value', $get_param, '>=', $group_id);
+  }
 }

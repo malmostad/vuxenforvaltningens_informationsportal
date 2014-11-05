@@ -45,6 +45,7 @@ dependencies[] = user
 ; Date/Time
 dependencies[] = date
 dependencies[] = date_api
+dependencies[] = date_popup
 ; Development
 dependencies[] = devel
 dependencies[] = devel_generate
@@ -65,6 +66,11 @@ dependencies[] = panels
 dependencies[] = panels_everywhere
 dependencies[] = panels_mini
 dependencies[] = pps
+; Propeople
+dependencies[] = mal_ctools_global_search
+dependencies[] = mal_ctools_search_date_filter
+dependencies[] = mal_generate_content
+dependencies[] = mal_search
 ; Registration
 dependencies[] = registration
 dependencies[] = registration_views
@@ -73,9 +79,9 @@ dependencies[] = search_api
 dependencies[] = search_api_facetapi
 dependencies[] = search_api_solr
 dependencies[] = search_api_views
+dependencies[] = search_api_sorts
 ; Search Toolkit
 dependencies[] = facetapi
-dependencies[] = facetapi_date_popup_calendar
 ; User interface
 dependencies[] = jquery_update
 dependencies[] = wysiwyg
@@ -88,6 +94,7 @@ dependencies[] = config_facet
 dependencies[] = config_jquery_update
 dependencies[] = config_permissions
 dependencies[] = config_search
+dependencies[] = config_search_sort
 dependencies[] = config_taxonomy
 dependencies[] = config_view_modes
 dependencies[] = config_wysiwyg
@@ -102,11 +109,8 @@ dependencies[] = page_faq
 dependencies[] = page_front
 dependencies[] = page_main_layout
 dependencies[] = page_search
-dependencies[] = pane_global_search
 dependencies[] = page_user_register
 dependencies[] = page_user_profile
 dependencies[] = view_faq
 dependencies[] = view_search
-; Customization
-dependencies[] = mal_search
-dependencies[] = mal_generate_content
+
