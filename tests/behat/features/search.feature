@@ -37,6 +37,12 @@ Feature: Search the site
     And I should see the text "Veckodagar"
     And I should see the text "tisdag"
 
+  @api
+  Scenario: Check sort
+    Given I am on the homepage
+    And I press "Search"
+    Then I should see the text "Sort by startdate"
+
   @javascript @search-facet
   Scenario: Use start date facet
     Given I am on the homepage
