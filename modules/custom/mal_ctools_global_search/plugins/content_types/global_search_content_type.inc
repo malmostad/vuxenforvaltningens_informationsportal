@@ -9,14 +9,14 @@ $plugin = array(
   'single' => TRUE,
   'render callback' => 'global_search_block_render',
   'edit form' => 'global_search_edit_form',
-  //'required context' => new ctools_context_required(t('Node'), 'node'),
+  // 'required context' => new ctools_context_required(t('Node'), 'node'),
   'category' => array(t('Propeople'), -9),
 );
 
 /**
  * Block render callback.
  */
-function global_search_edit_form($form, &$form_state)  {
+function global_search_edit_form($form, &$form_state) {
   ctools_form_include($form_state, 'global_search_content_type', 'mal_ctools_global_search', 'plugins/content_types');
   $conf = $form_state['conf'];
   $form['search_path'] = array(
@@ -30,7 +30,7 @@ function global_search_edit_form($form, &$form_state)  {
 /**
  * Block render callback.
  */
-function global_search_edit_form_submit($form, &$form_state)  {
+function global_search_edit_form_submit($form, &$form_state) {
   form_state_values_clean($form_state);
   foreach ($form_state['values'] as $key => $value) {
     $form_state['conf'][$key] = $value;
@@ -39,11 +39,7 @@ function global_search_edit_form_submit($form, &$form_state)  {
 /**
  * Block render callback.
  */
-function global_search_block_render($subtype, $conf, $args, $context)  {
-//  if (empty($context) || empty($context->data)) {
-//    return;
-//  }
-
+function global_search_block_render($subtype, $conf, $args, $context) {
   $block = new stdClass();
   $block->content = drupal_get_form('global_search_form', $conf);
 
@@ -90,7 +86,7 @@ function global_search_form_submit(array $form, array &$form_state) {
 
   $keys = strtr($keys, array("\\" => "\\\\", '/' => "\\"));
 
-  $form_state['redirect'] = array($form_state['values']['base'] . '/' . $keys, array('query' =>  drupal_get_query_parameters()));
+  $form_state['redirect'] = array($form_state['values']['base'] . '/' . $keys, array('query' => drupal_get_query_parameters()));
 
   // To completely controll the redirect destination, we need to remove the
   // 'destination' GET parameter, which would override our destination, if
