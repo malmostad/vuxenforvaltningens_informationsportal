@@ -229,3 +229,43 @@ function city_of_malmo_form_element(&$variables) {
 
   return $output;
 }
+
+
+/**
+ * Theme a list of sort options.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - items: The sort options
+ *   - options: Various options to pass
+ */
+function city_of_malmo_search_api_sorts_list(array $variables) {
+  $items = array_map('render', $variables['items']);
+  return $items ? implode($items) : '';
+}
+
+/**
+ * Theme a single sort item.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - name: The name to display for the item.
+ *   - path: The destination path when the sort link is clicked.
+ *   - options: An array of options to pass to l().
+ *   - active: A boolean telling whether this sort filter is active or not.
+ *   - order_options: If active, a set of options to reverse the order
+ * @return string
+ */
+function city_of_malmo_search_api_sorts_sort(array $variables) {
+  $name = $variables['name'];
+  $path = $variables['path'];
+  $options = $variables['options'] + array('attributes' => array());
+  $options['attributes'] += array('class' => array());
+
+  $order_options = $variables['order_options'] + array('query' => array(), 'attributes' => array(), 'html' => TRUE);
+  $order_options['attributes'] += array('class' => array());
+
+  $return_html = l($name, $path, $options);
+
+  return $return_html;
+}
