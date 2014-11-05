@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Config  search sort feature.
+ */
+
+include_once 'config_search_sort.features.inc';
