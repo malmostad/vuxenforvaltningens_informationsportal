@@ -52,7 +52,7 @@ function global_search_block_render($subtype, $conf, $args, $context) {
 function global_search_form(array $form, array &$form_state, $conf) {
   ctools_form_include($form_state, 'global_search_content_type', 'mal_ctools_global_search', 'plugins/content_types');
 
-  // todo rewrite to context
+  // TODO rewrite to context.
   $search_keys = isset($conf['search_path']) && (arg(0) == $conf['search_path']) ? arg(1) : '';
 
   $form['keys'] = array(
