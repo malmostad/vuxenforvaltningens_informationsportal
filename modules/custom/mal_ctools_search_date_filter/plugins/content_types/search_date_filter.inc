@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- *  Mal search date filter pane.
+ * Mal search date filter pane.
  */
 
 $plugin = array(
@@ -14,7 +14,7 @@ $plugin = array(
 /**
  * Block render callback.
  */
-function search_date_filter_block_render($subtype, $conf, $args, $context)  {
+function search_date_filter_block_render($subtype, $conf, $args, $context) {
   $block = new stdClass();
   $block->content = drupal_get_form('search_date_filter_form', $conf);
 
@@ -32,7 +32,11 @@ function search_date_filter_form(array $form, array &$form_state, $conf) {
     '#type' => 'textfield',
     '#default_value' => !empty($query[$get_param]) ? $query[$get_param] : NULL,
     '#size' => 'auto',
-    '#attributes' => array('class' => array('date-popup-calendar-form-input', 'ctools-auto-submit'), 'autocomplete' => array('off'), 'readonly' => array('true')),
+    '#attributes' => array(
+      'class' => array('date-popup-calendar-form-input', 'ctools-auto-submit'),
+      'autocomplete' => array('off'),
+      'readonly' => array('true')
+    ),
   );
 
   ctools_add_js('auto-submit');
@@ -42,7 +46,10 @@ function search_date_filter_form(array $form, array &$form_state, $conf) {
 
   $form['submit'] = array(
     '#type' => 'submit',
-    '#attributes' => array('class' => array('date-popup-calendar-form-submit', 'ctools-auto-submit-click'), 'style' => array('display:none;')),
+    '#attributes' => array(
+      'class' => array('date-popup-calendar-form-submit', 'ctools-auto-submit-click'),
+      'style' => array('display:none;')
+    ),
     '#value' => t('Submit'),
   );
 
@@ -61,7 +68,7 @@ function search_date_filter_form_submit(array $form, array &$form_state) {
 
   $query[$get_param] = $form_state['input']['date'];
 
-  $form_state['redirect'] = array(current_path(), array('query' =>  $query));
+  $form_state['redirect'] = array(current_path(), array('query' => $query));
 
   // To completely controll the redirect destination, we need to remove the
   // 'destination' GET parameter, which would override our destination, if
