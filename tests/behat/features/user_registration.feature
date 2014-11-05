@@ -1,4 +1,4 @@
-@api @register
+@api @user_registration
 Feature: User register
   In order to register on the site
   As anonymous user

@@ -165,6 +165,8 @@ function city_of_malmo_form_element(&$variables) {
   // @see bootstrap_tooltip_descriptions setting in _bootstrap_settings_form()
   if (!empty($element['#description'])) {
     $description = $element['#description'];
+    // Change max length of description to 300
+    // to make all of current descriptions processed by tooltip.
     if (theme_get_setting('bootstrap_tooltip_enabled') && theme_get_setting('bootstrap_tooltip_descriptions') && $description === strip_tags($description) && strlen($description) <= 300) {
       $tooltip = TRUE;
       $attributes['data-toggle'] = 'tooltip';
@@ -226,8 +228,4 @@ function city_of_malmo_form_element(&$variables) {
   $output .= "</div>\n";
 
   return $output;
-}
-
-function city_of_malmo_preprocess_panels_pane($vars) {
-  $a = 1;
 }

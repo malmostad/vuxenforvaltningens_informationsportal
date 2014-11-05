@@ -2,3 +2,5 @@ name = Mal user customizations
 core = 7.x
 package = Propeople
 dependencies[] = user
+dependencies[] = ctools
+dependencies[] = panels
