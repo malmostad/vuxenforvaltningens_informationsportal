@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * @file
+ * Configuration tasks after module install.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function user_register_install() {
+  // Allow users to specify their password on register form.
+  variable_set('user_email_verification', FALSE);
+}
