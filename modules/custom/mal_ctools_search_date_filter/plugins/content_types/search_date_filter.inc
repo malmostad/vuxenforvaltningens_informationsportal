@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Mal search date filter pane.
