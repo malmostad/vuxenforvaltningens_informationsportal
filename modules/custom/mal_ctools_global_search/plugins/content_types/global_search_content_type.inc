@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Global search pane.
