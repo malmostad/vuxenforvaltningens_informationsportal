@@ -872,6 +872,21 @@ footer#malmo-footer {
         padding-left: 15px;
       }
     }
+    img {
+      @include inline-block();
+      margin: 0 0 0 5px;
+    }
+  }
+  .facetapi-facetapi-checkbox-links {
+    font-size: 12px;
+    float: left;
+    margin: 0;
+    padding: 0 0 20px;
+    a {
+      color: #4f4f4f;
+      font-family: "OpenSans", "Droid Sans", "Verdana", "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
+      margin: 0;
+    }
   }
 }
 
