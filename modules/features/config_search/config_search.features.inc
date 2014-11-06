@@ -21,6 +21,7 @@ function config_search_default_search_api_index() {
       "fields" : {
         "duration_days" : { "type" : "list\\u003Ctext\\u003E" },
         "field_course_application_period" : { "type" : "text" },
+        "field_course_available_search" : { "type" : "boolean" },
         "field_course_date:value" : { "type" : "string" },
         "field_course_date:value2" : { "type" : "date" },
         "field_course_form" : { "type" : "integer", "entity_type" : "taxonomy_term" },
