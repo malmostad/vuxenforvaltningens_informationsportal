@@ -1,3 +1,6 @@
+/* Variables */
+$OpenSans: "OpenSans", "Droid Sans", "Verdana", "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
+
 /* Override bootstrap */
 html {
   font-size: 100%;
@@ -31,7 +34,7 @@ html {
 /* Styles for main wrapper */
 .wrapper {
   margin:1em auto;
-  max-width:55em;
+  max-width:64em;
   padding:0 1em;
   *zoom:1;
   &:before,
@@ -235,7 +238,7 @@ body.editors-draft::after {
   z-index:100;
   background:#c00;
   color:#fff;
-  font-family:"OpenSans", "Droid Sans", "Verdana", "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
+  font-family:$OpenSans;
   font-weight:bold;
   font-size:16px;
   padding-top:.3em;
@@ -298,7 +301,7 @@ h2 + .example {
   left:.4em;
   content:'example';
   color:#999;
-  font-family:"OpenSans", "Droid Sans", "Verdana", "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
+  font-family:$OpenSans;
   text-transform:uppercase;
   font-size:0.7em;
   letter-spacing:0.2em;
@@ -685,7 +688,7 @@ nav.content {
   h2 {
     border-bottom: #b5b5b5 1px solid;
     font-size: 1em;
-    font-family: "OpenSans", "Droid Sans", "Verdana", "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
+    font-family: $OpenSans;
     font-weight: bold;
     line-height: 1.2;
     margin: 0;
@@ -798,7 +801,7 @@ footer#malmo-footer {
     color: #4f4f4f;
     cursor: pointer;
     font-size: 12px;
-    font-family: "OpenSans", "Droid Sans", "Verdana", "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
+    font-family: $OpenSans;
     float: left;
     margin: 0 20px 0 0;
     padding-bottom: 20px;
@@ -821,7 +824,7 @@ footer#malmo-footer {
     background: #fff;
     border: 1px solid #ccc;
     display: none;
-    font-family: "OpenSans", "Droid Sans", "Verdana", "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
+    font-family: $OpenSans;
     padding: 15px 20px;
     position: absolute;
     left: 0;
@@ -882,10 +885,16 @@ footer#malmo-footer {
     float: left;
     margin: 0;
     padding: 0 0 20px;
+    input[type="checkbox"] {
+      margin-top: 2px;
+    }
     a {
       color: #4f4f4f;
-      font-family: "OpenSans", "Droid Sans", "Verdana", "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
-      margin: 0;
+      display: inline !important;
+      font-family: $OpenSans;
+      margin: 0 0 0 3px;
+      text-decoration: none;
+      vertical-align: top;
     }
   }
 }
