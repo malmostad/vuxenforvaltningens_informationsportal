@@ -26,6 +26,7 @@ Feature: Search the site
     And I should see an "#edit-date" element
     And I should see the text "Veckodagar"
     And I should see the text "monday"
+    And I should see the text "Show only searchable courses"
 
   @api @sort
   Scenario: Check sort
@@ -45,3 +46,4 @@ Feature: Search the site
     When I press element "#edit-date"
     Then I should see container with class "ui-datepicker"
     When I press element ".ui-datepicker-week-end"
+
