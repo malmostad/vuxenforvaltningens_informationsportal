@@ -84,6 +84,9 @@ projects[search_api_sorts][subdir] = "contrib"
 projects[facetapi][version] = "1.5"
 projects[facetapi][subdir] = "contrib"
 
+projects[facetapi_bonus][version] = "1.1"
+projects[facetapi_bonus][subdir] = "contrib"
+
 projects[jquery_update][version] = "2.4"
 projects[jquery_update][subdir] = "contrib"
 
