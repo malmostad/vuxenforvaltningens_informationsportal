@@ -12,7 +12,7 @@ projects[panels][patch][] = "https://www.drupal.org/files/issues/panels-add-rend
 projects[facetapi][patch][] = "https://www.drupal.org/files/issues/facetapi-override_facet_label-1665164-22.patch"
 
 projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-customize-template-2145341-1.patch"
-projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield.patch"
+projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-isset-2132811-5.patch"
 
 ; +++++ Modules +++++
 
