@@ -104,9 +104,9 @@ before_script:
   - cd drupal
 
   # Generate dummy content.
-  - drush generate-content 20 0 --types=page
-  - drush generate-content 50 0 --types=course
-  - drush generate-content 20 0 --types=question_and_answer
+  - drush generate-content 10 0 --types=page
+  - drush generate-content 10 0 --types=course
+  - drush generate-content 10 0 --types=question_and_answer
   - cd ../drupal
 
   # Set solr
