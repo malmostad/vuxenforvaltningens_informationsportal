@@ -1,7 +1,8 @@
 <?php
 /**
  * @file
- * Contains theme override functions and process & preprocess functions for City Of Malmo.
+ * Contains theme override functions and
+ * process * & preprocess functions for City Of Malmo.
  *
  * @TODO Add your own template_preprocess hooks here.
  */
@@ -14,54 +15,18 @@ function city_of_malmo_preprocess_maintenance_page(&$variables) {
 }
 
 /**
- * Implements template_preprocess_html().
- */
-function city_of_malmo_preprocess_html(&$variables) {
-//  // CSS files for Internet Explorer-specific styles.
-//  drupal_add_css(path_to_theme() . '/css/ie/city_of_malmo-ielt9.css', array('group' => CSS_THEME, 'every_page' => TRUE, 'media' => 'screen', 'browsers' => array('IE' => 'lt IE 9', '!IE' => FALSE), 'preprocess' => FALSE));
-//  drupal_add_css(path_to_theme() . '/css/ie/city_of_malmo-ielt8.css', array('group' => CSS_THEME, 'every_page' => TRUE, 'media' => 'screen', 'browsers' => array('IE' => 'lt IE 8', '!IE' => FALSE), 'preprocess' => FALSE));
-//
-//  // Responsive stylesheets.
-//  if (theme_get_setting('zentropy_responsive_enable')) {
-//    drupal_add_css(path_to_theme() . '/css/layout/city_of_malmo-320.css', array('group' => CSS_THEME, 'every_page' => TRUE, 'media' => 'only screen and (min-width : 320px) and (max-width : 480px)'));
-//    drupal_add_css(path_to_theme() . '/css/layout/city_of_malmo-480.css', array('group' => CSS_THEME, 'every_page' => TRUE, 'media' => 'only screen and (min-width : 480px) and (max-width: 768px)'));
-//    drupal_add_css(path_to_theme() . '/css/layout/city_of_malmo-768.css', array('group' => CSS_THEME, 'every_page' => TRUE, 'media' => 'only screen and (min-width : 768px) and (max-width: 992px)'));
-//    drupal_add_css(path_to_theme() . '/css/layout/city_of_malmo-992.css', array('group' => CSS_THEME, 'every_page' => TRUE, 'media' => 'only screen and (min-width : 992px) and (max-width: 1382px)'));
-//    drupal_add_css(path_to_theme() . '/css/layout/city_of_malmo-1382.css', array('group' => CSS_THEME, 'every_page' => TRUE, 'media' => 'only screen and (min-width : 1382px)'));
-//
-//    // Styles for iPhone 4+, iPad 3+, Opera Mobile 11+ and other high pixel ratio browsers and devices.
-//    drupal_add_css(path_to_theme() . '/css/layout/city_of_malmo-hipixel.css', array('group' => CSS_THEME, 'every_page' => TRUE, 'media' => 'only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min--moz-device-pixel-ratio: 1.5)'));
-//  }
-//  // If not, use fallback stylesheet.
-//  else {
-//    $fallback = theme_get_setting('zentropy_responsive_fallback');
-//    drupal_add_css(path_to_theme() . "/css/layout/city_of_malmo-{$fallback}.css", array('group' => CSS_THEME, 'every_page' => TRUE));
-//  }
-//
-
-}
-
-/**
- * Implementation of hook_css_alter()
+ * Implements hook_css_alter().
  */
 function city_of_malmo_css_alter(&$css) {
   $exclude = array(
     'modules/system/system.theme.css' => FALSE,
-    'modules/system/system.menus.css' => FALSE
-  //  drupal_get_path('theme','zentropy') . '/css/zentropy.css' => FALSE
+    'modules/system/system.menus.css' => FALSE,
   );
   $css = array_diff_key($css, $exclude);
 }
 
 /**
  * Returns HTML for the facet title, usually the title of the block.
- *
- * @param $variables
- *   An associative array containing:
- *   - title: The title of the facet.
- *   - facet: The facet definition as returned by facetapi_facet_load().
- *
- * @ingroup themeable
  */
 function city_of_malmo_facetapi_title($variables) {
   return $variables['title'];
@@ -69,27 +34,13 @@ function city_of_malmo_facetapi_title($variables) {
 
 /**
  * Returns HTML for the active facet item's count.
- *
- * @param $variables
- *   An associative array containing:
- *   - count: The item's facet count.
- *
- * @ingroup themeable
  */
-function city_of_malmo_facetapi_count($variables) {
+function city_of_malmo_facetapi_count() {
   return '';
 }
 
 /**
  * Returns HTML for an active facet item.
- *
- * @param $variables
- *   An associative array containing the keys 'text', 'path', and 'options'. See
- *   the l() function for information about these variables.
- *
- * @see l()
- *
- * @ingroup themeable
  */
 function city_of_malmo_facetapi_link_active($variables) {
   $sanitize = empty($variables['options']['html']);
@@ -234,13 +185,7 @@ function city_of_malmo_form_element(&$variables) {
 /**
  * Theme a list of sort options.
  *
- * @param array $variables
- *   An associative array containing:
- *   - items: The sort options
- *   - options: Various options to pass
- * @return string
- *
- * @see theme_search_api_sorts_list().
+ * @see theme_search_api_sorts_list()
  */
 function city_of_malmo_search_api_sorts_list(array $variables) {
   $items = array_map('render', $variables['items']);
@@ -252,16 +197,7 @@ function city_of_malmo_search_api_sorts_list(array $variables) {
 /**
  * Theme a single sort item.
  *
- * @param array $variables
- *   An associative array containing:
- *   - name: The name to display for the item.
- *   - path: The destination path when the sort link is clicked.
- *   - options: An array of options to pass to l().
- *   - active: A boolean telling whether this sort filter is active or not.
- *   - order_options: If active, a set of options to reverse the order
- * @return string
- *
- * @see theme_search_api_sorts_sort().
+ * @see theme_search_api_sorts_sort()
  */
 function city_of_malmo_search_api_sorts_sort(array $variables) {
   $name = $variables['name'];
@@ -269,12 +205,20 @@ function city_of_malmo_search_api_sorts_sort(array $variables) {
   $options = $variables['options'] + array('attributes' => array());
   $options['attributes'] += array('class' => array());
 
-  $order_options = $variables['order_options'] + array('query' => array(), 'attributes' => array(), 'html' => TRUE);
+  $order_options = $variables['order_options'] +
+    array(
+      'query' => array(),
+      'attributes' => array(),
+      'html' => TRUE,
+    );
+
   $order_options['attributes'] += array('class' => array());
 
   if ($variables['active']) {
     $return_html = '<span class="search-api-sort-active">';
+    // @codingStandardsIgnoreStart
     $return_html .= l(t($name) . theme('tablesort_indicator', array('style' => $order_options['query']['order'])), $path, $order_options);
+    // @codingStandardsIgnoreEnd
     $return_html .= '</span>';
   }
   else {
@@ -286,7 +230,8 @@ function city_of_malmo_search_api_sorts_sort(array $variables) {
 
 /**
  * Change separator from "to" to "-".
- * @see theme_date_display_range().
+ *
+ * @see theme_date_display_range()
  */
 function city_of_malmo_date_display_range($variables) {
   $date1 = $variables['date1'];
@@ -313,10 +258,9 @@ function city_of_malmo_date_display_range($variables) {
 }
 
 /**
- * Add summarized days, and change separator between days of the week from ', ' to ' '.
- * Preprocess function for the timefield formatter.
+ * Add summarized days, and change separator from ', ' to ' '.
  *
- * @see template_preprocess_timefield_formatter().
+ * @see template_preprocess_timefield_formatter()
  */
 function city_of_malmo_preprocess_timefield_formatter(&$variables) {
 
@@ -367,7 +311,7 @@ function city_of_malmo_preprocess_timefield_formatter(&$variables) {
 /**
  * Provide summarized weekly days.
  *
- * @see _timefield_weekly_summary_days().
+ * @see _timefield_weekly_summary_days()
  */
 function timefield_weekly_summary_days_summarized_alter() {
   $days = array(
