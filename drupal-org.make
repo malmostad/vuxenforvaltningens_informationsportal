@@ -8,7 +8,11 @@ projects[drupal][version] = 7.32
 
 ; +++++ Patches +++++
 projects[panels][patch][] = "https://www.drupal.org/files/issues/panels-add-render-last-for-minipanel-1669918-14.patch"
+
 projects[facetapi][patch][] = "https://www.drupal.org/files/issues/facetapi-override_facet_label-1665164-22.patch"
+
+projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-customize-template-2145341-1.patch"
+projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-isset-2132811-5.patch"
 
 ; +++++ Modules +++++
 
@@ -42,8 +46,13 @@ projects[features][subdir] = "contrib"
 projects[field_collection][version] = "1.0-beta7"
 projects[field_collection][subdir] = "contrib"
 
-projects[timefield][version] = "1.0-alpha2"
+projects[field_group][version] = "1.4"
+projects[field_group][subdir] = "contrib"
+
 projects[timefield][subdir] = "contrib"
+projects[timefield][download][type] = "git"
+projects[timefield][download][url] = "http://git.drupal.org/project/timefield.git"
+projects[timefield][download][revision] = "d0a518eb41c5d506c4b743d3805a9839978ccf0b"
 
 projects[diff][version] = "3.2"
 projects[diff][subdir] = "contrib"
