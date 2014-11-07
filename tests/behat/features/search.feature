@@ -4,7 +4,7 @@ Feature: Search the site
   As any user
   I should be able to search for courses
 
-  @api @javascript
+  @api
   Scenario: Use the global search field
     Given I am on the homepage
     When I fill in "edit-keys" with "Course"
@@ -47,3 +47,9 @@ Feature: Search the site
     Then I should see container with class "ui-datepicker"
     When I press element ".ui-datepicker-week-end"
 
+  @api @sort-fields
+  Scenario: Check how fields renders
+    And I am on "search-courses/Test%20course"
+    Then I should see the text "Test course"
+    Then I should see the text "Mon Tue 12:05 - 12:15"
+    Then I should see the text "(\d{8})"

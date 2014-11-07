@@ -61,6 +61,41 @@ function mal_generate_content_enable() {
       'Ekonomi',
     )
   );
+
+  global $user;
+
+  $node = new stdClass();
+  $node->title = "Test course";
+  $node->type = "course";
+  node_object_prepare($node);
+  $node->language = LANGUAGE_NONE;
+  $node->uid = $user->uid;
+  $node->status = 1;
+
+  $node->field_course_date[$node->language][] = array(
+    'value' => '1362524400',
+    'value2' => '1396562400',
+  );
+
+  $node->field_course_application_period[$node->language][] = array(
+    'value' => '1360018800',
+    'value2' => '1391554800',
+  );
+
+  $node->field_course_periods[$node->language][] = array(
+    'value' => '300',
+    'value2' => '44100',
+    'tue' => 1,
+    'mon' => 1,
+    'wed' => 0,
+    'thu' => 0,
+    'fri' => 0,
+    'sat' => 0,
+    'sun' => 0,
+  );
+
+  $node = node_submit($node);
+  node_save($node);
 }
 
 /**

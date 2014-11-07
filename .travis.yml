@@ -58,7 +58,7 @@ install:
   - ln -s ~/.composer/vendor/drupal/coder/coder_sniffer/Drupal ~/.composer/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards
 
   # Run the Coder sniffer before all heavy tasks.
-  - phpcs --report=full --standard=Drupal --extensions=php,inc,module,install $TRAVIS_BUILD_DIR/modules/custom
+  - phpcs --report=full --standard=Drupal --extensions=php,inc,module,install $TRAVIS_BUILD_DIR/modules/custom $TRAVIS_BUILD_DIR/themes/city_of_malmo/template.php
 
   # Build Codebase
   - mkdir private_files
@@ -104,9 +104,9 @@ before_script:
   - cd drupal
 
   # Generate dummy content.
-  - drush generate-content 20 0 --kill --types=page
-  - drush generate-content 50 0 --kill --types=course
-  - drush generate-content 20 0 --kill --types=question_and_answer
+  - drush generate-content 10 0 --types=page
+  - drush generate-content 10 0 --types=course
+  - drush generate-content 10 0 --types=question_and_answer
   - cd ../drupal
 
   # Set solr
