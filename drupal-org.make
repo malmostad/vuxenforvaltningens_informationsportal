@@ -49,8 +49,10 @@ projects[field_collection][subdir] = "contrib"
 projects[field_group][version] = "1.4"
 projects[field_group][subdir] = "contrib"
 
-projects[timefield][version] = "1.0-alpha2+10-dev"
 projects[timefield][subdir] = "contrib"
+projects[timefield][download][type] = "git"
+projects[timefield][download][url] = "http://git.drupal.org/project/timefield.git"
+projects[timefield][download][revision] = "d0a518eb41c5d506c4b743d3805a9839978ccf0b"
 
 projects[diff][version] = "3.2"
 projects[diff][subdir] = "contrib"
