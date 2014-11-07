@@ -1,0 +1,8 @@
+name = Field group course search result
+core = 7.x
+package = Field groups
+dependencies[] = ctools
+dependencies[] = field_group
+features[ctools][] = field_group:field_group:1
+features[features_api][] = api:2
+features[field_group][] = group_hide_and_show|node|course|search_result
