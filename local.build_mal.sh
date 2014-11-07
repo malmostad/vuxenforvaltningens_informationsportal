@@ -24,7 +24,7 @@ drush site-install mal --yes --db-url="$2"
 echo Operation : Clear cache
 drush cc all
 echo Operation : Create dummy content
-drush generate-content 50 0 --kill --types=page,course,question_and_answer
+drush generate-content 50 0 --types=page,course,question_and_answer
 echo Operation : Compass compile
 cd ${site_folder}/profiles/mal/themes/city_of_malmo/assets
 compass compile
