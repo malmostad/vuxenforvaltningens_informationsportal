@@ -283,3 +283,102 @@ function city_of_malmo_search_api_sorts_sort(array $variables) {
 
   return $return_html;
 }
+
+/**
+ * Change separator from "to" to "-".
+ * @see theme_date_display_range().
+ */
+function city_of_malmo_date_display_range($variables) {
+  $date1 = $variables['date1'];
+  $date2 = $variables['date2'];
+  $timezone = $variables['timezone'];
+  $attributes_start = $variables['attributes_start'];
+  $attributes_end = $variables['attributes_end'];
+
+  $start_date = '<span class="date-display-start"' . drupal_attributes($attributes_start) . '>' . $date1 . '</span>';
+  $end_date = '<span class="date-display-end"' . drupal_attributes($attributes_end) . '>' . $date2 . $timezone . '</span>';
+
+  // If microdata attributes for the start date property have been passed in,
+  // add the microdata in meta tags.
+  if (!empty($variables['add_microdata'])) {
+    $start_date .= '<meta' . drupal_attributes($variables['microdata']['value']['#attributes']) . '/>';
+    $end_date .= '<meta' . drupal_attributes($variables['microdata']['value2']['#attributes']) . '/>';
+  }
+
+  // Wrap the result with the attributes.
+  return t('!start-date - !end-date', array(
+    '!start-date' => $start_date,
+    '!end-date' => $end_date,
+  ));
+}
+
+/**
+ * Add summarized days, and change separator between days of the week from ', ' to ' '.
+ * Preprocess function for the timefield formatter.
+ *
+ * @see template_preprocess_timefield_formatter().
+ */
+function city_of_malmo_preprocess_timefield_formatter(&$variables) {
+
+  if ($variables['format'] == 'default') {
+    // Add specific suggestions that can override the default implementation.
+    $variables['theme_hook_suggestions'] = array(
+      'timefield_' . $variables['format'],
+    );
+    // Encode the time elements.
+    $variables['time']['value'] = check_plain($variables['time']['value']);
+    $variables['time']['formatted_value'] = trim(timefield_integer_to_time($variables['settings']['display_format'], $variables['time']['value']));
+    $variables['time']['time'] = $variables['time']['formatted_value'];
+    if (isset($variables['time']['value2'])) {
+      $variables['time']['value2'] = check_plain($variables['time']['value2']);
+      $variables['time']['formatted_value2'] = trim(timefield_integer_to_time($variables['settings']['display_format'], $variables['time']['value2']));
+      $variables['time']['time'] .= ' - ' . $variables['time']['formatted_value2'];
+    }
+
+    if ($variables['settings']['weekly_summary'] || $variables['settings']['weekly_summary_with_label']) {
+      foreach (timefield_weekly_summary_days_summarized_alter() as $day => $day_text) {
+        if ((bool) $variables['time'][$day]) {
+          $days[$day] = $day_text;
+        }
+      }
+      if (isset($days)) {
+        $variables['time']['days'] = $days;
+        $variables['time']['time'] = implode(' ', $days) . ' ' . $variables['time']['time'];
+      }
+
+    }
+  }
+  elseif ($variables['format'] == 'duration') {
+    // Encode the time elements.
+    $variables['time']['value'] = check_plain($variables['time']['value']);
+    $variables['time']['formatted_value'] = trim(timefield_integer_to_time($variables['settings']['display_format'], $variables['time']['value']));
+    if (isset($variables['time']['value2'])) {
+      $variables['time']['value2'] = check_plain($variables['time']['value2']);
+      $variables['time']['formatted_value2'] = trim(timefield_integer_to_time($variables['settings']['display_format'], $variables['time']['value2']));
+      $variables['time']['duration'] = timefield_time_to_duration($variables['time']['value'], $variables['time']['value2'], $variables['settings']['duration_format']);
+      $variables['time']['time'] = timefield_time_to_duration($variables['time']['value'], $variables['time']['value2'], $variables['settings']['duration_format']);
+    }
+    else {
+      $variables['time']['time'] = 0;
+    }
+  }
+}
+
+/**
+ * Provide summarized weekly days.
+ *
+ * @see _timefield_weekly_summary_days().
+ */
+function timefield_weekly_summary_days_summarized_alter() {
+  $days = array(
+    'mon' => t('Mon'),
+    'tue' => t('Tue'),
+    'wed' => t('Wed'),
+    'thu' => t('Thu'),
+    'fri' => t('Fri'),
+    'sat' => t('Sat'),
+    'sun' => t('Sun'),
+  );
+
+  return $days;
+}

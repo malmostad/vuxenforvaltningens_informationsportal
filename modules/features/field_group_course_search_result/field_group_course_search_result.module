@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Field group course search result feature.
+ */
+
+include_once 'field_group_course_search_result.features.inc';
