@@ -32,7 +32,7 @@ function config_search_default_search_api_index() {
         "field_course_prerequisites" : { "type" : "text" },
         "field_course_school" : { "type" : "integer", "entity_type" : "node" },
         "field_course_subject_areas" : { "type" : "integer", "entity_type" : "taxonomy_term" },
-        "field_course_type_education" : { "type" : "integer", "entity_type" : "taxonomy_term" },
+        "field_course_type_education" : { "type" : "integer", "entity_type" : "node" },
         "search_api_aggregation_1" : { "type" : "text" },
         "search_api_language" : { "type" : "string" },
         "search_api_url" : { "type" : "uri" },

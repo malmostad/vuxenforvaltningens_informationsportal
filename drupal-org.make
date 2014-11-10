@@ -46,8 +46,8 @@ projects[field_collection][subdir] = "contrib"
 projects[field_group][version] = "1.4"
 projects[field_group][subdir] = "contrib"
 
-projects[references][version] = "2.1"
-projects[references][subdir] = "contrib"
+projects[entityreference][version] = "1.1"
+projects[entityreference][subdir] = "contrib"
 
 projects[timefield][subdir] = "contrib"
 projects[timefield][download][type] = "git"

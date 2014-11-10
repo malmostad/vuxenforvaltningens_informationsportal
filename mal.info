@@ -54,8 +54,7 @@ dependencies[] = profiler_builder_extras
 ; Fields
 dependencies[] = field_collection
 dependencies[] = field_group
-dependencies[] = node_reference
-dependencies[] = references
+dependencies[] = entityreference
 dependencies[] = timefield
 ; Other
 dependencies[] = diff
@@ -107,6 +106,7 @@ dependencies[] = config_view_modes
 dependencies[] = config_wysiwyg
 dependencies[] = content_type_basic_page
 dependencies[] = content_type_course
+dependencies[] = content_type_education
 dependencies[] = content_type_question_and_answer
 dependencies[] = content_type_school
 dependencies[] = field_group_course_search_result
