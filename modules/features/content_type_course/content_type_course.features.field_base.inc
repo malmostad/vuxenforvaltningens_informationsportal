@@ -358,30 +358,35 @@ function content_type_course_field_default_field_bases() {
     'entity_types' => array(),
     'field_name' => 'field_course_school',
     'foreign keys' => array(
-      'tid' => array(
+      'nid' => array(
         'columns' => array(
-          'tid' => 'tid',
+          'nid' => 'nid',
         ),
-        'table' => 'taxonomy_term_data',
+        'table' => 'node',
       ),
     ),
     'indexes' => array(
-      'tid' => array(
-        0 => 'tid',
+      'nid' => array(
+        0 => 'nid',
       ),
     ),
     'locked' => 0,
-    'module' => 'taxonomy',
+    'module' => 'node_reference',
     'settings' => array(
-      'allowed_values' => array(
-        0 => array(
-          'vocabulary' => 'course_school',
-          'parent' => 0,
-        ),
+      'referenceable_types' => array(
+        'course' => 0,
+        'page' => 0,
+        'question_and_answer' => 0,
+        'school' => 'school',
+      ),
+      'view' => array(
+        'args' => array(),
+        'display_name' => '',
+        'view_name' => '',
       ),
     ),
     'translatable' => 0,
-    'type' => 'taxonomy_term_reference',
+    'type' => 'node_reference',
   );
 
   // Exported field_base: 'field_course_subject_areas'

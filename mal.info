@@ -22,7 +22,6 @@ dependencies[] = contextual
 dependencies[] = dashboard
 dependencies[] = dblog
 dependencies[] = field
-dependencies[] = field_group
 dependencies[] = field_sql_storage
 dependencies[] = field_ui
 dependencies[] = file
@@ -54,6 +53,9 @@ dependencies[] = profiler_builder
 dependencies[] = profiler_builder_extras
 ; Fields
 dependencies[] = field_collection
+dependencies[] = field_group
+dependencies[] = node_reference
+dependencies[] = references
 dependencies[] = timefield
 ; Other
 dependencies[] = diff
@@ -68,10 +70,12 @@ dependencies[] = panels_everywhere
 dependencies[] = panels_mini
 dependencies[] = pps
 ; Propeople
+dependencies[] = mal_ctools_contact_box
 dependencies[] = mal_ctools_global_search
 dependencies[] = mal_ctools_search_date_filter
 dependencies[] = mal_generate_content
 dependencies[] = mal_search
+dependencies[] = user_register
 ; Registration
 dependencies[] = registration
 dependencies[] = registration_views
@@ -79,8 +83,8 @@ dependencies[] = registration_views
 dependencies[] = search_api
 dependencies[] = search_api_facetapi
 dependencies[] = search_api_solr
-dependencies[] = search_api_views
 dependencies[] = search_api_sorts
+dependencies[] = search_api_views
 ; Search Toolkit
 dependencies[] = facetapi
 dependencies[] = facetapi_bonus
@@ -92,6 +96,7 @@ dependencies[] = views
 dependencies[] = views_ui
 ; Features
 dependencies[] = features
+dependencies[] = config_date_format
 dependencies[] = config_facet
 dependencies[] = config_jquery_update
 dependencies[] = config_permissions
@@ -100,10 +105,10 @@ dependencies[] = config_search_sort
 dependencies[] = config_taxonomy
 dependencies[] = config_view_modes
 dependencies[] = config_wysiwyg
-dependencies[] = config_date_format
 dependencies[] = content_type_basic_page
 dependencies[] = content_type_course
 dependencies[] = content_type_question_and_answer
+dependencies[] = content_type_school
 dependencies[] = field_group_course_search_result
 dependencies[] = menu_global
 dependencies[] = minipanel_search_facet
@@ -113,9 +118,9 @@ dependencies[] = page_course_view
 dependencies[] = page_faq
 dependencies[] = page_front
 dependencies[] = page_main_layout
+dependencies[] = page_school_view
 dependencies[] = page_search
-dependencies[] = page_user_register
 dependencies[] = page_user_profile
+dependencies[] = page_user_register
 dependencies[] = view_faq
 dependencies[] = view_search
-
