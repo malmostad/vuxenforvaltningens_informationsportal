@@ -34,9 +34,9 @@ function contact_box_render($subtype, $conf, $args, $context) {
     return;
   }
 
-  $email =  field_view_field('node', $context->data, 'field_school_email', array('label' => 'hidden'));
-  $phone =  field_view_field('node', $context->data, 'field_school_phone', array('label' => 'hidden'));
-  $fax   =  field_view_field('node', $context->data, 'field_school_fax',   array('label' => 'hidden'));
+  $email = field_view_field('node', $context->data, 'field_school_email', array('label' => 'hidden'));
+  $phone = field_view_field('node', $context->data, 'field_school_phone', array('label' => 'hidden'));
+  $fax = field_view_field('node', $context->data, 'field_school_fax', array('label' => 'hidden'));
   $conf = array(
     'email' => $email,
     'email_title' => empty($email['#title']) ? '' : $email['#title'] . ': ',
