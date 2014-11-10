@@ -107,6 +107,7 @@ before_script:
   - drush generate-content 10 0 --types=page
   - drush generate-content 10 0 --types=course
   - drush generate-content 10 0 --types=question_and_answer
+  - drush generate-content 10 0 --types=school
   - cd ../drupal
 
   # Set solr
