@@ -1,3 +1,12 @@
+<?php
+
+/**
+ * @file
+ * Template for contact box.
+ *
+ * @see contact_box_render()
+ */
+?>
 <aside class="contact-us basic">
   <h1><?php print t('Contact us'); ?></h1>
 
@@ -16,7 +25,7 @@
 
     <h3 class="visiting-address v-0"><?php print t('Visiting Address'); ?></h3>
     <div class="street-address"><?php print render($street_address); ?></div>
-<!--    <a href="http://www.malmo.se/karta?poi=Föreningsgatan+7A&amp;zoomlevel=4&amp;maptype=karta" class="show-on-map m-icon-location" data-map-selector=".contact-us-map.m-0" data-scroll-to=".visiting-address.v-0" data-poi="Föreningsgatan 7A" title="Föreningsgatan 7A">--><?php //print t('Show on map'); ?><!--</a>-->
+<!--    <a href="http://www.malmo.se/karta?poi=Föreningsgatan+7A&amp;zoomlevel=4&amp;maptype=karta" class="show-on-map m-icon-location" data-map-selector=".contact-us-map.m-0" data-scroll-to=".visiting-address.v-0" data-poi="Föreningsgatan 7A" title="Föreningsgatan 7A">Show on map</a>-->
     <div><?php print render($maps_link); ?></div>
     <div class="contact-us-map m-0"></div>
   </div>
