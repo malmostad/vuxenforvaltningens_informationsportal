@@ -6,6 +6,7 @@ dependencies[] = date
 dependencies[] = features
 dependencies[] = field_group_course_search_result
 dependencies[] = list
+dependencies[] = node_reference
 dependencies[] = number
 dependencies[] = options
 dependencies[] = strongarm
