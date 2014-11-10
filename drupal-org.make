@@ -34,9 +34,6 @@ projects[date][subdir] = "contrib"
 projects[devel][version] = "1.5"
 projects[devel][subdir] = "contrib"
 
-projects[pps][version] = "1.0"
-projects[pps][subdir] = "contrib"
-
 projects[profiler_builder][version] = "1.2"
 projects[profiler_builder][subdir] = "contrib"
 
@@ -49,10 +46,14 @@ projects[field_collection][subdir] = "contrib"
 projects[field_group][version] = "1.4"
 projects[field_group][subdir] = "contrib"
 
+projects[entityreference][version] = "1.1"
+projects[entityreference][subdir] = "contrib"
+
 projects[timefield][subdir] = "contrib"
 projects[timefield][download][type] = "git"
 projects[timefield][download][url] = "http://git.drupal.org/project/timefield.git"
 projects[timefield][download][revision] = "d0a518eb41c5d506c4b743d3805a9839978ccf0b"
+
 
 projects[diff][version] = "3.2"
 projects[diff][subdir] = "contrib"
@@ -77,6 +78,9 @@ projects[panels][subdir] = "contrib"
 
 projects[panels_everywhere][version] = "1.0-rc1"
 projects[panels_everywhere][subdir] = "contrib"
+
+projects[pps][version] = "1.0"
+projects[pps][subdir] = "contrib"
 
 projects[registration][version] = "1.3"
 projects[registration][subdir] = "contrib"

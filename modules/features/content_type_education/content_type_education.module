@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Content type education feature.
+ */
+
+include_once 'content_type_education.features.inc';
