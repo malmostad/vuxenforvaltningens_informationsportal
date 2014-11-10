@@ -3,6 +3,7 @@ core = 7.x
 package = Content types
 dependencies[] = config_taxonomy
 dependencies[] = date
+dependencies[] = entityreference
 dependencies[] = features
 dependencies[] = field_group_course_search_result
 dependencies[] = list

@@ -105,6 +105,7 @@ before_script:
 
   # Generate dummy content.
   - drush generate-content 10 0 --types=page
+  - drush generate-content 10 0 --types=education
   - drush generate-content 10 0 --types=school
   - drush generate-content 10 0 --types=course
   - drush generate-content 10 0 --types=question_and_answer
