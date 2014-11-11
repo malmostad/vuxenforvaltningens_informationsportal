@@ -28,7 +28,7 @@
           $popup = $('.search-filter *');
 
       $filter.click(function(e) {
-        if ( !$(this).hasClass('active') ) {
+        if (!$(this).hasClass('active')) {
           $filter.siblings('h2').removeClass('active');
           $(this).toggleClass('active');
         } else {
@@ -37,8 +37,21 @@
       });
 
       $(document).click(function(e) {
-        if ( !($(e.target).is($popup) || $(e.target).is('.ui-datepicker *')) ) {
+        if (!($(e.target).is($popup) || $(e.target).is('.ui-datepicker *'))) {
           $filter.removeClass('active');
+        }
+      });
+    }
+  };
+
+  Drupal.behaviors.searchAccordion = {
+    attach: function(context, settings) {
+      $('.view-search').find('.panel-heading').click(function() {
+        $(this).siblings('.panel-body').toggle(300);
+        if ($.trim($(this).text()) === Drupal.t("Hide")) {
+          $(this).text(Drupal.t("Show more"));
+        } else {
+          $(this).text(Drupal.t("Hide"));
         }
       });
     }
@@ -53,5 +66,3 @@ function openListFAQ(){
 		.toggleClass('open-close',300)
 			.parent().toggleClass('icon-open-close');
 }
-
-
