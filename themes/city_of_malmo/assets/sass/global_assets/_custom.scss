@@ -1,5 +1,7 @@
 /* Variables */
 $OpenSans: "OpenSans", "Droid Sans", "Verdana", "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
+$text: #4f4f4f;
+$grey: #ccc;
 
 /* Override bootstrap */
 html {
@@ -184,7 +186,7 @@ li code {
   position:relative;
   padding:1em 0 0;
   background:#f5f5f5;
-  border:1px solid #ccc;
+  border:1px solid $grey;
   margin-bottom:2em;
   overflow:auto;
   & + .highlight {
@@ -206,9 +208,9 @@ pre {
   font-size:1.1em;
   line-height:1.3;
   .lineno {
-    color:#ccc;
+    color:$grey;
     text-align:right;
-    border-right:1px solid #ccc;
+    border-right:1px solid $grey;
     padding:0 .4em;
     margin:0;
   }
@@ -778,7 +780,7 @@ footer#malmo-footer {
     background: none;
     @include background-image(linear-gradient(rgb(255, 255, 255), rgb(224, 224, 224)));
     @include border-left-radius(0);
-    border: 1px solid #ccc;
+    border: 1px solid $grey;
     color: #333;
     font-weight: bold;
     padding: 4px 10px;
@@ -798,7 +800,7 @@ footer#malmo-footer {
     clear:both;
   }
   & > .pane-title {
-    color: #4f4f4f;
+    color: $text;
     cursor: pointer;
     font-size: 12px;
     font-family: $OpenSans;
@@ -813,8 +815,14 @@ footer#malmo-footer {
       margin: 1px 5px 0 0;
       width: 12px;
     }
+    &.minipanel-search-facet-date:before {
+      background-position: center -62px;
+    }
+    &.minipanel-search-sort:before {
+      background-position: center -90px;
+    }
     &.active {
-      background: url(../../images/icon-sprite.png) center 19px no-repeat;
+      background-position: center 19px;
       & + .search-minipanel {
         display: block;
       }
@@ -822,7 +830,7 @@ footer#malmo-footer {
   }
   .search-minipanel {
     background: #fff;
-    border: 1px solid #ccc;
+    border: 1px solid $grey;
     display: none;
     font-family: $OpenSans;
     padding: 15px 20px;
@@ -832,7 +840,7 @@ footer#malmo-footer {
     z-index: 1;
   }
   .desc {
-    color: #4F4F4F;
+    color: $text;
     float: left;
     margin-right: 5%;
     width: 32%;
@@ -841,7 +849,7 @@ footer#malmo-footer {
     }
   }
   .filter {
-    color: #4F4F4F;
+    color: $text;
     float: left;
     width: 63%;
     .pane-title {
@@ -867,7 +875,7 @@ footer#malmo-footer {
       }
     }
     a {
-      color: #4f4f4f;
+      color: $text;
       &.facetapi-active {
         background: url(../../images/icon-sprite.png) -3px -118px no-repeat;
         color: #007896;
@@ -889,7 +897,7 @@ footer#malmo-footer {
       margin-top: 2px;
     }
     a {
-      color: #4f4f4f;
+      color: $text;
       display: inline !important;
       font-family: $OpenSans;
       margin: 0 0 0 3px;
@@ -899,6 +907,38 @@ footer#malmo-footer {
   }
 }
 
+/* --- Search page content --- */
+.view-search {
+  h2 {
+    font-size: 24px;
+    font-family: Georgia, serif;
+    margin: 0 0 9px;
+    a {
+      color: $text;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  .views-row {
+    border-bottom: 1px solid $grey;
+    margin-bottom: 25px;
+  }
+  .panel-body {
+    display: none;
+  }
+  .content fieldset {
+    @include box-shadow(none);
+  }
+  .panel-heading {
+    background: none !important;
+    border: none;
+    cursor: pointer;
+    @include inline-block(top);
+    font-size: 17px;
+    padding-bottom: 21px;
+  }
+}
 
 /* ---------media-------- */
 @media only screen and (max-width: 515px) {
