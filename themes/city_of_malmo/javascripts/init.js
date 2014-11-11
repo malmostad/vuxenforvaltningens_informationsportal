@@ -44,6 +44,19 @@
     }
   };
 
+  Drupal.behaviors.searchAccordion = {
+    attach: function(context, settings) {
+      $('.view-search').find('.panel-heading').click(function() {
+        $(this).siblings('.panel-body').toggle(300);
+        if ( $.trim($(this).text()) === "Hide") {
+          $(this).text("Show more");
+        } else {
+          $(this).text("Hide");
+        }
+      });
+    }
+  };
+
 })(jQuery);
 
 
