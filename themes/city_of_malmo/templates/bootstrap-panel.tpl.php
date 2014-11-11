@@ -23,9 +23,7 @@
       </legend>
     <?php else: ?>
       <legend class="panel-heading">
-        <div class="panel-title fieldset-legend">
-          <?php print $title; ?>
-        </div>
+        <?php print $title; ?>
       </legend>
     <?php endif; ?>
   <?php endif; ?>
