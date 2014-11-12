@@ -2,6 +2,7 @@
 $OpenSans: "OpenSans", "Droid Sans", "Verdana", "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
 $text: #4f4f4f;
 $grey: #ccc;
+$icon-sprite: "../../images/icon-sprite.png";
 
 /* Override bootstrap */
 html {
@@ -810,7 +811,7 @@ footer#malmo-footer {
     &:before {
       content: "";
       @include inline-block(top);
-      background: url(../../images/icon-sprite.png) center -34px no-repeat;;
+      background: url($icon-sprite) center -34px no-repeat;;
       height: 12px;
       margin: 1px 5px 0 0;
       width: 12px;
@@ -822,7 +823,7 @@ footer#malmo-footer {
       background-position: center -90px;
     }
     &.active {
-      background-position: center 19px;
+      background: url($icon-sprite) center 19px no-repeat;
       & + .search-minipanel {
         display: block;
       }
@@ -877,7 +878,7 @@ footer#malmo-footer {
     a {
       color: $text;
       &.facetapi-active {
-        background: url(../../images/icon-sprite.png) -3px -118px no-repeat;
+        background: url($icon-sprite) -3px -118px no-repeat;
         color: #007896;
         font-weight: bold;
         padding-left: 15px;
