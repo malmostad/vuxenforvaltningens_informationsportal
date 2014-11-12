@@ -15,13 +15,13 @@ Feature: Search the site
   Scenario: Check facets
     Given I am on the homepage
     And I press "Search"
+    And I should see the text "Filtrera sökresultat"
     Then I should see the text "Utbildningsform"
     And I should see the text "Kursform"
     And I should see the text "Skolor"
     And I should see the text "Ämnesområden"
     And I should see the text "Inriktning"
     And I should see the text "Gymnasieprogram"
-    And I should see the text "Filtrera sökresultat"
     And I should see the text "Kursstart, tider och veckodagar"
     And I should see an "#edit-date" element
     And I should see the text "Veckodagar"
