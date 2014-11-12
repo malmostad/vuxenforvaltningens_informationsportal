@@ -109,7 +109,6 @@ dependencies[] = content_type_course
 dependencies[] = content_type_education
 dependencies[] = content_type_question_and_answer
 dependencies[] = content_type_school
-dependencies[] = field_group_course_search_result
 dependencies[] = menu_global
 dependencies[] = minipanel_search_facet
 dependencies[] = minipanel_search_facet_date
