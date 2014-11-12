@@ -236,12 +236,11 @@ function city_of_malmo_search_api_sorts_sort(array $variables) {
 function city_of_malmo_date_display_range($variables) {
   $date1 = $variables['date1'];
   $date2 = $variables['date2'];
-  $timezone = $variables['timezone'];
   $attributes_start = $variables['attributes_start'];
   $attributes_end = $variables['attributes_end'];
 
   $start_date = '<span class="date-display-start"' . drupal_attributes($attributes_start) . '>' . $date1 . '</span>';
-  $end_date = '<span class="date-display-end"' . drupal_attributes($attributes_end) . '>' . $date2 . $timezone . '</span>';
+  $end_date = '<span class="date-display-end"' . drupal_attributes($attributes_end) . '>' . $date2 . '</span>';
 
   // If microdata attributes for the start date property have been passed in,
   // add the microdata in meta tags.

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Page course package view feature.
+ */
+
+include_once 'page_course_package_view.features.inc';
