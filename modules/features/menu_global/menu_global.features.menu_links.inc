@@ -50,10 +50,31 @@ function menu_global_menu_default_menu_links() {
     'weight' => 0,
     'customized' => 1,
   );
+  // Exported menu link: menu-global-menu_schools:schools
+  $menu_links['menu-global-menu_schools:schools'] = array(
+    'menu_name' => 'menu-global-menu',
+    'link_path' => 'schools',
+    'router_path' => 'schools',
+    'link_title' => 'Schools',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'menu-global-menu_schools:schools',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
+  );
   // Translatables
   // Included for use with string extractors like potx.
   t('Frågor och svar');
   t('Kurser och utbildningar');
+  t('Schools');
 
 
   return $menu_links;

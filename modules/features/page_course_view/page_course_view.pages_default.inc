@@ -55,7 +55,7 @@ function page_course_view_default_page_manager_handlers() {
       'region-three' => NULL,
       'region-four' => NULL,
     ),
-    'style' => 'default',
+    'style' => 'naked',
   );
   $display->cache = array();
   $display->title = '';

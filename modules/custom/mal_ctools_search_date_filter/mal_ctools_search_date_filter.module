@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Implements hook_ctools_plugin_directory().
+ * Code for the facet start date feature.
  */
 
 /**

@@ -64,6 +64,57 @@ function mal_generate_content_enable() {
 
   global $user;
 
+  $school = new stdClass();
+  $school->title = "A1 Test school";
+  $school->type = "school";
+  node_object_prepare($school);
+  $school->language = LANGUAGE_NONE;
+  $school->uid = $user->uid;
+  $school->status = 1;
+
+  $school->body[$school->language][] = array(
+    'value' => 'Test body',
+  );
+
+  $school->field_school_address[$school->language][] = array(
+    'value' => 'Test school address',
+  );
+
+  $school->field_school_email[$school->language][] = array(
+    'value' => 'school@email.test',
+  );
+
+  $school->field_school_fax[$school->language][] = array(
+    'value' => '777777',
+  );
+
+  $school->field_school_locality[$school->language][] = array(
+    'value' => 'Malmo test',
+  );
+
+  $school->field_school_maps_link[$school->language][] = array(
+    'value' => 'Test link',
+  );
+
+  $school->field_school_phone[$school->language][] = array(
+    'value' => '380932312332',
+  );
+
+  $school->field_school_post_office[$school->language][] = array(
+    'value' => 'Test post C3',
+  );
+
+  $school->field_school_postal_code[$school->language][] = array(
+    'value' => '123 312',
+  );
+
+  $school->field_school_street_address[$school->language][] = array(
+    'value' => 'Test school street address',
+  );
+
+  $school = node_submit($school);
+  node_save($school);
+
   $node = new stdClass();
   $node->title = "Test course";
   $node->type = "course";
@@ -75,6 +126,10 @@ function mal_generate_content_enable() {
   $node->field_course_date[$node->language][] = array(
     'value' => '1362524400',
     'value2' => '1396562400',
+  );
+
+  $node->field_course_school[$node->language][] = array(
+    'target_id' => $school->nid,
   );
 
   $node->field_course_application_period[$node->language][] = array(
