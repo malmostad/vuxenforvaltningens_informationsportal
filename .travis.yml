@@ -103,6 +103,14 @@ before_script:
   - curl -sSL https://raw.githubusercontent.com/moliware/travis-solr/master/travis-solr.sh | SOLR_VERSION=4.4.0 SOLR_CONFS="drupal/profiles/mal/solr-conf"  bash
   - cd drupal
 
+  # Set solr
+  - drush vset search_api_path '"/solr/core0"'
+  - drush vset search_api_port '"8983"'
+  - drush fr config_search --force -y
+  - drush cc all
+  - drush search-api-index
+  - drush watchdog-show
+
   # Generate dummy content.
   - drush generate-content 10 0 --types=page
   - drush generate-content 10 0 --types=education
@@ -110,14 +118,10 @@ before_script:
   - drush generate-content 10 0 --types=course
   - drush generate-content 10 0 --types=question_and_answer
   - cd ../drupal
-
-  # Set solr
-  - drush vset search_api_path '"/solr/core0"'
-  - drush vset search_api_port '"8983"'
-  - drush fr config_search --force -y
   - drush cc all
   - drush search-api-index
-
+  - drush watchdog-show
+  
   # Generate CSS
   - cd profiles/mal/themes/city_of_malmo/assets
   - compass compile
