@@ -1,0 +1,6 @@
+name = Config image style
+core = 7.x
+package = Config
+dependencies[] = image
+features[features_api][] = api:2
+features[image][] = global_pane
