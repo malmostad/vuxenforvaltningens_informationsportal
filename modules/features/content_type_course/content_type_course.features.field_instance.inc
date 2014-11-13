@@ -25,7 +25,7 @@ function content_type_course_field_default_field_instances() {
         'weight' => 1,
       ),
       'search_result' => array(
-        'label' => 'inline',
+        'label' => 'above',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -658,7 +658,7 @@ function content_type_course_field_default_field_instances() {
         'weight' => 21,
       ),
       'search_result' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'entityreference',
         'settings' => array(
           'link' => FALSE,
@@ -760,7 +760,7 @@ function content_type_course_field_default_field_instances() {
         'weight' => 17,
       ),
       'search_result' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'entityreference',
         'settings' => array(
           'link' => FALSE,
