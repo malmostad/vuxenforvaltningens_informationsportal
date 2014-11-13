@@ -100,8 +100,9 @@ function content_type_course_packages_field_default_field_instances() {
       ),
       'search_result' => array(
         'label' => 'above',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'hidden',
+        'type' => 'text_default',
         'weight' => 0,
       ),
       'teaser' => array(
@@ -155,10 +156,17 @@ function content_type_course_packages_field_default_field_instances() {
         'weight' => 11,
       ),
       'search_result' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'label' => 'inline',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'mal_short_course',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -210,9 +218,10 @@ function content_type_course_packages_field_default_field_instances() {
       ),
       'search_result' => array(
         'label' => 'above',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'type' => 'text_default',
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -260,10 +269,17 @@ function content_type_course_packages_field_default_field_instances() {
         'weight' => 8,
       ),
       'search_result' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'label' => 'inline',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'mal_short_course',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -315,9 +331,10 @@ function content_type_course_packages_field_default_field_instances() {
       ),
       'search_result' => array(
         'label' => 'above',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'type' => 'text_default',
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -365,9 +382,15 @@ function content_type_course_packages_field_default_field_instances() {
         'weight' => 10,
       ),
       'search_result' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
+        'label' => 'inline',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
         'weight' => 0,
       ),
       'teaser' => array(
@@ -420,9 +443,17 @@ function content_type_course_packages_field_default_field_instances() {
       ),
       'search_result' => array(
         'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'module' => 'field_collection_table',
+        'settings' => array(
+          'add' => '',
+          'delete' => '',
+          'description' => 1,
+          'edit' => '',
+          'empty' => 1,
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_table_view',
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -462,10 +493,11 @@ function content_type_course_packages_field_default_field_instances() {
         'weight' => 6,
       ),
       'search_result' => array(
-        'label' => 'above',
+        'label' => 'inline',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'type' => 'text_default',
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -511,9 +543,12 @@ function content_type_course_packages_field_default_field_instances() {
       ),
       'search_result' => array(
         'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 5,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -557,10 +592,11 @@ function content_type_course_packages_field_default_field_instances() {
         'weight' => 7,
       ),
       'search_result' => array(
-        'label' => 'above',
+        'label' => 'inline',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'type' => 'text_default',
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -605,9 +641,12 @@ function content_type_course_packages_field_default_field_instances() {
         'weight' => 4,
       ),
       'search_result' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
+        'label' => 'hidden',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
         'weight' => 0,
       ),
       'teaser' => array(
@@ -657,10 +696,16 @@ function content_type_course_packages_field_default_field_instances() {
         'weight' => 5,
       ),
       'search_result' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'label' => 'inline',
+        'module' => 'number',
+        'settings' => array(
+          'decimal_separator' => '.',
+          'prefix_suffix' => TRUE,
+          'scale' => 0,
+          'thousand_separator' => ' ',
+        ),
+        'type' => 'number_integer',
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',

@@ -7,5 +7,6 @@ features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:2
 features[variable][] = date_format_long
 features[variable][] = date_format_mal_short
+features[variable][] = date_format_mal_short_course
 features[variable][] = date_format_medium
 features[variable][] = date_format_short
