@@ -44,7 +44,11 @@
 ?>
 <div>
   <?php if (!$label_hidden): ?>
-    <div class="field-label"<?php print $title_attributes; ?>><?php print $label ?>:&nbsp;</div>
+    <?php if (in_array('field-label-inline', $classes_array)): ?>
+      <div class="field-label label-inline"><?php print $label ?>:&nbsp;</div>
+    <?php else: ?>
+      <div class="field-label"><?php print $label ?></div>
+    <?php endif; ?>
   <?php endif; ?>
   <div class="field-value"><?php print render($items);?></div>
 </div>

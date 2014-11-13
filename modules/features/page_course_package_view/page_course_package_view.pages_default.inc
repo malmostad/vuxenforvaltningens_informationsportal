@@ -1,25 +1,25 @@
 <?php
 /**
  * @file
- * page_course_view.pages_default.inc
+ * page_course_package_view.pages_default.inc
  */
 
 /**
  * Implements hook_default_page_manager_handlers().
  */
-function page_course_view_default_page_manager_handlers() {
+function page_course_package_view_default_page_manager_handlers() {
   $export = array();
 
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'node_view_panel_context';
+  $handler->name = 'node_view_panel_context_3';
   $handler->task = 'node_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
-  $handler->weight = 0;
+  $handler->weight = 2;
   $handler->conf = array(
-    'title' => 'Course view',
+    'title' => 'Course package view',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'body_classes_to_remove' => '',
@@ -34,7 +34,7 @@ function page_course_view_default_page_manager_handlers() {
           'name' => 'node_type',
           'settings' => array(
             'type' => array(
-              'course' => 'course',
+              'course_packages' => 'course_packages',
             ),
           ),
           'context' => 'argument_entity_id:node_1',
@@ -94,7 +94,7 @@ function page_course_view_default_page_manager_handlers() {
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
-  $export['node_view_panel_context'] = $handler;
+  $export['node_view_panel_context_3'] = $handler;
 
   return $export;
 }
