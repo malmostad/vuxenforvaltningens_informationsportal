@@ -43,7 +43,7 @@ function page_front_default_page_manager_pages() {
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'front-page';
+  $display->layout = 'general-layout';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -55,6 +55,7 @@ function page_front_default_page_manager_pages() {
       'region-five' => NULL,
       'region-six' => NULL,
     ),
+    'style' => 'naked',
   );
   $display->cache = array();
   $display->title = 'TITLE';
@@ -62,15 +63,25 @@ function page_front_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-b96f56b0-9590-4123-b75a-472f982fd079';
-    $pane->panel = 'region-one';
-    $pane->type = 'block';
-    $pane->subtype = 'search_api_page-search_courses';
+    $pane->pid = 'new-a9a5de55-bfc6-496f-83a5-2ede8b4a575e';
+    $pane->panel = 'region-two';
+    $pane->type = 'global_pane_content_type';
+    $pane->subtype = 'global_pane_content_type';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
+      'override_title' => 1,
+      'override_title_text' => 'Title my',
+      'text' => array(
+        'value' => '<p>asdf</p>',
+        'format' => 'full_html',
+      ),
+      'link' => 'http://google.com',
+      'image' => '1',
+      'link_label' => 'See more',
+      'title_tag' => 'h1',
+      'width' => 'third',
+      'title' => 'asdfasdf title1',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -80,30 +91,29 @@ function page_front_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $pane->uuid = 'b96f56b0-9590-4123-b75a-472f982fd079';
-    $display->content['new-b96f56b0-9590-4123-b75a-472f982fd079'] = $pane;
-    $display->panels['region-one'][0] = 'new-b96f56b0-9590-4123-b75a-472f982fd079';
+    $pane->uuid = 'a9a5de55-bfc6-496f-83a5-2ede8b4a575e';
+    $display->content['new-a9a5de55-bfc6-496f-83a5-2ede8b4a575e'] = $pane;
+    $display->panels['region-two'][0] = 'new-a9a5de55-bfc6-496f-83a5-2ede8b4a575e';
     $pane = new stdClass();
-    $pane->pid = 'new-3de73bc9-282c-48b5-90ea-61d7e763c70c';
-    $pane->panel = 'region-one';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->pid = 'new-4d7ab2e8-4505-4b05-b8d1-cfd2a4edefae';
+    $pane->panel = 'region-two';
+    $pane->type = 'global_pane_content_type';
+    $pane->subtype = 'global_pane_content_type';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => '',
-      'title' => '',
-      'body' => 'Vivamus suscipit tortor eget felis porttitor volutpat. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Sed porttitor lectus nibh. Donec rutrum congue leo eget malesuada. Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Sed porttitor lectus nibh. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Cras ultricies ligula sed magna dictum porta.
-
-Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Nulla porttitor accumsan tincidunt. Vivamus suscipit tortor eget felis porttitor volutpat. Pellentesque in ipsum id orci porta dapibus. Nulla quis lorem ut libero malesuada feugiat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Nulla quis lorem ut libero malesuada feugiat.
-
-Vivamus suscipit tortor eget felis porttitor volutpat. Nulla porttitor accumsan tincidunt. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Proin eget tortor risus. Donec sollicitudin molestie malesuada. Nulla porttitor accumsan tincidunt. Curabitur aliquet quam id dui posuere blandit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
-
-Nulla quis lorem ut libero malesuada feugiat. Nulla porttitor accumsan tincidunt. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Nulla quis lorem ut libero malesuada feugiat. Sed porttitor lectus nibh. Sed porttitor lectus nibh. Sed porttitor lectus nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Sed porttitor lectus nibh.
-
-Pellentesque in ipsum id orci porta dapibus. Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur aliquet quam id dui posuere blandit. Curabitur aliquet quam id dui posuere blandit. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Donec rutrum congue leo eget malesuada. Curabitur aliquet quam id dui posuere blandit. Nulla porttitor accumsan tincidunt. Donec sollicitudin molestie malesuada.',
-      'format' => 'filtered_html',
-      'substitute' => TRUE,
+      'override_title' => 1,
+      'override_title_text' => 'фывафыва',
+      'title_tag' => 'h2',
+      'width' => 'half',
+      'text' => array(
+        'value' => '<p>фывафывафыва</p>',
+        'format' => 'full_html',
+      ),
+      'link_label' => 'Node 1',
+      'link' => 'node/1',
+      'image' => '2',
+      'title' => 'Title 2',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -113,46 +123,41 @@ Pellentesque in ipsum id orci porta dapibus. Vivamus suscipit tortor eget felis 
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = '3de73bc9-282c-48b5-90ea-61d7e763c70c';
-    $display->content['new-3de73bc9-282c-48b5-90ea-61d7e763c70c'] = $pane;
-    $display->panels['region-one'][1] = 'new-3de73bc9-282c-48b5-90ea-61d7e763c70c';
+    $pane->uuid = '4d7ab2e8-4505-4b05-b8d1-cfd2a4edefae';
+    $display->content['new-4d7ab2e8-4505-4b05-b8d1-cfd2a4edefae'] = $pane;
+    $display->panels['region-two'][1] = 'new-4d7ab2e8-4505-4b05-b8d1-cfd2a4edefae';
     $pane = new stdClass();
-    $pane->pid = 'new-860f71a0-d847-4833-b4aa-f544ca33a558';
-    $pane->panel = 'region-one';
-    $pane->type = 'views';
-    $pane->subtype = 'news';
+    $pane->pid = 'new-5458f717-e56e-4387-b414-652c36f82901';
+    $pane->panel = 'region-two';
+    $pane->type = 'global_pane_content_type';
+    $pane->subtype = 'global_pane_content_type';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_pager_settings' => 0,
-      'use_pager' => 1,
-      'nodes_per_page' => '10',
-      'pager_id' => '0',
-      'offset' => '0',
-      'more_link' => 0,
-      'feed_icons' => 0,
-      'panel_args' => 0,
-      'link_to_view' => 0,
-      'args' => '',
-      'url' => '',
-      'display' => 'default',
-      'override_title' => 0,
+      'override_title' => '',
       'override_title_text' => '',
+      'title' => 'Title 3',
+      'title_tag' => 'h1',
+      'width' => 'half',
+      'text' => array(
+        'value' => '<p>asdfasdf</p>',
+        'format' => 'full_html',
+      ),
+      'link_label' => 'asdf',
+      'link' => 'asdf',
+      'image' => '3',
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array(
-      'css_id' => '',
-      'css_class' => 'main-news',
-    );
+    $pane->css = array();
     $pane->extras = array();
     $pane->position = 2;
     $pane->locks = array();
-    $pane->uuid = '860f71a0-d847-4833-b4aa-f544ca33a558';
-    $display->content['new-860f71a0-d847-4833-b4aa-f544ca33a558'] = $pane;
-    $display->panels['region-one'][2] = 'new-860f71a0-d847-4833-b4aa-f544ca33a558';
+    $pane->uuid = '5458f717-e56e-4387-b414-652c36f82901';
+    $display->content['new-5458f717-e56e-4387-b414-652c36f82901'] = $pane;
+    $display->panels['region-two'][2] = 'new-5458f717-e56e-4387-b414-652c36f82901';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
