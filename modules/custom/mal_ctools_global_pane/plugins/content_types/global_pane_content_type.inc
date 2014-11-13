@@ -116,7 +116,7 @@ function global_pane_render($subtype, $conf, $args, $context) {
 
   if (($title = $conf['title'])) {
     $conf_template['title'] = array(
-      '#markup' => '<' . $conf['title_tag'] . '>' . $title . '</' . $conf['title_tag']. '>',
+      '#markup' => '<' . $conf['title_tag'] . '>' . $title . '</' . $conf['title_tag'] . '>',
     );
   }
 
