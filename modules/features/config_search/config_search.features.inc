@@ -42,7 +42,10 @@ function config_search_default_search_api_index() {
         "search_api_alter_bundle_filter" : {
           "status" : 1,
           "weight" : "-10",
-          "settings" : { "default" : "0", "bundles" : { "course" : "course" } }
+          "settings" : {
+            "default" : "0",
+            "bundles" : { "course" : "course", "course_packages" : "course_packages" }
+          }
         },
         "search_api_alter_node_access" : { "status" : 0, "weight" : "0", "settings" : [] },
         "search_api_alter_node_status" : { "status" : 1, "weight" : "0", "settings" : [] },
@@ -73,7 +76,6 @@ function config_search_default_search_api_index() {
           "weight" : "0",
           "settings" : { "fields" : {
               "title" : true,
-              "field_course_application_period" : true,
               "field_course_form" : true,
               "field_course_group" : true,
               "field_course_national_code" : true,
@@ -89,7 +91,6 @@ function config_search_default_search_api_index() {
           "settings" : {
             "fields" : {
               "title" : true,
-              "field_course_application_period" : true,
               "field_course_form" : true,
               "field_course_group" : true,
               "field_course_national_code" : true,
@@ -107,8 +108,6 @@ function config_search_default_search_api_index() {
           "weight" : "20",
           "settings" : {
             "fields" : {
-              "title" : true,
-              "field_course_application_period" : true,
               "field_course_group" : true,
               "field_course_national_code" : true,
               "field_course_prerequisites" : true
@@ -123,7 +122,6 @@ function config_search_default_search_api_index() {
           "settings" : {
             "fields" : {
               "title" : true,
-              "field_course_application_period" : true,
               "field_course_form" : true,
               "field_course_group" : true,
               "field_course_national_code" : true,

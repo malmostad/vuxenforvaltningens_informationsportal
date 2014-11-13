@@ -27,6 +27,13 @@ function config_date_format_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'date_format_mal_short_course';
+  $strongarm->value = 'omd';
+  $export['date_format_mal_short_course'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'date_format_medium';
   $strongarm->value = 'D, m/d/Y - H:i';
   $export['date_format_medium'] = $strongarm;
