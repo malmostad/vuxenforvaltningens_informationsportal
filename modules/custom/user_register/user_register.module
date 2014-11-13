@@ -36,3 +36,209 @@ function user_register_element_info_alter(&$type) {
 function user_register_menu_alter(&$items) {
   $items['user/register']['access callback'] = FALSE;
 }
+
+/**
+ * Ajax callback for course subscription action.
+ *
+ * @param int $cid
+ *   ID of course node to subscribe.
+ *
+ * @return array
+ *   Array of commands, that describes operation status.
+ */
+function user_register_course_subscribe($cid) {
+  $commands = array();
+  return $commands;
+}
+
+/**
+ * Ajax callback for course unsubscription action.
+ *
+ * @param int $cid
+ *   ID of course node to unsubscribe.
+ *
+ * @return array
+ *   Array of commands, that describes operation status.
+ */
+function user_register_course_unsubscribe($cid) {
+  $commands = array();
+  return $commands;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function user_register_form_registration_form_alter(&$form, &$form_state, $form_id) {
+  $debug = '';
+
+  unset($form['who_message']);
+  unset($form['actions']['cancel']);
+
+  $form['#prefix'] = '<div id="user-register-form-wrapper-' . $form['#registration_settings']['entity_type'] . '-' . $form['#registration_settings']['entity_id'] . '">';
+  $form['#suffix'] = '</div>';
+  $form['actions']['submit']['#ajax'] = array(
+    'wrapper' => 'user-register-form-wrapper-' . $form['#registration_settings']['entity_type'] . '-' . $form['#registration_settings']['entity_id'],
+    'callback' => 'user_register_unregistration_form_reload',
+  );
+}
+
+/**
+ * Ajax form callback. Simply reload form.
+ *
+ * @param array $form
+ *   Form renderable array.
+ *
+ * @return array
+ *   Form renderable array.
+ */
+function user_register_unregistration_form_reload($form) {
+  global $user;
+  $registration = user_register_load_registration_by_user($form['#registration_settings']['entity_type'], $form['#registration_settings']['entity_id'], $user->uid);
+  return drupal_get_form('user_register_unregister_form', $registration);
+}
+
+/**
+ * Ajax form callback. Simply reload form.
+ *
+ * @param array $form
+ *   Form renderable array.
+ *
+ * @return array
+ *   Form renderable array.
+ */
+function user_register_registration_form_reload($form) {
+  $prev_registration = $form['registration']['#value'];
+
+  $registration = entity_get_controller('registration')->create(array(
+    'entity_type' => $prev_registration->entity_type,
+    'entity_id' => $prev_registration->entity_id,
+    'type' => $prev_registration->type,
+  ));
+  return drupal_get_form('registration_form', $registration);
+}
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function user_register_field_formatter_info() {
+  return array(
+    'toggling_registration_form' => array(
+      'label' => t('Register and Unregister Form via ajax toggling'),
+      'field types' => array('registration'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function user_register_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  global $user;
+
+  // We know we should only have a single item.
+  if (isset($items[0]['registration_type']) && !empty($items[0]['registration_type'])) {
+    $reg_type = registration_type_load($items[0]['registration_type']);
+    list($entity_id) = entity_extract_ids($entity_type, $entity);
+
+    if (!registration_register_page_access($entity_type, $entity) && !registration_status($entity_type, $entity_id)) {
+      return $element;
+    }
+
+    switch ($display['type']) {
+      case 'toggling_registration_form':
+        $registration = user_register_load_registration_by_user($entity_type, $entity_id, $user->uid);
+
+        if (!$registration) {
+          $registration = entity_get_controller('registration')->create(array(
+            'entity_type' => $entity_type,
+            'entity_id' => $entity_id,
+            'type' => $reg_type->name,
+          ));
+          $element[0] = drupal_get_form('registration_form', $registration);
+        }
+        else {
+          $registration = user_register_load_registration_by_user($entity_type, $entity_id, $user->uid);
+          $element[0] = drupal_get_form('user_register_unregister_form', $registration);
+        }
+        break;
+    }
+  }
+
+  return $element;
+}
+
+/**
+ * Load single registration instance for given node.
+ *
+ * @param string $entity_type
+ *   Entity type registration is attached to.
+ * @param string|int $entity_id
+ *   Entity id registration os attached to.
+ * @param string|int $uid
+ *   Current user ID.
+ *
+ * @return bool|Registration
+ *   False if no registration was found of found registration.
+ */
+function user_register_load_registration_by_user($entity_type, $entity_id, $uid) {
+  $query = new EntityFieldQuery();
+  $result = $query
+    ->entityCondition('entity_type', 'registration')
+    ->propertyCondition('entity_id', $entity_id)
+    ->propertyCondition('entity_type', $entity_type)
+    ->propertyCondition('user_uid', $uid)
+    ->execute();
+
+  if (!empty($result['registration'])) {
+    return registration_load(key($result['registration']));
+  }
+
+  return FALSE;
+}
+
+/**
+ * User unregister form.
+ *
+ * @param array $form
+ *   Renderable form array.
+ * @param array $form_state
+ *   Form state array.
+ * @param Registration $registration
+ *   Registration entity.
+ *
+ * @return array
+ *   Renderable form array.
+ */
+function user_register_unregister_form($form, &$form_state, $registration) {
+  $form['registration'] = array(
+    '#type' => 'value',
+    '#value' => $registration,
+  );
+
+  $form['actions']['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Unregister'),
+  );
+
+  $form['#prefix'] = '<div id="user-register-form-wrapper-' . $registration->entity_type . '-' . $registration->entity_id . '">';
+  $form['#suffix'] = '</div>';
+  $form['actions']['submit']['#ajax'] = array(
+    'wrapper' => 'user-register-form-wrapper-' . $registration->entity_type . '-' . $registration->entity_id,
+    'callback' => 'user_register_registration_form_reload',
+  );
+
+  return $form;
+}
+
+/**
+ * Submit callback for user_register_unregister_form form that unregister user.
+ *
+ * @param array $form
+ *   Renderable form array.
+ * @param array $form_state
+ *   Form state array.
+ */
+function user_register_unregister_form_submit($form, &$form_state) {
+  entity_delete('registration', $form_state['values']['registration']->registration_id);
+}

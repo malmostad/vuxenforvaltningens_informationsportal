@@ -31,7 +31,9 @@ function user_register_registration_pane_render($subtype, $conf, $panel_args, $c
   if ($conf['override_title']) {
     $title = trim($conf['override_title_text']);
     // Translate custom title, if it's not empty.
-    $title = empty($title) ? $title : t("@title", array('@title' => $title));
+    // @codingStandardsIgnoreStart
+    $title = empty($title) ? $title : t($title);
+    // @codingStandardsIgnoreEnd
   }
   else {
     $title = t('Registration');
