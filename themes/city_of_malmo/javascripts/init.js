@@ -48,10 +48,10 @@
     attach: function(context, settings) {
       $('.view-search').find('.panel-heading').click(function() {
         $(this).siblings('.panel-body').toggle(300);
-        if ($.trim($(this).text()) === Drupal.t("Hide")) {
-          $(this).text(Drupal.t("Show more"));
+        if ($.trim($(this).text()) === Drupal.t("Hide description")) {
+          $(this).text(Drupal.t("Show description"));
         } else {
-          $(this).text(Drupal.t("Hide"));
+          $(this).text(Drupal.t("Hide description"));
         }
       });
     }
