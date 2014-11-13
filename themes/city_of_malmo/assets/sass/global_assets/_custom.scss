@@ -1,5 +1,6 @@
 /* Variables */
 $OpenSans: "OpenSans", "Droid Sans", "Verdana", "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
+$Georgia: Georgia, serif;
 $text: #4f4f4f;
 $grey: #ccc;
 $icon-sprite: "../../images/icon-sprite.png";
@@ -709,6 +710,7 @@ nav.content {
 /* --------FOOTER BOTTOM---------  */
 /* ------body-------- */
 body {
+  color: $text;
   position: absolute;
   width: 100%;
   min-height: 100%;
@@ -908,28 +910,51 @@ footer#malmo-footer {
   }
 }
 
+/* --- Course page --- */
+.node-type-course {
+  .body-copy {
+    .pane-title {
+      font-size: 36px;
+      font-family: $Georgia;
+    }
+  }
+}
+.group-third-group {
+  .field-label {
+    font-size: 24px;
+  }
+  .field-value {
+    p {
+      line-height: 22px;
+    }
+  }
+}
+
+/* --- Course description --- */
+.first-group,
+.second-group {
+  font-size: 14px;
+  font-family: $OpenSans;
+  margin-bottom: 16px;
+  max-width: 510px;
+  .label-inline {
+    display: inline;
+    & ~ .field-value {
+      display: inline;
+    }
+  }
+}
+
 /* --- Search page content --- */
 .view-search {
   h2 {
     font-size: 24px;
-    font-family: Georgia, serif;
+    font-family: $Georgia;
     margin: 0 0 9px;
     a {
       color: $text;
       &:hover {
         text-decoration: none;
-      }
-    }
-  }
-  .first-group,
-  .second-group {
-    font-size: 14px;
-    font-family: $OpenSans;
-    margin-bottom: 16px;
-    .label-inline {
-      display: inline;
-      & ~ .field-value {
-        display: inline;
       }
     }
   }
@@ -939,6 +964,17 @@ footer#malmo-footer {
   }
   .panel-body {
     display: none;
+    max-width: 510px;
+    padding: 0;
+    .field-label {
+      font-weight: bold;
+    }
+    .field-value {
+      p {
+        line-height: 22px;
+        margin-bottom: 1em;
+      }
+    }
   }
   .content fieldset {
     @include box-shadow(none);
@@ -946,6 +982,7 @@ footer#malmo-footer {
   .panel-heading {
     background: none !important;
     border: none;
+    color: $text;
     cursor: pointer;
     @include inline-block(top);
     font-size: 17px;
