@@ -921,6 +921,18 @@ footer#malmo-footer {
       }
     }
   }
+  .first-group,
+  .second-group {
+    font-size: 14px;
+    font-family: $OpenSans;
+    margin-bottom: 16px;
+    .label-inline {
+      display: inline;
+      & ~ .field-value {
+        display: inline;
+      }
+    }
+  }
   .views-row {
     border-bottom: 1px solid $grey;
     margin-bottom: 25px;
