@@ -57,6 +57,7 @@ dependencies[] = field_collection_table
 dependencies[] = field_group
 dependencies[] = entityreference
 dependencies[] = timefield
+dependencies[] = link
 ; Other
 dependencies[] = diff
 dependencies[] = entity
@@ -70,6 +71,7 @@ dependencies[] = panels_everywhere
 dependencies[] = panels_mini
 dependencies[] = pps
 ; Propeople
+dependencies[] = mal_ctools_global_pane
 dependencies[] = mal_ctools_separate_facet
 dependencies[] = mal_ctools_contact_box
 dependencies[] = mal_ctools_global_search
@@ -129,3 +131,4 @@ dependencies[] = page_course_package_view
 dependencies[] = view_faq
 dependencies[] = view_search
 dependencies[] = view_schools
+dependencies[] = conf_image_style

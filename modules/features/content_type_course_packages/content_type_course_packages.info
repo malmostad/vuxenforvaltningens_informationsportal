@@ -27,6 +27,7 @@ features[field_group][] = group_first_group|node|course_packages|search_result
 features[field_group][] = group_hide_and_show|node|course_packages|search_result
 features[field_group][] = group_second_group|node|course_packages|default
 features[field_group][] = group_second_group|node|course_packages|search_result
+features[field_group][] = group_third_group|node|course_packages|default
 features[field_instance][] = field_collection_item-field_course_package-field_package_course
 features[field_instance][] = field_collection_item-field_course_package-field_package_point
 features[field_instance][] = node-course_packages-body
