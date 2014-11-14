@@ -154,11 +154,6 @@ function global_pane_render($subtype, $conf, $args, $context) {
 
 /**
  * Generate link widget.
- *
- * @param string
- *   Current color.
- * @return array
- *   Renderable array with colorpicker settings.
  */
 function global_pane_get_link($title, $url) {
   $field = array(
