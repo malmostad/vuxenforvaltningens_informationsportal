@@ -72,7 +72,7 @@ function page_front_default_page_manager_pages() {
     $pane->configuration = array(
       'override_title' => '',
       'override_title_text' => '',
-      'title' => 'Title 1',
+      'title' => 'test31',
       'title_tag' => 'h1',
       'width' => 'third',
       'text' => array(
@@ -80,8 +80,13 @@ function page_front_default_page_manager_pages() {
         'format' => 'full_html',
       ),
       'link_label' => 'See more',
-      'link' => 'node/1',
+      'link' => array(
+        'title' => 'Show more',
+        'url' => 'node/1',
+      ),
       'image' => 0,
+      'url' => 'test31',
+      'pane_title' => 'Title 1',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -112,8 +117,12 @@ function page_front_default_page_manager_pages() {
         'format' => 'full_html',
       ),
       'link_label' => '',
-      'link' => '',
+      'link' => array(
+        'title' => '',
+        'url' => '',
+      ),
       'image' => 0,
+      'pane_title' => 'Title 2',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -144,8 +153,12 @@ function page_front_default_page_manager_pages() {
         'format' => 'full_html',
       ),
       'link_label' => '',
-      'link' => '',
+      'link' => array(
+        'title' => '',
+        'url' => '',
+      ),
       'image' => '25',
+      'pane_title' => 'Title 3',
     );
     $pane->cache = array();
     $pane->style = array(

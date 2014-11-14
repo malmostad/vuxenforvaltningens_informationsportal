@@ -57,6 +57,7 @@ dependencies[] = field_collection_table
 dependencies[] = field_group
 dependencies[] = entityreference
 dependencies[] = timefield
+dependencies[] = link
 ; Other
 dependencies[] = diff
 dependencies[] = entity

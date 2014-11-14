@@ -5,3 +5,4 @@ package = Propeople
 dependencies[] = ctools
 dependencies[] = page_manager
 dependencies[] = panels
+dependencies[] = link

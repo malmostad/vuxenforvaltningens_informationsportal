@@ -37,10 +37,10 @@ function global_pane_edit_form($form, &$form_state) {
   $form['override_title']['#access']
     = $form['override_title_text']['#access'] = FALSE;
 
-  $form['title'] = array(
+  $form['pane_title'] = array(
     '#type' => 'textfield',
     '#title' => t('Title'),
-    '#default_value' => isset($conf['title']) ? $conf['title'] : '',
+    '#default_value' => isset($conf['pane_title']) ? $conf['pane_title'] : '',
   );
 
   $form['title_tag'] = array(
@@ -70,17 +70,10 @@ function global_pane_edit_form($form, &$form_state) {
     '#default_value' => isset($conf['text']['value']) ? $conf['text']['value'] : '',
   );
 
-  $form['link_label'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Link label'),
-    '#default_value' => isset($conf['link_label']) ? $conf['link_label'] : '',
-  );
+  $link_title = isset($conf['link']['title']) ? $conf['link']['title'] : '';
+  $link_url = isset($conf['link']['url']) ? $conf['link']['url'] : '';
 
-  $form['link'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Link'),
-    '#default_value' => isset($conf['link']) ? $conf['link'] : '',
-  );
+  $form['link'] = global_pane_get_link($link_title, $link_url);
 
   $form['image'] = array(
     '#type' => 'managed_file',
@@ -101,6 +94,14 @@ function global_pane_edit_form($form, &$form_state) {
  */
 function global_pane_edit_form_submit($form, &$form_state) {
   form_state_values_clean($form_state);
+  $form_state['values']['link']['title'] = $form_state['values']['title'];
+  $form_state['values']['link']['url'] = $form_state['values']['url'];
+
+  unset(
+    $form_state['values']['title'],
+    $form_state['values']['url']
+  );
+
   foreach ($form_state['values'] as $key => $value) {
     $form_state['conf'][$key] = $value;
   }
@@ -114,9 +115,9 @@ function global_pane_render($subtype, $conf, $args, $context) {
 
   $conf_template['width'] = ' ' . $conf['width'];
 
-  if (($title = $conf['title'])) {
+  if (!empty($conf['pane_title'])) {
     $conf_template['title'] = array(
-      '#markup' => '<' . $conf['title_tag'] . '>' . $title . '</' . $conf['title_tag'] . '>',
+      '#markup' => '<' . $conf['title_tag'] . '>' . $conf['pane_title'] . '</' . $conf['title_tag'] . '>',
     );
   }
 
@@ -138,9 +139,9 @@ function global_pane_render($subtype, $conf, $args, $context) {
     );
   }
 
-  if (!empty($conf['link']) && !empty($conf['link_label'])) {
+  if (!empty($conf['link']['title']) && !empty($conf['link']['url'])) {
     $conf_template['link'] = array(
-      '#markup' => l($conf['link_label'], $conf['link']),
+      '#markup' => l($conf['link']['title'], $conf['link']['url']),
       '#weight' => 10,
     );
   }
@@ -148,4 +149,50 @@ function global_pane_render($subtype, $conf, $args, $context) {
   $block = new stdClass();
   $block->content = theme('global_pane', $conf_template);
   return $block;
+}
+
+
+/**
+ * Generate link widget.
+ *
+ * @param string
+ *   Current color.
+ * @return array
+ *   Renderable array with colorpicker settings.
+ */
+function global_pane_get_link($title, $url) {
+  $field = array(
+    'field_name' => 'link',
+    'settings' => array(
+      'title_maxlength' => 128,
+    ),
+  );
+  $instance = array(
+    'widget' => array(
+      'type' => 'link_field',
+    ),
+    'label' => t('Link'),
+  );
+
+  $instance['default_value'][0]['title'] = $title;
+  $instance['default_value'][0]['url'] = $url;
+
+  $langcode = LANGUAGE_NONE;
+  $delta = 0;
+  $items[$delta]['title'] = $title;
+  $items[$delta]['url'] = $url;
+
+  $element = array(
+    '#description' => t('Enter link.'),
+    '#field_parents' => array('link'),
+    '#default_value' => array(
+      'title' => $title,
+      'url' => $url,
+    ),
+    '#delta' => 0,
+    '#field_name' => 'link',
+    '#language' => LANGUAGE_NONE,
+  );
+
+  return link_field_widget_form($form, $form_state, $field, $instance, $langcode, $items, $delta, $element);
 }
