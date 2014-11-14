@@ -1,6 +1,9 @@
 name = Mal user customizations
+description = Extensions for registration module.
 core = 7.x
 package = Propeople
+
 dependencies[] = user
 dependencies[] = ctools
 dependencies[] = panels
+dependencies[] = registration

@@ -1,0 +1,9 @@
+name = Course registration type
+core = 7.x
+package = Registration
+version = 7.x-1.0
+project = course_registration_type
+dependencies[] = entity
+dependencies[] = registration
+features[features_api][] = api:2
+features[registration_type][] = course_registration
