@@ -9,5 +9,5 @@ Feature: Front
     Then I should see the text "Title 1"
     Then I should see the text "Title 2"
     Then I should see the text "Title 3"
-    Then I should see the text "See more"
+    Then I should see the text "Show more"
 
