@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Course registration type feature.
+ */
+
+include_once 'course_registration_type.features.inc';
