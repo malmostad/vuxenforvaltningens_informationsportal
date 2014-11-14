@@ -189,6 +189,39 @@ function page_main_layout_default_page_manager_handlers() {
     $display->content['new-91244761-8678-4220-88b8-191d40f5547a'] = $pane;
     $display->panels['region-three'][2] = 'new-91244761-8678-4220-88b8-191d40f5547a';
     $pane = new stdClass();
+    $pane->pid = 'new-35a1852d-4b48-4126-96ba-be44e2ec91cc';
+    $pane->panel = 'region-two';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'front',
+          'settings' => NULL,
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => '',
+      'body' => '<p><img alt="" src="http://apod.nasa.gov/apod/image/1403/heic1404b1024.jpg" style="height:300px; width:1000px" /></p>',
+      'format' => 'full_html',
+      'substitute' => 1,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '35a1852d-4b48-4126-96ba-be44e2ec91cc';
+    $display->content['new-35a1852d-4b48-4126-96ba-be44e2ec91cc'] = $pane;
+    $display->panels['region-two'][0] = 'new-35a1852d-4b48-4126-96ba-be44e2ec91cc';
+    $pane = new stdClass();
     $pane->pid = 'new-3c993f1f-49e7-462e-b122-1c3aaf5fd067';
     $pane->panel = 'region-two';
     $pane->type = 'global_search_content_type';
@@ -214,11 +247,11 @@ function page_main_layout_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = '3c993f1f-49e7-462e-b122-1c3aaf5fd067';
     $display->content['new-3c993f1f-49e7-462e-b122-1c3aaf5fd067'] = $pane;
-    $display->panels['region-two'][0] = 'new-3c993f1f-49e7-462e-b122-1c3aaf5fd067';
+    $display->panels['region-two'][1] = 'new-3c993f1f-49e7-462e-b122-1c3aaf5fd067';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-91244761-8678-4220-88b8-191d40f5547a';
   $handler->conf['display'] = $display;

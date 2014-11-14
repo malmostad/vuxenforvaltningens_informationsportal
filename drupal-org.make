@@ -52,6 +52,9 @@ projects[field_group][subdir] = "contrib"
 projects[entityreference][version] = "1.1"
 projects[entityreference][subdir] = "contrib"
 
+projects[link][version] = "1.3"
+projects[link][subdir] = "contrib"
+
 projects[timefield][subdir] = "contrib"
 projects[timefield][download][type] = "git"
 projects[timefield][download][url] = "http://git.drupal.org/project/timefield.git"
