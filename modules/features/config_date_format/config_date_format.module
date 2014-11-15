@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Config date format feature.
- */
-
-include_once 'config_date_format.features.inc';

@@ -1,27 +1,29 @@
 <?php
 /**
  * @file
- * content_type_question_and_answer.features.field_instance.inc
+ * content_type_course_package_template.features.field_instance.inc
  */
 
 /**
  * Implements hook_field_default_field_instances().
  */
-function content_type_question_and_answer_field_default_field_instances() {
+function content_type_course_package_template_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-question_and_answer-body'
-  $field_instances['node-question_and_answer-body'] = array(
-    'bundle' => 'question_and_answer',
+  // Exported field_instance: 'node-course_package_template-field_course_type_education'
+  $field_instances['node-course_package_template-field_course_type_education'] = array(
+    'bundle' => 'course_package_template',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
         'weight' => 0,
       ),
       'node_teaser' => array(
@@ -37,39 +39,38 @@ function content_type_question_and_answer_field_default_field_instances() {
         'weight' => 0,
       ),
       'teaser' => array(
-        'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(
-          'trim_length' => 600,
-        ),
-        'type' => 'text_summary_or_trimmed',
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'body',
-    'label' => 'Answer',
+    'field_name' => 'field_course_type_education',
+    'ied_settings' => array(
+      'display_fields' => 0,
+    ),
+    'label' => 'Type of education',
     'required' => 0,
     'settings' => array(
-      'display_summary' => 1,
-      'text_processing' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'text',
+      'module' => 'entityreference',
       'settings' => array(
-        'rows' => 20,
-        'summary_rows' => 5,
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
       ),
-      'type' => 'text_textarea_with_summary',
-      'weight' => -4,
+      'type' => 'entityreference_autocomplete_tags',
+      'weight' => -3,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Answer');
+  t('Type of education');
 
   return $field_instances;
 }

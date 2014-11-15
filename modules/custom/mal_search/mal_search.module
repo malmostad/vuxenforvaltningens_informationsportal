@@ -19,26 +19,19 @@ function mal_search_entity_property_info_alter(&$info) {
     'getter callback' => 'mal_search_property_duration_days_getter_callback',
     // 'schema field' => 'language',
   );
+  $info['node']['properties']['global_type_of_education'] = array(
+    'type' => 'list<text>',
+    'label' => t('Global type of education'),
+    'field' => TRUE,
+    'sanitized' => TRUE,
+    'getter callback' => 'mal_search_property_global_type_of_education_getter_callback',
+  );
 }
 
 /**
  * Getter callback for time field.
  *
  * It returns translated week days names.
- *
- * @param array $item
- *   Fieldable entity object.
- * @param array $options
- *   Option for particular get callback.
- * @param string $name
- *   Schema field name.
- * @param string $type
- *   Entity type.
- * @param array $info
- *   Structure from hook_entity_property_info().
- *
- * @return array
- *   Set of valid values for given field.
  */
 function mal_search_property_duration_days_getter_callback($item, array $options, $name, $type, $info) {
   $values = array();
@@ -62,6 +55,18 @@ function mal_search_property_duration_days_getter_callback($item, array $options
     }
   }
 
+  return $values;
+}
+
+
+/**
+ * Getter callback for time field.
+ *
+ * It returns translated week days names.
+ */
+function mal_search_property_global_type_of_education_getter_callback($item, array $options, $name, $type, $info) {
+  $values = array();
+  // Prepare for global type of education.
   return $values;
 }
 

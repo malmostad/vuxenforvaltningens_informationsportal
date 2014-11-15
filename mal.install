@@ -44,29 +44,30 @@ function mal_install() {
   variable_set('page_manager_node_view_disabled', 0);
   variable_set('panels_everywhere_site_template_enabled', 1);
 
-  entity_import('search_api_server', '{
-    "name" : "Apache solr",
-    "machine_name" : "apache_solr",
-    "description" : "",
-    "class" : "search_api_solr_service",
-    "options" : {
-      "clean_ids" : true,
-      "site_hash" : true,
-      "scheme" : "http",
-      "host" : "localhost",
-      "port" : "8080",
-      "path" : "\\/solr\\/valera_dkf",
-      "http_user" : "",
-      "http_pass" : "",
-      "excerpt" : 0,
-      "retrieve_data" : 0,
-      "highlight_data" : 0,
-      "skip_schema_check" : 0,
-      "solr_version" : "",
-      "http_method" : "AUTO"
-    },
-    "enabled" : "1",
-    "rdf_mapping" : []
-  }');
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'date_format_mal_short';
+  $strongarm->value = 'Ymd';
+  $export['date_format_mal_short'] = $strongarm;
+
+  db_insert('date_formats')
+    ->fields(array(
+      'format' => 'Ymd',
+      'type' => 'mal_short_course',
+      'locked' => 0,
+    ))
+    ->execute();
+
+  db_insert('date_format_type')
+    ->fields(array(
+      'type' => 'mal_short_course',
+      'title' => 'Mal short course',
+      'locked' => 0,
+    ))
+    ->execute();
+
+  variable_set('date_format_mal_short_course', 'Ymd');
+
   menu_rebuild();
 }
