@@ -15,6 +15,8 @@ function config_permissions_user_default_permissions() {
     'name' => 'access administration menu',
     'roles' => array(
       'administrator' => 'administrator',
+      'malmo administrator' => 'malmo administrator',
+      'malmo editor' => 'malmo editor',
     ),
     'module' => 'admin_menu',
   );
@@ -24,6 +26,8 @@ function config_permissions_user_default_permissions() {
     'name' => 'access administration pages',
     'roles' => array(
       'administrator' => 'administrator',
+      'malmo administrator' => 'malmo administrator',
+      'malmo editor' => 'malmo editor',
     ),
     'module' => 'system',
   );
@@ -61,6 +65,8 @@ function config_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'anonymous user' => 'anonymous user',
+      'malmo administrator' => 'malmo administrator',
+      'malmo editor' => 'malmo editor',
     ),
     'module' => 'node',
   );
@@ -517,12 +523,30 @@ function config_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'create course_package_template content'.
+  $permissions['create course_package_template content'] = array(
+    'name' => 'create course_package_template content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'create course_packages content'.
   $permissions['create course_packages content'] = array(
     'name' => 'create course_packages content',
     'roles' => array(
       'administrator' => 'administrator',
       'malmo editor' => 'malmo editor',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'create course_template content'.
+  $permissions['create course_template content'] = array(
+    'name' => 'create course_template content',
+    'roles' => array(
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -599,9 +623,27 @@ function config_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete any course_package_template content'.
+  $permissions['delete any course_package_template content'] = array(
+    'name' => 'delete any course_package_template content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'delete any course_packages content'.
   $permissions['delete any course_packages content'] = array(
     'name' => 'delete any course_packages content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete any course_template content'.
+  $permissions['delete any course_template content'] = array(
+    'name' => 'delete any course_template content',
     'roles' => array(
       'administrator' => 'administrator',
     ),
@@ -654,12 +696,30 @@ function config_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete own course_package_template content'.
+  $permissions['delete own course_package_template content'] = array(
+    'name' => 'delete own course_package_template content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'delete own course_packages content'.
   $permissions['delete own course_packages content'] = array(
     'name' => 'delete own course_packages content',
     'roles' => array(
       'administrator' => 'administrator',
       'malmo editor' => 'malmo editor',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete own course_template content'.
+  $permissions['delete own course_template content'] = array(
+    'name' => 'delete own course_template content',
+    'roles' => array(
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -788,9 +848,27 @@ function config_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit any course_package_template content'.
+  $permissions['edit any course_package_template content'] = array(
+    'name' => 'edit any course_package_template content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'edit any course_packages content'.
   $permissions['edit any course_packages content'] = array(
     'name' => 'edit any course_packages content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit any course_template content'.
+  $permissions['edit any course_template content'] = array(
+    'name' => 'edit any course_template content',
     'roles' => array(
       'administrator' => 'administrator',
     ),
@@ -852,12 +930,30 @@ function config_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit own course_package_template content'.
+  $permissions['edit own course_package_template content'] = array(
+    'name' => 'edit own course_package_template content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'edit own course_packages content'.
   $permissions['edit own course_packages content'] = array(
     'name' => 'edit own course_packages content',
     'roles' => array(
       'administrator' => 'administrator',
       'malmo editor' => 'malmo editor',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit own course_template content'.
+  $permissions['edit own course_template content'] = array(
+    'name' => 'edit own course_template content',
+    'roles' => array(
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
