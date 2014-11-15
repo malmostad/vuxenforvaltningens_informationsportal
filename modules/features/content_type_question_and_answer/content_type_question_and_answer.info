@@ -2,6 +2,7 @@ name = Content type question and answer
 core = 7.x
 package = Content types
 dependencies[] = content_type_course
+dependencies[] = content_type_course_template
 dependencies[] = features
 dependencies[] = strongarm
 dependencies[] = text

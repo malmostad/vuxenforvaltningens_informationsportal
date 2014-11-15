@@ -229,7 +229,7 @@ function city_of_malmo_search_api_sorts_sort(array $variables) {
 }
 
 /**
- * Change separator from "to" to "-".
+ * Change separator from "to" to "-" and remove timezone.
  *
  * @see theme_date_display_range()
  */
@@ -254,6 +254,25 @@ function city_of_malmo_date_display_range($variables) {
     '!start-date' => $start_date,
     '!end-date' => $end_date,
   ));
+}
+
+/**
+ * Remove timezone.
+ *
+ * @see theme_date_display_single()
+ */
+function city_of_malmo_date_display_single($variables) {
+  $date = $variables['date'];
+  $attributes = $variables['attributes'];
+
+  // Wrap the result with the attributes.
+  $output = '<span class="date-display-single"' . drupal_attributes($attributes) . '>' . $date . '</span>';
+
+  if (!empty($variables['add_microdata'])) {
+    $output .= '<meta' . drupal_attributes($variables['microdata']['value']['#attributes']) . '/>';
+  }
+
+  return $output;
 }
 
 /**
