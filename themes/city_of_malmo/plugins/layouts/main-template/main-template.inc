@@ -11,6 +11,7 @@ $plugin = array(
     'region-one' => t('Breadcrumbs'),
     'region-two' => t('Top block'),
     'region-three' => t('Page content'),
-    'region-four' => t('Side bar')
+    'region-four' => t('Side bar'),
+    'region-five' => t('Footer'),
   ),
 );
