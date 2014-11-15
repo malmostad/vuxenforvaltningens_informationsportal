@@ -66,5 +66,8 @@ function mal_install() {
       'locked' => 0,
     ))
     ->execute();
+
+  variable_set('date_format_mal_short_course', 'Ymd');
+
   menu_rebuild();
 }

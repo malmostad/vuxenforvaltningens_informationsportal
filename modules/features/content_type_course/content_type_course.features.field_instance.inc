@@ -39,7 +39,7 @@ function content_type_course_field_default_field_instances() {
         'label' => 'inline',
         'module' => 'date',
         'settings' => array(
-          'format_type' => 'mal_short',
+          'format_type' => 'mal_short_course',
           'fromto' => 'both',
           'multiple_from' => '',
           'multiple_number' => '',
@@ -165,7 +165,7 @@ function content_type_course_field_default_field_instances() {
         'label' => 'inline',
         'module' => 'date',
         'settings' => array(
-          'format_type' => 'mal_short',
+          'format_type' => 'mal_short_course',
           'fromto' => 'both',
           'multiple_from' => '',
           'multiple_number' => '',
