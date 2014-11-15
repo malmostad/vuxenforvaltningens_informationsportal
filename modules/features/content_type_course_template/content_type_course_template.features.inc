@@ -1,16 +1,13 @@
 <?php
 /**
  * @file
- * content_type_course_packages.features.inc
+ * content_type_course_template.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function content_type_course_packages_ctools_plugin_api($module = NULL, $api = NULL) {
-  if ($module == "field_group" && $api == "field_group") {
-    return array("version" => "1");
-  }
+function content_type_course_template_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -19,10 +16,10 @@ function content_type_course_packages_ctools_plugin_api($module = NULL, $api = N
 /**
  * Implements hook_node_info().
  */
-function content_type_course_packages_node_info() {
+function content_type_course_template_node_info() {
   $items = array(
-    'course_packages' => array(
-      'name' => t('Course package'),
+    'course_template' => array(
+      'name' => t('Course template'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',

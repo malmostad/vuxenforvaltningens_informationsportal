@@ -165,6 +165,10 @@ function config_facet_facetapi_default_facet_settings() {
     'dependencies' => array(
       'bundle' => 'none',
       'bundle_selected' => array(),
+      'roles' => array(),
+      'facets' => array(),
+      'force_deactivation' => TRUE,
+      'regex' => FALSE,
     ),
     'facet_mincount' => '1',
     'facet_missing' => '0',
@@ -783,24 +787,27 @@ function config_facet_facetapi_default_facet_settings() {
       'display' => 'display',
       'active' => 0,
       'count' => 0,
+      'natural' => 0,
       'indexed' => 0,
     ),
     'sort_weight' => array(
       'active' => '-50',
       'count' => '-49',
       'display' => '-48',
+      'natural' => '0',
       'indexed' => '0',
     ),
     'sort_order' => array(
       'active' => '3',
       'count' => '3',
       'display' => '4',
+      'natural' => '4',
       'indexed' => '4',
     ),
     'empty_behavior' => 'none',
     'facet_more_text' => 'Show more',
     'facet_fewer_text' => 'Show fewer',
-    'soft_limit' => '20',
+    'soft_limit' => '0',
     'nofollow' => 1,
     'show_expanded' => 0,
     'show_count' => 1,
@@ -869,7 +876,32 @@ function config_facet_facetapi_default_facet_settings() {
   $facet->settings = array(
     'weight' => 0,
     'widget' => 'facetapi_links',
-    'filters' => array(),
+    'filters' => array(
+      'active_items' => array(
+        'status' => 0,
+        'weight' => '-50',
+      ),
+      'exclude_items' => array(
+        'status' => 0,
+        'weight' => '-49',
+      ),
+      'rewrite_items' => array(
+        'status' => 1,
+        'weight' => '-48',
+      ),
+      'narrow_results' => array(
+        'status' => 0,
+        'weight' => '-47',
+      ),
+      'show_if_minimum_items' => array(
+        'status' => 0,
+        'weight' => '-46',
+      ),
+      'deepest_level_items' => array(
+        'status' => 0,
+        'weight' => '-45',
+      ),
+    ),
     'active_sorts' => array(
       'display' => 'display',
       'active' => 0,
@@ -904,6 +936,10 @@ function config_facet_facetapi_default_facet_settings() {
     'show_count' => 0,
     'title_override' => 1,
     'title' => 'Utbildningsform',
+    'exclude' => '',
+    'regex' => 0,
+    'show_minimum_items' => 2,
+    'rewrite_items' => 1,
   );
   $export['search_api@node:block:field_course_type_education'] = $facet;
 

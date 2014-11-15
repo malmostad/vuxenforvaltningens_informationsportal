@@ -23,11 +23,13 @@ function content_type_course_field_group_info() {
     'label' => 'First group',
     'weight' => '0',
     'children' => array(
-      0 => 'field_course_form',
-      1 => 'field_course_number_of_points',
-      2 => 'field_course_prerequisites',
+      0 => 'field_course_date',
+      1 => 'field_course_form',
+      2 => 'field_course_periods',
       3 => 'field_course_school',
-      4 => 'field_course_type_education',
+      4 => 'node:course_template:field_course_type_education',
+      5 => 'node:course_template:field_course_number_of_points',
+      6 => 'node:course_template:field_course_prerequisites',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
@@ -58,11 +60,11 @@ function content_type_course_field_group_info() {
     'children' => array(
       0 => 'field_course_date',
       1 => 'field_course_form',
-      2 => 'field_course_number_of_points',
-      3 => 'field_course_periods',
-      4 => 'field_course_prerequisites',
-      5 => 'field_course_school',
-      6 => 'field_course_type_education',
+      2 => 'field_course_periods',
+      3 => 'field_course_school',
+      4 => 'node:course_template:field_course_type_education',
+      5 => 'node:course_template:field_course_number_of_points',
+      6 => 'node:course_template:field_course_prerequisites',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
@@ -91,7 +93,7 @@ function content_type_course_field_group_info() {
     'label' => 'Show more',
     'weight' => '8',
     'children' => array(
-      0 => 'body',
+      0 => 'node:course_template:body',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -119,8 +121,8 @@ function content_type_course_field_group_info() {
     'weight' => '1',
     'children' => array(
       0 => 'field_course_application_period',
-      1 => 'field_course_group',
-      2 => 'field_course_national_code',
+      1 => 'node:course_template:field_course_national_code',
+      2 => 'node:course_template:field_course_group',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
@@ -150,8 +152,6 @@ function content_type_course_field_group_info() {
     'weight' => '7',
     'children' => array(
       0 => 'field_course_application_period',
-      1 => 'field_course_group',
-      2 => 'field_course_national_code',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
@@ -178,9 +178,9 @@ function content_type_course_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Third group',
-    'weight' => '24',
+    'weight' => '2',
     'children' => array(
-      0 => 'body',
+      0 => 'node:course_template:body',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
