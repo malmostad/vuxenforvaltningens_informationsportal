@@ -39,6 +39,7 @@ function page_main_layout_default_page_manager_handlers() {
       'region-two' => NULL,
       'region-three' => NULL,
       'region-four' => NULL,
+      'region-five' => NULL,
     ),
   );
   $display->cache = array();
@@ -46,6 +47,28 @@ function page_main_layout_default_page_manager_handlers() {
   $display->uuid = '77ac90be-fde3-4352-941a-0c57a6de61ac';
   $display->content = array();
   $display->panels = array();
+    $pane = new stdClass();
+    $pane->pid = 'new-f941b59c-dd20-4d38-ac5a-e0fed964d242';
+    $pane->panel = 'region-five';
+    $pane->type = 'panels_mini';
+    $pane->subtype = 'footer';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'f941b59c-dd20-4d38-ac5a-e0fed964d242';
+    $display->content['new-f941b59c-dd20-4d38-ac5a-e0fed964d242'] = $pane;
+    $display->panels['region-five'][0] = 'new-f941b59c-dd20-4d38-ac5a-e0fed964d242';
     $pane = new stdClass();
     $pane->pid = 'new-e8c840e5-c7ed-4d67-98a3-c20e67fa8ff0';
     $pane->panel = 'region-four';
