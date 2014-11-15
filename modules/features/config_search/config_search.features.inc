@@ -29,13 +29,16 @@ function config_search_default_search_api_index() {
         "field_course_national_code" : { "type" : "text" },
         "field_course_number_of_points" : { "type" : "integer" },
         "field_course_orientation" : { "type" : "integer", "entity_type" : "taxonomy_term" },
+        "field_course_package_template:field_course_type_education" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
         "field_course_prerequisites" : { "type" : "text" },
         "field_course_school" : { "type" : "integer", "entity_type" : "node" },
         "field_course_subject_areas" : { "type" : "integer", "entity_type" : "taxonomy_term" },
-        "field_course_type_education" : { "type" : "integer", "entity_type" : "node" },
-        "search_api_aggregation_1" : { "type" : "text" },
+        "field_course_template:field_course_type_education" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
+        "field_course_type_education" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
+        "global_type_of_education" : { "type" : "list\\u003Ctext\\u003E" },
         "search_api_language" : { "type" : "string" },
         "search_api_url" : { "type" : "uri" },
+        "search_api_viewed" : { "type" : "text" },
         "title" : { "type" : "string" }
       },
       "data_alter_callbacks" : {
@@ -54,21 +57,26 @@ function config_search_default_search_api_index() {
           "weight" : "0",
           "settings" : { "lang_field" : "", "languages" : [] }
         },
-        "search_api_alter_add_viewed_entity" : { "status" : 0, "weight" : "0", "settings" : { "mode" : "full" } },
-        "search_api_alter_add_url" : { "status" : 1, "weight" : "0", "settings" : [] },
-        "search_api_alter_add_aggregation" : {
+        "search_api_alter_add_viewed_entity" : {
           "status" : 1,
           "weight" : "0",
-          "settings" : { "fields" : { "search_api_aggregation_1" : {
-                "name" : "Title Fulltext",
-                "type" : "fulltext",
-                "fields" : [ "title" ],
-                "description" : "A Fulltext aggregation of the following fields: Title."
-              }
+          "settings" : { "mode" : "search_result" }
+        },
+        "search_api_alter_add_url" : { "status" : 1, "weight" : "0", "settings" : [] },
+        "search_api_alter_add_aggregation" : { "status" : 1, "weight" : "0", "settings" : [] },
+        "search_api_alter_add_hierarchy" : {
+          "status" : 1,
+          "weight" : "0",
+          "settings" : { "fields" : {
+              "field_course_package_template:field_course_package_template" : "field_course_package_template:field_course_package_template",
+              "field_course_package_template:field_course_template" : "field_course_package_template:field_course_template",
+              "field_course_type_education:field_course_package_template" : "field_course_type_education:field_course_package_template",
+              "field_course_type_education:field_course_template" : "field_course_type_education:field_course_template",
+              "field_course_template:field_course_package_template" : "field_course_template:field_course_package_template",
+              "field_course_template:field_course_template" : "field_course_template:field_course_template"
             }
           }
-        },
-        "search_api_alter_add_hierarchy" : { "status" : 0, "weight" : "0", "settings" : { "fields" : [] } }
+        }
       },
       "processors" : {
         "search_api_case_ignore" : {
@@ -76,12 +84,12 @@ function config_search_default_search_api_index() {
           "weight" : "0",
           "settings" : { "fields" : {
               "title" : true,
-              "field_course_form" : true,
-              "field_course_group" : true,
-              "field_course_national_code" : true,
               "field_course_prerequisites" : true,
               "field_course_school" : true,
-              "field_course_type_education" : true
+              "field_course_type_education" : true,
+              "field_course_national_code" : true,
+              "field_course_group" : true,
+              "field_course_form" : true
             }
           }
         },
@@ -91,12 +99,12 @@ function config_search_default_search_api_index() {
           "settings" : {
             "fields" : {
               "title" : true,
-              "field_course_form" : true,
-              "field_course_group" : true,
-              "field_course_national_code" : true,
               "field_course_prerequisites" : true,
               "field_course_school" : true,
-              "field_course_type_education" : true
+              "field_course_type_education" : true,
+              "field_course_national_code" : true,
+              "field_course_group" : true,
+              "field_course_form" : true
             },
             "title" : 0,
             "alt" : 1,
@@ -108,9 +116,9 @@ function config_search_default_search_api_index() {
           "weight" : "20",
           "settings" : {
             "fields" : {
-              "field_course_group" : true,
+              "field_course_prerequisites" : true,
               "field_course_national_code" : true,
-              "field_course_prerequisites" : true
+              "field_course_group" : true
             },
             "spaces" : "[^[:alnum:]]",
             "ignorable" : "[\\u0027]"
@@ -122,12 +130,12 @@ function config_search_default_search_api_index() {
           "settings" : {
             "fields" : {
               "title" : true,
-              "field_course_form" : true,
-              "field_course_group" : true,
-              "field_course_national_code" : true,
               "field_course_prerequisites" : true,
               "field_course_school" : true,
-              "field_course_type_education" : true
+              "field_course_type_education" : true,
+              "field_course_national_code" : true,
+              "field_course_group" : true,
+              "field_course_form" : true
             },
             "file" : "",
             "stopwords" : "but\\r\\ndid\\r\\nthe this that those\\r\\netc"
@@ -168,11 +176,11 @@ function config_search_default_search_api_server() {
       "clean_ids" : true,
       "site_hash" : true,
       "scheme" : "http",
-      "host" : ' . variable_get('search_api_host','"localhost"') . ',
-      "port" : ' . variable_get('search_api_port','"8080"') . ',
-      "path" : ' . variable_get('search_api_path','"\\/solr\\/valera_dkf"') . ',
-      "http_user" : ' . variable_get('search_api_http_user','""') . ',
-      "http_pass" : ' . variable_get('search_api_http_pass','""') . ',
+      "host" : "localhost",
+      "port" : "8080",
+      "path" : "\\/solr\\/valera_dkf",
+      "http_user" : "",
+      "http_pass" : "",
       "excerpt" : 0,
       "retrieve_data" : 0,
       "highlight_data" : 0,

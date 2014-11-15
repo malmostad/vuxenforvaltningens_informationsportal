@@ -55,6 +55,9 @@ projects[entityreference][subdir] = "contrib"
 projects[link][version] = "1.3"
 projects[link][subdir] = "contrib"
 
+projects[inline_entity_display][version] = "1.0-beta3"
+projects[inline_entity_display][subdir] = "contrib"
+
 projects[timefield][subdir] = "contrib"
 projects[timefield][download][type] = "git"
 projects[timefield][download][url] = "http://git.drupal.org/project/timefield.git"

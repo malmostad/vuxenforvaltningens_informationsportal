@@ -71,13 +71,13 @@ function page_course_view_default_page_manager_handlers() {
     $pane->access = array();
     $pane->configuration = array(
       'links' => 0,
-      'no_extras' => 1,
+      'no_extras' => 0,
       'override_title' => 0,
       'override_title_text' => '',
       'identifier' => '',
       'link' => 0,
       'leave_node_title' => 0,
-      'build_mode' => 'full',
+      'build_mode' => 'node_full',
       'context' => 'argument_entity_id:node_1',
     );
     $pane->cache = array();

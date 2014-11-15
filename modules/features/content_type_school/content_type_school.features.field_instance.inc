@@ -24,6 +24,12 @@ function content_type_school_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 0,
       ),
+      'node_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'search_result' => array(
         'label' => 'above',
         'settings' => array(),
@@ -74,6 +80,12 @@ function content_type_school_field_default_field_instances() {
         'type' => 'text_plain',
         'weight' => 4,
       ),
+      'node_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'search_result' => array(
         'label' => 'above',
         'settings' => array(),
@@ -119,6 +131,12 @@ function content_type_school_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_plain',
         'weight' => 13,
+      ),
+      'node_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -166,6 +184,12 @@ function content_type_school_field_default_field_instances() {
         'type' => 'text_plain',
         'weight' => 15,
       ),
+      'node_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'search_result' => array(
         'label' => 'above',
         'settings' => array(),
@@ -211,6 +235,12 @@ function content_type_school_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_plain',
         'weight' => 7,
+      ),
+      'node_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -258,6 +288,12 @@ function content_type_school_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 16,
       ),
+      'node_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'search_result' => array(
         'label' => 'above',
         'settings' => array(),
@@ -302,6 +338,12 @@ function content_type_school_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_plain',
         'weight' => 14,
+      ),
+      'node_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'search_result' => array(
         'label' => 'above',
@@ -349,6 +391,12 @@ function content_type_school_field_default_field_instances() {
         'type' => 'text_plain',
         'weight' => 5,
       ),
+      'node_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'search_result' => array(
         'label' => 'above',
         'settings' => array(),
@@ -395,6 +443,12 @@ function content_type_school_field_default_field_instances() {
         'type' => 'text_plain',
         'weight' => 6,
       ),
+      'node_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'search_result' => array(
         'label' => 'above',
         'settings' => array(),
@@ -440,6 +494,12 @@ function content_type_school_field_default_field_instances() {
         'settings' => array(),
         'type' => 'text_plain',
         'weight' => 8,
+      ),
+      'node_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'search_result' => array(
         'label' => 'above',
