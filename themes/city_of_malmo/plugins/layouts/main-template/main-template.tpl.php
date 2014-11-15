@@ -18,14 +18,8 @@
  *   - $content['region-six']: Content in the footer.
  */
 ?>
-
-
-
-
 <div class="panel-main-layout" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
-  
   <div class="wrapper">
-    
       <?php if ($content['region-one']): ?>
         <nav class="breadcrumbs">
           <?php print $content['region-one']; ?>
@@ -49,19 +43,11 @@
           <?php print $content['region-four']; ?>
         </nav>
       <?php endif; ?>
-
-
-
-
-
-
-
-
-
-
-
   </div>
-
-  
-
+<?php if ($content['region-five']): ?>
+  <footer class="bigfoot">
+    <?php print $content['region-five']; ?>
+  </footer>
+<?php endif; ?>
 </div>
+

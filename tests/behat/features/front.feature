@@ -10,4 +10,7 @@ Feature: Front
     Then I should see the text "Title 2"
     Then I should see the text "Title 3"
     Then I should see the text "Show more"
+    Then I should see the text "Footer social"
+    Then I should see the text "Facebook"
+    Then I should see the text "Linkedin"
 
