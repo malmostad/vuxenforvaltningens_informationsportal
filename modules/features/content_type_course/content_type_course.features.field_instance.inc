@@ -795,6 +795,74 @@ function content_type_course_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-course-field_registration'
+  $field_instances['node-course-field_registration'] = array(
+    'bundle' => 'course',
+    'default_value' => array(
+      0 => array(
+        'registration_type' => 'course_registration',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'user_register',
+        'settings' => array(),
+        'type' => 'toggling_registration_form',
+        'weight' => 2,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_registration',
+    'label' => 'Registration',
+    'required' => 0,
+    'settings' => array(
+      'default_registration_settings' => array(
+        'capacity' => 0,
+        'reminder' => array(
+          'reminder_settings' => array(
+            'reminder_date' => NULL,
+            'reminder_template' => '',
+          ),
+          'send_reminder' => 0,
+        ),
+        'scheduling' => array(
+          'close' => NULL,
+          'open' => NULL,
+        ),
+        'settings' => array(
+          'confirmation' => 'Registration has been saved.',
+          'from_address' => 'artyom.miroshnik@propeople.com.ua',
+          'maximum_spaces' => 1,
+          'multiple_registrations' => 0,
+        ),
+        'status' => 1,
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'registration',
+      'settings' => array(),
+      'type' => 'registration_select',
+      'weight' => 21,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Application Period');
@@ -809,6 +877,7 @@ function content_type_course_field_default_field_instances() {
   t('Number of points');
   t('Orientation');
   t('Prerequisites');
+  t('Registration');
   t('School');
   t('Subject areas');
   t('Type of education');

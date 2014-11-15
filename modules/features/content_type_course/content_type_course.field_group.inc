@@ -181,16 +181,18 @@ function content_type_course_field_group_info() {
     'weight' => '24',
     'children' => array(
       0 => 'body',
+      1 => 'field_registration',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
-      'label' => 'Third group',
+      'formatter' => '',
       'instance_settings' => array(
-        'classes' => 'third-group',
         'element' => 'div',
-        'show_label' => '0',
+        'show_label' => 0,
         'label_element' => 'div',
+        'classes' => 'group-third-group field-group-html-element',
         'attributes' => '',
+        'required_fields' => 1,
       ),
     ),
   );
