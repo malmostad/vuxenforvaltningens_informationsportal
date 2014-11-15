@@ -70,4 +70,11 @@ function mal_install() {
   variable_set('date_format_mal_short_course', 'Ymd');
 
   menu_rebuild();
+
+  $features = array(
+    'config_permissions',
+    'menu_footer_social',
+  );
+  features_revert($features);
+  node_access_needs_rebuild(FALSE);
 }
