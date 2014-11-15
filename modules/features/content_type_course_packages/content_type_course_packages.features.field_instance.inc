@@ -214,6 +214,61 @@ function content_type_course_packages_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-course_packages-field_course_available_search'
+  $field_instances['node-course_packages-field_course_available_search'] = array(
+    'bundle' => 'course_packages',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 12,
+      ),
+      'node_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_course_available_search',
+    'label' => 'Course available for search',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 14,
+    ),
+  );
+
   // Exported field_instance: 'node-course_packages-field_course_contact_person'
   $field_instances['node-course_packages-field_course_contact_person'] = array(
     'bundle' => 'course_packages',
@@ -808,6 +863,7 @@ function content_type_course_packages_field_default_field_instances() {
   t('Application Period');
   t('Contact Person');
   t('Course');
+  t('Course available for search');
   t('Course date');
   t('Course package template');
   t('Courses included');

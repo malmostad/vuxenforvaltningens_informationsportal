@@ -134,3 +134,5 @@ dependencies[] = view_schools
 dependencies[] = conf_image_style
 dependencies[] = content_type_course_template
 dependencies[] = content_type_course_package_template
+dependencies[] = menu_footer_social
+dependencies[] = minipanel_footer

@@ -34,6 +34,7 @@ features[field_instance][] = field_collection_item-field_course_package-field_pa
 features[field_instance][] = field_collection_item-field_course_package-field_package_point
 features[field_instance][] = node-course_packages-body
 features[field_instance][] = node-course_packages-field_course_application_period
+features[field_instance][] = node-course_packages-field_course_available_search
 features[field_instance][] = node-course_packages-field_course_contact_person
 features[field_instance][] = node-course_packages-field_course_date
 features[field_instance][] = node-course_packages-field_course_information_meeting
