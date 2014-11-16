@@ -58,5 +58,5 @@ Feature: Search the site
   Scenario: Check how fields renders
     And I am on "search-courses/Test%20course"
     Then I should see the text "Test course"
-    Then I should see the text "Mon Tue 12:05 - 12:15"
+    Then I should see the text "Mon Tue 00:05 - 12:15"
     Then I should see the text "(\d{8})"
