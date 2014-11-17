@@ -13,13 +13,13 @@ function config_permissions_user_default_roles() {
   // Exported role: malmo administrator.
   $roles['malmo administrator'] = array(
     'name' => 'malmo administrator',
-    'weight' => 3,
+    'weight' => 4,
   );
 
   // Exported role: malmo editor.
   $roles['malmo editor'] = array(
     'name' => 'malmo editor',
-    'weight' => 2,
+    'weight' => 3,
   );
 
   return $roles;

@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Code for Mal entityreference widget alter.
+ */
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function mal_entityreference_widget_alter_form_field_ui_field_edit_form_alter(&$form, &$form_state) {
+  // Extract the instance info from the form.
+  $instance = $form['#instance'];
+  if (in_array($form['#field']['module'], array('entityreference'))) {
+    $form['instance']['render_entity_below'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Render entity below widget.'),
+      '#default_value' => empty($instance['render_entity_below']) ? 0 : 1,
+    );
+  }
+}
+
+/**
+ * Implements hook_field_widget_form_alter().
+ */
+function mal_entityreference_widget_alter_field_widget_form_alter(&$element, &$form_state, $context) {
+  // If this is an image field type of instance 'field_image_top'
+  if (($context['field']['type'] == 'entityreference') && (!empty($context['instance']['render_entity_below']))) {
+    $element['#suffix'] = '<div id="mal-rendered-entity"></div>';
+    $element['#ajax'] = array(
+      'callback' => 'mal_entityreference_widget_alter_ajax_callback',
+      'wrapper' => 'mal-rendered-entity',
+      'method' => 'replace',
+    );
+  }
+}
+
+/**
+ * Ajax callback.
+ */
+function mal_entityreference_widget_alter_ajax_callback($form, $form_state) {
+  $triggering_element = $form_state['triggering_element'];
+  $entity = entity_load($triggering_element['#entity_type'], array(
+    $form_state['values'][$triggering_element['#field_name']][$triggering_element['#language']][0]['target_id']
+  ));
+  return '<div id="mal-rendered-entity">' . render(entity_view($triggering_element['#entity_type'], $entity, 'full')) . '</div>';
+}
