@@ -11,6 +11,8 @@ projects[panels][patch][] = "https://www.drupal.org/files/issues/panels-add-rend
 
 projects[facetapi][patch][] = "https://www.drupal.org/files/issues/facetapi-override_facet_label-1665164-22.patch"
 
+projects[facetapi_ranges][patch][] = "https://www.drupal.org/files/issues/term-query-type-2295751-10.patch"
+
 projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-customize-template-2145341-1.patch"
 projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-isset-2132811-5.patch"
 
@@ -105,6 +107,9 @@ projects[search_api_sorts][subdir] = "contrib"
 
 projects[facetapi][version] = "1.5"
 projects[facetapi][subdir] = "contrib"
+
+projects[facetapi_ranges][version] = "1.x-dev"
+projects[facetapi_ranges][subdir] = "contrib"
 
 projects[facetapi_bonus][version] = "1.1"
 projects[facetapi_bonus][subdir] = "contrib"

@@ -27,9 +27,9 @@ function content_type_course_field_group_info() {
       1 => 'field_course_form',
       2 => 'field_course_periods',
       3 => 'field_course_school',
-      4 => 'node:course_template:field_course_type_education',
-      5 => 'node:course_template:field_course_number_of_points',
-      6 => 'node:course_template:field_course_prerequisites',
+      4 => 'node:course_template:field_course_number_of_points',
+      5 => 'node:course_template:field_course_prerequisites',
+      6 => 'node:course_template:field_course_type_education',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
@@ -121,8 +121,8 @@ function content_type_course_field_group_info() {
     'weight' => '1',
     'children' => array(
       0 => 'field_course_application_period',
-      1 => 'node:course_template:field_course_national_code',
-      2 => 'node:course_template:field_course_group',
+      1 => 'node:course_template:field_course_group',
+      2 => 'node:course_template:field_course_national_code',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(

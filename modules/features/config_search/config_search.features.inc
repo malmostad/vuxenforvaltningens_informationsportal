@@ -30,6 +30,7 @@ function config_search_default_search_api_index() {
         "field_course_number_of_points" : { "type" : "integer" },
         "field_course_orientation" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_course_package_template:field_course_type_education" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
+        "field_course_periods:value_formatted" : { "type" : "list\\u003Cinteger\\u003E" },
         "field_course_prerequisites" : { "type" : "text" },
         "field_course_school" : { "type" : "integer", "entity_type" : "node" },
         "field_course_subject_areas" : { "type" : "integer", "entity_type" : "taxonomy_term" },

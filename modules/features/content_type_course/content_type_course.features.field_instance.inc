@@ -375,7 +375,7 @@ function content_type_course_field_default_field_instances() {
         'module' => 'timefield',
         'settings' => array(
           'display_format' => array(
-            'hour' => 'h',
+            'hour' => 'H',
             'minute' => 'i',
             'period' => 'none',
             'period_separator' => '',
@@ -396,7 +396,7 @@ function content_type_course_field_default_field_instances() {
         'module' => 'timefield',
         'settings' => array(
           'display_format' => array(
-            'hour' => 'g',
+            'hour' => 'H',
             'minute' => 'i',
             'period' => 'none',
             'period_separator' => '',
