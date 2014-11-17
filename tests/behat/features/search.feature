@@ -15,6 +15,7 @@ Feature: Search the site
   Scenario: Check facets
     Given I am on the homepage
     And I press "Search"
+    # Check facet minipanel block
     And I should see the text "Filtrera sökresultat"
 #     @see mal_search_property_global_type_of_education_getter_callback()
 #    Then I should see the text "Utbildningsform"
@@ -23,10 +24,15 @@ Feature: Search the site
     And I should see the text "Ämnesområden"
     And I should see the text "Inriktning"
     And I should see the text "Gymnasieprogram"
+    # Check date facet minipanel block
     And I should see the text "Kursstart, tider och veckodagar"
     And I should see an "#edit-date" element
     And I should see the text "Veckodagar"
     And I should see the text "monday"
+    And I should see the text "Tider"
+    And I should see the text "Morning"
+    And I should see the text "Afternoon"
+    And I should see the text "Evening"
     And I should see the text "Show only searchable courses"
 
   @api @sort
@@ -52,5 +58,5 @@ Feature: Search the site
   Scenario: Check how fields renders
     And I am on "search-courses/Test%20course"
     Then I should see the text "Test course"
-    Then I should see the text "Mon Tue 12:05 - 12:15"
+    Then I should see the text "Mon Tue 00:05 - 12:15"
     Then I should see the text "(\d{8})"
