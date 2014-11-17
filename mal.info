@@ -80,6 +80,7 @@ dependencies[] = mal_ctools_search_date_filter
 dependencies[] = mal_generate_content
 dependencies[] = mal_search
 dependencies[] = user_register
+dependencies[] = mal_entityreference_widget_alter
 ; Registration
 dependencies[] = registration
 dependencies[] = registration_views
