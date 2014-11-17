@@ -28,6 +28,9 @@ function minipanel_footer_default_panels_mini() {
       'default' => NULL,
       'middle' => NULL,
     ),
+    'middle' => array(
+      'style' => 'naked',
+    ),
   );
   $display->cache = array();
   $display->title = '';
@@ -42,20 +45,50 @@ function minipanel_footer_default_panels_mini() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
+      'override_title' => 1,
+      'override_title_text' => 'Title',
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => '',
+      'template_suggestion' => 'block-footer',
+    );
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
     $pane->uuid = 'fcff07b7-1589-46fe-81ff-6cbb0299771a';
     $display->content['new-fcff07b7-1589-46fe-81ff-6cbb0299771a'] = $pane;
     $display->panels['middle'][0] = 'new-fcff07b7-1589-46fe-81ff-6cbb0299771a';
+    $pane = new stdClass();
+    $pane->pid = 'new-e4445bbd-e021-4407-aeb2-f6370e476b15';
+    $pane->panel = 'middle';
+    $pane->type = 'block';
+    $pane->subtype = 'menu-menu-footer-social';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Title',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => '',
+      'template_suggestion' => 'block-footer',
+    );
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'e4445bbd-e021-4407-aeb2-f6370e476b15';
+    $display->content['new-e4445bbd-e021-4407-aeb2-f6370e476b15'] = $pane;
+    $display->panels['middle'][1] = 'new-e4445bbd-e021-4407-aeb2-f6370e476b15';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $mini->display = $display;
