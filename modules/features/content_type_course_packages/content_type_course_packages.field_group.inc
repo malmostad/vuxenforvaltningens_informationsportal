@@ -88,7 +88,7 @@ function content_type_course_packages_field_group_info() {
   $field_group->mode = 'search_result';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Show more',
+    'label' => 'Show description',
     'weight' => '4',
     'children' => array(
       0 => 'body',
@@ -98,7 +98,7 @@ function content_type_course_packages_field_group_info() {
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
-      'label' => 'Show more',
+      'label' => 'Show description',
       'instance_settings' => array(
         'classes' => '',
         'description' => '',
