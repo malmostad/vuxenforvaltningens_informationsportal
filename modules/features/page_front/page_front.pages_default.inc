@@ -63,6 +63,93 @@ function page_front_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
+    $pane->pid = 'new-8ccf5c18-0777-4f7c-bc28-dd4a3b34cfa2';
+    $pane->panel = 'region-one';
+    $pane->type = 'global_pane_content_type';
+    $pane->subtype = 'global_pane_content_type';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => '',
+      'override_title_text' => '',
+      'title' => 'test31',
+      'title_tag' => 'h1',
+      'width' => 'half',
+      'text' => array(
+        'value' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem. Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.&nbsp;</p>',
+        'format' => 'full_html',
+      ),
+      'link_label' => 'See more',
+      'link' => array(
+        'title' => 'Mer om grundläggande vuxenutbildning',
+        'url' => 'node/1',
+      ),
+      'image' => 0,
+      'url' => 'test31',
+      'pane_title' => 'Grundläggande vuxenutbildning',
+    );
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => 30,
+        'granularity' => 'context',
+      ),
+    );
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '8ccf5c18-0777-4f7c-bc28-dd4a3b34cfa2';
+    $display->content['new-8ccf5c18-0777-4f7c-bc28-dd4a3b34cfa2'] = $pane;
+    $display->panels['region-one'][0] = 'new-8ccf5c18-0777-4f7c-bc28-dd4a3b34cfa2';
+    $pane = new stdClass();
+    $pane->pid = 'new-87dd42cf-fa61-46aa-be56-7b8535cdd4bd';
+    $pane->panel = 'region-one';
+    $pane->type = 'global_pane_content_type';
+    $pane->subtype = 'global_pane_content_type';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => '',
+      'override_title_text' => '',
+      'title' => 'Title 2',
+      'title_tag' => 'h1',
+      'width' => 'half',
+      'text' => array(
+        'value' => '<p>Proin eget tortor risus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>',
+        'format' => 'full_html',
+      ),
+      'link_label' => '',
+      'link' => array(
+        'title' => 'Mer om gymnasial vuxenutbildning',
+        'url' => 'node/1',
+      ),
+      'image' => 0,
+      'pane_title' => 'Gymnasial vuxenutbildning',
+    );
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => 30,
+        'granularity' => 'context',
+      ),
+    );
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '87dd42cf-fa61-46aa-be56-7b8535cdd4bd';
+    $display->content['new-87dd42cf-fa61-46aa-be56-7b8535cdd4bd'] = $pane;
+    $display->panels['region-one'][1] = 'new-87dd42cf-fa61-46aa-be56-7b8535cdd4bd';
+    $pane = new stdClass();
     $pane->pid = 'new-70f7bf70-704d-4806-bbf9-94c46ef46af2';
     $pane->panel = 'region-three';
     $pane->type = 'global_pane_content_type';
@@ -185,93 +272,6 @@ function page_front_default_page_manager_pages() {
     $pane->uuid = 'cc2666df-5401-4729-9f6e-53979cfdc9b8';
     $display->content['new-cc2666df-5401-4729-9f6e-53979cfdc9b8'] = $pane;
     $display->panels['region-three'][2] = 'new-cc2666df-5401-4729-9f6e-53979cfdc9b8';
-    $pane = new stdClass();
-    $pane->pid = 'new-8ccf5c18-0777-4f7c-bc28-dd4a3b34cfa2';
-    $pane->panel = 'region-two';
-    $pane->type = 'global_pane_content_type';
-    $pane->subtype = 'global_pane_content_type';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => '',
-      'override_title_text' => '',
-      'title' => 'test31',
-      'title_tag' => 'h1',
-      'width' => 'half',
-      'text' => array(
-        'value' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem. Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.&nbsp;</p>',
-        'format' => 'full_html',
-      ),
-      'link_label' => 'See more',
-      'link' => array(
-        'title' => 'Mer om grundläggande vuxenutbildning',
-        'url' => 'node/1',
-      ),
-      'image' => 0,
-      'url' => 'test31',
-      'pane_title' => 'Grundläggande vuxenutbildning',
-    );
-    $pane->cache = array(
-      'method' => 'simple',
-      'settings' => array(
-        'lifetime' => 30,
-        'granularity' => 'context',
-      ),
-    );
-    $pane->style = array(
-      'style' => 'naked',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '8ccf5c18-0777-4f7c-bc28-dd4a3b34cfa2';
-    $display->content['new-8ccf5c18-0777-4f7c-bc28-dd4a3b34cfa2'] = $pane;
-    $display->panels['region-two'][0] = 'new-8ccf5c18-0777-4f7c-bc28-dd4a3b34cfa2';
-    $pane = new stdClass();
-    $pane->pid = 'new-87dd42cf-fa61-46aa-be56-7b8535cdd4bd';
-    $pane->panel = 'region-two';
-    $pane->type = 'global_pane_content_type';
-    $pane->subtype = 'global_pane_content_type';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => '',
-      'override_title_text' => '',
-      'title' => 'Title 2',
-      'title_tag' => 'h1',
-      'width' => 'half',
-      'text' => array(
-        'value' => '<p>Proin eget tortor risus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>',
-        'format' => 'full_html',
-      ),
-      'link_label' => '',
-      'link' => array(
-        'title' => 'Mer om gymnasial vuxenutbildning',
-        'url' => 'node/1',
-      ),
-      'image' => 0,
-      'pane_title' => 'Gymnasial vuxenutbildning',
-    );
-    $pane->cache = array(
-      'method' => 'simple',
-      'settings' => array(
-        'lifetime' => 30,
-        'granularity' => 'context',
-      ),
-    );
-    $pane->style = array(
-      'style' => 'naked',
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = '87dd42cf-fa61-46aa-be56-7b8535cdd4bd';
-    $display->content['new-87dd42cf-fa61-46aa-be56-7b8535cdd4bd'] = $pane;
-    $display->panels['region-two'][1] = 'new-87dd42cf-fa61-46aa-be56-7b8535cdd4bd';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
