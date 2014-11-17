@@ -292,7 +292,6 @@ function config_permissions_user_default_permissions() {
     'name' => 'administer nodes',
     'roles' => array(
       'administrator' => 'administrator',
-      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
@@ -518,6 +517,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'create course content',
     'roles' => array(
       'administrator' => 'administrator',
+      'malmo administrator' => 'malmo administrator',
       'malmo editor' => 'malmo editor',
     ),
     'module' => 'node',
@@ -528,6 +528,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'create course_package_template content',
     'roles' => array(
       'administrator' => 'administrator',
+      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
@@ -537,6 +538,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'create course_packages content',
     'roles' => array(
       'administrator' => 'administrator',
+      'malmo administrator' => 'malmo administrator',
       'malmo editor' => 'malmo editor',
     ),
     'module' => 'node',
@@ -547,6 +549,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'create course_template content',
     'roles' => array(
       'administrator' => 'administrator',
+      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
@@ -619,6 +622,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'delete any course content',
     'roles' => array(
       'administrator' => 'administrator',
+      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
@@ -628,6 +632,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'delete any course_package_template content',
     'roles' => array(
       'administrator' => 'administrator',
+      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
@@ -637,6 +642,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'delete any course_packages content',
     'roles' => array(
       'administrator' => 'administrator',
+      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
@@ -646,6 +652,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'delete any course_template content',
     'roles' => array(
       'administrator' => 'administrator',
+      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
@@ -691,6 +698,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'delete own course content',
     'roles' => array(
       'administrator' => 'administrator',
+      'malmo administrator' => 'malmo administrator',
       'malmo editor' => 'malmo editor',
     ),
     'module' => 'node',
@@ -701,6 +709,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'delete own course_package_template content',
     'roles' => array(
       'administrator' => 'administrator',
+      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
@@ -710,6 +719,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'delete own course_packages content',
     'roles' => array(
       'administrator' => 'administrator',
+      'malmo administrator' => 'malmo administrator',
       'malmo editor' => 'malmo editor',
     ),
     'module' => 'node',
@@ -720,6 +730,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'delete own course_template content',
     'roles' => array(
       'administrator' => 'administrator',
+      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
@@ -844,6 +855,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'edit any course content',
     'roles' => array(
       'administrator' => 'administrator',
+      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
@@ -853,6 +865,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'edit any course_package_template content',
     'roles' => array(
       'administrator' => 'administrator',
+      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
@@ -862,6 +875,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'edit any course_packages content',
     'roles' => array(
       'administrator' => 'administrator',
+      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
@@ -871,6 +885,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'edit any course_template content',
     'roles' => array(
       'administrator' => 'administrator',
+      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
@@ -925,6 +940,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'edit own course content',
     'roles' => array(
       'administrator' => 'administrator',
+      'malmo administrator' => 'malmo administrator',
       'malmo editor' => 'malmo editor',
     ),
     'module' => 'node',
@@ -935,6 +951,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'edit own course_package_template content',
     'roles' => array(
       'administrator' => 'administrator',
+      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
@@ -944,6 +961,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'edit own course_packages content',
     'roles' => array(
       'administrator' => 'administrator',
+      'malmo administrator' => 'malmo administrator',
       'malmo editor' => 'malmo editor',
     ),
     'module' => 'node',
@@ -954,6 +972,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'edit own course_template content',
     'roles' => array(
       'administrator' => 'administrator',
+      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
