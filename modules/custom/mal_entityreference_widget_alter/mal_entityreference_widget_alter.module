@@ -41,7 +41,7 @@ function mal_entityreference_widget_alter_field_widget_form_alter(&$element, &$f
 function mal_entityreference_widget_alter_ajax_callback($form, $form_state) {
   $triggering_element = $form_state['triggering_element'];
   $entity = entity_load($triggering_element['#entity_type'], array(
-    $form_state['values'][$triggering_element['#field_name']][$triggering_element['#language']][0]['target_id']
+    $form_state['values'][$triggering_element['#field_name']][$triggering_element['#language']][0]['target_id'],
   ));
   return '<div id="mal-rendered-entity">' . render(entity_view($triggering_element['#entity_type'], $entity, 'full')) . '</div>';
 }
