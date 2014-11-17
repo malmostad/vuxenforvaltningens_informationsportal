@@ -10,7 +10,7 @@ Feature: Front
     Then I should see the text "Mer om grundläggande vuxenutbildning"
     Then I should see the text "Gymnasial vuxenutbildning"
     Then I should see the text "Boxrubrik"
-    Then I should see the text "Footer social"
+    Then I should see the text "Title"
     Then I should see the text "Facebook"
     Then I should see the text "Linkedin"
 
