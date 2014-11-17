@@ -46,7 +46,9 @@
   </div>
 <?php if ($content['region-five']): ?>
   <footer class="bigfoot">
-    <?php print $content['region-five']; ?>
+    <div class="navs sv-horizontal">
+      <?php print $content['region-five']; ?>
+    </div>
   </footer>
 <?php endif; ?>
 </div>
