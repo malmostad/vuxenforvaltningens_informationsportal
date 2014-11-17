@@ -134,7 +134,7 @@ function global_pane_render($subtype, $conf, $args, $context) {
 
   if (!empty($conf['text']['value'])) {
     $conf_template['text'] = array(
-      '#markup' => '<div class="text">' . $conf['text']['value'] . '',
+      '#markup' => '<div class="text">' . $conf['text']['value'] . '</div>',
       '#weight' => 10,
     );
   }
