@@ -21,6 +21,9 @@ projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-is
 projects[admin_menu][version] = "3.0-rc4"
 projects[admin_menu][subdir] = "contrib"
 
+projects[menu_import][version] = "1.6"
+projects[menu_import][subdir] = "contrib"
+
 projects[coffee][version] = "2.2"
 projects[coffee][subdir] = "contrib"
 

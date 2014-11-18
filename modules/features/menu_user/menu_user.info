@@ -1,0 +1,11 @@
+name = Menu user
+core = 7.x
+package = Menus
+dependencies[] = features
+dependencies[] = menu
+features[features_api][] = api:2
+features[menu_custom][] = user-menu
+features[menu_links][] = user-menu_log-in:user/login
+features[menu_links][] = user-menu_log-out:user/logout
+features[menu_links][] = user-menu_register:register
+features[menu_links][] = user-menu_user-account:user
