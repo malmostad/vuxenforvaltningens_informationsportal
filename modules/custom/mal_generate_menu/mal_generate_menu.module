@@ -1,24 +1,6 @@
 <?php
 
 /**
- *  Implements hook_enable().
+ * @file
+ * Empty file.
  */
-function mal_generate_menu_enable() {
-  $menu_name = 'user-menu';
-
-  if (!menu_load($menu_name)) {
-    $menu = array(
-      'menu_name' => $menu_name,
-      'title' => t('User menu'),
-      'description' => '',
-    );
-    menu_save($menu);
-  }
-
-  $menu_string = '
-  Log in {"url":"user\/login","options":{"attributes":{"title":""}}}';
-
-  $options = array();
-
-  menu_import_string($menu_string, $menu_name, $options);
-}
