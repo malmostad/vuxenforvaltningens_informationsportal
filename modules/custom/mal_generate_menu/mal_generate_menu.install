@@ -20,8 +20,7 @@ function mal_generate_menu_enable() {
     menu_save($menu);
   }
 
-  $menu_string =
-    'Log in {"url":"user\/login","options":{"attributes":{"title":""}}}';
+  $menu_string = 'Log in {"url":"user\/login","options":{"attributes":{"title":""}}}';
 
   $options = array();
 
