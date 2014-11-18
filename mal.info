@@ -66,6 +66,7 @@ dependencies[] = entity_view_mode
 dependencies[] = libraries
 dependencies[] = strongarm
 dependencies[] = ultimate_cron
+dependencies[] = menu_import
 ; Panels
 dependencies[] = panels
 dependencies[] = panels_everywhere
