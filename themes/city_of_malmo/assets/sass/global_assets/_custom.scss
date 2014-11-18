@@ -729,8 +729,26 @@ footer#malmo-footer {
   bottom: 0;
   width: 100%;
 }
-footer.bigfoot div.navs {
-  max-width: 64em;
+footer.bigfoot {
+  div.navs {
+    max-width: 64em;
+    .pane-title {
+      border-bottom: #b5b5b5 1px solid;
+      font-size: 1em;
+      font-weight: bold;
+      line-height: 1;
+      margin: 0 0 .6em;
+      padding: 0 0 .3em;
+    }
+    a {
+      padding: 0;
+      &:hover {
+        background: none;
+        text-decoration: underline;
+      }
+    }
+  }
+
 }
 /* --------CLOSE FOOTER BOTTOM---------  */
 
