@@ -16,7 +16,7 @@ function config_search_default_search_api_index() {
     "server" : "apache_solr",
     "item_type" : "node",
     "options" : {
-      "index_directly" : 0,
+      "index_directly" : 1,
       "cron_limit" : "50",
       "fields" : {
         "duration_days" : { "type" : "list\\u003Ctext\\u003E" },
