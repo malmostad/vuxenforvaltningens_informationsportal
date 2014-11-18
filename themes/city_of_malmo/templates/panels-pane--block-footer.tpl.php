@@ -22,28 +22,30 @@
 <?php endif; ?>
 
   <?php print render($title_prefix); ?>
-  <?php if ($title): ?>
-    <h2 class="<?php print $pane->css['css_class']; ?> pane-title"><?php print $title; ?></h2>
-  <?php endif; ?>
-  <?php print render($title_suffix); ?>
+  <nav class="sv-horizontal sv-horizontal-column">
+    <?php if ($title): ?>
+      <h2 class="<?php print $pane->css['css_class']; ?> pane-title"><?php print $title; ?></h2>
+    <?php endif; ?>
+    <?php print render($title_suffix); ?>
 
-  <?php if ($feeds): ?>
-    <?php print $feeds; ?>
-  <?php endif; ?>
+    <?php if ($feeds): ?>
+      <?php print $feeds; ?>
+    <?php endif; ?>
 
-  <?php print render($content); ?>
+    <?php print render($content); ?>
 
-  <?php if ($links): ?>
-    <div class="links">
-      <?php print $links; ?>
-    </div>
-  <?php endif; ?>
+    <?php if ($links): ?>
+      <div class="links">
+        <?php print $links; ?>
+      </div>
+    <?php endif; ?>
 
-  <?php if ($more): ?>
-    <div class="more-link">
-      <?php print $more; ?>
-    </div>
-  <?php endif; ?>
+    <?php if ($more): ?>
+      <div class="more-link">
+        <?php print $more; ?>
+      </div>
+    <?php endif; ?>
+  </nav>
 
 <?php if ($pane_suffix): ?>
   <?php print $pane_suffix; ?>
