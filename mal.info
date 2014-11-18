@@ -81,6 +81,7 @@ dependencies[] = mal_generate_content
 dependencies[] = mal_search
 dependencies[] = user_register
 dependencies[] = mal_entityreference_widget_alter
+dependencies[] = mal_generate_menu
 ; Registration
 dependencies[] = registration
 dependencies[] = registration_views
