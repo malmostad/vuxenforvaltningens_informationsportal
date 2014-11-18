@@ -37,6 +37,7 @@ function config_search_default_search_api_index() {
         "field_course_template:field_course_type_education" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
         "field_course_type_education" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
         "global_type_of_education" : { "type" : "list\\u003Ctext\\u003E" },
+        "search_api_aggregation_1" : { "type" : "text", "boost" : "8.0" },
         "search_api_language" : { "type" : "string" },
         "search_api_url" : { "type" : "uri" },
         "search_api_viewed" : { "type" : "text" },
@@ -64,15 +65,26 @@ function config_search_default_search_api_index() {
           "settings" : { "mode" : "search_result" }
         },
         "search_api_alter_add_url" : { "status" : 1, "weight" : "0", "settings" : [] },
-        "search_api_alter_add_aggregation" : { "status" : 1, "weight" : "0", "settings" : [] },
+        "search_api_alter_add_aggregation" : {
+          "status" : 1,
+          "weight" : "0",
+          "settings" : { "fields" : { "search_api_aggregation_1" : {
+                "name" : "String title",
+                "type" : "fulltext",
+                "fields" : [ "title" ],
+                "description" : "A Fulltext aggregation of the following fields: Title."
+              }
+            }
+          }
+        },
         "search_api_alter_add_hierarchy" : {
           "status" : 1,
           "weight" : "0",
           "settings" : { "fields" : {
-              "field_course_package_template:field_course_package_template" : "field_course_package_template:field_course_package_template",
-              "field_course_package_template:field_course_template" : "field_course_package_template:field_course_template",
               "field_course_type_education:field_course_package_template" : "field_course_type_education:field_course_package_template",
               "field_course_type_education:field_course_template" : "field_course_type_education:field_course_template",
+              "field_course_package_template:field_course_package_template" : "field_course_package_template:field_course_package_template",
+              "field_course_package_template:field_course_template" : "field_course_package_template:field_course_template",
               "field_course_template:field_course_package_template" : "field_course_template:field_course_package_template",
               "field_course_template:field_course_template" : "field_course_template:field_course_template"
             }
@@ -85,11 +97,11 @@ function config_search_default_search_api_index() {
           "weight" : "0",
           "settings" : { "fields" : {
               "title" : true,
-              "field_course_prerequisites" : true,
-              "field_course_school" : true,
-              "field_course_type_education" : true,
-              "field_course_national_code" : true,
               "field_course_group" : true,
+              "field_course_national_code" : true,
+              "field_course_prerequisites" : true,
+              "field_course_type_education" : true,
+              "field_course_school" : true,
               "field_course_form" : true
             }
           }
@@ -100,11 +112,11 @@ function config_search_default_search_api_index() {
           "settings" : {
             "fields" : {
               "title" : true,
-              "field_course_prerequisites" : true,
-              "field_course_school" : true,
-              "field_course_type_education" : true,
-              "field_course_national_code" : true,
               "field_course_group" : true,
+              "field_course_national_code" : true,
+              "field_course_prerequisites" : true,
+              "field_course_type_education" : true,
+              "field_course_school" : true,
               "field_course_form" : true
             },
             "title" : 0,
@@ -117,9 +129,9 @@ function config_search_default_search_api_index() {
           "weight" : "20",
           "settings" : {
             "fields" : {
-              "field_course_prerequisites" : true,
+              "field_course_group" : true,
               "field_course_national_code" : true,
-              "field_course_group" : true
+              "field_course_prerequisites" : true
             },
             "spaces" : "[^[:alnum:]]",
             "ignorable" : "[\\u0027]"
@@ -131,11 +143,11 @@ function config_search_default_search_api_index() {
           "settings" : {
             "fields" : {
               "title" : true,
-              "field_course_prerequisites" : true,
-              "field_course_school" : true,
-              "field_course_type_education" : true,
-              "field_course_national_code" : true,
               "field_course_group" : true,
+              "field_course_national_code" : true,
+              "field_course_prerequisites" : true,
+              "field_course_type_education" : true,
+              "field_course_school" : true,
               "field_course_form" : true
             },
             "file" : "",
