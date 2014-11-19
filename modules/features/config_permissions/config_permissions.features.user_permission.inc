@@ -65,6 +65,7 @@ function config_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
       'malmo administrator' => 'malmo administrator',
       'malmo editor' => 'malmo editor',
     ),
@@ -517,8 +518,6 @@ function config_permissions_user_default_permissions() {
     'name' => 'create course content',
     'roles' => array(
       'administrator' => 'administrator',
-      'malmo administrator' => 'malmo administrator',
-      'malmo editor' => 'malmo editor',
     ),
     'module' => 'node',
   );
@@ -528,7 +527,6 @@ function config_permissions_user_default_permissions() {
     'name' => 'create course_package_template content',
     'roles' => array(
       'administrator' => 'administrator',
-      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
@@ -538,8 +536,6 @@ function config_permissions_user_default_permissions() {
     'name' => 'create course_packages content',
     'roles' => array(
       'administrator' => 'administrator',
-      'malmo administrator' => 'malmo administrator',
-      'malmo editor' => 'malmo editor',
     ),
     'module' => 'node',
   );
@@ -549,7 +545,6 @@ function config_permissions_user_default_permissions() {
     'name' => 'create course_template content',
     'roles' => array(
       'administrator' => 'administrator',
-      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
@@ -622,7 +617,6 @@ function config_permissions_user_default_permissions() {
     'name' => 'delete any course content',
     'roles' => array(
       'administrator' => 'administrator',
-      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
@@ -632,7 +626,6 @@ function config_permissions_user_default_permissions() {
     'name' => 'delete any course_package_template content',
     'roles' => array(
       'administrator' => 'administrator',
-      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
@@ -642,7 +635,6 @@ function config_permissions_user_default_permissions() {
     'name' => 'delete any course_packages content',
     'roles' => array(
       'administrator' => 'administrator',
-      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
@@ -652,7 +644,6 @@ function config_permissions_user_default_permissions() {
     'name' => 'delete any course_template content',
     'roles' => array(
       'administrator' => 'administrator',
-      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
@@ -698,8 +689,6 @@ function config_permissions_user_default_permissions() {
     'name' => 'delete own course content',
     'roles' => array(
       'administrator' => 'administrator',
-      'malmo administrator' => 'malmo administrator',
-      'malmo editor' => 'malmo editor',
     ),
     'module' => 'node',
   );
@@ -709,7 +698,6 @@ function config_permissions_user_default_permissions() {
     'name' => 'delete own course_package_template content',
     'roles' => array(
       'administrator' => 'administrator',
-      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
@@ -719,8 +707,6 @@ function config_permissions_user_default_permissions() {
     'name' => 'delete own course_packages content',
     'roles' => array(
       'administrator' => 'administrator',
-      'malmo administrator' => 'malmo administrator',
-      'malmo editor' => 'malmo editor',
     ),
     'module' => 'node',
   );
@@ -730,7 +716,6 @@ function config_permissions_user_default_permissions() {
     'name' => 'delete own course_template content',
     'roles' => array(
       'administrator' => 'administrator',
-      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
@@ -837,7 +822,9 @@ function config_permissions_user_default_permissions() {
   // Exported permission: 'delete terms in type_of_education'.
   $permissions['delete terms in type_of_education'] = array(
     'name' => 'delete terms in type_of_education',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'taxonomy',
   );
 
@@ -855,7 +842,6 @@ function config_permissions_user_default_permissions() {
     'name' => 'edit any course content',
     'roles' => array(
       'administrator' => 'administrator',
-      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
@@ -865,7 +851,6 @@ function config_permissions_user_default_permissions() {
     'name' => 'edit any course_package_template content',
     'roles' => array(
       'administrator' => 'administrator',
-      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
@@ -875,7 +860,6 @@ function config_permissions_user_default_permissions() {
     'name' => 'edit any course_packages content',
     'roles' => array(
       'administrator' => 'administrator',
-      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
@@ -885,7 +869,6 @@ function config_permissions_user_default_permissions() {
     'name' => 'edit any course_template content',
     'roles' => array(
       'administrator' => 'administrator',
-      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
@@ -940,8 +923,6 @@ function config_permissions_user_default_permissions() {
     'name' => 'edit own course content',
     'roles' => array(
       'administrator' => 'administrator',
-      'malmo administrator' => 'malmo administrator',
-      'malmo editor' => 'malmo editor',
     ),
     'module' => 'node',
   );
@@ -951,7 +932,6 @@ function config_permissions_user_default_permissions() {
     'name' => 'edit own course_package_template content',
     'roles' => array(
       'administrator' => 'administrator',
-      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
@@ -961,8 +941,6 @@ function config_permissions_user_default_permissions() {
     'name' => 'edit own course_packages content',
     'roles' => array(
       'administrator' => 'administrator',
-      'malmo administrator' => 'malmo administrator',
-      'malmo editor' => 'malmo editor',
     ),
     'module' => 'node',
   );
@@ -972,7 +950,6 @@ function config_permissions_user_default_permissions() {
     'name' => 'edit own course_template content',
     'roles' => array(
       'administrator' => 'administrator',
-      'malmo administrator' => 'malmo administrator',
     ),
     'module' => 'node',
   );
@@ -1070,7 +1047,9 @@ function config_permissions_user_default_permissions() {
   // Exported permission: 'edit terms in type_of_education'.
   $permissions['edit terms in type_of_education'] = array(
     'name' => 'edit terms in type_of_education',
-    'roles' => array(),
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
     'module' => 'taxonomy',
   );
 
