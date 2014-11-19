@@ -8,6 +8,7 @@ $icon-sprite: "../../images/icon-sprite.png";
 /* Override bootstrap */
 html {
   font-size: 100%;
+  height: 100%;
 }
 /* Style header for logged in users */
 .logged-in {
@@ -747,6 +748,16 @@ footer.bigfoot {
         text-decoration: underline;
       }
     }
+    .social {
+      a[href^="https://www.facebook.com/"] {
+        background-image: url("data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cg%3E%3C%2Fg%3E%20%20%3Cpath%20d%3D%22M11.67%208.196l0.205-1.955h-1.768v-0.973q0-0.438%200.138-0.612t0.638-0.174h0.982v-1.955h-1.563q-1.357%200-1.946%200.643t-0.589%201.902v1.17h-1.17v1.955h1.17v5.67h2.339v-5.67h1.563zM13.714%203.714v8.571q0%201.063-0.754%201.817t-1.817%200.754h-8.571q-1.063%200-1.817-0.754t-0.754-1.817v-8.571q0-1.063%200.754-1.817t1.817-0.754h8.571q1.063%200%201.817%200.754t0.754%201.817z%22%20fill%3D%22%234C66A4%22%20%2F%3E%3C%2Fsvg%3E");
+        background-repeat: no-repeat;
+      }
+      a[href^="https://twitter.com/"] {
+        background-image: url("data:image/svg+xml;charset=US-ASCII,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%3C!DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cg%3E%3C%2Fg%3E%20%20%3Cpath%20d%3D%22M11.429%205.446q-0.5%200.223-1.080%200.304%200.607-0.357%200.83-1.045-0.58%200.339-1.196%200.455-0.545-0.589-1.366-0.589-0.777%200-1.326%200.549t-0.549%201.326q0%200.259%200.045%200.429-1.152-0.063-2.161-0.58t-1.714-1.384q-0.259%200.446-0.259%200.946%200%201.018%200.813%201.563-0.42-0.009-0.893-0.232v0.018q0%200.67%200.446%201.192t1.098%200.647q-0.259%200.071-0.455%200.071-0.116%200-0.348-0.036%200.188%200.563%200.665%200.929t1.085%200.375q-1.036%200.804-2.33%200.804-0.232%200-0.446-0.027%201.321%200.839%202.875%200.839%201%200%201.875-0.317t1.5-0.848%201.076-1.223%200.67-1.446%200.219-1.504q0-0.161-0.009-0.241%200.563-0.402%200.938-0.973zM13.714%203.714v8.571q0%201.063-0.754%201.817t-1.817%200.754h-8.571q-1.063%200-1.817-0.754t-0.754-1.817v-8.571q0-1.063%200.754-1.817t1.817-0.754h8.571q1.063%200%201.817%200.754t0.754%201.817z%22%20fill%3D%22%2355acee%22%20%2F%3E%3C%2Fsvg%3E");
+        background-repeat: no-repeat;
+      }
+    }
   }
 
 }
@@ -814,7 +825,7 @@ footer.bigfoot {
 .global-pane {
   font-family: $Georgia;
   float: left;
-  margin-bottom: 25px;
+  margin-bottom: 40px;
   h1 {
     font-size: 24px;
     font-family: $Georgia;
