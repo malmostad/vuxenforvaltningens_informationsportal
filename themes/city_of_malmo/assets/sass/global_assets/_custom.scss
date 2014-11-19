@@ -1082,8 +1082,14 @@ footer.bigfoot {
   }
   .panel-body {
     display: none;
-    max-width: 510px;
     padding: 0;
+    & > div {
+      max-width: 510px;
+      &.field-collection-container {
+        margin-top: 1em;
+        max-width: 628px;
+      }
+    }
     .field-label {
       font-weight: bold;
     }
@@ -1092,6 +1098,16 @@ footer.bigfoot {
         line-height: 22px;
         margin-bottom: 1em;
       }
+    }
+    table {
+      max-width: 628px;
+      width: 100%;
+    }
+    th,
+    td {
+      border: 1px solid #dedede;
+      padding-left: 0;
+      padding-right: 0;
     }
   }
   .content fieldset {
