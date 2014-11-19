@@ -89,6 +89,58 @@ function minipanel_footer_default_panels_mini() {
     $pane->uuid = 'e4445bbd-e021-4407-aeb2-f6370e476b15';
     $display->content['new-e4445bbd-e021-4407-aeb2-f6370e476b15'] = $pane;
     $display->panels['middle'][1] = 'new-e4445bbd-e021-4407-aeb2-f6370e476b15';
+    $pane = new stdClass();
+    $pane->pid = 'new-7fc5803c-4977-48e6-9036-c78cf89b760c';
+    $pane->panel = 'middle';
+    $pane->type = 'block';
+    $pane->subtype = 'menu-menu-footer-visit';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Social',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'social',
+      'template_suggestion' => 'block-footer',
+    );
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = '7fc5803c-4977-48e6-9036-c78cf89b760c';
+    $display->content['new-7fc5803c-4977-48e6-9036-c78cf89b760c'] = $pane;
+    $display->panels['middle'][2] = 'new-7fc5803c-4977-48e6-9036-c78cf89b760c';
+    $pane = new stdClass();
+    $pane->pid = 'new-5f4c319c-b923-4a48-a67f-71b35073976b';
+    $pane->panel = 'middle';
+    $pane->type = 'block';
+    $pane->subtype = 'menu-menu-footer-social';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Title',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => '',
+      'template_suggestion' => 'block-footer',
+    );
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = '5f4c319c-b923-4a48-a67f-71b35073976b';
+    $display->content['new-5f4c319c-b923-4a48-a67f-71b35073976b'] = $pane;
+    $display->panels['middle'][3] = 'new-5f4c319c-b923-4a48-a67f-71b35073976b';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $mini->display = $display;

@@ -67,6 +67,9 @@ dependencies[] = libraries
 dependencies[] = strongarm
 dependencies[] = ultimate_cron
 dependencies[] = menu_import
+dependencies[] = publishcontent
+dependencies[] = view_unpublished
+dependencies[] = admin_views
 ; Panels
 dependencies[] = panels
 dependencies[] = panels_everywhere
