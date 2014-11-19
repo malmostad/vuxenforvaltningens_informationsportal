@@ -14,10 +14,10 @@ function config_permissions_user_default_permissions() {
   $permissions['access administration menu'] = array(
     'name' => 'access administration menu',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo middle admin' => 'Malmo middle admin',
       'Malmo top admin' => 'Malmo top admin',
       'School editor' => 'School editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'admin_menu',
   );
@@ -26,10 +26,10 @@ function config_permissions_user_default_permissions() {
   $permissions['access administration pages'] = array(
     'name' => 'access administration pages',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo middle admin' => 'Malmo middle admin',
       'Malmo top admin' => 'Malmo top admin',
       'School editor' => 'School editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'system',
   );
@@ -38,7 +38,7 @@ function config_permissions_user_default_permissions() {
   $permissions['access all views'] = array(
     'name' => 'access all views',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'views',
   );
@@ -47,7 +47,7 @@ function config_permissions_user_default_permissions() {
   $permissions['access coffee'] = array(
     'name' => 'access coffee',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'coffee',
   );
@@ -56,7 +56,7 @@ function config_permissions_user_default_permissions() {
   $permissions['access comments'] = array(
     'name' => 'access comments',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'comment',
   );
@@ -65,9 +65,9 @@ function config_permissions_user_default_permissions() {
   $permissions['access content'] = array(
     'name' => 'access content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo middle admin' => 'Malmo middle admin',
       'School editor' => 'School editor',
+      'administrator' => 'administrator',
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
     ),
@@ -78,10 +78,10 @@ function config_permissions_user_default_permissions() {
   $permissions['access content overview'] = array(
     'name' => 'access content overview',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo middle admin' => 'Malmo middle admin',
       'Malmo top admin' => 'Malmo top admin',
       'School editor' => 'School editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -90,7 +90,7 @@ function config_permissions_user_default_permissions() {
   $permissions['access contextual links'] = array(
     'name' => 'access contextual links',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'contextual',
   );
@@ -99,7 +99,7 @@ function config_permissions_user_default_permissions() {
   $permissions['access dashboard'] = array(
     'name' => 'access dashboard',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'dashboard',
   );
@@ -108,7 +108,7 @@ function config_permissions_user_default_permissions() {
   $permissions['access devel information'] = array(
     'name' => 'access devel information',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'devel',
   );
@@ -117,7 +117,7 @@ function config_permissions_user_default_permissions() {
   $permissions['access site in maintenance mode'] = array(
     'name' => 'access site in maintenance mode',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'system',
   );
@@ -126,7 +126,7 @@ function config_permissions_user_default_permissions() {
   $permissions['access site reports'] = array(
     'name' => 'access site reports',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'system',
   );
@@ -135,7 +135,7 @@ function config_permissions_user_default_permissions() {
   $permissions['access user profiles'] = array(
     'name' => 'access user profiles',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'user',
   );
@@ -144,7 +144,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer actions'] = array(
     'name' => 'administer actions',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'system',
   );
@@ -153,7 +153,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer advanced pane settings'] = array(
     'name' => 'administer advanced pane settings',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'panels',
   );
@@ -162,7 +162,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer blocks'] = array(
     'name' => 'administer blocks',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'block',
   );
@@ -171,7 +171,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer coffee'] = array(
     'name' => 'administer coffee',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'coffee',
   );
@@ -180,7 +180,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer comments'] = array(
     'name' => 'administer comments',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'comment',
   );
@@ -189,7 +189,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer content types'] = array(
     'name' => 'administer content types',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -198,7 +198,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer entity view modes'] = array(
     'name' => 'administer entity view modes',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'entity_view_mode',
   );
@@ -207,7 +207,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer features'] = array(
     'name' => 'administer features',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'features',
   );
@@ -216,7 +216,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer field collections'] = array(
     'name' => 'administer field collections',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'field_collection',
   );
@@ -225,7 +225,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer fieldgroups'] = array(
     'name' => 'administer fieldgroups',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'field_group',
   );
@@ -234,7 +234,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer filters'] = array(
     'name' => 'administer filters',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'filter',
   );
@@ -243,7 +243,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer image styles'] = array(
     'name' => 'administer image styles',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'image',
   );
@@ -252,7 +252,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer languages'] = array(
     'name' => 'administer languages',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'locale',
   );
@@ -261,8 +261,8 @@ function config_permissions_user_default_permissions() {
   $permissions['administer menu'] = array(
     'name' => 'administer menu',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo top admin' => 'Malmo top admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'menu',
   );
@@ -271,7 +271,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer mini panels'] = array(
     'name' => 'administer mini panels',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'panels_mini',
   );
@@ -280,7 +280,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer module filter'] = array(
     'name' => 'administer module filter',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'module_filter',
   );
@@ -289,7 +289,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer modules'] = array(
     'name' => 'administer modules',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'system',
   );
@@ -298,8 +298,8 @@ function config_permissions_user_default_permissions() {
   $permissions['administer nodes'] = array(
     'name' => 'administer nodes',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo top admin' => 'Malmo top admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -308,7 +308,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer page manager'] = array(
     'name' => 'administer page manager',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'page_manager',
   );
@@ -317,7 +317,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer pane access'] = array(
     'name' => 'administer pane access',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'panels',
   );
@@ -326,7 +326,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer panels layouts'] = array(
     'name' => 'administer panels layouts',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'panels',
   );
@@ -335,7 +335,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer panels styles'] = array(
     'name' => 'administer panels styles',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'panels',
   );
@@ -344,7 +344,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer permissions'] = array(
     'name' => 'administer permissions',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'user',
   );
@@ -353,7 +353,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer profiler builder'] = array(
     'name' => 'administer profiler builder',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'profiler_builder',
   );
@@ -362,7 +362,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer registration'] = array(
     'name' => 'administer registration',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'registration',
   );
@@ -371,7 +371,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer registration states'] = array(
     'name' => 'administer registration states',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'registration',
   );
@@ -380,7 +380,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer registration types'] = array(
     'name' => 'administer registration types',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'registration',
   );
@@ -389,7 +389,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer search_api'] = array(
     'name' => 'administer search_api',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'search_api',
   );
@@ -398,7 +398,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer shortcuts'] = array(
     'name' => 'administer shortcuts',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'shortcut',
   );
@@ -407,7 +407,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer site configuration'] = array(
     'name' => 'administer site configuration',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'system',
   );
@@ -416,7 +416,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer software updates'] = array(
     'name' => 'administer software updates',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'system',
   );
@@ -425,7 +425,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer taxonomy'] = array(
     'name' => 'administer taxonomy',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
   );
@@ -434,7 +434,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer themes'] = array(
     'name' => 'administer themes',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'system',
   );
@@ -443,7 +443,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer ultimate cron'] = array(
     'name' => 'administer ultimate cron',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'ultimate_cron',
   );
@@ -452,7 +452,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer url aliases'] = array(
     'name' => 'administer url aliases',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'path',
   );
@@ -461,7 +461,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer users'] = array(
     'name' => 'administer users',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'user',
   );
@@ -470,7 +470,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer views'] = array(
     'name' => 'administer views',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'views',
   );
@@ -479,7 +479,7 @@ function config_permissions_user_default_permissions() {
   $permissions['block IP addresses'] = array(
     'name' => 'block IP addresses',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'system',
   );
@@ -488,7 +488,7 @@ function config_permissions_user_default_permissions() {
   $permissions['bypass node access'] = array(
     'name' => 'bypass node access',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -497,7 +497,7 @@ function config_permissions_user_default_permissions() {
   $permissions['cancel account'] = array(
     'name' => 'cancel account',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'user',
   );
@@ -506,7 +506,7 @@ function config_permissions_user_default_permissions() {
   $permissions['change layouts in place editing'] = array(
     'name' => 'change layouts in place editing',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'panels',
   );
@@ -515,7 +515,7 @@ function config_permissions_user_default_permissions() {
   $permissions['change own username'] = array(
     'name' => 'change own username',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'user',
   );
@@ -524,9 +524,9 @@ function config_permissions_user_default_permissions() {
   $permissions['create course content'] = array(
     'name' => 'create course content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo middle admin' => 'Malmo middle admin',
       'School editor' => 'School editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -535,9 +535,9 @@ function config_permissions_user_default_permissions() {
   $permissions['create course_package_template content'] = array(
     'name' => 'create course_package_template content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo middle admin' => 'Malmo middle admin',
       'School editor' => 'School editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -546,9 +546,9 @@ function config_permissions_user_default_permissions() {
   $permissions['create course_packages content'] = array(
     'name' => 'create course_packages content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo middle admin' => 'Malmo middle admin',
       'School editor' => 'School editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -557,9 +557,9 @@ function config_permissions_user_default_permissions() {
   $permissions['create course_template content'] = array(
     'name' => 'create course_template content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo middle admin' => 'Malmo middle admin',
       'School editor' => 'School editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -568,7 +568,7 @@ function config_permissions_user_default_permissions() {
   $permissions['create education content'] = array(
     'name' => 'create education content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -577,7 +577,7 @@ function config_permissions_user_default_permissions() {
   $permissions['create mini panels'] = array(
     'name' => 'create mini panels',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'panels_mini',
   );
@@ -586,7 +586,7 @@ function config_permissions_user_default_permissions() {
   $permissions['create page content'] = array(
     'name' => 'create page content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -595,7 +595,7 @@ function config_permissions_user_default_permissions() {
   $permissions['create question_and_answer content'] = array(
     'name' => 'create question_and_answer content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -604,7 +604,7 @@ function config_permissions_user_default_permissions() {
   $permissions['create school content'] = array(
     'name' => 'create school content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -613,7 +613,7 @@ function config_permissions_user_default_permissions() {
   $permissions['create url aliases'] = array(
     'name' => 'create url aliases',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'path',
   );
@@ -622,7 +622,7 @@ function config_permissions_user_default_permissions() {
   $permissions['customize shortcut links'] = array(
     'name' => 'customize shortcut links',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'shortcut',
   );
@@ -631,8 +631,8 @@ function config_permissions_user_default_permissions() {
   $permissions['delete any course content'] = array(
     'name' => 'delete any course content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo middle admin' => 'Malmo middle admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -641,8 +641,8 @@ function config_permissions_user_default_permissions() {
   $permissions['delete any course_package_template content'] = array(
     'name' => 'delete any course_package_template content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo middle admin' => 'Malmo middle admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -651,8 +651,8 @@ function config_permissions_user_default_permissions() {
   $permissions['delete any course_packages content'] = array(
     'name' => 'delete any course_packages content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo middle admin' => 'Malmo middle admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -661,8 +661,8 @@ function config_permissions_user_default_permissions() {
   $permissions['delete any course_template content'] = array(
     'name' => 'delete any course_template content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo middle admin' => 'Malmo middle admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -671,7 +671,7 @@ function config_permissions_user_default_permissions() {
   $permissions['delete any education content'] = array(
     'name' => 'delete any education content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -680,7 +680,7 @@ function config_permissions_user_default_permissions() {
   $permissions['delete any page content'] = array(
     'name' => 'delete any page content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -689,7 +689,7 @@ function config_permissions_user_default_permissions() {
   $permissions['delete any question_and_answer content'] = array(
     'name' => 'delete any question_and_answer content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -698,7 +698,7 @@ function config_permissions_user_default_permissions() {
   $permissions['delete any school content'] = array(
     'name' => 'delete any school content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -707,9 +707,9 @@ function config_permissions_user_default_permissions() {
   $permissions['delete own course content'] = array(
     'name' => 'delete own course content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo middle admin' => 'Malmo middle admin',
       'School editor' => 'School editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -718,9 +718,9 @@ function config_permissions_user_default_permissions() {
   $permissions['delete own course_package_template content'] = array(
     'name' => 'delete own course_package_template content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo middle admin' => 'Malmo middle admin',
       'School editor' => 'School editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -729,9 +729,9 @@ function config_permissions_user_default_permissions() {
   $permissions['delete own course_packages content'] = array(
     'name' => 'delete own course_packages content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo middle admin' => 'Malmo middle admin',
       'School editor' => 'School editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -740,9 +740,9 @@ function config_permissions_user_default_permissions() {
   $permissions['delete own course_template content'] = array(
     'name' => 'delete own course_template content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo middle admin' => 'Malmo middle admin',
       'School editor' => 'School editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -751,7 +751,7 @@ function config_permissions_user_default_permissions() {
   $permissions['delete own education content'] = array(
     'name' => 'delete own education content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -760,7 +760,7 @@ function config_permissions_user_default_permissions() {
   $permissions['delete own page content'] = array(
     'name' => 'delete own page content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -769,7 +769,7 @@ function config_permissions_user_default_permissions() {
   $permissions['delete own question_and_answer content'] = array(
     'name' => 'delete own question_and_answer content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -778,7 +778,7 @@ function config_permissions_user_default_permissions() {
   $permissions['delete own school content'] = array(
     'name' => 'delete own school content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -787,7 +787,7 @@ function config_permissions_user_default_permissions() {
   $permissions['delete revisions'] = array(
     'name' => 'delete revisions',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -796,7 +796,7 @@ function config_permissions_user_default_permissions() {
   $permissions['delete terms in course_form'] = array(
     'name' => 'delete terms in course_form',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
   );
@@ -805,7 +805,7 @@ function config_permissions_user_default_permissions() {
   $permissions['delete terms in course_gymnasie_program'] = array(
     'name' => 'delete terms in course_gymnasie_program',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
   );
@@ -814,7 +814,7 @@ function config_permissions_user_default_permissions() {
   $permissions['delete terms in course_orientation'] = array(
     'name' => 'delete terms in course_orientation',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
   );
@@ -823,7 +823,7 @@ function config_permissions_user_default_permissions() {
   $permissions['delete terms in course_school'] = array(
     'name' => 'delete terms in course_school',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
   );
@@ -832,7 +832,7 @@ function config_permissions_user_default_permissions() {
   $permissions['delete terms in course_subject_areas'] = array(
     'name' => 'delete terms in course_subject_areas',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
   );
@@ -841,7 +841,7 @@ function config_permissions_user_default_permissions() {
   $permissions['delete terms in course_type_of_education'] = array(
     'name' => 'delete terms in course_type_of_education',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
   );
@@ -857,7 +857,7 @@ function config_permissions_user_default_permissions() {
   $permissions['display drupal links'] = array(
     'name' => 'display drupal links',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'admin_menu',
   );
@@ -866,8 +866,8 @@ function config_permissions_user_default_permissions() {
   $permissions['edit any course content'] = array(
     'name' => 'edit any course content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo middle admin' => 'Malmo middle admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -876,8 +876,8 @@ function config_permissions_user_default_permissions() {
   $permissions['edit any course_package_template content'] = array(
     'name' => 'edit any course_package_template content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo middle admin' => 'Malmo middle admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -886,8 +886,8 @@ function config_permissions_user_default_permissions() {
   $permissions['edit any course_packages content'] = array(
     'name' => 'edit any course_packages content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo middle admin' => 'Malmo middle admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -896,8 +896,8 @@ function config_permissions_user_default_permissions() {
   $permissions['edit any course_template content'] = array(
     'name' => 'edit any course_template content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo middle admin' => 'Malmo middle admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -906,7 +906,7 @@ function config_permissions_user_default_permissions() {
   $permissions['edit any education content'] = array(
     'name' => 'edit any education content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -915,7 +915,7 @@ function config_permissions_user_default_permissions() {
   $permissions['edit any page content'] = array(
     'name' => 'edit any page content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -924,7 +924,7 @@ function config_permissions_user_default_permissions() {
   $permissions['edit any question_and_answer content'] = array(
     'name' => 'edit any question_and_answer content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -933,7 +933,7 @@ function config_permissions_user_default_permissions() {
   $permissions['edit any school content'] = array(
     'name' => 'edit any school content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -942,7 +942,7 @@ function config_permissions_user_default_permissions() {
   $permissions['edit own comments'] = array(
     'name' => 'edit own comments',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'comment',
   );
@@ -951,9 +951,9 @@ function config_permissions_user_default_permissions() {
   $permissions['edit own course content'] = array(
     'name' => 'edit own course content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo middle admin' => 'Malmo middle admin',
       'School editor' => 'School editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -962,9 +962,9 @@ function config_permissions_user_default_permissions() {
   $permissions['edit own course_package_template content'] = array(
     'name' => 'edit own course_package_template content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo middle admin' => 'Malmo middle admin',
       'School editor' => 'School editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -973,9 +973,9 @@ function config_permissions_user_default_permissions() {
   $permissions['edit own course_packages content'] = array(
     'name' => 'edit own course_packages content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo middle admin' => 'Malmo middle admin',
       'School editor' => 'School editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -984,9 +984,9 @@ function config_permissions_user_default_permissions() {
   $permissions['edit own course_template content'] = array(
     'name' => 'edit own course_template content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo middle admin' => 'Malmo middle admin',
       'School editor' => 'School editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -995,7 +995,7 @@ function config_permissions_user_default_permissions() {
   $permissions['edit own education content'] = array(
     'name' => 'edit own education content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -1004,7 +1004,7 @@ function config_permissions_user_default_permissions() {
   $permissions['edit own page content'] = array(
     'name' => 'edit own page content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -1013,7 +1013,7 @@ function config_permissions_user_default_permissions() {
   $permissions['edit own question_and_answer content'] = array(
     'name' => 'edit own question_and_answer content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -1022,7 +1022,7 @@ function config_permissions_user_default_permissions() {
   $permissions['edit own school content'] = array(
     'name' => 'edit own school content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -1031,7 +1031,7 @@ function config_permissions_user_default_permissions() {
   $permissions['edit terms in course_form'] = array(
     'name' => 'edit terms in course_form',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
   );
@@ -1040,7 +1040,7 @@ function config_permissions_user_default_permissions() {
   $permissions['edit terms in course_gymnasie_program'] = array(
     'name' => 'edit terms in course_gymnasie_program',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
   );
@@ -1049,7 +1049,7 @@ function config_permissions_user_default_permissions() {
   $permissions['edit terms in course_orientation'] = array(
     'name' => 'edit terms in course_orientation',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
   );
@@ -1058,7 +1058,7 @@ function config_permissions_user_default_permissions() {
   $permissions['edit terms in course_school'] = array(
     'name' => 'edit terms in course_school',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
   );
@@ -1067,7 +1067,7 @@ function config_permissions_user_default_permissions() {
   $permissions['edit terms in course_subject_areas'] = array(
     'name' => 'edit terms in course_subject_areas',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
   );
@@ -1076,7 +1076,7 @@ function config_permissions_user_default_permissions() {
   $permissions['edit terms in course_type_of_education'] = array(
     'name' => 'edit terms in course_type_of_education',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
   );
@@ -1092,7 +1092,7 @@ function config_permissions_user_default_permissions() {
   $permissions['execute php code'] = array(
     'name' => 'execute php code',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'devel',
   );
@@ -1101,7 +1101,7 @@ function config_permissions_user_default_permissions() {
   $permissions['flush caches'] = array(
     'name' => 'flush caches',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'admin_menu',
   );
@@ -1110,7 +1110,7 @@ function config_permissions_user_default_permissions() {
   $permissions['generate features'] = array(
     'name' => 'generate features',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'features',
   );
@@ -1119,7 +1119,7 @@ function config_permissions_user_default_permissions() {
   $permissions['import or export menu'] = array(
     'name' => 'import or export menu',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'menu_import',
   );
@@ -1128,7 +1128,7 @@ function config_permissions_user_default_permissions() {
   $permissions['manage features'] = array(
     'name' => 'manage features',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'features',
   );
@@ -1137,7 +1137,7 @@ function config_permissions_user_default_permissions() {
   $permissions['post comments'] = array(
     'name' => 'post comments',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'comment',
   );
@@ -1250,7 +1250,7 @@ function config_permissions_user_default_permissions() {
   $permissions['rename features'] = array(
     'name' => 'rename features',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'features',
   );
@@ -1259,7 +1259,7 @@ function config_permissions_user_default_permissions() {
   $permissions['revert revisions'] = array(
     'name' => 'revert revisions',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -1268,7 +1268,7 @@ function config_permissions_user_default_permissions() {
   $permissions['run cron jobs'] = array(
     'name' => 'run cron jobs',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'ultimate_cron',
   );
@@ -1277,7 +1277,7 @@ function config_permissions_user_default_permissions() {
   $permissions['select account cancellation method'] = array(
     'name' => 'select account cancellation method',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'user',
   );
@@ -1286,7 +1286,7 @@ function config_permissions_user_default_permissions() {
   $permissions['skip comment approval'] = array(
     'name' => 'skip comment approval',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'comment',
   );
@@ -1295,7 +1295,7 @@ function config_permissions_user_default_permissions() {
   $permissions['switch shortcut sets'] = array(
     'name' => 'switch shortcut sets',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'shortcut',
   );
@@ -1304,7 +1304,7 @@ function config_permissions_user_default_permissions() {
   $permissions['switch users'] = array(
     'name' => 'switch users',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'devel',
   );
@@ -1313,7 +1313,7 @@ function config_permissions_user_default_permissions() {
   $permissions['translate interface'] = array(
     'name' => 'translate interface',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'locale',
   );
@@ -1426,7 +1426,7 @@ function config_permissions_user_default_permissions() {
   $permissions['use ipe with page manager'] = array(
     'name' => 'use ipe with page manager',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'panels',
   );
@@ -1435,8 +1435,8 @@ function config_permissions_user_default_permissions() {
   $permissions['use page manager'] = array(
     'name' => 'use page manager',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo top admin' => 'Malmo top admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'page_manager',
   );
@@ -1445,7 +1445,7 @@ function config_permissions_user_default_permissions() {
   $permissions['use panels caching features'] = array(
     'name' => 'use panels caching features',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'panels',
   );
@@ -1454,7 +1454,7 @@ function config_permissions_user_default_permissions() {
   $permissions['use panels dashboard'] = array(
     'name' => 'use panels dashboard',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'panels',
   );
@@ -1463,7 +1463,7 @@ function config_permissions_user_default_permissions() {
   $permissions['use panels in place editing'] = array(
     'name' => 'use panels in place editing',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'panels',
   );
@@ -1472,7 +1472,7 @@ function config_permissions_user_default_permissions() {
   $permissions['use panels locks'] = array(
     'name' => 'use panels locks',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'panels',
   );
@@ -1481,7 +1481,7 @@ function config_permissions_user_default_permissions() {
   $permissions['use text format filtered_html'] = array(
     'name' => 'use text format filtered_html',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'filter',
   );
@@ -1490,7 +1490,7 @@ function config_permissions_user_default_permissions() {
   $permissions['use text format full_html'] = array(
     'name' => 'use text format full_html',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'filter',
   );
@@ -1499,9 +1499,9 @@ function config_permissions_user_default_permissions() {
   $permissions['view any unpublished content'] = array(
     'name' => 'view any unpublished content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo middle admin' => 'Malmo middle admin',
       'Malmo top admin' => 'Malmo top admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'view_unpublished',
   );
@@ -1566,7 +1566,7 @@ function config_permissions_user_default_permissions() {
   $permissions['view cron jobs'] = array(
     'name' => 'view cron jobs',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'ultimate_cron',
   );
@@ -1575,10 +1575,9 @@ function config_permissions_user_default_permissions() {
   $permissions['view own unpublished content'] = array(
     'name' => 'view own unpublished content',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo middle admin' => 'Malmo middle admin',
       'Malmo top admin' => 'Malmo top admin',
-      'School editor' => 'School editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -1587,7 +1586,7 @@ function config_permissions_user_default_permissions() {
   $permissions['view pane admin links'] = array(
     'name' => 'view pane admin links',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'panels',
   );
@@ -1596,7 +1595,7 @@ function config_permissions_user_default_permissions() {
   $permissions['view revisions'] = array(
     'name' => 'view revisions',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );
@@ -1605,10 +1604,10 @@ function config_permissions_user_default_permissions() {
   $permissions['view the administration theme'] = array(
     'name' => 'view the administration theme',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
       'Malmo middle admin' => 'Malmo middle admin',
       'Malmo top admin' => 'Malmo top admin',
       'School editor' => 'School editor',
+      'administrator' => 'administrator',
     ),
     'module' => 'system',
   );

@@ -1,0 +1,9 @@
+name = Menu footer visit
+core = 7.x
+package = Menus
+dependencies[] = features
+dependencies[] = menu
+features[features_api][] = api:2
+features[menu_custom][] = menu-footer-visit
+features[menu_links][] = menu-footer-visit_facebook:https://www.facebook.com/
+features[menu_links][] = menu-footer-visit_twitter:https://twitter.com/

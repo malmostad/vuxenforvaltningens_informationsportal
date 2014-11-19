@@ -295,5 +295,18 @@ class FeatureContext extends DrupalContext {
     var_dump($_GET);
   }
 
+  /**
+   * @Then /^I should see the text "([^"]*)" in "([^"]*)" element$/
+   */
+  public function iShouldSeeTheTextInElement($text, $selector) {
+    $session = $this->getSession();
+    $regionObj = $session->getPage()->find('css', $selector);
 
+    // Find the text within the region
+    $regionText = $regionObj->getText();
+
+    if (strpos($regionText, $text) === FALSE) {
+      throw new \Exception(sprintf("The text '%s' was not found in the region '%s' on the page %s", $text, $selector, $this->getSession()->getCurrentUrl()));
+    }
+  }
 }
