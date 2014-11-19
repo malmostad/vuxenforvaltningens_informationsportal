@@ -194,13 +194,6 @@ function config_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'administer custom breadcrumbs'.
-  $permissions['administer custom breadcrumbs'] = array(
-    'name' => 'administer custom breadcrumbs',
-    'roles' => array(),
-    'module' => 'custom_breadcrumbs',
-  );
-
   // Exported permission: 'administer entity view modes'.
   $permissions['administer entity view modes'] = array(
     'name' => 'administer entity view modes',
@@ -1482,13 +1475,6 @@ function config_permissions_user_default_permissions() {
       'Drupal developer admin' => 'Drupal developer admin',
     ),
     'module' => 'panels',
-  );
-
-  // Exported permission: 'use php in custom breadcrumbs'.
-  $permissions['use php in custom breadcrumbs'] = array(
-    'name' => 'use php in custom breadcrumbs',
-    'roles' => array(),
-    'module' => 'custom_breadcrumbs',
   );
 
   // Exported permission: 'use text format filtered_html'.
