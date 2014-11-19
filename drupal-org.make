@@ -126,6 +126,15 @@ projects[wysiwyg][subdir] = "contrib"
 projects[views][version] = "3.8"
 projects[views][subdir] = "contrib"
 
+projects[publishcontent][version] = "1.3"
+projects[publishcontent][subdir] = "contrib"
+
+projects[view_unpublished][version] = "1.2"
+projects[view_unpublished][subdir] = "contrib"
+
+projects[admin_views][version] = "1.3"
+projects[admin_views][subdir] = "contrib"
+
 ; +++++ Themes +++++
 
 ; bootstrap
