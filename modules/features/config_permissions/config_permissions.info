@@ -217,7 +217,6 @@ features[user_permission][] = view own unpublished content
 features[user_permission][] = view pane admin links
 features[user_permission][] = view revisions
 features[user_permission][] = view the administration theme
-features[user_role][] = Drupal developer admin
 features[user_role][] = Malmo middle admin
 features[user_role][] = Malmo top admin
 features[user_role][] = School editor
