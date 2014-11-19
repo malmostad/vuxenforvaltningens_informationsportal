@@ -711,18 +711,44 @@ nav.content {
 /* ------body-------- */
 body {
   color: $text;
-  position: absolute;
-  width: 100%;
   min-height: 100%;
-  top: 0;left: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 /* --------wrapper------- */
 .wrapper {margin-bottom: 180px;}
 /* --------footer---------- */
 footer#malmo-footer {
-  width: 100%;
-  position: absolute !important;
+  // position: absolute !important;
   bottom: 0;
+  width: 100%;
+}
+footer.bigfoot {
+  div.navs {
+    max-width: 64em;
+    .pane-title {
+      border-bottom: #b5b5b5 1px solid;
+      font-size: 1em;
+      font-weight: bold;
+      line-height: 1;
+      margin: 0 0 .6em;
+      padding: 0 0 .3em;
+    }
+    a {
+      padding: 0;
+      &:hover {
+        background: none;
+        text-decoration: underline;
+      }
+    }
+  }
+
 }
 /* --------CLOSE FOOTER BOTTOM---------  */
 
@@ -761,6 +787,73 @@ footer#malmo-footer {
   }
 }
 
+/* --- Top block --- */
+.front {
+  .wrapper {
+    margin-bottom: 0;
+  }
+  .top-block {
+    img {
+      margin-bottom: 48px;
+    }
+  }
+  #global-search-form {
+    margin-bottom: 62px;
+  }
+  .onecol-layout {
+    overflow: hidden;
+  }
+  .region-one,
+  .region-two,
+  .region-three {
+    clear: both;
+  }
+}
+
+/* --- Front page blocks --- */
+.global-pane {
+  font-family: $Georgia;
+  float: left;
+  margin-bottom: 25px;
+  h1 {
+    font-size: 24px;
+    font-family: $Georgia;
+    line-height: 29px;
+    margin-bottom: 13px;
+  }
+  .text {
+    margin-bottom: 23px;
+    p {
+      line-height: 22px;
+    }
+  }
+  .image {
+    img {
+      border: none;
+      margin: 0 0 25px;
+    }
+  }
+  &.half {
+    margin-right: 5%;
+    max-width: 287px;
+    padding-left: 16px;
+    width: 45%;
+  }
+  &.third {
+    margin-right: 3%;
+    max-width: 30.3%;
+    h2 {
+      font-size: 21px;
+      font-family: $Georgia;
+      line-height: 27px;
+    }
+    h2,
+    .text {
+      margin: 0;
+      padding-left: 15px;
+    }
+  }
+}
 
 /* ----FORM INPUT---- */
 .form-item {
@@ -768,6 +861,8 @@ footer#malmo-footer {
   & input { margin: 0 0 5px; }
 }
 #global-search-form {
+  margin: 0 auto;
+  max-width: 791px;
   position: relative;
   input,
   button {
@@ -911,15 +1006,17 @@ footer#malmo-footer {
 }
 
 /* --- Course page --- */
-.node-type-course {
+.node-type-course,
+.node-type-course-packages {
   .body-copy {
     .pane-title {
       font-size: 36px;
       font-family: $Georgia;
+      margin-top: 0;
     }
   }
 }
-.group-third-group {
+.third-group {
   .field-label {
     font-size: 24px;
   }
@@ -941,6 +1038,16 @@ footer#malmo-footer {
     display: inline;
     & ~ .field-value {
       display: inline;
+    }
+  }
+}
+.third-group {
+  .field-label {
+    font-size: 24px;
+  }
+  .field-value {
+    p {
+      line-height: 22px;
     }
   }
 }

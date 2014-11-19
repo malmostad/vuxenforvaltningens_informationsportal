@@ -80,6 +80,36 @@ function content_type_course_packages_strongarm() {
       'diff_standard' => array(
         'custom_settings' => FALSE,
       ),
+      'node_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'node_full' => array(
+        'custom_settings' => FALSE,
+      ),
+      'node_rss' => array(
+        'custom_settings' => FALSE,
+      ),
+      'node_diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'node_search_result' => array(
+        'custom_settings' => FALSE,
+      ),
+      'node_node_full' => array(
+        'custom_settings' => FALSE,
+      ),
+      'node_node_teaser' => array(
+        'custom_settings' => FALSE,
+      ),
+      'node_node_rss' => array(
+        'custom_settings' => FALSE,
+      ),
+      'node_node_diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'node_node_search_result' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -87,7 +117,38 @@ function content_type_course_packages_strongarm() {
           'weight' => '0',
         ),
       ),
-      'display' => array(),
+      'display' => array(
+        'node:course_package_template:title' => array(
+          'default' => array(
+            'weight' => '6',
+            'visible' => FALSE,
+          ),
+          'search_result' => array(
+            'weight' => '0',
+            'visible' => FALSE,
+          ),
+        ),
+        'node:course_package_template:log' => array(
+          'default' => array(
+            'weight' => '5',
+            'visible' => FALSE,
+          ),
+          'search_result' => array(
+            'weight' => '0',
+            'visible' => FALSE,
+          ),
+        ),
+        'node:course_package_template:field_course_type_education' => array(
+          'default' => array(
+            'weight' => '4',
+            'visible' => TRUE,
+          ),
+          'search_result' => array(
+            'weight' => '-3',
+            'visible' => TRUE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__course_packages'] = $strongarm;

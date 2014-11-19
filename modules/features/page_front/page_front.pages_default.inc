@@ -64,7 +64,7 @@ function page_front_default_page_manager_pages() {
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-8ccf5c18-0777-4f7c-bc28-dd4a3b34cfa2';
-    $pane->panel = 'region-two';
+    $pane->panel = 'region-one';
     $pane->type = 'global_pane_content_type';
     $pane->subtype = 'global_pane_content_type';
     $pane->shown = TRUE;
@@ -74,22 +74,29 @@ function page_front_default_page_manager_pages() {
       'override_title_text' => '',
       'title' => 'test31',
       'title_tag' => 'h1',
-      'width' => 'third',
+      'width' => 'half',
       'text' => array(
-        'value' => '',
+        'value' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem. Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.&nbsp;</p>',
         'format' => 'full_html',
       ),
       'link_label' => 'See more',
       'link' => array(
-        'title' => 'Show more',
+        'title' => 'Mer om grundläggande vuxenutbildning',
         'url' => 'node/1',
       ),
       'image' => 0,
       'url' => 'test31',
-      'pane_title' => 'Title 1',
+      'pane_title' => 'Grundläggande vuxenutbildning',
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => 30,
+        'granularity' => 'context',
+      ),
+    );
     $pane->style = array(
+      'style' => 'naked',
       'settings' => NULL,
     );
     $pane->css = array();
@@ -98,10 +105,10 @@ function page_front_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '8ccf5c18-0777-4f7c-bc28-dd4a3b34cfa2';
     $display->content['new-8ccf5c18-0777-4f7c-bc28-dd4a3b34cfa2'] = $pane;
-    $display->panels['region-two'][0] = 'new-8ccf5c18-0777-4f7c-bc28-dd4a3b34cfa2';
+    $display->panels['region-one'][0] = 'new-8ccf5c18-0777-4f7c-bc28-dd4a3b34cfa2';
     $pane = new stdClass();
     $pane->pid = 'new-87dd42cf-fa61-46aa-be56-7b8535cdd4bd';
-    $pane->panel = 'region-two';
+    $pane->panel = 'region-one';
     $pane->type = 'global_pane_content_type';
     $pane->subtype = 'global_pane_content_type';
     $pane->shown = TRUE;
@@ -111,21 +118,28 @@ function page_front_default_page_manager_pages() {
       'override_title_text' => '',
       'title' => 'Title 2',
       'title_tag' => 'h1',
-      'width' => 'third',
+      'width' => 'half',
       'text' => array(
-        'value' => '<p>asdf</p>',
+        'value' => '<p>Proin eget tortor risus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>',
         'format' => 'full_html',
       ),
       'link_label' => '',
       'link' => array(
-        'title' => '',
-        'url' => '',
+        'title' => 'Mer om gymnasial vuxenutbildning',
+        'url' => 'node/1',
       ),
       'image' => 0,
-      'pane_title' => 'Title 2',
+      'pane_title' => 'Gymnasial vuxenutbildning',
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => 30,
+        'granularity' => 'context',
+      ),
+    );
     $pane->style = array(
+      'style' => 'naked',
       'settings' => NULL,
     );
     $pane->css = array();
@@ -134,10 +148,10 @@ function page_front_default_page_manager_pages() {
     $pane->locks = array();
     $pane->uuid = '87dd42cf-fa61-46aa-be56-7b8535cdd4bd';
     $display->content['new-87dd42cf-fa61-46aa-be56-7b8535cdd4bd'] = $pane;
-    $display->panels['region-two'][1] = 'new-87dd42cf-fa61-46aa-be56-7b8535cdd4bd';
+    $display->panels['region-one'][1] = 'new-87dd42cf-fa61-46aa-be56-7b8535cdd4bd';
     $pane = new stdClass();
-    $pane->pid = 'new-fda4f327-ada4-4bfe-803a-bdb3971f92cf';
-    $pane->panel = 'region-two';
+    $pane->pid = 'new-70f7bf70-704d-4806-bbf9-94c46ef46af2';
+    $pane->panel = 'region-three';
     $pane->type = 'global_pane_content_type';
     $pane->subtype = 'global_pane_content_type';
     $pane->shown = TRUE;
@@ -145,32 +159,119 @@ function page_front_default_page_manager_pages() {
     $pane->configuration = array(
       'override_title' => '',
       'override_title_text' => '',
-      'title' => 'Title 3',
-      'title_tag' => 'h1',
+      'pane_title' => 'Boxrubrik',
+      'title_tag' => 'h2',
       'width' => 'third',
       'text' => array(
-        'value' => '<p>asdfasdf</p>',
+        'value' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem. Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.</p>',
         'format' => 'full_html',
       ),
-      'link_label' => '',
       'link' => array(
         'title' => '',
         'url' => '',
       ),
-      'image' => '25',
-      'pane_title' => 'Title 3',
+      'image' => '11',
     );
-    $pane->cache = array();
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => 30,
+        'granularity' => 'context',
+      ),
+    );
     $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '70f7bf70-704d-4806-bbf9-94c46ef46af2';
+    $display->content['new-70f7bf70-704d-4806-bbf9-94c46ef46af2'] = $pane;
+    $display->panels['region-three'][0] = 'new-70f7bf70-704d-4806-bbf9-94c46ef46af2';
+    $pane = new stdClass();
+    $pane->pid = 'new-0ba29ec6-4db1-4f50-ab9d-44c24a4d1357';
+    $pane->panel = 'region-three';
+    $pane->type = 'global_pane_content_type';
+    $pane->subtype = 'global_pane_content_type';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => '',
+      'override_title_text' => '',
+      'pane_title' => 'Boxrubrik',
+      'title_tag' => 'h2',
+      'width' => 'third',
+      'text' => array(
+        'value' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.&nbsp;</p>',
+        'format' => 'full_html',
+      ),
+      'link' => array(
+        'title' => '',
+        'url' => '',
+      ),
+      'image' => '12',
+    );
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => 30,
+        'granularity' => 'context',
+      ),
+    );
+    $pane->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '0ba29ec6-4db1-4f50-ab9d-44c24a4d1357';
+    $display->content['new-0ba29ec6-4db1-4f50-ab9d-44c24a4d1357'] = $pane;
+    $display->panels['region-three'][1] = 'new-0ba29ec6-4db1-4f50-ab9d-44c24a4d1357';
+    $pane = new stdClass();
+    $pane->pid = 'new-cc2666df-5401-4729-9f6e-53979cfdc9b8';
+    $pane->panel = 'region-three';
+    $pane->type = 'global_pane_content_type';
+    $pane->subtype = 'global_pane_content_type';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => '',
+      'override_title_text' => '',
+      'pane_title' => 'Boxrubrik',
+      'title_tag' => 'h2',
+      'width' => 'third',
+      'text' => array(
+        'value' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem. Aliquam erat volutpat.</p>',
+        'format' => 'full_html',
+      ),
+      'link' => array(
+        'title' => '',
+        'url' => '',
+      ),
+      'image' => '13',
+    );
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => 30,
+        'granularity' => 'context',
+      ),
+    );
+    $pane->style = array(
+      'style' => 'naked',
       'settings' => NULL,
     );
     $pane->css = array();
     $pane->extras = array();
     $pane->position = 2;
     $pane->locks = array();
-    $pane->uuid = 'fda4f327-ada4-4bfe-803a-bdb3971f92cf';
-    $display->content['new-fda4f327-ada4-4bfe-803a-bdb3971f92cf'] = $pane;
-    $display->panels['region-two'][2] = 'new-fda4f327-ada4-4bfe-803a-bdb3971f92cf';
+    $pane->uuid = 'cc2666df-5401-4729-9f6e-53979cfdc9b8';
+    $display->content['new-cc2666df-5401-4729-9f6e-53979cfdc9b8'] = $pane;
+    $display->panels['region-three'][2] = 'new-cc2666df-5401-4729-9f6e-53979cfdc9b8';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

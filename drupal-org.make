@@ -11,6 +11,8 @@ projects[panels][patch][] = "https://www.drupal.org/files/issues/panels-add-rend
 
 projects[facetapi][patch][] = "https://www.drupal.org/files/issues/facetapi-override_facet_label-1665164-22.patch"
 
+projects[facetapi_ranges][patch][] = "https://www.drupal.org/files/issues/term-query-type-2295751-10.patch"
+
 projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-customize-template-2145341-1.patch"
 projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-isset-2132811-5.patch"
 
@@ -18,6 +20,9 @@ projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-is
 
 projects[admin_menu][version] = "3.0-rc4"
 projects[admin_menu][subdir] = "contrib"
+
+projects[menu_import][version] = "1.6"
+projects[menu_import][subdir] = "contrib"
 
 projects[coffee][version] = "2.2"
 projects[coffee][subdir] = "contrib"
@@ -54,6 +59,9 @@ projects[entityreference][subdir] = "contrib"
 
 projects[link][version] = "1.3"
 projects[link][subdir] = "contrib"
+
+projects[inline_entity_display][version] = "1.0-beta3"
+projects[inline_entity_display][subdir] = "contrib"
 
 projects[timefield][subdir] = "contrib"
 projects[timefield][download][type] = "git"
@@ -102,6 +110,9 @@ projects[search_api_sorts][subdir] = "contrib"
 
 projects[facetapi][version] = "1.5"
 projects[facetapi][subdir] = "contrib"
+
+projects[facetapi_ranges][version] = "1.x-dev"
+projects[facetapi_ranges][subdir] = "contrib"
 
 projects[facetapi_bonus][version] = "1.1"
 projects[facetapi_bonus][subdir] = "contrib"

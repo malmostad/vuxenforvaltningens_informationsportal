@@ -121,7 +121,7 @@ before_script:
   - cd ../drupal
   - drush cc all
   - drush search-api-index
-  - drush watchdog-show
+  - drush fra -y
   
   # Generate CSS
   - cd profiles/mal/themes/city_of_malmo/assets

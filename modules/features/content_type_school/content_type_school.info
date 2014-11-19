@@ -2,6 +2,7 @@ name = Content type school
 core = 7.x
 package = Content types
 dependencies[] = content_type_course
+dependencies[] = content_type_course_template
 dependencies[] = ctools
 dependencies[] = features
 dependencies[] = strongarm
