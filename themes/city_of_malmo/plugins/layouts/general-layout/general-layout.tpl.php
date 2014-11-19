@@ -25,17 +25,21 @@
 <div class="onecol-layout" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
 
     <?php if ($content['region-one']): ?>
+      <div class="region-one">
         <?php print $content['region-one']; ?>
+      </div>
     <?php endif; ?>
 
     <?php if ($content['region-two']): ?>
-      <div class="search-filter">
+      <div class="search-filter region-two">
         <?php print $content['region-two']; ?>
       </div>
     <?php endif; ?>
 
     <?php if ($content['region-three']): ?>
+      <div class="region-three">
         <?php print $content['region-three']; ?>
+      </div>
     <?php endif; ?>
 
 </div>
