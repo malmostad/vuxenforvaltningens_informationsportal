@@ -10,16 +10,28 @@
 function config_permissions_user_default_roles() {
   $roles = array();
 
-  // Exported role: malmo administrator.
-  $roles['malmo administrator'] = array(
-    'name' => 'malmo administrator',
+  // Exported role: Drupal developer admin.
+  $roles['Drupal developer admin'] = array(
+    'name' => 'Drupal developer admin',
+    'weight' => 5,
+  );
+
+  // Exported role: Malmo middle admin.
+  $roles['Malmo middle admin'] = array(
+    'name' => 'Malmo middle admin',
+    'weight' => 3,
+  );
+
+  // Exported role: Malmo top admin.
+  $roles['Malmo top admin'] = array(
+    'name' => 'Malmo top admin',
     'weight' => 4,
   );
 
-  // Exported role: malmo editor.
-  $roles['malmo editor'] = array(
-    'name' => 'malmo editor',
-    'weight' => 3,
+  // Exported role: School editor.
+  $roles['School editor'] = array(
+    'name' => 'School editor',
+    'weight' => 2,
   );
 
   return $roles;
