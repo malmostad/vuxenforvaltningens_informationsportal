@@ -194,6 +194,15 @@ function config_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'administer course_registration registration'.
+  $permissions['administer course_registration registration'] = array(
+    'name' => 'administer course_registration registration',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'registration',
+  );
+
   // Exported permission: 'administer entity view modes'.
   $permissions['administer entity view modes'] = array(
     'name' => 'administer entity view modes',
@@ -302,6 +311,15 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'administer own course_registration registration'.
+  $permissions['administer own course_registration registration'] = array(
+    'name' => 'administer own course_registration registration',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'registration',
   );
 
   // Exported permission: 'administer page manager'.
@@ -553,6 +571,34 @@ function config_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'create course_registration registration'.
+  $permissions['create course_registration registration'] = array(
+    'name' => 'create course_registration registration',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'registration',
+  );
+
+  // Exported permission: 'create course_registration registration other anonymous'.
+  $permissions['create course_registration registration other anonymous'] = array(
+    'name' => 'create course_registration registration other anonymous',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'registration',
+  );
+
+  // Exported permission: 'create course_registration registration other users'.
+  $permissions['create course_registration registration other users'] = array(
+    'name' => 'create course_registration registration other users',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'registration',
+  );
+
   // Exported permission: 'create course_template content'.
   $permissions['create course_template content'] = array(
     'name' => 'create course_template content',
@@ -657,6 +703,15 @@ function config_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete any course_registration registration'.
+  $permissions['delete any course_registration registration'] = array(
+    'name' => 'delete any course_registration registration',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'registration',
+  );
+
   // Exported permission: 'delete any course_template content'.
   $permissions['delete any course_template content'] = array(
     'name' => 'delete any course_template content',
@@ -734,6 +789,16 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'delete own course_registration registration'.
+  $permissions['delete own course_registration registration'] = array(
+    'name' => 'delete own course_registration registration',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'registration',
   );
 
   // Exported permission: 'delete own course_template content'.
@@ -936,6 +1001,15 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'edit course_registration registration state'.
+  $permissions['edit course_registration registration state'] = array(
+    'name' => 'edit course_registration registration state',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'registration',
   );
 
   // Exported permission: 'edit own comments'.
@@ -1422,6 +1496,24 @@ function config_permissions_user_default_permissions() {
     'module' => 'publishcontent',
   );
 
+  // Exported permission: 'update any course_registration registration'.
+  $permissions['update any course_registration registration'] = array(
+    'name' => 'update any course_registration registration',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'registration',
+  );
+
+  // Exported permission: 'update own course_registration registration'.
+  $permissions['update own course_registration registration'] = array(
+    'name' => 'update own course_registration registration',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'registration',
+  );
+
   // Exported permission: 'use ipe with page manager'.
   $permissions['use ipe with page manager'] = array(
     'name' => 'use ipe with page manager',
@@ -1562,6 +1654,15 @@ function config_permissions_user_default_permissions() {
     'module' => 'view_unpublished',
   );
 
+  // Exported permission: 'view course_registration registration'.
+  $permissions['view course_registration registration'] = array(
+    'name' => 'view course_registration registration',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'registration',
+  );
+
   // Exported permission: 'view cron jobs'.
   $permissions['view cron jobs'] = array(
     'name' => 'view cron jobs',
@@ -1569,6 +1670,15 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'ultimate_cron',
+  );
+
+  // Exported permission: 'view own course_registration registration'.
+  $permissions['view own course_registration registration'] = array(
+    'name' => 'view own course_registration registration',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'registration',
   );
 
   // Exported permission: 'view own unpublished content'.
