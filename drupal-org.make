@@ -21,6 +21,9 @@ projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-is
 projects[admin_menu][version] = "3.0-rc4"
 projects[admin_menu][subdir] = "contrib"
 
+projects[menu_import][version] = "1.6"
+projects[menu_import][subdir] = "contrib"
+
 projects[coffee][version] = "2.2"
 projects[coffee][subdir] = "contrib"
 
@@ -122,6 +125,15 @@ projects[wysiwyg][subdir] = "contrib"
 
 projects[views][version] = "3.8"
 projects[views][subdir] = "contrib"
+
+projects[publishcontent][version] = "1.3"
+projects[publishcontent][subdir] = "contrib"
+
+projects[view_unpublished][version] = "1.2"
+projects[view_unpublished][subdir] = "contrib"
+
+projects[admin_views][version] = "1.3"
+projects[admin_views][subdir] = "contrib"
 
 ; +++++ Themes +++++
 
