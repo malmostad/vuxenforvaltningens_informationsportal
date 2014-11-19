@@ -120,7 +120,7 @@ function content_type_course_packages_strongarm() {
       'display' => array(
         'node:course_package_template:title' => array(
           'default' => array(
-            'weight' => '6',
+            'weight' => '7',
             'visible' => FALSE,
           ),
           'search_result' => array(
@@ -130,7 +130,7 @@ function content_type_course_packages_strongarm() {
         ),
         'node:course_package_template:log' => array(
           'default' => array(
-            'weight' => '5',
+            'weight' => '6',
             'visible' => FALSE,
           ),
           'search_result' => array(

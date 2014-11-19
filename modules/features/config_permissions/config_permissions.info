@@ -1,6 +1,8 @@
 name = Config permissions
 core = 7.x
 package = Config
+version = 7.x-1.0
+project = config_permissions
 dependencies[] = admin_menu
 dependencies[] = block
 dependencies[] = coffee
