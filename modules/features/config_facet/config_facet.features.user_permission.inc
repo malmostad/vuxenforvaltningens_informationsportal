@@ -14,7 +14,7 @@ function config_facet_user_default_permissions() {
   $permissions['administer facets'] = array(
     'name' => 'administer facets',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
     ),
     'module' => 'facetapi',
   );
