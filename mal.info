@@ -143,4 +143,5 @@ dependencies[] = content_type_course_template
 dependencies[] = content_type_course_package_template
 dependencies[] = menu_footer_social
 dependencies[] = minipanel_footer
+dependencies[] = menu_footer_visit
 dependencies[] = menu_user
