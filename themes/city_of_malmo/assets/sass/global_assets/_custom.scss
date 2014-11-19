@@ -39,7 +39,7 @@ html {
 /* Styles for main wrapper */
 .wrapper {
   margin:1em auto;
-  max-width:64em;
+  max-width:62em;
   padding:0 1em;
   *zoom:1;
   &:before,
@@ -55,38 +55,29 @@ html {
 
   & > article.body-copy {
     clear:both;
-    width:65.33333%;
-    margin-right:4%;
+    width: 74.3%;
+    margin-right: 2%;
     float:left;
-    -ms-box-sizing:border-box;
-    -webkit-box-sizing:border-box;
-    -moz-box-sizing:border-box;
-    box-sizing:border-box;
+    @include box-sizing(border-box);
     margin-bottom:1em;
   }
 
   & > nav {
     &.content,
     &.basic {
-      width:30.66667%;
+      width: 23.7%;
       margin-right:0;
       float:left;
-      -ms-box-sizing:border-box;
-      -webkit-box-sizing:border-box;
-      -moz-box-sizing:border-box;
-      box-sizing:border-box;
+      @include box-sizing(border-box);
     }
   }
 
   & > .contact-us {
     margin-bottom:2em;
-    width:65.33333%;
-    margin-right:4%;
+    width: 74.3%;
+    margin-right: 2%;
     float:left;
-    -ms-box-sizing:border-box;
-    -webkit-box-sizing:border-box;
-    -moz-box-sizing:border-box;
-    box-sizing:border-box;
+    @include box-sizing(border-box);
   }
 }
 
@@ -98,10 +89,7 @@ html {
       margin-right:0;
       float:none;
       float:left;
-      -ms-box-sizing:border-box;
-      -webkit-box-sizing:border-box;
-      -moz-box-sizing:border-box;
-      box-sizing:border-box;
+      @include box-sizing(border-box);
     }
   }
 }
@@ -117,10 +105,7 @@ html {
       margin-right:0;
       float:none;
       float:left;
-      -ms-box-sizing:border-box;
-      -webkit-box-sizing:border-box;
-      -moz-box-sizing:border-box;
-      box-sizing:border-box;
+      @include box-sizing(border-box);
     }
   }
 }
@@ -333,10 +318,7 @@ h2 + .example {
     margin-right:0;
     float:none;
     float:left;
-    -ms-box-sizing:border-box;
-    -webkit-box-sizing:border-box;
-    -moz-box-sizing:border-box;
-    box-sizing:border-box;
+    @include box-sizing(border-box);
     border:#c00 1px dashed;
     height:15em;
     padding:.5em;
@@ -350,20 +332,14 @@ h2 + .example {
       width:49%;
       margin-right:2%;
       float:left;
-      -ms-box-sizing:border-box;
-      -webkit-box-sizing:border-box;
-      -moz-box-sizing:border-box;
-      box-sizing:border-box;
+      @include box-sizing(border-box);
     }
 
     nav {
       width:49%;
       margin-right:0;
       float:left;
-      -ms-box-sizing:border-box;
-      -webkit-box-sizing:border-box;
-      -moz-box-sizing:border-box;
-      box-sizing:border-box;
+      @include box-sizing(border-box);
     }
 
     aside {
@@ -372,10 +348,7 @@ h2 + .example {
       margin-right:0;
       float:none;
       float:left;
-      -ms-box-sizing:border-box;
-      -webkit-box-sizing:border-box;
-      -moz-box-sizing:border-box;
-      box-sizing:border-box;
+      @include box-sizing(border-box);
     }
   }
 }
@@ -386,10 +359,7 @@ h2 + .example {
       width:49%;
       margin-right:2%;
       float:left;
-      -ms-box-sizing:border-box;
-      -webkit-box-sizing:border-box;
-      -moz-box-sizing:border-box;
-      box-sizing:border-box;
+      @include box-sizing(border-box);
       margin-top:0;
     }
 
@@ -397,20 +367,14 @@ h2 + .example {
       width:23.5%;
       margin-right:2%;
       float:left;
-      -ms-box-sizing:border-box;
-      -webkit-box-sizing:border-box;
-      -moz-box-sizing:border-box;
-      box-sizing:border-box;
+      @include box-sizing(border-box);
     }
 
     aside {
       width:23.5%;
       margin-right:0;
       float:left;
-      -ms-box-sizing:border-box;
-      -webkit-box-sizing:border-box;
-      -moz-box-sizing:border-box;
-      box-sizing:border-box;
+      @include box-sizing(border-box);
     }
   }
 }
@@ -732,7 +696,7 @@ footer#malmo-footer {
 }
 footer.bigfoot {
   div.navs {
-    max-width: 64em;
+    max-width: 62em;
     .pane-title {
       border-bottom: #b5b5b5 1px solid;
       font-size: 1em;
