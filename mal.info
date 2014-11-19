@@ -66,6 +66,10 @@ dependencies[] = entity_view_mode
 dependencies[] = libraries
 dependencies[] = strongarm
 dependencies[] = ultimate_cron
+dependencies[] = menu_import
+dependencies[] = publishcontent
+dependencies[] = view_unpublished
+dependencies[] = admin_views
 ; Panels
 dependencies[] = panels
 dependencies[] = panels_everywhere
@@ -81,6 +85,7 @@ dependencies[] = mal_generate_content
 dependencies[] = mal_search
 dependencies[] = user_register
 dependencies[] = mal_entityreference_widget_alter
+dependencies[] = mal_generate_menu
 ; Registration
 dependencies[] = registration
 dependencies[] = registration_views
@@ -139,3 +144,4 @@ dependencies[] = content_type_course_package_template
 dependencies[] = menu_footer_social
 dependencies[] = minipanel_footer
 dependencies[] = menu_footer_visit
+dependencies[] = menu_user
