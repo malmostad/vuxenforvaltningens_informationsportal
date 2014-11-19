@@ -14,7 +14,7 @@ function config_search_sort_user_default_permissions() {
   $permissions['use search_api_sorts'] = array(
     'name' => 'use search_api_sorts',
     'roles' => array(
-      'Drupal developer admin' => 'Drupal developer admin',
+      'administrator' => 'administrator',
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
     ),

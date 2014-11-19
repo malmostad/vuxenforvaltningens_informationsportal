@@ -10,12 +10,6 @@
 function config_permissions_user_default_roles() {
   $roles = array();
 
-  // Exported role: Drupal developer admin.
-  $roles['Drupal developer admin'] = array(
-    'name' => 'Drupal developer admin',
-    'weight' => 5,
-  );
-
   // Exported role: Malmo middle admin.
   $roles['Malmo middle admin'] = array(
     'name' => 'Malmo middle admin',
