@@ -80,6 +80,22 @@ function user_subscribed_courses_view_views_default_views() {
   $handler->display->display_options['fields']['field_course_type_education']['settings'] = array(
     'link' => 0,
   );
+  /* Field: Content: Course periods */
+  $handler->display->display_options['fields']['field_course_periods']['id'] = 'field_course_periods';
+  $handler->display->display_options['fields']['field_course_periods']['table'] = 'field_data_field_course_periods';
+  $handler->display->display_options['fields']['field_course_periods']['field'] = 'field_course_periods';
+  $handler->display->display_options['fields']['field_course_periods']['label'] = 'Course periods: day';
+  $handler->display->display_options['fields']['field_course_periods']['settings'] = array(
+    'display_format' => array(
+      'hour' => 'g',
+      'minute' => 'i',
+      'separator' => ':',
+      'period' => 'a',
+      'period_separator' => '',
+    ),
+  );
+  $handler->display->display_options['fields']['field_course_periods']['group_rows'] = FALSE;
+  $handler->display->display_options['fields']['field_course_periods']['delta_offset'] = '0';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -130,6 +146,7 @@ function user_subscribed_courses_view_views_default_views() {
     t('node being the Registration'),
     t('Course date'),
     t('Type of education'),
+    t('Course periods: day'),
     t('All'),
     t('Content pane'),
     t('View panes'),
