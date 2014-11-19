@@ -22,9 +22,9 @@
 <?php endif; ?>
 
   <?php print render($title_prefix); ?>
-  <nav class="sv-horizontal sv-horizontal-column">
+  <nav class="sv-horizontal sv-horizontal-column <?php print $pane->css['css_class']; ?>">
     <?php if ($title): ?>
-      <h2 class="<?php print $pane->css['css_class']; ?> pane-title"><?php print $title; ?></h2>
+      <h2 class=" pane-title"><?php print $title; ?></h2>
     <?php endif; ?>
     <?php print render($title_suffix); ?>
 
