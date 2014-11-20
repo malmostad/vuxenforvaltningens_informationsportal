@@ -9,16 +9,12 @@
 
   Drupal.behaviors.city_of_malmo = {
     attach: function(context, settings) {
-
-    	//------FAQ question/answer-------
-    	$('.faq-list-questions').find('.question').on('click',openListFAQ);
-
+      //------FAQ question/answer-------
+      $('.faq-list-questions').find('.question').on('click',openListFAQ);
 
       $('.nav-logo').children('a')
-          .attr('href','/')
-              .css('background','url("http://assets.malmo.se/external/v4/logo-x1.png") no-repeat');
-
-
+        .attr('href','/')
+          .css('background','url("http://assets.malmo.se/external/v4/logo-x1.png") no-repeat');
     }
   };
 
@@ -46,7 +42,7 @@
 
   Drupal.behaviors.searchAccordion = {
     attach: function(context, settings) {
-      $('.view-search').find('.panel-heading').click(function() {
+      $('.view-search', context).find('.panel-heading').once().click(function() {
         $(this).siblings('.panel-body').toggle(300);
         if ($.trim($(this).text()) === Drupal.t("Hide description")) {
           $(this).text(Drupal.t("Show description"));
@@ -62,7 +58,7 @@
 
 // FAQ question/answer
 function openListFAQ(){
-	$(this).next()
-		.toggleClass('open-close',300)
-			.parent().toggleClass('icon-open-close');
+  $(this).next()
+    .toggleClass('open-close',300)
+      .parent().toggleClass('icon-open-close');
 }
