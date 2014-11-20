@@ -141,7 +141,7 @@ function user_register_field_formatter_view($entity_type, $entity, $field, $inst
     $reg_type = registration_type_load($items[0]['registration_type']);
     list($entity_id) = entity_extract_ids($entity_type, $entity);
 
-    if (!registration_register_page_access($entity_type, $entity) && !registration_status($entity_type, $entity_id)) {
+    if (!registration_register_page_access($entity_type, $entity) || !registration_status($entity_type, $entity_id)) {
       return $element;
     }
 

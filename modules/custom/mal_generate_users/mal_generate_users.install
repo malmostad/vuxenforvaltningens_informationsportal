@@ -10,7 +10,7 @@
  *
  * Invoked on a Feature module after that module is enabled.
  */
-function mal_generate_content_enable() {
+function mal_generate_users_enable() {
   // Editor user.
   $fields = array(
     'name' => 'editor',
