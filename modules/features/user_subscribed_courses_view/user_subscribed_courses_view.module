@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the User subscribed courses view feature.
+ */
+
+include_once 'user_subscribed_courses_view.features.inc';

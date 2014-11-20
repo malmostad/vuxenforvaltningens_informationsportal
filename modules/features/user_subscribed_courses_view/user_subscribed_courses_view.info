@@ -1,0 +1,14 @@
+name = User subscribed courses view
+core = 7.x
+package = Views
+version = 7.x-1.0
+project = user_subscribed_courses_view
+dependencies[] = content_type_course
+dependencies[] = content_type_course_packages
+dependencies[] = course_registration_type
+dependencies[] = views
+dependencies[] = views_content
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = my_courses
+features_exclude[dependencies][ctools] = ctools

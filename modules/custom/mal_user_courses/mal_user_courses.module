@@ -1,0 +1,67 @@
+<?php
+
+/**
+ * @file
+ * Contains mal_user_courses.module
+ */
+
+/**
+ * Implements hook_preprocess_views_view_table().
+ */
+function mal_user_courses_preprocess_views_view_table(array &$vars) {
+  $processed_results = array();
+  $processed_results_classes = array();
+  $delta = 0;
+
+  foreach ($vars['result'] as $key => $result) {
+    foreach (array('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun') as $day) {
+      if ($result->{'field_data_field_course_periods_field_course_periods_' . $day} == 1) {
+        $processed_result = $vars['rows'][$key];
+        $rendered = $result->field_field_course_periods[0]['rendered'];
+        $rendered = mal_user_courses_clean_days($rendered, $day);
+        $processed_result['field_course_periods'] = theme('timefield_formatter', $rendered);
+        $processed_results[] = $processed_result;
+        $processed_results_classes[] = array();
+        $delta++;
+      }
+    }
+  }
+
+  // @todo Implement sorting.
+  usort($processed_results, function (array $a, array $b) {
+    return $a > $b;
+  });
+
+  $vars['rows'] = $processed_results;
+  $vars['row_classes'] = $processed_results_classes;
+}
+
+/**
+ * Disable all days except given from timefield instance.
+ *
+ * @param array $rendered
+ *   Rendered array from views preprocessor.
+ * @param string $day_to_keep
+ *   Short string name of week day.
+ *
+ * @return array
+ *   Modified rendered array for views preprocess.
+ */
+function mal_user_courses_clean_days(array $rendered, $day_to_keep) {
+  $time = array(
+    'mon' => 0,
+    'tue' => 0,
+    'wed' => 0,
+    'thu' => 0,
+    'fri' => 0,
+    'sat' => 0,
+    'sun' => 0,
+  );
+
+  $time[$day_to_keep] = 1;
+
+  $time += $rendered['#time'];
+  $rendered['#time'] = $time;
+
+  return $rendered;
+}

@@ -227,10 +227,9 @@ function content_type_course_packages_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
         'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 12,
+        'type' => 'hidden',
+        'weight' => 4,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -242,7 +241,7 @@ function content_type_course_packages_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -586,7 +585,7 @@ function content_type_course_packages_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 5,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -598,7 +597,7 @@ function content_type_course_packages_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -855,6 +854,81 @@ function content_type_course_packages_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-course_packages-field_registration'
+  $field_instances['node-course_packages-field_registration'] = array(
+    'bundle' => 'course_packages',
+    'default_value' => array(
+      0 => array(
+        'registration_type' => 'course_registration',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'user_register',
+        'settings' => array(),
+        'type' => 'toggling_registration_form',
+        'weight' => 3,
+      ),
+      'node_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'search_result' => array(
+        'label' => 'hidden',
+        'module' => 'user_register',
+        'settings' => array(),
+        'type' => 'toggling_registration_form',
+        'weight' => 3,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_registration',
+    'label' => 'Course package registration',
+    'required' => 0,
+    'settings' => array(
+      'default_registration_settings' => array(
+        'capacity' => 0,
+        'reminder' => array(
+          'reminder_settings' => array(
+            'reminder_date' => NULL,
+            'reminder_template' => '',
+          ),
+          'send_reminder' => 0,
+        ),
+        'scheduling' => array(
+          'close' => NULL,
+          'open' => NULL,
+        ),
+        'settings' => array(
+          'confirmation' => 'You have subscribed to the courses package.',
+          'from_address' => 'artyom.miroshnik@propeople.com.ua',
+          'maximum_spaces' => 1,
+          'multiple_registrations' => 0,
+        ),
+        'status' => 1,
+      ),
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'registration',
+      'settings' => array(),
+      'type' => 'registration_select',
+      'weight' => 16,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Application Period');
@@ -862,6 +936,7 @@ function content_type_course_packages_field_default_field_instances() {
   t('Course');
   t('Course available for search');
   t('Course date');
+  t('Course package registration');
   t('Course package template');
   t('Courses included');
   t('Description / content');

@@ -1,6 +1,8 @@
 name = Page main layout
 core = 7.x
 package = Pages
+version = 7.x-1.0
+project = page_main_layout
 dependencies[] = ctools
 dependencies[] = page_manager
 features[ctools][] = page_manager:pages_default:1
