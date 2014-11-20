@@ -70,5 +70,19 @@ function mal_generate_users_enable() {
   );
 
   user_save(NULL, $fields);
+
+  // Customer user.
+  $fields = array(
+    'name' => 'customer',
+    'mail' => 'customer@malmo.se',
+    'pass' => 'customer',
+    'status' => 1,
+    'init' => 'customer@malmo.se',
+    'roles' => array(
+      DRUPAL_AUTHENTICATED_RID => 'authenticated user',
+    ),
+  );
+
+  user_save(NULL, $fields);
 }
 
