@@ -1,0 +1,8 @@
+name = Mal generate users for test and usage
+description = Module generates user per each role for tests and future usage.
+core = 7.x
+package = Propeople
+
+dependencies[] = features
+dependencies[] = user
+dependencies[] = config_permissions
