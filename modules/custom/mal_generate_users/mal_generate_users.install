@@ -23,7 +23,7 @@ function mal_generate_users_enable() {
       6 => 'School editor',
     ),
   );
-
+  $fields['field_course_school'][LANGUAGE_NONE][0]['target_id'] = 1;
   user_save(NULL, $fields);
 
   // Middle admin.

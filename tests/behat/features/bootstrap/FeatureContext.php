@@ -177,10 +177,6 @@ class FeatureContext extends DrupalContext {
 
     // Log in.
     $submit->click();
-    $user = $this->whoami();
-    if (strtolower($user) != strtolower($username)) {
-      throw new Exception('Could not log user in.');
-    }
 
     // Successfully logged in.
     return;

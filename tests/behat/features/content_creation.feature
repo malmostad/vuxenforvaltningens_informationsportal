@@ -15,6 +15,15 @@
       And I should see the text "Course template" in "#admin-menu-menu" element
 
   @api
+  Scenario: School editor: Auto set school
+    Given I am logged in as "editor" with the password "editor"
+    And I am on "node/add/course"
+    And I fill in "title" with "test some course 2"
+    When I press "Save"
+    Then I should see the text "A1 Test school"
+
+
+  @api
   Scenario: School editor add course template
     Given I am logged in as a user with the "School editor" role
       And I am on "node/add/course-template"
