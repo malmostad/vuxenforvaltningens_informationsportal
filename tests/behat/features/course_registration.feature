@@ -28,4 +28,3 @@ Feature: Course register
     Then I click "Test course"
     Then I should not see a "#user-register-unregister-form" element
     Then I should not see a "#registration-form" element
-    

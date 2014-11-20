@@ -69,17 +69,17 @@ function user_register_course_unsubscribe($cid) {
  * Implements hook_form_FORM_ID_alter().
  */
 function user_register_form_registration_form_alter(&$form, &$form_state, $form_id) {
-  $debug = '';
-
   unset($form['who_message']);
   unset($form['actions']['cancel']);
 
-  $form['#prefix'] = '<div id="user-register-form-wrapper-' . $form['#registration_settings']['entity_type'] . '-' . $form['#registration_settings']['entity_id'] . '">';
+  $form['#prefix'] = '<div id="user-register-form-wrapper-' . $form['#registration_settings']['entity_type'] . '-' . $form['#registration_settings']['entity_id'] . '" class="subscribe">';
   $form['#suffix'] = '</div>';
   $form['actions']['submit']['#ajax'] = array(
     'wrapper' => 'user-register-form-wrapper-' . $form['#registration_settings']['entity_type'] . '-' . $form['#registration_settings']['entity_id'],
     'callback' => 'user_register_unregistration_form_reload',
   );
+  $form['actions']['submit']['#value'] = t('Register');
+  $form['actions']['submit']['#attributes']['class'][] = 'btn-xs';
 }
 
 /**
@@ -141,7 +141,7 @@ function user_register_field_formatter_view($entity_type, $entity, $field, $inst
     $reg_type = registration_type_load($items[0]['registration_type']);
     list($entity_id) = entity_extract_ids($entity_type, $entity);
 
-    if (!registration_register_page_access($entity_type, $entity) || !registration_status($entity_type, $entity_id)) {
+    if (!registration_status($entity_type, $entity_id)) {
       return $element;
     }
 
@@ -149,7 +149,7 @@ function user_register_field_formatter_view($entity_type, $entity, $field, $inst
       case 'toggling_registration_form':
         $registration = user_register_load_registration_by_user($entity_type, $entity_id, $user->uid);
 
-        if (!$registration) {
+        if (!$registration && registration_register_page_access($entity_type, $entity)) {
           $registration = entity_get_controller('registration')->create(array(
             'entity_type' => $entity_type,
             'entity_id' => $entity_id,
@@ -157,7 +157,8 @@ function user_register_field_formatter_view($entity_type, $entity, $field, $inst
           ));
           $element[0] = drupal_get_form('registration_form', $registration);
         }
-        else {
+
+        if ($registration && entity_access('delete', 'registration', $registration)) {
           $registration = user_register_load_registration_by_user($entity_type, $entity_id, $user->uid);
           $element[0] = drupal_get_form('user_register_unregister_form', $registration);
         }
@@ -211,6 +212,10 @@ function user_register_load_registration_by_user($entity_type, $entity_id, $uid)
  *   Renderable form array.
  */
 function user_register_unregister_form($form, &$form_state, $registration) {
+  if (!$registration) {
+    return $form;
+  }
+
   $form['registration'] = array(
     '#type' => 'value',
     '#value' => $registration,
@@ -219,9 +224,12 @@ function user_register_unregister_form($form, &$form_state, $registration) {
   $form['actions']['submit'] = array(
     '#type' => 'submit',
     '#value' => t('Unregister'),
+    '#attributes' => array(
+      'class' => array('btn-xs'),
+    ),
   );
 
-  $form['#prefix'] = '<div id="user-register-form-wrapper-' . $registration->entity_type . '-' . $registration->entity_id . '">';
+  $form['#prefix'] = '<div id="user-register-form-wrapper-' . $registration->entity_type . '-' . $registration->entity_id . '" class="unsubscribe">';
   $form['#suffix'] = '</div>';
   $form['actions']['submit']['#ajax'] = array(
     'wrapper' => 'user-register-form-wrapper-' . $registration->entity_type . '-' . $registration->entity_id,
