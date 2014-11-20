@@ -46,7 +46,7 @@
 
   Drupal.behaviors.searchAccordion = {
     attach: function(context, settings) {
-      $('.view-search').find('.panel-heading').click(function() {
+      $('.view-search', context).find('.panel-heading').once().click(function() {
         $(this).siblings('.panel-body').toggle(300);
         if ($.trim($(this).text()) === Drupal.t("Hide description")) {
           $(this).text(Drupal.t("Show description"));
