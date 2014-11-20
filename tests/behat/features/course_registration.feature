@@ -23,4 +23,9 @@ Feature: Course register
 
   Scenario: Anonymous user does not see Registration button.
     Given I am on "search-courses/Test%20course"
-    Then I should not see a "asdf" element
+    Then I should not see a "#user-register-unregister-form" element
+    Then I should not see a "#registration-form" element
+    Then I click "Test course"
+    Then I should not see a "#user-register-unregister-form" element
+    Then I should not see a "#registration-form" element
+    
