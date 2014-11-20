@@ -719,6 +719,14 @@ footer.bigfoot {
 }
 /* --------CLOSE FOOTER BOTTOM---------  */
 
+/* -------- Pager --------- */
+ul.pagination {
+  li.prev {
+    a:before {
+      content: '\00AB  ';
+    }
+  }
+}
 
 /*----------FAQ----------*/
 .faq-list-questions {
