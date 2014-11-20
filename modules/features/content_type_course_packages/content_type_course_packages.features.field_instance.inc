@@ -241,7 +241,7 @@ function content_type_course_packages_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 7,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -597,7 +597,7 @@ function content_type_course_packages_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -879,10 +879,11 @@ function content_type_course_packages_field_default_field_instances() {
         'weight' => 0,
       ),
       'search_result' => array(
-        'label' => 'above',
+        'label' => 'hidden',
+        'module' => 'user_register',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'type' => 'toggling_registration_form',
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',

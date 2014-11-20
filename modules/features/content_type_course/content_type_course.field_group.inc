@@ -91,7 +91,7 @@ function content_type_course_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Show description',
-    'weight' => '8',
+    'weight' => '2',
     'children' => array(
       0 => 'node:course_template:body',
     ),
@@ -149,7 +149,7 @@ function content_type_course_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Second group',
-    'weight' => '7',
+    'weight' => '1',
     'children' => array(
       0 => 'field_course_application_period',
     ),

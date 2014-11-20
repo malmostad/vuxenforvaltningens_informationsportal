@@ -218,7 +218,7 @@ function page_main_layout_default_page_manager_handlers() {
     $pane->configuration = array(
       'admin_title' => '',
       'title' => '',
-      'body' => '<p><img alt="" src="http://apod.nasa.gov/apod/image/1403/heic1404b1024.jpg" style="height:300px; width:1000px" /></p>',
+      'body' => '<p><img alt="malmo" src="http://malmo.se/images/18.1388f79a149845ce3b913418/1416207894418/oppet_hus3.jpg" style="height:300px; width:1000px" /></p>',
       'format' => 'full_html',
       'substitute' => 1,
     );
