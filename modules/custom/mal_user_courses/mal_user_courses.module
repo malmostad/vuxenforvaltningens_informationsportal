@@ -11,9 +11,8 @@
 function mal_user_courses_preprocess_views_view_table(array &$vars) {
   $processed_results = array();
   $processed_results_classes = array();
-  $processed_rows_field_classes = array();
-  $processed_rows_field_attributes = array();
   $delta = 0;
+
   foreach ($vars['result'] as $key => $result) {
     foreach (array('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun') as $day) {
       if ($result->{'field_data_field_course_periods_field_course_periods_' . $day} == 1) {
@@ -23,13 +22,12 @@ function mal_user_courses_preprocess_views_view_table(array &$vars) {
         $processed_result['field_course_periods'] = theme('timefield_formatter', $rendered);
         $processed_results[] = $processed_result;
         $processed_results_classes[] = array();
-        $processed_rows_field_classes[] = array();
-        $processed_rows_field_attributes[] = array();
         $delta++;
       }
     }
   }
 
+  // @todo Implement sorting.
   usort($processed_results, function (array $a, array $b) {
     return $a > $b;
   });

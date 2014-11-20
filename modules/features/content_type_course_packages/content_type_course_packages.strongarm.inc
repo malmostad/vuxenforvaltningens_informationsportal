@@ -124,7 +124,7 @@ function content_type_course_packages_strongarm() {
             'visible' => FALSE,
           ),
           'search_result' => array(
-            'weight' => '0',
+            'weight' => '5',
             'visible' => FALSE,
           ),
         ),
@@ -134,7 +134,7 @@ function content_type_course_packages_strongarm() {
             'visible' => FALSE,
           ),
           'search_result' => array(
-            'weight' => '0',
+            'weight' => '4',
             'visible' => FALSE,
           ),
         ),

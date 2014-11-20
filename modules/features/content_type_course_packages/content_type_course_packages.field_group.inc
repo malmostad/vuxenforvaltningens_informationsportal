@@ -89,7 +89,7 @@ function content_type_course_packages_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Show description',
-    'weight' => '4',
+    'weight' => '2',
     'children' => array(
       0 => 'body',
       1 => 'field_course_contact_person',

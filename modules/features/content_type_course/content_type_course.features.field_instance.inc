@@ -109,7 +109,7 @@ function content_type_course_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 10,
+        'weight' => 9,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -284,7 +284,7 @@ function content_type_course_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 12,
+        'weight' => 11,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -335,7 +335,7 @@ function content_type_course_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 13,
+        'weight' => 12,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -534,7 +534,7 @@ function content_type_course_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 10,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -585,7 +585,7 @@ function content_type_course_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 6,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -639,10 +639,11 @@ function content_type_course_field_default_field_instances() {
         'weight' => 0,
       ),
       'search_result' => array(
-        'label' => 'above',
+        'label' => 'hidden',
+        'module' => 'user_register',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
+        'type' => 'toggling_registration_form',
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',

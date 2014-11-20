@@ -7,7 +7,7 @@
  * @see views-view-table.tpl.php
  */
 ?>
-<table <?php if ($classes) { print 'class="'. $classes . '" '; } ?><?php print $attributes; ?>>
+<table <?php if ($classes) { print 'class="' . $classes . '" '; } ?><?php print $attributes; ?>>
   <?php if (!empty($title) || !empty($caption)) : ?>
     <caption><?php print $caption . $title; ?></caption>
   <?php endif; ?>
@@ -15,7 +15,7 @@
     <thead>
     <tr>
       <?php foreach ($header as $field => $label): ?>
-        <th <?php if ($header_classes[$field]) { print 'class="'. $header_classes[$field] . '" '; } ?>>
+        <th <?php if ($header_classes[$field]) { print 'class="' . $header_classes[$field] . '" '; } ?>>
           <?php print $label; ?>
         </th>
       <?php endforeach; ?>
