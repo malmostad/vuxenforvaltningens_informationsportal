@@ -9,16 +9,12 @@
 
   Drupal.behaviors.city_of_malmo = {
     attach: function(context, settings) {
-
-    	//------FAQ question/answer-------
-    	$('.faq-list-questions').find('.question').on('click',openListFAQ);
-
+      //------FAQ question/answer-------
+      $('.faq-list-questions').find('.question').on('click',openListFAQ);
 
       $('.nav-logo').children('a')
-          .attr('href','/')
-              .css('background','url("http://assets.malmo.se/external/v4/logo-x1.png") no-repeat');
-
-
+        .attr('href','/')
+          .css('background','url("http://assets.malmo.se/external/v4/logo-x1.png") no-repeat');
     }
   };
 
@@ -62,7 +58,7 @@
 
 // FAQ question/answer
 function openListFAQ(){
-	$(this).next()
-		.toggleClass('open-close',300)
-			.parent().toggleClass('icon-open-close');
+  $(this).next()
+    .toggleClass('open-close',300)
+      .parent().toggleClass('icon-open-close');
 }
