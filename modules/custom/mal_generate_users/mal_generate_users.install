@@ -1,0 +1,87 @@
+<?php
+
+/**
+ * @file
+ * Module install file. Contains default content generation.
+ */
+
+/**
+ * Implements hook_enable().
+ *
+ * Invoked on a Feature module after that module is enabled.
+ */
+function mal_generate_users_enable() {
+  // Editor user.
+  $fields = array(
+    'name' => 'editor',
+    'mail' => 'editor@malmo.se',
+    'pass' => 'editor',
+    'status' => 1,
+    'init' => 'editor@malmo.se',
+    'roles' => array(
+      DRUPAL_AUTHENTICATED_RID => 'authenticated user',
+      6 => 'School editor',
+    ),
+  );
+
+  user_save(NULL, $fields);
+
+  // Middle admin.
+  $fields = array(
+    'name' => 'middle',
+    'mail' => 'middle@malmo.se',
+    'pass' => 'middle',
+    'status' => 1,
+    'init' => 'middle@malmo.se',
+    'roles' => array(
+      DRUPAL_AUTHENTICATED_RID => 'authenticated user',
+      4 => 'Malmo middle admin',
+    ),
+  );
+
+  user_save(NULL, $fields);
+
+  // Top admin user.
+  $fields = array(
+    'name' => 'top',
+    'mail' => 'top@malmo.se',
+    'pass' => 'top',
+    'status' => 1,
+    'init' => 'top@malmo.se',
+    'roles' => array(
+      DRUPAL_AUTHENTICATED_RID => 'authenticated user',
+      5 => 'Malmo top admin',
+    ),
+  );
+
+  user_save(NULL, $fields);
+
+  // Administrator user.
+  $fields = array(
+    'name' => 'administrator',
+    'mail' => 'administrator@malmo.se',
+    'pass' => 'administrator',
+    'status' => 1,
+    'init' => 'administrator@malmo.se',
+    'roles' => array(
+      DRUPAL_AUTHENTICATED_RID => 'authenticated user',
+      7 => 'administrator',
+    ),
+  );
+
+  user_save(NULL, $fields);
+
+  // Customer user.
+  $fields = array(
+    'name' => 'customer',
+    'mail' => 'customer@malmo.se',
+    'pass' => 'customer',
+    'status' => 1,
+    'init' => 'customer@malmo.se',
+    'roles' => array(
+      DRUPAL_AUTHENTICATED_RID => 'authenticated user',
+    ),
+  );
+
+  user_save(NULL, $fields);
+}
