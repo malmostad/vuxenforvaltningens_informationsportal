@@ -6,6 +6,17 @@
  */
 
 /**
+ * Implements hook_permission().
+ */
+function mal_entityreference_widget_alter_permission() {
+  return array(
+    'change field_course_school field' => array(
+      'title' => t('Change field_course_school field'),
+    ),
+  );
+}
+
+/**
  * Implements hook_form_FORM_ID_alter().
  */
 function mal_entityreference_widget_alter_form_field_ui_field_edit_form_alter(&$form, &$form_state) {
@@ -24,14 +35,31 @@ function mal_entityreference_widget_alter_form_field_ui_field_edit_form_alter(&$
  * Implements hook_field_widget_form_alter().
  */
 function mal_entityreference_widget_alter_field_widget_form_alter(&$element, &$form_state, $context) {
-  // If this is an image field type of instance 'field_image_top'
-  if (($context['field']['type'] == 'entityreference') && (!empty($context['instance']['render_entity_below']))) {
-    $element['#suffix'] = '<div id="mal-rendered-entity"></div>';
-    $element['#ajax'] = array(
-      'callback' => 'mal_entityreference_widget_alter_ajax_callback',
-      'wrapper' => 'mal-rendered-entity',
-      'method' => 'replace',
-    );
+  if ($context['field']['type'] == 'entityreference') {
+    if (!empty($context['instance']['render_entity_below'])) {
+      $element['#suffix'] = '<div id="mal-rendered-entity"></div>';
+      $element['#ajax'] = array(
+        'callback' => 'mal_entityreference_widget_alter_ajax_callback',
+        'wrapper' => 'mal-rendered-entity',
+        'method' => 'replace',
+      );
+    }
+    if (($element['#field_name'] == 'field_course_school') && ($form_state['build_info']['form_id'] != 'user_profile_form')) {
+      // Only on node creation
+      if (empty($element['#entity']->nid)){
+        global $user;
+        $entity = user_load($user->uid);
+        $school = node_load($entity->field_course_school[LANGUAGE_NONE][0]['target_id']);
+
+        if ($school) {
+          $element['#default_value'] = $school->title . ' (' . $school->nid .')';
+        }
+      }
+
+      if (!user_access('change field_course_school field')) {
+        $element['#disabled'] = TRUE;
+      }
+    }
   }
 }
 

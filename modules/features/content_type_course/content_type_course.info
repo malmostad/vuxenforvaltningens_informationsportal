@@ -12,6 +12,7 @@ dependencies[] = field_group
 dependencies[] = list
 dependencies[] = number
 dependencies[] = options
+dependencies[] = registration
 dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = timefield
