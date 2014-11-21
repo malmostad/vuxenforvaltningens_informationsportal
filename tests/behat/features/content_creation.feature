@@ -18,9 +18,9 @@
   Scenario: School editor: Auto set school
     Given I am logged in as "editor" with the password "editor"
     And I am on "node/add/course"
-    And I fill in "title" with "test some course 2"
+    And I fill in "title" with "course 2"
     When I press "Save"
-    Then I should see the text "A1 Test school"
+    Then I should see the text "A2 Test school"
 
 
   @api
