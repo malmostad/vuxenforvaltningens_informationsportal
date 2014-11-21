@@ -45,7 +45,7 @@ function mal_search_facetapi_sort_info() {
 }
 
 /**
- * Sort callback
+ * Sort callback.
  */
 function mal_search_weeks(array $a, array $b) {
   // 1416610800 == Saturday.
@@ -123,12 +123,11 @@ function mal_search_search_api_views_query_alter(view &$view, SearchApiViewsQuer
 }
 
 /**
- * @param $build
- * @param $settings
+ * Capitalizes the first letter.
  */
 function mal_search_facet_items_alter(&$build, &$settings) {
   if ($settings->facet == "duration_days") {
-    foreach($build as $key => $item) {
+    foreach ($build as $key => $item) {
       $build[$key]["#markup"] = drupal_ucfirst($item["#markup"]);
     }
   }
