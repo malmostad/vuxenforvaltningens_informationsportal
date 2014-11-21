@@ -12,6 +12,13 @@
  */
 function mal_generate_users_enable() {
   // Editor user.
+  $roles = user_roles();
+
+  $school_editor_rid = array_search('School editor', $roles);
+  $middle_rid = array_search('Malmo middle admin', $roles);
+  $top_rid = array_search('Malmo top admin', $roles);
+  $admin_rid = array_search('administrator', $roles);
+
   $fields = array(
     'name' => 'editor',
     'mail' => 'editor@malmo.se',
@@ -20,7 +27,7 @@ function mal_generate_users_enable() {
     'init' => 'editor@malmo.se',
     'roles' => array(
       DRUPAL_AUTHENTICATED_RID => 'authenticated user',
-      6 => 'School editor',
+      $school_editor_rid => 'School editor',
     ),
   );
   $fields['field_course_school'][LANGUAGE_NONE][0]['target_id'] = 1;
@@ -35,7 +42,7 @@ function mal_generate_users_enable() {
     'init' => 'middle@malmo.se',
     'roles' => array(
       DRUPAL_AUTHENTICATED_RID => 'authenticated user',
-      4 => 'Malmo middle admin',
+      $middle_rid => 'Malmo middle admin',
     ),
   );
 
@@ -50,7 +57,7 @@ function mal_generate_users_enable() {
     'init' => 'top@malmo.se',
     'roles' => array(
       DRUPAL_AUTHENTICATED_RID => 'authenticated user',
-      5 => 'Malmo top admin',
+      $top_rid => 'Malmo top admin',
     ),
   );
 
@@ -65,7 +72,7 @@ function mal_generate_users_enable() {
     'init' => 'administrator@malmo.se',
     'roles' => array(
       DRUPAL_AUTHENTICATED_RID => 'authenticated user',
-      7 => 'administrator',
+      $admin_rid => 'administrator',
     ),
   );
 
