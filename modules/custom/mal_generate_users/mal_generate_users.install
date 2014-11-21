@@ -19,6 +19,17 @@ function mal_generate_users_enable() {
   $top_rid = array_search('Malmo top admin', $roles);
   $admin_rid = array_search('administrator', $roles);
 
+  global $user;
+  $school = new stdClass();
+  $school->title = "A2 Test school";
+  $school->type = "school";
+  node_object_prepare($school);
+  $school->language = LANGUAGE_NONE;
+  $school->uid = $user->uid;
+  $school->status = 1;
+  $school = node_submit($school);
+  node_save($school);
+
   $fields = array(
     'name' => 'editor',
     'mail' => 'editor@malmo.se',
@@ -30,7 +41,7 @@ function mal_generate_users_enable() {
       $school_editor_rid => 'School editor',
     ),
   );
-  $fields['field_course_school'][LANGUAGE_NONE][0]['target_id'] = 1;
+  $fields['field_course_school'][LANGUAGE_NONE][0]['target_id'] = $school->nid;
   user_save(NULL, $fields);
 
   // Middle admin.
