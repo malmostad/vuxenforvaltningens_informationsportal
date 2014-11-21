@@ -73,8 +73,8 @@ function mal_search_property_duration_days_getter_callback($item, array $options
     'wed' => t('Wednesday'),
     'thu' => t('Thursday'),
     'fri' => t('Friday'),
-    'sat' => t('Saturday'),
-    'sun' => t('Sunday'),
+    //'sat' => t('Saturday'),
+    //'sun' => t('Sunday'),
   );
 
   foreach (field_get_items($type, $item, 'field_course_periods', $options['language']) as $delta => $period) {
