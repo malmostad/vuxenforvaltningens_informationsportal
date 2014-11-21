@@ -282,11 +282,37 @@ function config_facet_facetapi_default_facet_settings() {
   $facet->settings = array(
     'weight' => 0,
     'widget' => 'facetapi_links',
-    'filters' => array(),
+    'filters' => array(
+      'active_items' => array(
+        'status' => 0,
+        'weight' => '-50',
+      ),
+      'exclude_items' => array(
+        'status' => 0,
+        'weight' => '-49',
+      ),
+      'rewrite_items' => array(
+        'status' => 1,
+        'weight' => '-48',
+      ),
+      'narrow_results' => array(
+        'status' => 0,
+        'weight' => '-47',
+      ),
+      'show_if_minimum_items' => array(
+        'status' => 0,
+        'weight' => '-46',
+      ),
+      'deepest_level_items' => array(
+        'status' => 0,
+        'weight' => '-45',
+      ),
+    ),
     'active_sorts' => array(
-      'display' => 'display',
+      'weeks' => 'weeks',
       'active' => 0,
       'count' => 0,
+      'display' => 0,
       'natural' => 0,
       'indexed' => 0,
     ),
@@ -294,6 +320,7 @@ function config_facet_facetapi_default_facet_settings() {
       'active' => '-50',
       'count' => '-49',
       'display' => '-48',
+      'weeks' => '0',
       'natural' => '0',
       'indexed' => '0',
     ),
@@ -301,6 +328,7 @@ function config_facet_facetapi_default_facet_settings() {
       'active' => '3',
       'count' => '3',
       'display' => '4',
+      'weeks' => '4',
       'natural' => '4',
       'indexed' => '4',
     ),
@@ -319,6 +347,11 @@ function config_facet_facetapi_default_facet_settings() {
       'value' => '',
       'format' => 'filtered_html',
     ),
+    'ranges' => '',
+    'exclude' => '',
+    'regex' => 0,
+    'show_minimum_items' => 2,
+    'rewrite_items' => 1,
   );
   $export['search_api@node:block:duration_days'] = $facet;
 

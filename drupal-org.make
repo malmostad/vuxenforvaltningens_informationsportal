@@ -4,7 +4,7 @@ api = "2"
 
 ; +++++ Core +++++
 projects[drupal][type] = core
-projects[drupal][version] = 7.32
+projects[drupal][version] = 7.34
 
 ; +++++ Patches +++++
 projects[panels][patch][] = "https://www.drupal.org/files/issues/panels-add-render-last-for-minipanel-1669918-14.patch"
@@ -14,6 +14,7 @@ projects[facetapi][patch][] = "https://www.drupal.org/files/issues/facetapi-over
 projects[facetapi_ranges][patch][] = "https://www.drupal.org/files/issues/term-query-type-2295751-10.patch"
 
 projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-customize-template-2145341-1.patch"
+projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-change-weekly-summary-days-2379749-2.patch"
 projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-isset-2132811-5.patch"
 
 ; +++++ Modules +++++
@@ -30,7 +31,7 @@ projects[coffee][subdir] = "contrib"
 projects[module_filter][version] = "2.0-alpha2"
 projects[module_filter][subdir] = "contrib"
 
-projects[ctools][version] = "1.4"
+projects[ctools][version] = "1.5"
 projects[ctools][subdir] = "contrib"
 
 projects[date][version] = "2.8"
@@ -45,7 +46,7 @@ projects[profiler_builder][subdir] = "contrib"
 projects[features][version] = "2.2"
 projects[features][subdir] = "contrib"
 
-projects[field_collection][version] = "1.0-beta7"
+projects[field_collection][version] = "1.0-beta8"
 projects[field_collection][subdir] = "contrib"
 
 projects[field_collection_table][version] = "1.0-beta1"
@@ -84,7 +85,7 @@ projects[libraries][subdir] = "contrib"
 projects[strongarm][version] = "2.0"
 projects[strongarm][subdir] = "contrib"
 
-projects[ultimate_cron][version] = "2.0-beta7"
+projects[ultimate_cron][version] = "2.0-beta8"
 projects[ultimate_cron][subdir] = "contrib"
 
 projects[panels][version] = "3.4"
