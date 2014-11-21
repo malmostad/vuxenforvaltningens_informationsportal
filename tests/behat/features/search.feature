@@ -28,7 +28,7 @@ Feature: Search the site
     And I should see the text "Kursstart, tider och veckodagar"
     And I should see an "#edit-date" element
     And I should see the text "Veckodagar"
-    And I should see the text "monday"
+    And I should see the text "Monday"
     And I should see the text "Tider"
     And I should see the text "Morning"
     And I should see the text "Afternoon"
