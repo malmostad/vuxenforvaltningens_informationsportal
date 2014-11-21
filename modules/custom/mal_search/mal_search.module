@@ -29,6 +29,36 @@ function mal_search_entity_property_info_alter(&$info) {
 }
 
 /**
+ * Implements hook_facetapi_sort_info().
+ */
+function mal_search_facetapi_sort_info() {
+  $sorts = array();
+
+  $sorts['weeks'] = array(
+    'label' => t('Weeks'),
+    'callback' => 'mal_search_weeks',
+    'description' => t('Sort by natural order of days of week'),
+    'weight' => -50,
+  );
+
+  return $sorts;
+}
+
+/**
+ * Sort callback
+ */
+function mal_search_weeks(array $a, array $b) {
+  // 1416610800 == Saturday.
+  $a_timestamp = strtotime($a['#indexed_value'], 1416610800);
+  $b_timestamp = strtotime($b['#indexed_value'], 1416610800);
+
+  if ($a_timestamp == $b_timestamp) {
+    return 0;
+  }
+  return ($a_timestamp < $b_timestamp) ? -1 : 1;
+}
+
+/**
  * Getter callback for time field.
  *
  * It returns translated week days names.
@@ -89,5 +119,17 @@ function mal_search_search_api_views_query_alter(view &$view, SearchApiViewsQuer
   ) {
     $group_id = $query->set_where_group();
     $query->condition('field_course_date:value', $get_param, '>=', $group_id);
+  }
+}
+
+/**
+ * @param $build
+ * @param $settings
+ */
+function mal_search_facet_items_alter(&$build, &$settings) {
+  if ($settings->facet == "duration_days") {
+    foreach($build as $key => $item) {
+      $build[$key]["#markup"] = drupal_ucfirst($item["#markup"]);
+    }
   }
 }
