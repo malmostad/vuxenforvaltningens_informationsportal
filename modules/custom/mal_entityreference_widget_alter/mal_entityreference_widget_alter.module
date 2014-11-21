@@ -49,9 +49,9 @@ function mal_entityreference_widget_alter_field_widget_form_alter(&$element, &$f
       if (empty($element['#entity']->nid)) {
         global $user;
         $entity = user_load($user->uid);
-        $school = node_load($entity->field_course_school[LANGUAGE_NONE][0]['target_id']);
 
-        if ($school) {
+        if ((!empty($entity->field_course_school[LANGUAGE_NONE][0]['target_id']))
+          && ($school = node_load($entity->field_course_school[LANGUAGE_NONE][0]['target_id']))) {
           $element['#default_value'] = $school->title . ' (' . $school->nid . ')';
         }
       }
