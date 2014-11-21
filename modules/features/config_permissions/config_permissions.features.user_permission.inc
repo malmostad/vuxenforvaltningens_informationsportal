@@ -520,6 +520,17 @@ function config_permissions_user_default_permissions() {
     'module' => 'user',
   );
 
+  // Exported permission: 'change field_course_school field'.
+  $permissions['change field_course_school field'] = array(
+    'name' => 'change field_course_school field',
+    'roles' => array(
+      'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'mal_entityreference_widget_alter',
+  );
+
   // Exported permission: 'change layouts in place editing'.
   $permissions['change layouts in place editing'] = array(
     'name' => 'change layouts in place editing',
