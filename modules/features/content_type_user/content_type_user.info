@@ -1,0 +1,8 @@
+name = Content type user
+core = 7.x
+package = Content types
+dependencies[] = content_type_course
+dependencies[] = entityreference
+dependencies[] = features
+features[features_api][] = api:2
+features[field_instance][] = user-user-field_course_school
