@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * @file
+ * File.
+ */
+
+/**
+ * Implements hook_permission().
+ */
+function mal_user_custom_access_permission() {
+  return array(
+    'edit school which was specified in profile' => array(
+      'title' => t('Edit school which was specified in profile'),
+    ),
+  );
+}
+
+/**
+ *  Implements hook_node_access().
+ */
+function mal_user_custom_access_node_access($node, $op, $account) {
+  if (($op == 'update')
+    && (!empty($node->type))
+    && ($node->type == 'school')
+    && (user_access('edit school which was specified in profile'))
+  ) {
+    $user = entity_metadata_wrapper('user', $account);
+    if (($school = $user->field_course_school->value()) && ($school->nid == $node->nid)) {
+      return NODE_ACCESS_ALLOW;
+    }
+  }
+  return NODE_ACCESS_IGNORE;
+}

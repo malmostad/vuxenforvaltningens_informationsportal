@@ -1113,6 +1113,18 @@ function config_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit school which was specified in profile'.
+  $permissions['edit school which was specified in profile'] = array(
+    'name' => 'edit school which was specified in profile',
+    'roles' => array(
+      'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
+      'School editor' => 'School editor',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'mal_user_custom_access',
+  );
+
   // Exported permission: 'edit terms in course_form'.
   $permissions['edit terms in course_form'] = array(
     'name' => 'edit terms in course_form',
