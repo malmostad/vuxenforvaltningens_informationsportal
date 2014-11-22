@@ -1,3 +1,4 @@
 name = Malmo user custom access
+description = Provides some custom access(school editors can edit own school).
 core = 7.x
 package = Propeople
