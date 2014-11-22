@@ -29,6 +29,8 @@ Feature: Search the site
     And I should see an "#edit-date" element
     And I should see the text "Veckodagar"
     And I should see the text "Monday"
+    And I should not see the text "Sunday"
+    And I should not see the text "Saturday"
     And I should see the text "Tider"
     And I should see the text "Morning"
     And I should see the text "Afternoon"
