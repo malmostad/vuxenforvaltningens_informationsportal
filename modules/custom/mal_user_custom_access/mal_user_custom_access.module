@@ -2,7 +2,7 @@
 
 /**
  * @file
- * File.
+ * Provides some custom access.
  */
 
 /**
@@ -17,7 +17,7 @@ function mal_user_custom_access_permission() {
 }
 
 /**
- *  Implements hook_node_access().
+ * Implements hook_node_access().
  */
 function mal_user_custom_access_node_access($node, $op, $account) {
   if (($op == 'update')
