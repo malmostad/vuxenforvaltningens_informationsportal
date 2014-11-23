@@ -2,10 +2,15 @@
 
   Drupal.behaviors.ccFacetapiPopupCalendar = {
     attach: function(context) {
-      $(".date-popup-calendar-form-input").datepicker({
-        minDate: "-3Y",
-        maxDate: "+3Y",
-        dateFormat: Drupal.settings.DateFormatForPopup
+      $('#start-date input').datepicker({
+        format: 'mm/dd/yyyy',
+        weekStart: 1,
+        language: "sv",
+        autoclose: true,
+        todayHighlight: true,
+       // startDate: '-3d'
+      }).on('changeDate', function(ev) {
+        $(this).closest('form').submit();
       });
     }
   };
