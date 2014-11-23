@@ -53,8 +53,7 @@ Feature: Search the site
     And I press "Search"
     And I press element ".minipanel-search-facet-date"
     When I press element "#edit-date"
-    Then I should see container with class "ui-datepicker"
-    When I press element ".ui-datepicker-week-end"
+    And I press element ".datepicker-days .day"
 
   @api @sort-fields
   Scenario: Check how fields renders
