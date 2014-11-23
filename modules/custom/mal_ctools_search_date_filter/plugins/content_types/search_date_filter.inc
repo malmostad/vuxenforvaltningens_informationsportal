@@ -29,20 +29,30 @@ function search_date_filter_form(array $form, array &$form_state, $conf) {
   ctools_form_include($form_state, 'global_search_content_type', 'mal_ctools_search_date_filter', 'plugins/content_types');
   $query = drupal_get_query_parameters();
   $get_param = variable_get('search_date_filter_get_param', 'search-start-date');
-  $form['date'] = array(
+
+  $form['container'] = array(
+    '#type' => 'container',
+    '#id' => 'start-date',
+    '#attributes' => array(
+      'class' => array('input-group date'),
+    ),
+  );
+
+  $form['container']['date'] = array(
     '#type' => 'textfield',
     '#default_value' => empty($query[$get_param]) ? NULL : $query[$get_param],
     '#size' => 'auto',
     '#attributes' => array(
-      'class' => array('date-popup-calendar-form-input', 'ctools-auto-submit'),
+      'class' => array('form-control'),
       'autocomplete' => array('off'),
-      'readonly' => array('true'),
+      'placeholder' => t('Select course start'),
     ),
+    '#theme_wrappers'   => array(),
+    '#suffix' => '<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>',
   );
 
-  ctools_add_js('auto-submit');
-  drupal_add_library('system', 'ui.datepicker');
-  drupal_add_js(drupal_get_path('module', 'mal_ctools_search_date_filter') . '/js/date.format.js');
+  drupal_add_js(drupal_get_path('module', 'mal_ctools_search_date_filter') . '/js/bootstrap-datepicker.js');
+  drupal_add_js(drupal_get_path('module', 'mal_ctools_search_date_filter') . '/js/bootstrap-datepicker.sv.js');
   drupal_add_js(drupal_get_path('module', 'mal_ctools_search_date_filter') . '/js/facetapi_date_popup_calendar.js');
 
   $form['submit'] = array(
