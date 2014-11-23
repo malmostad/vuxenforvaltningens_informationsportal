@@ -48,9 +48,7 @@ function search_date_filter_form(array $form, array &$form_state, $conf) {
       'placeholder' => t('Select course start'),
     ),
     '#theme_wrappers'   => array(),
-    '#suffix' => '<span class="input-group-addon">
-      <span class="glyphicon glyphicon-calendar"></span>
-    </span>',
+    '#suffix' => '<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>',
   );
 
   drupal_add_js(drupal_get_path('module', 'mal_ctools_search_date_filter') . '/js/bootstrap-datepicker.js');
