@@ -980,6 +980,18 @@ ul.pagination {
   }
 }
 
+/* Datepicker position fix */
+.page-search-courses {
+  &.logged-in {
+    .datepicker {
+      margin-top: -20px;
+    }
+  }
+  .datepicker {
+    margin-top: -48px;
+  }
+}
+
 /* --- Course page --- */
 .node-type-course,
 .node-type-course-packages {
