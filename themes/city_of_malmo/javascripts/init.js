@@ -36,7 +36,6 @@
         if (!($(e.target).is($popup) || $(e.target).is('.datepicker *') || $(e.target).is('.month') || $(e.target).is('.year'))) {
           $filter.removeClass('active');
         }
-        console.log($(e.target));
       });
     }
   };
