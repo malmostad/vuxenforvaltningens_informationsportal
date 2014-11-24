@@ -74,6 +74,7 @@ dependencies[] = admin_views
 dependencies[] = panels
 dependencies[] = panels_everywhere
 dependencies[] = panels_mini
+dependencies[] = panels_ipe
 dependencies[] = pps
 ; Propeople
 dependencies[] = mal_ctools_global_pane
