@@ -1542,6 +1542,7 @@ function config_permissions_user_default_permissions() {
   $permissions['use ipe with page manager'] = array(
     'name' => 'use ipe with page manager',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'panels',
