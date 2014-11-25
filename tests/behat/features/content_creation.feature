@@ -1,4 +1,4 @@
-  Feature: Content creation
+Feature: Content creation
   In order to create and moderate content
   As any user
   I should be able to create and moderate
@@ -19,15 +19,11 @@
     Given I am logged in as "editor" with the password "editor"
     And I am on "node/add/course"
     And I fill in "title" with "course 2"
-    And I fill in "Time" with "2:50AM"
-    And I fill in "End Time" with "10:50PM"
-    And I should not see "Sunday"
-    And I check "Monday"
     When I press "Save"
     Then I should see the text "A2 Test school"
 
 
-  @api @javascript
+  @api
   Scenario: School editor add course template
     Given I am logged in as a user with the "School editor" role
       And I am on "node/add/course-template"
@@ -53,3 +49,15 @@
     Then I should see the text "Course package" in "#admin-menu-menu" element
     Then I should see the text "Course package template" in "#admin-menu-menu" element
     Then I should see the text "Course template" in "#admin-menu-menu" element
+
+  @api
+  Scenario: Pure authenticated user
+    Given  I am logged in as a user with the "authenticated user" role
+    And I am on the homepage
+    Then I should not see the text "Content" in "#admin-menu-menu" element
+    Then I should not see the text "Add content" in "#admin-menu-menu" element
+    Then I should not see the text "Course" in "#admin-menu-menu" element
+    Then I should not see the text "Course package" in "#admin-menu-menu" element
+    Then I should not see the text "Course package template" in "#admin-menu-menu" element
+    Then I should not see the text "Course template" in "#admin-menu-menu" element
+

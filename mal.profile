@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * @file
+ * Contains mal.profile
+ */
+
+/**
  * Implements hook_install_tasks_alter().
  */
 function mal_install_tasks_alter(&$tasks, $install_state) {
@@ -14,22 +19,26 @@ function mal_install_tasks_alter(&$tasks, $install_state) {
  * Set swedish as the default language.
  *
  * @param array $install_state
+ *   Array of form values from previous steps.
  */
-function mal_locale_selection(&$install_state) {
-  $install_state['parameters']['locale'] = 'sv';
-  $install_state['locales']['en']->langcode = 'en';
-  $install_state['locales']['sv']->langcode = 'sv';
+function mal_locale_selection(array &$install_state) {
+  $install_state['parameters']['locale'] = 'en';
 }
 
+/**
+ * Implements hook_configure_form_save().
+ */
 function mal_configure_form_save($form, &$form_state, &$install_state) {
   global $user;
 
-  $admin_mail_default = 'artyom.miroshnik@propeople.com.ua ';
+  $admin_mail_default = 'artyom.miroshnik@propeople.com.ua';
 
   variable_set('site_name', drush_get_option('site-name', 'City of Malmo'));
   variable_set('site_mail', drush_get_option('site-mail', ''));
   variable_set('update_status_module', 2);
-  variable_set('update_notify_emails', array(drush_get_option('account-mail', $admin_mail_default)));
+  variable_set('update_notify_emails', array(
+    drush_get_option('account-mail', $admin_mail_default),
+  ));
   variable_set('clean_url', 1);
   variable_set('admin_theme', 'seven');
   variable_set('node_admin_theme', '1');
@@ -49,9 +58,10 @@ function mal_configure_form_save($form, &$form_state, &$install_state) {
     'mail'     => drush_get_option('account-mail', $admin_mail_default),
     'roles'    => !empty($account->roles) ? $account->roles : array(),
     'status'   => 1,
-    'timezone' => 'Europe/Copenhagen'
+    'timezone' => 'Europe/Copenhagen',
   );
   user_save($account, $merge_data);
+
   // Load global $user and perform final login tasks.
   $user = user_load(1);
   user_login_finalize();
