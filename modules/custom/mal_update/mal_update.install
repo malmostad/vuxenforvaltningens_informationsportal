@@ -6,7 +6,7 @@
  */
 
 /**
- * Implements hook_update_N().
+ * Revert config_permissions.
  */
 function mal_update_update_7000() {
   $features = array(
@@ -15,4 +15,11 @@ function mal_update_update_7000() {
 
   features_revert($features);
   node_access_needs_rebuild(FALSE);
+}
+
+/**
+ * Enable search_api_autocomplete.
+ */
+function mal_update_update_7001() {
+  module_enable('search_api_autocomplete');
 }

@@ -100,6 +100,7 @@ dependencies[] = search_api_facetapi
 dependencies[] = search_api_solr
 dependencies[] = search_api_sorts
 dependencies[] = search_api_views
+dependencies[] = search_api_autocomplete
 ; Search Toolkit
 dependencies[] = facetapi
 dependencies[] = facetapi_bonus
