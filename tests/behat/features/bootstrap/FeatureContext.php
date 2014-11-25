@@ -9,6 +9,7 @@ use Behat\Behat\Context\ClosuredContextInterface,
   Behat\Behat\Context\TranslatedContextInterface,
   Behat\Behat\Context\BehatContext,
   Behat\Behat\Exception\PendingException;
+use Behat\Behat\Event\OutlineExampleEvent;
 use Behat\Gherkin\Node\PyStringNode,
   Behat\Gherkin\Node\TableNode;
 use Behat\MinkExtension\Context\MinkContext;
@@ -51,9 +52,17 @@ class FeatureContext extends DrupalContext {
    */
   public function beforeEachScenario(ScenarioEvent $event) {
     /* @var DrupalContext $context */
-    $context = $event->getContext();
-    $context->getSession()->visit($this->getMinkParameter('base_url'));
-    $context->getSession()->setCookie('language', 'en');
+    if ($event instanceof ScenarioEvent) {
+      $context = $event->getContext();
+      $context->getSession()->visit($this->getMinkParameter('base_url'));
+      $context->getSession()->setCookie('language', 'en');
+    }
+
+    if ($event instanceof OutlineExampleEvent) {
+      $context = $event->getContext();
+      $context->getSession()->visit($this->getMinkParameter('base_url'));
+      $context->getSession()->setCookie('language', 'en');
+    }
   }
 
   /**

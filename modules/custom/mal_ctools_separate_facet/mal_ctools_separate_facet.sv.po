@@ -1,0 +1,45 @@
+# $Id$
+#
+# Swedish translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  mal_ctools_separate_facet.info: n/a
+#  plugins/content_types/separate_facet_content_type.inc: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2014-11-22 17:15+0100\n"
+"PO-Revision-Date: 2014-11-22 17:15+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Swedish <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: mal_ctools_separate_facet.info:0
+msgid "Mal separate facet"
+msgstr "Mal separat fasett"
+
+#: mal_ctools_separate_facet.info:0
+msgid "Pane which show link to search page with enabled facet"
+msgstr "Pane som visar länken för att söka sidan med aktiverad fasett"
+
+#: mal_ctools_separate_facet.info:0 plugins/content_types/separate_facet_content_type.inc:13
+msgid "Propeople"
+msgstr "Propeople"
+
+#: plugins/content_types/separate_facet_content_type.inc:9
+msgid "Separate facet"
+msgstr "Separat fasett"
+
+#: plugins/content_types/separate_facet_content_type.inc:12
+msgid "Node"
+msgstr "Nod"
+
+#: plugins/content_types/separate_facet_content_type.inc:26
+msgid "View all school courses"
+msgstr "Visa alla skolkurser"
+

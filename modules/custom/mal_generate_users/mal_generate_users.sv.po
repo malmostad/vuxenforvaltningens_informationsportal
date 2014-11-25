@@ -1,0 +1,31 @@
+# $Id$
+#
+# Swedish translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from file: mal_generate_users.info: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2014-11-22 17:12+0100\n"
+"PO-Revision-Date: 2014-11-22 17:12+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Swedish <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: mal_generate_users.info:0
+msgid "Mal generate users for test and usage"
+msgstr "Mal skapar användare för test och användning"
+
+#: mal_generate_users.info:0
+msgid "Module generates user per each role for tests and future usage."
+msgstr "Modul genererar användare per varje roll för tester och framtida användning."
+
+#: mal_generate_users.info:0
+msgid "Propeople"
+msgstr "Propeople"
+

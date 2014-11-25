@@ -1,0 +1,58 @@
+# $Id$
+#
+# Swedish translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  user_register.module: n/a
+#  user_register.info: n/a
+#  plugins/content_types/registration_pane.inc: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2014-11-22 16:59+0100\n"
+"PO-Revision-Date: 2014-11-22 16:59+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Swedish <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: user_register.module:81
+msgid "Register"
+msgstr "Lägg till"
+
+#: user_register.module:126
+msgid "Register and Unregister Form via ajax toggling"
+msgstr "Registrera och Avregistrera form via ajax växling"
+
+#: user_register.module:226
+msgid "Unregister"
+msgstr "Ta bort"
+
+#: user_register.info:0
+msgid "Mal user customizations"
+msgstr ""
+
+#: user_register.info:0
+msgid "Extensions for registration module."
+msgstr "Tillägg för registreringsmodul."
+
+#: user_register.info:0 plugins/content_types/registration_pane.inc:15
+msgid "Propeople"
+msgstr "Propeople"
+
+#: plugins/content_types/registration_pane.inc:13
+msgid "Registration form"
+msgstr "Anmälningsblankett"
+
+#: plugins/content_types/registration_pane.inc:16
+msgid "Default register form."
+msgstr "Standardregisterform."
+
+#: plugins/content_types/registration_pane.inc:39
+msgid "Registration"
+msgstr "Registrering"
+
