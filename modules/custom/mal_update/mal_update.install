@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * All updates.
+ */
+
+/**
+ * Implements hook_update_N().
+ */
+function mal_update_update_7000() {
+  $features = array(
+    'config_permissions',
+  );
+
+  features_revert($features);
+  node_access_needs_rebuild(FALSE);
+}
