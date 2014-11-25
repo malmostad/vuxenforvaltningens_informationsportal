@@ -49,3 +49,14 @@
     Then I should see the text "Course package" in "#admin-menu-menu" element
     Then I should see the text "Course package template" in "#admin-menu-menu" element
     Then I should see the text "Course template" in "#admin-menu-menu" element
+
+  @api
+  Scenario: Pure authenticated user
+    Given  I am logged in as a user with the "authenticated user" role
+    And I am on the homepage
+    Then I should not see the text "Content" in "#admin-menu-menu" element
+    Then I should not see the text "Add content" in "#admin-menu-menu" element
+    Then I should not see the text "Course" in "#admin-menu-menu" element
+    Then I should not see the text "Course package" in "#admin-menu-menu" element
+    Then I should not see the text "Course package template" in "#admin-menu-menu" element
+    Then I should not see the text "Course template" in "#admin-menu-menu" element

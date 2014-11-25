@@ -21,6 +21,7 @@ Feature: Course register
     Then I am on "my-planning"
     And I should see the text "Test course"
 
+  @api @javascript
   Scenario: Anonymous user does not see Registration button.
     Given I am on "search-courses/Test%20course"
     Then I should not see a "#user-register-unregister-form" element
