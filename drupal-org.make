@@ -17,6 +17,8 @@ projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-cu
 projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-change-weekly-summary-days-2379749-2.patch"
 projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-isset-2132811-5.patch"
 
+projects[panels][patch][] = "https://www.drupal.org/files/issues/reroll-2120849-42.patch"
+
 ; +++++ Modules +++++
 
 projects[admin_menu][version] = "3.0-rc4"
@@ -88,7 +90,7 @@ projects[strongarm][subdir] = "contrib"
 projects[ultimate_cron][version] = "2.0-beta8"
 projects[ultimate_cron][subdir] = "contrib"
 
-projects[panels][version] = "3.4"
+projects[panels][version] = "3.x-dev"
 projects[panels][subdir] = "contrib"
 
 projects[panels_everywhere][version] = "1.0-rc1"
@@ -140,7 +142,7 @@ projects[admin_views][subdir] = "contrib"
 
 ; bootstrap
 projects[bootstrap][type] = "theme"
-projects[bootstrap][version] = "3.0"
+projects[bootstrap][version] = "3.x-dev"
 projects[bootstrap][subdir] = "contrib"
 
 ; +++++ Libraries +++++
