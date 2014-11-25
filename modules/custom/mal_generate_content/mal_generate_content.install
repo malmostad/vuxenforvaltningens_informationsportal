@@ -129,7 +129,7 @@ function mal_generate_content_enable() {
   $node->title = "Test course";
   $node->type = "course";
   node_object_prepare($node);
-  $node->language = LANGUAGE_NONE;
+//  $node->language = LANGUAGE_NONE;
   $node->uid = $user->uid;
   $node->status = 1;
 
