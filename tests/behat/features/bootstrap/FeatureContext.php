@@ -5,23 +5,12 @@
  * Contains FeatureContext
  */
 
-use Behat\Behat\Context\ClosuredContextInterface,
-  Behat\Behat\Context\TranslatedContextInterface,
-  Behat\Behat\Context\BehatContext,
-  Behat\Behat\Exception\PendingException;
-use Behat\Behat\Event\OutlineExampleEvent;
-use Behat\Gherkin\Node\PyStringNode,
-  Behat\Gherkin\Node\TableNode;
-use Behat\MinkExtension\Context\MinkContext;
+use Behat\Behat\Event\BaseScenarioEvent;
+use Behat\Gherkin\Node\TableNode;
 use Drupal\DrupalExtension\Context\DrupalContext;
 
-use Symfony\Component\Process\Process;
-use Behat\Behat\Context\Step\Given;
-use Behat\Behat\Context\Step\When;
 use Behat\Behat\Context\Step\Then;
 use Behat\Behat\Event\ScenarioEvent;
-use Behat\Behat\Event\StepEvent;
-use Behat\Mink\Exception\ElementNotFoundException;
 
 require 'vendor/autoload.php';
 
@@ -47,18 +36,12 @@ class FeatureContext extends DrupalContext {
    *
    * @BeforeScenario
    *
-   * @param ScenarioEvent $event
+   * @param BaseScenarioEvent $event
    *   Behat event object.
    */
-  public function beforeEachScenario(ScenarioEvent $event) {
+  public function beforeEachScenario(BaseScenarioEvent $event) {
     /* @var DrupalContext $context */
     if ($event instanceof ScenarioEvent) {
-      $context = $event->getContext();
-      $context->getSession()->visit($this->getMinkParameter('base_url'));
-      $context->getSession()->setCookie('language', 'en');
-    }
-
-    if ($event instanceof OutlineExampleEvent) {
       $context = $event->getContext();
       $context->getSession()->visit($this->getMinkParameter('base_url'));
       $context->getSession()->setCookie('language', 'en');
