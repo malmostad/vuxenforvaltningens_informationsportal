@@ -910,7 +910,7 @@ ul.pagination {
     position: absolute;
     left: 0;
     top: 33px;
-    z-index: 1;
+    z-index: 5;
   }
   .desc {
     color: $text;
@@ -1135,6 +1135,21 @@ ul.pagination {
 .unsubscribe {
   .btn:before {
     background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cGF0aCBmaWxsPSIjMzMzMzMzIiBkPSJNMjQwLjI5MywxMDAuMzI2YzQuMzUyLDAsOC4wMjMsMS41MywxMS4wODQsNC41OWMzLjA1OSwzLjA2LDQuNjIzLDYuNzY1LDQuNjIzLDExLjA4M3YyNC4wMDIgYzAsNC4zMTctMS41NjQsOC4wMjMtNC42MjMsMTEuMDgzYy0zLjA2MSwzLjA2MS02LjczMiw0LjU5LTExLjA4NCw0LjU5SDE1Ljk3OWMtNC41NTYsMC04LjM2NC0xLjQ5Ni0xMS40MjMtNC40MiBDMS40OTYsMTQ4LjI5NywwLDE0NC41NTcsMCwxNDAuMDAxdi0yNC4wMDJjMC00LjMxOCwxLjQ5Ni04LjAyMyw0LjU1NS0xMS4wODNjMy4wNi0zLjA2LDYuNzY2LTQuNTksMTEuMDgzLTQuNTlIMjQwLjI5MyBMMjQwLjI5MywxMDAuMzI2eiIgY2xhc3M9InNoYXBlIiBzdHlsZT0iLXdlYmtpdC10cmFuc2Zvcm06IHNjYWxlKDAuMDM5MDYyNSwgMC4wMzkwNjI1KTstbW96LXRyYW5zZm9ybTogc2NhbGUoMC4wMzkwNjI1LCAwLjAzOTA2MjUpO3RyYW5zZm9ybTogc2NhbGUoMC4wMzkwNjI1LCAwLjAzOTA2MjUpOyI+PC9wYXRoPjwvc3ZnPg==);
+  }
+}
+
+/* --- School page --- */
+.node-type-school {
+  .body-copy {
+    .pane-node-body {
+      margin-bottom: 20px;
+    }
+    .pane-separate-facet-content-type {
+      font-size: 17px;
+    }
+    p {
+      line-height: 22px;
+    }
   }
 }
 
