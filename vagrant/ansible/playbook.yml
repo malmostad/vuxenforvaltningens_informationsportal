@@ -1,0 +1,30 @@
+---
+- hosts: all
+  sudo: true
+  vars:
+    servername: apache.ansible.dev 192.168.111.111
+    timezone: UTC
+  vars_files:
+    - vars/geerlingguy-php.yml
+    - vars/geerlingguy-ruby.yml
+    - vars/geerlingguy-apache.yml
+    - vars/geerlingguy-xdebug.yml
+    - vars/geerlingguy-mysql.yml
+  roles:
+    - m1r1k-install-drupal
+    - geerlingguy.git
+    - geerlingguy.php
+    - geerlingguy.php-mysql
+    - geerlingguy.mysql
+    - geerlingguy.apache
+    - geerlingguy.java
+    - geerlingguy.tomcat6
+    - geerlingguy.solr
+    - geerlingguy.memcached
+    - geerlingguy.php-memcached
+#    - geerlingguy.varnish
+    - geerlingguy.ruby
+    - geerlingguy.composer
+    - geerlingguy.drush
+    - geerlingguy.xdebug
+    - m1r1k-solr-config

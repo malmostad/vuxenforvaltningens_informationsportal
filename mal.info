@@ -94,6 +94,7 @@ dependencies[] = mal_entityreference_widget_alter
 dependencies[] = mal_generate_menu
 dependencies[] = mal_user_courses
 dependencies[] = mal_user_custom_access
+dependencies[] = mal_update
 ; Registration
 dependencies[] = registration
 dependencies[] = registration_views
@@ -103,6 +104,7 @@ dependencies[] = search_api_facetapi
 dependencies[] = search_api_solr
 dependencies[] = search_api_sorts
 dependencies[] = search_api_views
+dependencies[] = search_api_autocomplete
 ; Search Toolkit
 dependencies[] = facetapi
 dependencies[] = facetapi_bonus

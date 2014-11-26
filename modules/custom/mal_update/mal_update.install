@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * @file
+ * All updates.
+ */
+
+/**
+ * Revert config_permissions.
+ */
+function mal_update_update_7000() {
+  $features = array(
+    'config_permissions',
+  );
+
+  features_revert($features);
+  node_access_needs_rebuild(FALSE);
+}
+
+/**
+ * Enable search_api_autocomplete and revert config_facet.
+ */
+function mal_update_update_7001() {
+  module_enable('search_api_autocomplete');
+
+  $features = array(
+    'config_facet',
+  );
+
+  features_revert($features);
+  node_access_needs_rebuild(FALSE);
+}
+
+/**
+ * Enable features with Language settings, rules settings, some contrib modules.
+ */
+function mal_update_update_7002() {
+  module_enable('rules');
+  module_enable('rules_admin');
+  module_enable('notification_rules');
+
+  module_enable('config_language');
+  module_enable('l10n_update');
+  module_enable('language_cookie');
+
+  drush_invoke('drush_l10n_update', array());
+  exec("drush fra -y", $output);
+}

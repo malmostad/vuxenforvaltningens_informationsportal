@@ -1,6 +1,0 @@
----
- - name: Install zlib1g-dev for ruby
-   apt: name="zlib1g-dev" update_cache=yes
-
- - name: Install libssl-dev for ruby
-   apt: name="libssl-dev" update_cache=yes

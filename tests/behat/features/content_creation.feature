@@ -1,4 +1,4 @@
-  Feature: Content creation
+Feature: Content creation
   In order to create and moderate content
   As any user
   I should be able to create and moderate
@@ -23,7 +23,7 @@
     Then I should see the text "A2 Test school"
 
 
-  @api
+  @api @javascript
   Scenario: School editor add course template
     Given I am logged in as a user with the "School editor" role
       And I am on "node/add/course-template"
@@ -60,3 +60,4 @@
     Then I should not see the text "Course package" in "#admin-menu-menu" element
     Then I should not see the text "Course package template" in "#admin-menu-menu" element
     Then I should not see the text "Course template" in "#admin-menu-menu" element
+

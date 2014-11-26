@@ -14,8 +14,10 @@ projects[facetapi][patch][] = "https://www.drupal.org/files/issues/facetapi-over
 projects[facetapi_ranges][patch][] = "https://www.drupal.org/files/issues/term-query-type-2295751-10.patch"
 
 projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-customize-template-2145341-1.patch"
-projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-change-weekly-summary-days-2379749-2.patch"
+projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-change-weekly-summary-days-2379749-3.patch"
 projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-isset-2132811-5.patch"
+
+projects[panels][patch][] = "https://www.drupal.org/files/issues/reroll-2120849-42.patch"
 
 ; +++++ Modules +++++
 
@@ -88,7 +90,7 @@ projects[strongarm][subdir] = "contrib"
 projects[ultimate_cron][version] = "2.0-beta8"
 projects[ultimate_cron][subdir] = "contrib"
 
-projects[panels][version] = "3.4"
+projects[panels][version] = "3.x-dev"
 projects[panels][subdir] = "contrib"
 
 projects[panels_everywhere][version] = "1.0-rc1"
@@ -102,6 +104,9 @@ projects[registration][subdir] = "contrib"
 
 projects[search_api][version] = "1.13"
 projects[search_api][subdir] = "contrib"
+
+projects[search_api_autocomplete][version] = "1.x-dev"
+projects[search_api_autocomplete][subdir] = "contrib"
 
 projects[search_api_solr][version] = "1.6"
 projects[search_api_solr][subdir] = "contrib"
@@ -149,7 +154,7 @@ projects[l10n_update][subdir] = "contrib"
 
 ; bootstrap
 projects[bootstrap][type] = "theme"
-projects[bootstrap][version] = "3.0"
+projects[bootstrap][version] = "3.x-dev"
 projects[bootstrap][subdir] = "contrib"
 
 ; +++++ Libraries +++++

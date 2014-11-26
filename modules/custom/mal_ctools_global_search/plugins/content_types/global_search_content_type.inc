@@ -64,6 +64,11 @@ function global_search_form(array $form, array &$form_state, $conf) {
     ),
   );
 
+  $search = search_api_autocomplete_search_load('search_api_views_search');
+  if ($search && $search->enabled) {
+    $search->alterElement($form['keys']);
+  }
+
   $form['base'] = array(
     '#type' => 'value',
     '#value' => $conf['search_path'],

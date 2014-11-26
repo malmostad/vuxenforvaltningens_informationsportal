@@ -1,5 +1,0 @@
----
-drush_install_path: /home/vagrant/.composer/vendor/drush
-drush_path: /usr/local/bin/drush
-drush_version: master
-drush_keep_updated: no
