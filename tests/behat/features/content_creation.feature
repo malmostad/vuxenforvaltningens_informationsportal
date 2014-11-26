@@ -23,7 +23,7 @@ Feature: Content creation
     Then I should see the text "A2 Test school"
 
 
-  @api
+  @api @javascript
   Scenario: School editor add course template
     Given I am logged in as a user with the "School editor" role
       And I am on "node/add/course-template"
