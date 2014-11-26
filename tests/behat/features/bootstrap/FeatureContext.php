@@ -41,11 +41,9 @@ class FeatureContext extends DrupalContext {
    */
   public function beforeEachScenario(BaseScenarioEvent $event) {
     /* @var DrupalContext $context */
-    if ($event instanceof ScenarioEvent) {
-      $context = $event->getContext();
-      $context->getSession()->visit($this->getMinkParameter('base_url'));
-      $context->getSession()->setCookie('language', 'en');
-    }
+    $context = $event->getContext();
+    $context->getSession()->visit($this->getMinkParameter('base_url'));
+    $context->getSession()->setCookie('language', 'en');
   }
 
   /**
