@@ -105,7 +105,7 @@ projects[registration][subdir] = "contrib"
 projects[search_api][version] = "1.13"
 projects[search_api][subdir] = "contrib"
 
-projects[search_api_autocomplete][version] = "1.1"
+projects[search_api_autocomplete][version] = "1.x-dev"
 projects[search_api_autocomplete][subdir] = "contrib"
 
 projects[search_api_solr][version] = "1.6"
