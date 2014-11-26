@@ -719,15 +719,6 @@ footer.bigfoot {
 }
 /* --------CLOSE FOOTER BOTTOM---------  */
 
-/* -------- Pager --------- */
-ul.pagination {
-  li.prev {
-    a:before {
-      content: '\00AB  ';
-    }
-  }
-}
-
 /*----------FAQ----------*/
 .faq-list-questions {
   & ul {
@@ -1151,6 +1142,10 @@ ul.pagination {
       line-height: 22px;
     }
   }
+}
+.contact-us>div h2 {
+  font-size: 1em;
+  margin-bottom: .3em;
 }
 
 /* ---------media-------- */

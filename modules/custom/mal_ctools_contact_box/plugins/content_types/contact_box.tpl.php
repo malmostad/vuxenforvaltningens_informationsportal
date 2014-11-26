@@ -11,7 +11,7 @@
   <h1><?php print t('Contact us'); ?></h1>
 
   <div class="vcard">
-    <div><?php print t('Write to us'); ?></div>
+    <h2><?php print t('Write to us'); ?></h2>
     <div><?php print $email_title; ?><span class="email"><?php print render($email); ?></span></div>
     <div><?php print $phone_title; ?><span class="tel"><?php print render($phone); ?></span></div>
     <div><?php print $fax_title; ?><span class="fax"><?php print render($fax); ?></span></div>
