@@ -1,0 +1,3 @@
+---
+- name: Copy drupal specific solr configs to solr
+  shell: cp -R /var/www/solr-conf/* {{ solr_path }}/example/multicore/{{ solr_cores[0] }}/conf/

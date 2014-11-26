@@ -1,0 +1,6 @@
+---
+
+- name: install Drupal using reinstall.sh
+  shell: >
+    cd /var/www
+    sh reinstall.sh

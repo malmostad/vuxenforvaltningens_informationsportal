@@ -1,45 +1,54 @@
 <?php
 
-use Behat\Behat\Context\ClosuredContextInterface,
-  Behat\Behat\Context\TranslatedContextInterface,
-  Behat\Behat\Context\BehatContext,
-  Behat\Behat\Exception\PendingException;
-use Behat\Gherkin\Node\PyStringNode,
-  Behat\Gherkin\Node\TableNode;
+/**
+ * @file
+ * Contains FeatureContext
+ */
+
+use Behat\Behat\Event\BaseScenarioEvent;
+use Behat\Gherkin\Node\TableNode;
 use Drupal\DrupalExtension\Context\DrupalContext;
 
-use Symfony\Component\Process\Process;
-use Behat\Behat\Context\Step\Given;
-use Behat\Behat\Context\Step\When;
 use Behat\Behat\Context\Step\Then;
 use Behat\Behat\Event\ScenarioEvent;
-use Behat\Behat\Event\StepEvent;
-use Behat\Mink\Exception\ElementNotFoundException;
 
 require 'vendor/autoload.php';
-
-//
-// Require 3rd-party libraries here:
-//
-//   require_once 'PHPUnit/Autoload.php';
-//   require_once 'PHPUnit/Framework/Assert/Functions.php';
-//
 
 /**
  * Features context.
  */
 class FeatureContext extends DrupalContext {
+
   /**
    * Initializes context.
+   *
    * Every scenario gets its own context object.
    *
-   * @param array $parameters context parameters (set them up through behat.yml)
+   * @param array $parameters
+   *   Context parameters (set them up through behat.yml)
    */
   public function __construct(array $parameters) {
-    // Initialize your context here
+
   }
 
   /**
+   * Use english locale during the tests.
+   *
+   * @BeforeScenario
+   *
+   * @param BaseScenarioEvent $event
+   *   Behat event object.
+   */
+  public function beforeEachScenario(BaseScenarioEvent $event) {
+    /* @var DrupalContext $context */
+    $context = $event->getContext();
+    $context->getSession()->visit($this->getMinkParameter('base_url'));
+    $context->getSession()->setCookie('language', 'en');
+  }
+
+  /**
+   * Check if the list of strings is on the page.
+   *
    * @Given /^I (?:should |)see the following <texts>$/
    */
   public function iShouldSeeTheFollowingTexts(TableNode $table) {
@@ -53,11 +62,19 @@ class FeatureContext extends DrupalContext {
     }
   }
 
-  protected function randomString($number = 10) {
+  /**
+   * Return random string.
+   *
+   * @return string
+   *   String that contains character to string random generator.
+   */
+  protected function randomString() {
     return 'abcdefghijk';
   }
 
   /**
+   * Check if the list of links is on the page.
+   *
    * @Given /^I (?:should |)see the following <links>$/
    */
   public function iShouldSeeTheFollowingLinks(TableNode $table) {
@@ -66,13 +83,15 @@ class FeatureContext extends DrupalContext {
     foreach ($table as $key => $value) {
       $link = $table[$key]['links'];
       $result = $page->findLink($link);
-      if(empty($result)) {
+      if (empty($result)) {
         throw new Exception("The link '" . $link . "' was not found");
       }
     }
   }
 
   /**
+   * Check if the list of links is not on the page.
+   *
    * @Given /^I should not see the following <links>$/
    */
   public function iShouldNotSeeTheFollowingLinks(TableNode $table) {
@@ -81,45 +100,49 @@ class FeatureContext extends DrupalContext {
     foreach ($table as $key => $value) {
       $link = $table[$key]['links'];
       $result = $page->findLink($link);
-      if(!empty($result)) {
+      if (!empty($result)) {
         throw new Exception("The link '" . $link . "' was found");
       }
     }
   }
 
   /**
-   * Function to check if the field specified is outlined in red or not
+   * Function to check if the field specified is outlined in red or not.
    *
    * @Given /^the field "([^"]*)" should be outlined in red$/
    *
    * @param string $field
    *   The form field label to be checked.
+   *
+   * @throws \Exception
    */
   public function theFieldShouldBeOutlinedInRed($field) {
     $page = $this->getSession()->getPage();
-    // get the object of the field
-    $formField = $page->findField($field);
-    if (empty($formField)) {
+    // Get the object of the field.
+    $form_field = $page->findField($field);
+    if (empty($form_field)) {
       throw new Exception('The page does not have the field with label "' . $field . '"');
     }
-    // get the 'class' attribute of the field
-    $class = $formField->getAttribute("class");
-    // we get one or more classes with space separated. Split them using space
+    // Get the 'class' attribute of the field.
+    $class = $form_field->getAttribute('class');
+    // We get one or more classes with space separated. Split them using space.
     $class = explode(" ", $class);
-    // if the field has 'error' class, then the field will be outlined with red
+    // If the field has 'error' class, then the field will be outlined with red.
     if (!in_array("error", $class)) {
       throw new Exception('The field "' . $field . '" is not outlined with red');
     }
   }
 
   /**
+   * Fill input with the random text.
+   *
    * @Given /^I fill in "([^"]*)" with random text$/
    */
   public function iFillInWithRandomText($label) {
     // A @Tranform would be more elegant.
-    $randomString = $this->randomString(10);
+    $random_string = $this->randomString(10);
 
-    $step = "I fill in \"$label\" with \"$randomString\"";
+    $step = "I fill in \"$label\" with \"$random_string\"";
     return new Then($step);
   }
 
@@ -128,9 +151,10 @@ class FeatureContext extends DrupalContext {
    *
    * @param string $type
    *   The user type, e.g. drupal.
-   *
    * @param string $name
    *   The username to fetch the password for.
+   *
+   * @throws \Exception
    *
    * @return string
    *   The matching password or FALSE on error.
@@ -141,7 +165,8 @@ class FeatureContext extends DrupalContext {
       $property = $this->$property_name;
       $details = $property[$name];
       return $details;
-    } catch (Exception $e) {
+    }
+    catch (Exception $e) {
       throw new Exception("Non-existant user/password for $property_name:$name please check behat.local.yml.");
     }
   }
@@ -172,14 +197,12 @@ class FeatureContext extends DrupalContext {
     $element->fillField('Password', $passwd);
     $submit = $element->findButton('Log in');
     if (empty($submit)) {
-      throw new Exception('No submit button at ' . $this->getSession()->getCurrentUrl());
+      throw new Exception('No submit button at ' . $this->getSession()
+          ->getCurrentUrl());
     }
 
     // Log in.
     $submit->click();
-
-    // Successfully logged in.
-    return;
   }
 
   /**
@@ -199,43 +222,46 @@ class FeatureContext extends DrupalContext {
   }
 
   /**
-   * @When /^(?:|I )click on Quick Edit link$/
-   *
    * Click on Quick edit.
+   *
+   * @When /^(?:|I )click on Quick Edit link$/
    */
   public function clickOnQuickEdit() {
     $this->getSession()->getPage()->clickLink('Quick edit');
-    $this->getSession()->wait(5000, 'jQuery(".entity-commerce-order").length > 0');
+    $this->getSession()
+      ->wait(5000, 'jQuery(".entity-commerce-order").length > 0');
   }
 
   /**
-   * @Given /^(?:|I )wait for AJAX loading to finish$/
+   * Wait for the jQuery AJAX loading to finish.
    *
-   * Wait for the jQuery AJAX loading to finish. ONLY USE FOR DEBUGGING!
+   * @Given /^(?:|I )wait for AJAX loading to finish$/
    */
   public function iWaitForAJAX() {
     $this->getSession()->wait(5000, 'jQuery.active === 0');
   }
 
   /**
-   * @Given /^(?:|I )wait(?:| for) (\d+) seconds?$/
+   * Wait for the given number of seconds.
    *
-   * Wait for the given number of seconds. ONLY USE FOR DEBUGGING!
+   * @Given /^(?:|I )wait(?:| for) (\d+) seconds?$/
    */
   public function iWaitForSeconds($arg1) {
     sleep($arg1);
   }
 
   /**
+   * Check if not container is on the page.
+   *
    * @Then /^I should not see container with class "([^"]*)"$/
    */
   public function iShouldNotSeeContainerWithClass($class) {
-    $session = $this->getSession(); // assume extends RawMinkContext
+    $session = $this->getSession();
     $page = $session->getPage();
 
     $element = $page->find('css', '.' . $class);
 
-    if (null === $element) {
+    if (NULL === $element) {
       return;
     }
 
@@ -245,10 +271,11 @@ class FeatureContext extends DrupalContext {
   }
 
   /**
+   * Reset user's session.
+   *
    * @Given /^I am reset the session$/
    */
-  public function iAmResetTheSession()
-  {
+  public function iAmResetTheSession() {
     $session = $this->getSession();
     $session->restart();
     $session->reset();
@@ -256,10 +283,13 @@ class FeatureContext extends DrupalContext {
   }
 
   /**
+   * Press the element using css selector.
+   *
    * @When /^I press element "([^"]*)"$/
    */
   public function iPressElement($selector) {
-    $session = $this->getSession(); // assume extends RawMinkContext
+    // Assume extends RawMinkContext.
+    $session = $this->getSession();
     $page = $session->getPage();
 
     $element = $page->find('css', $selector);
@@ -267,15 +297,18 @@ class FeatureContext extends DrupalContext {
   }
 
   /**
+   * Check if there is a container with given css selector on the page.
+   *
    * @Then /^I should see container with class "([^"]*)"$/
    */
   public function iShouldSeeContainerWithClass($selector) {
-    $session = $this->getSession(); // assume extends RawMinkContext
+    // Assume extends RawMinkContext.
+    $session = $this->getSession();
     $page = $session->getPage();
 
     $element = $page->find('css', '.' . $selector);
 
-    if (null === $element) {
+    if (NULL === $element) {
       throw new \LogicException('Could not find the element');
     }
 
@@ -285,24 +318,50 @@ class FeatureContext extends DrupalContext {
   }
 
   /**
+   * CHeck if there is an given get param in the url.
+   *
    * @Then /^I should have "([^"]*)" get params$/
    */
   public function iShouldHaveGetParams($arg1) {
-    var_dump($_GET);
+
   }
 
   /**
+   * Check if there is a text inside specified element on the page.
+   *
    * @Then /^I should see the text "([^"]*)" in "([^"]*)" element$/
    */
   public function iShouldSeeTheTextInElement($text, $selector) {
     $session = $this->getSession();
-    $regionObj = $session->getPage()->find('css', $selector);
+    $region_obj = $session->getPage()->find('css', $selector);
 
-    // Find the text within the region
-    $regionText = $regionObj->getText();
+    // Find the text within the region.
+    $region_text = $region_obj->getText();
 
-    if (strpos($regionText, $text) === FALSE) {
-      throw new \Exception(sprintf("The text '%s' was not found in the region '%s' on the page %s", $text, $selector, $this->getSession()->getCurrentUrl()));
+    if (strpos($region_text, $text) === FALSE) {
+      throw new \Exception(sprintf("The text '%s' was not found in the region '%s' on the page %s", $text, $selector, $this->getSession()
+        ->getCurrentUrl()));
     }
   }
+
+  /**
+   * Check if there is no text inside specified element on the page.
+   *
+   * @Then /^I should not see the text "([^"]*)" in "([^"]*)" element$/
+   */
+  public function iShouldNotSeeTheTextInElement($text, $selector) {
+    $session = $this->getSession();
+    $region_obj = $session->getPage()->find('css', $selector);
+
+    // Find the text within the region.
+    if ($region_obj) {
+      $region_text = $region_obj->getText();
+
+      if (strpos($region_text, $text) !== FALSE) {
+        throw new \Exception(sprintf("The text '%s' was found in the region '%s' on the page %s", $text, $selector, $this->getSession()
+          ->getCurrentUrl()));
+      }
+    }
+  }
+
 }

@@ -141,6 +141,15 @@ projects[view_unpublished][subdir] = "contrib"
 projects[admin_views][version] = "1.3"
 projects[admin_views][subdir] = "contrib"
 
+projects[language_cookie][version] = "1.8"
+projects[language_cookie][subdir] = "contrib"
+
+projects[rules][version] = "2.7"
+projects[rules][subdir] = "contrib"
+
+projects[l10n_update][version] = "1.1"
+projects[l10n_update][subdir] = "contrib"
+
 ; +++++ Themes +++++
 
 ; bootstrap

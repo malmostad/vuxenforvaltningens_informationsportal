@@ -1,0 +1,54 @@
+# $Id$
+#
+# Swedish translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  mal_ctools_contact_box.info: n/a
+#  plugins/content_types/contact_box_content_type.inc: n/a
+#  plugins/content_types/contact_box.tpl.php: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2014-11-22 17:19+0100\n"
+"PO-Revision-Date: 2014-11-22 17:19+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Swedish <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: mal_ctools_contact_box.info:0
+msgid "Mal ctools contact box"
+msgstr "Mal ctools kontaktruta"
+
+#: mal_ctools_contact_box.info:0 plugins/content_types/contact_box_content_type.inc:14
+msgid "Propeople"
+msgstr "Propeople"
+
+#: plugins/content_types/contact_box.tpl.php:11
+msgid "Contact us"
+msgstr "Kontakta oss"
+
+#: plugins/content_types/contact_box.tpl.php:14;28
+msgid "Write to us"
+msgstr "Skriv till oss"
+
+#: plugins/content_types/contact_box.tpl.php:19
+msgid "Post address"
+msgstr "Postadress"
+
+#: plugins/content_types/contact_box.tpl.php:26
+msgid "Visiting Address"
+msgstr "Besöksadress"
+
+#: plugins/content_types/contact_box_content_type.inc:9
+msgid "Contact pane"
+msgstr "Kontaktruta"
+
+#: plugins/content_types/contact_box_content_type.inc:13
+msgid "Node"
+msgstr "Nod"
+

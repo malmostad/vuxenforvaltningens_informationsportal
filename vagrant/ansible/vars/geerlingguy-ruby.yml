@@ -1,0 +1,12 @@
+---
+
+gems:
+  sass:
+    name: sass
+    version: 3.2.19
+  compass:
+    name: compass
+    version: 0.12.6
+  susy:
+    name: susy
+    version: 1.0.9

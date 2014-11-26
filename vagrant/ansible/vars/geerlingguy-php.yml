@@ -1,0 +1,2 @@
+---
+  php_memory_limit: "1024M"

@@ -72,10 +72,6 @@ install:
   - drush make --yes profiles/mal/drupal-org.make --contrib-destination=profiles/mal
   - cd ../
 
-  # Verify that all the .make files will work on Drupal.org.
-#  - drush verify-makefile drupal/profiles/mal/drupal-org.make
-#  - find drupal/profiles/mal/modules -name \*.make -print0 | xargs -0 -n1 drush verify-makefile
-
   # Setup files
   - sudo chmod -R 777 drupal/sites/all
 
@@ -93,41 +89,21 @@ install:
   - echo sendmail_path=`which true` >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
 before_script:
-  #  - drush pm-disable dblog --yes\
-
   # Do the site install (either the current revision or old for the upgrade).
   - cd drupal
   - drush si mal --db-url=mysql://root:@127.0.0.1/drupal --account-name=admin --account-pass=admin --site-mail=admin@example.com --site-name="City of malmo" --yes
 
   - cd ..
   - curl -sSL https://raw.githubusercontent.com/moliware/travis-solr/master/travis-solr.sh | SOLR_VERSION=4.4.0 SOLR_CONFS="drupal/profiles/mal/solr-conf"  bash
-  - cd drupal
 
-  # Set solr
-  - drush vset search_api_path '"/solr/core0"'
-  - drush vset search_api_port '"8983"'
-  - drush fr config_search --force -y
-  - drush cc all
-  - drush search-api-index
-  - drush watchdog-show
+  - cd drupal/profiles/mal
 
-  # Generate dummy content.
-  - drush generate-content 10 0 --types=page
-  - drush generate-content 10 0 --types=course_packages
-  - drush generate-content 10 0 --types=education
-  - drush generate-content 10 0 --types=school
-  - drush generate-content 10 0 --types=course
-  - drush generate-content 10 0 --types=question_and_answer
-  - cd ../drupal
-  - drush cc all
-  - drush search-api-index
-  - drush fra -y
-  - drush php-eval 'node_access_rebuild();'
-  
-  # Generate CSS
-  - cd profiles/mal/themes/city_of_malmo/assets
-  - compass compile
-  - cd ../../../../../
+  - export SEARCH_API_PATH="\"/solr/core0\""
+  - export SEARCH_API_PORT="\"8983\""
+  - sh scripts/after_install.sh
+
+  - cd ../../
+  - pwd
   # Start server
   - drush runserver --server=builtin 8888 > /dev/null 2>&1 &
   - until netstat -an 2>/dev/null | grep '8888.*LISTEN'; do true; done

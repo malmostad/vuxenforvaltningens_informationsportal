@@ -1,0 +1,9 @@
+name = Notification rules
+core = 7.x
+package = Rules
+version = 7.x-1.0
+project = notification_rules
+dependencies[] = entity
+dependencies[] = rules
+features[features_api][] = api:2
+features[rules_config][] = rules_notification_on_new_template_content

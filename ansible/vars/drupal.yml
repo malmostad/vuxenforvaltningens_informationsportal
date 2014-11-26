@@ -1,4 +1,0 @@
----
-drupal_profile_dir: /vagrant
-drupal_db_url: mysql://{{database.user}}:{{database.pass}}@localhost/{{database.db}}
-drupal_branch: master

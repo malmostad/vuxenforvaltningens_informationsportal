@@ -10,6 +10,9 @@ libraries
 build_mal.sh
 .vagrant/
 build_mal/
+scripts/local_variables.sh
+local.mal.build
+mal_working.make
 
 themes/city_of_malmo/assets/stylesheets
 themes/city_of_malmo/assets/.sass-cache
