@@ -15,3 +15,26 @@ function config_facet_ctools_plugin_api($module = NULL, $api = NULL) {
     return array("version" => "1");
   }
 }
+
+/**
+ * Implements hook_default_search_api_autocomplete_search().
+ */
+function config_facet_default_search_api_autocomplete_search() {
+  $items = array();
+  $items['search_api_views_search'] = entity_import('search_api_autocomplete_search', '{
+    "machine_name" : "search_api_views_search",
+    "name" : "Search",
+    "index_id" : "node",
+    "type" : "search_api_views",
+    "enabled" : "1",
+    "options" : {
+      "result count" : true,
+      "fields" : [ "search_api_aggregation_1" ],
+      "results" : 0,
+      "min_length" : "1",
+      "custom" : { "display" : "default" }
+    },
+    "rdf_mapping" : []
+  }');
+  return $items;
+}

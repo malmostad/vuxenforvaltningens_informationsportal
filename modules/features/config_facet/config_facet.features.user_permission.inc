@@ -19,5 +19,15 @@ function config_facet_user_default_permissions() {
     'module' => 'facetapi',
   );
 
+  // Exported permission: 'use search_api_autocomplete for search_api_views_search'.
+  $permissions['use search_api_autocomplete for search_api_views_search'] = array(
+    'name' => 'use search_api_autocomplete for search_api_views_search',
+    'roles' => array(
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'search_api_autocomplete',
+  );
+
   return $permissions;
 }

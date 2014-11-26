@@ -14,7 +14,7 @@ projects[facetapi][patch][] = "https://www.drupal.org/files/issues/facetapi-over
 projects[facetapi_ranges][patch][] = "https://www.drupal.org/files/issues/term-query-type-2295751-10.patch"
 
 projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-customize-template-2145341-1.patch"
-projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-change-weekly-summary-days-2379749-2.patch"
+projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-change-weekly-summary-days-2379749-3.patch"
 projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-isset-2132811-5.patch"
 
 projects[panels][patch][] = "https://www.drupal.org/files/issues/reroll-2120849-42.patch"
@@ -104,6 +104,9 @@ projects[registration][subdir] = "contrib"
 
 projects[search_api][version] = "1.13"
 projects[search_api][subdir] = "contrib"
+
+projects[search_api_autocomplete][version] = "1.x-dev"
+projects[search_api_autocomplete][subdir] = "contrib"
 
 projects[search_api_solr][version] = "1.6"
 projects[search_api_solr][subdir] = "contrib"

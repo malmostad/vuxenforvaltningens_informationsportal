@@ -19,6 +19,10 @@
     Given I am logged in as "editor" with the password "editor"
     And I am on "node/add/course"
     And I fill in "title" with "course 2"
+    And I fill in "Time" with "2:50AM"
+    And I fill in "End Time" with "10:50PM"
+    And I should not see "Sunday"
+    And I check "Monday"
     When I press "Save"
     Then I should see the text "A2 Test school"
 

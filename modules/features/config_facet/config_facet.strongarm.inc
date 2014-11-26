@@ -24,6 +24,7 @@ function config_facet_strongarm() {
   $strongarm->value = array(
     'node' => array(
       'search_api_views:search:panel_pane_1' => 'search_api_views:search:panel_pane_1',
+      'search_api_autocomplete:search_api_views_search' => 'search_api_autocomplete:search_api_views_search',
     ),
   );
   $export['search_api_facets_search_ids'] = $strongarm;
