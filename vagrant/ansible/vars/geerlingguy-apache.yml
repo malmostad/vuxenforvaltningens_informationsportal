@@ -1,0 +1,5 @@
+---
+apache_listen_port: 80
+
+apache_vhosts:
+  - {servername: "mal.dev", documentroot: "/var/www/build_mal"}
