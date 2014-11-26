@@ -30,3 +30,14 @@ function mal_update_update_7001() {
   features_revert($features);
   node_access_needs_rebuild(FALSE);
 }
+
+/**
+ * Enable features with Language settings, rules settings, some contrib modules.
+ */
+function mal_update_update_7002() {
+  module_enable('rules');
+  module_enable('rules_admin');
+  module_enable('notification_rules');
+
+  module_enable('config_language');
+}
