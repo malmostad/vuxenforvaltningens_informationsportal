@@ -364,4 +364,14 @@ class FeatureContext extends DrupalContext {
     }
   }
 
+  /**
+   * @Given /^I type "([^"]*)" in "([^"]*)" WYSIWYG editor$/
+   */
+  public function iTypeInWYSIWYGEditor($text, $selector)
+  {
+    $this->getSession()->getDriver()->evaluateScript(
+        "Drupal.wysiwyg.instances['" . $selector . "'].insert('" . $text . "')"
+    );
+  }
+
 }
