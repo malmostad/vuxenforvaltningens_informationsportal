@@ -364,4 +364,14 @@ class FeatureContext extends DrupalContext {
     }
   }
 
+  /**
+   * Trigger keydown event for elementm because selenium when fill not trigger.
+   *
+   * @Given /^I trigger autocomplete with id "([^"]*)"$/
+   */
+  public function iTriggerAutocompleteWithId($id) {
+    $this->getSession()->getDriver()->evaluateScript(
+      'jQuery("#' . $id . '").trigger("keydown");'
+    );
+  }
 }
