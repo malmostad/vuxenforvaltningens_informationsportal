@@ -11,7 +11,7 @@ rm -rf ~/.drush/cache
 echo "Operation : drush make build file"
 cp $LOCAL_MAKE_FILE mal_working.make
 
-drush make mal_working.make --prepare-install --yes $SITE_FOLDER
+drush make mal_working.make --no-clean --prepare-install --working-copy --yes $SITE_FOLDER
 rm mal_working.make
 cd $SITE_FOLDER/profiles/mal
 echo "Operation : add pre-commit"
