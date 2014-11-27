@@ -28,7 +28,7 @@ function content_type_course_packages_field_group_info() {
       2 => 'field_course_school',
       3 => 'field_course_scope',
       4 => 'field_course_weeks_of_study',
-      5 => 'node:course_package_template:field_course_type_education',
+      5 => 'node:course_template:field_course_type_education',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
@@ -62,7 +62,7 @@ function content_type_course_packages_field_group_info() {
       2 => 'field_course_school',
       3 => 'field_course_scope',
       4 => 'field_course_weeks_of_study',
-      5 => 'node:course_package_template:field_course_type_education',
+      5 => 'node:course_template:field_course_type_education',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(

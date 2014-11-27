@@ -148,6 +148,86 @@ function content_type_course_packages_strongarm() {
             'visible' => TRUE,
           ),
         ),
+        'node:course_template:title' => array(
+          'default' => array(
+            'weight' => '7',
+            'visible' => FALSE,
+          ),
+          'search_result' => array(
+            'weight' => '0',
+            'visible' => FALSE,
+          ),
+        ),
+        'node:course_template:log' => array(
+          'default' => array(
+            'weight' => '6',
+            'visible' => FALSE,
+          ),
+          'search_result' => array(
+            'weight' => '0',
+            'visible' => FALSE,
+          ),
+        ),
+        'node:course_template:body' => array(
+          'default' => array(
+            'weight' => '9',
+            'visible' => FALSE,
+          ),
+          'search_result' => array(
+            'weight' => '3',
+            'visible' => FALSE,
+          ),
+        ),
+        'node:course_template:field_course_group' => array(
+          'default' => array(
+            'weight' => '12',
+            'visible' => FALSE,
+          ),
+          'search_result' => array(
+            'weight' => '7',
+            'visible' => FALSE,
+          ),
+        ),
+        'node:course_template:field_course_national_code' => array(
+          'default' => array(
+            'weight' => '11',
+            'visible' => FALSE,
+          ),
+          'search_result' => array(
+            'weight' => '5',
+            'visible' => FALSE,
+          ),
+        ),
+        'node:course_template:field_course_number_of_points' => array(
+          'default' => array(
+            'weight' => '5',
+            'visible' => FALSE,
+          ),
+          'search_result' => array(
+            'weight' => '-1',
+            'visible' => FALSE,
+          ),
+        ),
+        'node:course_template:field_course_prerequisites' => array(
+          'default' => array(
+            'weight' => '8',
+            'visible' => FALSE,
+          ),
+          'search_result' => array(
+            'weight' => '1',
+            'visible' => FALSE,
+          ),
+        ),
+        'node:course_template:field_course_type_education' => array(
+          'default' => array(
+            'weight' => '-3',
+            'visible' => TRUE,
+          ),
+          'search_result' => array(
+            'weight' => '-3',
+            'visible' => TRUE,
+          ),
+        ),
       ),
     ),
   );

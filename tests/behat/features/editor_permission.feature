@@ -10,7 +10,6 @@ Feature: Editors permission
     Then I should see the link "Course"
     And I should see the link "Course package"
     And I should see the link "Course template"
-    And I should see the link "Course package template"
 #    Then I am on "admin"
 #    And I should not see "Structure"
 #    And I should not see "Configuration"
@@ -42,15 +41,3 @@ Feature: Editors permission
     And I should not see "Publishing options"
     Then I press the "edit-submit" button
     And I should see the text "Course template autotest course template has been created."
-    Then I am on "node/add/course-package-template"
-    And I fill in "edit-title" with "autotest course package template"
-    And I should not see "Publishing options"
-    Then I press the "edit-submit" button
-    And I should see the text "Course package template autotest course package template has been created."
-
-
-
-
-
-
-
