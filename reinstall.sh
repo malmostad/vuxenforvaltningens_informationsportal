@@ -11,14 +11,12 @@ rm -rf ~/.drush/cache
 echo "Operation : drush make build file"
 cp $LOCAL_MAKE_FILE mal_working.make
 
-drush make mal_working.make --no-clean --prepare-install --working-copy --yes $SITE_FOLDER
+drush make mal_working.make --prepare-install --yes $SITE_FOLDER
 rm mal_working.make
 cd $SITE_FOLDER/profiles/mal
 
 echo "Operation : site install"
 drush site-install mal --account-name=admin --account-pass=admin --site-mail=admin@example.com --site-name="City of malmo" --yes --db-url="$DB_URL"
-echo "Operation : Clear cache"
-drush cc all
 
 . ../../../scripts/after_install.sh
 

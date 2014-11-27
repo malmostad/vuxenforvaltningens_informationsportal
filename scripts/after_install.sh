@@ -8,7 +8,7 @@ drush vset search_api_http_pass $SEARCH_API_HTTP_PASS
 drush fr config_search --force -y
 drush cc all
 drush search-api-index
-drush watchdog-show
+
 drush generate-content 10 0 --types=page
 drush generate-content 10 0 --types=course_packages
 drush generate-content 10 0 --types=education
