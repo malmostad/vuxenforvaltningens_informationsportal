@@ -6,12 +6,11 @@ Feature: Search autocomplete
 
   Scenario Outline: Use autocomplete
     Given I am on "<page>"
-    When I fill in "edit-keys" with "cours"
-    And I press the "insert" key in the "edit-keys" field
+    When I fill in "edit-keys" with "test c"
+    And I trigger autocomplete with id "edit-keys"
     And I wait for 2 seconds
-    Then I should see "Did you mean: course"
+    Then I should see "test cours"
 
   Examples:
     | page           |
     | front_page     |
-    | search-courses |
