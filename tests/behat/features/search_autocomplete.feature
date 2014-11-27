@@ -9,7 +9,7 @@ Feature: Search autocomplete
     When I fill in "edit-keys" with "cours"
     And I press the "insert" key in the "edit-keys" field
     And I wait for 2 seconds
-    Then I should see "Did you mean: course"
+    Then I should see "course"
 
   Examples:
     | page           |
