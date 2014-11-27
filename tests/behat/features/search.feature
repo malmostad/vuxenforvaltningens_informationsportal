@@ -52,6 +52,7 @@ Feature: Search the site
     Then I should not see container with class "ui-datepicker"
     And I press "Search"
     And I press element ".minipanel-search-facet-date"
+    And I wait for 1 seconds
     When I press element "#edit-date"
     And I press element ".datepicker-days .day"
 
