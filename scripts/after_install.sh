@@ -10,9 +10,10 @@ drush cc all
 drush search-api-index
 
 drush generate-content 10 0 --types=page
-drush generate-content 10 0 --types=course_packages
 drush generate-content 10 0 --types=education
 drush generate-content 10 0 --types=school
+drush generate-content 10 0 --types=course_template
+drush generate-content 10 0 --types=course_packages
 drush generate-content 10 0 --types=course
 drush generate-content 10 0 --types=question_and_answer
 drush cc all
