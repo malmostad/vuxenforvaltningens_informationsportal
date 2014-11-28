@@ -74,6 +74,7 @@ dependencies[] = view_unpublished
 dependencies[] = rules
 dependencies[] = rules_admin
 dependencies[] = admin_views
+dependencies[] = field_permissions
 ; Panels
 dependencies[] = panels
 dependencies[] = panels_everywhere

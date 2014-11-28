@@ -57,6 +57,9 @@ projects[field_collection_table][subdir] = "contrib"
 projects[field_group][version] = "1.4"
 projects[field_group][subdir] = "contrib"
 
+projects[field_permissions][version] = "1.0-beta2"
+projects[field_permissions][subdir] = "contrib"
+
 projects[entityreference][version] = "1.1"
 projects[entityreference][subdir] = "contrib"
 

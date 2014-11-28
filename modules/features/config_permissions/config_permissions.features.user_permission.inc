@@ -113,6 +113,15 @@ function config_permissions_user_default_permissions() {
     'module' => 'devel',
   );
 
+  // Exported permission: 'access private fields'.
+  $permissions['access private fields'] = array(
+    'name' => 'access private fields',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'access rules debug'.
   $permissions['access rules debug'] = array(
     'name' => 'access rules debug',
@@ -237,6 +246,15 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'field_collection',
+  );
+
+  // Exported permission: 'administer field permissions'.
+  $permissions['administer field permissions'] = array(
+    'name' => 'administer field permissions',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
   );
 
   // Exported permission: 'administer fieldgroups'.
@@ -649,6 +667,15 @@ function config_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'create field_registration'.
+  $permissions['create field_registration'] = array(
+    'name' => 'create field_registration',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'create mini panels'.
   $permissions['create mini panels'] = array(
     'name' => 'create mini panels',
@@ -1011,6 +1038,15 @@ function config_permissions_user_default_permissions() {
     'module' => 'registration',
   );
 
+  // Exported permission: 'edit field_registration'.
+  $permissions['edit field_registration'] = array(
+    'name' => 'edit field_registration',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'edit own comments'.
   $permissions['edit own comments'] = array(
     'name' => 'edit own comments',
@@ -1060,6 +1096,15 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'edit own field_registration'.
+  $permissions['edit own field_registration'] = array(
+    'name' => 'edit own field_registration',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
   );
 
   // Exported permission: 'edit own page content'.
@@ -1633,6 +1678,16 @@ function config_permissions_user_default_permissions() {
     'module' => 'ultimate_cron',
   );
 
+  // Exported permission: 'view field_registration'.
+  $permissions['view field_registration'] = array(
+    'name' => 'view field_registration',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'view own course_registration registration'.
   $permissions['view own course_registration registration'] = array(
     'name' => 'view own course_registration registration',
@@ -1640,6 +1695,15 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'registration',
+  );
+
+  // Exported permission: 'view own field_registration'.
+  $permissions['view own field_registration'] = array(
+    'name' => 'view own field_registration',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
   );
 
   // Exported permission: 'view own unpublished content'.
