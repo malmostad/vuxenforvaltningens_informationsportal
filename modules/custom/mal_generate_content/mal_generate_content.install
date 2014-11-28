@@ -156,6 +156,7 @@ function mal_generate_content_enable() {
 
   $template = node_submit($template);
   node_save($template);
+  watchdog('generate', json_encode($template));
 
   $node = new stdClass();
   $node->title = "Test course";
