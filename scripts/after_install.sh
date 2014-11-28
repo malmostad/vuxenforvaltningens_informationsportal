@@ -21,7 +21,7 @@ drush search-api-index
 drush fra -y
 drush php-eval 'node_access_rebuild();'
 drush l10n-update --languages=sv
-drush watchdog-show
+drush dre mal_generate_content -y
 echo "Operation : Compass compile"
 cd themes/city_of_malmo/assets
 compass compile
