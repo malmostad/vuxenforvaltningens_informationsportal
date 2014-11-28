@@ -283,22 +283,33 @@ function city_of_malmo_date_display_single($variables) {
 function city_of_malmo_preprocess_timefield_formatter(&$variables) {
 
   if ($variables['format'] == 'default') {
+    $variables['time']['time'] = '';
     // Add specific suggestions that can override the default implementation.
     $variables['theme_hook_suggestions'] = array(
       'timefield_' . $variables['format'],
     );
     // Encode the time elements.
+    $time_array = array();
     $variables['time']['value'] = check_plain($variables['time']['value']);
-    $variables['time']['formatted_value'] = trim(timefield_integer_to_time($variables['settings']['display_format'], $variables['time']['value']));
-    $variables['time']['time'] = $variables['time']['formatted_value'];
+    $time1 = trim(city_of_malmo_integer_to_time($variables['settings']['display_format'], $variables['time']['value']));
+    $variables['time']['formatted_value'] = $time1;
+    if (!empty($time1)) {
+      $time_array[] = $time1;
+    }
     if (isset($variables['time']['value2'])) {
       $variables['time']['value2'] = check_plain($variables['time']['value2']);
-      $variables['time']['formatted_value2'] = trim(timefield_integer_to_time($variables['settings']['display_format'], $variables['time']['value2']));
-      $variables['time']['time'] .= ' - ' . $variables['time']['formatted_value2'];
+      $time2 = trim(city_of_malmo_integer_to_time($variables['settings']['display_format'], $variables['time']['value2']));
+      $variables['time']['formatted_value2'] = $time2;
+      if (!empty($time2)) {
+        $time_array[] = $time2;
+      }
     }
 
-    if ($variables['settings']['weekly_summary'] || $variables['settings']['weekly_summary_with_label']) {
-      foreach (timefield_weekly_summary_days_summarized_alter() as $day => $day_text) {
+    $variables['time']['time'] .= implode(' - ', $time_array);
+
+    if (($variables['settings']['weekly_summary'] || $variables['settings']['weekly_summary_with_label'])
+      && (isset($variables['settings']['display_format']['day_of_week']) && $variables['settings']['display_format']['day_of_week'] != 'none')) {
+      foreach (timefield_weekly_summary_days_summarized_alter($variables['settings']['display_format']['day_of_week']) as $day => $day_text) {
         if ((bool) $variables['time'][$day]) {
           $days[$day] = $day_text;
         }
@@ -313,10 +324,10 @@ function city_of_malmo_preprocess_timefield_formatter(&$variables) {
   elseif ($variables['format'] == 'duration') {
     // Encode the time elements.
     $variables['time']['value'] = check_plain($variables['time']['value']);
-    $variables['time']['formatted_value'] = trim(timefield_integer_to_time($variables['settings']['display_format'], $variables['time']['value']));
+    $variables['time']['formatted_value'] = trim(city_of_malmo_integer_to_time($variables['settings']['display_format'], $variables['time']['value']));
     if (isset($variables['time']['value2'])) {
       $variables['time']['value2'] = check_plain($variables['time']['value2']);
-      $variables['time']['formatted_value2'] = trim(timefield_integer_to_time($variables['settings']['display_format'], $variables['time']['value2']));
+      $variables['time']['formatted_value2'] = trim(city_of_malmo_integer_to_time($variables['settings']['display_format'], $variables['time']['value2']));
       $variables['time']['duration'] = timefield_time_to_duration($variables['time']['value'], $variables['time']['value2'], $variables['settings']['duration_format']);
       $variables['time']['time'] = timefield_time_to_duration($variables['time']['value'], $variables['time']['value2'], $variables['settings']['duration_format']);
     }
@@ -327,20 +338,102 @@ function city_of_malmo_preprocess_timefield_formatter(&$variables) {
 }
 
 /**
+ * Helper function to return time value from a timefield integer.
+ *
+ * @see timefield_integer_to_time
+ *
+ * @param array $settings
+ *   Field formatter settings. This is a structured array used to format a date
+ *   with PHP's date() function. This array has the following keys:
+ *     -separator
+ *       The character(s) the go(es) between the hour and minute value
+ *     -period_separator
+ *       The character(s) the go(es) between the time string and the period
+ *       (AM/PM)
+ *     -period
+ *       The PHP formatting option for period, or "none" to omit display
+ *     -hour
+ *       The PHP formatting option for hour
+ *     -minute
+ *       The PHP formatting option for minute
+ * @param integer $value
+ *   Integer offset from midnight to be converted to human-readable time. This
+ *   value is basically number of seconds from midnight. If you wish to
+ *   to show a time +1 day, your value can be greater than 86400.
+ *
+ * @return string
+ *   Human-readable time string.
+ */
+function city_of_malmo_integer_to_time($settings, $value) {
+  $format = city_of_malmo_build_time_format($settings);
+  if (isset($value) && $format != '') {
+    if ($value >= 86400) {
+      $value = $value - 86400;
+    }
+    return date($format, mktime(0, 0, $value));
+  }
+  else {
+    return '';
+  }
+}
+
+/**
+ * Helper function to build time format settings appropriate for use with PHP
+ * date function.
+ *
+ * @see timefield_build_time_format
+ *
+ * @param array $settings
+ *   ASD.
+ *
+ * @return string
+ */
+function city_of_malmo_build_time_format($settings) {
+
+  $format = $settings['hour'] == 'none' ? '' : $settings['hour'];
+  $format .= $settings['minute'] == 'none' ? '' : $settings['separator'] . $settings['minute'];
+  $format .= $settings['period'] == 'none' ? '' : $settings['period_separator'] . $settings['period'];
+
+  return $format;
+}
+
+/**
  * Provide summarized weekly days.
  *
  * @see _timefield_weekly_summary_days()
+ *
+ * @param string $format
+ *   Day format character.
+ *
+ * @return array
+ *   Array of days according to specified format.
  */
-function timefield_weekly_summary_days_summarized_alter() {
-  $days = array(
-    'mon' => t('Mon'),
-    'tue' => t('Tue'),
-    'wed' => t('Wed'),
-    'thu' => t('Thu'),
-    'fri' => t('Fri'),
-    'sat' => t('Sat'),
-    'sun' => t('Sun'),
-  );
+function timefield_weekly_summary_days_summarized_alter($format) {
+  switch ($format) {
+    case 'l':
+      $days = array(
+        'mon' => t('Monday'),
+        'tue' => t('Tuesday'),
+        'wed' => t('Wednesday'),
+        'thu' => t('Thursday'),
+        'fri' => t('Friday'),
+        'sat' => t('Saturday'),
+        'sun' => t('Sunday'),
+      );
+      break;
+
+    default:
+      $days = array(
+        'mon' => t('Mon'),
+        'tue' => t('Tue'),
+        'wed' => t('Wed'),
+        'thu' => t('Thu'),
+        'fri' => t('Fri'),
+        'sat' => t('Sat'),
+        'sun' => t('Sun'),
+      );
+      break;
+  }
 
   return $days;
 }

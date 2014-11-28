@@ -23,11 +23,18 @@ function user_subscribed_courses_view_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['use_more_text'] = 'mer';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Verkställ';
+  $handler->display->display_options['exposed_form']['options']['reset_button_label'] = 'Återställ';
+  $handler->display->display_options['exposed_form']['options']['exposed_sorts_label'] = 'Sortera efter';
+  $handler->display->display_options['exposed_form']['options']['sort_asc_label'] = 'Stigande';
+  $handler->display->display_options['exposed_form']['options']['sort_desc_label'] = 'Fallande';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'title' => 'title',
@@ -50,75 +57,111 @@ function user_subscribed_courses_view_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Relationship: Registration: Node to Registration */
+  /* Relation: Registrering: Nod till registrering */
   $handler->display->display_options['relationships']['registration_rel']['id'] = 'registration_rel';
   $handler->display->display_options['relationships']['registration_rel']['table'] = 'node';
   $handler->display->display_options['relationships']['registration_rel']['field'] = 'registration_rel';
   $handler->display->display_options['relationships']['registration_rel']['required'] = TRUE;
-  /* Field: Content: Title */
+  /* Fält: Innehåll: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['label'] = 'Kurs';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Course date */
+  /* Fält: Innehåll: Course periods */
+  $handler->display->display_options['fields']['field_course_periods_1']['id'] = 'field_course_periods_1';
+  $handler->display->display_options['fields']['field_course_periods_1']['table'] = 'field_data_field_course_periods';
+  $handler->display->display_options['fields']['field_course_periods_1']['field'] = 'field_course_periods';
+  $handler->display->display_options['fields']['field_course_periods_1']['label'] = 'Veckodag';
+  $handler->display->display_options['fields']['field_course_periods_1']['type'] = 'muc_timefield_custom';
+  $handler->display->display_options['fields']['field_course_periods_1']['settings'] = array(
+    'display_format' => array(
+      'hour' => 'none',
+      'minute' => 'none',
+      'separator' => '',
+      'period' => 'none',
+      'period_separator' => '',
+      'day_of_week' => 'l',
+    ),
+  );
+  $handler->display->display_options['fields']['field_course_periods_1']['group_rows'] = FALSE;
+  $handler->display->display_options['fields']['field_course_periods_1']['delta_offset'] = '0';
+  /* Fält: Innehåll: Course periods */
+  $handler->display->display_options['fields']['field_course_periods']['id'] = 'field_course_periods';
+  $handler->display->display_options['fields']['field_course_periods']['table'] = 'field_data_field_course_periods';
+  $handler->display->display_options['fields']['field_course_periods']['field'] = 'field_course_periods';
+  $handler->display->display_options['fields']['field_course_periods']['label'] = 'Tidpunkt';
+  $handler->display->display_options['fields']['field_course_periods']['type'] = 'muc_timefield_custom';
+  $handler->display->display_options['fields']['field_course_periods']['settings'] = array(
+    'display_format' => array(
+      'hour' => 'G',
+      'minute' => 'i',
+      'separator' => ':',
+      'period' => 'none',
+      'period_separator' => '',
+      'day_of_week' => 'none',
+    ),
+  );
+  $handler->display->display_options['fields']['field_course_periods']['group_rows'] = FALSE;
+  $handler->display->display_options['fields']['field_course_periods']['delta_offset'] = '0';
+  /* Fält: Innehåll: Course date */
   $handler->display->display_options['fields']['field_course_date']['id'] = 'field_course_date';
   $handler->display->display_options['fields']['field_course_date']['table'] = 'field_data_field_course_date';
   $handler->display->display_options['fields']['field_course_date']['field'] = 'field_course_date';
+  $handler->display->display_options['fields']['field_course_date']['label'] = 'Kursperiod';
   $handler->display->display_options['fields']['field_course_date']['settings'] = array(
-    'format_type' => 'long',
+    'format_type' => 'mal_course_period',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Field: Content: Type of education */
-  $handler->display->display_options['fields']['field_course_type_education']['id'] = 'field_course_type_education';
-  $handler->display->display_options['fields']['field_course_type_education']['table'] = 'field_data_field_course_type_education';
-  $handler->display->display_options['fields']['field_course_type_education']['field'] = 'field_course_type_education';
-  $handler->display->display_options['fields']['field_course_type_education']['settings'] = array(
-    'link' => 0,
+  /* Fält: Innehåll: Course package registration */
+  $handler->display->display_options['fields']['field_registration']['id'] = 'field_registration';
+  $handler->display->display_options['fields']['field_registration']['table'] = 'field_data_field_registration';
+  $handler->display->display_options['fields']['field_registration']['field'] = 'field_registration';
+  $handler->display->display_options['fields']['field_registration']['label'] = '';
+  $handler->display->display_options['fields']['field_registration']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_registration']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_registration']['type'] = 'unregister_form';
+  $handler->display->display_options['fields']['field_registration']['settings'] = array(
+    'label' => ' ',
   );
-  /* Field: Content: Course periods */
-  $handler->display->display_options['fields']['field_course_periods']['id'] = 'field_course_periods';
-  $handler->display->display_options['fields']['field_course_periods']['table'] = 'field_data_field_course_periods';
-  $handler->display->display_options['fields']['field_course_periods']['field'] = 'field_course_periods';
-  $handler->display->display_options['fields']['field_course_periods']['label'] = 'Course periods: day';
-  $handler->display->display_options['fields']['field_course_periods']['settings'] = array(
-    'display_format' => array(
-      'hour' => 'g',
-      'minute' => 'i',
-      'separator' => ':',
-      'period' => 'a',
-      'period_separator' => '',
-    ),
-  );
-  $handler->display->display_options['fields']['field_course_periods']['group_rows'] = FALSE;
-  $handler->display->display_options['fields']['field_course_periods']['delta_offset'] = '0';
-  /* Sort criterion: Content: Post date */
+  /* Fält: Innehåll: Course form */
+  $handler->display->display_options['fields']['field_course_form']['id'] = 'field_course_form';
+  $handler->display->display_options['fields']['field_course_form']['table'] = 'field_data_field_course_form';
+  $handler->display->display_options['fields']['field_course_form']['field'] = 'field_course_form';
+  $handler->display->display_options['fields']['field_course_form']['label'] = 'Kursform';
+  $handler->display->display_options['fields']['field_course_form']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_course_form']['alter']['text'] = '[field_course_form]
+[field_registration]';
+  $handler->display->display_options['fields']['field_course_form']['empty'] = '[field_registration]';
+  $handler->display->display_options['fields']['field_course_form']['type'] = 'taxonomy_term_reference_plain';
+  /* Sorteringskriterium: Innehåll: Datum för inlägg */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: Registration: User */
+  /* Kontextuellt filter: Registrering: Användare */
   $handler->display->display_options['arguments']['user_uid']['id'] = 'user_uid';
   $handler->display->display_options['arguments']['user_uid']['table'] = 'registration';
   $handler->display->display_options['arguments']['user_uid']['field'] = 'user_uid';
   $handler->display->display_options['arguments']['user_uid']['relationship'] = 'registration_rel';
   $handler->display->display_options['arguments']['user_uid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['user_uid']['exception']['title'] = 'Alla';
   $handler->display->display_options['arguments']['user_uid']['default_argument_type'] = 'current_user';
   $handler->display->display_options['arguments']['user_uid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['user_uid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['user_uid']['summary_options']['items_per_page'] = '25';
-  /* Filter criterion: Content: Published */
+  /* Filterkriterium: Innehåll: Publicerad */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filterkriterium: Innehåll: Typ */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -130,24 +173,22 @@ function user_subscribed_courses_view_views_default_views() {
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
   $translatables['my_courses'] = array(
     t('Master'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
-    t('node being the Registration'),
-    t('Course date'),
-    t('Type of education'),
-    t('Course periods: day'),
-    t('All'),
+    t('mer'),
+    t('Verkställ'),
+    t('Återställ'),
+    t('Sortera efter'),
+    t('Stigande'),
+    t('Fallande'),
+    t('node är registreringen'),
+    t('Kurs'),
+    t('Veckodag'),
+    t('Tidpunkt'),
+    t('Kursperiod'),
+    t('Kursform'),
+    t('[field_course_form]
+[field_registration]'),
+    t('[field_registration]'),
+    t('Alla'),
     t('Content pane'),
     t('View panes'),
   );

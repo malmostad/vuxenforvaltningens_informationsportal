@@ -364,4 +364,21 @@ class FeatureContext extends DrupalContext {
     }
   }
 
+  /**
+   * @Then /^"([^"]*)" should precede "([^"]*)" for the query "([^"]*)"$/
+   */
+  public function shouldPrecedeForTheQuery($textBefore, $textAfter, $cssQuery) {
+    $items = array_map(
+      function ($element) {
+        return trim($element->getText());
+      },
+      $this->getPage()->findAll('css', $cssQuery)
+    );
+    assertGreaterThan(
+      array_search($textBefore, $items),
+      array_search($textAfter, $items),
+      "$textBefore does not proceed $textAfter"
+    );
+  }
+
 }
