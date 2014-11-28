@@ -28,8 +28,10 @@ Feature: Editors permission
     And the "edit-status" checkbox should be checked
     Then I am on "node/add/course-packages"
     And I fill in "edit-title" with "autotest course package node"
+    And I fill in "Scope" with "20"
     Then I press the "edit-submit" button
     And I should see "Course package autotest course package node has been created."
+    And I should see "20%"
     Then I click "Edit"
     And the "edit-status" checkbox should be checked
 

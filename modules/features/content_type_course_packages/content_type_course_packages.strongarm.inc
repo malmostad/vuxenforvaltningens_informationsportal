@@ -228,6 +228,36 @@ function content_type_course_packages_strongarm() {
             'visible' => TRUE,
           ),
         ),
+        'node:course_template:field_course_orientation' => array(
+          'default' => array(
+            'weight' => '9',
+            'visible' => FALSE,
+          ),
+          'search_result' => array(
+            'weight' => '9',
+            'visible' => FALSE,
+          ),
+        ),
+        'node:course_template:field_course_subject_areas' => array(
+          'default' => array(
+            'weight' => '11',
+            'visible' => FALSE,
+          ),
+          'search_result' => array(
+            'weight' => '11',
+            'visible' => FALSE,
+          ),
+        ),
+        'node:course_template:field_course_gymnasie_program' => array(
+          'default' => array(
+            'weight' => '13',
+            'visible' => FALSE,
+          ),
+          'search_result' => array(
+            'weight' => '13',
+            'visible' => FALSE,
+          ),
+        ),
       ),
     ),
   );
