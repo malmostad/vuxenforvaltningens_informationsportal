@@ -1,0 +1,7 @@
+name = Mal front page panes filter
+description = Limit allowed content on front page IPE.
+core = 7.x
+package = Propeople
+dependencies[] = ctools
+dependencies[] = page_manager
+dependencies[] = panels

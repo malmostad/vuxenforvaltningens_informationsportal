@@ -95,6 +95,7 @@ dependencies[] = mal_generate_menu
 dependencies[] = mal_user_courses
 dependencies[] = mal_user_custom_access
 dependencies[] = mal_update
+dependencies[] = mal_ctools_front_page_allowed_content
 ; Registration
 dependencies[] = registration
 dependencies[] = registration_views

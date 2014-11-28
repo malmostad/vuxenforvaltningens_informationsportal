@@ -372,13 +372,11 @@ class FeatureContext extends DrupalContext {
       function ($element) {
         return trim($element->getText());
       },
-      $this->getPage()->findAll('css', $cssQuery)
+      $this->getSession()->getPage()->findAll('css', $cssQuery)
     );
-    assertGreaterThan(
-      array_search($textBefore, $items),
-      array_search($textAfter, $items),
-      "$textBefore does not proceed $textAfter"
-    );
+    if (array_search($textBefore, $items) < array_search($textAfter, $items)) {
+      throw new \Exception(sprintf("%s does not proceed %s", $textBefore, $textAfter));
+    }
   }
 
 }

@@ -1,4 +1,4 @@
-@api @course_registration
+@api @subscribe_courses
 Feature: Subscribed course order
   Test if course sorting works properly for user table.
 
