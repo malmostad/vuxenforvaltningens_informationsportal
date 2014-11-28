@@ -136,10 +136,10 @@ function mal_generate_content_enable() {
   $orientation = taxonomy_get_term_by_name('Fordon');
   $orientation = reset($orientation);
 
-  $subject_areas = reset(taxonomy_get_term_by_name('Naturvetenskap'));
+  $subject_areas = taxonomy_get_term_by_name('Naturvetenskap');
   $subject_areas = reset($subject_areas);
 
-  $gymnasie_program = reset(taxonomy_get_term_by_name('Samhälle'));
+  $gymnasie_program = taxonomy_get_term_by_name('Samhälle');
   $gymnasie_program = reset($gymnasie_program);
 
   $template->field_course_orientation[$template->language][] = array(
