@@ -16,7 +16,7 @@ function mal_ctools_front_page_allowed_content_ctools_content_subtype_alter(&$su
 }
 
 /**
- * Callback to limit plugins.
+ * Callback to filter plugins.
  *
  * @param array $plugin
  *   Plugin info.
