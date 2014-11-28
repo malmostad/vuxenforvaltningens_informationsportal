@@ -987,6 +987,7 @@ footer.bigfoot {
 .node-type-course,
 .node-type-course-packages {
   .body-copy {
+    position: relative;
     .pane-title {
       font-size: 36px;
       font-family: $Georgia;
@@ -1067,16 +1068,6 @@ footer.bigfoot {
         margin-bottom: 1em;
       }
     }
-    table {
-      max-width: 628px;
-      width: 100%;
-    }
-    th,
-    td {
-      border: 1px solid #dedede;
-      padding-left: 0;
-      padding-right: 0;
-    }
   }
   .content fieldset {
     @include box-shadow(none);
@@ -1092,17 +1083,41 @@ footer.bigfoot {
   }
 }
 
+/* -------- Table ---------- */
+.view-search,
+.node-course-packages {
+  table {
+    margin-bottom: 10px;
+    max-width: 628px;
+    width: 100%;
+  }
+  th,
+  td {
+    background: #fff !important;
+    border: 1px solid #dedede !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
 /* -------- Subscribe button --------- */
+.page-search-courses {
+  .subscribe,
+  .unsubscribe {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    .btn {
+      float: right;
+    }
+  }
+}
 .subscribe,
 .unsubscribe {
-  position: absolute;
-  bottom: 0;
-  right: 0;
   .btn {
     @include border-left-radius(0);
     font-weight: bold;
-    float: right;
-    margin-bottom: 21px;
+    margin: 15px 0 21px;
     min-width: 120px;
     padding: 3px 5px 1px;
     position: relative;
