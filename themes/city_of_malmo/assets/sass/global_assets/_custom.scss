@@ -1162,6 +1162,14 @@ footer.bigfoot {
   font-size: 1em;
   margin-bottom: .3em;
 }
+.view-schools {
+  .views-row {
+    margin-bottom: 5px;
+    a {
+      font-family: $OpenSans;
+    }
+  }
+}
 
 /* ---------media-------- */
 @media only screen and (max-width: 515px) {
