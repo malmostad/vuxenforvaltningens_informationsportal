@@ -492,3 +492,31 @@ function city_of_malmo_pager($variables) {
   }
   return $output;
 }
+
+/**
+ * Change status messages to malmo documentation.
+ *
+ * @see bootstrap_status_messages()
+ * @see http://malmostad.github.io/wag-external-v4/forms_buttons_and_messages/#messages
+ */
+function city_of_malmo_status_messages($variables) {
+  $display = $variables['display'];
+  $output = '';
+
+  // Map Drupal message types to their corresponding Malmo classes.
+  $status_class = array(
+    'status' => 'success',
+    'error' => 'error',
+    'warning' => 'warning',
+  );
+
+  foreach (drupal_get_messages($display) as $type => $messages) {
+    $class = (isset($status_class[$type])) ? $status_class[$type] : '';
+
+    foreach ($messages as $message) {
+      $output .= '<div class="' . $class . '">' . $message . "</div>\n";
+    }
+  }
+
+  return $output;
+}
