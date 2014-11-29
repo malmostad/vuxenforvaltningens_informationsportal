@@ -21,7 +21,7 @@ Feature: Content creation
     When I press "Save"
     Then I should see the text "A2 Test school"
 
-  @api
+  @api @javascript
   Scenario: School editor don't see registration field on course and course package creation
     Given I am logged in as "editor" with the password "editor"
     And I am on "node/add/course"
