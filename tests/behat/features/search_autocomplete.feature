@@ -8,7 +8,7 @@ Feature: Search autocomplete
     Given I am on "<page>"
     When I fill in "edit-keys" with "test c"
     And I trigger autocomplete with id "edit-keys"
-    And I wait for 2 seconds
+    And I wait for 5 seconds
     Then I should see "text c"
 
   Examples:
