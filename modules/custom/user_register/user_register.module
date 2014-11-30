@@ -264,7 +264,7 @@ function user_register_unregister_ajax_form($form, &$form_state, $registration) 
 }
 
 /**
- * Submit callback for user_register_unregister_ajax_form form that unregister user.
+ * Submit callback for user_register_unregister_ajax_form that unregister user.
  *
  * @param array $form
  *   Renderable form array.

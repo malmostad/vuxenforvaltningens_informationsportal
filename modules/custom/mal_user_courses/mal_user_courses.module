@@ -61,6 +61,17 @@ function mal_user_courses_preprocess_views_view_table(array &$vars) {
   }
 }
 
+/**
+ * Sorter callback.
+ *
+ * @param array $a
+ *   First array of sorted values.
+ * @param array $b
+ *   Second array of sorted values.
+ *
+ * @return int
+ *   -1|0|+1 depending on sorted values.
+ */
 function mal_user_courses_date_sort(&$a, &$b) {
   $ds1 = $a['#raw_start_date'];
   $de1 = $a['#raw_end_date'];
@@ -194,7 +205,7 @@ function mal_user_courses_field_formatter_settings_summary($field, $instance, $v
 }
 
 /**
- *  Implements hook_field_formatter_view().
+ * Implements hook_field_formatter_view().
  */
 function mal_user_courses_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
 
@@ -218,4 +229,3 @@ function mal_user_courses_field_formatter_view($entity_type, $entity, $field, $i
 
   return $element;
 }
-

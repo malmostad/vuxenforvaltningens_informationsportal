@@ -356,7 +356,7 @@ function city_of_malmo_preprocess_timefield_formatter(&$variables) {
  *       The PHP formatting option for hour
  *     -minute
  *       The PHP formatting option for minute
- * @param integer $value
+ * @param int $value
  *   Integer offset from midnight to be converted to human-readable time. This
  *   value is basically number of seconds from midnight. If you wish to
  *   to show a time +1 day, your value can be greater than 86400.
@@ -378,15 +378,16 @@ function city_of_malmo_integer_to_time($settings, $value) {
 }
 
 /**
- * Helper function to build time format settings appropriate for use with PHP
- * date function.
+ * Helper function to build time format settings.
  *
+ * Appropriate for use with PHP date function.
  * @see timefield_build_time_format
  *
  * @param array $settings
- *   ASD.
+ *   Timefield setting to build format from.
  *
  * @return string
+ *   String to format date from timestamp.
  */
 function city_of_malmo_build_time_format($settings) {
 
