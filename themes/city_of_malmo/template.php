@@ -308,8 +308,9 @@ function city_of_malmo_preprocess_timefield_formatter(&$variables) {
     $variables['time']['time'] .= implode(' - ', $time_array);
 
     if (($variables['settings']['weekly_summary'] || $variables['settings']['weekly_summary_with_label'])
-      && (isset($variables['settings']['display_format']['day_of_week']) && $variables['settings']['display_format']['day_of_week'] != 'none')) {
-      foreach (timefield_weekly_summary_days_summarized_alter($variables['settings']['display_format']['day_of_week']) as $day => $day_text) {
+      && (!isset($variables['settings']['display_format']['day_of_week']) || $variables['settings']['display_format']['day_of_week'] != 'none')) {
+      $day_format = isset($variables['settings']['display_format']['day_of_week']) ? $variables['settings']['display_format']['day_of_week'] : 'D';
+      foreach (timefield_weekly_summary_days_summarized_alter($day_format) as $day => $day_text) {
         if ((bool) $variables['time'][$day]) {
           $days[$day] = $day_text;
         }
