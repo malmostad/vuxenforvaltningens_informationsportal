@@ -5,7 +5,7 @@ Feature: Front page in-place-editor
 
   @api @javascript
   Scenario Outline: Other underlying roles not see in-place editor
-  Given I am logged in as a user with the "<role>" role
+  Given I am logged in as a user with the "administrator" role
     And I am on the homepage
     And I press "Customize this page"
     Then I wait for AJAX to finish
@@ -14,11 +14,6 @@ Feature: Front page in-place-editor
     Then I should see the text "New custom content"
     And I should see the text "Global pane"
     And I should not see the text "<pane_types>"
-
-  Examples:
-  |  role               |
-  |  Malmo top admin    |
-  |  administrator      |
 
   Examples:
   |  pane_types       |
