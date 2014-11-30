@@ -35,7 +35,7 @@ Feature: Middle admim permission
     And the "edit-status" checkbox should be checked
 
 
-  Scenario: Unpublished course template and course package template creating
+  Scenario: Published course template and course package template creating
     Given I am logged in as a user with the "Malmo middle admin" role
     And I am on "node/add/course-template"
     And I fill in "edit-title" with "autotest course template"
