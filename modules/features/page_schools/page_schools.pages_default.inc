@@ -59,6 +59,31 @@ function page_schools_default_page_manager_pages() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
+    $pane->pid = 'new-04708f33-597f-401b-b337-9bc883a1c332';
+    $pane->panel = 'region-one';
+    $pane->type = 'page_title';
+    $pane->subtype = 'page_title';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'markup' => 'h1',
+      'class' => '',
+      'id' => '',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '04708f33-597f-401b-b337-9bc883a1c332';
+    $display->content['new-04708f33-597f-401b-b337-9bc883a1c332'] = $pane;
+    $display->panels['region-one'][0] = 'new-04708f33-597f-401b-b337-9bc883a1c332';
+    $pane = new stdClass();
     $pane->pid = 'new-19ac5857-d0bb-4382-9b6a-7e9964dd07e1';
     $pane->panel = 'region-two';
     $pane->type = 'views_panes';

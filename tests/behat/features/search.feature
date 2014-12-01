@@ -18,7 +18,7 @@ Feature: Search the site
     # Check facet minipanel block
     And I should see the text "Filtrera sökresultat"
 #     @see mal_search_property_global_type_of_education_getter_callback()
-#    Then I should see the text "Utbildningsform"
+    Then I should see the text "Utbildningsform"
     And I should see the text "Kursform"
     And I should see the text "Skolor"
     And I should see the text "Ämnesområden"
@@ -52,6 +52,7 @@ Feature: Search the site
     Then I should not see container with class "ui-datepicker"
     And I press "Search"
     And I press element ".minipanel-search-facet-date"
+    And I wait for 1 seconds
     When I press element "#edit-date"
     And I press element ".datepicker-days .day"
 

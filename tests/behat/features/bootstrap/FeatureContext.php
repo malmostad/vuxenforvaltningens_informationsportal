@@ -365,6 +365,8 @@ class FeatureContext extends DrupalContext {
   }
 
   /**
+   * Check the order of values in given selector.
+   *
    * @Then /^"([^"]*)" should precede "([^"]*)" for the query "([^"]*)"$/
    */
   public function shouldPrecedeForTheQuery($textBefore, $textAfter, $cssQuery) {
@@ -379,4 +381,14 @@ class FeatureContext extends DrupalContext {
     }
   }
 
+  /**
+   * Trigger keydown event for elementm because selenium when fill not trigger.
+   *
+   * @Given /^I trigger autocomplete with id "([^"]*)"$/
+   */
+  public function iTriggerAutocompleteWithId($id) {
+    $this->getSession()->getDriver()->evaluateScript(
+      'jQuery("#' . $id . '").trigger("keydown");'
+    );
+  }
 }

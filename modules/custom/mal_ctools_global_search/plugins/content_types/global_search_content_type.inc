@@ -66,7 +66,8 @@ function global_search_form(array $form, array &$form_state, $conf) {
 
   $search = search_api_autocomplete_search_load('search_api_views_search');
   if ($search && $search->enabled) {
-    $search->alterElement($form['keys']);
+    drupal_add_library('system', 'ui.autocomplete');
+    drupal_add_js(drupal_get_path('module', 'mal_ctools_global_search') . '/js/global_search.js');
   }
 
   $form['base'] = array(

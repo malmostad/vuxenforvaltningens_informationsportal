@@ -125,6 +125,39 @@ function mal_generate_content_enable() {
   $school = node_submit($school);
   node_save($school);
 
+  $template = new stdClass();
+  $template->title = "A1 Test course template";
+  $template->type = "course_template";
+  node_object_prepare($template);
+  $template->language = LANGUAGE_NONE;
+  $template->uid = $user->uid;
+  $template->status = 1;
+
+  $orientation = taxonomy_get_term_by_name('Fordon');
+  $orientation = reset($orientation);
+
+  $subject_areas = taxonomy_get_term_by_name('Naturvetenskap');
+  $subject_areas = reset($subject_areas);
+
+  $gymnasie_program = taxonomy_get_term_by_name('Samhälle');
+  $gymnasie_program = reset($gymnasie_program);
+
+  $template->field_course_orientation[$template->language][] = array(
+    'tid' => $orientation->tid,
+  );
+
+  $template->field_course_subject_areas[$template->language][] = array(
+    'tid' => $subject_areas->tid,
+  );
+
+  $template->field_course_gymnasie_program[$template->language][] = array(
+    'tid' => $gymnasie_program->tid,
+  );
+
+  $template = node_submit($template);
+  node_save($template);
+  watchdog('generate', json_encode($template));
+
   $node = new stdClass();
   $node->title = "Test course";
   $node->type = "course";
@@ -141,6 +174,10 @@ function mal_generate_content_enable() {
 
   $node->field_course_school[$node->language][] = array(
     'target_id' => $school->nid,
+  );
+
+  $node->field_course_template[$node->language][] = array(
+    'target_id' => $template->nid,
   );
 
   $node->field_course_application_period[$node->language][] = array(
