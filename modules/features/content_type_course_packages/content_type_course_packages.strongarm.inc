@@ -13,6 +13,27 @@ function content_type_course_packages_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'ant_course_packages';
+  $strongarm->value = '1';
+  $export['ant_course_packages'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ant_pattern_course_packages';
+  $strongarm->value = '[node:field-course-template:title]';
+  $export['ant_pattern_course_packages'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ant_php_course_packages';
+  $strongarm->value = 0;
+  $export['ant_php_course_packages'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_course_packages';
   $strongarm->value = 0;
   $export['comment_anonymous_course_packages'] = $strongarm;
