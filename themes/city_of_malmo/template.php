@@ -506,7 +506,7 @@ function city_of_malmo_status_messages($variables) {
   // Map Drupal message types to their corresponding Malmo classes.
   $status_class = array(
     'status' => 'success',
-    'error' => 'error',
+    'error' => 'warning',
     'warning' => 'warning',
   );
 
