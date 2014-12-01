@@ -123,7 +123,7 @@ function content_type_course_strongarm() {
       'display' => array(
         'node:course_template:title' => array(
           'default' => array(
-            'weight' => '6',
+            'weight' => '8',
             'visible' => FALSE,
           ),
           'search_result' => array(
@@ -133,7 +133,7 @@ function content_type_course_strongarm() {
         ),
         'node:course_template:log' => array(
           'default' => array(
-            'weight' => '5',
+            'weight' => '7',
             'visible' => FALSE,
           ),
           'search_result' => array(

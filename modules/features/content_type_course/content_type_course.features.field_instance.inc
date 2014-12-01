@@ -97,7 +97,7 @@ function content_type_course_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 10,
+        'weight' => 9,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -273,7 +273,7 @@ function content_type_course_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 12,
+        'weight' => 4,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -310,6 +310,58 @@ function content_type_course_field_default_field_instances() {
       ),
       'type' => 'text_textfield',
       'weight' => 13,
+    ),
+  );
+
+  // Exported field_instance: 'node-course-field_course_period_type'
+  $field_instances['node-course-field_course_period_type'] = array(
+    'bundle' => 'course',
+    'default_value' => array(
+      0 => array(
+        'value' => 'default',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
+      'node_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_course_period_type',
+    'label' => 'Period type',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 14,
     ),
   );
 
@@ -472,7 +524,7 @@ function content_type_course_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 6,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -602,6 +654,7 @@ function content_type_course_field_default_field_instances() {
   t('Course periods');
   t('Course registration');
   t('Course template');
+  t('Period type');
   t('School');
 
   return $field_instances;
