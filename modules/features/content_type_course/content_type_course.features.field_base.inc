@@ -347,6 +347,9 @@ function content_type_course_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_registration',
+    'field_permissions' => array(
+      'type' => 2,
+    ),
     'foreign keys' => array(
       'registration_type' => array(
         'columns' => array(

@@ -18,7 +18,7 @@ Feature: Search the site
     # Check facet minipanel block
     And I should see the text "Filtrera sökresultat"
 #     @see mal_search_property_global_type_of_education_getter_callback()
-#    Then I should see the text "Utbildningsform"
+    Then I should see the text "Utbildningsform"
     And I should see the text "Kursform"
     And I should see the text "Skolor"
     And I should see the text "Ämnesområden"
