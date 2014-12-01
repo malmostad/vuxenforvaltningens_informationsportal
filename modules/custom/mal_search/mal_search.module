@@ -42,13 +42,28 @@ function mal_search_facetapi_sort_info() {
  */
 function mal_search_weeks(array $a, array $b) {
   // 1416610800 == Saturday.
-  $a_timestamp = strtotime($a['#indexed_value'], 1416610800);
-  $b_timestamp = strtotime($b['#indexed_value'], 1416610800);
+  $a_timestamp = strtotime(mal_search_convert_days($a['#indexed_value']), 1416610800);
+  $b_timestamp = strtotime(mal_search_convert_days($b['#indexed_value']), 1416610800);
 
   if ($a_timestamp == $b_timestamp) {
     return 0;
   }
   return ($a_timestamp < $b_timestamp) ? -1 : 1;
+}
+
+/**
+ * Translate to english.
+ */
+function mal_search_convert_days($date_string) {
+  return strtr(strtolower($date_string), array(
+        'måndag' => 'Monday',
+        'tisdag' => 'Tuesday',
+        'onsdag' => 'Wednesday',
+        'torsdag' => 'Thursday',
+        'fredag' => 'Friday',
+        'lördag' => 'Saturday',
+        'söndag' => 'Sunday',
+      ));
 }
 
 /**
