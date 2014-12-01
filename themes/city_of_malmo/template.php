@@ -316,8 +316,9 @@ function city_of_malmo_preprocess_timefield_formatter(&$variables) {
         }
       }
       if (isset($days)) {
+        $day_separator = !empty($variables['settings']['display_format']['day_separator']) ? $variables['settings']['display_format']['day_separator'] : ' ';
         $variables['time']['days'] = $days;
-        $variables['time']['time'] = implode(' ', $days) . ' ' . $variables['time']['time'];
+        $variables['time']['time'] = implode($day_separator, $days) . ' ' . $variables['time']['time'];
       }
 
     }

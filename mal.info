@@ -139,6 +139,7 @@ dependencies[] = content_type_question_and_answer
 dependencies[] = content_type_school
 dependencies[] = content_type_course_packages
 dependencies[] = user_subscribed_courses_view
+dependencies[] = views_subscribed_app_view
 dependencies[] = course_registration_type
 dependencies[] = menu_global
 dependencies[] = minipanel_search_facet

@@ -9,7 +9,7 @@
  * Implements hook_preprocess_views_view_table().
  */
 function mal_user_courses_preprocess_views_view_table(array &$vars) {
-  if ($vars['view']->name == 'my_courses') {
+  if ($vars['view']->name == 'my_courses' && $vars['view']->current_display == 'course_pane') {
     $processed_results = array();
     $processed_results_classes = array();
     $delta = 0;
@@ -20,8 +20,15 @@ function mal_user_courses_preprocess_views_view_table(array &$vars) {
           $processed_result = $vars['rows'][$key];
 
           // Populate data for sorting and intersections.
-          $processed_result['#raw_start_date'] = $result->field_field_course_date[0]['raw']['value'];
-          $processed_result['#raw_end_date'] = $result->field_field_course_date[0]['raw']['value2'];
+          if (empty($result->field_field_course_date)) {
+            // Exception for continuous period type.
+            $processed_result['#raw_start_date'] = -1;
+            $processed_result['#raw_end_date'] = 99999999999999;
+          }
+          else {
+            $processed_result['#raw_start_date'] = $result->field_field_course_date[0]['raw']['value'];
+            $processed_result['#raw_end_date'] = $result->field_field_course_date[0]['raw']['value2'];
+          }
           $processed_result['#raw_day'] = $day;
           $processed_result['#raw_start_time'] = $result->field_data_field_course_periods_field_course_periods_value;
           $processed_result['#raw_end_time'] = $result->field_data_field_course_periods_field_course_periods_value2;
@@ -150,6 +157,7 @@ function mal_user_courses_field_formatter_info() {
       'settings' => array(
         'display_format' => array(
           'day_of_week' => 'D',
+          'day_separator' => ' ',
           'separator' => ':',
           'period_separator' => '',
           'period' => 'a',
@@ -184,6 +192,12 @@ function mal_user_courses_field_formatter_settings_form($field, $instance, $view
       ),
       '#default_value' => $settings['display_format']['day_of_week'],
       '#weight' => -50,
+    );
+    $element['display_format']['day_separator'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Day separator'),
+      '#default_value' => $settings['display_format']['day_separator'],
+      '#weight' => -45,
     );
   }
 
@@ -228,4 +242,18 @@ function mal_user_courses_field_formatter_view($entity_type, $entity, $field, $i
   }
 
   return $element;
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function mal_user_courses_preprocess_views_view_field(&$variables) {
+  if ($variables['view']->name == 'my_course_application_list'
+    && $variables['view']->current_display == 'course_pane'
+    && $variables['field']->real_field == 'field_course_application_period_value') {
+    if (!empty($variables['row']->field_field_course_application_period)
+      && empty($variables['row']->field_field_course_application_period[0]['raw']['value2'])) {
+      $variables['output'] .= ' - <span class="date-continuous">' . t('continuous') . '</span>';
+    }
+  }
 }
