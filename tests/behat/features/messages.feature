@@ -10,4 +10,4 @@ Feature: Warning messages
     When I fill in "Username" with "wrong"
     And I fill in "Password" with "wrong"
     And I press "Log in"
-    And I should see the text "Sorry, unrecognized username or password" in ".error" element
+    And I should see the text "Sorry, unrecognized username or password" in ".warning" element
