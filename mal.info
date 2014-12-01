@@ -74,7 +74,10 @@ dependencies[] = view_unpublished
 dependencies[] = rules
 dependencies[] = rules_admin
 dependencies[] = admin_views
+dependencies[] = views_bulk_operations
 dependencies[] = field_permissions
+dependencies[] = custom_breadcrumbs
+dependencies[] = custom_breadcrumbs_features
 ; Panels
 dependencies[] = panels
 dependencies[] = panels_everywhere
@@ -161,3 +164,4 @@ dependencies[] = minipanel_footer
 dependencies[] = menu_footer_visit
 dependencies[] = menu_user
 dependencies[] = content_type_user
+dependencies[] = config_breadrumbs
