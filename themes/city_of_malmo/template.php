@@ -520,3 +520,35 @@ function city_of_malmo_status_messages($variables) {
 
   return $output;
 }
+
+/**
+ * Add external super link.
+ *
+ * @see bootstrap_breadcrumb()
+ */
+function city_of_malmo_breadcrumb($variables) {
+  $output = '';
+  $breadcrumb = $variables['breadcrumb'];
+  array_unshift($breadcrumb, l(t('Information portal'), ''));
+  array_unshift($breadcrumb, l(t('Home'), 'http://www.malmo.se/'));
+
+  $item = menu_get_item();
+  $breadcrumb[] = array(
+    // If we are on a non-default tab, use the tab's title.
+    'data' => !empty($item['tab_parent']) ? check_plain($item['title']) : drupal_get_title(),
+    'class' => array('active'),
+  );
+
+  // Determine if we are to display the breadcrumb.
+  $bootstrap_breadcrumb = theme_get_setting('bootstrap_breadcrumb');
+  if (($bootstrap_breadcrumb == 1 || ($bootstrap_breadcrumb == 2 && arg(0) == 'admin')) && !empty($breadcrumb)) {
+    $output = theme('item_list', array(
+      'attributes' => array(
+        'class' => array('breadcrumb'),
+      ),
+      'items' => $breadcrumb,
+      'type' => 'ol',
+    ));
+  }
+  return $output;
+}

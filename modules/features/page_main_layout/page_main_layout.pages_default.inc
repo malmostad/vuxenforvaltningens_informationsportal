@@ -201,6 +201,39 @@ function page_main_layout_default_page_manager_handlers() {
     $display->content['new-91244761-8678-4220-88b8-191d40f5547a'] = $pane;
     $display->panels['region-three'][2] = 'new-91244761-8678-4220-88b8-191d40f5547a';
     $pane = new stdClass();
+    $pane->pid = 'new-c3c97728-f933-44a8-8116-867c8e0b044b';
+    $pane->panel = 'region-two';
+    $pane->type = 'page_title';
+    $pane->subtype = 'page_title';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'front',
+          'settings' => NULL,
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'markup' => 'h1',
+      'class' => '',
+      'id' => '',
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = 'c3c97728-f933-44a8-8116-867c8e0b044b';
+    $display->content['new-c3c97728-f933-44a8-8116-867c8e0b044b'] = $pane;
+    $display->panels['region-two'][0] = 'new-c3c97728-f933-44a8-8116-867c8e0b044b';
+    $pane = new stdClass();
     $pane->pid = 'new-35a1852d-4b48-4126-96ba-be44e2ec91cc';
     $pane->panel = 'region-two';
     $pane->type = 'custom';
@@ -228,11 +261,11 @@ function page_main_layout_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = '35a1852d-4b48-4126-96ba-be44e2ec91cc';
     $display->content['new-35a1852d-4b48-4126-96ba-be44e2ec91cc'] = $pane;
-    $display->panels['region-two'][0] = 'new-35a1852d-4b48-4126-96ba-be44e2ec91cc';
+    $display->panels['region-two'][1] = 'new-35a1852d-4b48-4126-96ba-be44e2ec91cc';
     $pane = new stdClass();
     $pane->pid = 'new-3c993f1f-49e7-462e-b122-1c3aaf5fd067';
     $pane->panel = 'region-two';
@@ -259,11 +292,11 @@ function page_main_layout_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 2;
     $pane->locks = array();
     $pane->uuid = '3c993f1f-49e7-462e-b122-1c3aaf5fd067';
     $display->content['new-3c993f1f-49e7-462e-b122-1c3aaf5fd067'] = $pane;
-    $display->panels['region-two'][1] = 'new-3c993f1f-49e7-462e-b122-1c3aaf5fd067';
+    $display->panels['region-two'][2] = 'new-3c993f1f-49e7-462e-b122-1c3aaf5fd067';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-91244761-8678-4220-88b8-191d40f5547a';
   $handler->conf['display'] = $display;

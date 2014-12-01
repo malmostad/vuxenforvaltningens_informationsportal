@@ -1,0 +1,10 @@
+name = Config breadrumbs
+core = 7.x
+package = Config
+version = 7.x-1.0
+project = config_breadrumbs
+dependencies[] = custom_breadcrumbs_features
+dependencies[] = custom_breadcrumbs_panels
+dependencies[] = features
+features[custom_breadcrumbs_panels][] = node_view_panel_context_2
+features[features_api][] = api:2
