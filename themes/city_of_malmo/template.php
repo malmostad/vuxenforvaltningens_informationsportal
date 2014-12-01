@@ -529,7 +529,7 @@ function city_of_malmo_status_messages($variables) {
 function city_of_malmo_breadcrumb($variables) {
   $output = '';
   $breadcrumb = $variables['breadcrumb'];
-  array_unshift($breadcrumb, l(t('Information portal'), ''));
+  array_unshift($breadcrumb, l(t('Information portal'), '<front>'));
   array_unshift($breadcrumb, l(t('Home'), 'http://www.malmo.se/'));
 
   $item = menu_get_item();
