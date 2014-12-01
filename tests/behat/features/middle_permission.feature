@@ -17,19 +17,27 @@ Feature: Middle admim permission
     Then I am on "admin/structure"
     And I should see the text "You do not have any administrative items."
 
-
+  @javascript
   Scenario: Published course and course package creating
     Given I am logged in as a user with the "Malmo middle admin" role
     And I am on "node/add/course"
-    And I fill in "edit-title" with "autotest course node"
+    And I fill in "Course template" with "A1 Test course template"
+    And I press the "insert" key in the "Course template" field
+    And I wait for 1 seconds
+    And I press element ".reference-autocomplete"
     Then I press the "edit-submit" button
-    And I should see "Course autotest course node has been created."
+    Then I press the "edit-submit" button
+    And I should see "Course A1 Test course template has been created."
     Then I click "Edit"
     And the "edit-status" checkbox should be checked
     Then I am on "node/add/course-packages"
-    And I fill in "edit-title" with "autotest course package node"
+    And I fill in "Course template" with "A1 Test course template"
+    And I press the "insert" key in the "Course template" field
+    And I wait for 1 seconds
+    And I press element ".reference-autocomplete"
     Then I press the "edit-submit" button
-    And I should see "Course package autotest course package node has been created."
+    Then I press the "edit-submit" button
+    And I should see "Course package A1 Test course template has been created."
     Then I click "Edit"
     And the "edit-status" checkbox should be checked
 
