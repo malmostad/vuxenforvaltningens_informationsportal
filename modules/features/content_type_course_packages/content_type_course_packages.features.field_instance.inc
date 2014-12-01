@@ -788,7 +788,7 @@ function content_type_course_packages_field_default_field_instances() {
     ),
     'label' => 'Course template',
     'render_entity_below' => 1,
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),

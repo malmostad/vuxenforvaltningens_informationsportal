@@ -19,6 +19,8 @@ projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-is
 
 projects[panels][patch][] = "https://www.drupal.org/files/issues/reroll-2120849-42.patch"
 
+projects[auto_nodetitle][patch][] = "https://www.drupal.org/files/issues/auto_nodetitle-881170-50.patch"
+
 ; +++++ Modules +++++
 
 projects[admin_menu][version] = "3.0-rc4"
@@ -161,6 +163,12 @@ projects[custom_breadcrumbs][subdir] = "contrib"
 
 projects[custom_breadcrumbs_features][version] = "2.0-rc1"
 projects[custom_breadcrumbs_features][subdir] = "contrib"
+
+projects[token][version] = "1.5"
+projects[token][subdir] = "contrib"
+
+projects[auto_nodetitle][version] = "1.0"
+projects[auto_nodetitle][subdir] = "contrib"
 
 ; +++++ Themes +++++
 
