@@ -2,6 +2,7 @@
 ; required information about the theme
 
 name = City Of Malmo
+description = City of Malmo main theme
 screenshot = images/city_of_malmo.png
 core = 7.x
 base theme = bootstrap
@@ -20,3 +21,4 @@ scripts[] = javascripts/init.js
 
 ; Panels layouts. You can place multiple layouts under the "layouts" folder.
 plugins[panels][layouts] = plugins/layouts
+settings[bootstrap_breadcrumb_title] = 0

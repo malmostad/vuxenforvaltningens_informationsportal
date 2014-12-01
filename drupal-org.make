@@ -144,6 +144,9 @@ projects[view_unpublished][subdir] = "contrib"
 projects[admin_views][version] = "1.3"
 projects[admin_views][subdir] = "contrib"
 
+projects[views_bulk_operations][version] = "3.2"
+projects[views_bulk_operations][subdir] = "contrib"
+
 projects[language_cookie][version] = "1.8"
 projects[language_cookie][subdir] = "contrib"
 
@@ -152,6 +155,12 @@ projects[rules][subdir] = "contrib"
 
 projects[l10n_update][version] = "1.1"
 projects[l10n_update][subdir] = "contrib"
+
+projects[custom_breadcrumbs][version] = "2.0-beta1"
+projects[custom_breadcrumbs][subdir] = "contrib"
+
+projects[custom_breadcrumbs_features][version] = "2.0-rc1"
+projects[custom_breadcrumbs_features][subdir] = "contrib"
 
 ; +++++ Themes +++++
 
