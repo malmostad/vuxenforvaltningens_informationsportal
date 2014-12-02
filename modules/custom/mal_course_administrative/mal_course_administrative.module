@@ -1,0 +1,86 @@
+<?php
+/**
+ * @file
+ * Hooks and callbacks.
+ */
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function mal_course_administrative_form_course_node_form_alter(&$form, &$form_state) {
+  $form['field_course_periods']['#states']['invisible'] = array(
+    ':input[name="field_course_period_type[und]"]' => array('value' => 'flex'),
+  );
+  $form['field_course_date']['#states']['invisible'] = array(
+    ':input[name="field_course_period_type[und]"]' => array('value' => 'continuous'),
+  );
+
+  $form['field_course_application_period']['#after_build'][] = 'mal_course_administrative_app_period_after_build';
+
+  $form['#validate'][] = 'mal_course_administrative_course_period_validate';
+}
+
+/**
+ * Add dependency to end date property of app period field.
+ *
+ * @param array $element
+ *   Form API element.
+ * @param array $form_state
+ *   Whole form state.
+ *
+ * @return array
+ *   Altered element.
+ */
+function mal_course_administrative_app_period_after_build($element, $form_state) {
+  $langcode = field_language('node', $form_state['node'], 'field_course_application_period');
+  $element[$langcode][0]['show_todate']['#states']['invisible']
+    = $element[$langcode][0]['value2']['#states']['invisible']
+      = array(
+        ':input[name="field_course_period_type[und]"]' => array('value' => 'continuous'),
+      );
+  return $element;
+}
+
+/**
+ * Validate callback.
+ *
+ * Remove course and application dates depending on selected period type.
+ *
+ * @param array $form
+ *   Entire form.
+ * @param array $form_state
+ *   Entire form state.
+ */
+function mal_course_administrative_course_period_validate($form, &$form_state) {
+  $lang_period = field_language('node', $form_state['node'], 'field_course_period_type');
+
+  $values = &$form_state['values'];
+
+  switch ($values['field_course_period_type'][$lang_period][0]['value']) {
+    case 'flex':
+      $lang_days = field_language('node', $form_state['node'], 'field_course_periods');
+
+      // Remove all periods from node.
+      $values['field_course_periods'][$lang_days] = array(
+        0 => array(
+          'value' => NULL,
+        ),
+      );
+      break;
+
+    case 'continuous':
+      $lang_course_date = field_language('node', $form_state['node'], 'field_course_date');
+      $lang_app_period = field_language('node', $form_state['node'], 'field_course_application_period');
+      $course_date = &$values['field_course_date'][$lang_course_date][0];
+      $app_period = &$values['field_course_application_period'][$lang_app_period][0];
+
+      // Remove course date and end date of app period from node.
+      $course_date['value']
+        = $course_date['value2']
+          = NULL;
+      $app_period['value2']
+        = $app_period['show_todate']
+          = NULL;
+      break;
+  }
+}

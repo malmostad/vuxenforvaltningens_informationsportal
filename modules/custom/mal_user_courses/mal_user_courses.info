@@ -3,4 +3,5 @@ description = User subscribed courses overview page customizations.
 core = 7.x
 package = Propeople
 
-dependencies = user_subscribed_courses_view
+dependencies[] = user_subscribed_courses_view
+dependencies[] = timefield

@@ -12,6 +12,8 @@ $plugin = array(
   'edit form' => 'global_pane_edit_form',
   'hook theme' => 'global_pane_theme',
   'category' => array(t('Propeople'), -9),
+  'top level' => TRUE,
+  'all contexts' => TRUE,
 );
 
 /**

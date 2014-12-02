@@ -2,20 +2,54 @@
 #
 # Swedish translation of Drupal (general)
 # Copyright YEAR NAME <EMAIL@ADDRESS>
-# Generated from file: mal_user_courses.info: n/a
+# Generated from files:
+#  mal_user_courses.module: n/a
+#  mal_user_courses.info: n/a
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2014-11-22 17:09+0100\n"
-"PO-Revision-Date: 2014-11-22 17:09+0100\n"
+"POT-Creation-Date: 2014-12-01 18:35+0100\n"
+"PO-Revision-Date: 2014-12-01 18:35+0100\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Swedish <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: mal_user_courses.module:155
+msgid "Custom List"
+msgstr "Anpassad Lista"
+
+#: mal_user_courses.module:183;189
+msgid "None"
+msgstr "Inget"
+
+#: mal_user_courses.module:187
+msgid "Day of week Format"
+msgstr "Veckodag Format"
+
+#: mal_user_courses.module:190
+msgid "Three letters"
+msgstr "Tre bokstäver"
+
+#: mal_user_courses.module:191
+msgid "Full"
+msgstr "Full"
+
+#: mal_user_courses.module:198
+msgid "Day separator"
+msgstr "Dag separator"
+
+#: mal_user_courses.module:217
+msgid "Current Format"
+msgstr "Nuvarande Format"
+
+#: mal_user_courses.module:256
+msgid "continuous"
+msgstr "kontinuerlig"
 
 #: mal_user_courses.info:0
 msgid "Malmo User courses"
@@ -28,4 +62,3 @@ msgstr "Användar tecknade kurser översiktssida anpassningar."
 #: mal_user_courses.info:0
 msgid "Propeople"
 msgstr "Propeople"
-

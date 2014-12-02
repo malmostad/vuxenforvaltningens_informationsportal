@@ -34,7 +34,7 @@ function mal_update_update_7001() {
 /**
  * Enable features with Language settings, rules settings, some contrib modules.
  */
-function mal_update_update_7002() {
+function mal_update_update_7003() {
   module_enable('rules');
   module_enable('rules_admin');
   module_enable('notification_rules');
@@ -42,6 +42,10 @@ function mal_update_update_7002() {
   module_enable('config_language');
   module_enable('l10n_update');
   module_enable('language_cookie');
+
+  module_enable('mal_ctools_front_page_allowed_content');
+  module_enable('mal_course_administrative');
+  module_enable('view_subscribed_app_view');
 
   drush_invoke('drush_l10n_update', array());
   exec("drush fra -y", $output);

@@ -38,34 +38,6 @@ function user_register_menu_alter(&$items) {
 }
 
 /**
- * Ajax callback for course subscription action.
- *
- * @param int $cid
- *   ID of course node to subscribe.
- *
- * @return array
- *   Array of commands, that describes operation status.
- */
-function user_register_course_subscribe($cid) {
-  $commands = array();
-  return $commands;
-}
-
-/**
- * Ajax callback for course unsubscription action.
- *
- * @param int $cid
- *   ID of course node to unsubscribe.
- *
- * @return array
- *   Array of commands, that describes operation status.
- */
-function user_register_course_unsubscribe($cid) {
-  $commands = array();
-  return $commands;
-}
-
-/**
  * Implements hook_form_FORM_ID_alter().
  */
 function user_register_form_registration_form_alter(&$form, &$form_state, $form_id) {
@@ -94,7 +66,7 @@ function user_register_form_registration_form_alter(&$form, &$form_state, $form_
 function user_register_unregistration_form_reload($form) {
   global $user;
   $registration = user_register_load_registration_by_user($form['#registration_settings']['entity_type'], $form['#registration_settings']['entity_id'], $user->uid);
-  return drupal_get_form('user_register_unregister_form', $registration);
+  return drupal_get_form('user_register_unregister_ajax_form', $registration);
 }
 
 /**
@@ -124,6 +96,10 @@ function user_register_field_formatter_info() {
   return array(
     'toggling_registration_form' => array(
       'label' => t('Register and Unregister Form via ajax toggling'),
+      'field types' => array('registration'),
+    ),
+    'unregister_form' => array(
+      'label' => t('Unregister Form'),
       'field types' => array('registration'),
     ),
   );
@@ -158,6 +134,14 @@ function user_register_field_formatter_view($entity_type, $entity, $field, $inst
           $element[0] = drupal_get_form('registration_form', $registration);
         }
 
+        if ($registration && entity_access('delete', 'registration', $registration)) {
+          $registration = user_register_load_registration_by_user($entity_type, $entity_id, $user->uid);
+          $element[0] = drupal_get_form('user_register_unregister_ajax_form', $registration);
+        }
+        break;
+
+      case 'unregister_form':
+        $registration = user_register_load_registration_by_user($entity_type, $entity_id, $user->uid);
         if ($registration && entity_access('delete', 'registration', $registration)) {
           $registration = user_register_load_registration_by_user($entity_type, $entity_id, $user->uid);
           $element[0] = drupal_get_form('user_register_unregister_form', $registration);
@@ -229,10 +213,50 @@ function user_register_unregister_form($form, &$form_state, $registration) {
     ),
   );
 
-  $form['#prefix'] = '<div id="user-register-form-wrapper-' . $registration->entity_type . '-' . $registration->entity_id . '" class="unsubscribe">';
+  $form['#prefix'] = '<div class="unsubscribe">';
+  $form['#suffix'] = '</div>';
+
+  return $form;
+}
+
+/**
+ * User ajax unregister form.
+ *
+ * @param array $form
+ *   Renderable form array.
+ * @param array $form_state
+ *   Form state array.
+ * @param Registration $registration
+ *   Registration entity.
+ *
+ * @return array
+ *   Renderable form array.
+ */
+function user_register_unregister_ajax_form($form, &$form_state, $registration) {
+  if (!$registration) {
+    return $form;
+  }
+
+  $form['#submit'][] = 'user_register_unregister_form_submit';
+
+  $form['registration'] = array(
+    '#type' => 'value',
+    '#value' => $registration,
+  );
+
+  $form['actions']['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Unregister'),
+    '#attributes' => array(
+      'class' => array('btn-xs'),
+    ),
+  );
+
+  $wrapper_id = 'user-register-form-wrapper-' . $registration->entity_type . '-' . $registration->entity_id;
+  $form['#prefix'] = '<div id="' . $wrapper_id . '" class="unsubscribe">';
   $form['#suffix'] = '</div>';
   $form['actions']['submit']['#ajax'] = array(
-    'wrapper' => 'user-register-form-wrapper-' . $registration->entity_type . '-' . $registration->entity_id,
+    'wrapper' => $wrapper_id,
     'callback' => 'user_register_registration_form_reload',
   );
 
@@ -240,7 +264,7 @@ function user_register_unregister_form($form, &$form_state, $registration) {
 }
 
 /**
- * Submit callback for user_register_unregister_form form that unregister user.
+ * Submit callback for user_register_unregister_ajax_form that unregister user.
  *
  * @param array $form
  *   Renderable form array.

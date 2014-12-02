@@ -9,7 +9,7 @@
  * Implements hook_preprocess_views_view_table().
  */
 function mal_user_courses_preprocess_views_view_table(array &$vars) {
-  if ($vars['view']->name == 'my_courses') {
+  if ($vars['view']->name == 'my_courses' && $vars['view']->current_display == 'course_pane') {
     $processed_results = array();
     $processed_results_classes = array();
     $delta = 0;
@@ -18,9 +18,28 @@ function mal_user_courses_preprocess_views_view_table(array &$vars) {
       foreach (array('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun') as $day) {
         if ($result->{'field_data_field_course_periods_field_course_periods_' . $day} == 1) {
           $processed_result = $vars['rows'][$key];
+
+          // Populate data for sorting and intersections.
+          if (empty($result->field_field_course_date)) {
+            // Exception for continuous period type.
+            $processed_result['#raw_start_date'] = -1;
+            $processed_result['#raw_end_date'] = 99999999999999;
+          }
+          else {
+            $processed_result['#raw_start_date'] = $result->field_field_course_date[0]['raw']['value'];
+            $processed_result['#raw_end_date'] = $result->field_field_course_date[0]['raw']['value2'];
+          }
+          $processed_result['#raw_day'] = $day;
+          $processed_result['#raw_start_time'] = $result->field_data_field_course_periods_field_course_periods_value;
+          $processed_result['#raw_end_time'] = $result->field_data_field_course_periods_field_course_periods_value2;
+
           $rendered = $result->field_field_course_periods[0]['rendered'];
           $rendered = mal_user_courses_clean_days($rendered, $day);
           $processed_result['field_course_periods'] = theme('timefield_formatter', $rendered);
+
+          $rendered = $result->field_field_course_periods_1[0]['rendered'];
+          $rendered = mal_user_courses_clean_days($rendered, $day);
+          $processed_result['field_course_periods_1'] = theme('timefield_formatter', $rendered);
           $processed_results[] = $processed_result;
           $processed_results_classes[] = array();
           $delta++;
@@ -29,13 +48,72 @@ function mal_user_courses_preprocess_views_view_table(array &$vars) {
     }
 
     // @todo Implement sorting.
-    usort($processed_results, function (array $a, array $b) {
-      return $a > $b;
-    });
+    usort($processed_results, 'mal_user_courses_date_sort');
+
+    // Find intersections and remove sorter fields.
+    foreach ($processed_results as &$res) {
+      if (!empty($res['#overlap'])) {
+        $res['title'] .= '<i class="overlap">&nbsp;</i>';
+        unset($res['#overlap']);
+      }
+      unset($res['#raw_start_date']);
+      unset($res['#raw_end_date']);
+      unset($res['#raw_day']);
+      unset($res['#raw_start_time']);
+      unset($res['#raw_end_time']);
+    }
 
     $vars['rows'] = $processed_results;
     $vars['row_classes'] = $processed_results_classes;
   }
+}
+
+/**
+ * Sorter callback.
+ *
+ * @param array $a
+ *   First array of sorted values.
+ * @param array $b
+ *   Second array of sorted values.
+ *
+ * @return int
+ *   -1|0|+1 depending on sorted values.
+ */
+function mal_user_courses_date_sort(&$a, &$b) {
+  $ds1 = $a['#raw_start_date'];
+  $de1 = $a['#raw_end_date'];
+  $ds2 = $b['#raw_start_date'];
+  $de2 = $b['#raw_end_date'];
+  if ($ds1 == $ds2
+    || ($ds1 < $ds2 && $de1 > $ds2)
+    || ($ds2 < $ds1 && $de2 > $ds1)) {
+    $days = array(
+      'mon' => 0,
+      'tue' => 1,
+      'wed' => 2,
+      'thu' => 3,
+      'fri' => 4,
+      'sat' => 5,
+      'sun' => 6,
+    );
+    $day1 = $a['#raw_day'];
+    $day2 = $b['#raw_day'];
+    if ($day1 == $day2) {
+      $ts1 = $a['#raw_start_time'];
+      $te1 = $a['#raw_end_time'];
+      $ts2 = $b['#raw_start_time'];
+      $te2 = $b['#raw_end_time'];
+      if ($ts1 == $ts2
+        || ($ts1 < $ts2 && $te1 > $ts2)
+        || ($ts2 < $ts1 && $te2 > $ts1)) {
+        $a['#overlap'] = $b['#overlap'] = TRUE;
+        return 0;
+      }
+      return $ts1 > $ts2 ? 1 : -1;
+    }
+    return $days[$day1] > $days[$day2] ? 1 : -1;
+  }
+  return $ds1 > $ds2 ? 1 : -1;
 }
 
 /**
@@ -66,4 +144,116 @@ function mal_user_courses_clean_days(array $rendered, $day_to_keep) {
   $rendered['#time'] = $time;
 
   return $rendered;
+}
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function mal_user_courses_field_formatter_info() {
+  return array(
+    'muc_timefield_custom' => array(
+      'label' => t('Custom List'),
+      'field types' => array('timefield'),
+      'settings' => array(
+        'display_format' => array(
+          'day_of_week' => 'D',
+          'day_separator' => ' ',
+          'separator' => ':',
+          'period_separator' => '',
+          'period' => 'a',
+          'hour' => 'g',
+          'minute' => 'i',
+        ),
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_settings_form().
+ */
+function mal_user_courses_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+  $element = array();
+
+  if ($display['type'] == 'muc_timefield_custom') {
+    $element += _timefield_display_format_form('display_format', "Individual Time Display Settings", $settings);
+    if (!empty($element['display_format']['hour']['#options'])) {
+      $element['display_format']['hour']['#options'] = array('none' => t('None')) + $element['display_format']['hour']['#options'];
+    }
+    $element['display_format']['day_of_week'] = array(
+      '#type' => 'select',
+      '#title' => t('Day of week Format'),
+      '#options' => array(
+        'none' => t('None'),
+        'D' => t('Three letters'),
+        'l' => t('Full'),
+      ),
+      '#default_value' => $settings['display_format']['day_of_week'],
+      '#weight' => -50,
+    );
+    $element['display_format']['day_separator'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Day separator'),
+      '#default_value' => $settings['display_format']['day_separator'],
+      '#weight' => -45,
+    );
+  }
+
+  return $element;
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function mal_user_courses_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+
+  if (($display['type']) == 'muc_timefield_custom') {
+    $current_time = timefield_time_to_integer(date('g:ia', strtotime("now")));
+
+    return t('Current Format') . ': ' . timefield_integer_to_time($settings['display_format'], $current_time);
+  }
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function mal_user_courses_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+
+  $settings = $display['settings'];
+  $settings += $field['settings'];
+  $element = array();
+
+  switch ($display['type']) {
+    case 'muc_timefield_custom':
+      foreach ($items as $delta => $item) {
+
+        $element[$delta] = array(
+          '#theme' => array('timefield_formatter'),
+          '#time' => $item,
+          '#settings' => $settings,
+          '#format' => 'default',
+        );
+      }
+      break;
+  }
+
+  return $element;
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function mal_user_courses_preprocess_views_view_field(&$variables) {
+  if ($variables['view']->name == 'my_course_application_list'
+    && $variables['view']->current_display == 'course_pane'
+    && $variables['field']->real_field == 'field_course_application_period_value') {
+    if (!empty($variables['row']->field_field_course_application_period)
+      && empty($variables['row']->field_field_course_application_period[0]['raw']['value2'])) {
+      $variables['output'] .= ' - <span class="date-continuous">' . t('continuous') . '</span>';
+    }
+  }
 }

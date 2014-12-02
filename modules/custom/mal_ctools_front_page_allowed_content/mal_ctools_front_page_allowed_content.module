@@ -1,0 +1,33 @@
+<?php
+/**
+ * @file
+ * Hook and callback to limit allowed panes.
+ */
+
+/**
+ * Implements hook_ctools_content_subtype_alter().
+ */
+function mal_ctools_front_page_allowed_content_ctools_content_subtype_alter(&$subtype, $plugin) {
+  $args = arg();
+  // Check whether we are managing plugins for front page.
+  if (($args[0] == 'front_page') || ($args[0] == 'panels' && $args[2] == 'ipe' && ($cache_components = explode(':', $args[4])) && in_array('page-front', $cache_components))) {
+    $subtype['create content access'] = 'mal_ctools_front_page_allowed_content_filter';
+  }
+}
+
+/**
+ * Callback to filter plugins.
+ *
+ * @param array $plugin
+ *   Plugin info.
+ * @param array $subtype
+ *   Subtype info.
+ *
+ * @return bool
+ *   Whether to pass plugin for usage or not.
+ */
+function mal_ctools_front_page_allowed_content_filter($plugin, $subtype) {
+  $allowed_plugins = variable_get('mal_ctools_front_page_allowed_content', array('custom', 'global_pane_content_type'));
+
+  return in_array($plugin['name'], $allowed_plugins);
+}
