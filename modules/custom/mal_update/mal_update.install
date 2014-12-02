@@ -50,3 +50,15 @@ function mal_update_update_7003() {
   drush_invoke('drush_l10n_update', array());
   exec("drush fra -y", $output);
 }
+
+
+/**
+ * Enable features with Language settings, rules settings, some contrib modules.
+ */
+function mal_update_update_7004() {
+  $features = array(
+    'config_wysiwyg',
+  );
+
+  features_revert($features);
+}
