@@ -1,0 +1,77 @@
+# $Id$
+#
+# Swedish translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  mal_hint.admin.inc: n/a
+#  mal_hint.module: n/a
+#  mal_hint.info: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2014-12-02 14:57+0100\n"
+"PO-Revision-Date: 2014-12-02 14:57+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Swedish <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: mal_hint.admin.inc:35
+msgid "Items"
+msgstr "Poster"
+
+#: mal_hint.admin.inc:45
+msgid "Hint"
+msgstr "Antydan"
+
+#: mal_hint.admin.inc:58
+msgid "Selector"
+msgstr "Selector"
+
+#: mal_hint.admin.inc:59
+msgid "CSS selector to determine what element should receive this hint."
+msgstr "CSS-väljare att avgöra vad inslag bör få denna antydan."
+
+#: mal_hint.admin.inc:69
+msgid "Text"
+msgstr "Text"
+
+#: mal_hint.admin.inc:70
+msgid "Text to display."
+msgstr "Text att visa."
+
+#: mal_hint.admin.inc:78
+msgid "Add hint"
+msgstr "Lägg antydan"
+
+#: mal_hint.admin.inc:86
+msgid "Save"
+msgstr "Spara"
+
+#: mal_hint.module:14
+msgid "Administer hints"
+msgstr "Administrera tips"
+
+#: mal_hint.module:15
+msgid "Perform administration tasks for hints."
+msgstr "Utföra administrativa uppgifter för antydan."
+
+#: mal_hint.module:27
+msgid "Hint Settings"
+msgstr "Antydan Inställningar"
+
+#: mal_hint.module:28
+msgid "Configure hint settings."
+msgstr "Konfigurera antydan inställningar."
+
+#: mal_hint.info:0
+msgid "Mal Hint"
+msgstr "Mal Antydan"
+
+#: mal_hint.info:0
+msgid "Add hints by css selector."
+msgstr "Lägg antydan från css väljare."

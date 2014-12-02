@@ -51,7 +51,6 @@ function mal_update_update_7003() {
   exec("drush fra -y", $output);
 }
 
-
 /**
  * Enable features with Language settings, rules settings, some contrib modules.
  */
@@ -62,4 +61,11 @@ function mal_update_update_7004() {
   );
 
   features_revert($features);
+}
+
+/**
+ * Enable hints module.
+ */
+function mal_update_update_7005() {
+  module_enable('mal_hint');
 }

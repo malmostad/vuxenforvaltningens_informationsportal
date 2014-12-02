@@ -1,0 +1,4 @@
+name = Mal Hint
+description = Add hints by css selector.
+core = 7.x
+package = Propeople

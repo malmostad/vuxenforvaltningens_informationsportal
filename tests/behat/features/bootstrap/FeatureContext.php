@@ -391,4 +391,18 @@ class FeatureContext extends DrupalContext {
       'jQuery("#' . $id . '").trigger("keydown");'
     );
   }
+
+  /**
+   * @When /^I hover over the element "([^"]*)"$/
+   */
+  public function iHoverOverTheElement($selector) {
+    $session = $this->getSession();
+    $element = $session->getPage()->find('css', $selector);
+
+    if (NULL === $element) {
+      throw new \Exception(sprintf('Could not evaluate CSS selector: "%s"', $selector));
+    }
+
+    $element->mouseOver();
+  }
 }
