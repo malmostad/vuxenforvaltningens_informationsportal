@@ -62,4 +62,3 @@ msgstr "Användar tecknade kurser översiktssida anpassningar."
 #: mal_user_courses.info:0
 msgid "Propeople"
 msgstr "Propeople"
-

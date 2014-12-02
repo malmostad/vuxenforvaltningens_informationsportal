@@ -4,7 +4,7 @@ Feature: Front page in-place-editor
   As any top malmo admin and administrator
 
   @api @javascript
-  Scenario Outline: Other underlying roles not see in-place editor
+  Scenario: Other underlying roles not see in-place editor
   Given I am logged in as a user with the "administrator" role
     And I am on the homepage
     And I press element "a:contains('Customize this page')"
@@ -13,18 +13,14 @@ Feature: Front page in-place-editor
     Then I wait for AJAX to finish
     Then I should see the text "New custom content"
     And I should see the text "Global pane"
-    And I should not see the text "<pane_types>"
-
-  Examples:
-  |  pane_types       |
-  |  Activity         |
-  |  Facet API        |
-  |  Menus            |
-  |  Mini panel       |
-  |  Miscellaneous    |
-  |  Page elements    |
-  |  Propeople        |
-  |  Search API Sorts |
-  |  View panes       |
-  |  Views            |
-  |  Widgets          |
+    And I should not see the text "Activity"
+    And I should not see the text "FacetAPI"
+    And I should not see the text "Menus"
+    And I should not see the text "Minipanel"
+    And I should not see the text "Miscellaneous"
+    And I should not see the text "Pageelements"
+    And I should not see the text "Propeople"
+    And I should not see the text "SearchAPISorts"
+    And I should not see the text "Viewpanes"
+    And I should not see the text "Views"
+    And I should not see the text "Widgets"

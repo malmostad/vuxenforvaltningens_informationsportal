@@ -3,19 +3,17 @@
  * @file
  * Template for a one column panel layout.
  *
- * This template provides a two column panel display layout, with
- * additional areas for the top and the bottom.
+ * This template provides a one column panel display layout, with
+ * areas for the header and tabs.
  *
  * Variables:
  * - $id: An optional CSS id to use for the layout.
  * - $content: An array of content, each item in the array is keyed to one
  *   panel of the layout. This layout supports the following sections:
- *   - $content['region-one']: Content in the header.
- *   - $content['region-two']: Content in the full width content.
- *   - $content['region-three']: Content in the top column.
- *   - $content['region-four']: Content in the middle column.
- *   - $content['region-five']: Content in the bottom column.
- *   - $content['region-six']: Content in the footer.
+ *   - $content['region-head']: Content in the header.
+ *   - $content['tab-navigation']: Place for navigation content.
+ *   - $content['tab-first']: First optional tab.
+ *   - $content['tab-second']: Second optional tab.
  */
 
 ?>
@@ -27,7 +25,7 @@
     </div>
   <?php endif; ?>
   <div class="tabs">
-    <?php if (TRUE): ?>
+    <?php if (!empty($content['tab-navigation'])): ?>
       <div class="tab-navigation">
         <?php print $content['tab-navigation']; ?>
       </div>
