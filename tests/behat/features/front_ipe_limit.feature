@@ -2,9 +2,10 @@
 Feature: Front page in-place-editor
   In order to use ipe comfortable
   As any top malmo admin and administrator
+  I should not see redundant page content panes
 
   @api @javascript
-  Scenario: Other underlying roles not see in-place editor
+  Scenario: Administrators see only required page content panes
   Given I am logged in as a user with the "administrator" role
     And I am on the homepage
     And I press element "a:contains('Customize this page')"

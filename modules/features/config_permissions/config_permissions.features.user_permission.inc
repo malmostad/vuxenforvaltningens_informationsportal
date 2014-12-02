@@ -568,6 +568,16 @@ function config_permissions_user_default_permissions() {
     'module' => 'user',
   );
 
+  // Exported permission: 'administer mal hint'.
+  $permissions['administer mal hint'] = array(
+    'name' => 'administer mal hint',
+    'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'mal_hint',
+  );
+
   // Exported permission: 'change field_course_school field'.
   $permissions['change field_course_school field'] = array(
     'name' => 'change field_course_school field',

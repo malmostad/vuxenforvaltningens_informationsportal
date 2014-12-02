@@ -50,3 +50,10 @@ function mal_update_update_7003() {
   drush_invoke('drush_l10n_update', array());
   exec("drush fra -y", $output);
 }
+
+/**
+ * Enable hints module.
+ */
+function mal_update_update_7005() {
+  module_enable('mal_hint');
+}

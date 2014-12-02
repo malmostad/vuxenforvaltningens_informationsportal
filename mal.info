@@ -103,6 +103,7 @@ dependencies[] = mal_user_custom_access
 dependencies[] = mal_update
 dependencies[] = mal_ctools_front_page_allowed_content
 dependencies[] = mal_course_administrative
+dependencies[] = mal_hint
 ; Registration
 dependencies[] = registration
 dependencies[] = registration_views
