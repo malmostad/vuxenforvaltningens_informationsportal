@@ -90,6 +90,7 @@ dependencies[] = pps
 dependencies[] = mal_ctools_global_pane
 dependencies[] = mal_ctools_separate_facet
 dependencies[] = mal_ctools_contact_box
+dependencies[] = mal_ctools_global_banner
 dependencies[] = mal_ctools_global_search
 dependencies[] = mal_ctools_search_date_filter
 dependencies[] = mal_generate_content
