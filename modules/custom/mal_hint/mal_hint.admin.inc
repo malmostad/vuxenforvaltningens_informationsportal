@@ -26,7 +26,7 @@ function mal_hint_management_form($form, &$form_state) {
   $form['hints'] = array(
     '#type' => 'container',
     '#attributes' => array(
-      'id' => array('hint-list')
+      'id' => array('hint-list'),
     ),
     '#tree' => TRUE,
   );

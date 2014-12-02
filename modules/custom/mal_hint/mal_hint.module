@@ -10,7 +10,7 @@
  */
 function mal_hint_permission() {
   return array(
-    'administer mal hint' =>  array(
+    'administer mal hint' => array(
       'title' => t('Administer hints'),
       'description' => t('Perform administration tasks for hints.'),
     ),
@@ -40,10 +40,10 @@ function mal_hint_menu() {
  * Implements hook_init().
  */
 function mal_hint_init() {
-  if ($hints = variable_get('mal_hint_list', FALSE)) {
+  if (($hints = variable_get('mal_hint_list', FALSE)) && !empty($hints)) {
     drupal_add_js(drupal_get_path('module', 'mal_hint') . '/js/mal_hint.js');
     drupal_add_js(array(
-      'mal_hint' => $hints,
+      'malHint' => $hints,
     ), 'setting');
   }
 }

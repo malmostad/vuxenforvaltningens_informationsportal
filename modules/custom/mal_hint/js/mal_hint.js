@@ -1,13 +1,13 @@
 (function ($) {
-  Drupal.behaviors.mal_hint = {
+  Drupal.behaviors.malHint = {
     attach: function (context, settings) {
-      if (typeof($.prototype.tooltip) != 'undefined' && typeof(settings.mal_hint) != 'undefined' && settings.mal_hint.length) {
-        for (var arg in settings.mal_hint) {
+      if (typeof($.prototype.tooltip) != 'undefined' && typeof(settings.malHint) != 'undefined' && settings.malHint.length) {
+        for (var arg in settings.malHint) {
           var hint = $('<i>&nbsp;</i>').addClass('hint').tooltip({
-            title: settings.mal_hint[arg].hint,
+            title: settings.malHint[arg].hint,
             placement: 'auto'
           });
-          $(settings.mal_hint[arg].selector, context).prepend(hint);
+          $(settings.malHint[arg].selector, context).prepend(hint);
         }
       }
     }
