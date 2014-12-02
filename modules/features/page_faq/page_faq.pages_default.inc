@@ -95,15 +95,19 @@ function page_faq_default_page_manager_pages() {
     $pane->configuration = array(
       'admin_title' => 'Faq desc',
       'title' => '',
-      'body' => 'FAQ desc Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem. Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.',
-      'format' => 'plain_text',
+      'body' => '<p>FAQ desc Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem. Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.</p>',
+      'format' => 'full_html',
       'substitute' => TRUE,
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'faq-description',
+      'template_suggestion' => 'custom',
+    );
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
