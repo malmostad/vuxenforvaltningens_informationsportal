@@ -1,6 +1,6 @@
 (function($) {
 
-  Drupal.behaviors.ctools_contact_box = {
+  Drupal.behaviors.malCtoolsContactBox = {
     attach: function(context) {
       $(".map-autocomplete").autocomplete({
         source: function(request, response) {
