@@ -58,6 +58,7 @@ function mal_update_update_7003() {
 function mal_update_update_7004() {
   $features = array(
     'config_wysiwyg',
+    'config_facet',
   );
 
   features_revert($features);
