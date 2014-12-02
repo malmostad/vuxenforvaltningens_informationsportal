@@ -6,7 +6,7 @@
  */
 
 /**
- * Implements hook_ctools_content_types()
+ * Implements hook_ctools_content_types().
  */
 function mal_ctools_global_banner_banner_pane_ctools_content_types() {
   return array(
@@ -110,7 +110,7 @@ function mal_ctools_global_banner_banner_pane_edit_form_submit($form, &$form_sta
     $fid = $form_state['values']['image'];
     // User, whom file usage would be assigned to.
     global $user;
-    // File to process
+    // File to process.
     $file = file_load($fid);
     // Update status if it's needed.
     if ($file->status != FILE_STATUS_PERMANENT) {
