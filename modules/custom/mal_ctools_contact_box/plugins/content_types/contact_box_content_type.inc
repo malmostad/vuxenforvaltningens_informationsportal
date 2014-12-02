@@ -50,7 +50,7 @@ function contact_box_render($subtype, $conf, $args, $context) {
     'postal_code' => $wrapper->field_school_postal_code->value() ,
     'locality' => $wrapper->field_school_locality->value(),
     'street_address' => $wrapper->field_school_street_address->value(),
-    'maps_link' => $wrapper->field_school_maps_link->value(),
+    'maps_link' => render($wrapper->field_school_maps_link->value()),
   );
   $block = new stdClass();
   $block->content = theme('contact_box', $conf);
