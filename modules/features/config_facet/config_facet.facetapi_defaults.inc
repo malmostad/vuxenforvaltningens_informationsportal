@@ -176,7 +176,7 @@ function config_facet_facetapi_default_facet_settings() {
     'individual_parent' => 0,
     'query_type' => 'term',
     'limit_active_items' => 0,
-    'default_true' => TRUE,
+    'default_true' => '1',
     'facet_search_ids' => array(),
     'exclude' => 0,
   );
@@ -985,11 +985,37 @@ function config_facet_facetapi_default_facet_settings() {
   $facet->settings = array(
     'weight' => 0,
     'widget' => 'facetapi_ranges',
-    'filters' => array(),
+    'filters' => array(
+      'active_items' => array(
+        'status' => 0,
+        'weight' => '-50',
+      ),
+      'exclude_items' => array(
+        'status' => 0,
+        'weight' => '-49',
+      ),
+      'rewrite_items' => array(
+        'status' => 1,
+        'weight' => '-48',
+      ),
+      'narrow_results' => array(
+        'status' => 0,
+        'weight' => '-47',
+      ),
+      'show_if_minimum_items' => array(
+        'status' => 0,
+        'weight' => '-46',
+      ),
+      'deepest_level_items' => array(
+        'status' => 0,
+        'weight' => '-45',
+      ),
+    ),
     'active_sorts' => array(
       'active' => 'active',
       'count' => 'count',
       'display' => 'display',
+      'weeks' => 0,
       'natural' => 0,
       'indexed' => 0,
     ),
@@ -997,6 +1023,7 @@ function config_facet_facetapi_default_facet_settings() {
       'active' => '-50',
       'count' => '-49',
       'display' => '-48',
+      'weeks' => '0',
       'natural' => '0',
       'indexed' => '0',
     ),
@@ -1004,6 +1031,7 @@ function config_facet_facetapi_default_facet_settings() {
       'active' => '3',
       'count' => '3',
       'display' => '4',
+      'weeks' => '4',
       'natural' => '4',
       'indexed' => '4',
     ),
@@ -1017,11 +1045,16 @@ function config_facet_facetapi_default_facet_settings() {
     'show_expanded' => 0,
     'ranges' => '21600-43200|Morning
 43200-61200|Afternoon
-61200-86400|Evening',
+61200-86400|Evening
+NULL-NULL|Flex',
     'empty_text' => array(
       'value' => '',
       'format' => 'filtered_html',
     ),
+    'exclude' => '',
+    'regex' => 0,
+    'show_minimum_items' => 2,
+    'rewrite_items' => 1,
   );
   $export['search_api@node:block:field_course_periods:value_formatted'] = $facet;
 

@@ -13,3 +13,17 @@ function mal_ctools_contact_box_ctools_plugin_directory($owner, $plugin_type) {
     return 'plugins/content_types';
   }
 }
+
+
+/**
+ * Implements hook_field_widget_form_alter().
+ */
+function mal_ctools_contact_box_field_widget_form_alter(&$element, &$form_state, $context) {
+  if (($context['field']['type'] == 'text') && ($element['#field_name'] == 'field_school_maps_link')) {
+    $element['value']['#attached']['js'] = array(
+      drupal_get_path('module', 'mal_ctools_contact_box') . '/js/contact_box.js',
+    );
+
+    $element['value']['#attributes']['class'][] = 'map-autocomplete';
+  }
+}
