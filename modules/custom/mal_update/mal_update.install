@@ -102,6 +102,7 @@ function mal_update_update_7007() {
  */
 function mal_update_update_7008() {
   module_enable('mal_ctools_subtitle');
+  module_enable('view_sidebar_courses');
   $features = array(
     'page_main_layout',
   );

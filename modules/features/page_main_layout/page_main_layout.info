@@ -6,6 +6,7 @@ project = page_main_layout
 dependencies[] = ctools
 dependencies[] = mal_ctools_global_banner
 dependencies[] = mal_ctools_subtitle
+dependencies[] = view_sidebar_courses
 dependencies[] = page_manager
 features[ctools][] = page_manager:pages_default:1
 features[features_api][] = api:2

@@ -173,3 +173,4 @@ dependencies[] = menu_footer_visit
 dependencies[] = menu_user
 dependencies[] = content_type_user
 dependencies[] = config_breadrumbs
+dependencies[] = view_sidebar_courses

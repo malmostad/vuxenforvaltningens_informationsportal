@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the View sidebar courses feature.
+ */
+
+include_once 'view_sidebar_courses.features.inc';
