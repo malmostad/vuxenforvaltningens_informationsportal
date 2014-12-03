@@ -2,7 +2,6 @@ language: php
 
 php:
   - 5.4
-  - hhvm
 
 services: memcache
 
@@ -33,6 +32,9 @@ before_install:
 install:
   - sudo apt-get update > /dev/null
   - "mysql -e 'create database drupal;'"
+
+  - sudo apt-get install php-pear
+  - sudo pecl install memcache
 
   # Install compass
   - gem install sass -v 3.2.19
