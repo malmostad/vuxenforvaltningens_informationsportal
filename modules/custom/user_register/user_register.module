@@ -25,7 +25,25 @@ function user_register_element_info_alter(&$type) {
     if ($user_process_key !== FALSE) {
       unset($type['password_confirm']['#process'][$user_process_key]);
     }
+    $type['password_confirm']['#process'][] = 'user_register_process_password_confirm';
   }
+}
+
+/**
+ * Form element process handler for tooltip on password fields.
+ *
+ * @param array $element
+ *   Form API element of password_confirm type.
+ *
+ * @return array
+ *   Modified element.
+ */
+function user_register_process_password_confirm($element) {
+  $element['pass1']['#description']
+    = $element['pass2']['#description']
+      = $element['#description'];
+
+  return $element;
 }
 
 /**

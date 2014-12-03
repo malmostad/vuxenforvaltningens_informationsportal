@@ -11,7 +11,7 @@ base theme = bootstrap
 stylesheets[screen][] = assets/stylesheets/malmo.css
 stylesheets[screen][] = assets/stylesheets/ie.css
 
-; Javascript ---------------------------------------------------------------
+; Javascript -----------------------------------------------------------------
 ; Add your awesome javascript in the below file.
 ; scripts[] = assets/javascripts/init.js
 scripts[] = javascripts/init.js
@@ -22,3 +22,6 @@ scripts[] = javascripts/init.js
 ; Panels layouts. You can place multiple layouts under the "layouts" folder.
 plugins[panels][layouts] = plugins/layouts
 settings[bootstrap_breadcrumb_title] = 0
+
+; Tooltips -------------------------------------------------------------------
+settings[bootstrap_tooltip_descriptions_length] = 400
