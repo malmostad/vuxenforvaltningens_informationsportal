@@ -62,5 +62,3 @@ Feature: Search the site
     Then I should see the text "Test course"
     Then I should see the text "Mon Tue 00:05 - 12:15"
     Then I should see the text "The course is searchable from"
-    Then I should see the text "20130205"
-    Then I should see the text "(\d{8})"
