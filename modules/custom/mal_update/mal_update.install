@@ -86,3 +86,13 @@ function mal_update_update_7006() {
   );
   features_revert($features);
 }
+
+/**
+ * Increase tooltip trigger bound for descriptions.
+ */
+function mal_update_update_7007() {
+  if ($settings = variable_get('theme_city_of_malmo_settings', FALSE)) {
+    $settings['bootstrap_tooltip_descriptions_length'] = 400;
+    variable_set('theme_city_of_malmo_settings', $settings);
+  }
+}
