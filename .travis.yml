@@ -2,6 +2,7 @@ language: php
 
 php:
   - 5.4
+  - hhvm
 
 services: memcache
 
@@ -28,7 +29,6 @@ before_install:
   # Always update Composer to the recent version, otherwise the drush
   # installation fails.
   - composer selfupdate
-  - sudo pecl install memcahce
 
 install:
   - sudo apt-get update > /dev/null
