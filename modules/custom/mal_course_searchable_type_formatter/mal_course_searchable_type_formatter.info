@@ -1,0 +1,4 @@
+name = Mal course searchable type formatter
+description = Add custom formatter for searchablge type field
+core = 7.x
+package = Propeople

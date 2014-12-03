@@ -101,6 +101,29 @@ function config_taxonomy_taxonomy_default_vocabularies() {
         ),
       ),
     ),
+    'course_searchable_type' => array(
+      'name' => 'Course searchable type',
+      'machine_name' => 'course_searchable_type',
+      'description' => '',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+      'rdf_mapping' => array(
+        'rdftype' => array(
+          0 => 'skos:ConceptScheme',
+        ),
+        'name' => array(
+          'predicates' => array(
+            0 => 'dc:title',
+          ),
+        ),
+        'description' => array(
+          'predicates' => array(
+            0 => 'rdfs:comment',
+          ),
+        ),
+      ),
+    ),
     'course_subject_areas' => array(
       'name' => 'Course subject areas',
       'machine_name' => 'course_subject_areas',

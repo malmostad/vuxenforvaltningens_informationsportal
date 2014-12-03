@@ -19,6 +19,15 @@ function mal_search_entity_property_info_alter(&$info) {
     'getter callback' => 'mal_search_property_duration_days_getter_callback',
     // 'schema field' => 'language',
   );
+  $info['node']['properties']['global_searchable'] = array(
+    'type' => 'boolean',
+    'label' => t('Global searchable'),
+    'schema field' => 'field_course_searchable_type',
+    'field' => TRUE,
+    'sanitized' => TRUE,
+    'computed' => TRUE,
+    'getter callback' => 'mal_search_property_global_searchable_getter_callback',
+  );
 }
 
 /**
@@ -66,6 +75,17 @@ function mal_search_convert_days($date_string) {
       ));
 }
 
+/**
+ * Getter callback for global_searchable field.
+ */
+function mal_search_property_global_searchable_getter_callback($item, array $options, $name, $type, $info) {
+  foreach (field_get_items($type, $item, 'field_course_searchable_type', $options['language']) as $delta => $term) {
+    return in_array($term['tid'], array(
+      variable_get('mal_generate_content_searchable_type_0', 74),
+      variable_get('mal_generate_content_searchable_type_1', 75),
+    ));
+  }
+}
 /**
  * Getter callback for time field.
  *
@@ -120,9 +140,19 @@ function mal_search_search_api_views_query_alter(view &$view, SearchApiViewsQuer
  * Capitalizes the first letter.
  */
 function mal_search_facet_items_alter(&$build, &$settings) {
-  if (($settings->facet == "duration_days")) {
+  if ($settings->facet == "duration_days") {
     foreach ($build as $key => $item) {
       $build[$key]["#markup"] = drupal_ucfirst($item["#markup"]);
+    }
+  }
+  if ($settings->facet == "global_searchable") {
+    foreach ($build as $key => $item) {
+      if ($item['#indexed_value'] == 0) {
+        unset($build[$key]);
+      }
+      if ($item['#indexed_value'] == 1) {
+        $build[$key]['#markup'] = t('Show only searchable courses');
+      }
     }
   }
 }
