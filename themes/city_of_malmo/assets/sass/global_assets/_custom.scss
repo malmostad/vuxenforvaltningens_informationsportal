@@ -13,6 +13,9 @@ html {
 /* Style header for logged in users */
 .logged-in {
   padding-top: 73px !important;
+  &.panels-ipe {
+    padding-top: 36px !important;
+  }
   #admin-menu {
     z-index: 1001;
   }
@@ -720,13 +723,21 @@ footer.bigfoot {
 /* --------CLOSE FOOTER BOTTOM---------  */
 
 /*----------FAQ----------*/
+.faq-description {
+  margin: 24px 0 20px;
+  p {
+    font-size: 16px;
+    font-family: $OpenSans;
+    font-weight: bold;
+  }
+}
 .faq-list-questions {
-  & ul {
+  ul {
     list-style: none;
     margin: 0;
     padding: 0;
   }
-  & .question {
+  .question {
     position: relative;
     @extend h2.body-copy;
     @extend %main-button;
@@ -739,16 +750,19 @@ footer.bigfoot {
       @include center-vertical(18);
     }
   }
-  & .answer {
+  .answer {
     height: 0;
     overflow: hidden;
   }
-  & .icon-open-close .question {
-    @include before_content() {
-      background-position: -1px -25px;
+  .icon-open-close {
+    margin-bottom: 24px;
+    .question {
+      @include before_content() {
+        background-position: -1px -25px;
+      }
     }
   }
-  & .open-close {
+  .open-close {
    height: auto;
   }
 }
