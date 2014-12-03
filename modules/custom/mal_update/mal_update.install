@@ -108,3 +108,20 @@ function mal_update_update_7008() {
   );
   features_revert($features);
 }
+
+/**
+ * Add cache configuration.
+ */
+function mal_update_update_7010() {
+  $settings = array(
+    'cache_backends' => array(
+      drupal_get_path('module', 'memcache') . '/memcache.inc',
+      drupal_get_path('module', 'memcache') . '/varnish.cache.inc',
+    ),
+    'cache_default_class' => 'MemCacheDrupal',
+    'cache_class_cache_form' => 'DrupalDatabaseCache',
+    'cache_class_cache_page' => 'VarnishCache',
+    'page_cache_invoke_hooks' => FALSE,
+  );
+  drupal_rewrite_settings($settings);
+}

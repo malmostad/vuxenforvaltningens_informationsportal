@@ -306,7 +306,7 @@ function page_main_layout_default_page_manager_handlers() {
       'link' => '',
       'override_title' => '',
       'override_title_text' => '',
-      'image' => '1',
+      'image' => variable_get('page_main_layout_banner_image_fid'),
     );
     $pane->cache = array();
     $pane->style = array(

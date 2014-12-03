@@ -126,6 +126,16 @@ dependencies[] = wysiwyg
 ; Views
 dependencies[] = views
 dependencies[] = views_ui
+; Performance
+dependencies[] = varnish
+dependencies[] = memcache
+dependencies[] = advagg
+dependencies[] = advagg_bundler
+dependencies[] = advagg_js_compress
+dependencies[] = advagg_css_compress
+dependencies[] = entity_modified
+dependencies[] = render_cache
+dependencies[] = entitycache
 ; Features
 dependencies[] = features
 dependencies[] = config_facet
@@ -174,3 +184,4 @@ dependencies[] = menu_user
 dependencies[] = content_type_user
 dependencies[] = config_breadrumbs
 dependencies[] = view_sidebar_courses
+dependencies[] = config_advagg
