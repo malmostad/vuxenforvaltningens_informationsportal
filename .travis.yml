@@ -3,8 +3,11 @@ language: php
 php:
   - 5.4
 
+services: memcache
+
 env:
   global:
+    - MEMCACHED__HOST=localhost
     - PHPCS_VERSION='1.5.5'
     - CODER_VERSION='dev-7.x-2.x'
 
@@ -25,6 +28,7 @@ before_install:
   # Always update Composer to the recent version, otherwise the drush
   # installation fails.
   - composer selfupdate
+  - sudo pecl install memcahce
 
 install:
   - sudo apt-get update > /dev/null
