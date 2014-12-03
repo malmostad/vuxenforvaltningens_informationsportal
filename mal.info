@@ -93,6 +93,7 @@ dependencies[] = mal_ctools_contact_box
 dependencies[] = mal_ctools_global_banner
 dependencies[] = mal_ctools_global_search
 dependencies[] = mal_ctools_search_date_filter
+dependencies[] = mal_ctools_subtitle
 dependencies[] = mal_generate_content
 dependencies[] = mal_generate_users
 dependencies[] = mal_search
