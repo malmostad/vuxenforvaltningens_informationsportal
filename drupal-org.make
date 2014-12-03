@@ -171,6 +171,24 @@ projects[token][subdir] = "contrib"
 projects[auto_nodetitle][version] = "1.0"
 projects[auto_nodetitle][subdir] = "contrib"
 
+projects[varnish][version] = "1.0"
+projects[varnish][subdir] = "contrib"
+
+projects[memcache][version] = "7.x-1.3"
+projects[memcache][subdir] = "contrib"
+
+projects[advagg][version] = "7.x-2.7"
+projects[advagg][subdir] = "contrib"
+
+projects[entity_modified][version] = "7.x-1.2"
+projects[entity_modified][subdir] = "contrib"
+
+projects[render_cache][version] = "7.x-1.0"
+projects[render_cache][subdir] = "contrib"
+
+projects[entitycache][version] = "7.x-1.2"
+projects[entitycache][subdir] = "contrib"
+
 ; +++++ Themes +++++
 
 ; bootstrap
