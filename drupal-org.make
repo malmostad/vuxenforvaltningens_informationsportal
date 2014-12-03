@@ -171,7 +171,7 @@ projects[token][subdir] = "contrib"
 projects[auto_nodetitle][version] = "1.0"
 projects[auto_nodetitle][subdir] = "contrib"
 
-projects[varnish][version] = "1.0"
+projects[varnish][version] = "7.x-1.0-beta3"
 projects[varnish][subdir] = "contrib"
 
 projects[memcache][version] = "7.x-1.3"
