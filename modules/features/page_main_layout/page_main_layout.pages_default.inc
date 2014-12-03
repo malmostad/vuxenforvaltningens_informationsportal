@@ -41,6 +41,9 @@ function page_main_layout_default_page_manager_handlers() {
       'region-four' => NULL,
       'region-five' => NULL,
     ),
+    'region-four' => array(
+      'style' => 'naked',
+    ),
   );
   $display->cache = array();
   $display->title = '';
@@ -92,15 +95,18 @@ function page_main_layout_default_page_manager_handlers() {
     $display->content['new-e8c840e5-c7ed-4d67-98a3-c20e67fa8ff0'] = $pane;
     $display->panels['region-four'][0] = 'new-e8c840e5-c7ed-4d67-98a3-c20e67fa8ff0';
     $pane = new stdClass();
-    $pane->pid = 'new-515be1a3-6af5-4da1-b336-2f23dc97f3a4';
+    $pane->pid = 'new-7ae6f295-6366-4502-8cc2-320f68aa55dd';
     $pane->panel = 'region-four';
-    $pane->type = 'block';
-    $pane->subtype = 'system-user-menu';
+    $pane->type = 'subtitle_pane';
+    $pane->subtype = 'subtitle_pane';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'override_title' => 1,
-      'override_title_text' => 'Min planering',
+      'override_title' => 0,
+      'override_title_text' => '',
+      'title' => 'Min planering',
+      'title_tag' => 'h2',
+      'title_class' => 'my-planning-title pane-title',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -110,9 +116,53 @@ function page_main_layout_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
+    $pane->uuid = '7ae6f295-6366-4502-8cc2-320f68aa55dd';
+    $display->content['new-7ae6f295-6366-4502-8cc2-320f68aa55dd'] = $pane;
+    $display->panels['region-four'][1] = 'new-7ae6f295-6366-4502-8cc2-320f68aa55dd';
+    $pane = new stdClass();
+    $pane->pid = 'new-b4732ab1-e208-4c74-99cc-b2c8208926e1';
+    $pane->panel = 'region-four';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'sidebar_courses-course_menu_pane';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $pane->uuid = 'b4732ab1-e208-4c74-99cc-b2c8208926e1';
+    $display->content['new-b4732ab1-e208-4c74-99cc-b2c8208926e1'] = $pane;
+    $display->panels['region-four'][2] = 'new-b4732ab1-e208-4c74-99cc-b2c8208926e1';
+    $pane = new stdClass();
+    $pane->pid = 'new-515be1a3-6af5-4da1-b336-2f23dc97f3a4';
+    $pane->panel = 'region-four';
+    $pane->type = 'block';
+    $pane->subtype = 'system-user-menu';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
     $pane->uuid = '515be1a3-6af5-4da1-b336-2f23dc97f3a4';
     $display->content['new-515be1a3-6af5-4da1-b336-2f23dc97f3a4'] = $pane;
-    $display->panels['region-four'][1] = 'new-515be1a3-6af5-4da1-b336-2f23dc97f3a4';
+    $display->panels['region-four'][3] = 'new-515be1a3-6af5-4da1-b336-2f23dc97f3a4';
     $pane = new stdClass();
     $pane->pid = 'new-db383758-486c-45d6-871c-69be35f14b5b';
     $pane->panel = 'region-one';
@@ -239,7 +289,15 @@ function page_main_layout_default_page_manager_handlers() {
     $pane->type = 'banner_pane';
     $pane->subtype = 'banner_pane';
     $pane->shown = TRUE;
-    $pane->access = array();
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'front',
+          'settings' => NULL,
+          'not' => FALSE,
+        ),
+      ),
+    );
     $pane->configuration = array(
       'banner_text' => array(
         'value' => '',
@@ -248,7 +306,7 @@ function page_main_layout_default_page_manager_handlers() {
       'link' => '',
       'override_title' => '',
       'override_title_text' => '',
-      'image' => variable_get('page_main_layout_banner_image_fid'),
+      'image' => '1',
     );
     $pane->cache = array();
     $pane->style = array(

@@ -96,3 +96,15 @@ function mal_update_update_7007() {
     variable_set('theme_city_of_malmo_settings', $settings);
   }
 }
+
+/**
+ * Enable subtitle pane module.
+ */
+function mal_update_update_7008() {
+  module_enable('mal_ctools_subtitle');
+  module_enable('view_sidebar_courses');
+  $features = array(
+    'page_main_layout',
+  );
+  features_revert($features);
+}
