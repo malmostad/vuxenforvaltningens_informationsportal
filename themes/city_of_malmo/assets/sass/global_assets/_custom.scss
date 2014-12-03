@@ -1102,7 +1102,8 @@ footer.bigfoot {
 
 /* -------- Table ---------- */
 .view-search,
-.node-course-packages {
+.node-course-packages,
+.tabs {
   table {
     margin-bottom: 10px;
     max-width: 628px;
@@ -1114,6 +1115,63 @@ footer.bigfoot {
     border: 1px solid #dedede !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
+  }
+}
+.tabs {
+  table {
+    margin-bottom: 16px;
+    max-width: 100%;
+    .btn {
+      background: none;
+      border: none;
+      margin: 0;
+      min-width: 0;
+      padding: 0 25px 0 0;
+      &:hover {
+        background: none;
+      }
+      &:before {
+        background: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cGF0aCBmaWxsPSIjNTU1NTU1IiBkPSJNMjE4LjU5MywzNy40ODFjMTIuNDgyLDEyLjQ4MywyMS44MjgsMjYuNiwyOC4wMzcsNDIuMjg2YzYuMjA4LDE1LjcxOCw5LjI4LDMxLjc2Myw5LjI4LDQ4LjIzMyBjMCwxNi40MzgtMy4wNzIsMzIuNTE1LTkuMjgsNDguMjMyYy02LjIwOSwxNS42ODYtMTUuNTU1LDI5Ljc3LTI4LjAzNyw0Mi4yODZjLTEyLjQ4MywxMi40ODMtMjYuNjAxLDIxLjg2MS00Mi4zNTIsMjguMTA0IGMtMTUuNzY4LDYuMjQxLTMxLjg0NSw5LjM3OC00OC4yMTcsOS4zNzhjLTE2LjQwNCwwLTMyLjQ4MS0zLjEzNy00OC4yMzMtOS4zNzhjLTE1Ljc1LTYuMjQyLTI5Ljg2OC0xNS42Mi00Mi4zODMtMjguMTA0IGMtMTIuNDgzLTEyLjUxNy0yMS44MjktMjYuNjAxLTI4LjAzOC00Mi4yODZDMy4xOTQsMTYwLjUxNSwwLjA5LDE0NC40MzgsMC4wOSwxMjhjMC0xNi40NywzLjEzNy0zMi41NDcsOS4zNzgtNDguMjk4IGM2LjI0Mi0xNS43NTEsMTUuNTU1LTI5LjgwMiwyNy45NC00Mi4yMkM0OS45MjQsMjQuOTk5LDY0LjA0MSwxNS42Miw3OS43OTIsOS4zNzlDOTUuNTQzLDMuMTA0LDExMS42MjEsMCwxMjguMDI0LDAgYzE2LjM3MiwwLDMyLjQ0OSwzLjEwNCw0OC4yMTcsOS4zNzlDMTkxLjk5MiwxNS42MiwyMDYuMTA5LDI0Ljk5OSwyMTguNTkzLDM3LjQ4MXogTTE5Mi45NzIsODkuMjQ0IGMyLjQxOS0yLjQ4NCwyLjQxOS00Ljk2NywwLTcuNTQ5bC0xOC43NTYtMTguMzk4Yy0yLjY4LTIuNjgtNS4xNjUtMi42OC03LjUxNywwbC0zOC45MzYsMzkuMDgzTDkyLjIwOSw2Ni45NTggYy0xLjA3OC0xLjA0Ni0yLjI4Ny0xLjYwMi0zLjY5Mi0xLjYwMmMtMS4zNzMsMC0yLjY4LDAuNTU2LTMuODU2LDEuNjAyTDY3LjA0Nyw4NS4wNjFjLTIuNjgsMi40ODMtMi42OCw0Ljk2NywwLDcuNTE2IGwzNS4wOTYsMzUuMDk2bC0zOC43NTYsMzkuMDgzYy0xLjA3OSwxLjA3OS0xLjYzNCwyLjI4Ny0xLjYzNCwzLjY5MnMwLjU1NSwyLjY4MSwxLjYzNCwzLjgyNGwxOC4zOTgsMTguNTk0IGMxLjA3OSwxLjA3OCwyLjMyLDEuNjM0LDMuNzU4LDEuNjk4YzEuNDcxLDAuMDMzLDIuNzEyLTAuNTIxLDMuNzkxLTEuNjk4bDM5LjA4My0zOC45MmwzNS4wOCwzNS40MjMgYzEuMDQ3LDEuMDQ2LDIuMjg4LDEuNTY5LDMuNzkxLDEuNTY5YzEuNDM4LDAsMi42OC0wLjUyMywzLjcyNi0xLjU2OWwxOC4xMDQtMTguMTAzYzIuNDgzLTIuNDg0LDIuNDgzLTQuOTY4LDAtNy41NWwtMzUuNTY5LTM1LjA2MyBMMTkyLjk3Miw4OS4yNDRMMTkyLjk3Miw4OS4yNDR6IiBjbGFzcz0ic2hhcGUiIHN0eWxlPSItd2Via2l0LXRyYW5zZm9ybTogc2NhbGUoMC4wNDY4NzUsIDAuMDQ2ODc1KTstbW96LXRyYW5zZm9ybTogc2NhbGUoMC4wNDY4NzUsIDAuMDQ2ODc1KTt0cmFuc2Zvcm06IHNjYWxlKDAuMDQ2ODc1LCAwLjA0Njg3NSk7Ij48L3BhdGg+PC9zdmc+) center right no-repeat;
+        height: 12px;
+        left: auto;
+        right: 0;
+        top: 3px;
+        width: 12px;
+      }
+    }
+  }
+  .cols-5 {
+    .views-field-title {
+      width: 34%;
+    }
+    .views-field-field-course-periods-1 {
+      width: 12%;
+    }
+    .views-field-field-course-periods {
+      width: 17%;
+    }
+    .views-field-field-course-date {
+      width: 25%;
+    }
+  }
+  .cols-4 {
+    .views-field-title {
+      width: 35%;
+    }
+    .views-field-field-course-application-period {
+      width: 25%;
+    }
+    .views-field-field-course-date {
+      width: 24%;
+    }
+  }
+  .cols-3 {
+    .views-field-title {
+      width: 67%;
+    }
+    .views-field-field-course-date {
+      width: 26%;
+    }
   }
 }
 
