@@ -34,7 +34,7 @@ install:
   - "mysql -e 'create database drupal;'"
 
   - sudo apt-get install php-pear
-  - sudo pecl install memcache
+  - yes | sudo pecl install memcache
 
   # Install compass
   - gem install sass -v 3.2.19
