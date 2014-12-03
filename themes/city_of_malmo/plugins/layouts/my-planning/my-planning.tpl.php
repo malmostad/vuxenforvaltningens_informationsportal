@@ -31,13 +31,13 @@
       </div>
     <?php endif; ?>
     <?php if (!empty($content['tab-first'])): ?>
-      <div class="tab-first">
+      <div class="tab-first table-tabs">
         <?php print $content['tab-first']; ?>
       </div>
     <?php endif; ?>
 
     <?php if (!empty($content['tab-second'])): ?>
-      <div class="tab-second">
+      <div class="tab-second table-tabs">
         <?php print $content['tab-second']; ?>
       </div>
     <?php endif; ?>
