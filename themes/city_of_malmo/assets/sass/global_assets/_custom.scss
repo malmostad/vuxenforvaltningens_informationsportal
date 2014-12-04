@@ -797,7 +797,16 @@ footer.bigfoot {
     }
 
     img {
-      margin-bottom: 48px;
+      bottom: 0;
+      display: block;
+      left: 0;
+      margin: auto;
+      max-height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100%;
+      z-index: 1;
     }
   }
 
@@ -813,6 +822,52 @@ footer.bigfoot {
   .region-two,
   .region-three {
     clear: both;
+  }
+}
+
+.pane-banner-pane {
+  @include box-sizing(border-box);
+  border: 1px solid $black;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  padding-top: 22.9%;
+  position: relative;
+  width: 100%;
+
+  .text-content {
+    background: $black;
+    bottom: 0;
+    color: $white;
+    font-family: $open-sans;
+    left: 2.2em;
+    line-height: normal;
+    max-height: 100%;
+    overflow: hidden;
+    padding: .8em 1em 1em;
+    position: absolute;
+    top: 0;
+    width: 15em;
+    z-index: 3;
+
+    h1 {
+      font-size: 1em;
+      font-weight: bold;
+      line-height: normal;
+      margin: 0 0 .1em;
+    }
+
+    p {
+      font-size: 0.875em;
+      margin: 0;
+    }
+  }
+
+  &:hover {
+    .text-content {
+      background: $white;
+      color: $black;
+    }
   }
 }
 
