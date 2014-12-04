@@ -29,34 +29,30 @@ function mal_course_scheduler_cron_task() {
   mal_course_scheduler_set_taxonomy($result, variable_get('mal_generate_content_searchable_type_0', 74));
 
   // 2 Regular application period ended.
-  // 60 * 60 * 24 * 7 * 2 == two weeks.
   $query = new EntityFieldQuery();
   $result = $query
     ->entityCondition('entity_type', 'node')
     ->fieldCondition('field_course_application_period', 'value2', REQUEST_TIME, '<')
-    ->fieldCondition('field_course_date', 'value', REQUEST_TIME - 60 * 60 * 24 * 7 * 2, '>')
+    ->fieldCondition('field_course_date', 'value', strtotime("-2 week"), '>')
     ->execute();
 
   mal_course_scheduler_set_taxonomy($result, variable_get('mal_generate_content_searchable_type_1', 75));
 
   // 3 Do not searchable right now.
-  // 60 * 60 * 24 * 7 * 2 == two weeks.
-  // 60 * 60 * 24 * 31 * 6 == six month.
   $query = new EntityFieldQuery();
   $result = $query
     ->entityCondition('entity_type', 'node')
-    ->fieldCondition('field_course_date', 'value', REQUEST_TIME - 60 * 60 * 24 * 7 * 2, '<')
-    ->fieldCondition('field_course_date', 'value2', REQUEST_TIME - 60 * 60 * 24 * 31 * 6, '>')
+    ->fieldCondition('field_course_date', 'value', strtotime("-2 week"), '<')
+    ->fieldCondition('field_course_date', 'value2', strtotime("-6 month"), '>')
     ->execute();
 
   mal_course_scheduler_set_taxonomy($result, variable_get('mal_generate_content_searchable_type_2', 76));
 
   // 5 Inactive.
-  // 60 * 60 * 24 * 31 * 6 == six month.
   $query = new EntityFieldQuery();
   $result = $query
     ->entityCondition('entity_type', 'node')
-    ->fieldCondition('field_course_date', 'value2', REQUEST_TIME - 60 * 60 * 24 * 31 * 6, '<')
+    ->fieldCondition('field_course_date', 'value2', strtotime("-6 month"), '<')
     ->execute();
 
   mal_course_scheduler_set_taxonomy($result, variable_get('mal_generate_content_searchable_type_4', 78), TRUE);
