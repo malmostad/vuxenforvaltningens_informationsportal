@@ -183,6 +183,9 @@ projects[navbar][subdir] = "contrib"
 projects[hide_formats][version] = "1.1"
 projects[hide_formats][subdir] = "contrib"
 
+projects[override_node_options][version] = "1.13"
+projects[override_node_options][subdir] = "contrib"
+
 projects[node_edit_protection][version] = "1.1"
 projects[node_edit_protection][subdir] = "contrib"
 

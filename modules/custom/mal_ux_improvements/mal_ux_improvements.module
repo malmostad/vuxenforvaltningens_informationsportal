@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Contains mal_ux_improvements.module
+ */
+
+/**
+ * Implements hook_form_FORM_TYPE_alter().
+ */
+function mal_ux_improvements_form_node_form_alter(&$form, &$form_state) {
+  $form['#attached']['css'][] = drupal_get_path('module', 'mal_ux_improvements') . '/mal_ux_improvements.css';
+}

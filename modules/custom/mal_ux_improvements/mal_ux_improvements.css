@@ -1,0 +1,9 @@
+.form-item .form-select,
+.form-item .form-select:focus,
+.form-item .form-select:active {
+  background: none;
+}
+
+.form-item .form-autocomplete {
+  background-position: 100% 0.25em;
+}

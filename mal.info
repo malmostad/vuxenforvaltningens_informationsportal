@@ -131,6 +131,7 @@ dependencies[] = hide_formats
 dependencies[] = better_formats
 dependencies[] = publish_button
 dependencies[] = chosen
+dependencies[] = override_node_options
 dependencies[] = node_edit_protection
 dependencies[] = wysiwyg
 ; Views

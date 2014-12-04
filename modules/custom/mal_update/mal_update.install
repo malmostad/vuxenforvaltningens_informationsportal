@@ -164,3 +164,10 @@ function mal_update_update_7013() {
   module_disable(array('admin_menu'));
   module_enable(array('navbar'));
 }
+
+/**
+ * Enable Override node options module.
+ */
+function mal_update_update_7014() {
+  module_enable(array('override_node_options'));
+}
