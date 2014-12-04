@@ -10,18 +10,6 @@
 function config_permissions_user_default_permissions() {
   $permissions = array();
 
-  // Exported permission: 'access administration menu'.
-  $permissions['access administration menu'] = array(
-    'name' => 'access administration menu',
-    'roles' => array(
-      'Malmo middle admin' => 'Malmo middle admin',
-      'Malmo top admin' => 'Malmo top admin',
-      'School editor' => 'School editor',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'admin_menu',
-  );
-
   // Exported permission: 'access administration pages'.
   $permissions['access administration pages'] = array(
     'name' => 'access administration pages',
@@ -964,15 +952,6 @@ function config_permissions_user_default_permissions() {
     'module' => 'taxonomy',
   );
 
-  // Exported permission: 'display drupal links'.
-  $permissions['display drupal links'] = array(
-    'name' => 'display drupal links',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'admin_menu',
-  );
-
   // Exported permission: 'edit any course content'.
   $permissions['edit any course content'] = array(
     'name' => 'edit any course content',
@@ -1224,15 +1203,6 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'devel',
-  );
-
-  // Exported permission: 'flush caches'.
-  $permissions['flush caches'] = array(
-    'name' => 'flush caches',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'admin_menu',
   );
 
   // Exported permission: 'generate features'.
