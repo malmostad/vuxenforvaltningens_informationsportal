@@ -33,6 +33,8 @@ install:
   - sudo apt-get update > /dev/null
   - "mysql -e 'create database drupal;'"
 
+  - pear config-set php_ini /etc/php5/cli/php.ini
+  - pecl config-set php_ini /etc/php5/cli/php.ini
   - sudo apt-get install php-pear
   - yes | sudo pecl install memcache
 
