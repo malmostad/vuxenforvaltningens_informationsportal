@@ -689,7 +689,9 @@ nav.content {
 
 // header LOGIN IN  //
 .logged-in #malmo-masthead { top: 0; }
-.coffee-processed #malmo-masthead { top: 21px; }
+.admin-menu #malmo-masthead { top: 21px; }
+.navbar-administration #malmo-masthead { top: 39px; }
+.navbar-administration .navbar-tray { top: 43px !important; }
 
 // --------FOOTER BOTTOM---------  //
 #malmo-footer {
