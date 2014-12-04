@@ -156,3 +156,11 @@ function mal_update_update_7012() {
 
   theme_enable(array('ember'));
 }
+
+/**
+ * Switch from Admin menu module to Navbar.
+ */
+function mal_update_update_7013() {
+  module_disable(array('admin_menu'));
+  module_enable(array('navbar'));
+}
