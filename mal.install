@@ -106,13 +106,28 @@ function mal_install() {
 
   $settings = array(
     'cache_backends' => array(
-      drupal_get_path('module', 'memcache') . '/memcache.inc',
-      drupal_get_path('module', 'memcache') . '/varnish.cache.inc',
+      'value' => array(
+        drupal_get_path('module', 'memcache') . '/memcache.inc',
+        drupal_get_path('module', 'memcache') . '/varnish.cache.inc',
+      ),
+      'required' => TRUE,
     ),
-    'cache_default_class' => 'MemCacheDrupal',
-    'cache_class_cache_form' => 'DrupalDatabaseCache',
-    'cache_class_cache_page' => 'VarnishCache',
-    'page_cache_invoke_hooks' => FALSE,
+    'cache_default_class' => array(
+      'value' => 'MemCacheDrupal',
+      'required' => TRUE,
+    ),
+    'cache_class_cache_form' => array(
+      'value' => 'DrupalDatabaseCache',
+      'required' => TRUE,
+    ),
+    'cache_class_cache_page' => array(
+      'value' => 'VarnishCache',
+      'required' => TRUE,
+    ),
+    'page_cache_invoke_hooks' => array(
+      'value' => FALSE,
+      'required' => TRUE,
+    ),
   );
   drupal_rewrite_settings($settings);
 }
