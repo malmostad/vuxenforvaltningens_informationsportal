@@ -33,7 +33,6 @@ install:
   - sudo apt-get update > /dev/null
   - "mysql -e 'create database drupal;'"
 
-  - sudo find /etc/php5/ -name "php.ini"
   - pear config-set php_ini /etc/php5/cli/php.ini
   - pecl config-set php_ini /etc/php5/cli/php.ini
   - sudo apt-get install php-pear
@@ -78,6 +77,7 @@ install:
   - mv profiles drupal/
 
   # Build the current branch
+  - sudo find /etc/php5/ -name "php.ini"
   - cd drupal
   - drush make --yes profiles/mal/drupal-org.make --contrib-destination=profiles/mal
   - cd ../
