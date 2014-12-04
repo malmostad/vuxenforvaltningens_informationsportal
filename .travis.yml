@@ -33,11 +33,6 @@ install:
   - sudo apt-get update > /dev/null
   - "mysql -e 'create database drupal;'"
 
-  - pear config-set php_ini /etc/php5/cli/php.ini
-  - pecl config-set php_ini /etc/php5/cli/php.ini
-  - sudo apt-get install php-pear
-  - yes | sudo pecl install memcache
-
   # Install compass
   - gem install sass -v 3.2.19
   - gem install compass -v 0.12.6
@@ -76,7 +71,6 @@ install:
   - mv profiles drupal/
 
   # Build the current branch
-  - sudo find /etc/php5/ -name "php.ini"
   - cd drupal
   - drush make --yes profiles/mal/drupal-org.make --contrib-destination=profiles/mal
   - cd ../
@@ -96,6 +90,7 @@ install:
 
    # Disable sendmail
   - echo sendmail_path=`which true` >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - echo 'extension = "memcache.so"' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
 
 before_script:
   # Do the site install (either the current revision or old for the upgrade).
