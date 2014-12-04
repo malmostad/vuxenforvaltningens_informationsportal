@@ -19,6 +19,10 @@ html {
     padding-top: 49px !important;
   }
 
+  &.admin-menu {
+    padding-top: 50px;
+  }
+
   #admin-menu {
     z-index: 1001;
   }
@@ -1452,7 +1456,7 @@ footer.bigfoot {
     color: $black;
     display: block;
     font-size: 15px;
-    padding-right: 25px;
+    padding-right: 30px;
   }
 
   .views-row {
