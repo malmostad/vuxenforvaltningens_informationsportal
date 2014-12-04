@@ -133,8 +133,18 @@ function mal_update_update_7009() {
 /**
  * Add cache configuration.
  */
-function mal_update_update_7010() {
+function mal_update_update_7012() {
+  // Add hash salt and database settings as long as function below is designed
+  // for one-time usage and will skip this important settings.
   $settings = array(
+    'databases' => array(
+      'value' => $GLOBALS['databases'],
+      'required' => TRUE,
+    ),
+    'drupal_hash_salt' => array(
+      'value' => $GLOBALS['drupal_hash_salt'],
+      'required' => TRUE,
+    ),
     'cache_backends' => array(
       'value' => array(
         drupal_get_path('module', 'memcache') . '/memcache.inc',
