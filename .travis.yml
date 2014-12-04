@@ -37,7 +37,6 @@ install:
   - pecl config-set php_ini /etc/php5/cli/php.ini
   - sudo apt-get install php-pear
   - yes | sudo pecl install memcache
-  - sudo service memcache start
 
   # Install compass
   - gem install sass -v 3.2.19
