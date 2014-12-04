@@ -405,4 +405,17 @@ class FeatureContext extends DrupalContext {
 
     $element->mouseOver();
   }
+
+  /**
+   * Insert text to wysiwyg.
+   *
+   * @Given /^I type "([^"]*)" in "([^"]*)" WYSIWYG editor$/
+   */
+  public function iTypeInWysiwygEditor($text, $selector) {
+    $this->getSession()->getDriver()->evaluateScript(
+      "Drupal.wysiwyg.instances['" . $selector . "'].insert('" . $text . "')"
+    );
+  }
+
+
 }

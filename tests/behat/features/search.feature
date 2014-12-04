@@ -20,9 +20,9 @@ Feature: Search the site
 #     @see mal_search_property_global_type_of_education_getter_callback()
     Then I should see the text "Utbildningsform"
     And I should see the text "Kursform"
-    And I should see the text "Skolor"
-    And I should see the text "Ämnesområden"
-    And I should see the text "Inriktning"
+    And I should see the text "Utbildningsanordnare"
+    And I should see the text "Ämnesområden för kurser"
+    And I should see the text "Inriktningar för kurspaket"
     And I should see the text "Gymnasieprogram"
     # Check date facet minipanel block
     And I should see the text "Kursstart, tider och veckodagar"
@@ -36,7 +36,7 @@ Feature: Search the site
     And I should see the text "Afternoon"
     And I should see the text "Evening"
     And I should see the text "Show only searchable courses"
-    And I should see the text "Kurs typ"
+    And I should see the text "Enstaka kurs eller kurspaket"
 
   @api @sort
   Scenario: Check sort
