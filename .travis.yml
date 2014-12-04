@@ -33,7 +33,7 @@ install:
   - sudo apt-get update > /dev/null
   - "mysql -e 'create database drupal;'"
 
-  - find /etc/php5/ -name "php.ini"
+  - sudo find /etc/php5/ -name "php.ini"
   - pear config-set php_ini /etc/php5/cli/php.ini
   - pecl config-set php_ini /etc/php5/cli/php.ini
   - sudo apt-get install php-pear
