@@ -131,6 +131,17 @@ function mal_update_update_7009() {
 }
 
 /**
+ * Revert breadcrumbs.
+ */
+function mal_update_update_7011() {
+  $features = array(
+    'config_breadrumbs',
+  );
+
+  features_revert($features);
+}
+
+/**
  * Add cache configuration.
  */
 function mal_update_update_7012() {

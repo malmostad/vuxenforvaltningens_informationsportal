@@ -300,13 +300,14 @@ function page_main_layout_default_page_manager_handlers() {
     );
     $pane->configuration = array(
       'banner_text' => array(
-        'value' => '',
+        'value' => '<h1>Håll koll – följ oss på Facebook och Twitter</h1><p>Nyfiken på vad som händer i Malmö? Vi finns i sociala medier, följ oss där och håll dig uppdaterad.</p>',
         'format' => 'full_html',
       ),
       'link' => '',
       'override_title' => '',
       'override_title_text' => '',
-      'image' => variable_get('page_main_layout_banner_image_fid'),
+      'image' => variable_get('page_main_layout_banner_image_fid', 0),
+
     );
     $pane->cache = array();
     $pane->style = array(
