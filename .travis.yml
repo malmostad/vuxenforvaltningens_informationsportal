@@ -33,10 +33,14 @@ install:
   - sudo apt-get update > /dev/null
   - "mysql -e 'create database drupal;'"
 
+  - find /etc/php5/ -name "php.ini"
   - pear config-set php_ini /etc/php5/cli/php.ini
   - pecl config-set php_ini /etc/php5/cli/php.ini
   - sudo apt-get install php-pear
   - yes | sudo pecl install memcache
+  - sudo service memcache start
+  - php -r "echo extension_loaded('memcache') ? 'TRUE' : 'FALSE';"
+  - php -r "echo extension_loaded('memcached') ? 'TRUE' : 'FALSE';"
 
   # Install compass
   - gem install sass -v 3.2.19
