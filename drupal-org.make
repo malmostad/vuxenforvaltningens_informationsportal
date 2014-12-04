@@ -174,6 +174,9 @@ projects[auto_nodetitle][subdir] = "contrib"
 projects[i18n][version] = "1.11"
 projects[i18n][subdir] = "contrib"
 
+projects[variable][version] = "2.5"
+projects[variable][subdir] = "contrib"
+
 ; +++++ Themes +++++
 
 ; bootstrap

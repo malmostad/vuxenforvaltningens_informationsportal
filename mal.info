@@ -80,6 +80,7 @@ dependencies[] = custom_breadcrumbs
 dependencies[] = custom_breadcrumbs_features
 dependencies[] = auto_nodetitle
 dependencies[] = i18n
+dependencies[] = variable
 dependencies[] = token
 ; Panels
 dependencies[] = panels
