@@ -26,7 +26,14 @@ Feature: Middle admim permission
     And I wait for 1 seconds
     And I press element ".reference-autocomplete"
     Then I press the "edit-submit" button
+    # Required
+    And I fill in "Course form" with "Flexkurs"
+    And I fill in "School" with "A1 Test school (1)"
+    And I fill in "Course Group" with "test"
+    And I select "Inactive" from "Searchable type"
+
     Then I press the "edit-submit" button
+
     And I should see "Course A1 Test course template has been created."
     Then I click "Edit"
     And the "edit-status" checkbox should be checked
@@ -36,6 +43,20 @@ Feature: Middle admim permission
     And I wait for 1 seconds
     And I press element ".reference-autocomplete"
     Then I press the "edit-submit" button
+        # Required for course
+    And I fill in "Course form" with "Flexkurs"
+    And I fill in "School" with "A1 Test school (1)"
+    And I fill in "Course Group" with "test"
+    And I select "Inactive" from "Searchable type"
+    And I type "test" in "edit-body-und-0-value" WYSIWYG editor
+    And I fill in "Contact Person" with "test"
+    And I fill in "Number of points" with "100"
+    And I fill in "edit-field-course-package-und-0-field-package-course-und-0-value" with "test"
+    And I fill in "Point" with "233"
+    And I fill in "Prerequisites" with "233"
+    And I fill in "Scope" with "23"
+    And I fill in "Weeks of study" with "2"
+
     Then I press the "edit-submit" button
     And I should see "Course package A1 Test course template has been created."
     Then I click "Edit"
