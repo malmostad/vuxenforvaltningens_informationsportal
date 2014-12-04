@@ -14,18 +14,12 @@ html {
 
 // Style header for logged in users //
 .logged-in {
-  padding-top: 73px !important;
-
   &.panels-ipe {
-    padding-top: 36px !important;
+    padding-top: 49px !important;
   }
 
   #admin-menu {
     z-index: 1001;
-  }
-
-  #malmo-masthead {
-    top: 21px !important;
   }
 }
 
@@ -40,7 +34,7 @@ html {
 // Styles for main wrapper //
 .wrapper {
   *zoom: 1;
-  margin: 1em auto;
+  margin: 4px auto 1em;
   max-width: 62em;
   padding: 0 1em;
 
