@@ -198,6 +198,12 @@ projects[publish_button][subdir] = "contrib"
 projects[better_formats][version] = "1.0-beta1"
 projects[better_formats][subdir] = "contrib"
 
+projects[media][version] = "2.0-alpha4"
+projects[media][subdir] = "contrib"
+
+projects[file_entity][version] = "2.0-beta1"
+projects[file_entity][subdir] = "contrib"
+
 
 ; +++++ Themes +++++
 
@@ -209,6 +215,10 @@ projects[bootstrap][subdir] = "contrib"
 projects[ember][type] = "theme"
 projects[ember][version] = "2.0-alpha2"
 projects[ember][subdir] = "contrib"
+
+projects[shiny][type] = "theme"
+projects[shiny][version] = "1.6"
+projects[shiny][subdir] = "contrib"
 
 ; +++++ Libraries +++++
 
