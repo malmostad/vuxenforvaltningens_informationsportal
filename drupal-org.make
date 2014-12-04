@@ -177,6 +177,25 @@ projects[i18n][subdir] = "contrib"
 projects[variable][version] = "2.5"
 projects[variable][subdir] = "contrib"
 
+projects[navbar][version] = "1.4"
+projects[navbar][subdir] = "contrib"
+
+projects[hide_format][version] = "1.1"
+projects[hide_format][subdir] = "contrib"
+
+projects[node_edit_protection][version] = "1.1"
+projects[node_edit_protection][subdir] = "contrib"
+
+projects[chosen][version] = "2.0-beta4"
+projects[chosen][subdir] = "contrib"
+
+projects[publish_button][version] = "1.0"
+projects[publish_button][subdir] = "contrib"
+
+projects[better_formats][version] = "1.0-beta1"
+projects[better_formats][subdir] = "contrib"
+
+
 ; +++++ Themes +++++
 
 ; bootstrap
@@ -184,11 +203,45 @@ projects[bootstrap][type] = "theme"
 projects[bootstrap][version] = "3.x-dev"
 projects[bootstrap][subdir] = "contrib"
 
+projects[ember][type] = "theme"
+projects[ember][version] = "2.0-alpha2"
+projects[ember][subdir] = "contrib"
+
 ; +++++ Libraries +++++
 
-; jquery.timepicker
+; Library jquery.timepicker
+; ---------------------------------------
 libraries[jquery.timepicker][directory_name] = "jquery.timepicker"
 libraries[jquery.timepicker][type] = "library"
 libraries[jquery.timepicker][destination] = "libraries"
 libraries[jquery.timepicker][download][type] = "get"
 libraries[jquery.timepicker][download][url] = "https://fgelinas.com/code/timepicker/releases/jquery-ui-timepicker-0.3.3.zip"
+
+; Library: backbone
+; ---------------------------------------
+libraries[backbone][destination] = "libraries"
+libraries[backbone][download][type] = "get"
+libraries[backbone][download][url] = "https://github.com/jashkenas/backbone/archive/1.0.0.zip"
+libraries[backbone][directory] = "backbone"
+
+; Library: underscore
+; ---------------------------------------
+libraries[underscore][destination] = "libraries"
+libraries[underscore][download][type] = "get"
+libraries[underscore][download][url] = "https://github.com/jashkenas/underscore/archive/1.5.0.zip"
+libraries[underscore][directory] = "underscore"
+
+; Library: chosen
+; ---------------------------------------
+libraries[chosen][destination] = "libraries"
+libraries[chosen][download][type] = "get"
+libraries[chosen][download][url] = "https://github.com/harvesthq/chosen/releases/download/1.0.0/chosen_v1.0.0.zip"
+libraries[chosen][directory] = "chosen"
+
+; Library: modernizr
+; ---------------------------------------
+libraries[modernizr][destination] = "libraries"
+libraries[modernizr][download][type] = git
+libraries[modernizr][download][url] = https://github.com/BrianGilbert/modernizer-navbar.git
+libraries[modernizr][download][revision] = 5b89d9225320e88588f1cdc43b8b1e373fa4c60f
+libraries[modernizr][directory] = "modernizr"

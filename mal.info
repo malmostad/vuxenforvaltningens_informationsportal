@@ -126,6 +126,12 @@ dependencies[] = facetapi_bonus
 dependencies[] = facetapi_ranges
 ; User interface
 dependencies[] = jquery_update
+dependencies[] = navbar
+dependencies[] = hide_format
+dependencies[] = better_formats
+dependencies[] = publish_button
+dependencies[] = chosen
+dependencies[] = node_edit_protection
 dependencies[] = wysiwyg
 ; Views
 dependencies[] = views
