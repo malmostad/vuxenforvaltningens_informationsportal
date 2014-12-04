@@ -127,7 +127,7 @@ dependencies[] = facetapi_ranges
 ; User interface
 dependencies[] = jquery_update
 dependencies[] = navbar
-dependencies[] = hide_format
+dependencies[] = hide_formats
 dependencies[] = better_formats
 dependencies[] = publish_button
 dependencies[] = chosen
