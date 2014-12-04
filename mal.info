@@ -106,6 +106,8 @@ dependencies[] = mal_update
 dependencies[] = mal_ctools_front_page_allowed_content
 dependencies[] = mal_course_administrative
 dependencies[] = mal_hint
+dependencies[] = mal_course_scheduler
+dependencies[] = mal_course_searchable_type_formatter
 ; Registration
 dependencies[] = registration
 dependencies[] = registration_views

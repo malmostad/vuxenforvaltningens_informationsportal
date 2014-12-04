@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Add custom formatter.
+ */
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function mal_course_searchable_type_formatter_field_formatter_info() {
+  return array(
+    'searchable_type_formatter' => array(
+      'label' => t('Searchable type'),
+      'field types' => array('taxonomy_term_reference'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function mal_course_searchable_type_formatter_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  switch ($display['type']) {
+    case 'searchable_type_formatter':
+      if ((!empty($items[0]['tid'])) && ($items[0]['tid'] == variable_get('mal_generate_content_searchable_type_3', 51))) {
+        $date = field_get_items($entity_type, $entity, 'field_course_application_period');
+        $date = format_date($date[0]['value'], 'mal_short_course');
+
+        $element[] = array(
+          '#markup' => '<div class="searchable-warning">' . t('The course is searchable from %start', array('%start' => $date)) . '</div>',
+        );
+      }
+      break;
+  }
+  return $element;
+}
