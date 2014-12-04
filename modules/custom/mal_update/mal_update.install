@@ -140,3 +140,19 @@ function mal_update_update_7011() {
 
   features_revert($features);
 }
+
+/**
+ * Enable UI improvement modules.
+ */
+function mal_update_update_7012() {
+  module_enable(array(
+    'better_formats',
+    'publish_button',
+    'chosen',
+    'node_edit_protection',
+    'navbar',
+    'hide_formats',
+  ));
+
+  theme_enable(array('ember'));
+}
