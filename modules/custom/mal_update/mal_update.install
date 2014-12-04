@@ -106,5 +106,26 @@ function mal_update_update_7008() {
   $features = array(
     'page_main_layout',
   );
+
+  features_revert($features);
+}
+
+/**
+ * Enable searchable feature.
+ */
+function mal_update_update_7009() {
+  module_enable('mal_course_scheduler');
+  module_enable('mal_course_searchable_type_formatter');
+
+  $features = array(
+    'config_facet',
+    'config_search',
+    'config_taxonomy',
+    'content_type_course',
+    'content_type_course_packages',
+    'page_main_layout',
+    'page_search',
+  );
+
   features_revert($features);
 }
