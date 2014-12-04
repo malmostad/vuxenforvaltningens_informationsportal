@@ -201,6 +201,28 @@ function minipanel_search_facet_default_panels_mini() {
     $pane->uuid = '063624e5-555d-4798-855e-3e6c4ebaef86';
     $display->content['new-063624e5-555d-4798-855e-3e6c4ebaef86'] = $pane;
     $display->panels['region-two'][5] = 'new-063624e5-555d-4798-855e-3e6c4ebaef86';
+    $pane = new stdClass();
+    $pane->pid = 'new-6e86d16d-b26c-4e99-8828-1bed7f318da5';
+    $pane->panel = 'region-two';
+    $pane->type = 'block';
+    $pane->subtype = 'facetapi-7Y1S2BQlde0qcopaluulHfWH0YEFqtea';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 6;
+    $pane->locks = array();
+    $pane->uuid = '6e86d16d-b26c-4e99-8828-1bed7f318da5';
+    $display->content['new-6e86d16d-b26c-4e99-8828-1bed7f318da5'] = $pane;
+    $display->panels['region-two'][6] = 'new-6e86d16d-b26c-4e99-8828-1bed7f318da5';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-0e272ce0-8315-4a21-a896-5b0e733e8cd4';
   $mini->display = $display;

@@ -36,6 +36,7 @@ Feature: Search the site
     And I should see the text "Afternoon"
     And I should see the text "Evening"
     And I should see the text "Show only searchable courses"
+    And I should see the text "Kurs typ"
 
   @api @sort
   Scenario: Check sort

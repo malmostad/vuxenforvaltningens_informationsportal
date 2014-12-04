@@ -20,7 +20,6 @@ function config_search_default_search_api_index() {
       "cron_limit" : "50",
       "fields" : {
         "duration_days" : { "type" : "list\\u003Ctext\\u003E" },
-        "field_course_available_search" : { "type" : "boolean" },
         "field_course_date:value" : { "type" : "string" },
         "field_course_date:value2" : { "type" : "date" },
         "field_course_form" : { "type" : "integer", "entity_type" : "taxonomy_term" },
@@ -39,7 +38,8 @@ function config_search_default_search_api_index() {
         "search_api_language" : { "type" : "string" },
         "search_api_url" : { "type" : "uri" },
         "search_api_viewed" : { "type" : "text" },
-        "title" : { "type" : "string" }
+        "title" : { "type" : "string" },
+        "type" : { "type" : "string" }
       },
       "data_alter_callbacks" : {
         "search_api_alter_bundle_filter" : {
