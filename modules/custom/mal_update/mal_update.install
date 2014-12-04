@@ -182,3 +182,12 @@ function mal_update_update_7012() {
   );
   drupal_rewrite_settings($settings);
 }
+
+/**
+ * Add usage for banner image.
+ */
+function mal_update_update_7013() {
+  if ($file = file_load(variable_get('page_main_layout_banner_image_fid'))) {
+    file_usage_add($file, 'file', 'user', 1);
+  }
+}
