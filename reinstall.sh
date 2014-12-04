@@ -14,11 +14,10 @@ cp $LOCAL_MAKE_FILE mal_working.make
 drush make mal_working.make --no-clean --prepare-install --working-copy --yes $SITE_FOLDER
 rm mal_working.make
 cd $SITE_FOLDER/profiles/mal
-
+echo "Operation : add pre-commit"
+cp scripts/pre-commit .git/hooks/pre-commit
 echo "Operation : site install"
 drush site-install mal --account-name=admin --account-pass=admin --site-mail=admin@example.com --site-name="City of malmo" --yes --db-url="$DB_URL"
-echo "Operation : Clear cache"
-drush cc all
 
 . ../../../scripts/after_install.sh
 

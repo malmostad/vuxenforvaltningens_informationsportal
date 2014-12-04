@@ -19,12 +19,14 @@ function mal_search_entity_property_info_alter(&$info) {
     'getter callback' => 'mal_search_property_duration_days_getter_callback',
     // 'schema field' => 'language',
   );
-  $info['node']['properties']['global_type_of_education'] = array(
-    'type' => 'list<text>',
-    'label' => t('Global type of education'),
+  $info['node']['properties']['global_searchable'] = array(
+    'type' => 'boolean',
+    'label' => t('Global searchable'),
+    'schema field' => 'field_course_searchable_type',
     'field' => TRUE,
     'sanitized' => TRUE,
-    'getter callback' => 'mal_search_property_global_type_of_education_getter_callback',
+    'computed' => TRUE,
+    'getter callback' => 'mal_search_property_global_searchable_getter_callback',
   );
 }
 
@@ -49,8 +51,8 @@ function mal_search_facetapi_sort_info() {
  */
 function mal_search_weeks(array $a, array $b) {
   // 1416610800 == Saturday.
-  $a_timestamp = strtotime($a['#indexed_value'], 1416610800);
-  $b_timestamp = strtotime($b['#indexed_value'], 1416610800);
+  $a_timestamp = strtotime(mal_search_convert_days($a['#indexed_value']), 1416610800);
+  $b_timestamp = strtotime(mal_search_convert_days($b['#indexed_value']), 1416610800);
 
   if ($a_timestamp == $b_timestamp) {
     return 0;
@@ -58,6 +60,32 @@ function mal_search_weeks(array $a, array $b) {
   return ($a_timestamp < $b_timestamp) ? -1 : 1;
 }
 
+/**
+ * Translate to english.
+ */
+function mal_search_convert_days($date_string) {
+  return strtr(strtolower($date_string), array(
+        'måndag' => 'Monday',
+        'tisdag' => 'Tuesday',
+        'onsdag' => 'Wednesday',
+        'torsdag' => 'Thursday',
+        'fredag' => 'Friday',
+        'lördag' => 'Saturday',
+        'söndag' => 'Sunday',
+      ));
+}
+
+/**
+ * Getter callback for global_searchable field.
+ */
+function mal_search_property_global_searchable_getter_callback($item, array $options, $name, $type, $info) {
+  foreach (field_get_items($type, $item, 'field_course_searchable_type', $options['language']) as $delta => $term) {
+    return in_array($term['tid'], array(
+      variable_get('mal_generate_content_searchable_type_0', 74),
+      variable_get('mal_generate_content_searchable_type_1', 75),
+    ));
+  }
+}
 /**
  * Getter callback for time field.
  *
@@ -73,8 +101,6 @@ function mal_search_property_duration_days_getter_callback($item, array $options
     'wed' => t('Wednesday'),
     'thu' => t('Thursday'),
     'fri' => t('Friday'),
-    // 'sat' => t('Saturday'),.
-    // 'sun' => t('Sunday'),.
   );
 
   foreach (field_get_items($type, $item, 'field_course_periods', $options['language']) as $delta => $period) {
@@ -85,18 +111,6 @@ function mal_search_property_duration_days_getter_callback($item, array $options
     }
   }
 
-  return $values;
-}
-
-
-/**
- * Getter callback for time field.
- *
- * It returns translated week days names.
- */
-function mal_search_property_global_type_of_education_getter_callback($item, array $options, $name, $type, $info) {
-  $values = array();
-  // Prepare for global type of education.
   return $values;
 }
 
@@ -129,6 +143,16 @@ function mal_search_facet_items_alter(&$build, &$settings) {
   if ($settings->facet == "duration_days") {
     foreach ($build as $key => $item) {
       $build[$key]["#markup"] = drupal_ucfirst($item["#markup"]);
+    }
+  }
+  if ($settings->facet == "global_searchable") {
+    foreach ($build as $key => $item) {
+      if ($item['#indexed_value'] == 0) {
+        unset($build[$key]);
+      }
+      if ($item['#indexed_value'] == 1) {
+        $build[$key]['#markup'] = t('Show only searchable courses');
+      }
     }
   }
 }

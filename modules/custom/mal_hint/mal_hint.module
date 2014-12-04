@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * @file
+ * Contains mal_hint.module
+ */
+
+/**
+ * Implements hook_permission().
+ */
+function mal_hint_permission() {
+  return array(
+    'administer mal hint' => array(
+      'title' => t('Administer hints'),
+      'description' => t('Perform administration tasks for hints.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function mal_hint_menu() {
+  $items = array();
+
+  $items['admin/config/system/mal-hint'] = array(
+    'title' => 'Hint Settings',
+    'description' => 'Configure hint settings.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('mal_hint_management_form'),
+    'file' => 'mal_hint.admin.inc',
+    'access arguments' => array('administer mal hint'),
+    'weight' => 100,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_init().
+ */
+function mal_hint_init() {
+  if (($hints = variable_get('mal_hint_list', FALSE)) && !empty($hints)) {
+    drupal_add_js(drupal_get_path('module', 'mal_hint') . '/js/mal_hint.js');
+    drupal_add_js(array(
+      'malHint' => $hints,
+    ), 'setting');
+  }
+}

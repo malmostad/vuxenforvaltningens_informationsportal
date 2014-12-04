@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Code for the banner pane.
+ */
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function mal_ctools_global_banner_ctools_plugin_directory($owner, $plugin_type) {
+  if ($owner == 'ctools' && $plugin_type == 'content_types') {
+    return 'plugins/content_types';
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Change default values for new Panels panes.
+ */
+function mal_ctools_global_banner_form_alter(&$form, &$form_state, $form_id) {
+  $panels_add_content_forms = array('global_banner_edit_form');
+
+  if (in_array($form_id, $panels_add_content_forms)) {
+    // Set default 30 sec cache for all new panes.
+    $form_state['pane']->cache = array(
+      'method' => 'simple',
+      'settings' => array('lifetime' => 30, 'granularity' => 'context'),
+    );
+
+    // Set default style to "No markup at all" for all new panes.
+    $form_state['pane']->style = array(
+      'style' => 'naked',
+      'settings' => NULL,
+    );
+  }
+}

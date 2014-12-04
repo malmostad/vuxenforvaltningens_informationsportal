@@ -1,0 +1,52 @@
+# $Id$
+#
+# Swedish translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  mal_ctools_subtitle.info: n/a
+#  plugins/content_types/subtitle_pane.inc: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2014-12-03 15:16+0100\n"
+"PO-Revision-Date: 2014-12-03 15:16+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Swedish <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: mal_ctools_subtitle.info:0
+msgid "Mal subtitle pane"
+msgstr "Mal undertext panelen"
+
+#: mal_ctools_subtitle.info:0
+msgid "Add subtitle as separate element"
+msgstr "Lägg undertext som separat element"
+
+#: mal_ctools_subtitle.info:0 plugins/content_types/subtitle_pane.inc:15
+msgid "Propeople"
+msgstr "Propeople"
+
+#: plugins/content_types/subtitle_pane.inc:13
+msgid "Subtitle"
+msgstr "Underrubrik"
+
+#: plugins/content_types/subtitle_pane.inc:16
+msgid "Separate subtitle for use anywhere on page."
+msgstr "Separat undertext för användning var som helst på sidan."
+
+#: plugins/content_types/subtitle_pane.inc:53
+msgid "Title"
+msgstr "Titel"
+
+#: plugins/content_types/subtitle_pane.inc:60
+msgid "Title tag"
+msgstr "Titel tagg"
+
+#: plugins/content_types/subtitle_pane.inc:75
+msgid "Title class"
+msgstr "Titel klass"

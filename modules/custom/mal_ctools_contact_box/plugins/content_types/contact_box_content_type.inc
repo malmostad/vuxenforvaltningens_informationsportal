@@ -37,6 +37,7 @@ function contact_box_render($subtype, $conf, $args, $context) {
 
   $email = $wrapper->field_school_email->info();
   $phone = $wrapper->field_school_phone->info();
+  $maps_links = $wrapper->field_school_maps_link->value();
   $fax = $wrapper->field_school_fax->info();
   $conf = array(
     'email' => $wrapper->field_school_email->value(),
@@ -50,7 +51,7 @@ function contact_box_render($subtype, $conf, $args, $context) {
     'postal_code' => $wrapper->field_school_postal_code->value() ,
     'locality' => $wrapper->field_school_locality->value(),
     'street_address' => $wrapper->field_school_street_address->value(),
-    'maps_link' => $wrapper->field_school_maps_link->value(),
+    'maps_link' => render($maps_links),
   );
   $block = new stdClass();
   $block->content = theme('contact_box', $conf);

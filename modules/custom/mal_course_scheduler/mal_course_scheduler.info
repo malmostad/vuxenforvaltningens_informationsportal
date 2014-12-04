@@ -1,0 +1,6 @@
+name = Mal course scheduler
+description = Change course and course package state by cron
+core = 7.x
+package = Propeople
+
+dependencies[] = ultimate_cron

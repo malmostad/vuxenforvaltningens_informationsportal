@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Cron hooks.
+ */
+
+/**
+ * Implements hook_cronapi().
+ */
+function mal_course_scheduler_cronapi() {
+  $items = array();
+
+  $items['mal_course_scheduler_job'] = array(
+    'title' => t('Mal course scheduler job'),
+    'callback' => 'mal_course_scheduler_cron_task',
+    'file' => 'mal_course_scheduler.jobs.inc',
+    'scheduler' => array(
+      'name' => 'crontab',
+      'crontab' => array(
+        'rules' => array('0 2 * * *'),
+      ),
+    ),
+  );
+
+  return $items;
+}

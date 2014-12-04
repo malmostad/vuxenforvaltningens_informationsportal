@@ -58,7 +58,7 @@ function page_front_default_page_manager_pages() {
     'style' => 'naked',
   );
   $display->cache = array();
-  $display->title = 'TITLE';
+  $display->title = 'Rubrik';
   $display->uuid = '33bded61-02d8-4b08-bacd-e4672e03a992';
   $display->content = array();
   $display->panels = array();

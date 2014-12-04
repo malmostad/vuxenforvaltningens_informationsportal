@@ -53,6 +53,23 @@
     }
   };
 
+  Drupal.behaviors.myPlaningTabs = {
+    attach: function(context, settings) {
+      var navigation = $('.tab-item'),
+          tableTabs = $('.table-tabs'),
+          secondTable = $('.tab-second');
+
+      secondTable.hide();
+
+      navigation.click(function() {
+        if (!$(this).hasClass('active')) {
+          navigation.toggleClass('active');
+          tableTabs.toggle();
+        }
+      });
+    }
+  };
+
 })(jQuery);
 
 

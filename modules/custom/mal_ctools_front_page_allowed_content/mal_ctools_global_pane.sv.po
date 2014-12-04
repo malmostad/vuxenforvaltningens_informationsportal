@@ -1,0 +1,27 @@
+# $Id$
+#
+# Swedish translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  mal_ctools_global_pane.info: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2014-11-28 18:38+0100\n"
+"PO-Revision-Date: 2014-11-28 18:38+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Swedish <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: mal_ctools_front_page_allowed_content.info:0
+msgid "Mal front page panes filter"
+msgstr "Mal förstasidan rutor filter"
+
+#: mal_ctools_front_page_allowed_content.info:0
+msgid "Limit allowed content on front page IPE."
+msgstr "Gräns tillåtet innehåll på förstasidan IPE."

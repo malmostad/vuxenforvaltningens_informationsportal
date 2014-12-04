@@ -69,11 +69,37 @@ function mal_install() {
 
   variable_set('date_format_mal_short_course', 'Ymd');
 
+  db_insert('date_formats')
+    ->fields(array(
+      'format' => 'Y-m-d',
+      'type' => 'mal_course_period',
+      'locked' => 0,
+    ))
+    ->execute();
+
+  db_insert('date_format_type')
+    ->fields(array(
+      'type' => 'mal_course_period',
+      'title' => 'Mal course period',
+      'locked' => 0,
+    ))
+    ->execute();
+
+  variable_set('date_format_mal_course_period', 'Y-m-d');
+
+  $image_name = 'oppet_hus3.jpg';
+  $image_path = DRUPAL_ROOT . '/' . drupal_get_path('profile', 'mal') . '/files/' . $image_name;
+  $image_data = file_get_contents($image_path);
+  if ($file = file_save_data($image_data, 'public://' . $image_name, FILE_EXISTS_REPLACE)) {
+    variable_set('page_main_layout_banner_image_fid', $file->fid);
+  }
+
   menu_rebuild();
 
   $features = array(
     'config_permissions',
     'menu_footer_social',
+    'page_main_layout',
   );
   features_revert($features);
   node_access_needs_rebuild(FALSE);

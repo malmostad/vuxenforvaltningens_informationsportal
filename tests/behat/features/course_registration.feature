@@ -29,3 +29,13 @@ Feature: Course register
     Then I click "Test course"
     Then I should not see a "#user-register-unregister-form" element
     Then I should not see a "#registration-form" element
+
+  @api @javascript
+  Scenario: Check if authorized user see register button
+    Given I am logged in as a user with the "authenticated user" role
+    Given I am on "search-courses/Test%20course"
+    Then I press the "Register" button
+    Then I wait for AJAX to finish
+    Then I am on the homepage
+    And I should see the text "Mina val"
+    And I should see the text "Test course"

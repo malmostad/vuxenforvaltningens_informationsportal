@@ -13,6 +13,27 @@ function content_type_course_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'ant_course';
+  $strongarm->value = '1';
+  $export['ant_course'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ant_pattern_course';
+  $strongarm->value = '[node:field-course-template:title]';
+  $export['ant_pattern_course'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ant_php_course';
+  $strongarm->value = 0;
+  $export['ant_php_course'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_course';
   $strongarm->value = 0;
   $export['comment_anonymous_course'] = $strongarm;
@@ -113,6 +134,9 @@ function content_type_course_strongarm() {
       'node_node_search_result' => array(
         'custom_settings' => FALSE,
       ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -123,7 +147,7 @@ function content_type_course_strongarm() {
       'display' => array(
         'node:course_template:title' => array(
           'default' => array(
-            'weight' => '6',
+            'weight' => '9',
             'visible' => FALSE,
           ),
           'search_result' => array(
@@ -133,7 +157,7 @@ function content_type_course_strongarm() {
         ),
         'node:course_template:log' => array(
           'default' => array(
-            'weight' => '5',
+            'weight' => '8',
             'visible' => FALSE,
           ),
           'search_result' => array(
@@ -143,31 +167,31 @@ function content_type_course_strongarm() {
         ),
         'node:course_template:field_course_type_education' => array(
           'default' => array(
-            'weight' => '-3',
+            'weight' => '6',
             'visible' => TRUE,
           ),
           'search_result' => array(
-            'weight' => '-3',
+            'weight' => '1',
             'visible' => TRUE,
           ),
         ),
         'node:course_template:field_course_number_of_points' => array(
           'default' => array(
-            'weight' => '-2',
+            'weight' => '7',
             'visible' => TRUE,
           ),
           'search_result' => array(
-            'weight' => '-2',
+            'weight' => '2',
             'visible' => TRUE,
           ),
         ),
         'node:course_template:field_course_prerequisites' => array(
           'default' => array(
-            'weight' => '-1',
+            'weight' => '8',
             'visible' => TRUE,
           ),
           'search_result' => array(
-            'weight' => '-1',
+            'weight' => '3',
             'visible' => TRUE,
           ),
         ),
@@ -198,6 +222,36 @@ function content_type_course_strongarm() {
           ),
           'search_result' => array(
             'weight' => '8',
+            'visible' => FALSE,
+          ),
+        ),
+        'node:course_template:field_course_gymnasie_program' => array(
+          'default' => array(
+            'weight' => '13',
+            'visible' => FALSE,
+          ),
+          'search_result' => array(
+            'weight' => '13',
+            'visible' => FALSE,
+          ),
+        ),
+        'node:course_template:field_course_orientation' => array(
+          'default' => array(
+            'weight' => '10',
+            'visible' => FALSE,
+          ),
+          'search_result' => array(
+            'weight' => '9',
+            'visible' => FALSE,
+          ),
+        ),
+        'node:course_template:field_course_subject_areas' => array(
+          'default' => array(
+            'weight' => '12',
+            'visible' => FALSE,
+          ),
+          'search_result' => array(
+            'weight' => '11',
             'visible' => FALSE,
           ),
         ),

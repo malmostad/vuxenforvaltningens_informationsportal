@@ -34,7 +34,7 @@ function mal_update_update_7001() {
 /**
  * Enable features with Language settings, rules settings, some contrib modules.
  */
-function mal_update_update_7002() {
+function mal_update_update_7003() {
   module_enable('rules');
   module_enable('rules_admin');
   module_enable('notification_rules');
@@ -43,6 +43,100 @@ function mal_update_update_7002() {
   module_enable('l10n_update');
   module_enable('language_cookie');
 
+  module_enable('mal_ctools_front_page_allowed_content');
+  module_enable('mal_course_administrative');
+  module_enable('view_subscribed_app_view');
+
   drush_invoke('drush_l10n_update', array());
   exec("drush fra -y", $output);
+}
+
+/**
+ * Enable features with Language settings, rules settings, some contrib modules.
+ */
+function mal_update_update_7004() {
+  $features = array(
+    'config_wysiwyg',
+    'config_facet',
+  );
+
+  features_revert($features);
+}
+
+/**
+ * Enable hints module.
+ */
+function mal_update_update_7005() {
+  module_enable('mal_hint');
+}
+
+/**
+ * Save image and set it into the banner.
+ */
+function mal_update_update_7006() {
+  $image_name = 'oppet_hus3.jpg';
+  $image_path = DRUPAL_ROOT . '/' . drupal_get_path('profile', 'mal') . '/files/' . $image_name;
+  $image_data = file_get_contents($image_path);
+  if ($file = file_save_data($image_data, 'public://' . $image_name, FILE_EXISTS_REPLACE)) {
+    variable_set('page_main_layout_banner_image_fid', $file->fid);
+  }
+
+  $features = array(
+    'page_main_layout',
+  );
+  features_revert($features);
+}
+
+/**
+ * Increase tooltip trigger bound for descriptions.
+ */
+function mal_update_update_7007() {
+  if ($settings = variable_get('theme_city_of_malmo_settings', FALSE)) {
+    $settings['bootstrap_tooltip_descriptions_length'] = 400;
+    variable_set('theme_city_of_malmo_settings', $settings);
+  }
+}
+
+/**
+ * Enable subtitle pane module.
+ */
+function mal_update_update_7008() {
+  module_enable('mal_ctools_subtitle');
+  module_enable('view_sidebar_courses');
+  $features = array(
+    'page_main_layout',
+  );
+
+  features_revert($features);
+}
+
+/**
+ * Enable searchable feature.
+ */
+function mal_update_update_7009() {
+  module_enable('mal_course_scheduler');
+  module_enable('mal_course_searchable_type_formatter');
+
+  $features = array(
+    'config_facet',
+    'config_search',
+    'config_taxonomy',
+    'content_type_course',
+    'content_type_course_packages',
+    'page_main_layout',
+    'page_search',
+  );
+
+  features_revert($features);
+}
+
+/**
+ * Revert breadcrumbs.
+ */
+function mal_update_update_7011() {
+  $features = array(
+    'config_breadrumbs',
+  );
+
+  features_revert($features);
 }

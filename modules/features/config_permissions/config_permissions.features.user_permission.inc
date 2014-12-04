@@ -113,6 +113,24 @@ function config_permissions_user_default_permissions() {
     'module' => 'devel',
   );
 
+  // Exported permission: 'access private fields'.
+  $permissions['access private fields'] = array(
+    'name' => 'access private fields',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'access rules debug'.
+  $permissions['access rules debug'] = array(
+    'name' => 'access rules debug',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'rules',
+  );
+
   // Exported permission: 'access site in maintenance mode'.
   $permissions['access site in maintenance mode'] = array(
     'name' => 'access site in maintenance mode',
@@ -228,6 +246,15 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'field_collection',
+  );
+
+  // Exported permission: 'administer field permissions'.
+  $permissions['administer field permissions'] = array(
+    'name' => 'administer field permissions',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
   );
 
   // Exported permission: 'administer fieldgroups'.
@@ -405,6 +432,15 @@ function config_permissions_user_default_permissions() {
     'module' => 'registration',
   );
 
+  // Exported permission: 'administer rules'.
+  $permissions['administer rules'] = array(
+    'name' => 'administer rules',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'rules',
+  );
+
   // Exported permission: 'administer search_api'.
   $permissions['administer search_api'] = array(
     'name' => 'administer search_api',
@@ -514,6 +550,15 @@ function config_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'bypass rules access'.
+  $permissions['bypass rules access'] = array(
+    'name' => 'bypass rules access',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'rules',
+  );
+
   // Exported permission: 'cancel account'.
   $permissions['cancel account'] = array(
     'name' => 'cancel account',
@@ -521,6 +566,16 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'user',
+  );
+
+  // Exported permission: 'administer mal hint'.
+  $permissions['administer mal hint'] = array(
+    'name' => 'administer mal hint',
+    'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'mal_hint',
   );
 
   // Exported permission: 'change field_course_school field'.
@@ -555,17 +610,6 @@ function config_permissions_user_default_permissions() {
   // Exported permission: 'create course content'.
   $permissions['create course content'] = array(
     'name' => 'create course content',
-    'roles' => array(
-      'Malmo middle admin' => 'Malmo middle admin',
-      'School editor' => 'School editor',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'create course_package_template content'.
-  $permissions['create course_package_template content'] = array(
-    'name' => 'create course_package_template content',
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
       'School editor' => 'School editor',
@@ -633,6 +677,15 @@ function config_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'create field_registration'.
+  $permissions['create field_registration'] = array(
+    'name' => 'create field_registration',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'create mini panels'.
   $permissions['create mini panels'] = array(
     'name' => 'create mini panels',
@@ -690,16 +743,6 @@ function config_permissions_user_default_permissions() {
   // Exported permission: 'delete any course content'.
   $permissions['delete any course content'] = array(
     'name' => 'delete any course content',
-    'roles' => array(
-      'Malmo middle admin' => 'Malmo middle admin',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete any course_package_template content'.
-  $permissions['delete any course_package_template content'] = array(
-    'name' => 'delete any course_package_template content',
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
       'administrator' => 'administrator',
@@ -775,17 +818,6 @@ function config_permissions_user_default_permissions() {
   // Exported permission: 'delete own course content'.
   $permissions['delete own course content'] = array(
     'name' => 'delete own course content',
-    'roles' => array(
-      'Malmo middle admin' => 'Malmo middle admin',
-      'School editor' => 'School editor',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete own course_package_template content'.
-  $permissions['delete own course_package_template content'] = array(
-    'name' => 'delete own course_package_template content',
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
       'School editor' => 'School editor',
@@ -951,16 +983,6 @@ function config_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'edit any course_package_template content'.
-  $permissions['edit any course_package_template content'] = array(
-    'name' => 'edit any course_package_template content',
-    'roles' => array(
-      'Malmo middle admin' => 'Malmo middle admin',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'edit any course_packages content'.
   $permissions['edit any course_packages content'] = array(
     'name' => 'edit any course_packages content',
@@ -1026,6 +1048,15 @@ function config_permissions_user_default_permissions() {
     'module' => 'registration',
   );
 
+  // Exported permission: 'edit field_registration'.
+  $permissions['edit field_registration'] = array(
+    'name' => 'edit field_registration',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'edit own comments'.
   $permissions['edit own comments'] = array(
     'name' => 'edit own comments',
@@ -1038,17 +1069,6 @@ function config_permissions_user_default_permissions() {
   // Exported permission: 'edit own course content'.
   $permissions['edit own course content'] = array(
     'name' => 'edit own course content',
-    'roles' => array(
-      'Malmo middle admin' => 'Malmo middle admin',
-      'School editor' => 'School editor',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit own course_package_template content'.
-  $permissions['edit own course_package_template content'] = array(
-    'name' => 'edit own course_package_template content',
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
       'School editor' => 'School editor',
@@ -1086,6 +1106,15 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'edit own field_registration'.
+  $permissions['edit own field_registration'] = array(
+    'name' => 'edit own field_registration',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
   );
 
   // Exported permission: 'edit own page content'.
@@ -1256,13 +1285,6 @@ function config_permissions_user_default_permissions() {
     'module' => 'publishcontent',
   );
 
-  // Exported permission: 'publish any course_package_template content'.
-  $permissions['publish any course_package_template content'] = array(
-    'name' => 'publish any course_package_template content',
-    'roles' => array(),
-    'module' => 'publishcontent',
-  );
-
   // Exported permission: 'publish any course_packages content'.
   $permissions['publish any course_packages content'] = array(
     'name' => 'publish any course_packages content',
@@ -1295,13 +1317,6 @@ function config_permissions_user_default_permissions() {
     'module' => 'publishcontent',
   );
 
-  // Exported permission: 'publish editable course_package_template content'.
-  $permissions['publish editable course_package_template content'] = array(
-    'name' => 'publish editable course_package_template content',
-    'roles' => array(),
-    'module' => 'publishcontent',
-  );
-
   // Exported permission: 'publish editable course_packages content'.
   $permissions['publish editable course_packages content'] = array(
     'name' => 'publish editable course_packages content',
@@ -1321,13 +1336,6 @@ function config_permissions_user_default_permissions() {
   // Exported permission: 'publish own course content'.
   $permissions['publish own course content'] = array(
     'name' => 'publish own course content',
-    'roles' => array(),
-    'module' => 'publishcontent',
-  );
-
-  // Exported permission: 'publish own course_package_template content'.
-  $permissions['publish own course_package_template content'] = array(
-    'name' => 'publish own course_package_template content',
     'roles' => array(),
     'module' => 'publishcontent',
   );
@@ -1432,13 +1440,6 @@ function config_permissions_user_default_permissions() {
     'module' => 'publishcontent',
   );
 
-  // Exported permission: 'unpublish any course_package_template content'.
-  $permissions['unpublish any course_package_template content'] = array(
-    'name' => 'unpublish any course_package_template content',
-    'roles' => array(),
-    'module' => 'publishcontent',
-  );
-
   // Exported permission: 'unpublish any course_packages content'.
   $permissions['unpublish any course_packages content'] = array(
     'name' => 'unpublish any course_packages content',
@@ -1471,13 +1472,6 @@ function config_permissions_user_default_permissions() {
     'module' => 'publishcontent',
   );
 
-  // Exported permission: 'unpublish editable course_package_template content'.
-  $permissions['unpublish editable course_package_template content'] = array(
-    'name' => 'unpublish editable course_package_template content',
-    'roles' => array(),
-    'module' => 'publishcontent',
-  );
-
   // Exported permission: 'unpublish editable course_packages content'.
   $permissions['unpublish editable course_packages content'] = array(
     'name' => 'unpublish editable course_packages content',
@@ -1497,13 +1491,6 @@ function config_permissions_user_default_permissions() {
   // Exported permission: 'unpublish own course content'.
   $permissions['unpublish own course content'] = array(
     'name' => 'unpublish own course content',
-    'roles' => array(),
-    'module' => 'publishcontent',
-  );
-
-  // Exported permission: 'unpublish own course_package_template content'.
-  $permissions['unpublish own course_package_template content'] = array(
-    'name' => 'unpublish own course_package_template content',
     'roles' => array(),
     'module' => 'publishcontent',
   );
@@ -1641,13 +1628,6 @@ function config_permissions_user_default_permissions() {
     'module' => 'view_unpublished',
   );
 
-  // Exported permission: 'view any unpublished course_package_template content'.
-  $permissions['view any unpublished course_package_template content'] = array(
-    'name' => 'view any unpublished course_package_template content',
-    'roles' => array(),
-    'module' => 'view_unpublished',
-  );
-
   // Exported permission: 'view any unpublished course_packages content'.
   $permissions['view any unpublished course_packages content'] = array(
     'name' => 'view any unpublished course_packages content',
@@ -1708,6 +1688,16 @@ function config_permissions_user_default_permissions() {
     'module' => 'ultimate_cron',
   );
 
+  // Exported permission: 'view field_registration'.
+  $permissions['view field_registration'] = array(
+    'name' => 'view field_registration',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'view own course_registration registration'.
   $permissions['view own course_registration registration'] = array(
     'name' => 'view own course_registration registration',
@@ -1715,6 +1705,15 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'registration',
+  );
+
+  // Exported permission: 'view own field_registration'.
+  $permissions['view own field_registration'] = array(
+    'name' => 'view own field_registration',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
   );
 
   // Exported permission: 'view own unpublished content'.
