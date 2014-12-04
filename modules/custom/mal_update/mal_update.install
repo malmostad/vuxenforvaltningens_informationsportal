@@ -129,3 +129,14 @@ function mal_update_update_7009() {
 
   features_revert($features);
 }
+
+/**
+ * Revert breadcrumbs.
+ */
+function mal_update_update_7011() {
+  $features = array(
+    'config_breadrumbs',
+  );
+
+  features_revert($features);
+}
