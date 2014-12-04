@@ -18,6 +18,11 @@ Feature: Content creation
     Given I am logged in as "editor" with the password "editor"
     And I am on "node/add/course"
     And I fill in "Course template" with "A1 Test course template"
+        # Required
+    And I fill in "Course form" with "Flexkurs"
+    And I fill in "School" with "A1 Test school (1)"
+    And I fill in "Course Group" with "test"
+    And I select "Inactive" from "Searchable type"
     When I press "Save"
     Then I should see the text "A2 Test school"
 
