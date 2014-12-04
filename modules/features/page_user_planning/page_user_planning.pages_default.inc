@@ -212,17 +212,22 @@ function page_user_planning_default_page_manager_pages() {
     $pane->configuration = array(
       'admin_title' => 'Tabs content',
       'title' => '',
-      'body' => '<div class="tab weekly-overview">Veckoöversikt</div>
-<div class="tab application-list">Ansökningslista</div>
-<div class="overlap-info">Överlappande kurser</div>',
-      'format' => 'filtered_html',
+      'body' => '<div class="tab-1 tab-item active">Veckoöversikt</div>
+<div class="tab-2 tab-item">Ansökningslista</div>
+<div class="overlapped-courses">Överlappande kurser</div>',
+      'format' => 'full_html',
       'substitute' => TRUE,
     );
     $pane->cache = array();
     $pane->style = array(
       'settings' => NULL,
+      'style' => 'naked',
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => '',
+      'template_suggestion' => 'custom',
+    );
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
