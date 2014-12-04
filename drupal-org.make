@@ -180,8 +180,8 @@ projects[variable][subdir] = "contrib"
 projects[navbar][version] = "1.4"
 projects[navbar][subdir] = "contrib"
 
-projects[hide_format][version] = "1.1"
-projects[hide_format][subdir] = "contrib"
+projects[hide_formats][version] = "1.1"
+projects[hide_formats][subdir] = "contrib"
 
 projects[node_edit_protection][version] = "1.1"
 projects[node_edit_protection][subdir] = "contrib"
