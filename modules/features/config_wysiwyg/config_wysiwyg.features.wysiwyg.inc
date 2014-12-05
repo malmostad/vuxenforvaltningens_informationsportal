@@ -161,6 +161,7 @@ function config_wysiwyg_wysiwyg_default_profiles() {
           'About' => 1,
         ),
         'drupal' => array(
+          'media' => 1,
           'break' => 1,
         ),
       ),
