@@ -2921,6 +2921,8 @@ function config_permissions_user_default_permissions() {
       'Malmo top admin' => 'Malmo top admin',
       'School editor' => 'School editor',
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'field_permissions',
   );

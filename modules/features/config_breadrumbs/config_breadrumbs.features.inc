@@ -35,7 +35,7 @@ function config_breadrumbs_custom_breadcrumbs_panels_features_default_settings()
   // Exported custom breadcrumb: node_view_panel_context_2.
   $custom_breadcrumbs['node_view_panel_context_2'] = array(
     'name' => 'node_view_panel_context_2',
-    'titles' => 'Schools',
+    'titles' => 'Skolor',
     'paths' => 'schools',
     'visibility_php' => '',
     'panel_id' => 'node_view_panel_context_2',
