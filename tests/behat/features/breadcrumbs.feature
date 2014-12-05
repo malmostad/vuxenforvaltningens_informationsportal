@@ -13,7 +13,7 @@ Feature: Breadcrumbs
   @api
   Scenario: School view breadcrumb
     And I am on "schools"
-    And I should see the text "Schools" in ".breadcrumb" element
+    And I should see the text "Skolor" in ".breadcrumb" element
     When I click "A1 Test school"
-    And I should see the text "Schools" in ".breadcrumb" element
+    And I should see the text "Skolor" in ".breadcrumb" element
     And I should see the text "A1 Test school" in ".breadcrumb" element
