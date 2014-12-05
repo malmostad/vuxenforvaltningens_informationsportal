@@ -1,0 +1,3 @@
+name = Malmo UX improvements
+description = Contains fixes for Ember theme and other special fixes or customizations.
+core = 7.x

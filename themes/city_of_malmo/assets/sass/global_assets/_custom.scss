@@ -689,7 +689,9 @@ nav.content {
 
 // header LOGIN IN  //
 .logged-in #malmo-masthead { top: 0; }
-.coffee-processed #malmo-masthead { top: 21px; }
+.admin-menu #malmo-masthead { top: 21px; }
+.navbar-administration #malmo-masthead { top: 39px; }
+.navbar-administration .navbar-tray { top: 43px !important; }
 
 // --------FOOTER BOTTOM---------  //
 #malmo-footer {
@@ -1223,7 +1225,7 @@ footer.bigfoot {
 
   th,
   td {
-    background: $white !important;
+    background: none !important;
     border: 1px solid #dedede !important;
     padding-left: 0 !important;
     padding-right: 0 !important;

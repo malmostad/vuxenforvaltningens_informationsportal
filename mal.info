@@ -79,6 +79,8 @@ dependencies[] = field_permissions
 dependencies[] = custom_breadcrumbs
 dependencies[] = custom_breadcrumbs_features
 dependencies[] = auto_nodetitle
+dependencies[] = i18n
+dependencies[] = variable
 dependencies[] = token
 ; Panels
 dependencies[] = panels
@@ -124,6 +126,16 @@ dependencies[] = facetapi_bonus
 dependencies[] = facetapi_ranges
 ; User interface
 dependencies[] = jquery_update
+dependencies[] = navbar
+dependencies[] = hide_formats
+dependencies[] = better_formats
+dependencies[] = publish_button
+dependencies[] = chosen
+dependencies[] = override_node_options
+dependencies[] = media
+dependencies[] = media_wysiwyg
+dependencies[] = file_entity
+dependencies[] = node_edit_protection
 dependencies[] = wysiwyg
 ; Views
 dependencies[] = views

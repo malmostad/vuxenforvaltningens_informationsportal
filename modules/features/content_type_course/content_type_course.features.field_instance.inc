@@ -82,60 +82,6 @@ function content_type_course_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-course-field_course_available_search'
-  $field_instances['node-course-field_course_available_search'] = array(
-    'bundle' => 'course',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 11,
-      ),
-      'node_teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'search_result' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 9,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_course_available_search',
-    'label' => 'Course available for search',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 2,
-    ),
-  );
-
   // Exported field_instance: 'node-course-field_course_date'
   $field_instances['node-course-field_course_date'] = array(
     'bundle' => 'course',
@@ -245,7 +191,7 @@ function content_type_course_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_course_form',
     'label' => 'Course form',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -269,7 +215,7 @@ function content_type_course_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -297,7 +243,7 @@ function content_type_course_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_course_group',
     'label' => 'Course Group',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'text_processing' => 0,
       'user_register_form' => FALSE,
@@ -490,8 +436,12 @@ function content_type_course_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_course_school',
+    'ied_settings' => array(
+      'display_fields' => 0,
+    ),
     'label' => 'School',
-    'required' => 0,
+    'render_entity_below' => 0,
+    'required' => 1,
     'settings' => array(
       'behaviors' => array(
         'taxonomy-index' => array(
@@ -550,11 +500,12 @@ function content_type_course_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_course_searchable_type',
     'label' => 'Searchable type',
-    'required' => FALSE,
+    'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
     'widget' => array(
+      'active' => 1,
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
@@ -697,7 +648,6 @@ function content_type_course_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Application Period');
   t('Course Group');
-  t('Course available for search');
   t('Course date');
   t('Course form');
   t('Course periods');

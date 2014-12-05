@@ -142,9 +142,40 @@ function mal_update_update_7011() {
 }
 
 /**
- * Add cache configuration.
+ * Enable UI improvement modules.
  */
 function mal_update_update_7012() {
+  module_enable(array(
+    'better_formats',
+    'publish_button',
+    'chosen',
+    'node_edit_protection',
+    'navbar',
+    'hide_formats',
+  ));
+
+  theme_enable(array('ember'));
+}
+
+/**
+ * Switch from Admin menu module to Navbar.
+ */
+function mal_update_update_7013() {
+  module_disable(array('admin_menu'));
+  module_enable(array('navbar'));
+}
+
+/**
+ * Enable Override node options module.
+ */
+function mal_update_update_7014() {
+  module_enable(array('override_node_options'));
+}
+
+/**
+ * Add cache configuration.
+ */
+function mal_update_update_7015() {
   // Add hash salt and database settings as long as function below is designed
   // for one-time usage and will skip this important settings.
   $settings = array(
@@ -186,7 +217,7 @@ function mal_update_update_7012() {
 /**
  * Add usage for banner image.
  */
-function mal_update_update_7013() {
+function mal_update_update_7016() {
   if ($file = file_load(variable_get('page_main_layout_banner_image_fid'))) {
     file_usage_add($file, 'file', 'user', 1);
   }
