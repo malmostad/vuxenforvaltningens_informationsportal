@@ -208,7 +208,21 @@ function page_main_layout_default_page_manager_handlers() {
     $pane->subtype = 'page_tabs';
     $pane->shown = TRUE;
     $pane->access = array(
-      'plugins' => array(),
+      'plugins' => array(
+        0 => array(
+          'name' => 'role',
+          'settings' => array(
+            'rids' => array(
+              0 => 6,
+              1 => 5,
+              2 => 3,
+              3 => 4,
+            ),
+          ),
+          'context' => 'logged-in-user',
+          'not' => FALSE,
+        ),
+      ),
     );
     $pane->configuration = array(
       'type' => 'both',
@@ -306,7 +320,7 @@ function page_main_layout_default_page_manager_handlers() {
       'link' => '',
       'override_title' => '',
       'override_title_text' => '',
-      'image' => '7',
+      'image' => variable_get('page_main_layout_banner_image_fid', 0),
     );
     $pane->cache = array();
     $pane->style = array(

@@ -2,7 +2,6 @@
 - hosts: all
   sudo: true
   vars:
-    servername: apache.ansible.dev 192.168.111.111
     timezone: UTC
   vars_files:
     - vars/geerlingguy-php.yml
@@ -22,7 +21,7 @@
     - geerlingguy.solr
     - geerlingguy.memcached
     - geerlingguy.php-memcached
-#    - geerlingguy.varnish
+    - geerlingguy.varnish
     - geerlingguy.ruby
     - geerlingguy.composer
     - geerlingguy.drush

@@ -103,4 +103,41 @@ function mal_install() {
   );
   features_revert($features);
   node_access_needs_rebuild(FALSE);
+
+  // Add hash salt and database settings as long as function below is designed
+  // for one-time usage and will skip this important settings.
+  $settings = array(
+    'databases' => array(
+      'value' => $GLOBALS['databases'],
+      'required' => TRUE,
+    ),
+    'drupal_hash_salt' => array(
+      'value' => $GLOBALS['drupal_hash_salt'],
+      'required' => TRUE,
+    ),
+    'cache_backends' => array(
+      'value' => array(
+        drupal_get_path('module', 'memcache') . '/memcache.inc',
+        drupal_get_path('module', 'memcache') . '/varnish.cache.inc',
+      ),
+      'required' => TRUE,
+    ),
+    'cache_default_class' => array(
+      'value' => 'MemCacheDrupal',
+      'required' => TRUE,
+    ),
+    'cache_class_cache_form' => array(
+      'value' => 'DrupalDatabaseCache',
+      'required' => TRUE,
+    ),
+    'cache_class_cache_page' => array(
+      'value' => 'VarnishCache',
+      'required' => TRUE,
+    ),
+    'page_cache_invoke_hooks' => array(
+      'value' => FALSE,
+      'required' => TRUE,
+    ),
+  );
+  drupal_rewrite_settings($settings);
 }
