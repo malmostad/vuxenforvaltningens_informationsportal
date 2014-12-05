@@ -209,7 +209,7 @@ function content_type_course_packages_field_default_field_instances() {
         'text_parts' => array(),
         'year_range' => '-3:+3',
       ),
-      'type' => 'date_select',
+      'type' => 'date_popup',
       'weight' => 8,
     ),
   );
@@ -334,7 +334,7 @@ function content_type_course_packages_field_default_field_instances() {
         'text_parts' => array(),
         'year_range' => '-3:+3',
       ),
-      'type' => 'date_select',
+      'type' => 'date_popup',
       'weight' => 7,
     ),
   );
@@ -845,14 +845,16 @@ function content_type_course_packages_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_course_searchable_type',
     'label' => 'Searchable type',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
       'module' => 'options',
-      'settings' => array(),
+      'settings' => array(
+        'apply_chosen' => 1,
+      ),
       'type' => 'options_select',
       'weight' => 17,
     ),

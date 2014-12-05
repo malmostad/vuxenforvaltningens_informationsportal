@@ -21,7 +21,7 @@ function content_type_education_node_info() {
     'education' => array(
       'name' => t('Education'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('Use <em>education</em> for administer types of education.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',

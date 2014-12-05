@@ -21,7 +21,7 @@ function content_type_course_template_node_info() {
     'course_template' => array(
       'name' => t('Course template'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('Use <em>course template</em> for your course templates, which you can use as a template for courses and course packages.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',

@@ -13,6 +13,27 @@ function content_type_course_template_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'ant_course_template';
+  $strongarm->value = '0';
+  $export['ant_course_template'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ant_pattern_course_template';
+  $strongarm->value = '';
+  $export['ant_pattern_course_template'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'ant_php_course_template';
+  $strongarm->value = 0;
+  $export['ant_php_course_template'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_course_template';
   $strongarm->value = 0;
   $export['comment_anonymous_course_template'] = $strongarm;
@@ -137,6 +158,7 @@ function content_type_course_template_strongarm() {
   $strongarm->value = array(
     0 => 'status',
     1 => 'promote',
+    2 => 'revision',
   );
   $export['node_options_course_template'] = $strongarm;
 

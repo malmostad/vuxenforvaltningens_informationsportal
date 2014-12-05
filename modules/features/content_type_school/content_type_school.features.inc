@@ -21,7 +21,7 @@ function content_type_school_node_info() {
     'school' => array(
       'name' => t('School'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('Use <em>school</em> for administer schools.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',

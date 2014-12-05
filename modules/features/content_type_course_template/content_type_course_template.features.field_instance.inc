@@ -13,7 +13,13 @@ function content_type_course_template_field_default_field_instances() {
   // Exported field_instance: 'node-course_template-body'
   $field_instances['node-course_template-body'] = array(
     'bundle' => 'course_template',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'summary' => '',
+        'value' => '',
+        'format' => 'filtered_html',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -48,6 +54,28 @@ function content_type_course_template_field_default_field_instances() {
     'label' => 'Description / Content',
     'required' => 0,
     'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'filtered_html' => 0,
+          'full_html' => 'full_html',
+          'plain_text' => 0,
+        ),
+        'allowed_formats_toggle' => 1,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'filtered_html' => array(
+              'weight' => 0,
+            ),
+            'full_html' => array(
+              'weight' => 1,
+            ),
+            'plain_text' => array(
+              'weight' => 10,
+            ),
+          ),
+        ),
+      ),
       'display_summary' => 0,
       'text_processing' => 1,
       'user_register_form' => FALSE,
@@ -267,11 +295,10 @@ function content_type_course_template_field_default_field_instances() {
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 0,
+      'active' => 1,
       'module' => 'options',
       'settings' => array(
-        'autocomplete_path' => 'taxonomy/autocomplete',
-        'size' => 60,
+        'apply_chosen' => 1,
       ),
       'type' => 'options_select',
       'weight' => 9,

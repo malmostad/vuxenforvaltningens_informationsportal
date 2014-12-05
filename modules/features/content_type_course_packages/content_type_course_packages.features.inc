@@ -22,9 +22,9 @@ function content_type_course_packages_ctools_plugin_api($module = NULL, $api = N
 function content_type_course_packages_node_info() {
   $items = array(
     'course_packages' => array(
-      'name' => t('Course package'),
+      'name' => t('Kurspaket'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('Use <em>kurspaket</em> for your school course packages, which include courses.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',

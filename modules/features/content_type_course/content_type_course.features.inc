@@ -22,9 +22,9 @@ function content_type_course_ctools_plugin_api($module = NULL, $api = NULL) {
 function content_type_course_node_info() {
   $items = array(
     'course' => array(
-      'name' => t('Course'),
+      'name' => t('Enstaka kurs'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('Use <em>enstaka kurs</em> for your school courses.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
