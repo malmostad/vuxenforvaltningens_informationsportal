@@ -3,8 +3,11 @@ language: php
 php:
   - 5.4
 
+services: memcache
+
 env:
   global:
+    - MEMCACHED__HOST=localhost
     - PHPCS_VERSION='1.5.5'
     - CODER_VERSION='dev-7.x-2.x'
 
@@ -87,6 +90,7 @@ install:
 
    # Disable sendmail
   - echo sendmail_path=`which true` >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - echo 'extension = "memcache.so"' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
 
 before_script:
   # Do the site install (either the current revision or old for the upgrade).
