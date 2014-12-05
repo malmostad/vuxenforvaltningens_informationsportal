@@ -50,7 +50,7 @@ function menu_user_menu_default_menu_links() {
     'menu_name' => 'user-menu',
     'link_path' => 'register',
     'router_path' => 'register',
-    'link_title' => 'Registration',
+    'link_title' => 'Registrering',
     'options' => array(
       'attributes' => array(
         'title' => '',

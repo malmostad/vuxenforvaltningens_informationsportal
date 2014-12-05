@@ -35,6 +35,7 @@ function config_permissions_user_default_permissions() {
   $permissions['access coffee'] = array(
     'name' => 'access coffee',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'coffee',
@@ -78,6 +79,8 @@ function config_permissions_user_default_permissions() {
   $permissions['access contextual links'] = array(
     'name' => 'access contextual links',
     'roles' => array(
+      'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'contextual',
@@ -99,6 +102,30 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'devel',
+  );
+
+  // Exported permission: 'access media browser'.
+  $permissions['access media browser'] = array(
+    'name' => 'access media browser',
+    'roles' => array(
+      'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
+      'School editor' => 'School editor',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'media',
+  );
+
+  // Exported permission: 'access navbar'.
+  $permissions['access navbar'] = array(
+    'name' => 'access navbar',
+    'roles' => array(
+      'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
+      'School editor' => 'School editor',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'navbar',
   );
 
   // Exported permission: 'access private fields'.
@@ -123,6 +150,7 @@ function config_permissions_user_default_permissions() {
   $permissions['access site in maintenance mode'] = array(
     'name' => 'access site in maintenance mode',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'system',
@@ -141,6 +169,7 @@ function config_permissions_user_default_permissions() {
   $permissions['access user profiles'] = array(
     'name' => 'access user profiles',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'user',
@@ -209,6 +238,16 @@ function config_permissions_user_default_permissions() {
     'module' => 'registration',
   );
 
+  // Exported permission: 'administer custom breadcrumbs'.
+  $permissions['administer custom breadcrumbs'] = array(
+    'name' => 'administer custom breadcrumbs',
+    'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'custom_breadcrumbs',
+  );
+
   // Exported permission: 'administer entity view modes'.
   $permissions['administer entity view modes'] = array(
     'name' => 'administer entity view modes',
@@ -254,6 +293,24 @@ function config_permissions_user_default_permissions() {
     'module' => 'field_group',
   );
 
+  // Exported permission: 'administer file types'.
+  $permissions['administer file types'] = array(
+    'name' => 'administer file types',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'administer files'.
+  $permissions['administer files'] = array(
+    'name' => 'administer files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
+  );
+
   // Exported permission: 'administer filters'.
   $permissions['administer filters'] = array(
     'name' => 'administer filters',
@@ -279,6 +336,25 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'locale',
+  );
+
+  // Exported permission: 'administer mal hint'.
+  $permissions['administer mal hint'] = array(
+    'name' => 'administer mal hint',
+    'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'mal_hint',
+  );
+
+  // Exported permission: 'administer media browser'.
+  $permissions['administer media browser'] = array(
+    'name' => 'administer media browser',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'media',
   );
 
   // Exported permission: 'administer menu'.
@@ -424,6 +500,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer rules'] = array(
     'name' => 'administer rules',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'rules',
@@ -451,6 +528,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer site configuration'] = array(
     'name' => 'administer site configuration',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'system',
@@ -505,6 +583,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer users'] = array(
     'name' => 'administer users',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'user',
@@ -523,9 +602,19 @@ function config_permissions_user_default_permissions() {
   $permissions['block IP addresses'] = array(
     'name' => 'block IP addresses',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'system',
+  );
+
+  // Exported permission: 'bypass file access'.
+  $permissions['bypass file access'] = array(
+    'name' => 'bypass file access',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
   );
 
   // Exported permission: 'bypass node access'.
@@ -554,16 +643,6 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'user',
-  );
-
-  // Exported permission: 'administer mal hint'.
-  $permissions['administer mal hint'] = array(
-    'name' => 'administer mal hint',
-    'roles' => array(
-      'Malmo top admin' => 'Malmo top admin',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'mal_hint',
   );
 
   // Exported permission: 'change field_course_school field'.
@@ -665,6 +744,15 @@ function config_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'create field_course_searchable_type'.
+  $permissions['create field_course_searchable_type'] = array(
+    'name' => 'create field_course_searchable_type',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'create field_registration'.
   $permissions['create field_registration'] = array(
     'name' => 'create field_registration',
@@ -672,6 +760,18 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'create files'.
+  $permissions['create files'] = array(
+    'name' => 'create files',
+    'roles' => array(
+      'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
+      'School editor' => 'School editor',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
   );
 
   // Exported permission: 'create mini panels'.
@@ -728,6 +828,15 @@ function config_permissions_user_default_permissions() {
     'module' => 'shortcut',
   );
 
+  // Exported permission: 'delete any audio files'.
+  $permissions['delete any audio files'] = array(
+    'name' => 'delete any audio files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
+  );
+
   // Exported permission: 'delete any course content'.
   $permissions['delete any course content'] = array(
     'name' => 'delete any course content',
@@ -767,6 +876,15 @@ function config_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete any document files'.
+  $permissions['delete any document files'] = array(
+    'name' => 'delete any document files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
+  );
+
   // Exported permission: 'delete any education content'.
   $permissions['delete any education content'] = array(
     'name' => 'delete any education content',
@@ -774,6 +892,15 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'delete any image files'.
+  $permissions['delete any image files'] = array(
+    'name' => 'delete any image files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
   );
 
   // Exported permission: 'delete any page content'.
@@ -801,6 +928,24 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'delete any video files'.
+  $permissions['delete any video files'] = array(
+    'name' => 'delete any video files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'delete own audio files'.
+  $permissions['delete own audio files'] = array(
+    'name' => 'delete own audio files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
   );
 
   // Exported permission: 'delete own course content'.
@@ -846,6 +991,15 @@ function config_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete own document files'.
+  $permissions['delete own document files'] = array(
+    'name' => 'delete own document files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
+  );
+
   // Exported permission: 'delete own education content'.
   $permissions['delete own education content'] = array(
     'name' => 'delete own education content',
@@ -853,6 +1007,15 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'delete own image files'.
+  $permissions['delete own image files'] = array(
+    'name' => 'delete own image files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
   );
 
   // Exported permission: 'delete own page content'.
@@ -880,6 +1043,15 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'delete own video files'.
+  $permissions['delete own video files'] = array(
+    'name' => 'delete own video files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
   );
 
   // Exported permission: 'delete revisions'.
@@ -927,6 +1099,13 @@ function config_permissions_user_default_permissions() {
     'module' => 'taxonomy',
   );
 
+  // Exported permission: 'delete terms in course_searchable_type'.
+  $permissions['delete terms in course_searchable_type'] = array(
+    'name' => 'delete terms in course_searchable_type',
+    'roles' => array(),
+    'module' => 'taxonomy',
+  );
+
   // Exported permission: 'delete terms in course_subject_areas'.
   $permissions['delete terms in course_subject_areas'] = array(
     'name' => 'delete terms in course_subject_areas',
@@ -950,6 +1129,87 @@ function config_permissions_user_default_permissions() {
     'name' => 'delete terms in type_of_education',
     'roles' => array(),
     'module' => 'taxonomy',
+  );
+
+  // Exported permission: 'download any audio files'.
+  $permissions['download any audio files'] = array(
+    'name' => 'download any audio files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'download any document files'.
+  $permissions['download any document files'] = array(
+    'name' => 'download any document files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'download any image files'.
+  $permissions['download any image files'] = array(
+    'name' => 'download any image files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'download any video files'.
+  $permissions['download any video files'] = array(
+    'name' => 'download any video files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'download own audio files'.
+  $permissions['download own audio files'] = array(
+    'name' => 'download own audio files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'download own document files'.
+  $permissions['download own document files'] = array(
+    'name' => 'download own document files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'download own image files'.
+  $permissions['download own image files'] = array(
+    'name' => 'download own image files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'download own video files'.
+  $permissions['download own video files'] = array(
+    'name' => 'download own video files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'edit any audio files'.
+  $permissions['edit any audio files'] = array(
+    'name' => 'edit any audio files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
   );
 
   // Exported permission: 'edit any course content'.
@@ -982,6 +1242,15 @@ function config_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit any document files'.
+  $permissions['edit any document files'] = array(
+    'name' => 'edit any document files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
+  );
+
   // Exported permission: 'edit any education content'.
   $permissions['edit any education content'] = array(
     'name' => 'edit any education content',
@@ -989,6 +1258,15 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'edit any image files'.
+  $permissions['edit any image files'] = array(
+    'name' => 'edit any image files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
   );
 
   // Exported permission: 'edit any page content'.
@@ -1018,6 +1296,15 @@ function config_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit any video files'.
+  $permissions['edit any video files'] = array(
+    'name' => 'edit any video files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
+  );
+
   // Exported permission: 'edit course_registration registration state'.
   $permissions['edit course_registration registration state'] = array(
     'name' => 'edit course_registration registration state',
@@ -1027,6 +1314,15 @@ function config_permissions_user_default_permissions() {
     'module' => 'registration',
   );
 
+  // Exported permission: 'edit field_course_searchable_type'.
+  $permissions['edit field_course_searchable_type'] = array(
+    'name' => 'edit field_course_searchable_type',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'edit field_registration'.
   $permissions['edit field_registration'] = array(
     'name' => 'edit field_registration',
@@ -1034,6 +1330,15 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'edit own audio files'.
+  $permissions['edit own audio files'] = array(
+    'name' => 'edit own audio files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
   );
 
   // Exported permission: 'edit own comments'.
@@ -1078,6 +1383,15 @@ function config_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit own document files'.
+  $permissions['edit own document files'] = array(
+    'name' => 'edit own document files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
+  );
+
   // Exported permission: 'edit own education content'.
   $permissions['edit own education content'] = array(
     'name' => 'edit own education content',
@@ -1087,6 +1401,15 @@ function config_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'edit own field_course_searchable_type'.
+  $permissions['edit own field_course_searchable_type'] = array(
+    'name' => 'edit own field_course_searchable_type',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'edit own field_registration'.
   $permissions['edit own field_registration'] = array(
     'name' => 'edit own field_registration',
@@ -1094,6 +1417,15 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'edit own image files'.
+  $permissions['edit own image files'] = array(
+    'name' => 'edit own image files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
   );
 
   // Exported permission: 'edit own page content'.
@@ -1121,6 +1453,15 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'edit own video files'.
+  $permissions['edit own video files'] = array(
+    'name' => 'edit own video files',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
   );
 
   // Exported permission: 'edit school which was specified in profile'.
@@ -1171,6 +1512,13 @@ function config_permissions_user_default_permissions() {
     'module' => 'taxonomy',
   );
 
+  // Exported permission: 'edit terms in course_searchable_type'.
+  $permissions['edit terms in course_searchable_type'] = array(
+    'name' => 'edit terms in course_searchable_type',
+    'roles' => array(),
+    'module' => 'taxonomy',
+  );
+
   // Exported permission: 'edit terms in course_subject_areas'.
   $permissions['edit terms in course_subject_areas'] = array(
     'name' => 'edit terms in course_subject_areas',
@@ -1194,6 +1542,69 @@ function config_permissions_user_default_permissions() {
     'name' => 'edit terms in type_of_education',
     'roles' => array(),
     'module' => 'taxonomy',
+  );
+
+  // Exported permission: 'enter course revision log entry'.
+  $permissions['enter course revision log entry'] = array(
+    'name' => 'enter course revision log entry',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'enter course_packages revision log entry'.
+  $permissions['enter course_packages revision log entry'] = array(
+    'name' => 'enter course_packages revision log entry',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'enter course_template revision log entry'.
+  $permissions['enter course_template revision log entry'] = array(
+    'name' => 'enter course_template revision log entry',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'enter education revision log entry'.
+  $permissions['enter education revision log entry'] = array(
+    'name' => 'enter education revision log entry',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'enter page revision log entry'.
+  $permissions['enter page revision log entry'] = array(
+    'name' => 'enter page revision log entry',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'enter question_and_answer revision log entry'.
+  $permissions['enter question_and_answer revision log entry'] = array(
+    'name' => 'enter question_and_answer revision log entry',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'enter school revision log entry'.
+  $permissions['enter school revision log entry'] = array(
+    'name' => 'enter school revision log entry',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
   );
 
   // Exported permission: 'execute php code'.
@@ -1232,6 +1643,384 @@ function config_permissions_user_default_permissions() {
     'module' => 'features',
   );
 
+  // Exported permission: 'override course authored by option'.
+  $permissions['override course authored by option'] = array(
+    'name' => 'override course authored by option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override course authored on option'.
+  $permissions['override course authored on option'] = array(
+    'name' => 'override course authored on option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override course promote to front page option'.
+  $permissions['override course promote to front page option'] = array(
+    'name' => 'override course promote to front page option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override course published option'.
+  $permissions['override course published option'] = array(
+    'name' => 'override course published option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override course revision option'.
+  $permissions['override course revision option'] = array(
+    'name' => 'override course revision option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override course sticky option'.
+  $permissions['override course sticky option'] = array(
+    'name' => 'override course sticky option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override course_packages authored by option'.
+  $permissions['override course_packages authored by option'] = array(
+    'name' => 'override course_packages authored by option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override course_packages authored on option'.
+  $permissions['override course_packages authored on option'] = array(
+    'name' => 'override course_packages authored on option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override course_packages promote to front page option'.
+  $permissions['override course_packages promote to front page option'] = array(
+    'name' => 'override course_packages promote to front page option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override course_packages published option'.
+  $permissions['override course_packages published option'] = array(
+    'name' => 'override course_packages published option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override course_packages revision option'.
+  $permissions['override course_packages revision option'] = array(
+    'name' => 'override course_packages revision option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override course_packages sticky option'.
+  $permissions['override course_packages sticky option'] = array(
+    'name' => 'override course_packages sticky option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override course_template authored by option'.
+  $permissions['override course_template authored by option'] = array(
+    'name' => 'override course_template authored by option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override course_template authored on option'.
+  $permissions['override course_template authored on option'] = array(
+    'name' => 'override course_template authored on option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override course_template promote to front page option'.
+  $permissions['override course_template promote to front page option'] = array(
+    'name' => 'override course_template promote to front page option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override course_template published option'.
+  $permissions['override course_template published option'] = array(
+    'name' => 'override course_template published option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override course_template revision option'.
+  $permissions['override course_template revision option'] = array(
+    'name' => 'override course_template revision option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override course_template sticky option'.
+  $permissions['override course_template sticky option'] = array(
+    'name' => 'override course_template sticky option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override education authored by option'.
+  $permissions['override education authored by option'] = array(
+    'name' => 'override education authored by option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override education authored on option'.
+  $permissions['override education authored on option'] = array(
+    'name' => 'override education authored on option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override education promote to front page option'.
+  $permissions['override education promote to front page option'] = array(
+    'name' => 'override education promote to front page option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override education published option'.
+  $permissions['override education published option'] = array(
+    'name' => 'override education published option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override education revision option'.
+  $permissions['override education revision option'] = array(
+    'name' => 'override education revision option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override education sticky option'.
+  $permissions['override education sticky option'] = array(
+    'name' => 'override education sticky option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override page authored by option'.
+  $permissions['override page authored by option'] = array(
+    'name' => 'override page authored by option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override page authored on option'.
+  $permissions['override page authored on option'] = array(
+    'name' => 'override page authored on option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override page promote to front page option'.
+  $permissions['override page promote to front page option'] = array(
+    'name' => 'override page promote to front page option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override page published option'.
+  $permissions['override page published option'] = array(
+    'name' => 'override page published option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override page revision option'.
+  $permissions['override page revision option'] = array(
+    'name' => 'override page revision option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override page sticky option'.
+  $permissions['override page sticky option'] = array(
+    'name' => 'override page sticky option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override question_and_answer authored by option'.
+  $permissions['override question_and_answer authored by option'] = array(
+    'name' => 'override question_and_answer authored by option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override question_and_answer authored on option'.
+  $permissions['override question_and_answer authored on option'] = array(
+    'name' => 'override question_and_answer authored on option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override question_and_answer promote to front page option'.
+  $permissions['override question_and_answer promote to front page option'] = array(
+    'name' => 'override question_and_answer promote to front page option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override question_and_answer published option'.
+  $permissions['override question_and_answer published option'] = array(
+    'name' => 'override question_and_answer published option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override question_and_answer revision option'.
+  $permissions['override question_and_answer revision option'] = array(
+    'name' => 'override question_and_answer revision option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override question_and_answer sticky option'.
+  $permissions['override question_and_answer sticky option'] = array(
+    'name' => 'override question_and_answer sticky option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override school authored by option'.
+  $permissions['override school authored by option'] = array(
+    'name' => 'override school authored by option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override school authored on option'.
+  $permissions['override school authored on option'] = array(
+    'name' => 'override school authored on option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override school promote to front page option'.
+  $permissions['override school promote to front page option'] = array(
+    'name' => 'override school promote to front page option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override school published option'.
+  $permissions['override school published option'] = array(
+    'name' => 'override school published option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override school revision option'.
+  $permissions['override school revision option'] = array(
+    'name' => 'override school revision option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
+  // Exported permission: 'override school sticky option'.
+  $permissions['override school sticky option'] = array(
+    'name' => 'override school sticky option',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'override_node_options',
+  );
+
   // Exported permission: 'post comments'.
   $permissions['post comments'] = array(
     'name' => 'post comments',
@@ -1267,6 +2056,334 @@ function config_permissions_user_default_permissions() {
     'name' => 'publish any course_template content',
     'roles' => array(),
     'module' => 'publishcontent',
+  );
+
+  // Exported permission: 'publish button publish any content types'.
+  $permissions['publish button publish any content types'] = array(
+    'name' => 'publish button publish any content types',
+    'roles' => array(
+      'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button publish any course'.
+  $permissions['publish button publish any course'] = array(
+    'name' => 'publish button publish any course',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button publish any course_packages'.
+  $permissions['publish button publish any course_packages'] = array(
+    'name' => 'publish button publish any course_packages',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button publish any course_template'.
+  $permissions['publish button publish any course_template'] = array(
+    'name' => 'publish button publish any course_template',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button publish any education'.
+  $permissions['publish button publish any education'] = array(
+    'name' => 'publish button publish any education',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button publish any page'.
+  $permissions['publish button publish any page'] = array(
+    'name' => 'publish button publish any page',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button publish any question_and_answer'.
+  $permissions['publish button publish any question_and_answer'] = array(
+    'name' => 'publish button publish any question_and_answer',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button publish any school'.
+  $permissions['publish button publish any school'] = array(
+    'name' => 'publish button publish any school',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button publish editable course'.
+  $permissions['publish button publish editable course'] = array(
+    'name' => 'publish button publish editable course',
+    'roles' => array(
+      'School editor' => 'School editor',
+    ),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button publish editable course_packages'.
+  $permissions['publish button publish editable course_packages'] = array(
+    'name' => 'publish button publish editable course_packages',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button publish editable course_template'.
+  $permissions['publish button publish editable course_template'] = array(
+    'name' => 'publish button publish editable course_template',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button publish editable education'.
+  $permissions['publish button publish editable education'] = array(
+    'name' => 'publish button publish editable education',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button publish editable page'.
+  $permissions['publish button publish editable page'] = array(
+    'name' => 'publish button publish editable page',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button publish editable question_and_answer'.
+  $permissions['publish button publish editable question_and_answer'] = array(
+    'name' => 'publish button publish editable question_and_answer',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button publish editable school'.
+  $permissions['publish button publish editable school'] = array(
+    'name' => 'publish button publish editable school',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button publish own course'.
+  $permissions['publish button publish own course'] = array(
+    'name' => 'publish button publish own course',
+    'roles' => array(
+      'School editor' => 'School editor',
+    ),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button publish own course_packages'.
+  $permissions['publish button publish own course_packages'] = array(
+    'name' => 'publish button publish own course_packages',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button publish own course_template'.
+  $permissions['publish button publish own course_template'] = array(
+    'name' => 'publish button publish own course_template',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button publish own education'.
+  $permissions['publish button publish own education'] = array(
+    'name' => 'publish button publish own education',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button publish own page'.
+  $permissions['publish button publish own page'] = array(
+    'name' => 'publish button publish own page',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button publish own question_and_answer'.
+  $permissions['publish button publish own question_and_answer'] = array(
+    'name' => 'publish button publish own question_and_answer',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button publish own school'.
+  $permissions['publish button publish own school'] = array(
+    'name' => 'publish button publish own school',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button unpublish any content types'.
+  $permissions['publish button unpublish any content types'] = array(
+    'name' => 'publish button unpublish any content types',
+    'roles' => array(
+      'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button unpublish any course'.
+  $permissions['publish button unpublish any course'] = array(
+    'name' => 'publish button unpublish any course',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button unpublish any course_packages'.
+  $permissions['publish button unpublish any course_packages'] = array(
+    'name' => 'publish button unpublish any course_packages',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button unpublish any course_template'.
+  $permissions['publish button unpublish any course_template'] = array(
+    'name' => 'publish button unpublish any course_template',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button unpublish any education'.
+  $permissions['publish button unpublish any education'] = array(
+    'name' => 'publish button unpublish any education',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button unpublish any page'.
+  $permissions['publish button unpublish any page'] = array(
+    'name' => 'publish button unpublish any page',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button unpublish any question_and_answer'.
+  $permissions['publish button unpublish any question_and_answer'] = array(
+    'name' => 'publish button unpublish any question_and_answer',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button unpublish any school'.
+  $permissions['publish button unpublish any school'] = array(
+    'name' => 'publish button unpublish any school',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button unpublish editable course'.
+  $permissions['publish button unpublish editable course'] = array(
+    'name' => 'publish button unpublish editable course',
+    'roles' => array(
+      'School editor' => 'School editor',
+    ),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button unpublish editable course_packages'.
+  $permissions['publish button unpublish editable course_packages'] = array(
+    'name' => 'publish button unpublish editable course_packages',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button unpublish editable course_template'.
+  $permissions['publish button unpublish editable course_template'] = array(
+    'name' => 'publish button unpublish editable course_template',
+    'roles' => array(
+      'School editor' => 'School editor',
+    ),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button unpublish editable education'.
+  $permissions['publish button unpublish editable education'] = array(
+    'name' => 'publish button unpublish editable education',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button unpublish editable page'.
+  $permissions['publish button unpublish editable page'] = array(
+    'name' => 'publish button unpublish editable page',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button unpublish editable question_and_answer'.
+  $permissions['publish button unpublish editable question_and_answer'] = array(
+    'name' => 'publish button unpublish editable question_and_answer',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button unpublish editable school'.
+  $permissions['publish button unpublish editable school'] = array(
+    'name' => 'publish button unpublish editable school',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button unpublish own course'.
+  $permissions['publish button unpublish own course'] = array(
+    'name' => 'publish button unpublish own course',
+    'roles' => array(
+      'School editor' => 'School editor',
+    ),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button unpublish own course_packages'.
+  $permissions['publish button unpublish own course_packages'] = array(
+    'name' => 'publish button unpublish own course_packages',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button unpublish own course_template'.
+  $permissions['publish button unpublish own course_template'] = array(
+    'name' => 'publish button unpublish own course_template',
+    'roles' => array(
+      'School editor' => 'School editor',
+    ),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button unpublish own education'.
+  $permissions['publish button unpublish own education'] = array(
+    'name' => 'publish button unpublish own education',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button unpublish own page'.
+  $permissions['publish button unpublish own page'] = array(
+    'name' => 'publish button unpublish own page',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button unpublish own question_and_answer'.
+  $permissions['publish button unpublish own question_and_answer'] = array(
+    'name' => 'publish button unpublish own question_and_answer',
+    'roles' => array(),
+    'module' => 'publish_button',
+  );
+
+  // Exported permission: 'publish button unpublish own school'.
+  $permissions['publish button unpublish own school'] = array(
+    'name' => 'publish button unpublish own school',
+    'roles' => array(),
+    'module' => 'publish_button',
   );
 
   // Exported permission: 'publish editable content'.
@@ -1355,9 +2472,108 @@ function config_permissions_user_default_permissions() {
   $permissions['select account cancellation method'] = array(
     'name' => 'select account cancellation method',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'user',
+  );
+
+  // Exported permission: 'show format selection for comment'.
+  $permissions['show format selection for comment'] = array(
+    'name' => 'show format selection for comment',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'better_formats',
+  );
+
+  // Exported permission: 'show format selection for field_collection_item'.
+  $permissions['show format selection for field_collection_item'] = array(
+    'name' => 'show format selection for field_collection_item',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'better_formats',
+  );
+
+  // Exported permission: 'show format selection for file'.
+  $permissions['show format selection for file'] = array(
+    'name' => 'show format selection for file',
+    'roles' => array(),
+    'module' => 'better_formats',
+  );
+
+  // Exported permission: 'show format selection for node'.
+  $permissions['show format selection for node'] = array(
+    'name' => 'show format selection for node',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'better_formats',
+  );
+
+  // Exported permission: 'show format selection for registration'.
+  $permissions['show format selection for registration'] = array(
+    'name' => 'show format selection for registration',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'better_formats',
+  );
+
+  // Exported permission: 'show format selection for rules_config'.
+  $permissions['show format selection for rules_config'] = array(
+    'name' => 'show format selection for rules_config',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'better_formats',
+  );
+
+  // Exported permission: 'show format selection for taxonomy_term'.
+  $permissions['show format selection for taxonomy_term'] = array(
+    'name' => 'show format selection for taxonomy_term',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'better_formats',
+  );
+
+  // Exported permission: 'show format selection for user'.
+  $permissions['show format selection for user'] = array(
+    'name' => 'show format selection for user',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'better_formats',
+  );
+
+  // Exported permission: 'show format tips'.
+  $permissions['show format tips'] = array(
+    'name' => 'show format tips',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'better_formats',
+  );
+
+  // Exported permission: 'show more format tips link'.
+  $permissions['show more format tips link'] = array(
+    'name' => 'show more format tips link',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'better_formats',
+  );
+
+  // Exported permission: 'show text format dropdown'.
+  $permissions['show text format dropdown'] = array(
+    'name' => 'show text format dropdown',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+    ),
+    'module' => 'hide_formats',
   );
 
   // Exported permission: 'skip comment approval'.
@@ -1387,13 +2603,34 @@ function config_permissions_user_default_permissions() {
     'module' => 'devel',
   );
 
+  // Exported permission: 'translate admin strings'.
+  $permissions['translate admin strings'] = array(
+    'name' => 'translate admin strings',
+    'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'i18n_string',
+  );
+
   // Exported permission: 'translate interface'.
   $permissions['translate interface'] = array(
     'name' => 'translate interface',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'locale',
+  );
+
+  // Exported permission: 'translate user-defined strings'.
+  $permissions['translate user-defined strings'] = array(
+    'name' => 'translate user-defined strings',
+    'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'i18n_string',
   );
 
   // Exported permission: 'unpublish any content'.
@@ -1497,6 +2734,15 @@ function config_permissions_user_default_permissions() {
     'module' => 'registration',
   );
 
+  // Exported permission: 'use PHP for title patterns'.
+  $permissions['use PHP for title patterns'] = array(
+    'name' => 'use PHP for title patterns',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'auto_nodetitle',
+  );
+
   // Exported permission: 'use ipe with page manager'.
   $permissions['use ipe with page manager'] = array(
     'name' => 'use ipe with page manager',
@@ -1554,6 +2800,15 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'panels',
+  );
+
+  // Exported permission: 'use php in custom breadcrumbs'.
+  $permissions['use php in custom breadcrumbs'] = array(
+    'name' => 'use php in custom breadcrumbs',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'custom_breadcrumbs',
   );
 
   // Exported permission: 'use text format filtered_html'.
@@ -1658,6 +2913,18 @@ function config_permissions_user_default_permissions() {
     'module' => 'ultimate_cron',
   );
 
+  // Exported permission: 'view field_course_searchable_type'.
+  $permissions['view field_course_searchable_type'] = array(
+    'name' => 'view field_course_searchable_type',
+    'roles' => array(
+      'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
+      'School editor' => 'School editor',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'view field_registration'.
   $permissions['view field_registration'] = array(
     'name' => 'view field_registration',
@@ -1666,6 +2933,20 @@ function config_permissions_user_default_permissions() {
       'authenticated user' => 'authenticated user',
     ),
     'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'view files'.
+  $permissions['view files'] = array(
+    'name' => 'view files',
+    'roles' => array(
+      'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
+      'School editor' => 'School editor',
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'file_entity',
   );
 
   // Exported permission: 'view own course_registration registration'.
@@ -1677,6 +2958,15 @@ function config_permissions_user_default_permissions() {
     'module' => 'registration',
   );
 
+  // Exported permission: 'view own field_course_searchable_type'.
+  $permissions['view own field_course_searchable_type'] = array(
+    'name' => 'view own field_course_searchable_type',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'view own field_registration'.
   $permissions['view own field_registration'] = array(
     'name' => 'view own field_registration',
@@ -1684,6 +2974,30 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'view own files'.
+  $permissions['view own files'] = array(
+    'name' => 'view own files',
+    'roles' => array(
+      'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
+      'School editor' => 'School editor',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
+  );
+
+  // Exported permission: 'view own private files'.
+  $permissions['view own private files'] = array(
+    'name' => 'view own private files',
+    'roles' => array(
+      'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
+      'School editor' => 'School editor',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
   );
 
   // Exported permission: 'view own unpublished content'.
@@ -1704,6 +3018,16 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'panels',
+  );
+
+  // Exported permission: 'view private files'.
+  $permissions['view private files'] = array(
+    'name' => 'view private files',
+    'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'file_entity',
   );
 
   // Exported permission: 'view revisions'.

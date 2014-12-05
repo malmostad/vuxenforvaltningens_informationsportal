@@ -1,5 +1,5 @@
 ; Packaging information for city_of_malmo
-name = "City of Malmo"
+name = "City of malmo"
 description = ""
 exclusive = "1"
 core = "7.x"
@@ -7,7 +7,7 @@ core = "7.x"
 ; Dependencies
 ; ----------
 ; Administration
-dependencies[] = admin_menu
+dependencies[] = admin_views
 dependencies[] = coffee
 dependencies[] = module_filter
 ; Chaos tool suite
@@ -26,7 +26,6 @@ dependencies[] = field_sql_storage
 dependencies[] = field_ui
 dependencies[] = file
 dependencies[] = filter
-dependencies[] = help
 dependencies[] = image
 dependencies[] = list
 dependencies[] = locale
@@ -42,6 +41,10 @@ dependencies[] = taxonomy
 dependencies[] = text
 dependencies[] = update
 dependencies[] = user
+; Custom breadcrumbs
+dependencies[] = custom_breadcrumbs
+dependencies[] = custom_breadcrumbs_features
+dependencies[] = custom_breadcrumbs_panels
 ; Date/Time
 dependencies[] = date
 dependencies[] = date_api
@@ -49,96 +52,103 @@ dependencies[] = date_popup
 ; Development
 dependencies[] = devel
 dependencies[] = devel_generate
+dependencies[] = menu_import
 dependencies[] = profiler_builder
 dependencies[] = profiler_builder_extras
 ; Fields
-dependencies[] = field_collection
-dependencies[] = field_collection_table
-dependencies[] = field_group
 dependencies[] = entityreference
-dependencies[] = timefield
-dependencies[] = link
+dependencies[] = field_collection
+dependencies[] = field_group
+dependencies[] = field_permissions
 dependencies[] = inline_entity_display
+dependencies[] = link
+dependencies[] = timefield
+; Media
+dependencies[] = file_entity
+dependencies[] = media
+dependencies[] = media_wysiwyg
+; Multilingual
+dependencies[] = l10n_update
+; Multilingual - Internationalization
+dependencies[] = i18n
+dependencies[] = i18n_field
+dependencies[] = i18n_string
+dependencies[] = language_cookie
 ; Other
+dependencies[] = auto_nodetitle
+dependencies[] = better_formats
 dependencies[] = diff
 dependencies[] = entity
+dependencies[] = entity_token
 dependencies[] = entity_view_mode
-dependencies[] = l10n_update
-dependencies[] = language_cookie
+dependencies[] = field_collection_table
+dependencies[] = hide_formats
 dependencies[] = libraries
-dependencies[] = strongarm
-dependencies[] = ultimate_cron
-dependencies[] = menu_import
+dependencies[] = mal_ux_improvements
+dependencies[] = navbar
+dependencies[] = node_edit_protection
+dependencies[] = publish_button
 dependencies[] = publishcontent
-dependencies[] = view_unpublished
-dependencies[] = rules
-dependencies[] = rules_admin
-dependencies[] = admin_views
-dependencies[] = views_bulk_operations
-dependencies[] = field_permissions
-dependencies[] = custom_breadcrumbs
-dependencies[] = custom_breadcrumbs_features
-dependencies[] = auto_nodetitle
-dependencies[] = i18n
-dependencies[] = variable
+dependencies[] = strongarm
 dependencies[] = token
+dependencies[] = ultimate_cron
 ; Panels
 dependencies[] = panels
 dependencies[] = panels_everywhere
-dependencies[] = panels_mini
 dependencies[] = panels_ipe
+dependencies[] = panels_mini
 dependencies[] = pps
+; Permissions
+dependencies[] = override_node_options
+dependencies[] = view_unpublished
 ; Propeople
-dependencies[] = mal_ctools_global_pane
-dependencies[] = mal_ctools_separate_facet
-dependencies[] = mal_ctools_contact_box
-dependencies[] = mal_ctools_global_banner
-dependencies[] = mal_ctools_global_search
-dependencies[] = mal_ctools_search_date_filter
-dependencies[] = mal_ctools_subtitle
-dependencies[] = mal_generate_content
-dependencies[] = mal_generate_users
-dependencies[] = mal_search
-dependencies[] = user_register
-dependencies[] = mal_entityreference_widget_alter
-dependencies[] = mal_generate_menu
-dependencies[] = mal_user_courses
-dependencies[] = mal_user_custom_access
-dependencies[] = mal_update
-dependencies[] = mal_ctools_front_page_allowed_content
 dependencies[] = mal_course_administrative
-dependencies[] = mal_hint
 dependencies[] = mal_course_scheduler
 dependencies[] = mal_course_searchable_type_formatter
+dependencies[] = mal_ctools_contact_box
+dependencies[] = mal_ctools_front_page_allowed_content
+dependencies[] = mal_ctools_global_banner
+dependencies[] = mal_ctools_global_pane
+dependencies[] = mal_ctools_global_search
+dependencies[] = mal_ctools_search_date_filter
+dependencies[] = mal_ctools_separate_facet
+dependencies[] = mal_ctools_subtitle
+dependencies[] = mal_entityreference_widget_alter
+dependencies[] = mal_generate_content
+dependencies[] = mal_generate_menu
+dependencies[] = mal_generate_users
+dependencies[] = mal_hint
+dependencies[] = mal_search
+dependencies[] = mal_update
+dependencies[] = mal_user_courses
+dependencies[] = mal_user_custom_access
+dependencies[] = user_register
 ; Registration
 dependencies[] = registration
 dependencies[] = registration_views
+; Rules
+dependencies[] = rules
+dependencies[] = rules_admin
 ; Search
 dependencies[] = search_api
+dependencies[] = search_api_autocomplete
 dependencies[] = search_api_facetapi
 dependencies[] = search_api_solr
 dependencies[] = search_api_sorts
 dependencies[] = search_api_views
-dependencies[] = search_api_autocomplete
 ; Search Toolkit
 dependencies[] = facetapi
 dependencies[] = facetapi_bonus
 dependencies[] = facetapi_ranges
 ; User interface
-dependencies[] = jquery_update
-dependencies[] = navbar
-dependencies[] = hide_formats
-dependencies[] = better_formats
-dependencies[] = publish_button
 dependencies[] = chosen
-dependencies[] = override_node_options
-dependencies[] = media
-dependencies[] = media_wysiwyg
-dependencies[] = file_entity
-dependencies[] = node_edit_protection
+dependencies[] = jquery_update
 dependencies[] = wysiwyg
+; Variable
+dependencies[] = variable
 ; Views
 dependencies[] = views
+dependencies[] = views_bulk_operations
 dependencies[] = views_ui
 ; Performance
 dependencies[] = varnish
@@ -152,6 +162,8 @@ dependencies[] = render_cache
 dependencies[] = entitycache
 ; Features
 dependencies[] = features
+dependencies[] = conf_image_style
+dependencies[] = config_breadrumbs
 dependencies[] = config_facet
 dependencies[] = config_jquery_update
 dependencies[] = config_language
@@ -163,39 +175,38 @@ dependencies[] = config_view_modes
 dependencies[] = config_wysiwyg
 dependencies[] = content_type_basic_page
 dependencies[] = content_type_course
+dependencies[] = content_type_course_packages
+dependencies[] = content_type_course_template
 dependencies[] = content_type_education
 dependencies[] = content_type_question_and_answer
 dependencies[] = content_type_school
-dependencies[] = content_type_course_packages
-dependencies[] = user_subscribed_courses_view
-dependencies[] = view_subscribed_app_view
+dependencies[] = content_type_user
 dependencies[] = course_registration_type
+dependencies[] = menu_footer_social
+dependencies[] = menu_footer_visit
 dependencies[] = menu_global
+dependencies[] = menu_user
+dependencies[] = minipanel_footer
 dependencies[] = minipanel_search_facet
 dependencies[] = minipanel_search_facet_date
 dependencies[] = minipanel_search_sort
 dependencies[] = notification_rules
+dependencies[] = page_course_package_view
 dependencies[] = page_course_view
-dependencies[] = page_schools
 dependencies[] = page_faq
 dependencies[] = page_front
 dependencies[] = page_main_layout
 dependencies[] = page_school_view
+dependencies[] = page_schools
 dependencies[] = page_search
+dependencies[] = page_user_planning
 dependencies[] = page_user_profile
 dependencies[] = page_user_register
-dependencies[] = page_course_package_view
-dependencies[] = page_user_planning
+dependencies[] = user_subscribed_courses_view
 dependencies[] = view_faq
-dependencies[] = view_search
 dependencies[] = view_schools
-dependencies[] = conf_image_style
-dependencies[] = content_type_course_template
-dependencies[] = menu_footer_social
-dependencies[] = minipanel_footer
-dependencies[] = menu_footer_visit
-dependencies[] = menu_user
-dependencies[] = content_type_user
-dependencies[] = config_breadrumbs
+dependencies[] = view_search
 dependencies[] = view_sidebar_courses
 dependencies[] = config_advagg
+dependencies[] = view_subscribed_app_view
+dependencies[] = config_media

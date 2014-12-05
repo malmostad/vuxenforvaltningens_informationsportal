@@ -1,0 +1,10 @@
+name = Config media
+core = 7.x
+package = Config
+dependencies[] = features
+dependencies[] = text
+features[features_api][] = api:2
+features[field_base][] = field_file_image_alt_text
+features[field_base][] = field_file_image_title_text
+features[field_instance][] = file-image-field_file_image_alt_text
+features[field_instance][] = file-image-field_file_image_title_text
