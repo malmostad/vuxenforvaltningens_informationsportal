@@ -21,7 +21,7 @@ function content_type_question_and_answer_node_info() {
     'question_and_answer' => array(
       'name' => t('Question and answer'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('Use <em>question and answer</em> for administer FAQ page.'),
       'has_title' => '1',
       'title_label' => t('Question'),
       'help' => '',

@@ -290,6 +290,7 @@ function content_type_course_strongarm() {
   $strongarm->value = array(
     0 => 'status',
     1 => 'promote',
+    2 => 'revision',
   );
   $export['node_options_course'] = $strongarm;
 
@@ -312,11 +313,11 @@ function content_type_course_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'timefield_weekly_summary_days';
   $strongarm->value = array(
-    'mon' => 'Monday',
-    'tue' => 'Tuesday',
-    'wed' => 'Wednesday',
-    'thu' => 'Thursday',
-    'fri' => 'Friday',
+    'mon' => 'Mandag',
+    'tue' => 'Tisdag',
+    'wed' => 'Onsdag',
+    'thu' => 'Torsdag',
+    'fri' => 'Fredag',
   );
   $export['timefield_weekly_summary_days'] = $strongarm;
 

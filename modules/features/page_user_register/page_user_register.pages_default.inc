@@ -63,13 +63,15 @@ function page_user_register_default_page_manager_pages() {
     'style_settings' => array(
       'default' => NULL,
       'region-one' => NULL,
+      'region-two' => NULL,
+      'region-three' => NULL,
     ),
     'region-one' => array(
       'style' => 'naked',
     ),
   );
   $display->cache = array();
-  $display->title = 'Registration';
+  $display->title = 'Registrering';
   $display->uuid = '472494e4-dcb3-4048-923d-b7d0de0ad5e8';
   $display->content = array();
   $display->panels = array();
@@ -85,7 +87,7 @@ function page_user_register_default_page_manager_pages() {
       'class' => '',
       'id' => '',
       'override_title' => 0,
-      'override_title_text' => '',
+      'override_title_text' => 'Registrering',
     );
     $pane->cache = array();
     $pane->style = array(
