@@ -162,7 +162,7 @@ function user_register_field_formatter_view($entity_type, $entity, $field, $inst
         $registration = user_register_load_registration_by_user($entity_type, $entity_id, $user->uid);
         if ($registration && entity_access('delete', 'registration', $registration)) {
           $registration = user_register_load_registration_by_user($entity_type, $entity_id, $user->uid);
-          $element[0] = drupal_get_form('user_register_unregister_form', $registration);
+          $element[0] = drupal_get_form('user_register_unregister_form_' . $registration->registration_id, $registration);
         }
         break;
     }
@@ -198,6 +198,19 @@ function user_register_load_registration_by_user($entity_type, $entity_id, $uid)
   }
 
   return FALSE;
+}
+
+/**
+ * Implements hook_forms().
+ *
+ * All user_register_unregister_form forms share the same form handler.
+ */
+function user_register_forms($form_id) {
+  $forms = array();
+  if (strpos($form_id, 'user_register_unregister_form_') === 0) {
+    $forms[$form_id]['callback'] = 'user_register_unregister_form';
+  }
+  return $forms;
 }
 
 /**
