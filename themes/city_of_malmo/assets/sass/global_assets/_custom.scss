@@ -82,36 +82,6 @@ html {
   }
 }
 
-@media (max-width: 48em) {
-  .wrapper {
-    > .contact-us {
-      @include box-sizing(border-box);
-      float: none;
-      float: left;
-      margin-right: 2%;
-      margin-right: 0;
-      width: 100%;
-    }
-  }
-}
-
-@media (max-width: 48em) {
-  .wrapper {
-    max-width: 34em;
-
-    > article.body-copy,
-    > nav.content,
-    > nav.basic {
-      @include box-sizing(border-box);
-      float: none;
-      float: left;
-      margin-right: 2%;
-      margin-right: 0;
-      width: 100%;
-    }
-  }
-}
-
 article.body-copy {
   img {
     border: #b5b5b5 1px solid;
@@ -147,17 +117,6 @@ article.body-copy {
     -o-transition: opacity .4s ease-in-out 0s;
     transition: opacity .4s ease-in-out 0s;
     width: 1em;
-  }
-}
-
-@media (max-width: 60em) {
-  article.body-copy {
-    .header-link {
-      background-position: bottom left;
-      display: inline-block;
-      margin-left: .5em;
-      position: static;
-    }
   }
 }
 
@@ -508,12 +467,6 @@ body {
   }
 }
 
-@media (max-width: 43em) {
-  body.editors-draft::after {
-    font-size: 14px;
-  }
-}
-
 h2 + .example {
   margin-top: .5em;
 }
@@ -622,48 +575,6 @@ h2 + .example {
       margin-right: 0;
       width: 100%;
     }
-  }
-}
-
-@media (min-width: 50em) {
-  .grid-example {
-    article {
-      @include box-sizing(border-box);
-      float: left;
-      margin-right: 2%;
-      margin-top: 0;
-      width: 49%;
-    }
-
-    nav {
-      @include box-sizing(border-box);
-      float: left;
-      margin-right: 2%;
-      width: 23.5%;
-    }
-
-    aside {
-      @include box-sizing(border-box);
-      float: left;
-      margin-right: 0;
-      width: 23.5%;
-    }
-  }
-}
-
-@media (max-width: 40em) {
-  .example {
-    padding: 2em .6em 1.4em;
-
-    .input-append input {
-      max-width: 10em;
-    }
-  }
-}
-
-@media (max-width: 25em) {
-  .example.buttons .btn {
-    margin-bottom: .5em;
   }
 }
 
@@ -840,6 +751,7 @@ footer.bigfoot {
   border: 1px solid $black;
   display: block;
   height: 0;
+  margin-bottom: 58px;
   overflow: hidden;
   padding-top: 22.9%;
   position: relative;
@@ -962,7 +874,7 @@ footer.bigfoot {
     @include background-image(linear-gradient(rgb(255, 255, 255), rgb(224, 224, 224)));
     @include border-left-radius(0);
     @include text-shadow(none);
-    background: none;
+    background-position: 0 0;
     border: 1px solid $grey;
     color: #333;
     font-weight: bold;
@@ -1091,13 +1003,6 @@ footer.bigfoot {
     }
   }
 
-  .hint {
-    @include inline-block;
-    background: url($icon-sprite) -3px -122px no-repeat;
-    cursor: default;
-    width: 12px;
-  }
-
   .facetapi-facetapi-checkbox-links {
     float: left;
     font-size: 12px;
@@ -1117,6 +1022,13 @@ footer.bigfoot {
       vertical-align: top;
     }
   }
+}
+
+.hint {
+  @include inline-block;
+  background: url($icon-sprite) -3px -122px no-repeat;
+  cursor: default;
+  width: 12px;
 }
 
 // --- Course page --- //
@@ -1540,4 +1452,147 @@ footer.bigfoot {
 // ---------media-------- //
 @media only screen and (max-width: 515px) {
   .wrapper { margin-bottom: 470px; }
+}
+
+@media (max-width: 60em) {
+  article.body-copy {
+    .header-link {
+      background-position: bottom left;
+      display: inline-block;
+      margin-left: .5em;
+      position: static;
+    }
+  }
+}
+
+@media (min-width: 50em) {
+  .grid-example {
+    article {
+      @include box-sizing(border-box);
+      float: left;
+      margin-right: 2%;
+      margin-top: 0;
+      width: 49%;
+    }
+
+    nav {
+      @include box-sizing(border-box);
+      float: left;
+      margin-right: 2%;
+      width: 23.5%;
+    }
+
+    aside {
+      @include box-sizing(border-box);
+      float: left;
+      margin-right: 0;
+      width: 23.5%;
+    }
+  }
+}
+
+@media (max-width: 50em) {
+  .wrapper {
+    padding-bottom: 0;
+  }
+
+  footer.bigfoot,
+  #malmo-footer {
+    position: static !important;
+  }
+}
+
+@media (max-width: 48em) {
+  .wrapper {
+    max-width: 34em;
+    padding-bottom: 0;
+
+    > article.body-copy,
+    > nav.content,
+    > nav.basic {
+      @include box-sizing(border-box);
+      float: none;
+      float: left;
+      margin-right: 2%;
+      margin-right: 0;
+      width: 100%;
+    }
+
+    > .contact-us {
+      @include box-sizing(border-box);
+      float: none;
+      float: left;
+      margin-right: 2%;
+      margin-right: 0;
+      width: 100%;
+    }
+
+    > nav.content {
+      padding: 0 20px;
+      h2,
+      li a {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+    }
+  }
+
+  .front {
+    #global-search-form {
+      margin-bottom: 40px;
+    }
+
+    .region-one {
+      overflow: hidden;
+      margin-bottom: 36px;
+    }
+  }
+
+  .top-block {
+    margin: 0 auto;
+    max-width: 475px;
+  }
+
+  .global-pane.half {
+    margin-bottom: 23px;
+    max-width: 480px;
+    padding-left: 30px;
+  }
+
+  .global-pane.third {
+    max-width: 495px;
+    padding-left: 20px;
+  }
+
+  .global-pane.half,
+  .global-pane.third {
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .pane-banner-pane {
+    display: none;
+  }
+}
+
+@media (max-width: 43em) {
+  body.editors-draft::after {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 40em) {
+  .example {
+    padding: 2em .6em 1.4em;
+
+    .input-append input {
+      max-width: 10em;
+    }
+  }
+}
+
+@media (max-width: 25em) {
+  .example.buttons .btn {
+    margin-bottom: .5em;
+  }
 }
