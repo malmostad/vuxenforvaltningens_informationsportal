@@ -7,9 +7,9 @@ Feature: Middle admim permission
   Scenario: Proper content available to add
     Given I am logged in as a user with the "Malmo middle admin" role
     And I am on "node/add"
-    And I should see the text "Kurspaket" in ".node-type-list" element
-    And I should see the text "Enstaka kurs" in ".node-type-list" element
-    And I should see the text "Course template" in ".node-type-list" element
+    And I should see the text "Kurspaket" in ".admin-list" element
+    And I should see the text "Enstaka kurs" in ".admin-list" element
+    And I should see the text "Course template" in ".admin-list" element
 #    Then I am on "admin"
 #    And I should not see "Structure"
 #    And I should not see "Configuration"
@@ -30,11 +30,10 @@ Feature: Middle admim permission
     And I fill in "Course form" with "Flexkurs"
     And I fill in "School" with "A1 Test school (1)"
     And I fill in "Course Group" with "test"
-    And I select "Inactive" from "Searchable type"
 
     Then I press the "edit-submit" button
 
-    And I should see "Course A1 Test course template has been created."
+    And I should see "Enstaka kurs A1 Test course template has been created."
     Then I click "Edit"
     And the "edit-status" checkbox should be checked
     Then I am on "node/add/course-packages"
@@ -47,7 +46,6 @@ Feature: Middle admim permission
     And I fill in "Course form" with "Flexkurs"
     And I fill in "School" with "A1 Test school (1)"
     And I fill in "Course Group" with "test"
-    And I select "Inactive" from "Searchable type"
     And I type "test" in "edit-body-und-0-value" WYSIWYG editor
     And I fill in "Contact Person" with "test"
     And I fill in "Number of points" with "100"
@@ -58,7 +56,7 @@ Feature: Middle admim permission
     And I fill in "Weeks of study" with "2"
 
     Then I press the "edit-submit" button
-    And I should see "Course package A1 Test course template has been created."
+    And I should see "Kurspaket A1 Test course template has been created."
     Then I click "Edit"
     And the "edit-status" checkbox should be checked
 

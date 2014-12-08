@@ -29,10 +29,9 @@ Feature: Editors permission
     # Required
     And I fill in "Course form" with "Flexkurs"
     And I fill in "Course Group" with "test"
-    And I select "Inactive" from "Searchable type"
 
     Then I press the "edit-submit" button
-    And I should see "Course A1 Test course template has been created."
+    And I should see "Enstaka kurs A1 Test course template has been created."
     Then I click "Edit"
     And the "edit-status" checkbox should be checked
     Then I am on "node/add/course-packages"
@@ -44,7 +43,6 @@ Feature: Editors permission
     # Required for course
     And I fill in "Course form" with "Flexkurs"
     And I fill in "Course Group" with "test"
-    And I select "Inactive" from "Searchable type"
     And I type "test" in "edit-body-und-0-value" WYSIWYG editor
     And I fill in "Contact Person" with "test"
     And I fill in "Number of points" with "100"
@@ -55,7 +53,7 @@ Feature: Editors permission
     And I fill in "Weeks of study" with "2"
 
     Then I press the "edit-submit" button
-    And I should see "Course package A1 Test course template has been created."
+    And I should see "Kurspaket A1 Test course template has been created."
     And I should see "20%"
     Then I click "Edit"
     And the "edit-status" checkbox should be checked

@@ -7,9 +7,9 @@ Feature: Content creation
   Scenario: School editor
     Given I am logged in as a user with the "School editor" role
       And I am on "node/add"
-      And I should see the text "Kurspaket" in ".node-type-list" element
-      And I should see the text "Enstaka kurs" in ".node-type-list" element
-      And I should see the text "Course template" in ".node-type-list" element
+      And I should see the text "Kurspaket" in ".admin-list" element
+      And I should see the text "Enstaka kurs" in ".admin-list" element
+      And I should see the text "Course template" in ".admin-list" element
 
   @api
   Scenario: School editor: Auto set school
@@ -48,19 +48,9 @@ Feature: Content creation
     Then I should see "Unpublish"
 
   @api
-  Scenario: Malmo middle admin
-    Given  I am logged in as a user with the "Malmo middle admin" role
-    And I am on "node/add"
-    And I should see the text "Kurspaket" in ".node-type-list" element
-    And I should see the text "Enstaka kurs" in ".node-type-list" element
-    And I should see the text "Course template" in ".node-type-list" element
-
-  @api
   Scenario: Pure authenticated user
     Given  I am logged in as a user with the "authenticated user" role
-    And I am on the homepage
-    Then I should not see the text "Content" in "#admin-menu-menu" element
-    Then I should not see the text "Add content" in "#admin-menu-menu" element
-    Then I should not see the text "Course" in "#admin-menu-menu" element
-    Then I should not see the text "Course package" in "#admin-menu-menu" element
-    Then I should not see the text "Course template" in "#admin-menu-menu" element
+    And I am on "node/add"
+    And I should not see the text "Kurspaket" in ".admin-list" element
+    And I should not see the text "Enstaka kurs" in ".admin-list" element
+    And I should not see the text "Course template" in ".admin-list" element

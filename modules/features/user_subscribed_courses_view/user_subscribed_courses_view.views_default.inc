@@ -118,7 +118,7 @@ function user_subscribed_courses_view_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Field: Content: Course registration */
+  /* Field: Content: Course package registration */
   $handler->display->display_options['fields']['field_registration']['id'] = 'field_registration';
   $handler->display->display_options['fields']['field_registration']['table'] = 'field_data_field_registration';
   $handler->display->display_options['fields']['field_registration']['field'] = 'field_registration';
@@ -182,8 +182,8 @@ function user_subscribed_courses_view_views_default_views() {
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['table'] = 'field_data_field_course_searchable_type';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['field'] = 'field_course_searchable_type_tid';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['value'] = array(
-    44 => '44',
-    43 => '43',
+    variable_get('mal_generate_content_searchable_type_0', 49) => variable_get('mal_generate_content_searchable_type_0', 49),
+    variable_get('mal_generate_content_searchable_type_1', 49) => variable_get('mal_generate_content_searchable_type_1', 49),
   );
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['vocabulary'] = 'course_searchable_type';
@@ -247,7 +247,7 @@ function user_subscribed_courses_view_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Field: Content: Course registration */
+  /* Field: Content: Course package registration */
   $handler->display->display_options['fields']['field_registration']['id'] = 'field_registration';
   $handler->display->display_options['fields']['field_registration']['table'] = 'field_data_field_registration';
   $handler->display->display_options['fields']['field_registration']['field'] = 'field_registration';
@@ -291,7 +291,7 @@ function user_subscribed_courses_view_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Field: Content: Course registration */
+  /* Field: Content: Course package registration */
   $handler->display->display_options['fields']['field_registration']['id'] = 'field_registration';
   $handler->display->display_options['fields']['field_registration']['table'] = 'field_data_field_registration';
   $handler->display->display_options['fields']['field_registration']['field'] = 'field_registration';
@@ -340,8 +340,8 @@ function user_subscribed_courses_view_views_default_views() {
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['table'] = 'field_data_field_course_searchable_type';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['field'] = 'field_course_searchable_type_tid';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['value'] = array(
-    44 => '44',
-    43 => '43',
+    variable_get('mal_generate_content_searchable_type_0', 49) => variable_get('mal_generate_content_searchable_type_0', 49),
+    variable_get('mal_generate_content_searchable_type_1', 49) => variable_get('mal_generate_content_searchable_type_1', 49),
   );
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['vocabulary'] = 'course_searchable_type';
@@ -405,7 +405,7 @@ function user_subscribed_courses_view_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Field: Content: Course registration */
+  /* Field: Content: Course package registration */
   $handler->display->display_options['fields']['field_registration']['id'] = 'field_registration';
   $handler->display->display_options['fields']['field_registration']['table'] = 'field_data_field_registration';
   $handler->display->display_options['fields']['field_registration']['field'] = 'field_registration';
@@ -447,8 +447,8 @@ function user_subscribed_courses_view_views_default_views() {
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['table'] = 'field_data_field_course_searchable_type';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['field'] = 'field_course_searchable_type_tid';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['value'] = array(
-    44 => '44',
-    43 => '43',
+    variable_get('mal_generate_content_searchable_type_0', 49) => variable_get('mal_generate_content_searchable_type_0', 49),
+    variable_get('mal_generate_content_searchable_type_1', 49) => variable_get('mal_generate_content_searchable_type_1', 49),
   );
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['vocabulary'] = 'course_searchable_type';
@@ -475,7 +475,7 @@ function user_subscribed_courses_view_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Field: Content: Course registration */
+  /* Field: Content: Course package registration */
   $handler->display->display_options['fields']['field_registration']['id'] = 'field_registration';
   $handler->display->display_options['fields']['field_registration']['table'] = 'field_data_field_registration';
   $handler->display->display_options['fields']['field_registration']['field'] = 'field_registration';
@@ -518,9 +518,9 @@ function user_subscribed_courses_view_views_default_views() {
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['table'] = 'field_data_field_course_searchable_type';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['field'] = 'field_course_searchable_type_tid';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['value'] = array(
-    45 => '45',
-    47 => '47',
-    46 => '46',
+    variable_get('mal_generate_content_searchable_type_2', 49) => variable_get('mal_generate_content_searchable_type_2', 49),
+    variable_get('mal_generate_content_searchable_type_3', 49) => variable_get('mal_generate_content_searchable_type_3', 49),
+    variable_get('mal_generate_content_searchable_type_4', 49) => variable_get('mal_generate_content_searchable_type_4', 49),
   );
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['vocabulary'] = 'course_searchable_type';
