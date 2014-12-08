@@ -42,9 +42,9 @@
  * @see theme_field()
  */
 ?>
-<div>
+<div <?php if (!empty($classes)) print 'class="' . $classes . '"' ?>>
   <?php if (!$label_hidden): ?>
-    <?php if (in_array('field-label-inline', $classes_array)): ?>
+    <?php if ($label_display == 'inline'): ?>
       <div class="field-label label-inline"><?php print $label ?>:&nbsp;</div>
     <?php else: ?>
       <div class="field-label"><?php print $label ?></div>

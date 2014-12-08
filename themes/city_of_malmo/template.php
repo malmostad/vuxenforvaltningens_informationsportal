@@ -517,3 +517,13 @@ function city_of_malmo_breadcrumb($variables) {
   }
   return $output;
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function city_of_malmo_preprocess_field(&$variables) {
+  $field_name_class = str_replace('field_course_', '', $variables['element']['#field_name']);
+  $field_name_class = str_replace('_', '-', $field_name_class);
+  $variables['label_display'] = $variables['element']['#label_display'];
+  $variables['classes_array'] = array($field_name_class);
+}

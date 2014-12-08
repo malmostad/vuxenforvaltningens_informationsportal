@@ -7,9 +7,9 @@ Feature: Editors permission
   Scenario: Proper content available to add
     Given I am logged in as a user with the "School editor" role
     And I am on "node/add"
-    Then I should see the link "Course"
-    And I should see the link "Course package"
-    And I should see the link "Course template"
+    And I should see the text "Kurspaket" in ".admin-list" element
+    And I should see the text "Enstaka kurs" in ".admin-list" element
+    And I should see the text "Course template" in ".admin-list" element
 #    Then I am on "admin"
 #    And I should not see "Structure"
 #    And I should not see "Configuration"

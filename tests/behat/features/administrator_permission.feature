@@ -45,10 +45,5 @@ Feature: top admim permission
     And I should see "Created a new user account for tester"
     Then I am on "admin/people"
     And I click "tester"
-    Then I click "Edit"
-    Then I press the "edit-cancel" button
-    Then I select the radio button "Delete the account and its content." with the id "edit-user-cancel-method--5"
-    Then I press "edit-submit"
-    Then I should see "tester has been deleted."
 
 
