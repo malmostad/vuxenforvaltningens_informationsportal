@@ -56,7 +56,7 @@ Feature: Middle admim permission
     And I fill in "Weeks of study" with "2"
 
     Then I press the "edit-submit" button
-    And I should see "Course package A1 Test course template has been created."
+    And I should see "Kurspaket A1 Test course template has been created."
     Then I click "Edit"
     And the "edit-status" checkbox should be checked
 
