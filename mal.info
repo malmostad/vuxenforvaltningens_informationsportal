@@ -208,3 +208,5 @@ dependencies[] = view_sidebar_courses
 dependencies[] = config_advagg
 dependencies[] = view_subscribed_app_view
 dependencies[] = config_media
+dependencies[] = view_dashboard_my_content
+dependencies[] = page_dashboard
