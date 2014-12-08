@@ -6,6 +6,58 @@
  */
 
 /**
+ * Implements hook_views_query_alter().
+ */
+function mal_user_courses_views_query_alter(&$view, &$query) {
+  if ($view->name == 'my_courses' || $view->name == 'my_course_application_list') {
+    switch ($view->current_display) {
+      case 'not_searchable_pane':
+        $values = array(
+          variable_get('mal_generate_content_searchable_type_2', 76),
+          variable_get('mal_generate_content_searchable_type_3', 77),
+          variable_get('mal_generate_content_searchable_type_4', 78),
+        );
+        $values = array_combine($values, $values);
+        _mal_user_courses_update_query_values($query, $values);
+        break;
+
+      default:
+        $values = array(
+          variable_get('mal_generate_content_searchable_type_0', 74),
+          variable_get('mal_generate_content_searchable_type_1', 75),
+        );
+        $values = array_combine($values, $values);
+        _mal_user_courses_update_query_values($query, $values);
+        break;
+    }
+  }
+}
+
+/**
+ * Update course_searchable_type query component with values from variables.
+ *
+ * @param object $query
+ *   View query instance.
+ * @param array $values
+ *   New query parameters.
+ */
+function _mal_user_courses_update_query_values(&$query, array $values) {
+  $set = FALSE;
+  foreach ($query->where as $w_key => $where) {
+    foreach ($where['conditions'] as $c_key => $cond) {
+      if ($cond['field'] == 'field_data_field_course_searchable_type.field_course_searchable_type_tid') {
+        $query->where[$w_key]['conditions'][$c_key]['value'] = $values;
+        $set = TRUE;
+        break;
+      }
+    }
+    if ($set) {
+      break;
+    }
+  }
+}
+
+/**
  * Implements hook_preprocess_views_view_table().
  */
 function mal_user_courses_preprocess_views_view_table(array &$vars) {
@@ -147,6 +199,39 @@ function mal_user_courses_clean_days(array $rendered, $day_to_keep) {
 }
 
 /**
+ * Implements hook_preprocess_HOOK().
+ */
+function mal_user_courses_preprocess_views_view_field(&$variables) {
+  if ($variables['view']->name == 'my_course_application_list'
+    && $variables['view']->current_display == 'course_pane'
+    && $variables['field']->real_field == 'field_course_application_period_value') {
+    if (!empty($variables['row']->field_field_course_application_period)
+      && empty($variables['row']->field_field_course_application_period[0]['raw']['value2'])) {
+      $variables['output'] .= ' - <span class="date-continuous">' . t('continuous') . '</span>';
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function mal_user_courses_preprocess_views_view_unformatted(&$variables) {
+  if ($variables['view']->name == 'sidebar_courses'
+    && $variables['view']->current_display == 'course_menu_pane'
+    && ($not_started_tid = variable_get('mal_generate_content_searchable_type_3', FALSE))) {
+    $results = $variables['view']->result;
+    $classes = &$variables['classes_array'];
+    $class = 'has-not-started';
+    foreach ($results as $id => $row) {
+      if (!empty($row->field_field_course_searchable_type)
+        && $row->field_field_course_searchable_type[0]['raw']['tid'] == $not_started_tid) {
+        $classes[$id] = isset($classes[$id]) ? $classes[$id] . ' ' . $class : $class;
+      }
+    }
+  }
+}
+
+/**
  * Implements hook_field_formatter_info().
  */
 function mal_user_courses_field_formatter_info() {
@@ -242,37 +327,4 @@ function mal_user_courses_field_formatter_view($entity_type, $entity, $field, $i
   }
 
   return $element;
-}
-
-/**
- * Implements hook_preprocess_HOOK().
- */
-function mal_user_courses_preprocess_views_view_field(&$variables) {
-  if ($variables['view']->name == 'my_course_application_list'
-    && $variables['view']->current_display == 'course_pane'
-    && $variables['field']->real_field == 'field_course_application_period_value') {
-    if (!empty($variables['row']->field_field_course_application_period)
-      && empty($variables['row']->field_field_course_application_period[0]['raw']['value2'])) {
-      $variables['output'] .= ' - <span class="date-continuous">' . t('continuous') . '</span>';
-    }
-  }
-}
-
-/**
- * Implements hook_preprocess_HOOK().
- */
-function mal_user_courses_preprocess_views_view_unformatted(&$variables) {
-  if ($variables['view']->name == 'sidebar_courses'
-    && $variables['view']->current_display == 'course_menu_pane'
-    && ($not_started_tid = variable_get('mal_generate_content_searchable_type_3', FALSE))) {
-    $results = $variables['view']->result;
-    $classes = &$variables['classes_array'];
-    $class = 'has-not-started';
-    foreach ($results as $id => $row) {
-      if (!empty($row->field_field_course_searchable_type)
-        && $row->field_field_course_searchable_type[0]['raw']['tid'] == $not_started_tid) {
-        $classes[$id] = isset($classes[$id]) ? $classes[$id] . ' ' . $class : $class;
-      }
-    }
-  }
 }
