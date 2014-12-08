@@ -416,6 +416,4 @@ class FeatureContext extends DrupalContext {
       "Drupal.wysiwyg.instances['" . $selector . "'].insert('" . $text . "')"
     );
   }
-
-
 }

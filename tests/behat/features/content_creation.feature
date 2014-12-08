@@ -15,7 +15,7 @@ Feature: Content creation
   Scenario: School editor: Auto set school
     Given I am logged in as "editor" with the password "editor"
     And I am on "node/add/course"
-    And I fill in "Course template" with "A1 Test course template"
+    And I fill in "Kurs mall" with "A1 Test course template"
         # Required
     And I fill in "Course form" with "Flexkurs"
     And I fill in "School" with "A1 Test school (1)"

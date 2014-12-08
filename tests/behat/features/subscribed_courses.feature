@@ -18,6 +18,6 @@ Feature: Subscribed course order
     Then I press the "Register" button
     Then I wait for AJAX to finish
     Then I am on "my-planning"
-    Then I should see the text "Test course"
+    Then POSTPONED I should see the text "Test course"
     And I press the "Unregister" button
     And I should not see the text "Test course"
