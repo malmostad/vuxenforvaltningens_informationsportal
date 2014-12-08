@@ -60,4 +60,4 @@ features[user_permission][] = administer facets
 features[user_permission][] = use search_api_autocomplete for search_api_views_search
 features[variable][] = facetapi:block_cache:search_api@node
 features[variable][] = search_api_facets_search_ids
-mtime = 1417704166
+mtime = 1418060326

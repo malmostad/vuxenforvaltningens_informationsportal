@@ -29,10 +29,16 @@ function config_facet_default_search_api_autocomplete_search() {
     "enabled" : "1",
     "options" : {
       "result count" : true,
-      "fields" : [ "search_api_aggregation_1" ],
+      "fields" : [
+        "field_course_group",
+        "field_course_prerequisites",
+        "search_api_aggregation_1",
+        "search_api_viewed"
+      ],
       "results" : 0,
       "min_length" : "1",
-      "custom" : { "display" : "default" }
+      "custom" : { "display" : "default" },
+      "submit_button_selector" : ":submit"
     },
     "rdf_mapping" : []
   }');
