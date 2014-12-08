@@ -57,7 +57,7 @@ function content_type_course_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_course_application_period',
-    'label' => 'Application Period',
+    'label' => 'Ansökningsperiod',
     'required' => 0,
     'settings' => array(
       'default_value' => 'now',
@@ -129,7 +129,7 @@ function content_type_course_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_course_date',
-    'label' => 'Course date',
+    'label' => 'Kursperiod',
     'required' => 0,
     'settings' => array(
       'default_value' => 'now',
@@ -190,7 +190,7 @@ function content_type_course_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_course_form',
-    'label' => 'Course form',
+    'label' => 'Kursform',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -242,9 +242,31 @@ function content_type_course_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_course_group',
-    'label' => 'Course Group',
+    'label' => 'Kursgrupp',
     'required' => 1,
     'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'filtered_html' => 'filtered_html',
+          'full_html' => 'full_html',
+          'plain_text' => 'plain_text',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'filtered_html' => array(
+              'weight' => 0,
+            ),
+            'full_html' => array(
+              'weight' => 1,
+            ),
+            'plain_text' => array(
+              'weight' => 10,
+            ),
+          ),
+        ),
+      ),
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -365,7 +387,7 @@ function content_type_course_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_course_periods',
-    'label' => 'Course periods',
+    'label' => 'Tider',
     'required' => 0,
     'settings' => array(
       'disable_plugin' => 0,
@@ -441,7 +463,7 @@ function content_type_course_field_default_field_instances() {
     'ied_settings' => array(
       'display_fields' => 0,
     ),
-    'label' => 'School',
+    'label' => 'Skola',
     'render_entity_below' => 0,
     'required' => 1,
     'settings' => array(
@@ -554,7 +576,7 @@ function content_type_course_field_default_field_instances() {
     'ied_settings' => array(
       'display_fields' => 1,
     ),
-    'label' => 'Course template',
+    'label' => 'Kurs mall',
     'render_entity_below' => 1,
     'required' => 1,
     'settings' => array(
@@ -650,16 +672,16 @@ function content_type_course_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Application Period');
-  t('Course Group');
-  t('Course date');
-  t('Course form');
-  t('Course periods');
+  t('Ansökningsperiod');
   t('Course registration');
-  t('Course template');
+  t('Kurs mall');
+  t('Kursform');
+  t('Kursgrupp');
+  t('Kursperiod');
   t('Period type');
-  t('School');
   t('Searchable type');
+  t('Skola');
+  t('Tider');
 
   return $field_instances;
 }
