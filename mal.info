@@ -157,8 +157,6 @@ dependencies[] = advagg
 dependencies[] = advagg_bundler
 dependencies[] = advagg_js_compress
 dependencies[] = advagg_css_compress
-dependencies[] = entity_modified
-dependencies[] = render_cache
 dependencies[] = entitycache
 ; Features
 dependencies[] = features
