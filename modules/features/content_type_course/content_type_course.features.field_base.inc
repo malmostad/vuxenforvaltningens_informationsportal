@@ -17,6 +17,9 @@ function content_type_course_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_course_application_period',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
@@ -47,6 +50,9 @@ function content_type_course_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_course_date',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
@@ -114,6 +120,9 @@ function content_type_course_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_course_gymnasie_program',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(
       'tid' => array(
         'columns' => array(
@@ -215,6 +224,9 @@ function content_type_course_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_course_periods',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(),
     'indexes' => array(),
     'locked' => 0,
@@ -283,6 +295,9 @@ function content_type_course_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_course_subject_areas',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'foreign keys' => array(
       'tid' => array(
         'columns' => array(

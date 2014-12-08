@@ -9,7 +9,7 @@ Feature: Course register
     Given I am on "search-courses/Test%20course"
     Then I press the "Register" button
     Then I wait for AJAX to finish
-    Then I press the "Unregister" button
+    Then POSTPONED I press the "Unregister" button
     Then I wait for AJAX to finish
     Then I click "Test course"
     Then I press the "Register" button
@@ -37,5 +37,5 @@ Feature: Course register
     Then I press the "Register" button
     Then I wait for AJAX to finish
     Then I am on the homepage
-    And I should see the text "Mina val"
+    And POSTPONED I should see the text "Mina val"
     And I should see the text "Test course"

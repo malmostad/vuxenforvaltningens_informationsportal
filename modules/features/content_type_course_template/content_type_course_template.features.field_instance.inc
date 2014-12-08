@@ -13,13 +13,7 @@ function content_type_course_template_field_default_field_instances() {
   // Exported field_instance: 'node-course_template-body'
   $field_instances['node-course_template-body'] = array(
     'bundle' => 'course_template',
-    'default_value' => array(
-      0 => array(
-        'summary' => '',
-        'value' => '',
-        'format' => 'filtered_html',
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -51,7 +45,7 @@ function content_type_course_template_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'body',
-    'label' => 'Description / Content',
+    'label' => 'Beskrivning/innehåll',
     'required' => 0,
     'settings' => array(
       'better_formats' => array(
@@ -127,7 +121,7 @@ function content_type_course_template_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_course_gymnasie_program',
-    'label' => 'Gymnasie program',
+    'label' => 'Gymnasieprogram',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -179,9 +173,31 @@ function content_type_course_template_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_course_national_code',
-    'label' => 'National course code',
+    'label' => 'Nationell kurskod',
     'required' => 0,
     'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'filtered_html' => 'filtered_html',
+          'full_html' => 'full_html',
+          'plain_text' => 'plain_text',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'filtered_html' => array(
+              'weight' => 0,
+            ),
+            'full_html' => array(
+              'weight' => 1,
+            ),
+            'plain_text' => array(
+              'weight' => 10,
+            ),
+          ),
+        ),
+      ),
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -236,7 +252,7 @@ function content_type_course_template_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_course_number_of_points',
-    'label' => 'Number of points',
+    'label' => 'Antal poäng',
     'required' => 0,
     'settings' => array(
       'max' => '',
@@ -289,7 +305,7 @@ function content_type_course_template_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_course_orientation',
-    'label' => 'Orientation',
+    'label' => 'Inriktning',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -340,9 +356,31 @@ function content_type_course_template_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_course_prerequisites',
-    'label' => 'Prerequisites',
+    'label' => 'Förkunskaper',
     'required' => 0,
     'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'filtered_html' => 'filtered_html',
+          'full_html' => 'full_html',
+          'plain_text' => 'plain_text',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'filtered_html' => array(
+              'weight' => 0,
+            ),
+            'full_html' => array(
+              'weight' => 1,
+            ),
+            'plain_text' => array(
+              'weight' => 10,
+            ),
+          ),
+        ),
+      ),
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -392,7 +430,7 @@ function content_type_course_template_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_course_subject_areas',
-    'label' => 'Subject areas',
+    'label' => 'Ämnesområden',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -446,7 +484,11 @@ function content_type_course_template_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_course_type_education',
-    'label' => 'Type of education',
+    'ied_settings' => array(
+      'display_fields' => 0,
+    ),
+    'label' => 'Utbildningsform',
+    'render_entity_below' => 0,
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -466,14 +508,14 @@ function content_type_course_template_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Description / Content');
-  t('Gymnasie program');
-  t('National course code');
-  t('Number of points');
-  t('Orientation');
-  t('Prerequisites');
-  t('Subject areas');
-  t('Type of education');
+  t('Antal poäng');
+  t('Beskrivning/innehåll');
+  t('Förkunskaper');
+  t('Gymnasieprogram');
+  t('Inriktning');
+  t('Nationell kurskod');
+  t('Utbildningsform');
+  t('Ämnesområden');
 
   return $field_instances;
 }
