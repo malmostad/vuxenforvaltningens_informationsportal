@@ -1078,7 +1078,7 @@ footer.bigfoot {
       color: $text;
 
       &.facetapi-active {
-        background: url($icon-sprite) -3px -118px no-repeat;
+        background: url($icon-sprite) -3px -148px no-repeat;
         color: #007896;
         font-weight: bold;
         padding-left: 15px;
@@ -1089,6 +1089,13 @@ footer.bigfoot {
       @include inline-block();
       margin: 0 0 0 5px;
     }
+  }
+
+  .hint {
+    @include inline-block;
+    background: url($icon-sprite) -3px -122px no-repeat;
+    cursor: default;
+    width: 12px;
   }
 
   .facetapi-facetapi-checkbox-links {
