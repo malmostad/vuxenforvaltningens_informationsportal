@@ -9,7 +9,7 @@ Feature: Content creation
       And I am on "node/add"
       And I should see the text "Kurspaket" in ".admin-list" element
       And I should see the text "Enstaka kurs" in ".admin-list" element
-      And I should see the text "Course template" in ".admin-list" element
+      And I should see the text "Kurs mall" in ".admin-list" element
 
   @api
   Scenario: School editor: Auto set school
@@ -17,9 +17,9 @@ Feature: Content creation
     And I am on "node/add/course"
     And I fill in "Kurs mall" with "A1 Test course template"
         # Required
-    And I fill in "Course form" with "Flexkurs"
-    And I fill in "School" with "A1 Test school (1)"
-    And I fill in "Course Group" with "test"
+    And I fill in "Kursform" with "Flexkurs"
+    And I fill in "Skola" with "A1 Test school (1)"
+    And I fill in "Kursgrupp" with "test"
     When I press "Save"
     Then I should see the text "A2 Test school"
 
@@ -35,7 +35,7 @@ Feature: Content creation
   Scenario: School editor add course template
     Given I am logged in as a user with the "School editor" role
       And I am on "node/add/course-template"
-      And I fill in "Title" with "A1 test some course"
+      And I fill in "Titel" with "A1 test some course"
       And I press "Save"
     Then I should see "A1 test some course"
     Given I am on "admin/content"

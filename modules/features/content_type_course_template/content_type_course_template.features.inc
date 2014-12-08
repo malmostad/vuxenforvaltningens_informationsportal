@@ -19,11 +19,11 @@ function content_type_course_template_ctools_plugin_api($module = NULL, $api = N
 function content_type_course_template_node_info() {
   $items = array(
     'course_template' => array(
-      'name' => t('Course template'),
+      'name' => t('Kurs mall'),
       'base' => 'node_content',
       'description' => t('Use <em>course template</em> for your course templates, which you can use as a template for courses and course packages.'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
   );

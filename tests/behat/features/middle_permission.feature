@@ -9,7 +9,7 @@ Feature: Middle admim permission
     And I am on "node/add"
     And I should see the text "Kurspaket" in ".admin-list" element
     And I should see the text "Enstaka kurs" in ".admin-list" element
-    And I should see the text "Course template" in ".admin-list" element
+    And I should see the text "Kurs mall" in ".admin-list" element
 #    Then I am on "admin"
 #    And I should not see "Structure"
 #    And I should not see "Configuration"
@@ -27,9 +27,9 @@ Feature: Middle admim permission
     And I press element ".reference-autocomplete"
     Then I press the "edit-submit" button
     # Required
-    And I fill in "Course form" with "Flexkurs"
-    And I fill in "School" with "A1 Test school (1)"
-    And I fill in "Course Group" with "test"
+    And I fill in "Kursform" with "Flexkurs"
+    And I fill in "Skola" with "A1 Test school (1)"
+    And I fill in "Kursgrupp" with "test"
 
     Then I press the "edit-submit" button
 
@@ -62,4 +62,4 @@ Feature: Middle admim permission
     And I should see "Publishing options"
     And the "edit-status" checkbox should be checked
     Then I press the "edit-submit" button
-    And I should see the text "Course template autotest course template has been created."
+    And I should see the text "Kurs mall autotest course template has been created."
