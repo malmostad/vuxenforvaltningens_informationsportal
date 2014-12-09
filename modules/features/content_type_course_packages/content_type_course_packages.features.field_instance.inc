@@ -109,7 +109,13 @@ function content_type_course_packages_field_default_field_instances() {
   // Exported field_instance: 'node-course_packages-body'
   $field_instances['node-course_packages-body'] = array(
     'bundle' => 'course_packages',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'summary' => '',
+        'value' => '',
+        'format' => 'filtered_html',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -150,11 +156,11 @@ function content_type_course_packages_field_default_field_instances() {
     'settings' => array(
       'better_formats' => array(
         'allowed_formats' => array(
-          'filtered_html' => 'filtered_html',
+          'filtered_html' => 0,
           'full_html' => 'full_html',
-          'plain_text' => 'plain_text',
+          'plain_text' => 0,
         ),
-        'allowed_formats_toggle' => 0,
+        'allowed_formats_toggle' => 1,
         'default_order_toggle' => 0,
         'default_order_wrapper' => array(
           'formats' => array(
@@ -536,7 +542,12 @@ function content_type_course_packages_field_default_field_instances() {
   // Exported field_instance: 'node-course_packages-field_course_information_meeting'
   $field_instances['node-course_packages-field_course_information_meeting'] = array(
     'bundle' => 'course_packages',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'value' => '',
+        'format' => 'filtered_html',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -574,11 +585,11 @@ function content_type_course_packages_field_default_field_instances() {
     'settings' => array(
       'better_formats' => array(
         'allowed_formats' => array(
-          'filtered_html' => 'filtered_html',
+          'filtered_html' => 0,
           'full_html' => 'full_html',
-          'plain_text' => 'plain_text',
+          'plain_text' => 0,
         ),
-        'allowed_formats_toggle' => 0,
+        'allowed_formats_toggle' => 1,
         'default_order_toggle' => 0,
         'default_order_wrapper' => array(
           'formats' => array(

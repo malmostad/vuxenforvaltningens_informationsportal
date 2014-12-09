@@ -170,6 +170,29 @@ function config_taxonomy_taxonomy_default_vocabularies() {
         ),
       ),
     ),
+    'qa_category' => array(
+      'name' => 'QA category',
+      'machine_name' => 'qa_category',
+      'description' => '',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+      'rdf_mapping' => array(
+        'rdftype' => array(
+          0 => 'skos:ConceptScheme',
+        ),
+        'name' => array(
+          'predicates' => array(
+            0 => 'dc:title',
+          ),
+        ),
+        'description' => array(
+          'predicates' => array(
+            0 => 'rdfs:comment',
+          ),
+        ),
+      ),
+    ),
     'type_of_education' => array(
       'name' => 'Type of education',
       'machine_name' => 'type_of_education',

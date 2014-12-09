@@ -62,6 +62,16 @@ function mal_generate_content_enable() {
     )
   );
 
+  mal_generate_content_add_taxonomy_terms('qa_category',
+    array(
+      'Vad är Komvux?',
+      'Vad behöver jag tänka på?',
+      'Hur gör jag min ansökan?',
+      'Har jag fått en plats?',
+      'Efter mina studier?',
+    )
+  );
+
   $terms = mal_generate_content_add_taxonomy_terms('course_searchable_type',
     array(
       'Searchable now',
@@ -311,6 +321,22 @@ function mal_generate_content_enable() {
     'fri' => 0,
     'sat' => 0,
     'sun' => 0,
+  );
+
+  $node = node_submit($node);
+  node_save($node);
+
+  $node = new stdClass();
+  $node->title = "Test qa 3";
+  $node->type = "question_and_answer";
+  $node->language = LANGUAGE_NONE;
+  node_object_prepare($node);
+
+  $category = taxonomy_get_term_by_name('Vad är Komvux?');
+  $category = reset($category);
+
+  $node->field_qa_category[$node->language][] = array(
+    'tid' => $category->tid,
   );
 
   $node = node_submit($node);
