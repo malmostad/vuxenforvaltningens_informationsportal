@@ -88,7 +88,21 @@ function user_register_form_registration_form_alter(&$form, &$form_state, $form_
 function user_register_unregistration_form_reload($form) {
   global $user;
   $registration = user_register_load_registration_by_user($form['#registration_settings']['entity_type'], $form['#registration_settings']['entity_id'], $user->uid);
-  return drupal_get_form('user_register_unregister_ajax_form', $registration);
+
+  // Default commands set for form handling.
+  $commands = array(
+    '#type' => 'ajax',
+    '#commands' => ajax_prepare_response(drupal_get_form('user_register_unregister_ajax_form', $registration)),
+  );
+
+  // Rebuild sidebar course menu content.
+  $view = views_get_view('sidebar_courses');
+  $view->set_arguments(array($user->uid));
+  $sidebar_content = $view->render('course_menu_pane');
+
+  $commands['#commands'][] = ajax_command_html('.courses-menu-block', $sidebar_content);
+
+  return $commands;
 }
 
 /**
@@ -102,13 +116,28 @@ function user_register_unregistration_form_reload($form) {
  */
 function user_register_registration_form_reload($form) {
   $prev_registration = $form['registration']['#value'];
+  global $user;
 
   $registration = entity_get_controller('registration')->create(array(
     'entity_type' => $prev_registration->entity_type,
     'entity_id' => $prev_registration->entity_id,
     'type' => $prev_registration->type,
   ));
-  return drupal_get_form('registration_form', $registration);
+
+  // Default commands set for form handling.
+  $commands = array(
+    '#type' => 'ajax',
+    '#commands' => ajax_prepare_response(drupal_get_form('registration_form', $registration)),
+  );
+
+  // Rebuild sidebar course menu content.
+  $view = views_get_view('sidebar_courses');
+  $view->set_arguments(array($user->uid));
+  $sidebar_content = $view->render('course_menu_pane');
+
+  $commands['#commands'][] = ajax_command_html('.courses-menu-block', $sidebar_content);
+
+  return $commands;
 }
 
 /**
