@@ -698,7 +698,7 @@ function content_type_course_packages_field_default_field_instances() {
         'weight' => 0,
       ),
       'search_result' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'entityreference',
         'settings' => array(
           'link' => FALSE,

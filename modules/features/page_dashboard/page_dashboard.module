@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Page dashboard feature.
+ */
+
+include_once 'page_dashboard.features.inc';

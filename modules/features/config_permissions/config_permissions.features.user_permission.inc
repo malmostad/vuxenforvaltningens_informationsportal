@@ -589,6 +589,15 @@ function config_permissions_user_default_permissions() {
     'module' => 'user',
   );
 
+  // Exported permission: 'administer varnish'.
+  $permissions['administer varnish'] = array(
+    'name' => 'administer varnish',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'varnish',
+  );
+
   // Exported permission: 'administer views'.
   $permissions['administer views'] = array(
     'name' => 'administer views',
@@ -606,6 +615,15 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'system',
+  );
+
+  // Exported permission: 'bypass advanced aggregation'.
+  $permissions['bypass advanced aggregation'] = array(
+    'name' => 'bypass advanced aggregation',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'advagg',
   );
 
   // Exported permission: 'bypass file access'.
@@ -742,6 +760,16 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'create field_course_school'.
+  $permissions['create field_course_school'] = array(
+    'name' => 'create field_course_school',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+    ),
+    'module' => 'field_permissions',
   );
 
   // Exported permission: 'create field_course_searchable_type'.
@@ -1314,6 +1342,15 @@ function config_permissions_user_default_permissions() {
     'module' => 'registration',
   );
 
+  // Exported permission: 'edit field_course_school'.
+  $permissions['edit field_course_school'] = array(
+    'name' => 'edit field_course_school',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'edit field_course_searchable_type'.
   $permissions['edit field_course_searchable_type'] = array(
     'name' => 'edit field_course_searchable_type',
@@ -1399,6 +1436,15 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'edit own field_course_school'.
+  $permissions['edit own field_course_school'] = array(
+    'name' => 'edit own field_course_school',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
   );
 
   // Exported permission: 'edit own field_course_searchable_type'.
@@ -2069,157 +2115,6 @@ function config_permissions_user_default_permissions() {
     'module' => 'publish_button',
   );
 
-  // Exported permission: 'publish button publish any course'.
-  $permissions['publish button publish any course'] = array(
-    'name' => 'publish button publish any course',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button publish any course_packages'.
-  $permissions['publish button publish any course_packages'] = array(
-    'name' => 'publish button publish any course_packages',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button publish any course_template'.
-  $permissions['publish button publish any course_template'] = array(
-    'name' => 'publish button publish any course_template',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button publish any education'.
-  $permissions['publish button publish any education'] = array(
-    'name' => 'publish button publish any education',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button publish any page'.
-  $permissions['publish button publish any page'] = array(
-    'name' => 'publish button publish any page',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button publish any question_and_answer'.
-  $permissions['publish button publish any question_and_answer'] = array(
-    'name' => 'publish button publish any question_and_answer',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button publish any school'.
-  $permissions['publish button publish any school'] = array(
-    'name' => 'publish button publish any school',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button publish editable course'.
-  $permissions['publish button publish editable course'] = array(
-    'name' => 'publish button publish editable course',
-    'roles' => array(
-      'School editor' => 'School editor',
-    ),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button publish editable course_packages'.
-  $permissions['publish button publish editable course_packages'] = array(
-    'name' => 'publish button publish editable course_packages',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button publish editable course_template'.
-  $permissions['publish button publish editable course_template'] = array(
-    'name' => 'publish button publish editable course_template',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button publish editable education'.
-  $permissions['publish button publish editable education'] = array(
-    'name' => 'publish button publish editable education',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button publish editable page'.
-  $permissions['publish button publish editable page'] = array(
-    'name' => 'publish button publish editable page',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button publish editable question_and_answer'.
-  $permissions['publish button publish editable question_and_answer'] = array(
-    'name' => 'publish button publish editable question_and_answer',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button publish editable school'.
-  $permissions['publish button publish editable school'] = array(
-    'name' => 'publish button publish editable school',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button publish own course'.
-  $permissions['publish button publish own course'] = array(
-    'name' => 'publish button publish own course',
-    'roles' => array(
-      'School editor' => 'School editor',
-    ),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button publish own course_packages'.
-  $permissions['publish button publish own course_packages'] = array(
-    'name' => 'publish button publish own course_packages',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button publish own course_template'.
-  $permissions['publish button publish own course_template'] = array(
-    'name' => 'publish button publish own course_template',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button publish own education'.
-  $permissions['publish button publish own education'] = array(
-    'name' => 'publish button publish own education',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button publish own page'.
-  $permissions['publish button publish own page'] = array(
-    'name' => 'publish button publish own page',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button publish own question_and_answer'.
-  $permissions['publish button publish own question_and_answer'] = array(
-    'name' => 'publish button publish own question_and_answer',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button publish own school'.
-  $permissions['publish button publish own school'] = array(
-    'name' => 'publish button publish own school',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
   // Exported permission: 'publish button unpublish any content types'.
   $permissions['publish button unpublish any content types'] = array(
     'name' => 'publish button unpublish any content types',
@@ -2228,161 +2123,6 @@ function config_permissions_user_default_permissions() {
       'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button unpublish any course'.
-  $permissions['publish button unpublish any course'] = array(
-    'name' => 'publish button unpublish any course',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button unpublish any course_packages'.
-  $permissions['publish button unpublish any course_packages'] = array(
-    'name' => 'publish button unpublish any course_packages',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button unpublish any course_template'.
-  $permissions['publish button unpublish any course_template'] = array(
-    'name' => 'publish button unpublish any course_template',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button unpublish any education'.
-  $permissions['publish button unpublish any education'] = array(
-    'name' => 'publish button unpublish any education',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button unpublish any page'.
-  $permissions['publish button unpublish any page'] = array(
-    'name' => 'publish button unpublish any page',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button unpublish any question_and_answer'.
-  $permissions['publish button unpublish any question_and_answer'] = array(
-    'name' => 'publish button unpublish any question_and_answer',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button unpublish any school'.
-  $permissions['publish button unpublish any school'] = array(
-    'name' => 'publish button unpublish any school',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button unpublish editable course'.
-  $permissions['publish button unpublish editable course'] = array(
-    'name' => 'publish button unpublish editable course',
-    'roles' => array(
-      'School editor' => 'School editor',
-    ),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button unpublish editable course_packages'.
-  $permissions['publish button unpublish editable course_packages'] = array(
-    'name' => 'publish button unpublish editable course_packages',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button unpublish editable course_template'.
-  $permissions['publish button unpublish editable course_template'] = array(
-    'name' => 'publish button unpublish editable course_template',
-    'roles' => array(
-      'School editor' => 'School editor',
-    ),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button unpublish editable education'.
-  $permissions['publish button unpublish editable education'] = array(
-    'name' => 'publish button unpublish editable education',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button unpublish editable page'.
-  $permissions['publish button unpublish editable page'] = array(
-    'name' => 'publish button unpublish editable page',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button unpublish editable question_and_answer'.
-  $permissions['publish button unpublish editable question_and_answer'] = array(
-    'name' => 'publish button unpublish editable question_and_answer',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button unpublish editable school'.
-  $permissions['publish button unpublish editable school'] = array(
-    'name' => 'publish button unpublish editable school',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button unpublish own course'.
-  $permissions['publish button unpublish own course'] = array(
-    'name' => 'publish button unpublish own course',
-    'roles' => array(
-      'School editor' => 'School editor',
-    ),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button unpublish own course_packages'.
-  $permissions['publish button unpublish own course_packages'] = array(
-    'name' => 'publish button unpublish own course_packages',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button unpublish own course_template'.
-  $permissions['publish button unpublish own course_template'] = array(
-    'name' => 'publish button unpublish own course_template',
-    'roles' => array(
-      'School editor' => 'School editor',
-    ),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button unpublish own education'.
-  $permissions['publish button unpublish own education'] = array(
-    'name' => 'publish button unpublish own education',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button unpublish own page'.
-  $permissions['publish button unpublish own page'] = array(
-    'name' => 'publish button unpublish own page',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button unpublish own question_and_answer'.
-  $permissions['publish button unpublish own question_and_answer'] = array(
-    'name' => 'publish button unpublish own question_and_answer',
-    'roles' => array(),
-    'module' => 'publish_button',
-  );
-
-  // Exported permission: 'publish button unpublish own school'.
-  $permissions['publish button unpublish own school'] = array(
-    'name' => 'publish button unpublish own school',
-    'roles' => array(),
     'module' => 'publish_button',
   );
 
@@ -2913,6 +2653,18 @@ function config_permissions_user_default_permissions() {
     'module' => 'ultimate_cron',
   );
 
+  // Exported permission: 'view field_course_school'.
+  $permissions['view field_course_school'] = array(
+    'name' => 'view field_course_school',
+    'roles' => array(
+      'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
+      'School editor' => 'School editor',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'view field_course_searchable_type'.
   $permissions['view field_course_searchable_type'] = array(
     'name' => 'view field_course_searchable_type',
@@ -2958,6 +2710,15 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'registration',
+  );
+
+  // Exported permission: 'view own field_course_school'.
+  $permissions['view own field_course_school'] = array(
+    'name' => 'view own field_course_school',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
   );
 
   // Exported permission: 'view own field_course_searchable_type'.

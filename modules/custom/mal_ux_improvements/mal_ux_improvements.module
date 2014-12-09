@@ -10,4 +10,5 @@
  */
 function mal_ux_improvements_form_node_form_alter(&$form, &$form_state) {
   $form['#attached']['css'][] = drupal_get_path('module', 'mal_ux_improvements') . '/mal_ux_improvements.css';
+  $form['options']['#access'] = FALSE;
 }

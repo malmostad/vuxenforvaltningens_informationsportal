@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the View dashboard my content feature.
+ */
+
+include_once 'view_dashboard_my_content.features.inc';

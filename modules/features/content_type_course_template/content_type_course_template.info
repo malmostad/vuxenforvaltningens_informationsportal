@@ -1,9 +1,11 @@
 name = Content type course template
 core = 7.x
 package = Content types
+dependencies[] = content_type_course
 dependencies[] = ctools
 dependencies[] = entityreference
 dependencies[] = features
+dependencies[] = node
 dependencies[] = number
 dependencies[] = options
 dependencies[] = strongarm
@@ -43,4 +45,4 @@ features[variable][] = node_options_course_template
 features[variable][] = node_preview_course_template
 features[variable][] = node_submitted_course_template
 features_exclude[dependencies][taxonomy] = taxonomy
-mtime = 1418042222
+mtime = 1418058901

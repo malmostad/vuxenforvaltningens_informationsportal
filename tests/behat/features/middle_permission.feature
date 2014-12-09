@@ -33,7 +33,7 @@ Feature: Middle admim permission
 
     Then I press the "edit-submit" button
 
-    And I should see "Enstaka kurs A1 Test course template has been created."
+    And POSTPONED I should see "Enstaka kurs A1 Test course template has been created."
     Then I click "Edit"
     And the "edit-status" checkbox should be checked
     Then I am on "node/add/course-packages"
