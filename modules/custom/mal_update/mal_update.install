@@ -285,3 +285,26 @@ function mal_update_update_7018() {
   );
   drupal_rewrite_settings($settings);
 }
+
+/**
+ * Faq category feature.
+ */
+function mal_update_update_7019() {
+  $features = array(
+    'config_taxonomy',
+    'content_type_question_and_answer',
+    'view_faq',
+  );
+
+  features_revert($features);
+
+  $vocabulary = taxonomy_vocabulary_machine_name_load('qa_category');
+
+  foreach (array('Gemensam', 'UX') as $name) {
+    $term = new stdClass();
+    $term->name = $name;
+    $term->vid = $vocabulary->vid;
+    taxonomy_term_save($term);
+    $return[] = $term;
+  }
+}

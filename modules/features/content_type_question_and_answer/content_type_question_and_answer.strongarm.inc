@@ -91,7 +91,11 @@ function content_type_question_and_answer_strongarm() {
       ),
     ),
     'extra_fields' => array(
-      'form' => array(),
+      'form' => array(
+        'title' => array(
+          'weight' => '-5',
+        ),
+      ),
       'display' => array(),
     ),
   );

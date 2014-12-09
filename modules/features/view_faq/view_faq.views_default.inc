@@ -46,7 +46,7 @@ function view_faq_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Answer */
+  /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -56,6 +56,15 @@ function view_faq_views_default_views() {
   $handler->display->display_options['fields']['body']['element_label_type'] = '0';
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
+  /* Field: Content: Category */
+  $handler->display->display_options['fields']['field_qa_category']['id'] = 'field_qa_category';
+  $handler->display->display_options['fields']['field_qa_category']['table'] = 'field_data_field_qa_category';
+  $handler->display->display_options['fields']['field_qa_category']['field'] = 'field_qa_category';
+  $handler->display->display_options['fields']['field_qa_category']['label'] = '';
+  $handler->display->display_options['fields']['field_qa_category']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_qa_category']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_qa_category']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_qa_category']['type'] = 'taxonomy_term_reference_plain';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -80,6 +89,13 @@ function view_faq_views_default_views() {
   $handler = $view->new_display('panel_pane', 'FAQ', 'faq');
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'field_qa_category',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
   $handler->display->display_options['style_options']['wrapper_class'] = 'faq-list-questions';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;

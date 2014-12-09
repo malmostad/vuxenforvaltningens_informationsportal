@@ -11,5 +11,6 @@ features[taxonomy][] = course_school
 features[taxonomy][] = course_searchable_type
 features[taxonomy][] = course_subject_areas
 features[taxonomy][] = course_type_of_education
+features[taxonomy][] = qa_category
 features[taxonomy][] = type_of_education
-mtime = 1417291931
+mtime = 1418058901

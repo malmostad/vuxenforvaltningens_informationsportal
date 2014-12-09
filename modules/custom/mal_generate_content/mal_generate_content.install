@@ -62,6 +62,13 @@ function mal_generate_content_enable() {
     )
   );
 
+  mal_generate_content_add_taxonomy_terms('qa_category',
+    array(
+      'Gemensam',
+      'UX',
+    )
+  );
+
   $terms = mal_generate_content_add_taxonomy_terms('course_searchable_type',
     array(
       'Searchable now',
