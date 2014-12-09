@@ -29,6 +29,7 @@ Feature: Course register
     Then I click "Test course 3"
     Then I should not see a "#user-register-unregister-form" element
     Then I should not see a "#registration-form" element
+    Then I should see "Log in or register to subscribe the course."
 
   @api @javascript
   Scenario: Check if authorized user see register button
