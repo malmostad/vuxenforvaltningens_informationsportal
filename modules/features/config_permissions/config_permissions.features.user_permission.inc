@@ -169,7 +169,9 @@ function config_permissions_user_default_permissions() {
   $permissions['access user profiles'] = array(
     'name' => 'access user profiles',
     'roles' => array(
+      'Malmo middle admin' => 'Malmo middle admin',
       'Malmo top admin' => 'Malmo top admin',
+      'School editor' => 'School editor',
       'administrator' => 'administrator',
     ),
     'module' => 'user',
@@ -607,6 +609,46 @@ function config_permissions_user_default_permissions() {
     'module' => 'views',
   );
 
+  // Exported permission: 'assign Malmo middle admin role'.
+  $permissions['assign Malmo middle admin role'] = array(
+    'name' => 'assign Malmo middle admin role',
+    'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'role_delegation',
+  );
+
+  // Exported permission: 'assign Malmo top admin role'.
+  $permissions['assign Malmo top admin role'] = array(
+    'name' => 'assign Malmo top admin role',
+    'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'role_delegation',
+  );
+
+  // Exported permission: 'assign School editor role'.
+  $permissions['assign School editor role'] = array(
+    'name' => 'assign School editor role',
+    'roles' => array(
+      'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'role_delegation',
+  );
+
+  // Exported permission: 'assign all roles'.
+  $permissions['assign all roles'] = array(
+    'name' => 'assign all roles',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'role_delegation',
+  );
+
   // Exported permission: 'block IP addresses'.
   $permissions['block IP addresses'] = array(
     'name' => 'block IP addresses',
@@ -766,6 +808,9 @@ function config_permissions_user_default_permissions() {
   $permissions['create field_course_school'] = array(
     'name' => 'create field_course_school',
     'roles' => array(
+      'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
+      'School editor' => 'School editor',
       'administrator' => 'administrator',
       'anonymous user' => 'anonymous user',
     ),
@@ -1149,6 +1194,13 @@ function config_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
     ),
+    'module' => 'taxonomy',
+  );
+
+  // Exported permission: 'delete terms in qa_category'.
+  $permissions['delete terms in qa_category'] = array(
+    'name' => 'delete terms in qa_category',
+    'roles' => array(),
     'module' => 'taxonomy',
   );
 
@@ -1580,6 +1632,13 @@ function config_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
     ),
+    'module' => 'taxonomy',
+  );
+
+  // Exported permission: 'edit terms in qa_category'.
+  $permissions['edit terms in qa_category'] = array(
+    'name' => 'edit terms in qa_category',
+    'roles' => array(),
     'module' => 'taxonomy',
   );
 

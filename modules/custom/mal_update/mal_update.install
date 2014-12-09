@@ -290,6 +290,8 @@ function mal_update_update_7018() {
  * Faq category feature.
  */
 function mal_update_update_7019() {
+  module_enable(array('role_delegation'));
+
   $features = array(
     'config_taxonomy',
     'content_type_question_and_answer',
@@ -300,7 +302,13 @@ function mal_update_update_7019() {
 
   $vocabulary = taxonomy_vocabulary_machine_name_load('qa_category');
 
-  foreach (array('Gemensam', 'UX') as $name) {
+  foreach (array(
+             'Vad är Komvux?',
+             'Vad behöver jag tänka på?',
+             'Hur gör jag min ansökan?',
+             'Har jag fått en plats?',
+             'Efter mina studier',
+           ) as $name) {
     $term = new stdClass();
     $term->name = $name;
     $term->vid = $vocabulary->vid;
