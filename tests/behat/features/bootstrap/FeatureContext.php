@@ -416,4 +416,30 @@ class FeatureContext extends DrupalContext {
       "Drupal.wysiwyg.instances['" . $selector . "'].insert('" . $text . "')"
     );
   }
+
+  /**
+   * Checks, if a button with id|name|title|alt|value exists or not and pressess it.
+   *
+   * @Given /^I press "(?P<button>[^"]*)" in the area with selector "([^"]*)"$/
+   *
+   * @param $button
+   *   string The id|name|title|alt|value of the button to be pressed.
+   * @param $region
+   *   string The region in which the button should be pressed.
+   *
+   * @throws \Exception
+   *   If region or button within it cannot be found.
+   */
+  public function assertAreaPressButton($button, $area) {
+    $session = $this->getSession();
+    $regionObj = $session->getPage()->find('css', $area);
+
+    var_dump($regionObj->getHtml());
+
+    $buttonObj = $regionObj->findButton($button);
+    if (empty($buttonObj)) {
+      throw new \Exception(sprintf("The button '%s' was not found in the region '%s' on the page %s", $button, $area, $this->getSession()->getCurrentUrl()));
+    }
+    $regionObj->pressButton($button);
+  }
 }

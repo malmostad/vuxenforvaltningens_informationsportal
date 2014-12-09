@@ -177,12 +177,6 @@ projects[memcache][subdir] = "contrib"
 projects[advagg][version] = "2.7"
 projects[advagg][subdir] = "contrib"
 
-projects[entity_modified][version] = "1.2"
-projects[entity_modified][subdir] = "contrib"
-
-projects[render_cache][version] = "1.0"
-projects[render_cache][subdir] = "contrib"
-
 projects[entitycache][version] = "1.2"
 projects[entitycache][subdir] = "contrib"
 
