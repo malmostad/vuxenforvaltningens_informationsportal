@@ -134,7 +134,11 @@ function page_main_layout_default_page_manager_handlers() {
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'courses-menu-block',
+      'template_suggestion' => 'views_panes',
+    );
     $pane->extras = array();
     $pane->position = 2;
     $pane->locks = array();
@@ -320,7 +324,7 @@ function page_main_layout_default_page_manager_handlers() {
       'link' => '',
       'override_title' => '',
       'override_title_text' => '',
-      'image' => variable_get('page_main_layout_banner_image_fid', 0),
+      'image' => '1',
     );
     $pane->cache = array();
     $pane->style = array(

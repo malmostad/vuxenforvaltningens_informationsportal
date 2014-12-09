@@ -215,7 +215,7 @@ function mal_user_courses_preprocess_views_view_field(&$variables) {
 /**
  * Implements hook_preprocess_HOOK().
  */
-function mal_user_courses_preprocess_views_view_unformatted(&$variables) {
+function mal_user_courses_preprocess_views_view_list(&$variables) {
   if ($variables['view']->name == 'sidebar_courses'
     && $variables['view']->current_display == 'course_menu_pane'
     && ($not_started_tid = variable_get('mal_generate_content_searchable_type_3', FALSE))) {
