@@ -231,7 +231,17 @@ function mal_update_update_7017() {
     ->fields(array('weight' => 1000))
     ->condition('name', 'mal_ux_improvements', '=')
     ->execute();
+
   module_enable(array('view_dashboard_my_content', 'page_dashboard'));
+
+  $features = array(
+    'config_facet',
+    'config_permissions',
+    'content_type_course_packages',
+    'content_type_course_template',
+  );
+
+  features_revert($features);
 }
 
 /**

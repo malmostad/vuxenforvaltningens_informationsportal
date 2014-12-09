@@ -86,8 +86,8 @@ function view_dashboard_my_content_views_default_views() {
   $handler->display->display_options['filters']['uid_current']['relationship'] = 'uid';
   $handler->display->display_options['filters']['uid_current']['value'] = '1';
 
-  /* Display: Block */
-  $handler = $view->new_display('block', 'Block', 'block');
+  /* Display: Content pane */
+  $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
   $translatables['my_content'] = array(
     t('Master'),
     t('My content'),
@@ -105,7 +105,8 @@ function view_dashboard_my_content_views_default_views() {
     t('next ›'),
     t('last »'),
     t('author'),
-    t('Block'),
+    t('Content pane'),
+    t('View panes'),
   );
   $export['my_content'] = $view;
 
