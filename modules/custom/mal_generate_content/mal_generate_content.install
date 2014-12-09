@@ -68,7 +68,7 @@ function mal_generate_content_enable() {
       'Vad behöver jag tänka på?',
       'Hur gör jag min ansökan?',
       'Har jag fått en plats?',
-      'Efter mina studier',
+      'Efter mina studier?',
     )
   );
 

@@ -92,6 +92,7 @@ dependencies[] = publishcontent
 dependencies[] = strongarm
 dependencies[] = token
 dependencies[] = ultimate_cron
+dependencies[] = administerusersbyrole
 dependencies[] = role_delegation
 ; Panels
 dependencies[] = panels
