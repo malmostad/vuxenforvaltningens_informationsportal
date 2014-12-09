@@ -364,4 +364,4 @@ features[variable][] = publishcontent_course
 features[variable][] = publishcontent_course_package_template
 features[variable][] = publishcontent_course_packages
 features[variable][] = publishcontent_course_template
-mtime = 1418058901
+mtime = 1418067386
