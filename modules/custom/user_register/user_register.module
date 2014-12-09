@@ -145,20 +145,31 @@ function user_register_field_formatter_view($entity_type, $entity, $field, $inst
 
     switch ($display['type']) {
       case 'toggling_registration_form':
-        $registration = user_register_load_registration_by_user($entity_type, $entity_id, $user->uid);
-
-        if (!$registration && registration_register_page_access($entity_type, $entity)) {
-          $registration = entity_get_controller('registration')->create(array(
-            'entity_type' => $entity_type,
-            'entity_id' => $entity_id,
-            'type' => $reg_type->name,
+        if (user_is_anonymous()) {
+          $message = t('!login or !register to subscribe the course.', array(
+            '!login' => l(t('Log in'), 'user'),
+            '!register' => l(t('register'), 'register'),
           ));
-          $element[0] = drupal_get_form('registration_form', $registration);
+          $element[0] = array(
+            '#markup' => '<div class="subscribe-message">' . $message . '</div>',
+          );
         }
-
-        if ($registration && entity_access('delete', 'registration', $registration)) {
+        else {
           $registration = user_register_load_registration_by_user($entity_type, $entity_id, $user->uid);
-          $element[0] = drupal_get_form('user_register_unregister_ajax_form', $registration);
+
+          if (!$registration && registration_register_page_access($entity_type, $entity)) {
+            $registration = entity_get_controller('registration')->create(array(
+              'entity_type' => $entity_type,
+              'entity_id' => $entity_id,
+              'type' => $reg_type->name,
+            ));
+            $element[0] = drupal_get_form('registration_form', $registration);
+          }
+
+          if ($registration && entity_access('delete', 'registration', $registration)) {
+            $registration = user_register_load_registration_by_user($entity_type, $entity_id, $user->uid);
+            $element[0] = drupal_get_form('user_register_unregister_ajax_form', $registration);
+          }
         }
         break;
 
