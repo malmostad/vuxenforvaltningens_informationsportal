@@ -80,7 +80,6 @@ function mal_entityreference_widget_alter_timefield_validate($element, &$form_st
       $values['days'] = array($values['days'] => $values['days']);
       form_set_value($element, $values, $form_state);
     }
-
   }
 }
 
