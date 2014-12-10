@@ -24,5 +24,6 @@ drush en mal_generate_content -y
 #ahaha surprise
 drush generate-content 10 0 --types=course_packages
 echo "Operation : Compass compile"
+git remote add main git@github.com:malmostad/vuxenforvaltningens_informationsportal.git
 cd themes/city_of_malmo/assets
 compass compile
