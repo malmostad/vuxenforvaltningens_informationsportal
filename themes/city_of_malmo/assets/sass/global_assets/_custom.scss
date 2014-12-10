@@ -1380,15 +1380,15 @@ footer.bigfoot {
 
 // ----- Sidebar courses ----- //
 .view-sidebar-courses {
-  border-bottom: #b5b5b5 1px solid;
-  padding: .6em .35em;
-
   .subtitle {
     margin-bottom: 13px;
+    padding: .6em .35em 0;
   }
 
   .subscribed-courses {
+    border-bottom: #b5b5b5 1px solid;
     margin-bottom: 0 !important;
+    padding: 0 .35em .6em;
 
     a {
       border: 0;
@@ -1549,6 +1549,22 @@ footer.bigfoot {
         padding-right: 12px;
       }
     }
+
+    .view-sidebar-courses {
+      .subtitle {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .subscribed-courses {
+        padding-left: 12px;
+        padding-right: 12px;
+
+        a {
+          padding: 0;
+        }
+      }
+    }
   }
 
   .front {
@@ -1628,14 +1644,6 @@ footer.bigfoot {
   .wrapper {
     > nav.content {
       padding: 0;
-    }
-
-    .view-sidebar-courses {
-      .subscribed-courses {
-        a {
-          padding: 0;
-        }
-      }
     }
   }
 }
