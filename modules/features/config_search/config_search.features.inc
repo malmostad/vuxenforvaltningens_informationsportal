@@ -30,7 +30,6 @@ function config_search_default_search_api_index() {
         "field_course_prerequisites" : { "type" : "text" },
         "field_course_school" : { "type" : "integer", "entity_type" : "node" },
         "field_course_template:field_course_gymnasie_program" : { "type" : "list\u003Cinteger\u003E", "entity_type" : "taxonomy_term" },
-        "field_course_template:field_course_orientation" : { "type" : "list\u003Cinteger\u003E", "entity_type" : "taxonomy_term" },
         "field_course_template:field_course_subject_areas" : { "type" : "list\u003Cinteger\u003E", "entity_type" : "taxonomy_term" },
         "field_course_template:field_course_type_education" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
         "global_searchable" : { "type" : "boolean" },
