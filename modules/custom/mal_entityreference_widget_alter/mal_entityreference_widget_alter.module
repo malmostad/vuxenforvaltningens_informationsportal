@@ -35,6 +35,10 @@ function mal_entityreference_widget_alter_form_field_ui_field_edit_form_alter(&$
  * Implements hook_field_widget_form_alter().
  */
 function mal_entityreference_widget_alter_field_widget_form_alter(&$element, &$form_state, $context) {
+  if ($context['field']['type'] == 'timefield') {
+    $element['days']['#type'] = 'radios';
+    array_unshift($element['#element_validate'], 'mal_entityreference_widget_alter_timefield_validate');
+  }
   if ($context['field']['type'] == 'entityreference') {
     if (!empty($context['instance']['render_entity_below'])) {
       $element['#suffix'] = '<div id="mal-rendered-entity"></div>';
@@ -60,6 +64,23 @@ function mal_entityreference_widget_alter_field_widget_form_alter(&$element, &$f
         $element['#disabled'] = TRUE;
       }
     }
+  }
+}
+
+/**
+ * Convert values to array.
+ */
+function mal_entityreference_widget_alter_timefield_validate($element, &$form_state, $form) {
+  $delta = $element['#delta'];
+  $field_name = $element['#field_name'];
+
+  if ($field_value = drupal_array_get_nested_value($form_state['values'], $element['#field_parents'])) {
+    $values = $field_value[$field_name][$element['#language']][$delta];
+    if (!is_array($values['days'])) {
+      $values['days'] = array($values['days'] => $values['days']);
+      form_set_value($element, $values, $form_state);
+    }
+
   }
 }
 

@@ -8,7 +8,6 @@ Feature: Breadcrumbs
     And I am on the homepage
     Then I should see the text "Home" in ".breadcrumb" element
     And I should see the text "Information portal" in ".breadcrumb" element
-    And I should see the text "Rubrik" in ".breadcrumb" element
 
   @api
   Scenario: School view breadcrumb
