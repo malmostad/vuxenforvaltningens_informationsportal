@@ -21,6 +21,8 @@ drush generate-content 10 0 --types=question_and_answer
 drush php-eval 'node_access_rebuild();'
 drush l10n-update --languages=sv
 drush en mal_generate_content -y
+#ahaha surprise
+drush generate-content 10 0 --types=course_packages
 echo "Operation : Compass compile"
 cd themes/city_of_malmo/assets
 compass compile
