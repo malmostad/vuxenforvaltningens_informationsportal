@@ -21,26 +21,22 @@ Feature: Middle admim permission
   Scenario: Published course and course package creating
     Given I am logged in as a user with the "Malmo middle admin" role
     And I am on "node/add/course"
-    And I fill in "Kurs mall" with "A1 Test course template"
-    And I press the "insert" key in the "Kurs mall" field
-    And I wait for 1 seconds
-    And I press element ".reference-autocomplete"
-    Then I press the "edit-submit" button
+    And I select "A1 Test course template" from "Kurs mall"
     # Required
-    And I fill in "Kursform" with "Flexkurs"
-    And I fill in "Skola" with "A1 Test school (1)"
+    And I select "Flexkurs" from "Kursform"
+    And I select "A2 Test school" from "Skola"
     And I fill in "Kursgrupp" with "test"
 
     Then I press the "edit-submit" button
 
-    And POSTPONED I should see "Enstaka kurs A1 Test course template has been created."
+    And I should see "Enstaka kurs A1 Test course template has been created."
     Then I click "Edit"
     And the "edit-status" checkbox should be checked
     Then I am on "node/add/course-packages"
     And I fill in "Titel" with "A1 Test course template"
         # Required for course
-    And I fill in "Kurs formulär" with "Flexkurs"
-    And I fill in "Skola" with "A1 Test school (1)"
+    And I select "Flexkurs" from "Kurs formulär"
+    And I select "A2 Test school" from "Skola"
     And I fill in "Kurs group" with "test"
     And I type "test" in "edit-body-und-0-value" WYSIWYG editor
     And I fill in "Kontaktperson" with "test"

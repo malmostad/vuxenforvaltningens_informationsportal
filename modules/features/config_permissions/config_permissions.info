@@ -391,4 +391,4 @@ features[variable][] = publishcontent_course_package_template
 features[variable][] = publishcontent_course_packages
 features[variable][] = publishcontent_course_template
 features_exclude[dependencies][administerusersbyrole] = administerusersbyrole
-mtime = 1418229267
+mtime = 1418240375

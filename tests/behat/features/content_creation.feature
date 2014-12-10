@@ -15,10 +15,10 @@ Feature: Content creation
   Scenario: School editor: Auto set school
     Given I am logged in as "editor" with the password "editor"
     And I am on "node/add/course"
-    And I fill in "Kurs mall" with "A1 Test course template"
+    And I select "A1 Test course template" from "Kurs mall"
         # Required
-    And I fill in "Kursform" with "Flexkurs"
-    And I fill in "Skola" with "A1 Test school (1)"
+    And I select "Flexkurs" from "Kursform"
+    And I select "A2 Test school" from "Skola"
     And I fill in "Kursgrupp" with "test"
     When I press "Save"
     Then I should see the text "A2 Test school"
