@@ -4,24 +4,6 @@ Feature: Course register
   permissions were setupped correctly. Also test how "Register widget works".
 
   @api @javascript
-  Scenario: Check if authorized user see register button
-    Given I am logged in as a user with the "authenticated user" role
-    Given I am on "search-courses/Test%20course%203"
-    Then I press the "Register" button
-    Then I wait for AJAX to finish
-    Then I press the "Unregister" button
-    Then I wait for AJAX to finish
-    Then I click "Test course 3"
-    Then I press the "Register" button
-    Then I wait for AJAX to finish
-    Then I press the "Unregister" button
-    Then I wait for AJAX to finish
-    Then I press the "Register" button
-    Then I wait for AJAX to finish
-    Then POST I am on "my-planning"
-    And I should see the text "Test course 3"
-
-  @api @javascript
   Scenario: Anonymous user does not see Registration button.
     Given I am on "search-courses/Test%20course%203"
     Then I should not see a "#user-register-unregister-form" element
@@ -43,7 +25,7 @@ Feature: Course register
 
   @api @javascript
   Scenario: Check if authorized user see and can use register button
-    Given POSTPONED I am logged in as a user with the "authenticated user" role
+    Given I am logged in as a user with the "authenticated user" role
     Given I am on "search-courses/Test%20course%203"
     Then I press the "Register" button
     Then I wait for AJAX to finish
