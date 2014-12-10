@@ -1387,6 +1387,19 @@ footer.bigfoot {
     margin-bottom: 13px;
   }
 
+  .subscribed-courses {
+    margin-bottom: 0 !important;
+
+    a {
+      border: 0;
+      padding: 0;
+
+      &:hover {
+        background: none;
+      }
+    }
+  }
+
   a {
     color: $black;
     display: block;
@@ -1397,6 +1410,7 @@ footer.bigfoot {
   .views-row {
     margin-bottom: 5px;
     position: relative;
+
     &:hover {
       .unsubscribe {
         display: block;
