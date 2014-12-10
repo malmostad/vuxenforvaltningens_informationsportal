@@ -496,13 +496,14 @@ function city_of_malmo_breadcrumb($variables) {
   $breadcrumb = $variables['breadcrumb'];
   array_unshift($breadcrumb, l(t('Information portal'), '<front>'));
   array_unshift($breadcrumb, l(t('Home'), 'http://www.malmo.se/'));
-
-  $item = menu_get_item();
-  $breadcrumb[] = array(
-    // If we are on a non-default tab, use the tab's title.
-    'data' => !empty($item['tab_parent']) ? check_plain($item['title']) : drupal_get_title(),
-    'class' => array('active'),
-  );
+  if (!drupal_is_front_page()) {
+    $item = menu_get_item();
+    $breadcrumb[] = array(
+      // If we are on a non-default tab, use the tab's title.
+      'data' => !empty($item['tab_parent']) ? check_plain($item['title']) : drupal_get_title(),
+      'class' => array('active'),
+    );
+  }
 
   // Determine if we are to display the breadcrumb.
   $bootstrap_breadcrumb = theme_get_setting('bootstrap_breadcrumb');
