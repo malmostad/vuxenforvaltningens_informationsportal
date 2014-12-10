@@ -125,6 +125,7 @@ dependencies[] = mal_update
 dependencies[] = mal_user_courses
 dependencies[] = mal_user_custom_access
 dependencies[] = user_register
+dependencies[] = mal_facetapi
 ; Registration
 dependencies[] = registration
 dependencies[] = registration_views
