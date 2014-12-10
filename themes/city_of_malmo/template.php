@@ -317,6 +317,12 @@ function timefield_weekly_summary_days_summarized_alter($format) {
  * @see bootstrap_pager()
  */
 function city_of_malmo_pager($variables) {
+  $variables['tags'] = array(
+    'Föregående',
+    'Föregående',
+    'Nästa',
+    'Nästa',
+  );
   $output = "";
   $items = array();
   $tags = $variables['tags'];
