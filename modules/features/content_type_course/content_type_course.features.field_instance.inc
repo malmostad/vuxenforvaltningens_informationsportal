@@ -78,7 +78,61 @@ function content_type_course_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 9,
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'node-course-field_course_continuos'
+  $field_instances['node-course-field_course_continuos'] = array(
+    'bundle' => 'course',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
+      'node_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_course_continuos',
+    'label' => 'Continuos',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 5,
     ),
   );
 
@@ -150,7 +204,61 @@ function content_type_course_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 8,
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance: 'node-course-field_course_flex'
+  $field_instances['node-course-field_course_flex'] = array(
+    'bundle' => 'course',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
+      'node_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_course_flex',
+    'label' => 'Flex',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 3,
     ),
   );
 
@@ -203,7 +311,7 @@ function content_type_course_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 3,
+      'weight' => 2,
     ),
   );
 
@@ -277,61 +385,7 @@ function content_type_course_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 13,
-    ),
-  );
-
-  // Exported field_instance: 'node-course-field_course_period_type'
-  $field_instances['node-course-field_course_period_type'] = array(
-    'bundle' => 'course',
-    'default_value' => array(
-      0 => array(
-        'value' => 'default',
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 6,
-      ),
-      'node_teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'search_result' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_course_period_type',
-    'label' => 'Period type',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'apply_chosen' => 1,
-      ),
-      'type' => 'options_select',
-      'weight' => 14,
+      'weight' => 10,
     ),
   );
 
@@ -416,7 +470,7 @@ function content_type_course_field_default_field_instances() {
         'label_position' => 'above',
       ),
       'type' => 'timefield_standard',
-      'weight' => 7,
+      'weight' => 4,
     ),
   );
 
@@ -483,7 +537,7 @@ function content_type_course_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'entityreference_autocomplete_tags',
-      'weight' => 10,
+      'weight' => 8,
     ),
   );
 
@@ -535,7 +589,7 @@ function content_type_course_field_default_field_instances() {
         'apply_chosen' => 1,
       ),
       'type' => 'options_select',
-      'weight' => 15,
+      'weight' => 11,
     ),
   );
 
@@ -550,7 +604,7 @@ function content_type_course_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 6,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -666,19 +720,20 @@ function content_type_course_field_default_field_instances() {
       'module' => 'registration',
       'settings' => array(),
       'type' => 'registration_select',
-      'weight' => 11,
+      'weight' => 9,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
   t('Ansökningsperiod');
+  t('Continuos');
   t('Course registration');
+  t('Flex');
   t('Kurs mall');
   t('Kursform');
   t('Kursgrupp');
   t('Kursperiod');
-  t('Period type');
   t('Searchable type');
   t('Skola');
   t('Tider');

@@ -335,12 +335,12 @@ function mal_generate_content_enable() {
   $category = taxonomy_get_term_by_name('Vad är Komvux?');
   $category = reset($category);
 
-  $node->field_course_searchable_type[$template->language][] = array(
-    'tid' => variable_get('mal_generate_content_searchable_type_3', 74),
-  );
-
   $node->field_qa_category[$node->language][] = array(
     'tid' => $category->tid,
+  );
+
+  $node->field_course_searchable_type[$template->language][] = array(
+    'tid' => variable_get('mal_generate_content_searchable_type_3', 74),
   );
 
   $node = node_submit($node);
