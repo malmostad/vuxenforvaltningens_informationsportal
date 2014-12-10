@@ -26,6 +26,7 @@ function config_search_default_search_api_index() {
         "field_course_group" : { "type" : "text" },
         "field_course_national_code" : { "type" : "text" },
         "field_course_number_of_points" : { "type" : "integer" },
+        "field_course_orientation" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_course_periods:value_formatted" : { "type" : "list\\u003Cinteger\\u003E" },
         "field_course_prerequisites" : { "type" : "text" },
         "field_course_school" : { "type" : "integer", "entity_type" : "node" },

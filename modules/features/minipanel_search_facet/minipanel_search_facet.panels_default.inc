@@ -180,10 +180,10 @@ function minipanel_search_facet_default_panels_mini() {
     $display->content['new-10bfe0af-dcb6-4038-a1b4-3c9cf84b9dfc'] = $pane;
     $display->panels['region-two'][4] = 'new-10bfe0af-dcb6-4038-a1b4-3c9cf84b9dfc';
     $pane = new stdClass();
-    $pane->pid = 'new-7da04ded-d0ce-49d4-aeb0-146f8408d01b';
+    $pane->pid = 'new-ca054b93-6128-47e5-a7a0-7b8b61cc7362';
     $pane->panel = 'region-two';
     $pane->type = 'block';
-    $pane->subtype = 'facetapi-iT34i9cC1MJ3LKTU1qKCOiCutkPaX6HK';
+    $pane->subtype = 'facetapi-gsWxpuvQca13JASUaW8muCM8tMGr7oBX';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -198,9 +198,9 @@ function minipanel_search_facet_default_panels_mini() {
     $pane->extras = array();
     $pane->position = 5;
     $pane->locks = array();
-    $pane->uuid = '7da04ded-d0ce-49d4-aeb0-146f8408d01b';
-    $display->content['new-7da04ded-d0ce-49d4-aeb0-146f8408d01b'] = $pane;
-    $display->panels['region-two'][5] = 'new-7da04ded-d0ce-49d4-aeb0-146f8408d01b';
+    $pane->uuid = 'ca054b93-6128-47e5-a7a0-7b8b61cc7362';
+    $display->content['new-ca054b93-6128-47e5-a7a0-7b8b61cc7362'] = $pane;
+    $display->panels['region-two'][5] = 'new-ca054b93-6128-47e5-a7a0-7b8b61cc7362';
     $pane = new stdClass();
     $pane->pid = 'new-063624e5-555d-4798-855e-3e6c4ebaef86';
     $pane->panel = 'region-two';
