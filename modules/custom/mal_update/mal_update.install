@@ -335,11 +335,15 @@ function mal_update_update_7021() {
     'config_permissions',
     'content_type_course',
     'content_type_course_packages',
+    'content_type_user',
   );
 
   features_revert($features);
 
   if ($instance = field_info_instance('node', 'field_course_orientation', 'course_template')) {
+    field_delete_instance($instance);
+  }
+  if ($instance = field_info_instance('user', 'field_course_school', 'user')) {
     field_delete_instance($instance);
   }
 }
