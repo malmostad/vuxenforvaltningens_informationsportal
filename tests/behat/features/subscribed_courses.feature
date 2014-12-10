@@ -19,6 +19,6 @@ Feature: Subscribed course order
     Then I press the "Register" button
     Then I wait for AJAX to finish
     Then I am on "my-planning"
-    Then I should see the text "Test course 3"
+    Then I should see the text "Test course 3" in ".table-tabs" element
     And I press element "#edit-registration-submit"
-    And I should not see the text "Test course 3"
+    And I should not see the text "Test course 3" in ".table-tabs" element
