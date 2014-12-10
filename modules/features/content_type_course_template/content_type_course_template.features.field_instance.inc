@@ -269,57 +269,6 @@ function content_type_course_template_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-course_template-field_course_orientation'
-  $field_instances['node-course_template-field_course_orientation'] = array(
-    'bundle' => 'course_template',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'taxonomy',
-        'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 6,
-      ),
-      'node_teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'search_result' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_course_orientation',
-    'label' => 'Inriktning',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'apply_chosen' => 1,
-      ),
-      'type' => 'options_select',
-      'weight' => 9,
-    ),
-  );
-
   // Exported field_instance: 'node-course_template-field_course_prerequisites'
   $field_instances['node-course_template-field_course_prerequisites'] = array(
     'bundle' => 'course_template',
@@ -508,7 +457,6 @@ function content_type_course_template_field_default_field_instances() {
   t('Beskrivning/innehåll');
   t('Förkunskaper');
   t('Gymnasieprogram');
-  t('Inriktning');
   t('Nationell kurskod');
   t('Utbildningsform');
   t('Ämnesområden');

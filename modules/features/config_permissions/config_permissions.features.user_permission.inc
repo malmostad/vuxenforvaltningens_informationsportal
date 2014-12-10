@@ -183,7 +183,6 @@ function config_permissions_user_default_permissions() {
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
       'Malmo top admin' => 'Malmo top admin',
-      'School editor' => 'School editor',
       'administrator' => 'administrator',
     ),
     'module' => 'administerusersbyrole',
@@ -949,6 +948,7 @@ function config_permissions_user_default_permissions() {
   $permissions['create users'] = array(
     'name' => 'create users',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'administerusersbyrole',
@@ -1717,7 +1717,6 @@ function config_permissions_user_default_permissions() {
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
       'Malmo top admin' => 'Malmo top admin',
-      'School editor' => 'School editor',
       'administrator' => 'administrator',
     ),
     'module' => 'administerusersbyrole',
@@ -2848,7 +2847,6 @@ function config_permissions_user_default_permissions() {
     'name' => 'view field_registration',
     'roles' => array(
       'administrator' => 'administrator',
-      'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
     ),
     'module' => 'field_permissions',
