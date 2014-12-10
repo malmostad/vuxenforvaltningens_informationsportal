@@ -336,6 +336,9 @@ function mal_update_update_7021() {
     'content_type_course',
     'content_type_course_packages',
     'content_type_user',
+    'config_facet',
+    'config_search',
+    'minipanel_search_facet',
   );
 
   features_revert($features);
