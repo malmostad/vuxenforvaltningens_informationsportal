@@ -177,6 +177,18 @@ function config_permissions_user_default_permissions() {
     'module' => 'user',
   );
 
+  // Exported permission: 'access users overview'.
+  $permissions['access users overview'] = array(
+    'name' => 'access users overview',
+    'roles' => array(
+      'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
+      'School editor' => 'School editor',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'administerusersbyrole',
+  );
+
   // Exported permission: 'administer actions'.
   $permissions['administer actions'] = array(
     'name' => 'administer actions',
@@ -585,9 +597,6 @@ function config_permissions_user_default_permissions() {
   $permissions['administer users'] = array(
     'name' => 'administer users',
     'roles' => array(
-      'Malmo middle admin' => 'Malmo middle admin',
-      'Malmo top admin' => 'Malmo top admin',
-      'School editor' => 'School editor',
       'administrator' => 'administrator',
     ),
     'module' => 'user',
@@ -709,9 +718,9 @@ function config_permissions_user_default_permissions() {
     'module' => 'user',
   );
 
-  // Exported permission: 'cancel users with no custom roles'.
-  $permissions['cancel users with no custom roles'] = array(
-    'name' => 'cancel users with no custom roles',
+  // Exported permission: 'cancel users with role 2'.
+  $permissions['cancel users with role 2'] = array(
+    'name' => 'cancel users with role 2',
     'roles' => array(
       'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
@@ -719,9 +728,9 @@ function config_permissions_user_default_permissions() {
     'module' => 'administerusersbyrole',
   );
 
-  // Exported permission: 'cancel users with role Malmomiddleadmin'.
-  $permissions['cancel users with role Malmomiddleadmin'] = array(
-    'name' => 'cancel users with role Malmomiddleadmin',
+  // Exported permission: 'cancel users with role 3'.
+  $permissions['cancel users with role 3'] = array(
+    'name' => 'cancel users with role 3',
     'roles' => array(
       'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
@@ -729,18 +738,9 @@ function config_permissions_user_default_permissions() {
     'module' => 'administerusersbyrole',
   );
 
-  // Exported permission: 'cancel users with role Malmomiddleadmin and other roles'.
-  $permissions['cancel users with role Malmomiddleadmin and other roles'] = array(
-    'name' => 'cancel users with role Malmomiddleadmin and other roles',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'administerusersbyrole',
-  );
-
-  // Exported permission: 'cancel users with role Malmotopadmin'.
-  $permissions['cancel users with role Malmotopadmin'] = array(
-    'name' => 'cancel users with role Malmotopadmin',
+  // Exported permission: 'cancel users with role 4'.
+  $permissions['cancel users with role 4'] = array(
+    'name' => 'cancel users with role 4',
     'roles' => array(
       'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
@@ -748,81 +748,11 @@ function config_permissions_user_default_permissions() {
     'module' => 'administerusersbyrole',
   );
 
-  // Exported permission: 'cancel users with role Malmotopadmin and other roles'.
-  $permissions['cancel users with role Malmotopadmin and other roles'] = array(
-    'name' => 'cancel users with role Malmotopadmin and other roles',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'administerusersbyrole',
-  );
-
-  // Exported permission: 'cancel users with role Schooleditor'.
-  $permissions['cancel users with role Schooleditor'] = array(
-    'name' => 'cancel users with role Schooleditor',
+  // Exported permission: 'cancel users with role 5'.
+  $permissions['cancel users with role 5'] = array(
+    'name' => 'cancel users with role 5',
     'roles' => array(
       'Malmo top admin' => 'Malmo top admin',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'administerusersbyrole',
-  );
-
-  // Exported permission: 'cancel users with role Schooleditor and other roles'.
-  $permissions['cancel users with role Schooleditor and other roles'] = array(
-    'name' => 'cancel users with role Schooleditor and other roles',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'administerusersbyrole',
-  );
-
-  // Exported permission: 'cancel users with role administrator'.
-  $permissions['cancel users with role administrator'] = array(
-    'name' => 'cancel users with role administrator',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'administerusersbyrole',
-  );
-
-  // Exported permission: 'cancel users with role administrator and other roles'.
-  $permissions['cancel users with role administrator and other roles'] = array(
-    'name' => 'cancel users with role administrator and other roles',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'administerusersbyrole',
-  );
-
-  // Exported permission: 'cancel users with role anonymoususer'.
-  $permissions['cancel users with role anonymoususer'] = array(
-    'name' => 'cancel users with role anonymoususer',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'administerusersbyrole',
-  );
-
-  // Exported permission: 'cancel users with role anonymoususer and other roles'.
-  $permissions['cancel users with role anonymoususer and other roles'] = array(
-    'name' => 'cancel users with role anonymoususer and other roles',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'administerusersbyrole',
-  );
-
-  // Exported permission: 'cancel users with role authenticateduser'.
-  $permissions['cancel users with role authenticateduser'] = array(
-    'name' => 'cancel users with role authenticateduser',
-    'roles' => array(),
-    'module' => 'administerusersbyrole',
-  );
-
-  // Exported permission: 'cancel users with role authenticateduser and other roles'.
-  $permissions['cancel users with role authenticateduser and other roles'] = array(
-    'name' => 'cancel users with role authenticateduser and other roles',
-    'roles' => array(
       'administrator' => 'administrator',
     ),
     'module' => 'administerusersbyrole',
@@ -1781,9 +1711,9 @@ function config_permissions_user_default_permissions() {
     'module' => 'taxonomy',
   );
 
-  // Exported permission: 'edit users with no custom roles'.
-  $permissions['edit users with no custom roles'] = array(
-    'name' => 'edit users with no custom roles',
+  // Exported permission: 'edit users with role 2'.
+  $permissions['edit users with role 2'] = array(
+    'name' => 'edit users with role 2',
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
       'Malmo top admin' => 'Malmo top admin',
@@ -1793,9 +1723,9 @@ function config_permissions_user_default_permissions() {
     'module' => 'administerusersbyrole',
   );
 
-  // Exported permission: 'edit users with role Malmomiddleadmin'.
-  $permissions['edit users with role Malmomiddleadmin'] = array(
-    'name' => 'edit users with role Malmomiddleadmin',
+  // Exported permission: 'edit users with role 3'.
+  $permissions['edit users with role 3'] = array(
+    'name' => 'edit users with role 3',
     'roles' => array(
       'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
@@ -1803,18 +1733,9 @@ function config_permissions_user_default_permissions() {
     'module' => 'administerusersbyrole',
   );
 
-  // Exported permission: 'edit users with role Malmomiddleadmin and other roles'.
-  $permissions['edit users with role Malmomiddleadmin and other roles'] = array(
-    'name' => 'edit users with role Malmomiddleadmin and other roles',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'administerusersbyrole',
-  );
-
-  // Exported permission: 'edit users with role Malmotopadmin'.
-  $permissions['edit users with role Malmotopadmin'] = array(
-    'name' => 'edit users with role Malmotopadmin',
+  // Exported permission: 'edit users with role 4'.
+  $permissions['edit users with role 4'] = array(
+    'name' => 'edit users with role 4',
     'roles' => array(
       'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
@@ -1822,84 +1743,12 @@ function config_permissions_user_default_permissions() {
     'module' => 'administerusersbyrole',
   );
 
-  // Exported permission: 'edit users with role Malmotopadmin and other roles'.
-  $permissions['edit users with role Malmotopadmin and other roles'] = array(
-    'name' => 'edit users with role Malmotopadmin and other roles',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'administerusersbyrole',
-  );
-
-  // Exported permission: 'edit users with role Schooleditor'.
-  $permissions['edit users with role Schooleditor'] = array(
-    'name' => 'edit users with role Schooleditor',
+  // Exported permission: 'edit users with role 5'.
+  $permissions['edit users with role 5'] = array(
+    'name' => 'edit users with role 5',
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
       'Malmo top admin' => 'Malmo top admin',
-      'administrator' => 'administrator',
-    ),
-    'module' => 'administerusersbyrole',
-  );
-
-  // Exported permission: 'edit users with role Schooleditor and other roles'.
-  $permissions['edit users with role Schooleditor and other roles'] = array(
-    'name' => 'edit users with role Schooleditor and other roles',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'administerusersbyrole',
-  );
-
-  // Exported permission: 'edit users with role administrator'.
-  $permissions['edit users with role administrator'] = array(
-    'name' => 'edit users with role administrator',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'administerusersbyrole',
-  );
-
-  // Exported permission: 'edit users with role administrator and other roles'.
-  $permissions['edit users with role administrator and other roles'] = array(
-    'name' => 'edit users with role administrator and other roles',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'administerusersbyrole',
-  );
-
-  // Exported permission: 'edit users with role anonymoususer'.
-  $permissions['edit users with role anonymoususer'] = array(
-    'name' => 'edit users with role anonymoususer',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'administerusersbyrole',
-  );
-
-  // Exported permission: 'edit users with role anonymoususer and other roles'.
-  $permissions['edit users with role anonymoususer and other roles'] = array(
-    'name' => 'edit users with role anonymoususer and other roles',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'administerusersbyrole',
-  );
-
-  // Exported permission: 'edit users with role authenticateduser'.
-  $permissions['edit users with role authenticateduser'] = array(
-    'name' => 'edit users with role authenticateduser',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'administerusersbyrole',
-  );
-
-  // Exported permission: 'edit users with role authenticateduser and other roles'.
-  $permissions['edit users with role authenticateduser and other roles'] = array(
-    'name' => 'edit users with role authenticateduser and other roles',
-    'roles' => array(
       'administrator' => 'administrator',
     ),
     'module' => 'administerusersbyrole',
