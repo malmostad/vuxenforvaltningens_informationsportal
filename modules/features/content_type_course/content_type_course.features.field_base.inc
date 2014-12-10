@@ -98,7 +98,7 @@ function content_type_course_field_default_field_bases() {
         'year' => 'year',
       ),
       'timezone_db' => '',
-      'todate' => 'required',
+      'todate' => 'optional',
       'tz_handling' => 'none',
     ),
     'translatable' => 0,

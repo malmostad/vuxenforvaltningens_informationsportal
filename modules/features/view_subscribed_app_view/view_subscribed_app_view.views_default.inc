@@ -91,10 +91,11 @@ function view_subscribed_app_view_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Fält: Innehåll: Kursform */
+  /* Fält: Innehåll: Kurs formulär */
   $handler->display->display_options['fields']['field_course_form']['id'] = 'field_course_form';
   $handler->display->display_options['fields']['field_course_form']['table'] = 'field_data_field_course_form';
   $handler->display->display_options['fields']['field_course_form']['field'] = 'field_course_form';
+  $handler->display->display_options['fields']['field_course_form']['label'] = 'Kursform';
   $handler->display->display_options['fields']['field_course_form']['type'] = 'taxonomy_term_reference_plain';
   /* Sorteringskriterium: Innehåll: Datum för inlägg */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
@@ -180,10 +181,18 @@ function view_subscribed_app_view_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Fält: Innehåll: Kursgrupp */
+  /* Fält: Innehåll: Kurs group */
   $handler->display->display_options['fields']['field_course_group']['id'] = 'field_course_group';
   $handler->display->display_options['fields']['field_course_group']['table'] = 'field_data_field_course_group';
   $handler->display->display_options['fields']['field_course_group']['field'] = 'field_course_group';
+  $handler->display->display_options['fields']['field_course_group']['label'] = 'Kursgrupp';
+  /* Fält: Innehåll: Continuos */
+  $handler->display->display_options['fields']['field_course_continuos']['id'] = 'field_course_continuos';
+  $handler->display->display_options['fields']['field_course_continuos']['table'] = 'field_data_field_course_continuos';
+  $handler->display->display_options['fields']['field_course_continuos']['field'] = 'field_course_continuos';
+  $handler->display->display_options['fields']['field_course_continuos']['label'] = '';
+  $handler->display->display_options['fields']['field_course_continuos']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_course_continuos']['element_label_colon'] = FALSE;
 
   /* Display: Flex course */
   $handler = $view->new_display('panel_pane', 'Flex course', 'flex_course_pane');
@@ -218,10 +227,18 @@ function view_subscribed_app_view_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Fält: Innehåll: Kursgrupp */
+  /* Fält: Innehåll: Kurs group */
   $handler->display->display_options['fields']['field_course_group']['id'] = 'field_course_group';
   $handler->display->display_options['fields']['field_course_group']['table'] = 'field_data_field_course_group';
   $handler->display->display_options['fields']['field_course_group']['field'] = 'field_course_group';
+  $handler->display->display_options['fields']['field_course_group']['label'] = 'Kursgrupp';
+  /* Fält: Innehåll: Continuos */
+  $handler->display->display_options['fields']['field_course_continuos']['id'] = 'field_course_continuos';
+  $handler->display->display_options['fields']['field_course_continuos']['table'] = 'field_data_field_course_continuos';
+  $handler->display->display_options['fields']['field_course_continuos']['field'] = 'field_course_continuos';
+  $handler->display->display_options['fields']['field_course_continuos']['label'] = '';
+  $handler->display->display_options['fields']['field_course_continuos']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_course_continuos']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filterkriterium: Innehåll: Publicerad */
@@ -289,10 +306,11 @@ function view_subscribed_app_view_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Fält: Innehåll: Kursgrupp */
+  /* Fält: Innehåll: Kurs group */
   $handler->display->display_options['fields']['field_course_group']['id'] = 'field_course_group';
   $handler->display->display_options['fields']['field_course_group']['table'] = 'field_data_field_course_group';
   $handler->display->display_options['fields']['field_course_group']['field'] = 'field_course_group';
+  $handler->display->display_options['fields']['field_course_group']['label'] = 'Kursgrupp';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filterkriterium: Innehåll: Publicerad */
@@ -327,7 +345,7 @@ function view_subscribed_app_view_views_default_views() {
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = 'Ej sökbara';
+  $handler->display->display_options['fields']['title']['label'] = 'Ej sökbara just nu';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   /* Fält: Innehåll: Ansökningsperiod */
@@ -354,10 +372,18 @@ function view_subscribed_app_view_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Fält: Innehåll: Kursgrupp */
+  /* Fält: Innehåll: Kurs group */
   $handler->display->display_options['fields']['field_course_group']['id'] = 'field_course_group';
   $handler->display->display_options['fields']['field_course_group']['table'] = 'field_data_field_course_group';
   $handler->display->display_options['fields']['field_course_group']['field'] = 'field_course_group';
+  $handler->display->display_options['fields']['field_course_group']['label'] = 'Kursgrupp';
+  /* Fält: Innehåll: Continuos */
+  $handler->display->display_options['fields']['field_course_continuos']['id'] = 'field_course_continuos';
+  $handler->display->display_options['fields']['field_course_continuos']['table'] = 'field_data_field_course_continuos';
+  $handler->display->display_options['fields']['field_course_continuos']['field'] = 'field_course_continuos';
+  $handler->display->display_options['fields']['field_course_continuos']['label'] = '';
+  $handler->display->display_options['fields']['field_course_continuos']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_course_continuos']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filterkriterium: Innehåll: Publicerad */
@@ -410,7 +436,7 @@ function view_subscribed_app_view_views_default_views() {
     t('Course pacage'),
     t('Kurspaket'),
     t('Not searchable'),
-    t('Ej sökbara'),
+    t('Ej sökbara just nu'),
   );
   $export['my_course_application_list'] = $view;
 

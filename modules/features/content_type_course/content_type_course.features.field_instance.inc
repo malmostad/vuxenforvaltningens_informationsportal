@@ -120,7 +120,7 @@ function content_type_course_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_course_continuos',
-    'label' => 'Continuos',
+    'label' => 'Kontinuerlig',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -727,9 +727,9 @@ function content_type_course_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Ansökningsperiod');
-  t('Continuos');
   t('Course registration');
   t('Flex');
+  t('Kontinuerlig');
   t('Kurs mall');
   t('Kursform');
   t('Kursgrupp');

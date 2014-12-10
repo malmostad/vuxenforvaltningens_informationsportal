@@ -203,11 +203,9 @@ function mal_user_courses_clean_days(array $rendered, $day_to_keep) {
  */
 function mal_user_courses_preprocess_views_view_field(&$variables) {
   if (in_array($variables['view']->name, array('my_courses', 'my_course_application_list'))
-    && $variables['field']->real_field == 'field_course_application_period_value') {
-    if (!empty($variables['row']->field_field_course_application_period)
-      && empty($variables['row']->field_field_course_application_period[0]['raw']['value2'])) {
-      $variables['output'] .= ' - <span class="date-continuous">' . t('continuous') . '</span>';
-    }
+    && in_array($variables['field']->real_field, array('field_course_date_value', 'field_course_application_period_value'))
+    && !empty($variables['row']->field_field_course_continuos[0]['raw']['value'])) {
+    $variables['output'] .= ' - <span class="date-continuous">' . t('continuous') . '</span>';
   }
 }
 
