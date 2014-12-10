@@ -47,6 +47,10 @@ Feature: Middle admim permission
 
     Then I press the "edit-submit" button
     And I should see "Kurspaket A1 Test course template has been created."
+    # todo need add test course package and return to search.feature
+    Given I am on the homepage
+    And I press "Search"
+    And I should see the text "Inriktningar för kurspaket"
     Then I click "Edit"
     And the "edit-status" checkbox should be checked
 
