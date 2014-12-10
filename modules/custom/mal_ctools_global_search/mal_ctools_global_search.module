@@ -13,3 +13,20 @@ function mal_ctools_global_search_ctools_plugin_directory($owner, $plugin_type) 
     return 'plugins/content_types';
   }
 }
+
+/**
+ * Implements hook_menu().
+ */
+function mal_ctools_global_search_menu() {
+  return array(
+    'mal_ctools_global_search/%search_api_autocomplete_search' => array(
+      'title' => 'Custom Search API autocomplete',
+      'page callback' => 'mal_ctools_global_search_autocomplete',
+      'page arguments' => array(1),
+      'access callback' => 'search_api_autocomplete_access',
+      'access arguments' => array(1),
+      'type' => MENU_CALLBACK,
+      'file' => 'mal_ctools_global_search.pages.inc',
+    ),
+  );
+}

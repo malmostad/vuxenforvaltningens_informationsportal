@@ -39,4 +39,4 @@ Feature: Course register
     Then I press the "Register" button
     Then I wait for AJAX to finish
     Then I am on "my-planning"
-    And I should see the text "Test course 3" in ".pane-my-courses-course-pane" element
+    And I should see the text "Test course 3"
