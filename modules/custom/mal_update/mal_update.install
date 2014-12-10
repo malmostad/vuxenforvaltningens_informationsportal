@@ -333,6 +333,8 @@ function mal_update_update_7021() {
   $features = array(
     'content_type_course_template',
     'config_permissions',
+    'content_type_course',
+    'content_type_course_packages',
   );
 
   features_revert($features);

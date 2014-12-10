@@ -862,7 +862,6 @@ function config_permissions_user_default_permissions() {
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
       'Malmo top admin' => 'Malmo top admin',
-      'School editor' => 'School editor',
       'administrator' => 'administrator',
       'anonymous user' => 'anonymous user',
     ),
@@ -1460,6 +1459,8 @@ function config_permissions_user_default_permissions() {
   $permissions['edit field_course_school'] = array(
     'name' => 'edit field_course_school',
     'roles' => array(
+      'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -2824,6 +2825,8 @@ function config_permissions_user_default_permissions() {
       'Malmo top admin' => 'Malmo top admin',
       'School editor' => 'School editor',
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'field_permissions',
   );
