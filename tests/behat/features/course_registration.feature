@@ -18,7 +18,7 @@ Feature: Course register
     Then I wait for AJAX to finish
     Then I press the "Register" button
     Then I wait for AJAX to finish
-    Then POSTPONED I am on "my-planning"
+    Then POST I am on "my-planning"
     And I should see the text "Test course 3"
 
   @api @javascript
@@ -29,7 +29,7 @@ Feature: Course register
     Then I click "Test course 3"
     Then I should not see a "#user-register-unregister-form" element
     Then I should not see a "#registration-form" element
-    Then POSTPONED I should see "Log in or register to subscribe the course."
+    Then I should see "Log in or register to subscribe the course."
 
   @api @javascript
   Scenario: Check if registration updates sedebar menu
@@ -38,7 +38,7 @@ Feature: Course register
     Then I follow "Test course 3"
     Then I press the "Register" button
     Then I wait for AJAX to finish
-    And POSTPONED I should see the text "Mina val" in ".courses-menu-block" element
+    And I should see the text "Mina val" in ".courses-menu-block" element
     And I should see the text "Test course 3" in ".courses-menu-block" element
 
   @api @javascript
