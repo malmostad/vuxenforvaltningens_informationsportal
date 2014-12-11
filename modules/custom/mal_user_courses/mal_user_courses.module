@@ -19,6 +19,7 @@ function mal_user_courses_views_query_alter(&$view, &$query) {
   if ($view->name == 'my_courses' || $view->name == 'my_course_application_list') {
     switch ($view->current_display) {
       case 'not_searchable_pane':
+      case 'not_searchable_package_pane':
         $values = array(
           variable_get('mal_generate_content_searchable_type_2', 76),
           variable_get('mal_generate_content_searchable_type_3', 77),
