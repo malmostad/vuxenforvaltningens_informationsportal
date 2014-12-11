@@ -62,7 +62,7 @@ function user_register_form_registration_form_alter(&$form, &$form_state, $form_
   unset($form['who_message']);
   unset($form['actions']['cancel']);
 
-  $id = drupal_html_id('edit-registration-submit');
+  $id = drupal_html_id('edit-ajax-registration-submit');
 
   $form['#prefix'] = '<div id="user-register-form-wrapper-' . $form['#registration_settings']['entity_type'] . '-' . $form['#registration_settings']['entity_id'] . '" class="subscribe">';
   $form['#suffix'] = '</div>';
@@ -275,6 +275,17 @@ function user_register_unregister_form($form, &$form_state, $registration) {
     return $form;
   }
 
+  if (current_path() != 'system/ajax') {
+    $form['#action'] = current_path();
+  }
+  elseif (!empty($_SERVER['HTTP_REFERER'])) {
+    $url_info = parse_url($_SERVER['HTTP_REFERER']);
+    $form['#action'] = $url_info['path'];
+  }
+  else {
+    $form['#action'] = 'my-planning';
+  }
+
   $form['registration'] = array(
     '#type' => 'value',
     '#value' => $registration,
@@ -323,7 +334,7 @@ function user_register_unregister_ajax_form($form, &$form_state, $registration) 
     '#value' => $registration,
   );
 
-  $id = drupal_html_id('edit-registration-submit');
+  $id = drupal_html_id('edit-ajax-registration-submit');
 
   $form['actions']['submit'] = array(
     '#type' => 'submit',

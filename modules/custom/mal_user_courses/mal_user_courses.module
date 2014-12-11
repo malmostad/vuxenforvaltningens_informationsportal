@@ -6,6 +6,13 @@
  */
 
 /**
+ * Implements hook_ctools_plugin_directory().
+ */
+function mal_user_courses_ctools_plugin_directory($owner, $plugin_type) {
+  return 'plugins/' . $plugin_type;
+}
+
+/**
  * Implements hook_views_query_alter().
  */
 function mal_user_courses_views_query_alter(&$view, &$query) {
