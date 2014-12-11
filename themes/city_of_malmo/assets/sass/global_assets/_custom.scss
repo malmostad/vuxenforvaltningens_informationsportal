@@ -1518,6 +1518,15 @@ footer.bigfoot {
   #malmo-footer {
     position: static !important;
   }
+
+  .tabs {
+    table {
+      td,
+      th {
+        width: auto !important;
+      }
+    }
+  }
 }
 
 @media (max-width: 48em) {
