@@ -195,6 +195,13 @@ function mal_generate_content_enable() {
     'value2' => '1396562400',
   );
 
+  $form = taxonomy_get_term_by_name('Klassrumsundervisning');
+  $form = reset($form);
+
+  $node->field_course_form[$node->language][] = array(
+    'tid' => $form->tid,
+  );
+
   $node->field_course_searchable_type[$template->language][] = array(
     'tid' => variable_get('mal_generate_content_searchable_type_3', 73),
   );

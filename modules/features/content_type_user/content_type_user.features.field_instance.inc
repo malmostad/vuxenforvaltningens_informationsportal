@@ -10,8 +10,8 @@
 function content_type_user_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'user-user-field_course_school'
-  $field_instances['user-user-field_course_school'] = array(
+  // Exported field_instance: 'user-user-field_user_school'
+  $field_instances['user-user-field_user_school'] = array(
     'bundle' => 'user',
     'default_value' => NULL,
     'deleted' => 0,
@@ -28,7 +28,7 @@ function content_type_user_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'user',
-    'field_name' => 'field_course_school',
+    'field_name' => 'field_user_school',
     'ied_settings' => array(
       'display_fields' => 0,
     ),
@@ -40,14 +40,12 @@ function content_type_user_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'entityreference',
+      'module' => 'options',
       'settings' => array(
-        'match_operator' => 'CONTAINS',
-        'path' => '',
-        'size' => 60,
+        'apply_chosen' => 1,
       ),
-      'type' => 'entityreference_autocomplete_tags',
-      'weight' => 8,
+      'type' => 'options_select',
+      'weight' => 7,
     ),
   );
 

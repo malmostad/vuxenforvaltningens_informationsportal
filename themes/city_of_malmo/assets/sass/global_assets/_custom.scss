@@ -1188,13 +1188,13 @@ footer.bigfoot {
     float: right;
     font-family: $open-sans;
     font-size: 12px;
-    margin-top: 14px;
+    margin: 14px 17px 0 0;
     padding-left: 20px;
   }
 
   table {
     margin-bottom: 16px;
-    max-width: 100%;
+    max-width: 700px;
 
     td,
     th {
@@ -1380,11 +1380,24 @@ footer.bigfoot {
 
 // ----- Sidebar courses ----- //
 .view-sidebar-courses {
-  border-bottom: #b5b5b5 1px solid;
-  padding: .6em .35em;
-
   .subtitle {
     margin-bottom: 13px;
+    padding: .6em .35em 0;
+  }
+
+  .subscribed-courses {
+    border-bottom: #b5b5b5 1px solid;
+    margin-bottom: 0 !important;
+    padding: 0 .35em .6em;
+
+    a {
+      border: 0;
+      padding: 0;
+
+      &:hover {
+        background: none;
+      }
+    }
   }
 
   a {
@@ -1397,6 +1410,7 @@ footer.bigfoot {
   .views-row {
     margin-bottom: 5px;
     position: relative;
+
     &:hover {
       .unsubscribe {
         display: block;
@@ -1535,6 +1549,22 @@ footer.bigfoot {
         padding-right: 12px;
       }
     }
+
+    .view-sidebar-courses {
+      .subtitle {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .subscribed-courses {
+        padding-left: 12px;
+        padding-right: 12px;
+
+        a {
+          padding: 0;
+        }
+      }
+    }
   }
 
   .front {
@@ -1587,6 +1617,33 @@ footer.bigfoot {
 
     .input-append input {
       max-width: 10em;
+    }
+  }
+}
+
+@media (max-width: 35em) {
+  .top-block {
+    max-width: 100%;
+  }
+
+  .global-pane {
+    &.half {
+      padding-left: 0;
+    }
+
+    &.third {
+      padding-left: 0;
+
+      h2,
+      .text {
+      padding-left: 0;
+      }
+    }
+  }
+
+  .wrapper {
+    > nav.content {
+      padding: 0;
     }
   }
 }

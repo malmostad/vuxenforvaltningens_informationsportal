@@ -116,7 +116,6 @@ dependencies[] = mal_ctools_search_date_filter
 dependencies[] = mal_ctools_separate_facet
 dependencies[] = mal_ctools_subtitle
 dependencies[] = mal_entityreference_widget_alter
-dependencies[] = mal_generate_content
 dependencies[] = mal_generate_menu
 dependencies[] = mal_generate_users
 dependencies[] = mal_hint
@@ -125,6 +124,7 @@ dependencies[] = mal_update
 dependencies[] = mal_user_courses
 dependencies[] = mal_user_custom_access
 dependencies[] = user_register
+dependencies[] = mal_facetapi
 ; Registration
 dependencies[] = registration
 dependencies[] = registration_views

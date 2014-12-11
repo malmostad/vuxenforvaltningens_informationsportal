@@ -304,13 +304,12 @@ function content_type_course_field_default_field_instances() {
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 0,
-      'module' => 'taxonomy',
+      'active' => 1,
+      'module' => 'options',
       'settings' => array(
-        'autocomplete_path' => 'taxonomy/autocomplete',
-        'size' => 60,
+        'apply_chosen' => 1,
       ),
-      'type' => 'taxonomy_autocomplete',
+      'type' => 'options_select',
       'weight' => 2,
     ),
   );
@@ -530,13 +529,11 @@ function content_type_course_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'entityreference',
+      'module' => 'options',
       'settings' => array(
-        'match_operator' => 'CONTAINS',
-        'path' => '',
-        'size' => 60,
+        'apply_chosen' => 1,
       ),
-      'type' => 'entityreference_autocomplete_tags',
+      'type' => 'options_select',
       'weight' => 8,
     ),
   );
@@ -638,13 +635,11 @@ function content_type_course_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'entityreference',
+      'module' => 'options',
       'settings' => array(
-        'match_operator' => 'CONTAINS',
-        'path' => '',
-        'size' => 60,
+        'apply_chosen' => 1,
       ),
-      'type' => 'entityreference_autocomplete_tags',
+      'type' => 'options_select',
       'weight' => 1,
     ),
   );

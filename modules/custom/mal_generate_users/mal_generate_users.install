@@ -41,7 +41,7 @@ function mal_generate_users_enable() {
       $school_editor_rid => 'School editor',
     ),
   );
-  $fields['field_course_school'][LANGUAGE_NONE][0]['target_id'] = $school->nid;
+  $fields['field_user_school'][LANGUAGE_NONE][0]['target_id'] = $school->nid;
   user_save(NULL, $fields);
 
   // Middle admin.

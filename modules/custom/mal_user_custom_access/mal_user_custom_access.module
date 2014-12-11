@@ -26,8 +26,10 @@ function mal_user_custom_access_node_access($node, $op, $account) {
     && (user_access('edit school which was specified in profile'))
   ) {
     $user = entity_metadata_wrapper('user', $account);
-    if (($school = $user->field_course_school->value()) && ($school->nid == $node->nid)) {
-      return NODE_ACCESS_ALLOW;
+    foreach ($user->field_user_school->value() as $school) {
+      if ($school->nid == $node->nid) {
+        return NODE_ACCESS_ALLOW;
+      }
     }
   }
   return NODE_ACCESS_IGNORE;

@@ -35,6 +35,10 @@ function mal_entityreference_widget_alter_form_field_ui_field_edit_form_alter(&$
  * Implements hook_field_widget_form_alter().
  */
 function mal_entityreference_widget_alter_field_widget_form_alter(&$element, &$form_state, $context) {
+  if ($context['field']['type'] == 'timefield') {
+    $element['days']['#type'] = 'radios';
+    array_unshift($element['#element_validate'], 'mal_entityreference_widget_alter_timefield_validate');
+  }
   if ($context['field']['type'] == 'entityreference') {
     if (!empty($context['instance']['render_entity_below'])) {
       $element['#suffix'] = '<div id="mal-rendered-entity"></div>';
@@ -46,19 +50,31 @@ function mal_entityreference_widget_alter_field_widget_form_alter(&$element, &$f
     }
     if (($element['#field_name'] == 'field_course_school') && ($form_state['build_info']['form_id'] != 'user_profile_form')) {
       // Only on node creation.
-      if (empty($element['#entity']->nid)) {
+      if (!user_access('change field_course_school field')) {
         global $user;
         $entity = user_load($user->uid);
-
-        if ((!empty($entity->field_course_school[LANGUAGE_NONE][0]['target_id']))
-          && ($school = node_load($entity->field_course_school[LANGUAGE_NONE][0]['target_id']))) {
-          $element['#default_value'] = $school->title . ' (' . $school->nid . ')';
+        $element['#options'] = array();
+        foreach ($entity->field_user_school[LANGUAGE_NONE] as $option) {
+          $node = node_load($option['target_id']);
+          $element['#options'][$option['target_id']] = $node->title;
         }
       }
+    }
+  }
+}
 
-      if (!user_access('change field_course_school field')) {
-        $element['#disabled'] = TRUE;
-      }
+/**
+ * Convert values to array.
+ */
+function mal_entityreference_widget_alter_timefield_validate($element, &$form_state, $form) {
+  $delta = $element['#delta'];
+  $field_name = $element['#field_name'];
+
+  if ($field_value = drupal_array_get_nested_value($form_state['values'], $element['#field_parents'])) {
+    $values = $field_value[$field_name][$element['#language']][$delta];
+    if (!is_array($values['days'])) {
+      $values['days'] = array($values['days'] => $values['days']);
+      form_set_value($element, $values, $form_state);
     }
   }
 }
