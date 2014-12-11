@@ -6,6 +6,13 @@
  */
 
 /**
+ * Implements hook_ctools_plugin_directory().
+ */
+function mal_user_courses_ctools_plugin_directory($owner, $plugin_type) {
+  return 'plugins/' . $plugin_type;
+}
+
+/**
  * Implements hook_views_query_alter().
  */
 function mal_user_courses_views_query_alter(&$view, &$query) {
@@ -202,13 +209,10 @@ function mal_user_courses_clean_days(array $rendered, $day_to_keep) {
  * Implements hook_preprocess_HOOK().
  */
 function mal_user_courses_preprocess_views_view_field(&$variables) {
-  if ($variables['view']->name == 'my_course_application_list'
-    && $variables['view']->current_display == 'course_pane'
-    && $variables['field']->real_field == 'field_course_application_period_value') {
-    if (!empty($variables['row']->field_field_course_application_period)
-      && empty($variables['row']->field_field_course_application_period[0]['raw']['value2'])) {
-      $variables['output'] .= ' - <span class="date-continuous">' . t('continuous') . '</span>';
-    }
+  if (in_array($variables['view']->name, array('my_courses', 'my_course_application_list'))
+    && in_array($variables['field']->real_field, array('field_course_date_value', 'field_course_application_period_value'))
+    && !empty($variables['row']->field_field_course_continuos[0]['raw']['value'])) {
+    $variables['output'] .= ' - <span class="date-continuous">' . t('continuous') . '</span>';
   }
 }
 

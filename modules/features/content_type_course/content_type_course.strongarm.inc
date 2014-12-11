@@ -147,7 +147,7 @@ function content_type_course_strongarm() {
       'display' => array(
         'node:course_template:title' => array(
           'default' => array(
-            'weight' => '9',
+            'weight' => '8',
             'visible' => FALSE,
           ),
           'search_result' => array(
@@ -157,7 +157,7 @@ function content_type_course_strongarm() {
         ),
         'node:course_template:log' => array(
           'default' => array(
-            'weight' => '8',
+            'weight' => '7',
             'visible' => FALSE,
           ),
           'search_result' => array(
@@ -227,7 +227,7 @@ function content_type_course_strongarm() {
         ),
         'node:course_template:field_course_gymnasie_program' => array(
           'default' => array(
-            'weight' => '13',
+            'weight' => '11',
             'visible' => FALSE,
           ),
           'search_result' => array(
@@ -237,7 +237,7 @@ function content_type_course_strongarm() {
         ),
         'node:course_template:field_course_orientation' => array(
           'default' => array(
-            'weight' => '10',
+            'weight' => '9',
             'visible' => FALSE,
           ),
           'search_result' => array(
@@ -247,7 +247,7 @@ function content_type_course_strongarm() {
         ),
         'node:course_template:field_course_subject_areas' => array(
           'default' => array(
-            'weight' => '12',
+            'weight' => '10',
             'visible' => FALSE,
           ),
           'search_result' => array(
