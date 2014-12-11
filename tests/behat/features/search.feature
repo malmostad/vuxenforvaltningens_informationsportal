@@ -22,7 +22,6 @@ Feature: Search the site
     And I should see the text "Kursform"
     And I should see the text "Utbildningsanordnare"
     And I should see the text "Ämnesområden för kurser"
-    And I should see the text "Inriktningar för kurspaket"
     And I should see the text "Gymnasieprogram"
     # Check date facet minipanel block
     And I should see the text "Kursstart, tider och veckodagar"

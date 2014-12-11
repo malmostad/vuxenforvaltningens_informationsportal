@@ -183,7 +183,6 @@ function config_permissions_user_default_permissions() {
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
       'Malmo top admin' => 'Malmo top admin',
-      'School editor' => 'School editor',
       'administrator' => 'administrator',
     ),
     'module' => 'administerusersbyrole',
@@ -888,6 +887,16 @@ function config_permissions_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'create field_user_school'.
+  $permissions['create field_user_school'] = array(
+    'name' => 'create field_user_school',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'create files'.
   $permissions['create files'] = array(
     'name' => 'create files',
@@ -949,6 +958,7 @@ function config_permissions_user_default_permissions() {
   $permissions['create users'] = array(
     'name' => 'create users',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'administerusersbyrole',
@@ -1460,6 +1470,9 @@ function config_permissions_user_default_permissions() {
   $permissions['edit field_course_school'] = array(
     'name' => 'edit field_course_school',
     'roles' => array(
+      'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
+      'School editor' => 'School editor',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -1478,6 +1491,17 @@ function config_permissions_user_default_permissions() {
   $permissions['edit field_registration'] = array(
     'name' => 'edit field_registration',
     'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'edit field_user_school'.
+  $permissions['edit field_user_school'] = array(
+    'name' => 'edit field_user_school',
+    'roles' => array(
+      'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -1573,6 +1597,15 @@ function config_permissions_user_default_permissions() {
   // Exported permission: 'edit own field_registration'.
   $permissions['edit own field_registration'] = array(
     'name' => 'edit own field_registration',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'edit own field_user_school'.
+  $permissions['edit own field_user_school'] = array(
+    'name' => 'edit own field_user_school',
     'roles' => array(
       'administrator' => 'administrator',
     ),
@@ -1717,7 +1750,6 @@ function config_permissions_user_default_permissions() {
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
       'Malmo top admin' => 'Malmo top admin',
-      'School editor' => 'School editor',
       'administrator' => 'administrator',
     ),
     'module' => 'administerusersbyrole',
@@ -2825,6 +2857,8 @@ function config_permissions_user_default_permissions() {
       'Malmo top admin' => 'Malmo top admin',
       'School editor' => 'School editor',
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'field_permissions',
   );
@@ -2846,6 +2880,17 @@ function config_permissions_user_default_permissions() {
   // Exported permission: 'view field_registration'.
   $permissions['view field_registration'] = array(
     'name' => 'view field_registration',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'view field_user_school'.
+  $permissions['view field_user_school'] = array(
+    'name' => 'view field_user_school',
     'roles' => array(
       'administrator' => 'administrator',
       'anonymous user' => 'anonymous user',
@@ -2898,6 +2943,15 @@ function config_permissions_user_default_permissions() {
   // Exported permission: 'view own field_registration'.
   $permissions['view own field_registration'] = array(
     'name' => 'view own field_registration',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'view own field_user_school'.
+  $permissions['view own field_user_school'] = array(
+    'name' => 'view own field_user_school',
     'roles' => array(
       'administrator' => 'administrator',
     ),

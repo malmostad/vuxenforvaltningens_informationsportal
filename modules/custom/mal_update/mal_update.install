@@ -320,8 +320,33 @@ function mal_update_update_7019() {
 }
 
 /**
- * Faq category feature.
+ * Enable mal_facetapi.
  */
 function mal_update_update_7020() {
   module_enable(array('mal_facetapi'));
+}
+
+/**
+ * Remove field_course_orientation.
+ */
+function mal_update_update_7021() {
+  $features = array(
+    'content_type_course_template',
+    'config_permissions',
+    'content_type_course',
+    'content_type_course_packages',
+    'content_type_user',
+    'config_facet',
+    'config_search',
+    'minipanel_search_facet',
+  );
+
+  features_revert($features);
+
+  if ($instance = field_info_instance('node', 'field_course_orientation', 'course_template')) {
+    field_delete_instance($instance);
+  }
+  if ($instance = field_info_instance('user', 'field_course_school', 'user')) {
+    field_delete_instance($instance);
+  }
 }

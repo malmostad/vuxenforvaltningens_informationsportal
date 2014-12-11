@@ -447,19 +447,18 @@ function content_type_course_packages_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_course_form',
-    'label' => 'Kurs formulär',
+    'label' => 'Kursform',
     'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 0,
-      'module' => 'taxonomy',
+      'active' => 1,
+      'module' => 'options',
       'settings' => array(
-        'autocomplete_path' => 'taxonomy/autocomplete',
-        'size' => 60,
+        'apply_chosen' => 1,
       ),
-      'type' => 'taxonomy_autocomplete',
+      'type' => 'options_select',
       'weight' => 19,
     ),
   );
@@ -619,6 +618,57 @@ function content_type_course_packages_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-course_packages-field_course_orientation'
+  $field_instances['node-course_packages-field_course_orientation'] = array(
+    'bundle' => 'course_packages',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 13,
+      ),
+      'node_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_course_orientation',
+    'label' => 'Inriktningar',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => 1,
+      ),
+      'type' => 'options_select',
+      'weight' => 22,
+    ),
+  );
+
   // Exported field_instance: 'node-course_packages-field_course_package'
   $field_instances['node-course_packages-field_course_package'] = array(
     'bundle' => 'course_packages',
@@ -737,13 +787,11 @@ function content_type_course_packages_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'entityreference',
+      'module' => 'options',
       'settings' => array(
-        'match_operator' => 'CONTAINS',
-        'path' => '',
-        'size' => 60,
+        'apply_chosen' => 1,
       ),
-      'type' => 'entityreference_autocomplete_tags',
+      'type' => 'options_select',
       'weight' => 5,
     ),
   );
@@ -1010,11 +1058,12 @@ function content_type_course_packages_field_default_field_instances() {
   t('Beskrivning/innehåll');
   t('Course package registration');
   t('Informationsträff');
+  t('Inriktningar');
   t('Kontaktperson');
   t('Kurs');
-  t('Kurs formulär');
   t('Kurs group');
   t('Kurser som ingår');
+  t('Kursform');
   t('Kursperiod');
   t('Omfattning');
   t('Poäng');
