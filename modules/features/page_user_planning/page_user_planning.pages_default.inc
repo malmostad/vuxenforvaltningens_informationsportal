@@ -136,7 +136,17 @@ function page_user_planning_default_page_manager_pages() {
       'plugins' => array(
         0 => array(
           'name' => 'has_course',
-          'settings' => NULL,
+          'settings' => array(
+            'bundles' => array(
+              'course' => 'course',
+              'page' => 0,
+              'education' => 0,
+              'course_template' => 0,
+              'course_packages' => 0,
+              'question_and_answer' => 0,
+              'school' => 0,
+            ),
+          ),
           'context' => 'logged-in-user',
           'not' => FALSE,
         ),
@@ -227,7 +237,17 @@ function page_user_planning_default_page_manager_pages() {
       'plugins' => array(
         0 => array(
           'name' => 'has_course',
-          'settings' => NULL,
+          'settings' => array(
+            'bundles' => array(
+              'course_packages' => 'course_packages',
+              'page' => 0,
+              'education' => 0,
+              'course' => 0,
+              'course_template' => 0,
+              'question_and_answer' => 0,
+              'school' => 0,
+            ),
+          ),
           'context' => 'logged-in-user',
           'not' => FALSE,
         ),
@@ -299,7 +319,17 @@ function page_user_planning_default_page_manager_pages() {
       'plugins' => array(
         0 => array(
           'name' => 'has_course',
-          'settings' => NULL,
+          'settings' => array(
+            'bundles' => array(
+              'course' => 'course',
+              'course_packages' => 'course_packages',
+              'page' => 0,
+              'education' => 0,
+              'course_template' => 0,
+              'question_and_answer' => 0,
+              'school' => 0,
+            ),
+          ),
           'context' => 'logged-in-user',
           'not' => FALSE,
         ),
@@ -340,7 +370,17 @@ function page_user_planning_default_page_manager_pages() {
       'plugins' => array(
         0 => array(
           'name' => 'has_course',
-          'settings' => NULL,
+          'settings' => array(
+            'bundles' => array(
+              'course' => 'course',
+              'page' => 0,
+              'education' => 0,
+              'course_template' => 0,
+              'course_packages' => 0,
+              'question_and_answer' => 0,
+              'school' => 0,
+            ),
+          ),
           'context' => 'logged-in-user',
           'not' => FALSE,
         ),
@@ -431,7 +471,17 @@ function page_user_planning_default_page_manager_pages() {
       'plugins' => array(
         0 => array(
           'name' => 'has_course',
-          'settings' => NULL,
+          'settings' => array(
+            'bundles' => array(
+              'course_packages' => 'course_packages',
+              'page' => 0,
+              'education' => 0,
+              'course' => 0,
+              'course_template' => 0,
+              'question_and_answer' => 0,
+              'school' => 0,
+            ),
+          ),
           'context' => 'logged-in-user',
           'not' => FALSE,
         ),

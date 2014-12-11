@@ -40,3 +40,35 @@ Feature: Course register
     Then I wait for AJAX to finish
     Then I am on "my-planning"
     And I should see the text "Test course 3"
+
+  @api @javascript
+  Scenario: Check that "My planning" components are hidden while there's no corresponding courses in subscription.
+    Given I am logged in as a user with the "authenticated user" role
+    Given I am on "my-planning"
+    Then I should not see the text "Kurs" in ".tabs" element
+    Then I should not see the text "Kurspaket" in ".tabs" element
+    Then I should not see the text "Veckoöversikt" in ".tabs" element
+    Then I should not see the text "Ansökningslista" in ".tabs" element
+    Then I should not see the text "Överlappande kurser" in ".tabs" element
+
+  @api @javascript
+  Scenario: Check that course subscription doesn't reveal components for course packages.
+    Given I am logged in as a user with the "authenticated user" role
+    Given I am on "search-courses/Test%20course%203"
+    Then I follow "Test course 3"
+    Then I press the "Register" button
+    Then I wait for AJAX to finish
+    Then I am on "my-planning"
+    And I should see the text "Kurs"
+    And I should not see the text "Kurspaket" in ".tabs" element
+
+  @api @javascript
+  Scenario: Check that course package subscription doesn't reveal components for courses.
+    Given I am logged in as a user with the "authenticated user" role
+    Given I am on "search-courses/Test%20course%20package"
+    Then I follow "Test course package"
+    Then I press the "Register" button
+    Then I wait for AJAX to finish
+    Then I am on "my-planning"
+    And I should see the text "Kurspaket" in ".tabs" element
+    And I should not see the text ">Kurs<" in ".tabs" element

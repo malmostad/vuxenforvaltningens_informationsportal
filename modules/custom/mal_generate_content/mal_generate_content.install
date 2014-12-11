@@ -352,6 +352,57 @@ function mal_generate_content_enable() {
 
   $node = node_submit($node);
   node_save($node);
+
+  // Course package.
+  $node = new stdClass();
+  $node->title = "Test course package";
+  $node->type = "course_packages";
+  $node->language = LANGUAGE_NONE;
+  node_object_prepare($node);
+
+  $node->uid = $user->uid;
+  $node->status = 1;
+
+  $node->field_course_weeks_of_study[$node->language][] = array(
+    'value' => '10',
+  );
+
+  $node->body[$node->language][] = array(
+    'value' => 'Test text',
+    'summary' => NULL,
+    'format' => 'full_html',
+    'safe_value' => 'Test text',
+    'safe_summary' => '',
+  );
+
+  $node->field_course_date[$node->language][] = array(
+    'value' => strtotime('-1 day'),
+    'value2' => strtotime('+1 day'),
+  );
+
+  $node->field_course_application_period[$node->language][] = array(
+    'value' => strtotime('-1 day'),
+    'value2' => strtotime('+1 day'),
+  );
+
+  $node->field_course_searchable_type[$node->language][] = array(
+    'tid' => variable_get('mal_generate_content_searchable_type_0', 74),
+  );
+
+  $node->field_course_school[$node->language][] = array(
+    'target_id' => $school->nid,
+  );
+
+  $node->field_course_form[$node->language][] = array(
+    'tid' => $form->tid,
+  );
+
+  $node->field_course_scope[$node->language][] = array(
+    'value' => 90,
+  );
+
+  $node = node_submit($node);
+  node_save($node);
 }
 
 /**
