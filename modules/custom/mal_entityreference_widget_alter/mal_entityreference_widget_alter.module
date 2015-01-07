@@ -36,7 +36,11 @@ function mal_entityreference_widget_alter_form_field_ui_field_edit_form_alter(&$
  */
 function mal_entityreference_widget_alter_field_widget_form_alter(&$element, &$form_state, $context) {
   if ($context['field']['type'] == 'timefield') {
-    $element['days']['#type'] = 'radios';
+    $element['days']['#type'] = 'select';
+    if (is_array($element['days']['#default_value'])) {
+      $defaults = array_filter($element['days']['#default_value']);
+      $element['days']['#default_value'] = reset($defaults);
+    }
     array_unshift($element['#element_validate'], 'mal_entityreference_widget_alter_timefield_validate');
   }
   if ($context['field']['type'] == 'entityreference') {

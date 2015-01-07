@@ -16,6 +16,21 @@ function mal_course_administrative_form_course_node_form_alter(&$form, &$form_st
     = $form['field_course_date']['#after_build'][]
       = 'mal_course_administrative_app_period_after_build';
 
+  $form['field_course_flex']['#attributes']['style'] = 'opacity: 0; height: 0; overflow: hidden;';
+  $flex_terms = variable_get('course_flex_form_terms', array());
+  if (!empty($flex_terms)) {
+    $flex_states = array();
+    foreach ($flex_terms as $tid) {
+      $flex_states[] = array('value' => $tid);
+    }
+
+    $langcode = $form['field_course_flex']['#language'];
+    $field_course_flex = &$form['field_course_flex'][$langcode];
+    $field_course_flex['#states']['checked'] = array(
+      ':input[name="field_course_form[und]"]' => $flex_states,
+    );
+  }
+
   $form['#validate'][] = 'mal_course_administrative_course_period_validate';
 }
 
@@ -57,8 +72,17 @@ function mal_course_administrative_app_period_after_build($element, $form_state)
 function mal_course_administrative_course_period_validate($form, &$form_state) {
   $lang_flex = field_language('node', $form_state['node'], 'field_course_flex');
   $lang_continuos = field_language('node', $form_state['node'], 'field_course_continuos');
+  $lang_form = field_language('node', $form_state['node'], 'field_course_form');
 
   $values = &$form_state['values'];
+
+  $flex_terms = variable_get('course_flex_form_terms', array());
+  if (in_array($values['field_course_form'][$lang_form][0]['tid'], $flex_terms)) {
+    $values['field_course_flex'][$lang_flex][0]['value'] = $form['field_course_flex'][$lang_flex]['#on_value'];
+  }
+  else {
+    $values['field_course_flex'][$lang_flex][0]['value'] = $form['field_course_flex'][$lang_flex]['#off_value'];
+  }
 
   if ($values['field_course_flex'][$lang_flex][0]['value']) {
     $lang_days = field_language('node', $form_state['node'], 'field_course_periods');
@@ -80,5 +104,57 @@ function mal_course_administrative_course_period_validate($form, &$form_state) {
     // Remove end date of course date and app period.
     $course_date['value2'] = NULL;
     $app_period['value2'] = $app_period['show_todate'] = NULL;
+  }
+}
+
+/**
+ * Implements hook_permission().
+ */
+function mal_course_administrative_permission() {
+  return array(
+    'administer course config' => array(
+      'title' => t('Administer course configuration'),
+      'description' => t('Perform administration tasks on course configuration.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function mal_course_administrative_menu() {
+  return array(
+    'admin/config/content/course-admin' => array(
+      'type' => MENU_CALLBACK,
+      'title' => 'Courses configuration',
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('mal_course_administrative_course_pacage_acceptable_forms'),
+      'access arguments' => array('administer course config'),
+      'file' => 'mal_course_administrative.admin.inc',
+    ),
+  );
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function mal_course_administrative_form_course_packages_node_form_alter(&$form, &$form_state, $form_id) {
+  if (!empty($form['field_course_form'])) {
+    $acceptable_terms = variable_get('course_package_form_terms', array());
+    if (!empty($acceptable_terms)) {
+      $langcode = $form['field_course_form']['#language'];
+      $field_course_form = &$form['field_course_form'][$langcode];
+
+      if (count($acceptable_terms) > 1) {
+        $acceptable_terms['_none'] = '_none';
+      }
+      else {
+        $field_course_form['#title_display'] = 'invisible';
+        $field_course_form['#type'] = 'checkboxes';
+        $field_course_form['#default_value'] = empty($field_course_form['#default_value']) ? array() : array($field_course_form['#default_value']);
+      }
+
+      $field_course_form['#options'] = array_intersect_key($field_course_form['#options'], $acceptable_terms);
+    }
   }
 }

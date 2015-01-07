@@ -188,7 +188,7 @@ function content_type_course_packages_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 9,
+      'weight' => 5,
     ),
   );
 
@@ -260,7 +260,7 @@ function content_type_course_packages_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 8,
+      'weight' => 4,
     ),
   );
 
@@ -335,7 +335,7 @@ function content_type_course_packages_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 11,
+      'weight' => 7,
     ),
   );
 
@@ -407,7 +407,7 @@ function content_type_course_packages_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 7,
+      'weight' => 3,
     ),
   );
 
@@ -448,7 +448,7 @@ function content_type_course_packages_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_course_form',
     'label' => 'Kursform',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -458,8 +458,8 @@ function content_type_course_packages_field_default_field_instances() {
       'settings' => array(
         'apply_chosen' => 1,
       ),
-      'type' => 'options_select',
-      'weight' => 19,
+      'type' => 'options_buttons',
+      'weight' => 12,
     ),
   );
 
@@ -534,7 +534,7 @@ function content_type_course_packages_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 21,
+      'weight' => 14,
     ),
   );
 
@@ -614,7 +614,7 @@ function content_type_course_packages_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 10,
+      'weight' => 6,
     ),
   );
 
@@ -665,7 +665,7 @@ function content_type_course_packages_field_default_field_instances() {
         'apply_chosen' => 1,
       ),
       'type' => 'options_select',
-      'weight' => 22,
+      'weight' => 15,
     ),
   );
 
@@ -732,7 +732,81 @@ function content_type_course_packages_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 12,
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance: 'node-course_packages-field_course_prerequisites'
+  $field_instances['node-course_packages-field_course_prerequisites'] = array(
+    'bundle' => 'course_packages',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 14,
+      ),
+      'node_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_course_prerequisites',
+    'label' => 'Förkunskaper',
+    'required' => 0,
+    'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'filtered_html' => 'filtered_html',
+          'full_html' => 'full_html',
+          'plain_text' => 'plain_text',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'filtered_html' => array(
+              'weight' => 0,
+            ),
+            'full_html' => array(
+              'weight' => 1,
+            ),
+            'plain_text' => array(
+              'weight' => 10,
+            ),
+          ),
+        ),
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 13,
     ),
   );
 
@@ -792,7 +866,7 @@ function content_type_course_packages_field_default_field_instances() {
         'apply_chosen' => 1,
       ),
       'type' => 'options_select',
-      'weight' => 5,
+      'weight' => 2,
     ),
   );
 
@@ -856,7 +930,7 @@ function content_type_course_packages_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 15,
+      'weight' => 10,
     ),
   );
 
@@ -908,7 +982,7 @@ function content_type_course_packages_field_default_field_instances() {
         'apply_chosen' => 1,
       ),
       'type' => 'options_select',
-      'weight' => 17,
+      'weight' => 11,
     ),
   );
 
@@ -972,7 +1046,7 @@ function content_type_course_packages_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 2,
+      'weight' => 1,
     ),
   );
 
@@ -1047,7 +1121,7 @@ function content_type_course_packages_field_default_field_instances() {
       'module' => 'registration',
       'settings' => array(),
       'type' => 'registration_select',
-      'weight' => 14,
+      'weight' => 9,
     ),
   );
 
@@ -1057,6 +1131,7 @@ function content_type_course_packages_field_default_field_instances() {
   t('Antal studieveckor');
   t('Beskrivning/innehåll');
   t('Course package registration');
+  t('Förkunskaper');
   t('Informationsträff');
   t('Inriktningar');
   t('Kontaktperson');
