@@ -660,7 +660,6 @@ footer.bigfoot {
   p {
     font-family: $open-sans;
     font-size: 16px;
-    font-weight: bold;
   }
 }
 
@@ -674,6 +673,7 @@ footer.bigfoot {
   .question {
     @extend h2.body-copy;
     @extend %main-button;
+    font-size: 24px;
     margin: 10px 0;
     padding-left: 25px;
     position: relative;
