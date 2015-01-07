@@ -72,7 +72,7 @@ install:
 
   # Build the current branch
   - cd drupal
-  - drush make --yes profiles/mal/drupal-org.make --contrib-destination=profiles/mal
+  - drush make --yes profiles/mal/drupal-org.make --contrib-destination=profiles/mal --no-cache
   - cd ../
 
   # Setup files
