@@ -12,3 +12,24 @@ function mal_ux_improvements_form_node_form_alter(&$form, &$form_state) {
   $form['#attached']['css'][] = drupal_get_path('module', 'mal_ux_improvements') . '/mal_ux_improvements.css';
   $form['options']['#access'] = FALSE;
 }
+
+/**
+ * Implements hook_navbar().
+ */
+function mal_ux_improvements_navbar() {
+  $items = array();
+  $items['mal_help_link'] = array(
+    '#type' => 'navbar_item',
+    'tab' => array(
+      '#type' => 'link',
+      '#title' => t('Help'),
+      '#href' => variable_get('mal_help_link', 'http://drupal.org'),
+    ),
+    '#weight' => 100,
+    '#wrapper_attributes' => array(
+      'class' => array('pull-right'),
+    ),
+  );
+
+  return $items;
+}
