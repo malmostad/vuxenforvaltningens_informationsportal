@@ -18,7 +18,7 @@ projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-cu
 projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-change-weekly-summary-days-2379749-3.patch"
 projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-isset-2132811-5.patch"
 
-projects[panels][patch][] = "https://www.drupal.org/files/issues/reroll-2120849-42.patch"
+;projects[panels][patch][] = "https://www.drupal.org/files/issues/reroll-2120849-42.patch"
 
 projects[auto_nodetitle][patch][] = "https://www.drupal.org/files/issues/auto_nodetitle-881170-50.patch"
 
@@ -66,6 +66,9 @@ projects[entityreference][subdir] = "contrib"
 projects[link][version] = "1.3"
 projects[link][subdir] = "contrib"
 
+projects[live_person][version] = "1.x-dev"
+projects[live_person][subdir] = "contrib"
+
 projects[inline_entity_display][version] = "1.0-beta3"
 projects[inline_entity_display][subdir] = "contrib"
 
@@ -93,8 +96,10 @@ projects[strongarm][subdir] = "contrib"
 projects[ultimate_cron][version] = "2.0-beta8"
 projects[ultimate_cron][subdir] = "contrib"
 
-projects[panels][version] = "3.x-dev"
 projects[panels][subdir] = "contrib"
+projects[panels][download][type] = "git"
+projects[panels][download][url] = "http://git.drupal.org/project/panels.git"
+projects[panels][download][revision] = "f7ed1af2a50c0eef9f0be0420a6bdad85811ab92"
 
 projects[panels_everywhere][version] = "1.0-rc1"
 projects[panels_everywhere][subdir] = "contrib"

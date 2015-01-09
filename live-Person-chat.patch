@@ -1,0 +1,254 @@
+diff --git a/drupal-org.make b/drupal-org.make
+index 7ea46e9..0ec6f75 100644
+--- a/drupal-org.make
++++ b/drupal-org.make
+@@ -18,7 +18,7 @@ projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-cu
+ projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-change-weekly-summary-days-2379749-3.patch"
+ projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-isset-2132811-5.patch"
+ 
+-projects[panels][patch][] = "https://www.drupal.org/files/issues/reroll-2120849-42.patch"
++;projects[panels][patch][] = "https://www.drupal.org/files/issues/reroll-2120849-42.patch"
+ 
+ projects[auto_nodetitle][patch][] = "https://www.drupal.org/files/issues/auto_nodetitle-881170-50.patch"
+ 
+@@ -66,6 +66,9 @@ projects[entityreference][subdir] = "contrib"
+ projects[link][version] = "1.3"
+ projects[link][subdir] = "contrib"
+ 
++projects[live_person][version] = "1.x-dev"
++projects[live_person][subdir] = "contrib"
++
+ projects[inline_entity_display][version] = "1.0-beta3"
+ projects[inline_entity_display][subdir] = "contrib"
+ 
+@@ -93,8 +96,10 @@ projects[strongarm][subdir] = "contrib"
+ projects[ultimate_cron][version] = "2.0-beta8"
+ projects[ultimate_cron][subdir] = "contrib"
+ 
+-projects[panels][version] = "3.x-dev"
+ projects[panels][subdir] = "contrib"
++projects[panels][download][type] = "git"
++projects[panels][download][url] = "http://git.drupal.org/project/panels.git"
++projects[panels][download][revision] = "f7ed1af2a50c0eef9f0be0420a6bdad85811ab92"
+ 
+ projects[panels_everywhere][version] = "1.0-rc1"
+ projects[panels_everywhere][subdir] = "contrib"
+diff --git a/mal.info b/mal.info
+index a889fbe..196f77d 100644
+--- a/mal.info
++++ b/mal.info
+@@ -84,6 +84,7 @@ dependencies[] = entity_view_mode
+ dependencies[] = field_collection_table
+ dependencies[] = hide_formats
+ dependencies[] = libraries
++dependencies[] = live_person
+ dependencies[] = mal_ux_improvements
+ dependencies[] = navbar
+ dependencies[] = node_edit_protection
+diff --git a/modules/custom/mal_ctools_live_person/mal_ctools_live_person.info b/modules/custom/mal_ctools_live_person/mal_ctools_live_person.info
+new file mode 100644
+index 0000000..5f676fb
+--- /dev/null
++++ b/modules/custom/mal_ctools_live_person/mal_ctools_live_person.info
+@@ -0,0 +1,8 @@
++name = Mal pane for Live Person chat button
++description = Add pane with image title body and link
++core = 7.x
++package = Propeople
++dependencies[] = ctools
++dependencies[] = page_manager
++dependencies[] = panels
++dependencies[] = live_person
+diff --git a/modules/custom/mal_ctools_live_person/mal_ctools_live_person.module b/modules/custom/mal_ctools_live_person/mal_ctools_live_person.module
+new file mode 100644
+index 0000000..2366dd2
+--- /dev/null
++++ b/modules/custom/mal_ctools_live_person/mal_ctools_live_person.module
+@@ -0,0 +1,15 @@
++<?php
++
++/**
++ * @file
++ * Code for the global pane for site administrators.
++ */
++
++/**
++ * Implements hook_ctools_plugin_directory().
++ */
++function mal_ctools_live_person_ctools_plugin_directory($owner, $plugin_type) {
++  if ($owner == 'ctools' && $plugin_type == 'content_types') {
++    return 'plugins/content_types';
++  }
++}
+diff --git a/modules/custom/mal_ctools_live_person/plugins/content_types/live_person_button.inc b/modules/custom/mal_ctools_live_person/plugins/content_types/live_person_button.inc
+new file mode 100644
+index 0000000..cb4693f
+--- /dev/null
++++ b/modules/custom/mal_ctools_live_person/plugins/content_types/live_person_button.inc
+@@ -0,0 +1,68 @@
++<?php
++
++/**
++ * @file
++ * Separate facet pane.
++ */
++
++$plugin = array(
++  'title' => t('Live Person chat button'),
++  'single' => TRUE,
++  'render callback' => 'live_person_button_render',
++  'edit form' => 'live_person_button_edit_form',
++  'hook theme' => 'live_person_button_theme',
++  'category' => array(t('Propeople'), -9),
++  'all contexts' => TRUE,
++);
++
++/**
++ * Implements hook_theme().
++ */
++function live_person_button_theme(&$theme, $plugin) {
++  $theme['live_person_button'] = array(
++    'variables' => array('title' => NULL),
++    'path' => $plugin['path'],
++    'template' => 'live_person_button',
++  );
++}
++
++/**
++ * Pane settings form callback.
++ */
++function live_person_button_edit_form($form, &$form_state) {
++  ctools_form_include($form_state, 'live_person_button', 'mal_ctools_live_person', 'plugins/content_types');
++  ctools_form_include($form_state, 'content');
++
++  $conf = $form_state['conf'];
++
++  $form['override_title']['#access']
++    = $form['override_title_text']['#access'] = FALSE;
++
++  $form['pane_title'] = array(
++    '#type' => 'textfield',
++    '#title' => t('Title'),
++    '#default_value' => isset($conf['pane_title']) ? $conf['pane_title'] : '',
++  );
++
++  return $form;
++}
++
++/**
++ * Pane form submit callback.
++ */
++function live_person_button_edit_form_submit($form, &$form_state) {
++  form_state_values_clean($form_state);
++
++  foreach ($form_state['values'] as $key => $value) {
++    $form_state['conf'][$key] = $value;
++  }
++}
++
++/**
++ * Block render callback.
++ */
++function live_person_button_render($subtype, $conf, $args, $context) {
++  $block = new stdClass();
++  $block->content = theme('live_person_button', array('title' => $conf['pane_title']));
++  return $block;
++}
+diff --git a/modules/custom/mal_ctools_live_person/plugins/content_types/live_person_button.tpl.php b/modules/custom/mal_ctools_live_person/plugins/content_types/live_person_button.tpl.php
+new file mode 100644
+index 0000000..8c6b549
+--- /dev/null
++++ b/modules/custom/mal_ctools_live_person/plugins/content_types/live_person_button.tpl.php
+@@ -0,0 +1,12 @@
++<?php
++
++/**
++ * @file
++ * Template for global pane.
++ *
++ * @see global_pane_render()
++ */
++?>
++<div class="live-person-button">
++  <?php print $title; ?>
++</div>
+diff --git a/modules/custom/mal_update/mal_update.install b/modules/custom/mal_update/mal_update.install
+index 5e21af3..97e3921 100644
+--- a/modules/custom/mal_update/mal_update.install
++++ b/modules/custom/mal_update/mal_update.install
+@@ -350,3 +350,14 @@ function mal_update_update_7021() {
+     field_delete_instance($instance);
+   }
+ }
++
++/**
++ * Add Live person chat functionality.
++ */
++function mal_update_update_7022() {
++  module_enable(array('mal_ctools_live_person', 'live_person'));
++
++  features_revert_module('page_main_layout');
++
++  variable_set('live_person_account', 26252283);
++}
+diff --git a/modules/features/page_main_layout/page_main_layout.pages_default.inc b/modules/features/page_main_layout/page_main_layout.pages_default.inc
+index 4532d6a..2ca8998 100644
+--- a/modules/features/page_main_layout/page_main_layout.pages_default.inc
++++ b/modules/features/page_main_layout/page_main_layout.pages_default.inc
+@@ -73,6 +73,30 @@ function page_main_layout_default_page_manager_handlers() {
+     $display->content['new-f941b59c-dd20-4d38-ac5a-e0fed964d242'] = $pane;
+     $display->panels['region-five'][0] = 'new-f941b59c-dd20-4d38-ac5a-e0fed964d242';
+     $pane = new stdClass();
++    $pane->pid = 'new-86acdc5e-aa92-4c39-be21-b86a3e1eb4ee';
++    $pane->panel = 'region-five';
++    $pane->type = 'live_person_button';
++    $pane->subtype = 'live_person_button';
++    $pane->shown = TRUE;
++    $pane->access = array();
++    $pane->configuration = array(
++      'override_title' => '',
++      'override_title_text' => '',
++      'pane_title' => 'Chatta med oss',
++    );
++    $pane->cache = array();
++    $pane->style = array(
++      'settings' => NULL,
++      'style' => 'naked',
++    );
++    $pane->css = array();
++    $pane->extras = array();
++    $pane->position = 1;
++    $pane->locks = array();
++    $pane->uuid = '86acdc5e-aa92-4c39-be21-b86a3e1eb4ee';
++    $display->content['new-86acdc5e-aa92-4c39-be21-b86a3e1eb4ee'] = $pane;
++    $display->panels['region-five'][1] = 'new-86acdc5e-aa92-4c39-be21-b86a3e1eb4ee';
++    $pane = new stdClass();
+     $pane->pid = 'new-e8c840e5-c7ed-4d67-98a3-c20e67fa8ff0';
+     $pane->panel = 'region-four';
+     $pane->type = 'block';
+diff --git a/themes/city_of_malmo/assets/sass/global_assets/_footer.scss b/themes/city_of_malmo/assets/sass/global_assets/_footer.scss
+index a8063cc..2b57023 100644
+--- a/themes/city_of_malmo/assets/sass/global_assets/_footer.scss
++++ b/themes/city_of_malmo/assets/sass/global_assets/_footer.scss
+@@ -1,3 +1,21 @@
++.live-person-button {
++  position: fixed;
++  bottom: 0;
++  z-index: 100000;
++  right: 10%;
++  background: #00b5e2;
++  width: 240px;
++  padding: 5px 20px;
++  cursor: pointer;
++  color: #fff;
++  font-family: $serif;
++  border-radius: 7px 7px 0 0;
++
++  &:hover {
++    text-decoration: underline;
++  }
++}
++
+ footer#malmo-footer {
+   @include clearfix();
+   @include box-sizing(border-box);

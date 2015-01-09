@@ -73,6 +73,30 @@ function page_main_layout_default_page_manager_handlers() {
     $display->content['new-f941b59c-dd20-4d38-ac5a-e0fed964d242'] = $pane;
     $display->panels['region-five'][0] = 'new-f941b59c-dd20-4d38-ac5a-e0fed964d242';
     $pane = new stdClass();
+    $pane->pid = 'new-86acdc5e-aa92-4c39-be21-b86a3e1eb4ee';
+    $pane->panel = 'region-five';
+    $pane->type = 'live_person_button';
+    $pane->subtype = 'live_person_button';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => '',
+      'override_title_text' => '',
+      'pane_title' => 'Chatta med oss',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'naked',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = '86acdc5e-aa92-4c39-be21-b86a3e1eb4ee';
+    $display->content['new-86acdc5e-aa92-4c39-be21-b86a3e1eb4ee'] = $pane;
+    $display->panels['region-five'][1] = 'new-86acdc5e-aa92-4c39-be21-b86a3e1eb4ee';
+    $pane = new stdClass();
     $pane->pid = 'new-e8c840e5-c7ed-4d67-98a3-c20e67fa8ff0';
     $pane->panel = 'region-four';
     $pane->type = 'block';
