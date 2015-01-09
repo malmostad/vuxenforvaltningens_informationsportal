@@ -128,7 +128,7 @@ function mal_course_administrative_menu() {
       'type' => MENU_CALLBACK,
       'title' => 'Courses configuration',
       'page callback' => 'drupal_get_form',
-      'page arguments' => array('mal_course_administrative_course_pacage_acceptable_forms'),
+      'page arguments' => array('mal_course_administrative_course_package_acceptable_forms'),
       'access arguments' => array('administer course config'),
       'file' => 'mal_course_administrative.admin.inc',
     ),

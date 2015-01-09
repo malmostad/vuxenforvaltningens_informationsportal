@@ -188,7 +188,7 @@ function content_type_course_packages_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
@@ -260,7 +260,7 @@ function content_type_course_packages_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -335,7 +335,7 @@ function content_type_course_packages_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 7,
+      'weight' => 8,
     ),
   );
 
@@ -407,7 +407,7 @@ function content_type_course_packages_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -459,7 +459,7 @@ function content_type_course_packages_field_default_field_instances() {
         'apply_chosen' => 1,
       ),
       'type' => 'options_buttons',
-      'weight' => 12,
+      'weight' => 2,
     ),
   );
 
@@ -614,7 +614,7 @@ function content_type_course_packages_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -732,7 +732,7 @@ function content_type_course_packages_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 8,
+      'weight' => 9,
     ),
   );
 
@@ -866,7 +866,7 @@ function content_type_course_packages_field_default_field_instances() {
         'apply_chosen' => 1,
       ),
       'type' => 'options_select',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -930,7 +930,7 @@ function content_type_course_packages_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 10,
+      'weight' => 11,
     ),
   );
 
@@ -982,7 +982,7 @@ function content_type_course_packages_field_default_field_instances() {
         'apply_chosen' => 1,
       ),
       'type' => 'options_select',
-      'weight' => 11,
+      'weight' => 12,
     ),
   );
 
@@ -1121,7 +1121,7 @@ function content_type_course_packages_field_default_field_instances() {
       'module' => 'registration',
       'settings' => array(),
       'type' => 'registration_select',
-      'weight' => 9,
+      'weight' => 10,
     ),
   );
 
