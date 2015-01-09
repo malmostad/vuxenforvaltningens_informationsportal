@@ -31,6 +31,7 @@ function content_type_course_packages_field_group_info() {
       5 => 'field_course_form',
       6 => 'field_course_school',
       7 => 'field_course_prerequisites',
+      8 => 'field_course_number_of_points',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
@@ -59,15 +60,15 @@ function content_type_course_packages_field_group_info() {
     'label' => 'First group',
     'weight' => '0',
     'children' => array(
-      0 => 'field_course_date',
-      1 => 'field_course_prerequisites',
-      2 => 'field_course_school',
-      3 => 'field_course_scope',
-      4 => 'field_course_weeks_of_study',
-      5 => 'field_course_searchable_type',
-      6 => 'field_course_form',
-      7 => 'field_course_group',
-      8 => 'node:course_template:field_course_type_education',
+      0 => 'field_course_group',
+      1 => 'field_course_scope',
+      2 => 'field_course_searchable_type',
+      3 => 'field_course_weeks_of_study',
+      4 => 'field_course_date',
+      5 => 'field_course_form',
+      6 => 'field_course_school',
+      7 => 'field_course_prerequisites',
+      8 => 'field_course_number_of_points',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
@@ -156,7 +157,6 @@ function content_type_course_packages_field_group_info() {
     'weight' => '1',
     'children' => array(
       0 => 'field_course_application_period',
-      1 => 'field_course_number_of_points',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
