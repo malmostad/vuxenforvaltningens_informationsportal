@@ -35,7 +35,6 @@ function config_permissions_user_default_permissions() {
   $permissions['access coffee'] = array(
     'name' => 'access coffee',
     'roles' => array(
-      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'coffee',
@@ -48,6 +47,15 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'comment',
+  );
+
+  // Exported permission: 'access configuration page'.
+  $permissions['access configuration page'] = array(
+    'name' => 'access configuration page',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'mal_user_custom_access',
   );
 
   // Exported permission: 'access content'.
@@ -102,6 +110,17 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'devel',
+  );
+
+  // Exported permission: 'access main administration page'.
+  $permissions['access main administration page'] = array(
+    'name' => 'access main administration page',
+    'roles' => array(
+      'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'mal_user_custom_access',
   );
 
   // Exported permission: 'access media browser'.
@@ -255,7 +274,6 @@ function config_permissions_user_default_permissions() {
   $permissions['administer custom breadcrumbs'] = array(
     'name' => 'administer custom breadcrumbs',
     'roles' => array(
-      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'custom_breadcrumbs',
@@ -513,7 +531,6 @@ function config_permissions_user_default_permissions() {
   $permissions['administer rules'] = array(
     'name' => 'administer rules',
     'roles' => array(
-      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'rules',
@@ -541,7 +558,6 @@ function config_permissions_user_default_permissions() {
   $permissions['administer site configuration'] = array(
     'name' => 'administer site configuration',
     'roles' => array(
-      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'system',
@@ -665,7 +681,6 @@ function config_permissions_user_default_permissions() {
   $permissions['block IP addresses'] = array(
     'name' => 'block IP addresses',
     'roles' => array(
-      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'system',
@@ -2543,7 +2558,6 @@ function config_permissions_user_default_permissions() {
   $permissions['translate admin strings'] = array(
     'name' => 'translate admin strings',
     'roles' => array(
-      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'i18n_string',
@@ -2553,7 +2567,6 @@ function config_permissions_user_default_permissions() {
   $permissions['translate interface'] = array(
     'name' => 'translate interface',
     'roles' => array(
-      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'locale',
@@ -2563,7 +2576,6 @@ function config_permissions_user_default_permissions() {
   $permissions['translate user-defined strings'] = array(
     'name' => 'translate user-defined strings',
     'roles' => array(
-      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'i18n_string',

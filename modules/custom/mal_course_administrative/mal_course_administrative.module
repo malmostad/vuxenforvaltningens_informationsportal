@@ -31,6 +31,26 @@ function mal_course_administrative_form_course_node_form_alter(&$form, &$form_st
     );
   }
 
+  if (!empty($form['field_course_form'])) {
+    // Remove terms in reverse to Course Package.
+    $unacceptable_terms = variable_get('course_package_form_terms', array());
+    if (!empty($unacceptable_terms)) {
+      $langcode = $form['field_course_form']['#language'];
+      $field_course_form = &$form['field_course_form'][$langcode];
+
+      if (count($unacceptable_terms) < 2) {
+        $unacceptable_terms['_none'] = '_none';
+      }
+      else {
+        $field_course_form['#title_display'] = 'invisible';
+        $field_course_form['#type'] = 'checkboxes';
+        $field_course_form['#default_value'] = empty($field_course_form['#default_value']) ? array() : array($field_course_form['#default_value']);
+      }
+
+      $field_course_form['#options'] = array_diff_key($field_course_form['#options'], $unacceptable_terms);
+    }
+  }
+
   $form['#validate'][] = 'mal_course_administrative_course_period_validate';
 }
 
@@ -125,10 +145,10 @@ function mal_course_administrative_permission() {
 function mal_course_administrative_menu() {
   return array(
     'admin/config/content/course-admin' => array(
-      'type' => MENU_CALLBACK,
+      'type' => MENU_NORMAL_ITEM,
       'title' => 'Courses configuration',
       'page callback' => 'drupal_get_form',
-      'page arguments' => array('mal_course_administrative_course_pacage_acceptable_forms'),
+      'page arguments' => array('mal_course_administrative_course_package_acceptable_forms'),
       'access arguments' => array('administer course config'),
       'file' => 'mal_course_administrative.admin.inc',
     ),

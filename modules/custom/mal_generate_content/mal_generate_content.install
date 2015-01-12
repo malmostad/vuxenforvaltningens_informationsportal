@@ -20,13 +20,16 @@ function mal_generate_content_enable() {
     )
   );
 
-  mal_generate_content_add_taxonomy_terms('course_form',
+  $course_form_terms = mal_generate_content_add_taxonomy_terms('course_form',
     array(
       'Klassrumsundervisning',
       'Distanskurs',
       'Flexkurs',
     )
   );
+
+  $classroom_term = reset($course_form_terms);
+  variable_set('course_package_form_terms', array($classroom_term->tid => $classroom_term->tid));
 
   mal_generate_content_add_taxonomy_terms('course_school',
     array(

@@ -9,7 +9,7 @@
  *
  * Limit course package "Course Form" terms.
  */
-function mal_course_administrative_course_pacage_acceptable_forms($form, &$form_state) {
+function mal_course_administrative_course_package_acceptable_forms($form, &$form_state) {
   $course_form_voc = taxonomy_vocabulary_machine_name_load('course_form');
   $course_form_terms = taxonomy_get_tree($course_form_voc->vid);
 

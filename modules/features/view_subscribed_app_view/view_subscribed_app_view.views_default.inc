@@ -131,19 +131,22 @@ function view_subscribed_app_view_views_default_views() {
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['table'] = 'field_data_field_course_searchable_type';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['field'] = 'field_course_searchable_type_tid';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['value'] = array(
-    90 => '90',
-    89 => '89',
+    152 => '152',
+    151 => '151',
   );
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['vocabulary'] = 'course_searchable_type';
-  /* Filterkriterium: Not Flex */
-  $handler->display->display_options['filters']['field_course_flex_value']['id'] = 'field_course_flex_value';
-  $handler->display->display_options['filters']['field_course_flex_value']['table'] = 'field_data_field_course_flex';
-  $handler->display->display_options['filters']['field_course_flex_value']['field'] = 'field_course_flex_value';
-  $handler->display->display_options['filters']['field_course_flex_value']['ui_name'] = 'Not Flex';
-  $handler->display->display_options['filters']['field_course_flex_value']['value'] = array(
-    0 => '0',
+  /* Filterkriterium: Innehåll: Kursform (field_course_form) */
+  $handler->display->display_options['filters']['field_course_form_tid']['id'] = 'field_course_form_tid';
+  $handler->display->display_options['filters']['field_course_form_tid']['table'] = 'field_data_field_course_form';
+  $handler->display->display_options['filters']['field_course_form_tid']['field'] = 'field_course_form_tid';
+  $handler->display->display_options['filters']['field_course_form_tid']['operator'] = 'not';
+  $handler->display->display_options['filters']['field_course_form_tid']['value'] = array(
+    130 => '130',
+    131 => '131',
   );
+  $handler->display->display_options['filters']['field_course_form_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_course_form_tid']['vocabulary'] = 'course_form';
 
   /* Display: Course */
   $handler = $view->new_display('panel_pane', 'Course', 'course_pane');
@@ -180,11 +183,10 @@ function view_subscribed_app_view_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Fält: Innehåll: Kurs group */
+  /* Fält: Innehåll: Kursgrupp */
   $handler->display->display_options['fields']['field_course_group']['id'] = 'field_course_group';
   $handler->display->display_options['fields']['field_course_group']['table'] = 'field_data_field_course_group';
   $handler->display->display_options['fields']['field_course_group']['field'] = 'field_course_group';
-  $handler->display->display_options['fields']['field_course_group']['label'] = 'Kursgrupp';
   /* Fält: Innehåll: Kontinuerlig */
   $handler->display->display_options['fields']['field_course_continuos']['id'] = 'field_course_continuos';
   $handler->display->display_options['fields']['field_course_continuos']['table'] = 'field_data_field_course_continuos';
@@ -193,8 +195,8 @@ function view_subscribed_app_view_views_default_views() {
   $handler->display->display_options['fields']['field_course_continuos']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_course_continuos']['element_label_colon'] = FALSE;
 
-  /* Display: Flex course */
-  $handler = $view->new_display('panel_pane', 'Flex course', 'flex_course_pane');
+  /* Display: Flex and Distance course */
+  $handler = $view->new_display('panel_pane', 'Flex and Distance course', 'flex_course_pane');
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Fält: Innehåll: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -226,11 +228,10 @@ function view_subscribed_app_view_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Fält: Innehåll: Kurs group */
+  /* Fält: Innehåll: Kursgrupp */
   $handler->display->display_options['fields']['field_course_group']['id'] = 'field_course_group';
   $handler->display->display_options['fields']['field_course_group']['table'] = 'field_data_field_course_group';
   $handler->display->display_options['fields']['field_course_group']['field'] = 'field_course_group';
-  $handler->display->display_options['fields']['field_course_group']['label'] = 'Kursgrupp';
   /* Fält: Innehåll: Kontinuerlig */
   $handler->display->display_options['fields']['field_course_continuos']['id'] = 'field_course_continuos';
   $handler->display->display_options['fields']['field_course_continuos']['table'] = 'field_data_field_course_continuos';
@@ -259,19 +260,21 @@ function view_subscribed_app_view_views_default_views() {
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['table'] = 'field_data_field_course_searchable_type';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['field'] = 'field_course_searchable_type_tid';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['value'] = array(
-    90 => '90',
-    89 => '89',
+    152 => '152',
+    151 => '151',
   );
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['vocabulary'] = 'course_searchable_type';
-  /* Filterkriterium: Is Flex */
-  $handler->display->display_options['filters']['field_course_flex_value']['id'] = 'field_course_flex_value';
-  $handler->display->display_options['filters']['field_course_flex_value']['table'] = 'field_data_field_course_flex';
-  $handler->display->display_options['filters']['field_course_flex_value']['field'] = 'field_course_flex_value';
-  $handler->display->display_options['filters']['field_course_flex_value']['ui_name'] = 'Is Flex';
-  $handler->display->display_options['filters']['field_course_flex_value']['value'] = array(
-    1 => '1',
+  /* Filterkriterium: Innehåll: Kursform (field_course_form) */
+  $handler->display->display_options['filters']['field_course_form_tid']['id'] = 'field_course_form_tid';
+  $handler->display->display_options['filters']['field_course_form_tid']['table'] = 'field_data_field_course_form';
+  $handler->display->display_options['filters']['field_course_form_tid']['field'] = 'field_course_form_tid';
+  $handler->display->display_options['filters']['field_course_form_tid']['value'] = array(
+    130 => '130',
+    131 => '131',
   );
+  $handler->display->display_options['filters']['field_course_form_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_course_form_tid']['vocabulary'] = 'course_form';
 
   /* Display: Course pacage */
   $handler = $view->new_display('panel_pane', 'Course pacage', 'course_pacage_pane');
@@ -305,11 +308,10 @@ function view_subscribed_app_view_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Fält: Innehåll: Kurs group */
+  /* Fält: Innehåll: Kursgrupp */
   $handler->display->display_options['fields']['field_course_group']['id'] = 'field_course_group';
   $handler->display->display_options['fields']['field_course_group']['table'] = 'field_data_field_course_group';
   $handler->display->display_options['fields']['field_course_group']['field'] = 'field_course_group';
-  $handler->display->display_options['fields']['field_course_group']['label'] = 'Kursgrupp';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filterkriterium: Innehåll: Publicerad */
@@ -331,8 +333,8 @@ function view_subscribed_app_view_views_default_views() {
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['table'] = 'field_data_field_course_searchable_type';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['field'] = 'field_course_searchable_type_tid';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['value'] = array(
-    90 => '90',
-    89 => '89',
+    152 => '152',
+    151 => '151',
   );
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['vocabulary'] = 'course_searchable_type';
@@ -371,11 +373,10 @@ function view_subscribed_app_view_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Fält: Innehåll: Kurs group */
+  /* Fält: Innehåll: Kursgrupp */
   $handler->display->display_options['fields']['field_course_group']['id'] = 'field_course_group';
   $handler->display->display_options['fields']['field_course_group']['table'] = 'field_data_field_course_group';
   $handler->display->display_options['fields']['field_course_group']['field'] = 'field_course_group';
-  $handler->display->display_options['fields']['field_course_group']['label'] = 'Kursgrupp';
   /* Fält: Innehåll: Kontinuerlig */
   $handler->display->display_options['fields']['field_course_continuos']['id'] = 'field_course_continuos';
   $handler->display->display_options['fields']['field_course_continuos']['table'] = 'field_data_field_course_continuos';
@@ -445,11 +446,10 @@ function view_subscribed_app_view_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Fält: Innehåll: Kurs group */
+  /* Fält: Innehåll: Kursgrupp */
   $handler->display->display_options['fields']['field_course_group']['id'] = 'field_course_group';
   $handler->display->display_options['fields']['field_course_group']['table'] = 'field_data_field_course_group';
   $handler->display->display_options['fields']['field_course_group']['field'] = 'field_course_group';
-  $handler->display->display_options['fields']['field_course_group']['label'] = 'Kursgrupp';
   /* Fält: Innehåll: Kontinuerlig */
   $handler->display->display_options['fields']['field_course_continuos']['id'] = 'field_course_continuos';
   $handler->display->display_options['fields']['field_course_continuos']['table'] = 'field_data_field_course_continuos';
@@ -478,9 +478,9 @@ function view_subscribed_app_view_views_default_views() {
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['table'] = 'field_data_field_course_searchable_type';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['field'] = 'field_course_searchable_type_tid';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['value'] = array(
-    60 => '60',
-    62 => '62',
-    61 => '61',
+    153 => '153',
+    155 => '155',
+    154 => '154',
   );
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['vocabulary'] = 'course_searchable_type';
@@ -503,7 +503,7 @@ function view_subscribed_app_view_views_default_views() {
     t('Kontinuerlig'),
     t('Kursgrupp'),
     t('View panes'),
-    t('Flex course'),
+    t('Flex and Distance course'),
     t('Flexkurser och distanskurser'),
     t('Course pacage'),
     t('Kurspaket'),
