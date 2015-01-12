@@ -23,9 +23,9 @@ function mal_hint_permission() {
 function mal_hint_menu() {
   $items = array();
 
-  $items['admin/config/system/mal-hint'] = array(
-    'title' => 'Hint Settings',
-    'description' => 'Configure hint settings.',
+  $items['admin/structure/mal-hint'] = array(
+    'title' => 'Hints',
+    'description' => 'Add, edit and remove hints.',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('mal_hint_management_form'),
     'file' => 'mal_hint.admin.inc',
