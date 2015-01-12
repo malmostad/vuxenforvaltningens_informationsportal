@@ -61,6 +61,11 @@ html {
     margin-bottom: 1em;
     margin-right: 2%;
     width: 74.3%;
+
+    strong,
+    b {
+      font-weight: 700;
+    }
   }
 
   > nav {
@@ -606,8 +611,9 @@ nav.content {
 
 // --------FOOTER BOTTOM---------  //
 #malmo-footer {
-  position: absolute !important;
+  color: #000;
   bottom: 0;
+  position: absolute !important;
   width: 100%;
 }
 
@@ -621,6 +627,7 @@ footer.bigfoot {
 
     .pane-title {
       border-bottom: #b5b5b5 1px solid;
+      color: #000;
       font-size: 1em;
       font-weight: bold;
       line-height: 1;
@@ -673,7 +680,7 @@ footer.bigfoot {
   .question {
     @extend h2.body-copy;
     @extend %main-button;
-    font-size: 24px;
+    font-size: 20px;
     margin: 10px 0;
     padding-left: 25px;
     position: relative;
