@@ -28,8 +28,8 @@ function mal_generate_content_enable() {
     )
   );
 
-  $flexcourse_term = reset($course_form_terms);
-  variable_set('course_package_form_terms', $flexcourse_term->tid);
+  $classroom_term = reset($course_form_terms);
+  variable_set('course_package_form_terms', array($classroom_term->tid => $classroom_term->tid));
 
   mal_generate_content_add_taxonomy_terms('course_school',
     array(
