@@ -541,12 +541,7 @@ function content_type_course_packages_field_default_field_instances() {
   // Exported field_instance: 'node-course_packages-field_course_information_meeting'
   $field_instances['node-course_packages-field_course_information_meeting'] = array(
     'bundle' => 'course_packages',
-    'default_value' => array(
-      0 => array(
-        'value' => '',
-        'format' => 'filtered_html',
-      ),
-    ),
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -584,11 +579,11 @@ function content_type_course_packages_field_default_field_instances() {
     'settings' => array(
       'better_formats' => array(
         'allowed_formats' => array(
-          'filtered_html' => 0,
+          'filtered_html' => 'filtered_html',
           'full_html' => 'full_html',
-          'plain_text' => 0,
+          'plain_text' => 'plain_text',
         ),
-        'allowed_formats_toggle' => 1,
+        'allowed_formats_toggle' => 0,
         'default_order_toggle' => 0,
         'default_order_wrapper' => array(
           'formats' => array(
@@ -604,16 +599,16 @@ function content_type_course_packages_field_default_field_instances() {
           ),
         ),
       ),
-      'text_processing' => 1,
+      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'rows' => 5,
+        'size' => 60,
       ),
-      'type' => 'text_textarea',
+      'type' => 'text_textfield',
       'weight' => 8,
     ),
   );

@@ -361,3 +361,16 @@ function mal_update_update_7022() {
 
   variable_set('live_person_account', 26252283);
 }
+
+/**
+ * Change type of field_course_information_meeting and add end_date sync.
+ */
+function mal_update_update_7023() {
+  if ($instance = field_info_instance('node', 'field_course_information_meeting', 'course_packages')) {
+    field_delete_instance($instance);
+  }
+
+  features_revert_module('content_type_course_packages');
+
+  module_enable(array('mal_date_end_date'));
+}

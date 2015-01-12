@@ -7,6 +7,6 @@
  * @see global_pane_render()
  */
 ?>
-<div class="live-person-button">
+<a href="#" id="live-person" class="live-person-button">
   <?php print $title; ?>
-</div>
+</a>

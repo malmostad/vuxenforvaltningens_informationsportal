@@ -1,0 +1,5 @@
+name = Mal date end date
+description = Set end date from start date.
+core = 7.x
+package = Propeople
+dependencies[] = date
