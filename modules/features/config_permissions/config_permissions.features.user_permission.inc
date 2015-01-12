@@ -50,6 +50,15 @@ function config_permissions_user_default_permissions() {
     'module' => 'comment',
   );
 
+  // Exported permission: 'access configuration page'.
+  $permissions['access configuration page'] = array(
+    'name' => 'access configuration page',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'mal_user_custom_access',
+  );
+
   // Exported permission: 'access content'.
   $permissions['access content'] = array(
     'name' => 'access content',
@@ -116,7 +125,7 @@ function config_permissions_user_default_permissions() {
     'module' => 'media',
   );
 
-  // Exported permission: 'access media browser'.
+  // Exported permission: 'access main administration page'.
   $permissions['access main administration page'] = array(
     'name' => 'access main administration page',
     'roles' => array(

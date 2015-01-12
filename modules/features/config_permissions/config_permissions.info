@@ -61,6 +61,7 @@ features[user_permission][] = access administration pages
 features[user_permission][] = access all views
 features[user_permission][] = access coffee
 features[user_permission][] = access comments
+features[user_permission][] = access configuration page
 features[user_permission][] = access content
 features[user_permission][] = access content overview
 features[user_permission][] = access contextual links

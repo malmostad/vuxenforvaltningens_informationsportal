@@ -17,6 +17,10 @@ function mal_user_custom_access_permission() {
       'title' => t('Access main administration page'),
       'description' => t('Limit access to /admin page.'),
     ),
+    'access configuration page' => array(
+      'title' => t('Access configuration page'),
+      'description' => t('Limit access to /admin/config page.'),
+    ),
   );
 }
 
@@ -44,4 +48,5 @@ function mal_user_custom_access_node_access($node, $op, $account) {
  */
 function mal_user_custom_access_menu_alter(&$items) {
   $items['admin']['access arguments'] = array('access main administration page');
+  $items['admin/config']['access arguments'] = array('access configuration page');
 }
