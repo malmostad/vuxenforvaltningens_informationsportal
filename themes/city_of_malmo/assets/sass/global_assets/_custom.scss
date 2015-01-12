@@ -61,6 +61,11 @@ html {
     margin-bottom: 1em;
     margin-right: 2%;
     width: 74.3%;
+
+    strong,
+    b {
+      font-weight: 700;
+    }
   }
 
   > nav {
