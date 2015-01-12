@@ -66,6 +66,7 @@ features[user_permission][] = access content overview
 features[user_permission][] = access contextual links
 features[user_permission][] = access dashboard
 features[user_permission][] = access devel information
+features[user_permission][] = access main administration page
 features[user_permission][] = access media browser
 features[user_permission][] = access navbar
 features[user_permission][] = access private fields

@@ -13,6 +13,10 @@ function mal_user_custom_access_permission() {
     'edit school which was specified in profile' => array(
       'title' => t('Edit school which was specified in profile'),
     ),
+    'access main administration page' => array(
+      'title' => t('Access main administration page'),
+      'description' => t('Limit access to /admin page.'),
+    ),
   );
 }
 
@@ -33,4 +37,11 @@ function mal_user_custom_access_node_access($node, $op, $account) {
     }
   }
   return NODE_ACCESS_IGNORE;
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function mal_user_custom_access_menu_alter(&$items) {
+  $items['admin']['access arguments'] = array('access main administration page');
 }

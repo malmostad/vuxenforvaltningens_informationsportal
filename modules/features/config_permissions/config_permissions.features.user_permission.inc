@@ -116,6 +116,17 @@ function config_permissions_user_default_permissions() {
     'module' => 'media',
   );
 
+  // Exported permission: 'access media browser'.
+  $permissions['access main administration page'] = array(
+    'name' => 'access main administration page',
+    'roles' => array(
+      'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'mal_user_custom_access',
+  );
+
   // Exported permission: 'access navbar'.
   $permissions['access navbar'] = array(
     'name' => 'access navbar',
