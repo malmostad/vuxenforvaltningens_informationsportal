@@ -606,8 +606,9 @@ nav.content {
 
 // --------FOOTER BOTTOM---------  //
 #malmo-footer {
-  position: absolute !important;
+  color: #000;
   bottom: 0;
+  position: absolute !important;
   width: 100%;
 }
 
@@ -621,6 +622,7 @@ footer.bigfoot {
 
     .pane-title {
       border-bottom: #b5b5b5 1px solid;
+      color: #000;
       font-size: 1em;
       font-weight: bold;
       line-height: 1;
