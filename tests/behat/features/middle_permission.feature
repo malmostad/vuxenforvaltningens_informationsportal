@@ -35,7 +35,7 @@ Feature: Middle admim permission
     Then I am on "node/add/course-packages"
     And I fill in "Titel" with "A1 Test course template"
         # Required for course
-    And I select "Flexkurs" from "Kursform"
+    And I check the box "Klassrumsundervisning"
     And I select "A2 Test school" from "Skola"
     And I fill in "Kurs group" with "test"
     And I type "test" in "edit-body-und-0-value" WYSIWYG editor
