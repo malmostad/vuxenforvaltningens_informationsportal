@@ -1,3 +1,21 @@
+.live-person-button {
+  position: fixed;
+  bottom: 0;
+  z-index: 100000;
+  right: 10%;
+  background: #00b5e2;
+  width: 240px;
+  padding: 5px 20px;
+  cursor: pointer;
+  color: #fff;
+  font-family: $serif;
+  border-radius: 7px 7px 0 0;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 footer#malmo-footer {
   @include clearfix();
   @include box-sizing(border-box);

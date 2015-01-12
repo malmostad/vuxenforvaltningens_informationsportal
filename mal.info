@@ -84,6 +84,7 @@ dependencies[] = entity_view_mode
 dependencies[] = field_collection_table
 dependencies[] = hide_formats
 dependencies[] = libraries
+dependencies[] = live_person
 dependencies[] = mal_ux_improvements
 dependencies[] = navbar
 dependencies[] = node_edit_protection
