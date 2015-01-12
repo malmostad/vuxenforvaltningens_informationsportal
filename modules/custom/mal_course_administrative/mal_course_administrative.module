@@ -71,6 +71,11 @@ function mal_course_administrative_app_period_after_build($element, $form_state)
   $element[$langcode][0]['show_todate']['#states']['invisible'] = array(
     ':input[name="field_course_continuos[und]"]' => array('checked' => TRUE),
   );
+
+  $element[$langcode][0]['value']['#states']['required'] = array(
+    ':input[name="field_course_continuos[und]"]' => array('checked' => FALSE),
+  );
+
   $element[$langcode][0]['value2']['#states']['visible'] = array(
     ':input[name="field_course_continuos[und]"]' => array('checked' => FALSE),
     ':input[name="' . $field_name . '[und][0][show_todate]"]' => array('checked' => TRUE),
@@ -115,15 +120,31 @@ function mal_course_administrative_course_period_validate($form, &$form_state) {
     );
   }
 
+  $lang_course_date = field_language('node', $form_state['node'], 'field_course_date');
+  $lang_app_period = field_language('node', $form_state['node'], 'field_course_application_period');
+  $course_date = &$values['field_course_date'][$lang_course_date][0];
+  $app_period = &$values['field_course_application_period'][$lang_app_period][0];
   if ($values['field_course_continuos'][$lang_continuos][0]['value']) {
-    $lang_course_date = field_language('node', $form_state['node'], 'field_course_date');
-    $lang_app_period = field_language('node', $form_state['node'], 'field_course_application_period');
-    $course_date = &$values['field_course_date'][$lang_course_date][0];
-    $app_period = &$values['field_course_application_period'][$lang_app_period][0];
 
     // Remove end date of course date and app period.
     $course_date['value2'] = NULL;
     $app_period['value2'] = $app_period['show_todate'] = NULL;
+  }
+  else {
+    // Validate start dates for non-continuos course.
+    if (empty($app_period['value'])) {
+      $element = $form['field_course_date'][$lang_course_date][0]['value'];
+      $error_field = implode('][', $element['#parents']);
+      $label = !empty($element['#date_title']) ? $element['#date_title'] : (!empty($element['#title']) ? $element['#title'] : '');
+      form_set_error($error_field, t('A valid date is required for %title.', array('%title' => $label)));
+    }
+
+    if (empty($course_date['value'])) {
+      $element = $form['field_course_application_period'][$lang_app_period][0]['value'];
+      $error_field = implode('][', $element['#parents']);
+      $label = !empty($element['#date_title']) ? $element['#date_title'] : (!empty($element['#title']) ? $element['#title'] : '');
+      form_set_error($error_field, t('A valid date is required for %title.', array('%title' => $label)));
+    }
   }
 }
 
