@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Code for the global pane for site administrators.
+ */
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function mal_ctools_live_person_ctools_plugin_directory($owner, $plugin_type) {
+  if ($owner == 'ctools' && $plugin_type == 'content_types') {
+    return 'plugins/content_types';
+  }
+}
