@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * @file
+ * Attach js.
+ */
+
+/**
+ * Implements hook_field_widget_form_alter().
+ *
+ * For every date field when startdate changes fill end date with new value.
+ */
+function mal_date_end_date_field_widget_form_alter(&$element) {
+  if ((isset($element['#type'])) && ($element['#type'] == 'date_combo')) {
+    drupal_add_js(drupal_get_path('module', 'mal_date_end_date') . '/mal_date_end_date.js');
+    drupal_add_js(array(
+      'mal_date_end_date' => array(
+        $element['#field_name'] => str_replace('_', '-', 'edit_' . $element['#field_name'] . '_' . $element['#language'] . '_' . $element['#delta']),
+      ),
+    ), array('type' => 'setting'));
+  }
+}
