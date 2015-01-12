@@ -33,3 +33,10 @@ function mal_ux_improvements_navbar() {
 
   return $items;
 }
+
+/**
+ * Implements hook_update_projects_alter().
+ */
+function mal_ux_improvements_update_projects_alter(&$projects) {
+  $projects['panels']['info']['version'] = '7.x-3.x-dev';
+}
