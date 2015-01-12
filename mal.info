@@ -84,7 +84,6 @@ dependencies[] = entity_view_mode
 dependencies[] = field_collection_table
 dependencies[] = hide_formats
 dependencies[] = libraries
-dependencies[] = mal_ux_improvements
 dependencies[] = navbar
 dependencies[] = node_edit_protection
 dependencies[] = publish_button
@@ -104,6 +103,7 @@ dependencies[] = pps
 dependencies[] = override_node_options
 dependencies[] = view_unpublished
 ; Propeople
+dependencies[] = mal_ux_improvements
 dependencies[] = mal_course_administrative
 dependencies[] = mal_course_scheduler
 dependencies[] = mal_course_searchable_type_formatter
@@ -125,6 +125,7 @@ dependencies[] = mal_user_courses
 dependencies[] = mal_user_custom_access
 dependencies[] = user_register
 dependencies[] = mal_facetapi
+dependencies[] = mal_date_end_date
 ; Registration
 dependencies[] = registration
 dependencies[] = registration_views

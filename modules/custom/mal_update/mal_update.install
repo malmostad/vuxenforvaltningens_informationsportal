@@ -363,7 +363,7 @@ function mal_update_update_7022() {
 }
 
 /**
- * Change type of field_course_information_meeting.
+ * Change type of field_course_information_meeting and add end_date sync.
  */
 function mal_update_update_7023() {
   if ($instance = field_info_instance('node', 'field_course_information_meeting', 'course_packages')) {
@@ -371,4 +371,6 @@ function mal_update_update_7023() {
   }
 
   features_revert_module('content_type_course_packages');
+
+  module_enable(array('mal_date_end_date'));
 }
