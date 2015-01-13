@@ -1641,6 +1641,12 @@ footer.bigfoot {
   }
 }
 
+@media (max-width: 609px) {
+  body {
+    margin-top: 0;
+  }
+}
+
 @media (max-width: 35em) {
   .top-block {
     max-width: 100%;
