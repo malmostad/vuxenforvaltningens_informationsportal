@@ -374,3 +374,11 @@ function mal_update_update_7023() {
 
   module_enable(array('mal_date_end_date'));
 }
+
+/**
+ * Hide education.
+ */
+function mal_update_update_7024() {
+  exec("drush dre mal_ux_improvements -y", $output);
+  features_revert_module('config_permissions');
+}
