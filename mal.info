@@ -108,6 +108,7 @@ dependencies[] = mal_ux_improvements
 dependencies[] = mal_course_administrative
 dependencies[] = mal_course_scheduler
 dependencies[] = mal_course_searchable_type_formatter
+dependencies[] = mal_course_template_selection
 dependencies[] = mal_ctools_contact_box
 dependencies[] = mal_ctools_front_page_allowed_content
 dependencies[] = mal_ctools_global_banner

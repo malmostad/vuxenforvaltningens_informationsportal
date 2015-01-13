@@ -21,6 +21,8 @@ Feature: Middle admim permission
   Scenario: Published course and course package creating
     Given I am logged in as a user with the "Malmo middle admin" role
     And I am on "node/add/course"
+    And I select "Gymnasial vuxenutbildning" from "Utbildningsform"
+    And I wait for AJAX to finish
     And I select "A1 Test course template" from "Kurs mall"
     # Required
     And I select "Flexkurs" from "Kursform"
@@ -61,6 +63,7 @@ Feature: Middle admim permission
     Given I am logged in as a user with the "Malmo middle admin" role
     And I am on "node/add/course-template"
     And I fill in "edit-title" with "autotest course template"
+    And I select "Gymnasial vuxenutbildning" from "Utbildningsform"
 #    And I should see "Publishing options"
 #    And the "edit-status" checkbox should be checked
     Then I press the "edit-submit" button

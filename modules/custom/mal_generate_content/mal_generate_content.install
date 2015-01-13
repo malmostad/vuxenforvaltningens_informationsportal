@@ -152,6 +152,27 @@ function mal_generate_content_enable() {
   $school = node_submit($school);
   node_save($school);
 
+  $education = new stdClass();
+  $education->title = 'Grundläggande vuxenutbildning';
+  $education->type = 'education';
+  node_object_prepare($education);
+  $education->language = LANGUAGE_NONE;
+  $education->uid = $user->uid;
+  $education->status = 1;
+  $education = node_submit($education);
+  node_save($education);
+
+  $education = new stdClass();
+  $education->title = 'Gymnasial vuxenutbildning';
+  $education->type = 'education';
+  node_object_prepare($education);
+  $education->language = LANGUAGE_NONE;
+  $education->uid = $user->uid;
+  $education->status = 1;
+  $education = node_submit($education);
+  node_save($education);
+
+
   $template = new stdClass();
   $template->title = "A1 Test course template";
   $template->type = "course_template";
@@ -179,6 +200,10 @@ function mal_generate_content_enable() {
 
   $template->field_course_gymnasie_program[$template->language][] = array(
     'tid' => $gymnasie_program->tid,
+  );
+
+  $template->field_course_type_education[$template->language][] = array(
+    'target_id' => $education->nid,
   );
 
   $template = node_submit($template);

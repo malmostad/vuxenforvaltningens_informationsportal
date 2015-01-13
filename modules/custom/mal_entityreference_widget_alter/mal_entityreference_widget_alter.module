@@ -45,7 +45,8 @@ function mal_entityreference_widget_alter_field_widget_form_alter(&$element, &$f
   }
   if ($context['field']['type'] == 'entityreference') {
     if (!empty($context['instance']['render_entity_below'])) {
-      $element['#suffix'] = '<div id="mal-rendered-entity"></div>';
+      $element['#attributes']['class'][] = 'chosen-enable';
+      $element['#pre_render'][] = 'mal_entityreference_widget_alter_element_pre_render';
       $element['#ajax'] = array(
         'callback' => 'mal_entityreference_widget_alter_ajax_callback',
         'wrapper' => 'mal-rendered-entity',
@@ -91,5 +92,32 @@ function mal_entityreference_widget_alter_ajax_callback($form, $form_state) {
   $entity = entity_load($triggering_element['#entity_type'], array(
     $form_state['values'][$triggering_element['#field_name']][$triggering_element['#language']][0]['target_id'],
   ));
-  return '<div id="mal-rendered-entity">' . render(entity_view($triggering_element['#entity_type'], $entity, 'full')) . '</div>';
+  $entity_view = entity_view($triggering_element['#entity_type'], $entity, 'full');
+  return '<div id="mal-rendered-entity">' . render($entity_view) . '</div>';
+}
+
+function mal_entityreference_widget_alter_element_pre_render($element) {
+  $default_rendered = '';
+
+  $field_info = field_info_field($element['#field_name']);
+
+  $val = FALSE;
+
+  if (!empty($element['#default_value'])) {
+    $val = $element['#default_value'];
+  }
+  if (!empty($element['#value']) && !drupal_static('entityreference_preview_use_default', FALSE)) {
+    $val = $element['#value'];
+  }
+
+  if (!empty($element['#default_value'])) {
+    $default = is_array($val) ? $val : array($val);
+    $entity = entity_load($field_info['settings']['target_type'], $default);
+    $entity_view = entity_view($field_info['settings']['target_type'], $entity, 'full');
+    $default_rendered = render($entity_view);
+  }
+
+  $element['#suffix'] = '<div id="mal-rendered-entity">' . $default_rendered . '</div>';
+
+  return $element;
 }
