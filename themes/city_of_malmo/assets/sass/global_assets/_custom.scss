@@ -1013,7 +1013,7 @@ footer.bigfoot {
   .facetapi-facetapi-checkbox-links {
     float: left;
     font-size: 12px;
-    margin: 0;
+    margin: 0 20px 0 0;
     padding: 0 0 20px;
 
     input[type='checkbox'] {
@@ -1027,6 +1027,18 @@ footer.bigfoot {
       margin: 0 0 0 3px;
       text-decoration: none;
       vertical-align: top;
+    }
+  }
+
+  .pane-search-clear {
+    float: left;
+
+    a {
+      color: #4f4f4f;
+      display: block;
+      font-size: 13px;
+      font-family: "OpenSans", "Droid Sans", "Verdana", "DejaVu Sans", "Bitstream Vera Sans", sans-serif;
+      text-decoration: none;
     }
   }
 }
