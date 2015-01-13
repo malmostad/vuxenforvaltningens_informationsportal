@@ -3,7 +3,7 @@
   Drupal.behaviors.ccFacetapiPopupCalendar = {
     attach: function(context) {
       $('#start-date').datepicker({
-        format: 'mm/dd/yyyy',
+        format: 'yyyy-mm-dd',
         weekStart: 1,
         language: "sv",
         autoclose: true,
