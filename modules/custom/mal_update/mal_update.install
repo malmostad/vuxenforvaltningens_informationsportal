@@ -379,6 +379,26 @@ function mal_update_update_7023() {
  * Hide education.
  */
 function mal_update_update_7024() {
-  exec("drush dre mal_ux_improvements -y", $output);
+  module_disable(array('mal_ux_improvements'), FALSE);
+  module_enable(array('mal_ux_improvements'));
   features_revert_module('config_permissions');
+}
+
+/**
+ * Change date format.
+ */
+function mal_update_update_7025() {
+  db_merge('date_formats')
+    ->key(array('type' => 'mal_short_course'))
+    ->fields(array(
+      'format' => 'Y-m-d',
+      'type' => 'mal_short_course',
+      'locked' => 0,
+    ))
+    ->execute();
+
+  variable_set('date_format_mal_short_course', 'Y-m-d');
+
+  features_revert_module('content_type_course');
+  features_revert_module('content_type_course_packages');
 }
