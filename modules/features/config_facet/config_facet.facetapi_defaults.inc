@@ -78,12 +78,15 @@ function config_facet_facetapi_default_facet_settings() {
   $facet->facet = 'field_course_form';
   $facet->enabled = FALSE;
   $facet->settings = array(
-    'operator' => 'and',
+    'operator' => 'or',
     'hard_limit' => '50',
     'dependencies' => array(
       'bundle' => 'none',
       'bundle_selected' => array(),
       'roles' => array(),
+      'facets' => array(),
+      'force_deactivation' => TRUE,
+      'regex' => FALSE,
     ),
     'facet_mincount' => '1',
     'facet_missing' => '0',
@@ -91,7 +94,7 @@ function config_facet_facetapi_default_facet_settings() {
     'individual_parent' => '0',
     'query_type' => 'term',
     'limit_active_items' => 0,
-    'default_true' => TRUE,
+    'default_true' => '1',
     'facet_search_ids' => array(),
     'exclude' => 0,
   );
@@ -138,6 +141,10 @@ function config_facet_facetapi_default_facet_settings() {
     'dependencies' => array(
       'bundle' => 'none',
       'bundle_selected' => array(),
+      'roles' => array(),
+      'facets' => array(),
+      'force_deactivation' => TRUE,
+      'regex' => FALSE,
     ),
     'facet_mincount' => '1',
     'facet_missing' => '0',
@@ -145,7 +152,7 @@ function config_facet_facetapi_default_facet_settings() {
     'individual_parent' => '0',
     'query_type' => 'term',
     'limit_active_items' => 0,
-    'default_true' => TRUE,
+    'default_true' => '1',
     'facet_search_ids' => array(),
     'exclude' => 0,
   );
@@ -191,7 +198,7 @@ function config_facet_facetapi_default_facet_settings() {
   $facet->facet = 'field_course_school';
   $facet->enabled = FALSE;
   $facet->settings = array(
-    'operator' => 'and',
+    'operator' => 'or',
     'hard_limit' => '50',
     'dependencies' => array(
       'bundle' => 'none',
@@ -249,12 +256,15 @@ function config_facet_facetapi_default_facet_settings() {
   $facet->facet = 'field_course_template:field_course_gymnasie_program';
   $facet->enabled = FALSE;
   $facet->settings = array(
-    'operator' => 'and',
+    'operator' => 'or',
     'hard_limit' => '50',
     'dependencies' => array(
       'facets' => array(),
       'force_deactivation' => TRUE,
       'regex' => FALSE,
+      'roles' => array(),
+      'bundle' => 'none',
+      'bundle_selected' => array(),
     ),
     'facet_mincount' => '1',
     'facet_missing' => '0',
@@ -308,7 +318,7 @@ function config_facet_facetapi_default_facet_settings() {
   $facet->facet = 'field_course_template:field_course_subject_areas';
   $facet->enabled = FALSE;
   $facet->settings = array(
-    'operator' => 'and',
+    'operator' => 'or',
     'hard_limit' => '50',
     'dependencies' => array(
       'facets' => array(),
@@ -339,12 +349,15 @@ function config_facet_facetapi_default_facet_settings() {
   $facet->facet = 'field_course_template:field_course_type_education';
   $facet->enabled = FALSE;
   $facet->settings = array(
-    'operator' => 'and',
+    'operator' => 'or',
     'hard_limit' => '50',
     'dependencies' => array(
       'facets' => array(),
       'force_deactivation' => TRUE,
       'regex' => FALSE,
+      'roles' => array(),
+      'bundle' => 'none',
+      'bundle_selected' => array(),
     ),
     'facet_mincount' => '1',
     'facet_missing' => '0',
@@ -454,7 +467,7 @@ function config_facet_facetapi_default_facet_settings() {
   $facet->facet = 'type';
   $facet->enabled = FALSE;
   $facet->settings = array(
-    'operator' => 'and',
+    'operator' => 'or',
     'hard_limit' => '50',
     'dependencies' => array(
       'facets' => array(),
@@ -762,18 +775,24 @@ function config_facet_facetapi_default_facet_settings() {
       'display' => 'display',
       'active' => 0,
       'count' => 0,
+      'weeks' => 0,
+      'natural' => 0,
       'indexed' => 0,
     ),
     'sort_weight' => array(
       'active' => '-50',
       'count' => '-49',
       'display' => '-48',
+      'weeks' => '0',
+      'natural' => '0',
       'indexed' => '0',
     ),
     'sort_order' => array(
       'active' => '3',
       'count' => '3',
       'display' => '4',
+      'weeks' => '4',
+      'natural' => '4',
       'indexed' => '4',
     ),
     'empty_behavior' => 'none',
@@ -789,6 +808,7 @@ function config_facet_facetapi_default_facet_settings() {
       'value' => '',
       'format' => 'filtered_html',
     ),
+    'ranges' => '',
   );
   $export['search_api@node:block:field_course_form'] = $facet;
 
@@ -970,25 +990,31 @@ function config_facet_facetapi_default_facet_settings() {
       'display' => 'display',
       'active' => 0,
       'count' => 0,
+      'weeks' => 0,
+      'natural' => 0,
       'indexed' => 0,
     ),
     'sort_weight' => array(
       'active' => '-50',
       'count' => '-49',
       'display' => '-48',
+      'weeks' => '0',
+      'natural' => '0',
       'indexed' => '0',
     ),
     'sort_order' => array(
       'active' => '3',
       'count' => '3',
       'display' => '4',
+      'weeks' => '4',
+      'natural' => '4',
       'indexed' => '4',
     ),
     'empty_behavior' => 'none',
     'facet_more_text' => 'Show more',
     'facet_fewer_text' => 'Show fewer',
     'title_override' => 1,
-    'title' => 'Inriktning',
+    'title' => 'Inriktningar för kurspaket',
     'soft_limit' => '20',
     'nofollow' => 1,
     'show_expanded' => 0,
@@ -996,6 +1022,7 @@ function config_facet_facetapi_default_facet_settings() {
       'value' => '',
       'format' => 'filtered_html',
     ),
+    'ranges' => '',
   );
   $export['search_api@node:block:field_course_orientation'] = $facet;
 

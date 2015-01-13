@@ -318,3 +318,67 @@ function mal_update_update_7019() {
     $return[] = $term;
   }
 }
+
+/**
+ * Enable mal_facetapi.
+ */
+function mal_update_update_7020() {
+  module_enable(array('mal_facetapi'));
+}
+
+/**
+ * Remove field_course_orientation.
+ */
+function mal_update_update_7021() {
+  $features = array(
+    'content_type_course_template',
+    'config_permissions',
+    'content_type_course',
+    'content_type_course_packages',
+    'content_type_user',
+    'config_facet',
+    'config_search',
+    'minipanel_search_facet',
+  );
+
+  features_revert($features);
+
+  if ($instance = field_info_instance('node', 'field_course_orientation', 'course_template')) {
+    field_delete_instance($instance);
+  }
+  if ($instance = field_info_instance('user', 'field_course_school', 'user')) {
+    field_delete_instance($instance);
+  }
+}
+
+/**
+ * Add Live person chat functionality.
+ */
+function mal_update_update_7022() {
+  module_enable(array('mal_ctools_live_person', 'live_person'));
+
+  features_revert_module('page_main_layout');
+
+  variable_set('live_person_account', 26252283);
+}
+
+/**
+ * Change type of field_course_information_meeting and add end_date sync.
+ */
+function mal_update_update_7023() {
+  if ($instance = field_info_instance('node', 'field_course_information_meeting', 'course_packages')) {
+    field_delete_instance($instance);
+  }
+
+  features_revert_module('content_type_course_packages');
+
+  module_enable(array('mal_date_end_date'));
+}
+
+/**
+ * Hide education.
+ */
+function mal_update_update_7024() {
+  exec("drush dre mal_ux_improvements -y", $output);
+  features_revert_module('config_permissions');
+}

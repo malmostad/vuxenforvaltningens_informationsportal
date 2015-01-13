@@ -35,7 +35,6 @@ function config_permissions_user_default_permissions() {
   $permissions['access coffee'] = array(
     'name' => 'access coffee',
     'roles' => array(
-      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'coffee',
@@ -48,6 +47,15 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'comment',
+  );
+
+  // Exported permission: 'access configuration page'.
+  $permissions['access configuration page'] = array(
+    'name' => 'access configuration page',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'mal_user_custom_access',
   );
 
   // Exported permission: 'access content'.
@@ -102,6 +110,17 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'devel',
+  );
+
+  // Exported permission: 'access main administration page'.
+  $permissions['access main administration page'] = array(
+    'name' => 'access main administration page',
+    'roles' => array(
+      'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'mal_user_custom_access',
   );
 
   // Exported permission: 'access media browser'.
@@ -183,7 +202,6 @@ function config_permissions_user_default_permissions() {
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
       'Malmo top admin' => 'Malmo top admin',
-      'School editor' => 'School editor',
       'administrator' => 'administrator',
     ),
     'module' => 'administerusersbyrole',
@@ -243,6 +261,15 @@ function config_permissions_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'administer course config'.
+  $permissions['administer course config'] = array(
+    'name' => 'administer course config',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'mal_course_administrative',
+  );
+
   // Exported permission: 'administer course_registration registration'.
   $permissions['administer course_registration registration'] = array(
     'name' => 'administer course_registration registration',
@@ -256,7 +283,6 @@ function config_permissions_user_default_permissions() {
   $permissions['administer custom breadcrumbs'] = array(
     'name' => 'administer custom breadcrumbs',
     'roles' => array(
-      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'custom_breadcrumbs',
@@ -412,7 +438,6 @@ function config_permissions_user_default_permissions() {
   $permissions['administer nodes'] = array(
     'name' => 'administer nodes',
     'roles' => array(
-      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -514,7 +539,6 @@ function config_permissions_user_default_permissions() {
   $permissions['administer rules'] = array(
     'name' => 'administer rules',
     'roles' => array(
-      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'rules',
@@ -542,7 +566,6 @@ function config_permissions_user_default_permissions() {
   $permissions['administer site configuration'] = array(
     'name' => 'administer site configuration',
     'roles' => array(
-      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'system',
@@ -666,7 +689,6 @@ function config_permissions_user_default_permissions() {
   $permissions['block IP addresses'] = array(
     'name' => 'block IP addresses',
     'roles' => array(
-      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'system',
@@ -694,7 +716,6 @@ function config_permissions_user_default_permissions() {
   $permissions['bypass node access'] = array(
     'name' => 'bypass node access',
     'roles' => array(
-      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -792,6 +813,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'create course content',
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
       'School editor' => 'School editor',
       'administrator' => 'administrator',
     ),
@@ -803,6 +825,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'create course_packages content',
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
       'School editor' => 'School editor',
       'administrator' => 'administrator',
     ),
@@ -842,6 +865,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'create course_template content',
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
       'School editor' => 'School editor',
       'administrator' => 'administrator',
     ),
@@ -888,6 +912,16 @@ function config_permissions_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'create field_user_school'.
+  $permissions['create field_user_school'] = array(
+    'name' => 'create field_user_school',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'create files'.
   $permissions['create files'] = array(
     'name' => 'create files',
@@ -922,6 +956,7 @@ function config_permissions_user_default_permissions() {
   $permissions['create question_and_answer content'] = array(
     'name' => 'create question_and_answer content',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -931,6 +966,7 @@ function config_permissions_user_default_permissions() {
   $permissions['create school content'] = array(
     'name' => 'create school content',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -949,6 +985,7 @@ function config_permissions_user_default_permissions() {
   $permissions['create users'] = array(
     'name' => 'create users',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'administerusersbyrole',
@@ -977,6 +1014,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'delete any course content',
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -987,6 +1025,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'delete any course_packages content',
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -1006,6 +1045,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'delete any course_template content',
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -1051,6 +1091,7 @@ function config_permissions_user_default_permissions() {
   $permissions['delete any question_and_answer content'] = array(
     'name' => 'delete any question_and_answer content',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -1060,6 +1101,7 @@ function config_permissions_user_default_permissions() {
   $permissions['delete any school content'] = array(
     'name' => 'delete any school content',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -1088,6 +1130,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'delete own course content',
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
       'School editor' => 'School editor',
       'administrator' => 'administrator',
     ),
@@ -1099,6 +1142,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'delete own course_packages content',
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
       'School editor' => 'School editor',
       'administrator' => 'administrator',
     ),
@@ -1120,6 +1164,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'delete own course_template content',
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
       'School editor' => 'School editor',
       'administrator' => 'administrator',
     ),
@@ -1166,6 +1211,7 @@ function config_permissions_user_default_permissions() {
   $permissions['delete own question_and_answer content'] = array(
     'name' => 'delete own question_and_answer content',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -1175,6 +1221,7 @@ function config_permissions_user_default_permissions() {
   $permissions['delete own school content'] = array(
     'name' => 'delete own school content',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -1359,6 +1406,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'edit any course content',
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -1369,6 +1417,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'edit any course_packages content',
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -1379,6 +1428,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'edit any course_template content',
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -1424,6 +1474,7 @@ function config_permissions_user_default_permissions() {
   $permissions['edit any question_and_answer content'] = array(
     'name' => 'edit any question_and_answer content',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -1433,6 +1484,7 @@ function config_permissions_user_default_permissions() {
   $permissions['edit any school content'] = array(
     'name' => 'edit any school content',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -1460,6 +1512,9 @@ function config_permissions_user_default_permissions() {
   $permissions['edit field_course_school'] = array(
     'name' => 'edit field_course_school',
     'roles' => array(
+      'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
+      'School editor' => 'School editor',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -1478,6 +1533,17 @@ function config_permissions_user_default_permissions() {
   $permissions['edit field_registration'] = array(
     'name' => 'edit field_registration',
     'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'edit field_user_school'.
+  $permissions['edit field_user_school'] = array(
+    'name' => 'edit field_user_school',
+    'roles' => array(
+      'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
@@ -1506,6 +1572,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'edit own course content',
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
       'School editor' => 'School editor',
       'administrator' => 'administrator',
     ),
@@ -1517,6 +1584,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'edit own course_packages content',
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
       'School editor' => 'School editor',
       'administrator' => 'administrator',
     ),
@@ -1528,6 +1596,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'edit own course_template content',
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
       'School editor' => 'School editor',
       'administrator' => 'administrator',
     ),
@@ -1579,6 +1648,15 @@ function config_permissions_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'edit own field_user_school'.
+  $permissions['edit own field_user_school'] = array(
+    'name' => 'edit own field_user_school',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'edit own image files'.
   $permissions['edit own image files'] = array(
     'name' => 'edit own image files',
@@ -1601,6 +1679,7 @@ function config_permissions_user_default_permissions() {
   $permissions['edit own question_and_answer content'] = array(
     'name' => 'edit own question_and_answer content',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -1610,6 +1689,7 @@ function config_permissions_user_default_permissions() {
   $permissions['edit own school content'] = array(
     'name' => 'edit own school content',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -1717,7 +1797,6 @@ function config_permissions_user_default_permissions() {
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
       'Malmo top admin' => 'Malmo top admin',
-      'School editor' => 'School editor',
       'administrator' => 'administrator',
     ),
     'module' => 'administerusersbyrole',
@@ -2511,7 +2590,6 @@ function config_permissions_user_default_permissions() {
   $permissions['translate admin strings'] = array(
     'name' => 'translate admin strings',
     'roles' => array(
-      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'i18n_string',
@@ -2521,7 +2599,6 @@ function config_permissions_user_default_permissions() {
   $permissions['translate interface'] = array(
     'name' => 'translate interface',
     'roles' => array(
-      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'locale',
@@ -2531,7 +2608,6 @@ function config_permissions_user_default_permissions() {
   $permissions['translate user-defined strings'] = array(
     'name' => 'translate user-defined strings',
     'roles' => array(
-      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'i18n_string',
@@ -2825,6 +2901,8 @@ function config_permissions_user_default_permissions() {
       'Malmo top admin' => 'Malmo top admin',
       'School editor' => 'School editor',
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'field_permissions',
   );
@@ -2846,6 +2924,17 @@ function config_permissions_user_default_permissions() {
   // Exported permission: 'view field_registration'.
   $permissions['view field_registration'] = array(
     'name' => 'view field_registration',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'view field_user_school'.
+  $permissions['view field_user_school'] = array(
+    'name' => 'view field_user_school',
     'roles' => array(
       'administrator' => 'administrator',
       'anonymous user' => 'anonymous user',
@@ -2898,6 +2987,15 @@ function config_permissions_user_default_permissions() {
   // Exported permission: 'view own field_registration'.
   $permissions['view own field_registration'] = array(
     'name' => 'view own field_registration',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'view own field_user_school'.
+  $permissions['view own field_user_school'] = array(
+    'name' => 'view own field_user_school',
     'roles' => array(
       'administrator' => 'administrator',
     ),

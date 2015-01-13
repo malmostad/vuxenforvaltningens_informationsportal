@@ -20,13 +20,16 @@ function mal_generate_content_enable() {
     )
   );
 
-  mal_generate_content_add_taxonomy_terms('course_form',
+  $course_form_terms = mal_generate_content_add_taxonomy_terms('course_form',
     array(
       'Klassrumsundervisning',
       'Distanskurs',
       'Flexkurs',
     )
   );
+
+  $classroom_term = reset($course_form_terms);
+  variable_set('course_package_form_terms', array($classroom_term->tid => $classroom_term->tid));
 
   mal_generate_content_add_taxonomy_terms('course_school',
     array(
@@ -195,6 +198,13 @@ function mal_generate_content_enable() {
     'value2' => '1396562400',
   );
 
+  $form = taxonomy_get_term_by_name('Klassrumsundervisning');
+  $form = reset($form);
+
+  $node->field_course_form[$node->language][] = array(
+    'tid' => $form->tid,
+  );
+
   $node->field_course_searchable_type[$template->language][] = array(
     'tid' => variable_get('mal_generate_content_searchable_type_3', 73),
   );
@@ -337,6 +347,61 @@ function mal_generate_content_enable() {
 
   $node->field_qa_category[$node->language][] = array(
     'tid' => $category->tid,
+  );
+
+  $node->field_course_searchable_type[$template->language][] = array(
+    'tid' => variable_get('mal_generate_content_searchable_type_3', 74),
+  );
+
+  $node = node_submit($node);
+  node_save($node);
+
+  // Course package.
+  $node = new stdClass();
+  $node->title = "Test course package";
+  $node->type = "course_packages";
+  $node->language = LANGUAGE_NONE;
+  node_object_prepare($node);
+
+  $node->uid = $user->uid;
+  $node->status = 1;
+
+  $node->field_course_weeks_of_study[$node->language][] = array(
+    'value' => '10',
+  );
+
+  $node->body[$node->language][] = array(
+    'value' => 'Test text',
+    'summary' => NULL,
+    'format' => 'full_html',
+    'safe_value' => 'Test text',
+    'safe_summary' => '',
+  );
+
+  $node->field_course_date[$node->language][] = array(
+    'value' => strtotime('-1 day'),
+    'value2' => strtotime('+1 day'),
+  );
+
+  $node->field_course_application_period[$node->language][] = array(
+    'value' => strtotime('-1 day'),
+    'value2' => strtotime('+1 day'),
+  );
+
+  $node->field_course_searchable_type[$node->language][] = array(
+    'tid' => variable_get('mal_generate_content_searchable_type_0', 74),
+  );
+
+  $node->field_course_school[$node->language][] = array(
+    'target_id' => $school->nid,
+  );
+
+  $node->field_course_form[$node->language][] = array(
+    'tid' => $form->tid,
+  );
+
+  $node->field_course_scope[$node->language][] = array(
+    'value' => 90,
   );
 
   $node = node_submit($node);

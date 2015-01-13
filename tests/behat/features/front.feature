@@ -13,4 +13,4 @@ Feature: Front
     Then I should see the text "Title"
     Then I should see the text "Facebook"
     Then I should see the text "Linkedin"
-
+    And I should not see the text "Rubrik" in ".breadcrumbs" element
