@@ -4,16 +4,22 @@ Feature: top admim permission
   As top admin
   Top admin has permission from http://conf.propeople.com.ua/pages/viewpage.action?title=Permissions&spaceKey=MAL
 
-# Temporary commented because of http://jira.propeople.com.ua/browse/MAL-74
-#  Scenario: Proper content available to add
-#    Given I am logged in as a user with the "Malmo top admin" role
-#    And I am on "node/add"
-#    Then I should see the link "Course"
-#    And I should see the link "Course package"
-#    And I should see the link "Course template"
-#    And I should see the link "Course package template"
-#
-#
+  Scenario: Proper content available to add
+    Given I am logged in as a user with the "Malmo top admin" role
+    And I am on "node/add"
+    Given I am on "node/add/course"
+    Then the response status code should be 200
+    Given I am on "node/add/course-packages"
+    Then the response status code should be 200
+    Given I am on "node/add/course-template"
+    Then the response status code should be 200
+    Given I am on "node/add/question-and-answer"
+    Then the response status code should be 200
+    Given I am on "node/add/school"
+    Then the response status code should be 200
+    Given I am on "node/add/education"
+    Then the response status code should be 403
+
 #  Scenario: Published course and course package creating
 #    Given I am logged in as a user with the "Malmo top admin" role
 #    And I am on "node/add/course"
@@ -56,7 +62,3 @@ Feature: top admim permission
     Then I am on "admin/structure/pages"
     And I should see the link "Create a new page"
     And I should see the link "Edit"
-    Then I am on "admin/config/development"
-    And I should see the link "Generate content"
-    And I should see the link "Generate menus"
-

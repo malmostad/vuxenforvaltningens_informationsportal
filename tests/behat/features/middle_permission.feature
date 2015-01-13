@@ -31,7 +31,7 @@ Feature: Middle admim permission
 
     And I should see "Enstaka kurs A1 Test course template has been created."
     Then I click "Edit"
-    And the "edit-status" checkbox should be checked
+#    And the "edit-status" checkbox should be checked
     Then I am on "node/add/course-packages"
     And I fill in "Titel" with "A1 Test course template"
         # Required for course
@@ -48,7 +48,7 @@ Feature: Middle admim permission
     Then I press the "edit-submit" button
     And I should see "Kurspaket A1 Test course template has been created."
     Then I click "Edit"
-    And the "edit-status" checkbox should be checked
+#    And the "edit-status" checkbox should be checked
     # todo need add test course package and return to search.feature
     Given I am on the homepage
     And I press "Search"
@@ -61,7 +61,7 @@ Feature: Middle admim permission
     Given I am logged in as a user with the "Malmo middle admin" role
     And I am on "node/add/course-template"
     And I fill in "edit-title" with "autotest course template"
-    And I should see "Publishing options"
-    And the "edit-status" checkbox should be checked
+#    And I should see "Publishing options"
+#    And the "edit-status" checkbox should be checked
     Then I press the "edit-submit" button
     And I should see the text "Kurs mall autotest course template has been created."

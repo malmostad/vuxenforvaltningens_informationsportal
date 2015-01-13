@@ -10,7 +10,7 @@
  *
  * Implements hook_enable().
  */
-function mal_ux_impovements_enable() {
+function mal_ux_improvements_enable() {
   db_update('system')
     ->fields(array('weight' => 1000))
     ->condition('name', 'mal_ux_improvements', '=')
