@@ -172,7 +172,6 @@ function mal_generate_content_enable() {
   $education = node_submit($education);
   node_save($education);
 
-
   $template = new stdClass();
   $template->title = "A1 Test course template";
   $template->type = "course_template";
