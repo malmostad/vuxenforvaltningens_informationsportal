@@ -1,0 +1,225 @@
+<?php
+/**
+ * @file
+ * Course template modification code here.
+ */
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function mal_course_template_selection_form_course_node_form_alter(&$form, &$form_state) {
+  // Advanced filter of templates.
+  if (!empty($form['field_course_template'])) {
+    // Affected field.
+    $field_course_template = &$form['field_course_template'];
+    // Field language.
+    $langcode_ct = $field_course_template['#language'];
+    // Hide field by default and show it later if needed.
+    $field_course_template[$langcode_ct]['#access'] = FALSE;
+    // Push field to the bottom.
+    $field_course_template[$langcode_ct]['#weight'] = 10;
+    // Wrapper for ajax handling.
+    $field_course_template['#prefix'] = '<div id="field-course-template-ajax-wrapper">';
+    $field_course_template['#suffix'] = '</div>';
+    // Load field info of major(template) node type.
+    $field_type_education_info = field_info_instance('node', 'field_course_type_education', 'course_template');
+
+    // Default value treated as empty for custom selects.
+    $empty_filter_key
+      = $filter_subject_areas
+        = $filter_education_type
+          = '_none';
+
+    // Load previously selected template for edited course.
+    if ($existing_template = field_get_items('node', $form['#node'], 'field_course_template')) {
+      $template_node = node_load($existing_template[0]['target_id']);
+
+      $template_field_subject = field_get_items('node', $template_node, 'field_course_subject_areas');
+      $template_field_education = field_get_items('node', $template_node, 'field_course_type_education');
+
+      $filter_subject_areas = $template_field_subject[0]['tid'];
+      $filter_education_type = $template_field_education[0]['target_id'];
+    }
+
+    // Fetch education type form selection.
+    if (!empty($form_state['values']['field_course_template']['filter_education_type'])) {
+      $filter_education_type = $form_state['values']['field_course_template']['filter_education_type'];
+    }
+
+    // Fetch subject areas form selection.
+    if (!empty($form_state['values']['field_course_template']['filter_subject_areas'])) {
+      $filter_subject_areas = $form_state['values']['field_course_template']['filter_subject_areas'];
+    }
+
+    // Default options for filter selects.
+    $options_education_type = array(
+      $empty_filter_key => t('- None -'),
+    );
+    $options_subject_areas = array(
+      $empty_filter_key => t('- None -'),
+    );
+
+    // Populate education type options.
+    $option_query = db_select('node', 'n')
+      ->fields('n', array('nid', 'title'))
+      ->condition('type', 'education')
+      ->execute();
+    foreach ($option_query as $option) {
+      $options_education_type[$option->nid] = $option->title;
+    }
+
+    // Education type filter renderable array.
+    $field_course_template['filter_education_type'] = array(
+      '#type' => 'select',
+      '#title' => $field_type_education_info['label'],
+      '#default_value' => $filter_education_type,
+      '#options' => $options_education_type,
+      '#required' => TRUE,
+      '#element_validate' => array('mal_course_template_selection_options_field_widget_validate'),
+      '#attributes' => array(
+        'class' => array('chosen-enable'),
+      ),
+      '#ajax' => array(
+        'wrapper' => 'field-course-template-ajax-wrapper',
+        'callback' => 'mal_course_template_selection_course_template_refresh',
+      ),
+      '#weight' => 0,
+    );
+
+    // Second check used for existing nodes to avoid illegal selection.
+    if ($filter_education_type != $empty_filter_key
+      && in_array($filter_education_type, array_keys($options_education_type))) {
+      // Expand filters more for extended option.
+      if ($filter_education_type == variable_get('mal_advanced_template_filter_nid', FALSE)) {
+        // Field instance for title.
+        $field_course_subject_areas_info = field_info_instance('node', 'field_course_subject_areas', 'course_template');
+
+        // Populate subject areas options.
+        $option_query = db_select('field_data_field_course_subject_areas', 'fcsa');
+        $option_query->leftJoin('taxonomy_term_data', 't', 'fcsa.field_course_subject_areas_tid = t.tid');
+        $option_query->leftJoin('field_data_field_course_type_education', 'fcte', 'fcte.entity_id = fcsa.entity_id');
+        $option_query->condition('field_course_type_education_target_id ', $filter_education_type);
+        $option_query->fields('t', array('name', 'tid'));
+        $res = $option_query->execute();
+        foreach ($res as $option) {
+          $options_subject_areas[$option->tid] = $option->name;
+        }
+
+        // Subject areas filter renderable array.
+        $field_course_template['filter_subject_areas'] = array(
+          '#type' => 'select',
+          '#title' => $field_course_subject_areas_info['label'],
+          '#default_value' => $filter_subject_areas,
+          '#options' => $options_subject_areas,
+          '#required' => TRUE,
+          '#element_validate' => array('mal_course_template_selection_options_field_widget_validate'),
+          '#attributes' => array(
+            'class' => array('chosen-enable'),
+          ),
+          '#ajax' => array(
+            'wrapper' => 'field-course-template-ajax-wrapper',
+            'callback' => 'mal_course_template_selection_course_template_refresh',
+          ),
+          '#weight' => 5,
+        );
+      }
+      else {
+        // Display available course templates for simple filtering.
+        $cond = array(
+          array(
+            'field' => 'field_course_type_education',
+            'column' => 'target_id',
+            'value' => $filter_education_type,
+          ),
+        );
+        // Limit options.
+        $options = mal_course_template_selection_course_template_options($cond);
+        $field_course_template[$langcode_ct]['#options'] = $options;
+        // Ugly fix used in mal_entityreference_widget_alter_element_pre_render
+        // to determine whether use value or default_value as ID source.
+        drupal_static('entityreference_preview_use_default', TRUE);
+        if (!empty($form_state['triggering_element'])) {
+          $field_course_template[$langcode_ct]['#default_value'] = array(key($options));
+        }
+        $field_course_template[$langcode_ct]['#access'] = TRUE;
+      }
+    }
+
+    // Second check used for existing nodes to avoid illegal selection.
+    if ($filter_subject_areas != $empty_filter_key
+      && in_array($filter_subject_areas, array_keys($options_subject_areas))) {
+      // Display available course template for advanced filtering.
+      $cond = array(
+        array(
+          'field' => 'field_course_type_education',
+          'column' => 'target_id',
+          'value' => $filter_education_type,
+        ),
+        array(
+          'field' => 'field_course_subject_areas',
+          'column' => 'tid',
+          'value' => $filter_subject_areas,
+        ),
+      );
+      // Limit options.
+      $options = mal_course_template_selection_course_template_options($cond);
+      $field_course_template[$langcode_ct]['#options'] = $options;
+      // Ugly fix used in mal_entityreference_widget_alter_element_pre_render
+      // to determine whether use value or default_value as ID source.
+      drupal_static('entityreference_preview_use_default', TRUE);
+      if (!empty($form_state['triggering_element'])) {
+        $field_course_template[$langcode_ct]['#default_value'] = array(key($options));
+      }
+      $field_course_template[$langcode_ct]['#access'] = TRUE;
+    }
+  }
+}
+
+/**
+ * Ajax callback, refresh part of form containing template select.
+ */
+function mal_course_template_selection_course_template_refresh($form, $form_state) {
+  return $form['field_course_template'];
+}
+
+/**
+ * Form element validation handler for options element.
+ */
+function mal_course_template_selection_options_field_widget_validate($element, &$form_state) {
+  if ($element['#required'] && $element['#value'] == '_none') {
+    form_error($element, t('!name field is required.', array('!name' => $element['#title'])));
+  }
+}
+
+/**
+ * Generate an array of options for course template field of course node.
+ *
+ * @param array $field_conditions
+ *   Additional field conditions to limit node selection.
+ *   Each element should be array containing 'field', 'column' and 'value' keys.
+ *
+ * @return array
+ *   Array of course template nid => title option pairs.
+ */
+function mal_course_template_selection_course_template_options(array $field_conditions = array()) {
+  $return = array();
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node');
+  $query->entityCondition('bundle', 'course_template');
+  $query->propertyCondition('status', 1);
+  $query->propertyOrderBy('title', 'DESC');
+
+  foreach ($field_conditions as $cond) {
+    $query->fieldCondition($cond['field'], $cond['column'], $cond['value']);
+  }
+
+  $result = $query->execute();
+
+  $nodes = node_load_multiple(array_keys($result['node']));
+
+  foreach ($nodes as $node) {
+    $return[$node->nid] = $node->title;
+  }
+
+  return $return;
+}
