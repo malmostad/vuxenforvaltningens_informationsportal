@@ -209,7 +209,7 @@ function content_type_course_packages_field_default_field_instances() {
           'multiple_to' => '',
         ),
         'type' => 'date_default',
-        'weight' => 11,
+        'weight' => 7,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -228,7 +228,7 @@ function content_type_course_packages_field_default_field_instances() {
           'multiple_to' => '',
         ),
         'type' => 'date_default',
-        'weight' => 1,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -659,13 +659,13 @@ function content_type_course_packages_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_course_number_of_points',
-    'label' => 'Antal poäng',
+    'label' => 'Poäng',
     'required' => 0,
     'settings' => array(
       'max' => '',
       'min' => '',
       'prefix' => '',
-      'suffix' => '',
+      'suffix' => 'p',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1187,7 +1187,6 @@ function content_type_course_packages_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Ansökningsperiod');
-  t('Antal poäng');
   t('Antal studieveckor');
   t('Beskrivning/innehåll');
   t('Course package registration');
