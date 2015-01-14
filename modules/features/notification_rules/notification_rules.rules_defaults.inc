@@ -15,10 +15,7 @@ function notification_rules_default_rules_configuration() {
       "OWNER" : "rules",
       "TAGS" : [ "Mail notifications" ],
       "REQUIRES" : [ "rules" ],
-      "ON" : {
-        "node_insert--course_template" : { "bundle" : "course_template" },
-        "node_insert--course_package_template" : { "bundle" : "course_package_template" }
-      },
+      "ON" : { "node_insert--course_template" : { "bundle" : "course_template" } },
       "DO" : [
         { "mail_to_users_of_role" : {
             "roles" : { "value" : { "3" : "3" } },
