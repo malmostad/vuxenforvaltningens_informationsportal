@@ -96,6 +96,9 @@ function mal_entityreference_widget_alter_ajax_callback($form, $form_state) {
   return '<div id="mal-rendered-entity">' . render($entity_view) . '</div>';
 }
 
+/**
+ * Entity reference select widget pre render callback.
+ */
 function mal_entityreference_widget_alter_element_pre_render($element) {
   $default_rendered = '';
 
