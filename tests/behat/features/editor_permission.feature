@@ -12,3 +12,8 @@ Feature: Editors permission
     And I should not see "Publishing options"
     Then I press the "edit-submit" button
     And I should see the text "Kurs mall autotest course template has been created."
+
+  Scenario: Editor see only own content on admin/content page
+    Given I am logged in as "editor" with the password "editor"
+    And I am on "admin/content"
+    Then I should see only "editor" user content

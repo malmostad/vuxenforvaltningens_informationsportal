@@ -13,6 +13,21 @@ function mal_ux_improvements_views_api() {
 }
 
 /**
+ * Implements hook_views_query_alter().
+ */
+function mal_ux_improvements_views_query_alter(&$view, &$query) {
+  global $user;
+  if (($view->name == 'admin_views_node')
+        && (in_array('School editor', $user->roles))) {
+    $group_id = $query->set_where_group();
+    $query->add_where($group_id,
+      db_and()
+         ->condition('node.uid', $user->uid)
+     );
+  }
+}
+
+/**
  * Implements hook_form_FORM_TYPE_alter().
  */
 function mal_ux_improvements_form_node_form_alter(&$form, &$form_state) {

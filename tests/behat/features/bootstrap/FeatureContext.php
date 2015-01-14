@@ -434,12 +434,23 @@ class FeatureContext extends DrupalContext {
     $session = $this->getSession();
     $regionObj = $session->getPage()->find('css', $area);
 
-    var_dump($regionObj->getHtml());
-
     $buttonObj = $regionObj->findButton($button);
     if (empty($buttonObj)) {
       throw new \Exception(sprintf("The button '%s' was not found in the region '%s' on the page %s", $button, $area, $this->getSession()->getCurrentUrl()));
     }
     $regionObj->pressButton($button);
+  }
+
+  /**
+   * @Then /^I should see only "([^"]*)" user content$/
+   */
+  public function iShouldSeeOnlyMyContent($name) {
+    $session = $this->getSession();
+    $regionObj = $session->getPage()->findAll('css', '.username');
+    foreach($regionObj as $content) {
+      if ($content->getText() != $name) {
+        throw new \Exception(sprintf("admin/content contains content from %s but should only from %s", $content->getText(), $name));
+      }
+    }
   }
 }
