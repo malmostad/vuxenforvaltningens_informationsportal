@@ -43,7 +43,7 @@ Feature: Middle admim permission
     And I type "test" in "edit-body-und-0-value" WYSIWYG editor
     And I fill in "Kontaktperson" with "test"
     And I fill in "edit-field-course-package-und-0-field-package-course-und-0-value" with "test"
-    And I fill in "Poäng" with "233"
+    And I fill in "edit-field-course-package-und-0-field-package-point-und-0-value" with "233"
     And I fill in "Omfattning " with "23"
     And I fill in "Antal studieveckor" with "2"
 

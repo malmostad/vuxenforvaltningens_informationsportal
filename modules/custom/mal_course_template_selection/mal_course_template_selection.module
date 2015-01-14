@@ -207,7 +207,7 @@ function mal_course_template_selection_course_template_options(array $field_cond
   $query->entityCondition('entity_type', 'node');
   $query->entityCondition('bundle', 'course_template');
   $query->propertyCondition('status', 1);
-  $query->propertyOrderBy('title', 'DESC');
+  $query->propertyOrderBy('title', 'ASC');
 
   foreach ($field_conditions as $cond) {
     $query->fieldCondition($cond['field'], $cond['column'], $cond['value']);
