@@ -7,3 +7,4 @@ dependencies[] = entity
 dependencies[] = rules
 features[features_api][] = api:2
 features[rules_config][] = rules_notification_on_new_template_content
+mtime = 1420819392

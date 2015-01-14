@@ -410,3 +410,10 @@ function mal_update_update_7026() {
   module_enable(array('mal_course_template_selection'));
   variable_set('mal_advanced_template_filter_nid', 140);
 }
+
+/**
+ * Enable and configure extended template selection.
+ */
+function mal_update_update_7027() {
+  features_revert_module('notification_rules');
+}
