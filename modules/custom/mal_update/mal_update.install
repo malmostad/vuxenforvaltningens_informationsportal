@@ -412,7 +412,7 @@ function mal_update_update_7026() {
 }
 
 /**
- * Enable and configure extended template selection.
+ * Fix notification rule.
  */
 function mal_update_update_7027() {
   features_revert_module('notification_rules');
