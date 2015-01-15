@@ -45,7 +45,11 @@ function mal_ux_improvements_navbar() {
     'tab' => array(
       '#type' => 'link',
       '#title' => t('Help'),
+
       '#href' => variable_get('mal_help_link', 'http://drupal.org'),
+      '#options' => array(
+        'attributes' => array('target' => '_blank'),
+      ),
     ),
     '#weight' => 100,
     '#wrapper_attributes' => array(
