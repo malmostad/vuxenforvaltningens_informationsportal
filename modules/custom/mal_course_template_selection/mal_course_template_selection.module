@@ -41,6 +41,16 @@ function mal_course_template_selection_form_course_node_form_alter(&$form, &$for
       $filter_education_type = $template_field_education[0]['target_id'];
     }
 
+    // Workaround to fix case of other form ajax element trigger.
+    if (!empty($_POST['field_course_template']['filter_education_type'])) {
+      $filter_education_type = $_POST['field_course_template']['filter_education_type'];
+    }
+
+    // Workaround to fix case of other form ajax element trigger.
+    if (!empty($_POST['field_course_template']['filter_subject_areas'])) {
+      $filter_education_type = $_POST['field_course_template']['filter_subject_areas'];
+    }
+
     // Fetch education type form selection.
     if (!empty($form_state['values']['field_course_template']['filter_education_type'])) {
       $filter_education_type = $form_state['values']['field_course_template']['filter_education_type'];
@@ -95,9 +105,15 @@ function mal_course_template_selection_form_course_node_form_alter(&$form, &$for
         $field_course_subject_areas_info = field_info_instance('node', 'field_course_subject_areas', 'course_template');
 
         // Populate subject areas options.
+        // Automatically limit selection to used terms only.
         $option_query = db_select('field_data_field_course_subject_areas', 'fcsa');
-        $option_query->leftJoin('taxonomy_term_data', 't', 'fcsa.field_course_subject_areas_tid = t.tid');
+        // Type of education to apply first filter.
         $option_query->leftJoin('field_data_field_course_type_education', 'fcte', 'fcte.entity_id = fcsa.entity_id');
+        // Term data to retrieve term name.
+        $option_query->leftJoin('taxonomy_term_data', 't', 'fcsa.field_course_subject_areas_tid = t.tid');
+        // To filter out terms with unpublished templates.
+        $option_query->leftJoin('node', 'n', 'n.nid = fcsa.entity_id');
+        $option_query->condition('status', 1);
         $option_query->condition('field_course_type_education_target_id ', $filter_education_type);
         $option_query->fields('t', array('name', 'tid'));
         $res = $option_query->execute();

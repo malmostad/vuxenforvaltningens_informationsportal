@@ -22,6 +22,8 @@ projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-is
 
 projects[auto_nodetitle][patch][] = "https://www.drupal.org/files/issues/auto_nodetitle-881170-50.patch"
 
+projects[i18n][patch][] = "https://www.drupal.org/files/issues/i18n_string-2227523-20.patch"
+
 ; +++++ Modules +++++
 
 projects[menu_import][version] = "1.6"
