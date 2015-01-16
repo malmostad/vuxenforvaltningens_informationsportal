@@ -137,6 +137,8 @@ function view_faq_views_default_views() {
 
   /* Display: FAQ */
   $handler = $view->new_display('panel_pane', 'FAQ', 'faq');
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['style_options']['grouping'] = array(
