@@ -224,6 +224,10 @@ projects[administerusersbyrole][subdir] = "contrib"
 projects[role_delegation][version] = "1.1"
 projects[role_delegation][subdir] = "contrib"
 
+
+projects[draggableviews][version] = "2.x-dev"
+projects[draggableviews][subdir] = "contrib"
+
 ; +++++ Themes +++++
 
 ; bootstrap
