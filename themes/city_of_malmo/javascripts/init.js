@@ -44,10 +44,10 @@
     attach: function(context, settings) {
       $('.view-search', context).find('.panel-heading').once().click(function() {
         $(this).siblings('.panel-body').toggle(300);
-        if ($.trim($(this).text()) === Drupal.t("Hide description")) {
-          $(this).text(Drupal.t("Show description"));
+        if ($.trim($(this).text()) === 'Dölj beskrivning') {
+          $(this).text('Visa beskrivning');
         } else {
-          $(this).text(Drupal.t("Hide description"));
+          $(this).text('Dölj beskrivning');
         }
       });
     }

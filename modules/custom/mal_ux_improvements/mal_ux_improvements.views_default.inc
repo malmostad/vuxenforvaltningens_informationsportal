@@ -364,17 +364,6 @@ function mal_ux_improvements_views_default_views() {
   $handler->display->display_options['filters']['status']['expose']['operator'] = 'status_op';
   $handler->display->display_options['filters']['status']['expose']['identifier'] = 'status';
   $handler->display->display_options['filters']['status']['expose']['remember'] = TRUE;
-  /* Filter criterion: Taxonomy term: Vocabulary */
-  $handler->display->display_options['filters']['vid']['id'] = 'vid';
-  $handler->display->display_options['filters']['vid']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['filters']['vid']['field'] = 'vid';
-  $handler->display->display_options['filters']['vid']['relationship'] = 'term_node_tid';
-  $handler->display->display_options['filters']['vid']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['vid']['expose']['operator_id'] = 'vid_op';
-  $handler->display->display_options['filters']['vid']['expose']['label'] = 'Vocabulary';
-  $handler->display->display_options['filters']['vid']['expose']['operator'] = 'vid_op';
-  $handler->display->display_options['filters']['vid']['expose']['identifier'] = 'vid';
-  $handler->display->display_options['filters']['vid']['expose']['remember'] = TRUE;
 
   /* Display: System */
   $handler = $view->new_display('system', 'System', 'system_1');
@@ -382,7 +371,6 @@ function mal_ux_improvements_views_default_views() {
   $handler->display->display_options['hide_admin_links'] = TRUE;
   $handler->display->display_options['defaults']['access'] = FALSE;
   $handler->display->display_options['path'] = 'admin/content';
-
   $translatables['admin_views_node'] = array(
     t('Defaults'),
     t('Content'),
@@ -418,7 +406,6 @@ function mal_ux_improvements_views_default_views() {
     t('Published'),
     t('Updated'),
     t('Operations'),
-    t('Vocabulary'),
     t('System'),
   );
 
