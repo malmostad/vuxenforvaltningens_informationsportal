@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the View gymnasium program selection feature.
+ */
+
+include_once 'view_gymnasium_program_selection.features.inc';
