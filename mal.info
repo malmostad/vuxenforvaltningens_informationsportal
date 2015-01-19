@@ -155,6 +155,7 @@ dependencies[] = variable
 dependencies[] = views
 dependencies[] = views_bulk_operations
 dependencies[] = views_ui
+dependencies[] = draggableviews
 ; Performance
 dependencies[] = varnish
 dependencies[] = memcache
