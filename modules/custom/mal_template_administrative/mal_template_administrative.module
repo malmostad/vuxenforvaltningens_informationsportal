@@ -1,0 +1,23 @@
+<?php
+/**
+ * @file
+ * Hooks and callbacks.
+ */
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function mal_template_administrative_form_course_template_node_form_alter(&$form, &$form_state, $form_id) {
+  if (!empty($_GET['gp']) && !empty($form['field_course_gymnasie_program'])) {
+    $field_course_gymnasie_program = &$form['field_course_gymnasie_program'];
+    $langcode = $field_course_gymnasie_program['#language'];
+    if (empty($field_course_gymnasie_program[$langcode]['#default_value'])) {
+      $field_course_gymnasie_program[$langcode]['#default_value'][0] = $_GET['gp'];
+    }
+  }
+
+  $query = db_update('menu_links');
+  $query->condition('router_path', 'node/add/course-template');
+  $query->fields(array('hidden' => 1));
+  $query->execute();
+}

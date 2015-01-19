@@ -408,7 +408,7 @@ function mal_update_update_7025() {
  */
 function mal_update_update_7026() {
   module_enable(array('mal_course_template_selection'));
-  variable_set('mal_advanced_template_filter_nid', 140);
+  variable_set('mal_advanced_template_filter_nid', 141);
 }
 
 /**
@@ -416,4 +416,19 @@ function mal_update_update_7026() {
  */
 function mal_update_update_7027() {
   features_revert_module('notification_rules');
+}
+
+/**
+ * Enable course template administrative module.
+ */
+function mal_update_update_7029() {
+  module_enable(array(
+    'mal_template_administrative',
+    'view_gymnasium_program_selection',
+  ));
+  // Hide old link.
+  $query = db_update('menu_links');
+  $query->condition('router_path', 'node/add/course-template');
+  $query->fields(array('hidden' => 1));
+  $query->execute();
 }
