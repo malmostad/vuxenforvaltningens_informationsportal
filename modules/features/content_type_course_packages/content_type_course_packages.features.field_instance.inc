@@ -113,11 +113,11 @@ function content_type_course_packages_field_default_field_instances() {
       0 => array(
         'summary' => '',
         'value' => '',
-        'format' => 'filtered_html',
+        'format' => 'full_html',
       ),
     ),
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Skriv en kortfattad beskrivning av utbildningens innehåll',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -196,7 +196,7 @@ function content_type_course_packages_field_default_field_instances() {
   $field_instances['node-course_packages-field_course_application_period'] = array(
     'bundle' => 'course_packages',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Ange ansökningsperiod',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -269,7 +269,7 @@ function content_type_course_packages_field_default_field_instances() {
     'bundle' => 'course_packages',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Skriv kontaktperson inklusive e-postadress och telefon',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -343,7 +343,7 @@ function content_type_course_packages_field_default_field_instances() {
   $field_instances['node-course_packages-field_course_date'] = array(
     'bundle' => 'course_packages',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Ange när kurspaket startar och slutar',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -416,7 +416,7 @@ function content_type_course_packages_field_default_field_instances() {
     'bundle' => 'course_packages',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Kryssa i Lärling om det är en lärlingsutbildning',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -468,7 +468,7 @@ function content_type_course_packages_field_default_field_instances() {
     'bundle' => 'course_packages',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Ange kursgrupp för kurspaket',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -543,7 +543,7 @@ function content_type_course_packages_field_default_field_instances() {
     'bundle' => 'course_packages',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Skriv datum och klockslag samt eventuell adress',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -618,7 +618,7 @@ function content_type_course_packages_field_default_field_instances() {
     'bundle' => 'course_packages',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Skriv totala antalet poäng',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -682,7 +682,7 @@ function content_type_course_packages_field_default_field_instances() {
     'bundle' => 'course_packages',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Välj inriktning i listan',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -733,7 +733,7 @@ function content_type_course_packages_field_default_field_instances() {
     'bundle' => 'course_packages',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Ange delkurs samt antal poäng. Varje delkurs läggs in separat genom <em>Lägg till ytterligare alternativ</em>.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -800,7 +800,7 @@ function content_type_course_packages_field_default_field_instances() {
     'bundle' => 'course_packages',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Skriv de förkunskaper som krävs för att kunna söka',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -934,7 +934,7 @@ function content_type_course_packages_field_default_field_instances() {
     'bundle' => 'course_packages',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Ange studietakt i procent (t.ex. heltid är 100 %)',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -1050,7 +1050,7 @@ function content_type_course_packages_field_default_field_instances() {
     'bundle' => 'course_packages',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Skriv totalt antal studieveckor',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -1186,6 +1186,11 @@ function content_type_course_packages_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Ange ansökningsperiod');
+  t('Ange delkurs samt antal poäng. Varje delkurs läggs in separat genom <em>Lägg till ytterligare alternativ</em>.');
+  t('Ange kursgrupp för kurspaket');
+  t('Ange när kurspaket startar och slutar');
+  t('Ange studietakt i procent (t.ex. heltid är 100 %)');
   t('Ansökningsperiod');
   t('Antal studieveckor');
   t('Beskrivning/innehåll');
@@ -1194,6 +1199,7 @@ function content_type_course_packages_field_default_field_instances() {
   t('Informationsträff');
   t('Inriktningar');
   t('Kontaktperson');
+  t('Kryssa i Lärling om det är en lärlingsutbildning');
   t('Kurs');
   t('Kurs group');
   t('Kurser som ingår');
@@ -1203,6 +1209,13 @@ function content_type_course_packages_field_default_field_instances() {
   t('Poäng');
   t('Searchable type');
   t('Skola');
+  t('Skriv datum och klockslag samt eventuell adress');
+  t('Skriv de förkunskaper som krävs för att kunna söka');
+  t('Skriv en kortfattad beskrivning av utbildningens innehåll');
+  t('Skriv kontaktperson inklusive e-postadress och telefon');
+  t('Skriv totala antalet poäng');
+  t('Skriv totalt antal studieveckor');
+  t('Välj inriktning i listan');
 
   return $field_instances;
 }

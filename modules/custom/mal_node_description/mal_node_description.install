@@ -1,0 +1,13 @@
+<?php
+/**
+ * @file
+ * Install hooks.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function mal_node_description_install() {
+  variable_set('mal_node_description__course_packages__title', 'Skriv kurspaketets titel');
+  variable_set('mal_node_description__course_template__title', 'Skriv kurstitel');
+}

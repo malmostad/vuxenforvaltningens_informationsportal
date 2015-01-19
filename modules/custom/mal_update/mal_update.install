@@ -432,3 +432,15 @@ function mal_update_update_7029() {
   $query->fields(array('hidden' => 1));
   $query->execute();
 }
+
+/**
+ * Set descriptions for template filter fields.
+ */
+function mal_update_update_7031() {
+  module_enable(array('mal_node_description'));
+  features_revert_module('content_type_course');
+  features_revert_module('content_type_course_packages');
+  features_revert_module('content_type_course_template');
+  variable_set('mal_course_template_selection__course__type_of_education', 'Välj i listan för att hitta kursmall');
+  variable_set('mal_node_description__course__subject_area', 'Välj ämnesområde i listan');
+}

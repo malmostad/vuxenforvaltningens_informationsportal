@@ -180,6 +180,7 @@ function mal_course_administrative_menu() {
  * Implements hook_form_FORM_ID_alter().
  */
 function mal_course_administrative_form_course_packages_node_form_alter(&$form, &$form_state, $form_id) {
+  $form['title']['#description'] = variable_get('course_package_title_description');
   if (!empty($form['field_course_form'])) {
     $acceptable_terms = variable_get('course_package_form_terms', array());
     if (!empty($acceptable_terms)) {
