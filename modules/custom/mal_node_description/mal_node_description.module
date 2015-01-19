@@ -21,13 +21,13 @@ function mal_node_description_permission() {
  */
 function mal_node_description_menu() {
   return array(
-    'admin/config/content/template-selection-admin' => array(
+    'admin/config/content/node-description-admin' => array(
       'type' => MENU_NORMAL_ITEM,
       'title' => 'Template selection configuration',
       'page callback' => 'drupal_get_form',
-      'page arguments' => array('mal_course_template_selection_settings_form'),
-      'access arguments' => array('administer template selection config'),
-      'file' => 'mal_course_administrative.admin.inc',
+      'page arguments' => array('mal_node_description_settings_form'),
+      'access arguments' => array('administer node description config'),
+      'file' => 'mal_node_description.admin.inc',
     ),
   );
 }

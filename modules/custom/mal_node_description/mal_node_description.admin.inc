@@ -7,7 +7,7 @@
 /**
  * Form callback.
  */
-function mal_node_title_settings_form($form, &$form_state) {
+function mal_node_description_settings_form($form, &$form_state) {
 
   $form['course_package_wrapper'] = array(
     '#type' => 'fieldset',
