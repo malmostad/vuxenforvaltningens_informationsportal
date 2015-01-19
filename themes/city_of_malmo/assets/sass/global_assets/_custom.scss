@@ -1512,7 +1512,7 @@ footer.bigfoot {
 
 // ---------media-------- //
 @media only screen and (max-width: 515px) {
-  .wrapper { margin-bottom: 470px; }
+  // .wrapper { margin-bottom: 470px; }
 }
 
 @media (max-width: 60em) {
@@ -1747,7 +1747,12 @@ footer.bigfoot {
   }
 
   .pane-my-courses-flex-course-pane {
-    td:nth-of-type(1):before { content: "Flexkurser och distanskurser"; }
+    td:nth-of-type(1) {
+      padding-bottom: 20px !important;
+
+      &:before { content: "Flexkurser och distanskurser"; }
+    }
+
     td:nth-of-type(2):before { content: "Kursperiod"; }
     td:nth-of-type(3):before { content: "Kursform"; }
   }
@@ -1778,7 +1783,12 @@ footer.bigfoot {
   }
 
   .pane-my-course-application-list-flex-course-pane {
-    td:nth-of-type(1):before { content: "Flexkurser och distanskurser"; }
+    td:nth-of-type(1) {
+      padding-bottom: 20px !important;
+
+      &:before { content: "Flexkurser och distanskurser"; }
+    }
+
     td:nth-of-type(2):before { content: "Ansökningsperiod"; }
     td:nth-of-type(3):before { content: "Kursperiod"; }
     td:nth-of-type(4):before { content: "Kursgrupp"; }
@@ -1829,6 +1839,55 @@ footer.bigfoot {
   .wrapper {
     > nav.content {
       padding: 0;
+    }
+  }
+
+  .pane-my-courses-not-searchable-pane,
+  .pane-my-courses-not-searchable-package-pane,
+  .pane-my-course-application-list-not-searchable-pane,
+  .pane-my-course-application-list-not-searchable-package-pane {
+    td:nth-of-type(1) {
+      padding-bottom: 20px !important;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .page-my-planning {
+    .wrapper {
+      margin-bottom: 0;
+      padding: 0 2%;
+    }
+  }
+
+  .pane-my-courses-course-pane,
+  .pane-my-courses-flex-course-pane,
+  .pane-my-courses-not-searchable-pane,
+  .pane-my-courses-course-pacage-pane,
+  .pane-my-courses-not-searchable-package-pane,
+  .pane-my-course-application-list-course-pane,
+  .pane-my-course-application-list-flex-course-pane,
+  .pane-my-course-application-list-not-searchable-pane,
+  .pane-my-course-application-list-course-pacage-pane,
+  .pane-my-course-application-list-not-searchable-package-pane {
+    .view-my-courses {
+      td {
+        padding-left: 120px !important;
+
+        &:before {
+          width: 115px;
+        }
+      }
+    }
+
+    .view-my-course-application-list {
+      td {
+        padding-left: 137px !important;
+
+        &:before {
+          width: 133px;
+        }
+      }
     }
   }
 }
