@@ -48,7 +48,7 @@ function mal_course_template_selection_form_course_node_form_alter(&$form, &$for
 
     // Workaround to fix case of other form ajax element trigger.
     if (!empty($_POST['field_course_template']['filter_subject_areas'])) {
-      $filter_education_type = $_POST['field_course_template']['filter_subject_areas'];
+      $filter_subject_areas = $_POST['field_course_template']['filter_subject_areas'];
     }
 
     // Fetch education type form selection.
