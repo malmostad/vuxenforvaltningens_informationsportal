@@ -36,6 +36,10 @@ html {
   }
 }
 
+#navbar-bar {
+  position: fixed !important;
+}
+
 // Styles for main wrapper //
 .wrapper {
   *zoom: 1;
@@ -1459,12 +1463,16 @@ footer.bigfoot {
     }
   }
 
-  .has-not-started {
-    a {
-      background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cGF0aCBmaWxsPSIjYzgxMDJlIiBkPSJNMTI4LjA2NSwwYzE3Ljc0NCwwLDM0LjM0NSwzLjMzMyw0OS44MzQsMTAuMDE2YzE1LjQ5LDYuNjgzLDI5LjA1MSwxNS44LDQwLjY4NCwyNy40MDEgYzExLjYzNCwxMS41ODQsMjAuNzg0LDI1LjE0NiwyNy4zODYsNDAuNjg0YzYuNjMzLDE1LjUzOSw5LjkzNCwzMi4xNzIsOS45MzQsNDkuODk5cy0zLjMwMSwzNC4zNDUtOS45MzQsNDkuODk5IGMtNi42MDIsMTUuNTIyLTE1Ljc1MiwyOS4wODMtMjcuMzg2LDQwLjY4NGMtMTEuNjMzLDExLjYwMi0yNS4xOTMsMjAuNzE5LTQwLjY4NCwyNy4zODZDMTYyLjQxLDI1Mi42NjYsMTQ1LjgxLDI1NiwxMjguMDY1LDI1NiBjLTE3LjcxMSwwLTM0LjM0NS0zLjMzNC00OS44OTktMTAuMDMxYy0xNS41MjItNi42NjctMjkuMDgzLTE1Ljc4NC00MC42ODQtMjcuMzg2Yy0xMS41NjgtMTEuNjAxLTIwLjcxOC0yNS4xNjEtMjcuMzg0LTQwLjY4NCBjLTYuNjY3LTE1LjU1NS0xMC0zMi4xNzItMTAtNDkuODk5czMuMzMzLTM0LjM2MSwxMC00OS44OTljNi42NjYtMTUuNTM4LDE1LjgxNi0yOS4xLDI3LjM4NC00MC42ODQgYzExLjYwMS0xMS42MDEsMjUuMTYyLTIwLjcxOCw0MC42ODQtMjcuNDAxQzkzLjcyMSwzLjMzMywxMTAuMzU0LDAsMTI4LjA2NSwweiBNMTQ4LjQyNCw0Ni45NDJjMC0xLjA2Mi0wLjQyNi0yLjIzOS0xLjI3NC0zLjUyOSBjLTAuODgyLTAuODUtMi4wOTItMS4zMjMtMy42OTItMS40MzhoLTMwLjkxNGMtMS41MDMsMC0yLjY4LDAuNDc0LTMuNTI5LDEuNDM4Yy0wLjg1LDEuMjkxLTEuMjc0LDIuNDY3LTEuMjc0LDMuNTI5bDIuMjIyLDExOC4zNzcgYzAuNDI1LDMuMTAzLDIuMDkyLDQuNjM5LDQuOTY3LDQuNjM5aDI1Ljk3OWMxLjI3NCwwLDIuMzg1LTAuNDI1LDMuMzMzLTEuMjc0YzAuOTgtMC44NDksMS40Ny0xLjk1OSwxLjQ3LTMuMzY0TDE0OC40MjQsNDYuOTQyeiBNMTQ3LjQ0NCwxODUuMzUxYzAtMS4yNzQtMC40OTEtMi40MTgtMS41MDQtMy4zNjZzLTIuMTU3LTEuNDM4LTMuNDMyLTEuNDM4aC0yOC44NTRjLTEuMjc1LDAtMi4zODYsMC40OS0zLjI2OCwxLjQzOCBjLTAuOTE1LDAuOTQ4LTEuMzczLDIuMDkyLTEuMzczLDMuMzY2djI3Ljg3M2MwLDEuMjc0LDAuNDI1LDIuNDE5LDEuMjc0LDMuNDMzYzAuODQ5LDEuMDEzLDEuOTk0LDEuNTM1LDMuMzY2LDEuNTM1aDI4Ljg1NCBjMS4yNzQsMCwyLjQxOS0wLjQ5LDMuNDMyLTEuNDM4YzEuMDEzLTAuOTgxLDEuNTA0LTIuMTU3LDEuNTA0LTMuNTNWMTg1LjM1MXoiIGNsYXNzPSJzaGFwZSIgc3R5bGU9Ii13ZWJraXQtdHJhbnNmb3JtOiBzY2FsZSgwLjA0Njg3NSwgMC4wNDY4NzUpOy1tb3otdHJhbnNmb3JtOiBzY2FsZSgwLjA0Njg3NSwgMC4wNDY4NzUpO3RyYW5zZm9ybTogc2NhbGUoMC4wNDY4NzUsIDAuMDQ2ODc1KTsiPjwvcGF0aD48L3N2Zz4=) !important;
-      background-position:  0 4px;
-      background-repeat:  no-repeat;
-      padding-left: 18px;
+  .subscribed-courses {
+    .has-not-started {
+      .views-field-title {
+        a {
+          background-image: url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWw6c3BhY2U9InByZXNlcnZlIj48cGF0aCBmaWxsPSIjYzgxMDJlIiBkPSJNMTI4LjA2NSwwYzE3Ljc0NCwwLDM0LjM0NSwzLjMzMyw0OS44MzQsMTAuMDE2YzE1LjQ5LDYuNjgzLDI5LjA1MSwxNS44LDQwLjY4NCwyNy40MDEgYzExLjYzNCwxMS41ODQsMjAuNzg0LDI1LjE0NiwyNy4zODYsNDAuNjg0YzYuNjMzLDE1LjUzOSw5LjkzNCwzMi4xNzIsOS45MzQsNDkuODk5cy0zLjMwMSwzNC4zNDUtOS45MzQsNDkuODk5IGMtNi42MDIsMTUuNTIyLTE1Ljc1MiwyOS4wODMtMjcuMzg2LDQwLjY4NGMtMTEuNjMzLDExLjYwMi0yNS4xOTMsMjAuNzE5LTQwLjY4NCwyNy4zODZDMTYyLjQxLDI1Mi42NjYsMTQ1LjgxLDI1NiwxMjguMDY1LDI1NiBjLTE3LjcxMSwwLTM0LjM0NS0zLjMzNC00OS44OTktMTAuMDMxYy0xNS41MjItNi42NjctMjkuMDgzLTE1Ljc4NC00MC42ODQtMjcuMzg2Yy0xMS41NjgtMTEuNjAxLTIwLjcxOC0yNS4xNjEtMjcuMzg0LTQwLjY4NCBjLTYuNjY3LTE1LjU1NS0xMC0zMi4xNzItMTAtNDkuODk5czMuMzMzLTM0LjM2MSwxMC00OS44OTljNi42NjYtMTUuNTM4LDE1LjgxNi0yOS4xLDI3LjM4NC00MC42ODQgYzExLjYwMS0xMS42MDEsMjUuMTYyLTIwLjcxOCw0MC42ODQtMjcuNDAxQzkzLjcyMSwzLjMzMywxMTAuMzU0LDAsMTI4LjA2NSwweiBNMTQ4LjQyNCw0Ni45NDJjMC0xLjA2Mi0wLjQyNi0yLjIzOS0xLjI3NC0zLjUyOSBjLTAuODgyLTAuODUtMi4wOTItMS4zMjMtMy42OTItMS40MzhoLTMwLjkxNGMtMS41MDMsMC0yLjY4LDAuNDc0LTMuNTI5LDEuNDM4Yy0wLjg1LDEuMjkxLTEuMjc0LDIuNDY3LTEuMjc0LDMuNTI5bDIuMjIyLDExOC4zNzcgYzAuNDI1LDMuMTAzLDIuMDkyLDQuNjM5LDQuOTY3LDQuNjM5aDI1Ljk3OWMxLjI3NCwwLDIuMzg1LTAuNDI1LDMuMzMzLTEuMjc0YzAuOTgtMC44NDksMS40Ny0xLjk1OSwxLjQ3LTMuMzY0TDE0OC40MjQsNDYuOTQyeiBNMTQ3LjQ0NCwxODUuMzUxYzAtMS4yNzQtMC40OTEtMi40MTgtMS41MDQtMy4zNjZzLTIuMTU3LTEuNDM4LTMuNDMyLTEuNDM4aC0yOC44NTRjLTEuMjc1LDAtMi4zODYsMC40OS0zLjI2OCwxLjQzOCBjLTAuOTE1LDAuOTQ4LTEuMzczLDIuMDkyLTEuMzczLDMuMzY2djI3Ljg3M2MwLDEuMjc0LDAuNDI1LDIuNDE5LDEuMjc0LDMuNDMzYzAuODQ5LDEuMDEzLDEuOTk0LDEuNTM1LDMuMzY2LDEuNTM1aDI4Ljg1NCBjMS4yNzQsMCwyLjQxOS0wLjQ5LDMuNDMyLTEuNDM4YzEuMDEzLTAuOTgxLDEuNTA0LTIuMTU3LDEuNTA0LTMuNTNWMTg1LjM1MXoiIGNsYXNzPSJzaGFwZSIgc3R5bGU9Ii13ZWJraXQtdHJhbnNmb3JtOiBzY2FsZSgwLjA0Njg3NSwgMC4wNDY4NzUpOy1tb3otdHJhbnNmb3JtOiBzY2FsZSgwLjA0Njg3NSwgMC4wNDY4NzUpO3RyYW5zZm9ybTogc2NhbGUoMC4wNDY4NzUsIDAuMDQ2ODc1KTsiPjwvcGF0aD48L3N2Zz4=) !important;
+          background-position:  0 4px;
+          background-repeat:  no-repeat;
+          padding-left: 18px;
+        }
+      }
     }
   }
 
@@ -1507,10 +1515,6 @@ footer.bigfoot {
 }
 
 // ---------media-------- //
-@media only screen and (max-width: 515px) {
-  .wrapper { margin-bottom: 470px; }
-}
-
 @media (max-width: 60em) {
   article.body-copy {
     .header-link {
@@ -1602,18 +1606,23 @@ footer.bigfoot {
       }
     }
 
-    .view-sidebar-courses {
-      .subtitle {
-        padding-left: 12px;
-        padding-right: 12px;
-      }
+  }
+  
+  .view-sidebar-courses { 
+    .subtitle {
+      padding-left: 12px;
+      padding-right: 12px;
+    }
 
-      .subscribed-courses {
-        padding-left: 12px;
-        padding-right: 12px;
+    .subscribed-courses {
+      padding-left: 12px;
+      padding-right: 12px;
 
-        a {
-          padding: 0;
+      li {
+        .views-field-title {
+          a {
+            padding: 0;
+          }
         }
       }
     }
@@ -1677,6 +1686,151 @@ footer.bigfoot {
   body {
     margin-top: 0;
   }
+
+  /* Force table to not be like tables anymore */
+  .view-my-courses,
+  .view-my-course-application-list {
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+      display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+
+    tbody {
+      tr {
+        border: 1px solid #ddd;
+        border-top: 0;
+
+        &:first-child {
+          border-top: 1px solid #ddd;
+        }
+      }
+
+      td {
+        border: 0 !important;
+        min-height: 20px;
+        overflow: hidden;
+        padding: 0 8px 0 26% !important;
+      }
+
+      .unsubscribe {
+        float: right;
+        margin-top: 5px;
+        position: static;
+      }
+    }
+
+    td:before {
+      border-right: 1px solid #ccc;
+      bottom: 0;
+      font-weight: bold;
+      left: 0;
+      padding-left: 2px;
+      position: absolute;
+      top: 0;
+      width: 25%;
+    }
+  }
+
+  .view-my-course-application-list {
+    tbody {
+      td {
+        padding-left: 137px !important;
+
+        &:before {
+          width: 133px;
+        }
+      }
+    }
+  }
+
+  /* Label the data for tables */
+  .pane-my-courses-course-pane {
+    td:nth-of-type(1):before { content: "Kurs"; }
+    td:nth-of-type(2):before { content: "Veckodag"; }
+    td:nth-of-type(3):before { content: "Tidpunkt"; }
+    td:nth-of-type(4):before { content: "Kursperiod"; }
+    td:nth-of-type(5):before { content: "Kursform"; }
+  }
+
+  .pane-my-courses-flex-course-pane {
+    td:nth-of-type(1) {
+      padding-bottom: 20px !important;
+
+      &:before { content: "Flexkurser och distanskurser"; }
+    }
+
+    td:nth-of-type(2):before { content: "Kursperiod"; }
+    td:nth-of-type(3):before { content: "Kursform"; }
+  }
+
+  .pane-my-courses-not-searchable-pane {
+    td:nth-of-type(1):before { content: "Ej sökbara just nu"; }
+    td:nth-of-type(2):before { content: "Kursperiod"; }
+    td:nth-of-type(3):before { content: "Kursform"; }
+  }
+
+  .pane-my-courses-course-pacage-pane {
+    td:nth-of-type(1):before { content: "Kurspaket"; }
+    td:nth-of-type(2):before { content: "Kursperiod"; }
+    td:nth-of-type(3):before { content: "Kursform"; }
+  }
+
+  .pane-my-courses-not-searchable-package-pane {
+    td:nth-of-type(1):before { content: "Ej sökbara just nu"; }
+    td:nth-of-type(2):before { content: "Kursperiod"; }
+    td:nth-of-type(3):before { content: "Kursform"; }
+  }
+
+  .pane-my-course-application-list-course-pane {
+    td:nth-of-type(1):before { content: "Kurs"; }
+    td:nth-of-type(2):before { content: "Ansökningsperiod"; }
+    td:nth-of-type(3):before { content: "Kursperiod"; }
+    td:nth-of-type(4):before { content: "Kursgrupp"; }
+  }
+
+  .pane-my-course-application-list-flex-course-pane {
+    td:nth-of-type(1) {
+      padding-bottom: 20px !important;
+
+      &:before { content: "Flexkurser och distanskurser"; }
+    }
+
+    td:nth-of-type(2):before { content: "Ansökningsperiod"; }
+    td:nth-of-type(3):before { content: "Kursperiod"; }
+    td:nth-of-type(4):before { content: "Kursgrupp"; }
+  }
+
+  .pane-my-course-application-list-not-searchable-pane {
+    td:nth-of-type(1):before { content: "Ej sökbara just nu"; }
+    td:nth-of-type(2):before { content: "Ansökningsperiod"; }
+    td:nth-of-type(3):before { content: "Kursperiod"; }
+    td:nth-of-type(4):before { content: "Kursgrupp"; }
+  }
+
+  .pane-my-course-application-list-course-pacage-pane {
+    td:nth-of-type(1):before { content: "Kurspaket"; }
+    td:nth-of-type(2):before { content: "Ansökningsperiod"; }
+    td:nth-of-type(3):before { content: "Kursperiod"; }
+    td:nth-of-type(4):before { content: "Kursgrupp"; }
+  }
+
+  .pane-my-course-application-list-not-searchable-package-pane {
+    td:nth-of-type(1):before { content: "Ej sökbara just nu"; }
+    td:nth-of-type(2):before { content: "Ansökningsperiod"; }
+    td:nth-of-type(3):before { content: "Kursperiod"; }
+    td:nth-of-type(4):before { content: "Kursgrupp"; }
+  }
 }
 
 @media (max-width: 35em) {
@@ -1702,6 +1856,45 @@ footer.bigfoot {
   .wrapper {
     > nav.content {
       padding: 0;
+    }
+  }
+
+  .pane-my-courses-not-searchable-pane,
+  .pane-my-courses-not-searchable-package-pane,
+  .pane-my-course-application-list-not-searchable-pane,
+  .pane-my-course-application-list-not-searchable-package-pane {
+    td:nth-of-type(1) {
+      padding-bottom: 20px !important;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .page-my-planning {
+    .wrapper {
+      margin-bottom: 0;
+      padding: 0 2%;
+    }
+  }
+
+  .pane-my-courses-course-pane,
+  .pane-my-courses-flex-course-pane,
+  .pane-my-courses-not-searchable-pane,
+  .pane-my-courses-course-pacage-pane,
+  .pane-my-courses-not-searchable-package-pane,
+  .pane-my-course-application-list-course-pane,
+  .pane-my-course-application-list-flex-course-pane,
+  .pane-my-course-application-list-not-searchable-pane,
+  .pane-my-course-application-list-course-pacage-pane,
+  .pane-my-course-application-list-not-searchable-package-pane {
+    .view-my-courses {
+      td {
+        padding-left: 120px !important;
+
+        &:before {
+          width: 115px;
+        }
+      }
     }
   }
 }

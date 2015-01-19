@@ -434,6 +434,14 @@ function mal_update_update_7029() {
 }
 
 /**
+ * Implement FAQ page sorting.
+ */
+function mal_update_update_7030() {
+  module_enable(array('draggableviews'));
+  features_revert_module('view_faq');
+}
+
+/**
  * Set descriptions for template filter fields.
  */
 function mal_update_update_7031() {

@@ -18,7 +18,7 @@ function mal_node_description_settings_form($form, &$form_state) {
 
   $form['course_package_wrapper']['mal_node_description__course_packages__title'] = array(
     '#type' => 'textfield',
-    '#title' => T('Title description'),
+    '#title' => t('Title description'),
     '#default_value' => variable_get('mal_node_description__course_packages__title', ''),
   );
 
@@ -31,7 +31,7 @@ function mal_node_description_settings_form($form, &$form_state) {
 
   $form['course_template_wrapper']['mal_node_description__course_template__title'] = array(
     '#type' => 'textfield',
-    '#title' => T('Title description'),
+    '#title' => t('Title description'),
     '#default_value' => variable_get('mal_node_description__course_template__title', ''),
   );
 
