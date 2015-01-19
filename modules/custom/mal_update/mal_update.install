@@ -1,13 +1,3 @@
-  features_revert_module('notification_rules');
-}
-
-
-/**
- * FAQ page sorting.
- */
-function mal_update_update_7028() {
-  module_enable(array('draggableviews'));
-  features_revert_module('view_faq');
 <?php
 
 /**
