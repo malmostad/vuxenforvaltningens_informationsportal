@@ -14,7 +14,7 @@ function content_type_course_field_default_field_instances() {
   $field_instances['node-course-field_course_application_period'] = array(
     'bundle' => 'course',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Ange ansökningsperiod',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -91,7 +91,7 @@ function content_type_course_field_default_field_instances() {
       ),
     ),
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Kryssa i Kontinuerlig ifall kursen har kontinuerlig ansökan och kursstart. Ange vid behov startdatum för kurs samt ansökningsperiod nedan.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -140,7 +140,7 @@ function content_type_course_field_default_field_instances() {
   $field_instances['node-course-field_course_date'] = array(
     'bundle' => 'course',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Ange när kurs/kurspaket startar och slutar',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -267,7 +267,7 @@ function content_type_course_field_default_field_instances() {
     'bundle' => 'course',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Välj kursform',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -319,7 +319,7 @@ function content_type_course_field_default_field_instances() {
     'bundle' => 'course',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Ange kursgrupp för kurs',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -393,7 +393,7 @@ function content_type_course_field_default_field_instances() {
     'bundle' => 'course',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Ange klockslag (start-slut) samt veckodag för varje lektionstillfälle. Varje lektionstillfälle läggs in separat genom <em>Lägg till ytterligare alternativ</em>.',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -595,7 +595,7 @@ function content_type_course_field_default_field_instances() {
     'bundle' => 'course',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Välj kursmall',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -721,10 +721,15 @@ function content_type_course_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Ange ansökningsperiod');
+  t('Ange klockslag (start-slut) samt veckodag för varje lektionstillfälle. Varje lektionstillfälle läggs in separat genom <em>Lägg till ytterligare alternativ</em>.');
+  t('Ange kursgrupp för kurs');
+  t('Ange när kurs/kurspaket startar och slutar');
   t('Ansökningsperiod');
   t('Course registration');
   t('Flex');
   t('Kontinuerlig');
+  t('Kryssa i Kontinuerlig ifall kursen har kontinuerlig ansökan och kursstart. Ange vid behov startdatum för kurs samt ansökningsperiod nedan.');
   t('Kurs mall');
   t('Kursform');
   t('Kursgrupp');
@@ -732,6 +737,8 @@ function content_type_course_field_default_field_instances() {
   t('Searchable type');
   t('Skola');
   t('Tider');
+  t('Välj kursform');
+  t('Välj kursmall');
 
   return $field_instances;
 }

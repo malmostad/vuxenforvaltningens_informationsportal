@@ -13,9 +13,15 @@ function content_type_course_template_field_default_field_instances() {
   // Exported field_instance: 'node-course_template-body'
   $field_instances['node-course_template-body'] = array(
     'bundle' => 'course_template',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'summary' => '',
+        'value' => '',
+        'format' => 'full_html',
+      ),
+    ),
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Lägg in kursbeskrivning (från Skolverket)',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -142,7 +148,7 @@ function content_type_course_template_field_default_field_instances() {
     'bundle' => 'course_template',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Ange nationell kurskod',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -216,7 +222,7 @@ function content_type_course_template_field_default_field_instances() {
     'bundle' => 'course_template',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Ange antal poäng',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -274,7 +280,7 @@ function content_type_course_template_field_default_field_instances() {
     'bundle' => 'course_template',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Skriv de förkunskaper som krävs för att kunna söka',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -348,7 +354,7 @@ function content_type_course_template_field_default_field_instances() {
     'bundle' => 'course_template',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Välj ämnesområde i listan',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -399,7 +405,7 @@ function content_type_course_template_field_default_field_instances() {
     'bundle' => 'course_template',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Välj utbildningsform i listan',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -453,12 +459,18 @@ function content_type_course_template_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Ange antal poäng');
+  t('Ange nationell kurskod');
   t('Antal poäng');
   t('Beskrivning/innehåll');
   t('Förkunskaper');
   t('Gymnasieprogram');
+  t('Lägg in kursbeskrivning (från Skolverket)');
   t('Nationell kurskod');
+  t('Skriv de förkunskaper som krävs för att kunna söka');
   t('Utbildningsform');
+  t('Välj utbildningsform i listan');
+  t('Välj ämnesområde i listan');
   t('Ämnesområden');
 
   return $field_instances;

@@ -1,0 +1,47 @@
+<?php
+/**
+ * @file
+ * Hooks and callbacks.
+ */
+
+/**
+ * Implements hook_permission().
+ */
+function mal_node_description_permission() {
+  return array(
+    'administer node description config' => array(
+      'title' => t('Administer node description configuration'),
+      'description' => t('Perform administration tasks on custom node description configuration.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function mal_node_description_menu() {
+  return array(
+    'admin/config/content/node-description-admin' => array(
+      'type' => MENU_NORMAL_ITEM,
+      'title' => 'Template selection configuration',
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('mal_node_description_settings_form'),
+      'access arguments' => array('administer node description config'),
+      'file' => 'mal_node_description.admin.inc',
+    ),
+  );
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function mal_node_description_form_course_packages_node_form_alter(&$form, &$form_state) {
+  $form['title']['#description'] = variable_get('mal_node_description__course_packages__title', '');
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function mal_node_description_form_course_template_node_form_alter(&$form, &$form_state) {
+  $form['title']['#description'] = variable_get('mal_node_description__course_template__title', '');
+}

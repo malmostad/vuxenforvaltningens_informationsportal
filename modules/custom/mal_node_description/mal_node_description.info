@@ -1,0 +1,7 @@
+name = Mal node description
+description = Customizations for node descriptions.
+core = 7.x
+package = Propeople
+
+dependencies[] = node
+dependencies[] = field

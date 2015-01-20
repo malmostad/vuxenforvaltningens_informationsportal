@@ -24,6 +24,7 @@ function mal_course_administrative_course_package_acceptable_forms($form, &$form
     '#collapsible' => TRUE,
     '#collapsed' => TRUE,
   );
+
   $form['course_package_wrapper']['course_package_form_terms'] = array(
     '#type' => 'checkboxes',
     '#title' => t('Course Package - Form terms'),
@@ -38,6 +39,7 @@ function mal_course_administrative_course_package_acceptable_forms($form, &$form
     '#collapsible' => TRUE,
     '#collapsed' => TRUE,
   );
+
   $form['course_wrapper']['course_flex_form_terms'] = array(
     '#type' => 'checkboxes',
     '#title' => t('Course - flex Form terms'),

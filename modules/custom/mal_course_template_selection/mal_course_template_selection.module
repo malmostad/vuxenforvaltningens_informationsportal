@@ -48,7 +48,7 @@ function mal_course_template_selection_form_course_node_form_alter(&$form, &$for
 
     // Workaround to fix case of other form ajax element trigger.
     if (!empty($_POST['field_course_template']['filter_subject_areas'])) {
-      $filter_education_type = $_POST['field_course_template']['filter_subject_areas'];
+      $filter_subject_areas = $_POST['field_course_template']['filter_subject_areas'];
     }
 
     // Fetch education type form selection.
@@ -82,6 +82,7 @@ function mal_course_template_selection_form_course_node_form_alter(&$form, &$for
     $field_course_template['filter_education_type'] = array(
       '#type' => 'select',
       '#title' => $field_type_education_info['label'],
+      '#description' => variable_get('mal_course_template_selection__course__type_of_education', ''),
       '#default_value' => $filter_education_type,
       '#options' => $options_education_type,
       '#required' => TRUE,
@@ -125,6 +126,7 @@ function mal_course_template_selection_form_course_node_form_alter(&$form, &$for
         $field_course_template['filter_subject_areas'] = array(
           '#type' => 'select',
           '#title' => $field_course_subject_areas_info['label'],
+          '#description' => variable_get('mal_course_template_selection__course__subject_area', ''),
           '#default_value' => $filter_subject_areas,
           '#options' => $options_subject_areas,
           '#required' => TRUE,
@@ -238,4 +240,32 @@ function mal_course_template_selection_course_template_options(array $field_cond
   }
 
   return $return;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function mal_course_template_selection_permission() {
+  return array(
+    'administer template selection config' => array(
+      'title' => t('Administer template selection configuration'),
+      'description' => t('Perform administration tasks on template selection configuration.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function mal_course_template_selection_menu() {
+  return array(
+    'admin/config/content/template-selection-admin' => array(
+      'type' => MENU_NORMAL_ITEM,
+      'title' => 'Template selection configuration',
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('mal_course_template_selection_settings_form'),
+      'access arguments' => array('administer template selection config'),
+      'file' => 'mal_course_administrative.admin.inc',
+    ),
+  );
 }
