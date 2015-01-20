@@ -1201,8 +1201,9 @@ footer.bigfoot {
 
 .tabs {
   .tab-navigation {
+    float: left;
     margin-bottom: -1px;
-    overflow: hidden;
+    width: 100%;
   }
 
   .tab-item {
@@ -1865,6 +1866,20 @@ footer.bigfoot {
   .pane-my-course-application-list-not-searchable-package-pane {
     td:nth-of-type(1) {
       padding-bottom: 20px !important;
+    }
+  }
+}
+
+@media (max-width: 530px) {
+  .tabs {
+    .tab-navigation {
+      position: relative;
+    }
+
+    .overlapped-courses {
+      bottom: -20px;
+      position: absolute;
+      right: 0;
     }
   }
 }
