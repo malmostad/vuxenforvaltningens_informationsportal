@@ -1722,6 +1722,10 @@ footer.bigfoot {
         min-height: 20px;
         overflow: hidden;
         padding: 0 8px 0 26% !important;
+
+        &:nth-child(even) {
+          background: #ebebeb !important;
+        }
       }
 
       .unsubscribe {
@@ -1861,9 +1865,7 @@ footer.bigfoot {
   }
 
   .pane-my-courses-not-searchable-pane,
-  .pane-my-courses-not-searchable-package-pane,
-  .pane-my-course-application-list-not-searchable-pane,
-  .pane-my-course-application-list-not-searchable-package-pane {
+  .pane-my-courses-not-searchable-package-pane {
     td:nth-of-type(1) {
       padding-bottom: 20px !important;
     }
