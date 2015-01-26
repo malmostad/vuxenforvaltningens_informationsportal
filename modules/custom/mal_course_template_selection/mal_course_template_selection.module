@@ -265,7 +265,7 @@ function mal_course_template_selection_menu() {
       'page callback' => 'drupal_get_form',
       'page arguments' => array('mal_course_template_selection_settings_form'),
       'access arguments' => array('administer template selection config'),
-      'file' => 'mal_course_administrative.admin.inc',
+      'file' => 'mal_course_template_selection.admin.inc',
     ),
   );
 }
