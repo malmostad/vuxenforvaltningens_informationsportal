@@ -1199,6 +1199,13 @@ footer.bigfoot {
   }
 }
 
+.view-my-courses,
+.view-my-course-application-list {
+  border: #b5b5b5 1px solid;
+  margin-bottom: 16px;
+  padding: 2em 1.4em 1.4em;
+}
+
 .tabs {
   .tab-navigation {
     float: left;
@@ -1238,25 +1245,28 @@ footer.bigfoot {
   }
 
   table {
-    margin-bottom: 16px;
     max-width: 700px;
 
     td,
     th {
-      padding-left: 3px !important;
+      @include word-break(break-word);
+      border-color: #b5b5b5 !important;
+      border-left: 0 !important;
+      border-right: 0 !important;
+      padding: .4em .6em !important;
       position: relative;
-    }
 
-    .course-form {
-      padding-right: 25px;
+      &:last-child {
+        padding-right: 20px !important;
+      }
     }
 
     .unsubscribe {
+      bottom: 8px;
       height: 12px;
       overflow: hidden;
       position: absolute;
-      right: 2px;
-      top: 13px;
+      right: 8px;
       width: 12px;
     }
 
@@ -1286,48 +1296,6 @@ footer.bigfoot {
     height: 12px;
     margin-left: 10px;
     width: 12px;
-  }
-
-  .cols-5 {
-    .views-field-title {
-      width: 34%;
-    }
-
-    .views-field-field-course-periods-1 {
-      width: 12%;
-    }
-
-    .views-field-field-course-periods {
-      width: 17%;
-    }
-
-    .views-field-field-course-date {
-      width: 25%;
-    }
-  }
-
-  .cols-4 {
-    .views-field-title {
-      width: 35%;
-    }
-
-    .views-field-field-course-application-period {
-      width: 25%;
-    }
-
-    .views-field-field-course-date {
-      width: 24%;
-    }
-  }
-
-  .cols-3 {
-    .views-field-title {
-      width: 67%;
-    }
-
-    .views-field-field-course-date {
-      width: 26%;
-    }
   }
 }
 
@@ -1562,15 +1530,6 @@ footer.bigfoot {
   #malmo-footer {
     position: static !important;
   }
-
-  .tabs {
-    table {
-      td,
-      th {
-        width: auto !important;
-      }
-    }
-  }
 }
 
 @media (max-width: 48em) {
@@ -1691,6 +1650,9 @@ footer.bigfoot {
   /* Force table to not be like tables anymore */
   .view-my-courses,
   .view-my-course-application-list {
+    border: 0;
+    padding: 0;
+
     table,
     thead,
     tbody,
@@ -1730,7 +1692,7 @@ footer.bigfoot {
 
       .unsubscribe {
         float: right;
-        margin: 5px 0 3px;
+        margin: 5px 0 3px 10px;
         position: static;
       }
     }

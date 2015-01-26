@@ -23,7 +23,7 @@ function mal_node_description_menu() {
   return array(
     'admin/config/content/node-description-admin' => array(
       'type' => MENU_NORMAL_ITEM,
-      'title' => 'Template selection configuration',
+      'title' => 'Node custom description configuration',
       'page callback' => 'drupal_get_form',
       'page arguments' => array('mal_node_description_settings_form'),
       'access arguments' => array('administer node description config'),

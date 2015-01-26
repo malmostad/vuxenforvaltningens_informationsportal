@@ -96,7 +96,9 @@ function content_type_course_field_group_info() {
     'label' => 'Show description',
     'weight' => '2',
     'children' => array(
-      0 => 'node:course_template:body',
+      0 => 'field_course_group',
+      1 => 'node:course_template:body',
+      2 => 'node:course_template:field_course_national_code',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
