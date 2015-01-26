@@ -452,3 +452,11 @@ function mal_update_update_7031() {
   variable_set('mal_course_template_selection__course__type_of_education', 'Välj i listan för att hitta kursmall');
   variable_set('mal_node_description__course__subject_area', 'Välj ämnesområde i listan');
 }
+
+/**
+ * Update search result output.
+ */
+function mal_update_update_7032() {
+  features_revert_module('content_type_course');
+  features_revert_module('content_type_course_packages');
+}
