@@ -70,6 +70,13 @@ function mal_hint_management_form($form, &$form_state) {
         '#description' => t('Text to display.'),
         '#default_value' => $default_hint,
       );
+
+      $form['hints']['items'][$i]['remove'] = array(
+        '#type' => 'submit',
+        '#value' => t('Remove this hint'),
+        '#submit' => array('mal_hint_management_remove_hint'),
+        '#name' => 'remove_' . $i,
+      );
     }
   }
 
@@ -106,6 +113,25 @@ function mal_hint_management_form($form, &$form_state) {
  */
 function mal_hint_management_add_item($form, $form_state) {
   return $form['hints'];
+}
+
+/**
+ * Submit callback for mal_hint_management_form() that remove hint item.
+ *
+ * @param array $form
+ *   Drupal Form API array structure.
+ * @param array $form_state
+ *   Drupal Form API state array structure.
+ */
+function mal_hint_management_remove_hint($form, &$form_state) {
+  if (!empty($form_state['clicked_button']['#name']) && strpos($form_state['clicked_button']['#name'], 'remove_') === 0) {
+    $hint_values = $form_state['values']['hints']['items'];
+
+    $index = str_replace('remove_', '', $form_state['clicked_button']['#name']);
+
+    unset($hint_values[$index]);
+    variable_set('mal_hint_list', array_values($hint_values));
+  }
 }
 
 /**
