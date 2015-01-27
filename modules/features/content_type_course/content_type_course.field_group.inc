@@ -94,11 +94,12 @@ function content_type_course_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Show description',
-    'weight' => '2',
+    'weight' => '1',
     'children' => array(
-      0 => 'field_course_group',
-      1 => 'node:course_template:body',
-      2 => 'node:course_template:field_course_national_code',
+      0 => 'field_course_application_period',
+      1 => 'field_course_group',
+      2 => 'node:course_template:body',
+      3 => 'node:course_template:field_course_national_code',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -153,20 +154,12 @@ function content_type_course_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Second group',
-    'weight' => '1',
-    'children' => array(
-      0 => 'field_course_application_period',
-    ),
-    'format_type' => 'html-element',
+    'weight' => '3',
+    'children' => array(),
+    'format_type' => 'hidden',
     'format_settings' => array(
-      'label' => 'Second group',
-      'instance_settings' => array(
-        'classes' => 'second-group',
-        'element' => 'div',
-        'show_label' => '0',
-        'label_element' => 'div',
-        'attributes' => '',
-      ),
+      'formatter' => '',
+      'instance_settings' => array(),
     ),
   );
   $export['group_second_group|node|course|search_result'] = $field_group;

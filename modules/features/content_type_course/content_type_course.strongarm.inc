@@ -151,7 +151,7 @@ function content_type_course_strongarm() {
             'visible' => FALSE,
           ),
           'search_result' => array(
-            'weight' => '8',
+            'weight' => '6',
             'visible' => FALSE,
           ),
         ),
@@ -161,7 +161,7 @@ function content_type_course_strongarm() {
             'visible' => FALSE,
           ),
           'search_result' => array(
-            'weight' => '9',
+            'weight' => '7',
             'visible' => FALSE,
           ),
         ),
@@ -201,7 +201,7 @@ function content_type_course_strongarm() {
             'visible' => TRUE,
           ),
           'search_result' => array(
-            'weight' => '3',
+            'weight' => '7',
             'visible' => TRUE,
           ),
         ),
@@ -211,7 +211,7 @@ function content_type_course_strongarm() {
             'visible' => TRUE,
           ),
           'search_result' => array(
-            'weight' => '4',
+            'weight' => '8',
             'visible' => TRUE,
           ),
         ),
@@ -231,7 +231,7 @@ function content_type_course_strongarm() {
             'visible' => FALSE,
           ),
           'search_result' => array(
-            'weight' => '13',
+            'weight' => '10',
             'visible' => FALSE,
           ),
         ),
@@ -251,7 +251,7 @@ function content_type_course_strongarm() {
             'visible' => FALSE,
           ),
           'search_result' => array(
-            'weight' => '12',
+            'weight' => '9',
             'visible' => FALSE,
           ),
         ),
