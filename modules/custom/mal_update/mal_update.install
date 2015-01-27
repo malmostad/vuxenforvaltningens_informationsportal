@@ -460,3 +460,10 @@ function mal_update_update_7032() {
   features_revert_module('content_type_course');
   features_revert_module('content_type_course_packages');
 }
+
+/**
+ * Update search result output.
+ */
+function mal_update_update_7033() {
+  features_revert_module('content_type_course');
+}
