@@ -37,7 +37,7 @@ msgstr "Sökväg till söksidan"
 
 #: plugins/content_types/global_search_content_type.inc:63
 msgid "Enter your keywords"
-msgstr "Ange dina nyckelord"
+msgstr "Sök kurs, kurspaket, skola eller inriktning"
 
 #: plugins/content_types/global_search_content_type.inc:74
 msgid "Search"

@@ -22,7 +22,7 @@ msgstr ""
 
 #: user_register.module:73
 msgid "Register"
-msgstr "Registrera"
+msgstr "Lägg till"
 
 #: user_register.module:120
 msgid "Register and Unregister Form via ajax toggling"
@@ -34,7 +34,7 @@ msgstr "Avregistrera formen"
 
 #: user_register.module:149
 msgid "!login or !register to subscribe the course."
-msgstr "!login eller !register prenumerera kursen."
+msgstr "!login eller !register för att spara kurs/kurspaket."
 
 #: user_register.module:150
 msgid "Log in"
@@ -46,7 +46,7 @@ msgstr "registrera"
 
 #: user_register.module:258;301
 msgid "Unregister"
-msgstr "Avregistrera"
+msgstr "Ta bort"
 
 #: user_register.info:0
 msgid "Mal user customizations"
