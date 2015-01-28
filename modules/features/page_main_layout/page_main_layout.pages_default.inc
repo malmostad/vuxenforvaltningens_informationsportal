@@ -82,7 +82,7 @@ function page_main_layout_default_page_manager_handlers() {
     $pane->configuration = array(
       'override_title' => '',
       'override_title_text' => '',
-      'pane_title' => 'Chatta med oss',
+      'pane_title' => 'Chatta med en studie- och yrkesvägledare',
     );
     $pane->cache = array();
     $pane->style = array(

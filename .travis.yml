@@ -96,7 +96,7 @@ install:
 before_script:
   # Do the site install (either the current revision or old for the upgrade).
   - cd drupal
-  - drush si mal --db-url=mysql://root:@127.0.0.1/drupal --account-name=admin --account-pass=admin --site-mail=admin@example.com --site-name="City of malmo" --yes
+  - drush si mal --db-url=mysql://root:@127.0.0.1/drupal --account-name=admin --account-pass=admin --site-mail=admin@example.com --site-name="Vuxenutbildning Malmö" --yes
 
   - cd ..
   - curl -sSL https://raw.githubusercontent.com/moliware/travis-solr/master/travis-solr.sh | SOLR_VERSION=4.4.0 SOLR_CONFS="drupal/profiles/mal/solr-conf"  bash

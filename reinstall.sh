@@ -17,7 +17,7 @@ cd $SITE_FOLDER/profiles/mal
 echo "Operation : add pre-commit"
 cp scripts/pre-commit .git/hooks/pre-commit
 echo "Operation : site install"
-drush site-install mal --account-name=admin --account-pass=admin --site-mail=admin@example.com --site-name="City of malmo" --yes --db-url="$DB_URL"
+drush site-install mal --account-name=admin --account-pass=admin --site-mail=admin@example.com --site-name="Vuxenutbildning Malmö" --yes --db-url="$DB_URL"
 
 . ../../../scripts/after_install.sh
 
