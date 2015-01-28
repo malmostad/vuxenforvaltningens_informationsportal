@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
 #: user_register.module:73
-msgid "Register"
+msgid "Register on course"
 msgstr "Lägg till"
 
 #: user_register.module:120
@@ -45,7 +45,7 @@ msgid "register"
 msgstr "registrera"
 
 #: user_register.module:258;301
-msgid "Unregister"
+msgid "Unregister from course"
 msgstr "Ta bort"
 
 #: user_register.info:0
