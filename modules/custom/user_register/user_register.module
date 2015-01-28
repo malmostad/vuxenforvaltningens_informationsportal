@@ -70,7 +70,7 @@ function user_register_form_registration_form_alter(&$form, &$form_state, $form_
     'wrapper' => 'user-register-form-wrapper-' . $form['#registration_settings']['entity_type'] . '-' . $form['#registration_settings']['entity_id'],
     'callback' => 'user_register_unregistration_form_reload',
   );
-  $form['actions']['submit']['#value'] = t('Register on course', array(), array('context' => 'course_unregister_button'));
+  $form['actions']['submit']['#value'] = t('Register on course'));
   $form['actions']['submit']['#id'] = $id;
   $form['actions']['submit']['#attributes']['id'][] = $id;
   $form['actions']['submit']['#attributes']['class'][] = 'btn-xs';
@@ -295,7 +295,7 @@ function user_register_unregister_form($form, &$form_state, $registration) {
 
   $form['actions']['submit'] = array(
     '#type' => 'submit',
-    '#value' => t('Unregister from course', array(), array('context' => 'course_unregister_button')),
+    '#value' => t('Unregister from course'),
     '#attributes' => array(
       'class' => array('btn-xs'),
       'id' => array($id),
@@ -338,7 +338,7 @@ function user_register_unregister_ajax_form($form, &$form_state, $registration) 
 
   $form['actions']['submit'] = array(
     '#type' => 'submit',
-    '#value' => t('Unregister from course', array(), array('context' => 'course_unregister_button')),
+    '#value' => t('Unregister from course'),
     '#attributes' => array(
       'class' => array('btn-xs'),
       'id' => array($id),
