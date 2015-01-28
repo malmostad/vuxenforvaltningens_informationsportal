@@ -694,7 +694,7 @@ footer.bigfoot {
 }
 
 .faq-list-questions {
-  ul {
+  & > ul {
     list-style: none;
     margin: 0;
     padding: 0;
