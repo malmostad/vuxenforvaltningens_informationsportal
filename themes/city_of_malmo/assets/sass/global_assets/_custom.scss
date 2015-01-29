@@ -1461,6 +1461,7 @@ footer.bigfoot {
   }
 
   .btn {
+    background: none;
     border: 0;
     margin: 0;
     min-width: 0;
@@ -1648,10 +1649,6 @@ footer.bigfoot {
 }
 
 @media (max-width: 609px) {
-  body {
-    margin-top: 0;
-  }
-
   /* Force table to not be like tables anymore */
   .view-my-courses,
   .view-my-course-application-list {
