@@ -34,7 +34,7 @@ msgstr "Kontakta oss"
 
 #: plugins/content_types/contact_box.tpl.php:14;28
 msgid "Write to us"
-msgstr "Skriv till oss"
+msgstr "Visa på karta"
 
 #: plugins/content_types/contact_box.tpl.php:19
 msgid "Post address"
