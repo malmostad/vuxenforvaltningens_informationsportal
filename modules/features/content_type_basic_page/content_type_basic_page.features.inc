@@ -19,9 +19,9 @@ function content_type_basic_page_ctools_plugin_api($module = NULL, $api = NULL) 
 function content_type_basic_page_node_info() {
   $items = array(
     'page' => array(
-      'name' => t('Basic page'),
+      'name' => t('Grundläggande sida'),
       'base' => 'node_content',
-      'description' => t('Use <em>basic pages</em> for your static content, such as an \'About us\' page.'),
+      'description' => t('Använd <em> grundläggande sidor </ em> för din statiskt innehåll, till exempel en "Om oss" sidan.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',

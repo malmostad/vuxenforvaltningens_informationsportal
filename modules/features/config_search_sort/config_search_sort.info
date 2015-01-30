@@ -10,3 +10,4 @@ features[search_api_sort][] = node__field_course_date:value2
 features[search_api_sort][] = node__search_api_relevance
 features[search_api_sort][] = node__title
 features[user_permission][] = use search_api_sorts
+mtime = 1422263479

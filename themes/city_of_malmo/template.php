@@ -500,7 +500,7 @@ function city_of_malmo_status_messages($variables) {
 function city_of_malmo_breadcrumb($variables) {
   $output = '';
   $breadcrumb = $variables['breadcrumb'];
-  array_unshift($breadcrumb, l(t('Information portal'), '<front>'));
+  array_unshift($breadcrumb, l(t('Vuxenutbildning Malmö'), '<front>'));
   array_unshift($breadcrumb, l(t('Home'), 'http://www.malmo.se/'));
   if (!drupal_is_front_page()) {
     $item = menu_get_item();
