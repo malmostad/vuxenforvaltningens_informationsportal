@@ -1242,7 +1242,7 @@ footer.bigfoot {
   }
 
   .overlapped-courses {
-    background: url($icon-sprite) -3px -235px no-repeat;
+    background: url($icon-sprite) -3px -285px no-repeat;
     float: right;
     font-family: $open-sans;
     font-size: 12px;
@@ -1288,7 +1288,7 @@ footer.bigfoot {
       }
 
       &:before {
-        background: url($icon-sprite) -3px -207px no-repeat;
+        background: url($icon-sprite) -3px -257px no-repeat;
         height: 12px;
         position: static;
         width: 12px;
@@ -1342,7 +1342,7 @@ footer.bigfoot {
     position: relative;
 
     &:before {
-      background: url($icon-sprite) -4px -289px no-repeat;
+      background: url($icon-sprite) -4px -339px no-repeat;
       content: '';
       display: block;
       height: 10px;
@@ -1362,7 +1362,7 @@ footer.bigfoot {
 
 .unsubscribe {
   .btn:before {
-    background: url($icon-sprite) -4px -306px no-repeat;
+    background: url($icon-sprite) -4px -356px no-repeat;
   }
 }
 
@@ -1431,19 +1431,13 @@ footer.bigfoot {
   .views-row {
     margin-bottom: 5px;
     position: relative;
-
-    &:hover {
-      .unsubscribe {
-        display: block;
-      }
-    }
   }
 
   .subscribed-courses {
     .has-not-started {
       .views-field-title {
         a {
-          background: url($icon-sprite) left -169px no-repeat;
+          background: url($icon-sprite) -3px -169px no-repeat;
           padding-left: 18px;
         }
       }
@@ -1451,7 +1445,6 @@ footer.bigfoot {
   }
 
   .unsubscribe {
-    display: none;
     height: 12px;
     overflow: hidden;
     position: absolute;
@@ -1473,7 +1466,7 @@ footer.bigfoot {
     }
 
     &:before {
-      background: url($icon-sprite) -3px -207px no-repeat;
+      background: url($icon-sprite) -3px -257px no-repeat;
       height: 12px;
       position: static;
       width: 12px;
@@ -1694,7 +1687,7 @@ footer.bigfoot {
 
       .unsubscribe {
         float: right;
-        margin: 5px 0 3px 10px;
+        margin: 5px -15px 3px 10px;
         position: static;
       }
     }
