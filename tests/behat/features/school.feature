@@ -7,7 +7,7 @@ Feature: School
   @api
   Scenario: Visit school
     Given I am on the homepage
-    When I click "Skolor"
+    When I click "Utbildningsanordnare"
     Then I should see the text "A1 Test school"
     When I click "A1 Test school"
     Then I should see the text "A1 Test school"
