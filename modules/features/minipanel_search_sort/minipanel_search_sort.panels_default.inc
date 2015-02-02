@@ -53,7 +53,7 @@ function minipanel_search_sort_default_panels_mini() {
     $pane->configuration = array(
       'admin_title' => '',
       'title' => '',
-      'body' => '<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Pellentesque in ipsum id orci porta dapibus. Sed porttitor lectus nibh.</p>',
+      'body' => '<p>Sortera sökresultatet i alfabetisk ordning, utifrån startdatum eller i relevans till ditt sökord. Välj pil uppåt eller nedåt för fallande respektive stigande ordning.</p>',
       'format' => 'filtered_html',
       'substitute' => TRUE,
     );

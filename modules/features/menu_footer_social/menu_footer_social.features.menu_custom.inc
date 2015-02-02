@@ -13,12 +13,12 @@ function menu_footer_social_menu_default_menu_custom() {
   // Exported menu: menu-footer-social.
   $menus['menu-footer-social'] = array(
     'menu_name' => 'menu-footer-social',
-    'title' => 'Footer social',
+    'title' => 'Sidfot socialt',
     'description' => '',
   );
   // Translatables
   // Included for use with string extractors like potx.
-  t('Footer social');
+  t('Sidfot socialt');
 
 
   return $menus;

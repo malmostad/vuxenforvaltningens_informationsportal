@@ -584,6 +584,7 @@ function config_permissions_user_default_permissions() {
   $permissions['administer taxonomy'] = array(
     'name' => 'administer taxonomy',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
@@ -1249,6 +1250,7 @@ function config_permissions_user_default_permissions() {
   $permissions['delete terms in course_form'] = array(
     'name' => 'delete terms in course_form',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
@@ -1258,6 +1260,7 @@ function config_permissions_user_default_permissions() {
   $permissions['delete terms in course_gymnasie_program'] = array(
     'name' => 'delete terms in course_gymnasie_program',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
@@ -1267,6 +1270,7 @@ function config_permissions_user_default_permissions() {
   $permissions['delete terms in course_orientation'] = array(
     'name' => 'delete terms in course_orientation',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
@@ -1276,6 +1280,7 @@ function config_permissions_user_default_permissions() {
   $permissions['delete terms in course_school'] = array(
     'name' => 'delete terms in course_school',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
@@ -1284,7 +1289,9 @@ function config_permissions_user_default_permissions() {
   // Exported permission: 'delete terms in course_searchable_type'.
   $permissions['delete terms in course_searchable_type'] = array(
     'name' => 'delete terms in course_searchable_type',
-    'roles' => array(),
+    'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
+    ),
     'module' => 'taxonomy',
   );
 
@@ -1292,6 +1299,7 @@ function config_permissions_user_default_permissions() {
   $permissions['delete terms in course_subject_areas'] = array(
     'name' => 'delete terms in course_subject_areas',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
@@ -1301,6 +1309,7 @@ function config_permissions_user_default_permissions() {
   $permissions['delete terms in course_type_of_education'] = array(
     'name' => 'delete terms in course_type_of_education',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
@@ -1309,14 +1318,18 @@ function config_permissions_user_default_permissions() {
   // Exported permission: 'delete terms in qa_category'.
   $permissions['delete terms in qa_category'] = array(
     'name' => 'delete terms in qa_category',
-    'roles' => array(),
+    'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: 'delete terms in type_of_education'.
   $permissions['delete terms in type_of_education'] = array(
     'name' => 'delete terms in type_of_education',
-    'roles' => array(),
+    'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
+    ),
     'module' => 'taxonomy',
   );
 
@@ -1720,6 +1733,7 @@ function config_permissions_user_default_permissions() {
   $permissions['edit terms in course_form'] = array(
     'name' => 'edit terms in course_form',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
@@ -1729,6 +1743,7 @@ function config_permissions_user_default_permissions() {
   $permissions['edit terms in course_gymnasie_program'] = array(
     'name' => 'edit terms in course_gymnasie_program',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
@@ -1738,6 +1753,7 @@ function config_permissions_user_default_permissions() {
   $permissions['edit terms in course_orientation'] = array(
     'name' => 'edit terms in course_orientation',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
@@ -1747,6 +1763,7 @@ function config_permissions_user_default_permissions() {
   $permissions['edit terms in course_school'] = array(
     'name' => 'edit terms in course_school',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
@@ -1755,7 +1772,9 @@ function config_permissions_user_default_permissions() {
   // Exported permission: 'edit terms in course_searchable_type'.
   $permissions['edit terms in course_searchable_type'] = array(
     'name' => 'edit terms in course_searchable_type',
-    'roles' => array(),
+    'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
+    ),
     'module' => 'taxonomy',
   );
 
@@ -1763,6 +1782,7 @@ function config_permissions_user_default_permissions() {
   $permissions['edit terms in course_subject_areas'] = array(
     'name' => 'edit terms in course_subject_areas',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
@@ -1772,6 +1792,7 @@ function config_permissions_user_default_permissions() {
   $permissions['edit terms in course_type_of_education'] = array(
     'name' => 'edit terms in course_type_of_education',
     'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
       'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',
@@ -1780,14 +1801,18 @@ function config_permissions_user_default_permissions() {
   // Exported permission: 'edit terms in qa_category'.
   $permissions['edit terms in qa_category'] = array(
     'name' => 'edit terms in qa_category',
-    'roles' => array(),
+    'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: 'edit terms in type_of_education'.
   $permissions['edit terms in type_of_education'] = array(
     'name' => 'edit terms in type_of_education',
-    'roles' => array(),
+    'roles' => array(
+      'Malmo top admin' => 'Malmo top admin',
+    ),
     'module' => 'taxonomy',
   );
 

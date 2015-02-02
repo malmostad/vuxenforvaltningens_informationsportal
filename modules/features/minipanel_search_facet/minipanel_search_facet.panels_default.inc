@@ -54,7 +54,7 @@ function minipanel_search_facet_default_panels_mini() {
     $pane->configuration = array(
       'admin_title' => 'Custom text',
       'title' => '',
-      'body' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem. Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.</p>',
+      'body' => '<p>Gör dina val&nbsp; till höger. Klicka på de alternativ du är intresserad av.</p>',
       'format' => 'filtered_html',
       'substitute' => TRUE,
     );

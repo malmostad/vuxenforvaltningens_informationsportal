@@ -55,7 +55,7 @@ function page_main_layout_default_page_manager_handlers() {
     $pane->panel = 'region-five';
     $pane->type = 'panels_mini';
     $pane->subtype = 'footer';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'override_title' => 0,

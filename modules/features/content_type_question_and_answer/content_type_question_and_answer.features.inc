@@ -19,11 +19,11 @@ function content_type_question_and_answer_ctools_plugin_api($module = NULL, $api
 function content_type_question_and_answer_node_info() {
   $items = array(
     'question_and_answer' => array(
-      'name' => t('Question and answer'),
+      'name' => t('Frågor och svar'),
       'base' => 'node_content',
-      'description' => t('Use <em>question and answer</em> for administer FAQ page.'),
+      'description' => t('Använd <em> frågor och svar </ em> för administrera FAQ sida.'),
       'has_title' => '1',
-      'title_label' => t('Question'),
+      'title_label' => t('Fråga'),
       'help' => '',
     ),
   );
