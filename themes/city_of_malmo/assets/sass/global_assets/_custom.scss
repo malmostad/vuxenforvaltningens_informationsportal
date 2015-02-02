@@ -1074,9 +1074,12 @@ footer.bigfoot {
 
 .hint {
   @include inline-block;
-  background: url($icon-sprite) -3px -122px no-repeat;
+  background: url($icon-sprite) -3px -120px no-repeat;
   cursor: default;
+  margin-right: 3px;
   width: 12px;
+
+  & .view-search
 }
 
 // --- Course page --- //
