@@ -11,7 +11,7 @@ Feature: School editor can edit own school
     Given I am on "schools"
     When I click "A2 Test school"
       And I click "Edit"
-      And I fill in "Email" with "test@email.com"
+      And I fill in "E-post" with "test@email.com"
       And I press "Save"
     Then I should see the text "has been updated"
     Then I should see the text "test@email.com"
