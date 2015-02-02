@@ -20,7 +20,21 @@ $plugin = array(
  */
 function contact_box_theme(&$theme, $plugin) {
   $theme['contact_box'] = array(
-    'variables' => array('category' => NULL, 'vars' => NULL),
+    'variables' => array(
+      'title' => NULL,
+      'email' => NULL,
+      'email_title' => NULL,
+      'phone' => NULL,
+      'phone_title' => NULL,
+      'fax' => NULL,
+      'fax_title' => NULL,
+      'address' => NULL,
+      'post_office' => NULL,
+      'postal_code' => NULL,
+      'locality' => NULL,
+      'street_address' => NULL,
+      'maps_link' => NULL,
+    ),
     'path' => $plugin['path'],
     'template' => 'contact_box',
   );
@@ -40,6 +54,7 @@ function contact_box_render($subtype, $conf, $args, $context) {
   $maps_links = $wrapper->field_school_maps_link->value();
   $fax = $wrapper->field_school_fax->info();
   $conf = array(
+    'title' => $wrapper->title->value(),
     'email' => $wrapper->field_school_email->value(),
     'email_title' => $email['label'] . ': ',
     'phone' => $wrapper->field_school_phone->value(),
