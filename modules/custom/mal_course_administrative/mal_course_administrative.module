@@ -29,6 +29,10 @@ function mal_course_administrative_form_course_node_form_alter(&$form, &$form_st
     $field_course_flex['#states']['checked'] = array(
       ':input[name="field_course_form[und]"]' => $flex_states,
     );
+
+    $form['field_course_continuos'][$langcode]['#states']['visible'] = array(
+      ':input[name="field_course_form[und]"]' => $flex_states,
+    );
   }
 
   if (!empty($form['field_course_form'])) {
