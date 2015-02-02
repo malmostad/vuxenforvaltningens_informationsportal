@@ -17,7 +17,7 @@ function content_type_question_and_answer_field_default_field_instances() {
       0 => array(
         'summary' => '',
         'value' => '',
-        'format' => 'filtered_html',
+        'format' => 'full_html',
       ),
     ),
     'deleted' => 0,
@@ -54,7 +54,7 @@ function content_type_question_and_answer_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'body',
-    'label' => 'Answer',
+    'label' => 'Svar',
     'required' => 0,
     'settings' => array(
       'better_formats' => array(
@@ -130,7 +130,7 @@ function content_type_question_and_answer_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_qa_category',
-    'label' => 'Category',
+    'label' => 'Kategori',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -149,8 +149,8 @@ function content_type_question_and_answer_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Answer');
-  t('Category');
+  t('Kategori');
+  t('Svar');
 
   return $field_instances;
 }

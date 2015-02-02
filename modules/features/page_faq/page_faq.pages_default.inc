@@ -95,7 +95,7 @@ function page_faq_default_page_manager_pages() {
     $pane->configuration = array(
       'admin_title' => 'Faq desc',
       'title' => '',
-      'body' => '<p>FAQ desc Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem. Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.</p>',
+      'body' => '<div><p><strong>Här hittar du frågor och svar som rör komvuxutbildningar i Malmö.</strong></p></div>',
       'format' => 'full_html',
       'substitute' => TRUE,
     );

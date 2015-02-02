@@ -146,7 +146,8 @@ function mal_user_courses_date_sort(&$a, &$b) {
   $de2 = $b['#raw_end_date'];
   if ($ds1 == $ds2
     || ($ds1 < $ds2 && $de1 > $ds2)
-    || ($ds2 < $ds1 && $de2 > $ds1)) {
+    || ($ds2 < $ds1 && $de2 > $ds1)
+  ) {
     $days = array(
       'mon' => 0,
       'tue' => 1,
@@ -165,7 +166,8 @@ function mal_user_courses_date_sort(&$a, &$b) {
       $te2 = $b['#raw_end_time'];
       if ($ts1 == $ts2
         || ($ts1 < $ts2 && $te1 > $ts2)
-        || ($ts2 < $ts1 && $te2 > $ts1)) {
+        || ($ts2 < $ts1 && $te2 > $ts1)
+      ) {
         $a['#overlap'] = $b['#overlap'] = TRUE;
         return 0;
       }
@@ -210,9 +212,16 @@ function mal_user_courses_clean_days(array $rendered, $day_to_keep) {
  * Implements hook_preprocess_HOOK().
  */
 function mal_user_courses_preprocess_views_view_field(&$variables) {
-  if (in_array($variables['view']->name, array('my_courses', 'my_course_application_list'))
-    && in_array($variables['field']->real_field, array('field_course_date_value', 'field_course_application_period_value'))
-    && !empty($variables['row']->field_field_course_continuos[0]['raw']['value'])) {
+  if (in_array($variables['view']->name, array(
+      'my_courses',
+      'my_course_application_list',
+    ))
+    && in_array($variables['field']->real_field, array(
+      'field_course_date_value',
+      'field_course_application_period_value',
+    ))
+    && !empty($variables['row']->field_field_course_continuos[0]['raw']['value'])
+  ) {
     $variables['output'] .= ' - <span class="date-continuous">' . t('continuous') . '</span>';
   }
 }
@@ -223,13 +232,15 @@ function mal_user_courses_preprocess_views_view_field(&$variables) {
 function mal_user_courses_preprocess_views_view_list(&$variables) {
   if ($variables['view']->name == 'sidebar_courses'
     && $variables['view']->current_display == 'course_menu_pane'
-    && ($not_started_tid = variable_get('mal_generate_content_searchable_type_3', FALSE))) {
+    && ($not_started_tid = variable_get('mal_generate_content_searchable_type_3', FALSE))
+  ) {
     $results = $variables['view']->result;
     $classes = &$variables['classes_array'];
     $class = 'has-not-started';
     foreach ($results as $id => $row) {
       if (!empty($row->field_field_course_searchable_type)
-        && $row->field_field_course_searchable_type[0]['raw']['tid'] == $not_started_tid) {
+        && $row->field_field_course_searchable_type[0]['raw']['tid'] == $not_started_tid
+      ) {
         $classes[$id] = isset($classes[$id]) ? $classes[$id] . ' ' . $class : $class;
       }
     }
@@ -312,15 +323,42 @@ function mal_user_courses_field_formatter_settings_summary($field, $instance, $v
  * Implements hook_field_formatter_view().
  */
 function mal_user_courses_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
-
   $settings = $display['settings'];
   $settings += $field['settings'];
   $element = array();
 
   switch ($display['type']) {
     case 'muc_timefield_custom':
+      // @codingStandardsIgnoreStart
+      usort($items, function ($a, $b) {
+        $days = array(
+          'mon' => 0,
+          'tue' => 1,
+          'wed' => 2,
+          'thu' => 3,
+          'fri' => 4,
+          'sat' => 5,
+          'sun' => 6,
+        );
+        $day1 = mal_user_courses_find_day($a);
+        $day2 = mal_user_courses_find_day($b);
+        if ($day1 == $day2) {
+          $ts1 = $a['value'];
+          $te1 = $a['value2'];
+          $ts2 = $b['value'];
+          $te2 = $b['value2'];
+          if ($ts1 == $ts2
+            || ($ts1 < $ts2 && $te1 > $ts2)
+            || ($ts2 < $ts1 && $te2 > $ts1)
+          ) {
+            return 0;
+          }
+          return $ts1 > $ts2 ? 1 : -1;
+        }
+        return $days[$day1] > $days[$day2] ? 1 : -1;
+      });
+      // @codingStandardsIgnoreEnd
       foreach ($items as $delta => $item) {
-
         $element[$delta] = array(
           '#theme' => array('timefield_formatter'),
           '#time' => $item,
@@ -332,4 +370,33 @@ function mal_user_courses_field_formatter_view($entity_type, $entity, $field, $i
   }
 
   return $element;
+}
+
+/**
+ * Find chosen week day in time field item.
+ *
+ * @param array $time_item
+ *   Time field array.
+ *
+ * @return string
+ *   Short name of week day.
+ */
+function mal_user_courses_find_day($time_item) {
+  $days = array(
+    'mon',
+    'tue',
+    'wed',
+    'thu',
+    'fri',
+    'sat',
+    'sun',
+  );
+
+  foreach ($time_item as $key => $value) {
+    if (in_array($key, $days) && $value) {
+      return $key;
+    }
+  }
+
+  return 'mon';
 }
