@@ -1310,14 +1310,16 @@ footer.bigfoot {
 
 // -------- Subscribe button --------- //
 .page-search-courses {
-  .subscribe,
-  .unsubscribe {
-    bottom: 0;
-    position: absolute;
-    right: 0;
+  .view-search {
+    .subscribe,
+    .unsubscribe {
+      bottom: 0;
+      position: absolute;
+      right: 0;
 
-    .btn {
-      float: right;
+      .btn {
+        float: right;
+      }
     }
   }
 
