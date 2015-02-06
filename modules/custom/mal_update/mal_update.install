@@ -470,7 +470,10 @@ function mal_update_update_7033() {
 
 /**
  * Update output of timefield.
+ *
+ * Re-arrange fields on course and course package node pages.
  */
 function mal_update_update_7034() {
   features_revert_module('content_type_course');
+  features_revert_module('content_type_course_packages');
 }
