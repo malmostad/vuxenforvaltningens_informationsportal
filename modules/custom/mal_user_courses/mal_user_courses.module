@@ -319,15 +319,18 @@ function mal_user_courses_field_formatter_view($entity_type, $entity, $field, $i
 
   switch ($display['type']) {
     case 'muc_timefield_custom':
-      foreach ($items as $delta => $item) {
+      $sun = $mon = $tue = $wed = $thu = $fri = $sat = array();
 
-        $element[$delta] = array(
+      foreach ($items as $delta => $item) {
+        $day = array_search(1, $item);
+        ${$day}[] = array(
           '#theme' => array('timefield_formatter'),
           '#time' => $item,
           '#settings' => $settings,
           '#format' => 'default',
         );
       }
+      $element = array_merge($sun, $mon, $tue, $wed, $thu, $fri, $sat);
       break;
   }
 

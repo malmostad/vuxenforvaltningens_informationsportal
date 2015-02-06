@@ -398,7 +398,7 @@ function content_type_course_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'inline',
-        'module' => 'timefield',
+        'module' => 'mal_user_courses',
         'settings' => array(
           'display_format' => array(
             'hour' => 'H',
@@ -408,7 +408,7 @@ function content_type_course_field_default_field_instances() {
             'separator' => ':',
           ),
         ),
-        'type' => 'timefield_default',
+        'type' => 'muc_timefield_custom',
         'weight' => 10,
       ),
       'node_teaser' => array(
@@ -419,7 +419,7 @@ function content_type_course_field_default_field_instances() {
       ),
       'search_result' => array(
         'label' => 'inline',
-        'module' => 'timefield',
+        'module' => 'mal_user_courses',
         'settings' => array(
           'display_format' => array(
             'hour' => 'H',
@@ -429,7 +429,7 @@ function content_type_course_field_default_field_instances() {
             'separator' => ':',
           ),
         ),
-        'type' => 'timefield_default',
+        'type' => 'muc_timefield_custom',
         'weight' => 10,
       ),
       'teaser' => array(
