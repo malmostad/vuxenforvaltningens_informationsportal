@@ -336,3 +336,53 @@ function mal_user_courses_field_formatter_view($entity_type, $entity, $field, $i
 
   return $element;
 }
+
+/**
+ * Implements hook_field_attach_view_alter().
+ *
+ * Emulate field_default_veiw for app_date and date fields for case when
+ * continuous checkbox is checked.
+ */
+function mal_user_courses_field_attach_view_alter(&$output, $context) {
+  if ($context['entity_type'] == 'node' && $context['entity']->type == 'course') {
+    $entity = $context['entity'];
+    $continuous = field_get_items('node', $entity, 'field_course_continuos');
+    if (!empty($continuous[0]['value'])) {
+      $fields = array(
+        'field_course_application_period',
+        'field_course_date',
+      );
+      $entity_type = $context['entity_type'];
+      $bundle = $context['entity']->type;
+      // Doesn't really matter what language to use since content is custom.
+      $langcode = LANGUAGE_NONE;
+      foreach ($fields as $field_name) {
+        $instance = field_info_instance($context['entity_type'], $field_name, $bundle);
+        $field = field_info_field_by_id($instance['field_id']);
+        $items = array(
+          array('#markup' => '<span class="date-continuous">' . t('continuous') . '</span>'),
+        );
+        $view_mode = $context['display'];
+        $display = field_get_display($instance, $view_mode, $entity);
+        $info = array(
+          '#theme' => 'field',
+          '#weight' => $display['weight'],
+          '#title' => $instance['label'],
+          '#access' => field_access('view', $field, $entity_type, $entity),
+          '#label_display' => $display['label'],
+          '#view_mode' => $view_mode,
+          '#language' => $langcode,
+          '#field_name' => $field['field_name'],
+          '#field_type' => $field['type'],
+          '#field_translatable' => $field['translatable'],
+          '#entity_type' => $entity_type,
+          '#bundle' => $bundle,
+          '#object' => $entity,
+          '#items' => $items,
+          '#formatter' => $display['type'],
+        );
+        $output[$field_name] = array_merge($info, $items);
+      }
+    }
+  }
+}
