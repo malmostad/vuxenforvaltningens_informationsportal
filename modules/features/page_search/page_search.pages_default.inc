@@ -222,7 +222,7 @@ function page_search_default_page_manager_pages() {
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'link_text' => 'Tydliga filter',
+      'link_text' => 'Rensa filter',
       'override_title' => '',
       'override_title_text' => '',
     );

@@ -58,7 +58,7 @@ function page_front_default_page_manager_pages() {
     'style' => 'naked',
   );
   $display->cache = array();
-  $display->title = 'Rubrik';
+  $display->title = 'Vuxenutbildning Malmö';
   $display->uuid = '33bded61-02d8-4b08-bacd-e4672e03a992';
   $display->content = array();
   $display->panels = array();
@@ -76,13 +76,13 @@ function page_front_default_page_manager_pages() {
       'title_tag' => 'h1',
       'width' => 'half',
       'text' => array(
-        'value' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor sem. Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu condimentum sed.&nbsp;</p>',
+        'value' => '<p>Kommunal vuxenutbildning på grundläggande nivå motsvarar grundskolan, men undervisningen är anpassad för vuxna.</p>',
         'format' => 'full_html',
       ),
       'link_label' => 'See more',
       'link' => array(
         'title' => 'Mer om grundläggande vuxenutbildning',
-        'url' => 'node/1',
+        'url' => 'node/197',
       ),
       'image' => 0,
       'url' => 'test31',
@@ -120,13 +120,13 @@ function page_front_default_page_manager_pages() {
       'title_tag' => 'h1',
       'width' => 'half',
       'text' => array(
-        'value' => '<p>Proin eget tortor risus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>',
+        'value' => '<p>Kommunal vuxenutbildning på gymnasial nivå motsvarar kurser som finns inom den treåriga gymnasieskolan.</p>',
         'format' => 'full_html',
       ),
       'link_label' => '',
       'link' => array(
         'title' => 'Mer om gymnasial vuxenutbildning',
-        'url' => 'node/1',
+        'url' => 'node/198',
       ),
       'image' => 0,
       'pane_title' => 'Gymnasial vuxenutbildning',
@@ -211,7 +211,7 @@ function page_front_default_page_manager_pages() {
         'title' => '',
         'url' => '',
       ),
-      'image' => '12',
+      'image' => 0,
     );
     $pane->cache = array(
       'method' => 'simple',

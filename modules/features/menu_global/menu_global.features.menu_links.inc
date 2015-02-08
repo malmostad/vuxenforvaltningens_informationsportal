@@ -75,7 +75,7 @@ function menu_global_menu_default_menu_links() {
     'menu_name' => 'menu-global-menu',
     'link_path' => 'schools',
     'router_path' => 'schools',
-    'link_title' => 'Skolor',
+    'link_title' => 'Utbildningsanordnare',
     'options' => array(
       'attributes' => array(
         'title' => '',
@@ -95,7 +95,7 @@ function menu_global_menu_default_menu_links() {
   t('Ansökningswebb');
   t('Frågor och svar');
   t('Kurser och utbildningar');
-  t('Skolor');
+  t('Utbildningsanordnare');
 
 
   return $menu_links;

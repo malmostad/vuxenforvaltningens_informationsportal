@@ -22,8 +22,6 @@ projects[timefield][patch][] = "https://www.drupal.org/files/issues/timefield-is
 
 projects[auto_nodetitle][patch][] = "https://www.drupal.org/files/issues/auto_nodetitle-881170-50.patch"
 
-projects[i18n][patch][] = "https://www.drupal.org/files/issues/i18n_string-2227523-20.patch"
-
 ; +++++ Modules +++++
 
 projects[menu_import][version] = "1.6"
@@ -47,7 +45,7 @@ projects[devel][subdir] = "contrib"
 projects[profiler_builder][version] = "1.2"
 projects[profiler_builder][subdir] = "contrib"
 
-projects[features][version] = "2.2"
+projects[features][version] = "2.3"
 projects[features][subdir] = "contrib"
 
 projects[field_collection][version] = "1.0-beta8"
@@ -103,7 +101,7 @@ projects[panels][download][type] = "git"
 projects[panels][download][url] = "http://git.drupal.org/project/panels.git"
 projects[panels][download][revision] = "f7ed1af2a50c0eef9f0be0420a6bdad85811ab92"
 
-projects[panels_everywhere][version] = "1.0-rc1"
+projects[panels_everywhere][version] = "1.0-rc2"
 projects[panels_everywhere][subdir] = "contrib"
 
 projects[pps][version] = "1.0"
@@ -112,7 +110,7 @@ projects[pps][subdir] = "contrib"
 projects[registration][version] = "1.3"
 projects[registration][subdir] = "contrib"
 
-projects[search_api][version] = "1.13"
+projects[search_api][version] = "1.14"
 projects[search_api][subdir] = "contrib"
 
 projects[search_api_autocomplete][version] = "1.x-dev"
@@ -133,7 +131,7 @@ projects[facetapi_ranges][subdir] = "contrib"
 projects[facetapi_bonus][version] = "1.1"
 projects[facetapi_bonus][subdir] = "contrib"
 
-projects[jquery_update][version] = "2.4"
+projects[jquery_update][version] = "2.5"
 projects[jquery_update][subdir] = "contrib"
 
 projects[wysiwyg][version] = "2.2"
@@ -157,7 +155,7 @@ projects[views_bulk_operations][subdir] = "contrib"
 projects[language_cookie][version] = "1.8"
 projects[language_cookie][subdir] = "contrib"
 
-projects[rules][version] = "2.7"
+projects[rules][version] = "2.8"
 projects[rules][subdir] = "contrib"
 
 projects[l10n_update][version] = "1.1"
@@ -178,7 +176,7 @@ projects[auto_nodetitle][subdir] = "contrib"
 projects[varnish][version] = "1.0-beta3"
 projects[varnish][subdir] = "contrib"
 
-projects[memcache][version] = "1.3"
+projects[memcache][version] = "1.5"
 projects[memcache][subdir] = "contrib"
 
 projects[advagg][version] = "2.7"
@@ -187,13 +185,13 @@ projects[advagg][subdir] = "contrib"
 projects[entitycache][version] = "1.2"
 projects[entitycache][subdir] = "contrib"
 
-projects[i18n][version] = "1.11"
+projects[i18n][version] = "1.12"
 projects[i18n][subdir] = "contrib"
 
 projects[variable][version] = "2.5"
 projects[variable][subdir] = "contrib"
 
-projects[navbar][version] = "1.4"
+projects[navbar][version] = "1.5"
 projects[navbar][subdir] = "contrib"
 
 projects[hide_formats][version] = "1.1"
@@ -208,7 +206,7 @@ projects[node_edit_protection][subdir] = "contrib"
 projects[chosen][version] = "2.0-beta4"
 projects[chosen][subdir] = "contrib"
 
-projects[publish_button][version] = "1.0"
+projects[publish_button][version] = "1.1"
 projects[publish_button][subdir] = "contrib"
 
 projects[better_formats][version] = "1.0-beta1"

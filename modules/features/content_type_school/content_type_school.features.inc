@@ -19,11 +19,11 @@ function content_type_school_ctools_plugin_api($module = NULL, $api = NULL) {
 function content_type_school_node_info() {
   $items = array(
     'school' => array(
-      'name' => t('School'),
+      'name' => t('Skola'),
       'base' => 'node_content',
-      'description' => t('Use <em>school</em> for administer schools.'),
+      'description' => t('Använd <em> skola </ em> för administrera skolor.'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
   );

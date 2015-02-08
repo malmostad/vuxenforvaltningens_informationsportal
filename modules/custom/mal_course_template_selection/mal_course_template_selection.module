@@ -95,6 +95,7 @@ function mal_course_template_selection_form_course_node_form_alter(&$form, &$for
         'callback' => 'mal_course_template_selection_course_template_refresh',
       ),
       '#weight' => 0,
+      '#prefix' => '<h3>Kursmallar</h3>',
     );
 
     // Second check used for existing nodes to avoid illegal selection.

@@ -57,8 +57,29 @@ function user_register_menu_alter(&$items) {
 
 /**
  * Implements hook_form_FORM_ID_alter().
+ *
+ * Alter user login form and add link to restore the password.
  */
-function user_register_form_registration_form_alter(&$form, &$form_state, $form_id) {
+function user_register_form_user_login_alter(&$form, $form_state) {
+  $form['actions']['password'] = array(
+    '#markup' => l(t('Request new password'), 'user/password', array('attributes' => array('class' => array('btn', 'btn-default')))),
+  );
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Alter user update password form and remove all unnecessary stuff.
+ */
+function user_register_form_user_profile_form_alter(&$form, $form_state) {
+  unset($form['timezone']);
+  unset($form['locale']);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function user_register_form_registration_form_alter(&$form, &$form_state) {
   unset($form['who_message']);
   unset($form['actions']['cancel']);
 
@@ -70,7 +91,7 @@ function user_register_form_registration_form_alter(&$form, &$form_state, $form_
     'wrapper' => 'user-register-form-wrapper-' . $form['#registration_settings']['entity_type'] . '-' . $form['#registration_settings']['entity_id'],
     'callback' => 'user_register_unregistration_form_reload',
   );
-  $form['actions']['submit']['#value'] = t('Register');
+  $form['actions']['submit']['#value'] = t('Register on course');
   $form['actions']['submit']['#id'] = $id;
   $form['actions']['submit']['#attributes']['id'][] = $id;
   $form['actions']['submit']['#attributes']['class'][] = 'btn-xs';
@@ -295,7 +316,7 @@ function user_register_unregister_form($form, &$form_state, $registration) {
 
   $form['actions']['submit'] = array(
     '#type' => 'submit',
-    '#value' => t('Unregister'),
+    '#value' => t('Unregister from course'),
     '#attributes' => array(
       'class' => array('btn-xs'),
       'id' => array($id),
@@ -338,7 +359,7 @@ function user_register_unregister_ajax_form($form, &$form_state, $registration) 
 
   $form['actions']['submit'] = array(
     '#type' => 'submit',
-    '#value' => t('Unregister'),
+    '#value' => t('Unregister from course'),
     '#attributes' => array(
       'class' => array('btn-xs'),
       'id' => array($id),

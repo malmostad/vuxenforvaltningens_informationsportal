@@ -7,7 +7,7 @@ Feature: School
   @api
   Scenario: Visit school
     Given I am on the homepage
-    When I click "Skolor"
+    When I click "Utbildningsanordnare"
     Then I should see the text "A1 Test school"
     When I click "A1 Test school"
     Then I should see the text "A1 Test school"
@@ -15,9 +15,9 @@ Feature: School
     Then I should see the text "View all school courses"
     Then I should see the text "Contact us"
     Then I should see the text "Write to us"
-    Then I should see the text "Email"
+    Then I should see the text "E-post"
     Then I should see the text "school@email.test"
-    Then I should see the text "Phone"
+    Then I should see the text "Tel"
     Then I should see the text "380932312332"
     Then I should see the text "Fax"
     Then I should see the text "777777"

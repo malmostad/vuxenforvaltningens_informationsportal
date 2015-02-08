@@ -13,12 +13,12 @@ function menu_footer_visit_menu_default_menu_custom() {
   // Exported menu: menu-footer-visit.
   $menus['menu-footer-visit'] = array(
     'menu_name' => 'menu-footer-visit',
-    'title' => 'Footer visit',
+    'title' => 'Sidfot besök',
     'description' => '',
   );
   // Translatables
   // Included for use with string extractors like potx.
-  t('Footer visit');
+  t('Sidfot besök');
 
 
   return $menus;
