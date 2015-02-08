@@ -25,13 +25,12 @@ function content_type_course_field_group_info() {
     'children' => array(
       0 => 'field_course_date',
       1 => 'field_course_form',
-      2 => 'field_course_group',
-      3 => 'field_course_periods',
-      4 => 'field_course_school',
-      5 => 'field_course_searchable_type',
-      6 => 'node:course_template:field_course_number_of_points',
-      7 => 'node:course_template:field_course_prerequisites',
-      8 => 'node:course_template:field_course_type_education',
+      2 => 'field_course_periods',
+      3 => 'field_course_school',
+      4 => 'field_course_searchable_type',
+      5 => 'node:course_template:field_course_number_of_points',
+      6 => 'node:course_template:field_course_prerequisites',
+      7 => 'node:course_template:field_course_type_education',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
@@ -86,6 +85,36 @@ function content_type_course_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_fourth_group|node|course|default';
+  $field_group->group_name = 'group_fourth_group';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'course';
+  $field_group->mode = 'default';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Fourth group',
+    'weight' => '3',
+    'children' => array(
+      0 => 'field_course_group',
+      1 => 'node:course_template:field_course_national_code',
+    ),
+    'format_type' => 'html-element',
+    'format_settings' => array(
+      'label' => 'Fourth group',
+      'instance_settings' => array(
+        'classes' => 'second-group',
+        'element' => 'div',
+        'show_label' => '0',
+        'label_element' => 'div',
+        'attributes' => '',
+      ),
+    ),
+  );
+  $export['group_fourth_group|node|course|default'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_hide_and_show|node|course|search_result';
   $field_group->group_name = 'group_hide_and_show';
   $field_group->entity_type = 'node';
@@ -127,7 +156,6 @@ function content_type_course_field_group_info() {
     'weight' => '1',
     'children' => array(
       0 => 'field_course_application_period',
-      1 => 'node:course_template:field_course_national_code',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(

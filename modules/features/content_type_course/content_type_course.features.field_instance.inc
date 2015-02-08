@@ -97,7 +97,7 @@ function content_type_course_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -153,7 +153,7 @@ function content_type_course_field_default_field_instances() {
           'multiple_to' => '',
         ),
         'type' => 'date_default',
-        'weight' => 9,
+        'weight' => 10,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -223,7 +223,7 @@ function content_type_course_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -274,7 +274,7 @@ function content_type_course_field_default_field_instances() {
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_plain',
-        'weight' => 11,
+        'weight' => 9,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -326,7 +326,7 @@ function content_type_course_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 13,
+        'weight' => 14,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -398,7 +398,7 @@ function content_type_course_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'inline',
-        'module' => 'timefield',
+        'module' => 'mal_user_courses',
         'settings' => array(
           'display_format' => array(
             'hour' => 'H',
@@ -408,8 +408,8 @@ function content_type_course_field_default_field_instances() {
             'separator' => ':',
           ),
         ),
-        'type' => 'timefield_default',
-        'weight' => 10,
+        'type' => 'muc_timefield_custom',
+        'weight' => 11,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -419,7 +419,7 @@ function content_type_course_field_default_field_instances() {
       ),
       'search_result' => array(
         'label' => 'inline',
-        'module' => 'timefield',
+        'module' => 'mal_user_courses',
         'settings' => array(
           'display_format' => array(
             'hour' => 'H',
@@ -429,7 +429,7 @@ function content_type_course_field_default_field_instances() {
             'separator' => ':',
           ),
         ),
-        'type' => 'timefield_default',
+        'type' => 'muc_timefield_custom',
         'weight' => 10,
       ),
       'teaser' => array(
@@ -602,7 +602,7 @@ function content_type_course_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 7,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -661,7 +661,7 @@ function content_type_course_field_default_field_instances() {
         'module' => 'user_register',
         'settings' => array(),
         'type' => 'toggling_registration_form',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'node_teaser' => array(
         'label' => 'above',

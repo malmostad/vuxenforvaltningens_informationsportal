@@ -329,43 +329,18 @@ function mal_user_courses_field_formatter_view($entity_type, $entity, $field, $i
 
   switch ($display['type']) {
     case 'muc_timefield_custom':
-      // @codingStandardsIgnoreStart
-      usort($items, function ($a, $b) {
-        $days = array(
-          'mon' => 0,
-          'tue' => 1,
-          'wed' => 2,
-          'thu' => 3,
-          'fri' => 4,
-          'sat' => 5,
-          'sun' => 6,
-        );
-        $day1 = mal_user_courses_find_day($a);
-        $day2 = mal_user_courses_find_day($b);
-        if ($day1 == $day2) {
-          $ts1 = $a['value'];
-          $te1 = $a['value2'];
-          $ts2 = $b['value'];
-          $te2 = $b['value2'];
-          if ($ts1 == $ts2
-            || ($ts1 < $ts2 && $te1 > $ts2)
-            || ($ts2 < $ts1 && $te2 > $ts1)
-          ) {
-            return 0;
-          }
-          return $ts1 > $ts2 ? 1 : -1;
-        }
-        return $days[$day1] > $days[$day2] ? 1 : -1;
-      });
-      // @codingStandardsIgnoreEnd
+      $sun = $mon = $tue = $wed = $thu = $fri = $sat = array();
+
       foreach ($items as $delta => $item) {
-        $element[$delta] = array(
+        $day = array_search(1, $item);
+        ${$day}[] = array(
           '#theme' => array('timefield_formatter'),
           '#time' => $item,
           '#settings' => $settings,
           '#format' => 'default',
         );
       }
+      $element = array_merge($sun, $mon, $tue, $wed, $thu, $fri, $sat);
       break;
   }
 
@@ -373,30 +348,51 @@ function mal_user_courses_field_formatter_view($entity_type, $entity, $field, $i
 }
 
 /**
- * Find chosen week day in time field item.
+ * Implements hook_field_attach_view_alter().
  *
- * @param array $time_item
- *   Time field array.
- *
- * @return string
- *   Short name of week day.
+ * Emulate field_default_veiw for app_date and date fields for case when
+ * continuous checkbox is checked.
  */
-function mal_user_courses_find_day($time_item) {
-  $days = array(
-    'mon',
-    'tue',
-    'wed',
-    'thu',
-    'fri',
-    'sat',
-    'sun',
-  );
-
-  foreach ($time_item as $key => $value) {
-    if (in_array($key, $days) && $value) {
-      return $key;
+function mal_user_courses_field_attach_view_alter(&$output, $context) {
+  if ($context['entity_type'] == 'node' && $context['entity']->type == 'course') {
+    $entity = $context['entity'];
+    $continuous = field_get_items('node', $entity, 'field_course_continuos');
+    if (!empty($continuous[0]['value'])) {
+      $fields = array(
+        'field_course_application_period',
+        'field_course_date',
+      );
+      $entity_type = $context['entity_type'];
+      $bundle = $context['entity']->type;
+      // Doesn't really matter what language to use since content is custom.
+      $langcode = LANGUAGE_NONE;
+      foreach ($fields as $field_name) {
+        $instance = field_info_instance($context['entity_type'], $field_name, $bundle);
+        $field = field_info_field_by_id($instance['field_id']);
+        $items = array(
+          array('#markup' => '<span class="date-continuous">' . t('continuous') . '</span>'),
+        );
+        $view_mode = $context['display'];
+        $display = field_get_display($instance, $view_mode, $entity);
+        $info = array(
+          '#theme' => 'field',
+          '#weight' => $display['weight'],
+          '#title' => $instance['label'],
+          '#access' => field_access('view', $field, $entity_type, $entity),
+          '#label_display' => $display['label'],
+          '#view_mode' => $view_mode,
+          '#language' => $langcode,
+          '#field_name' => $field['field_name'],
+          '#field_type' => $field['type'],
+          '#field_translatable' => $field['translatable'],
+          '#entity_type' => $entity_type,
+          '#bundle' => $bundle,
+          '#object' => $entity,
+          '#items' => $items,
+          '#formatter' => $display['type'],
+        );
+        $output[$field_name] = array_merge($info, $items);
+      }
     }
   }
-
-  return 'mon';
 }
