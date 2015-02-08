@@ -396,32 +396,3 @@ function mal_user_courses_field_attach_view_alter(&$output, $context) {
     }
   }
 }
-
-/**
- * Find chosen week day in time field item.
- *
- * @param array $time_item
- *   Time field array.
- *
- * @return string
- *   Short name of week day.
- */
-function mal_user_courses_find_day($time_item) {
-  $days = array(
-    'mon',
-    'tue',
-    'wed',
-    'thu',
-    'fri',
-    'sat',
-    'sun',
-  );
-
-  foreach ($time_item as $key => $value) {
-    if (in_array($key, $days) && $value) {
-      return $key;
-    }
-  }
-
-  return 'mon';
-}
