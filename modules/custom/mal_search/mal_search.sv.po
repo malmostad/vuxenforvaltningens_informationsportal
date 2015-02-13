@@ -65,5 +65,5 @@ msgstr "Propeople"
 
 #: mal_search.info:0
 msgid "Show only searchable courses"
-msgstr "Visa endast sökbara kurser"
+msgstr "Visa enbart sökbara"
 

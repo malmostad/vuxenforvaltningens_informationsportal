@@ -24,7 +24,7 @@ function content_type_course_node_info() {
     'course' => array(
       'name' => t('Enstaka kurs'),
       'base' => 'node_content',
-      'description' => t('Use <em>enstaka kurs</em> for your school courses.'),
+      'description' => t('Klicka för att lägga in <em>enstaka kurser</em>.'),
       'has_title' => '1',
       'title_label' => t('Titel'),
       'help' => '',

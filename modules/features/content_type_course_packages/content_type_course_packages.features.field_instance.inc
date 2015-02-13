@@ -497,7 +497,7 @@ function content_type_course_packages_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_course_group',
-    'label' => 'Kurs group',
+    'label' => 'Kursgrupp',
     'required' => 1,
     'settings' => array(
       'better_formats' => array(
@@ -1199,9 +1199,9 @@ function content_type_course_packages_field_default_field_instances() {
   t('Kontaktperson');
   t('Kryssa i Lärling om det är en lärlingsutbildning');
   t('Kurs');
-  t('Kurs group');
   t('Kurser som ingår');
   t('Kursform');
+  t('Kursgrupp');
   t('Kursperiod');
   t('Omfattning');
   t('Poäng');
