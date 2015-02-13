@@ -477,3 +477,12 @@ function mal_update_update_7034() {
   features_revert_module('content_type_course');
   features_revert_module('content_type_course_packages');
 }
+
+/**
+ * Add translation for deletion message.
+ */
+function mal_update_update_7035() {
+  t('Following courses would be deleted as well:');
+  _mal_update_locale_add_translation('Following courses would be deleted as well:', 'sv', 'Följande kurser skulle tas bort som alltför:');
+  _mal_update_locale_clear_cache();
+}

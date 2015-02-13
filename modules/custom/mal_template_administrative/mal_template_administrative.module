@@ -16,3 +16,61 @@ function mal_template_administrative_form_course_template_node_form_alter(&$form
     }
   }
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function mal_template_administrative_form_node_delete_confirm_alter(&$form, &$form_state) {
+  if (!empty($form['#node']->type) && $form['#node']->type == 'course_template') {
+    $items = array();
+
+    $courses = mal_template_administrative_find_child_courses($form['#node']->nid);
+    foreach ($courses as $course) {
+      if (!empty($course->nid) && !empty($course->title)) {
+        $items[] = l($course->title, 'node/' . $course->nid);
+      }
+    }
+
+    if (!empty($items)) {
+      $form['additional_content'] = array(
+        '#theme' => 'item_list',
+        '#title' => t('Following courses would be deleted as well:'),
+        '#type' => 'ul',
+        '#items' => $items,
+        '#weight' => -5,
+      );
+    }
+  }
+}
+
+/**
+ * Implements hook_node_delete().
+ */
+function mal_template_administrative_node_delete($node) {
+  if (!empty($node->type) && $node->type == 'course_template') {
+    $courses = mal_template_administrative_find_child_courses($node->nid);
+    foreach ($courses as $course) {
+      if (!empty($course->nid)) {
+        node_delete($course->nid);
+      }
+    }
+  }
+}
+
+/**
+ * Find courses that are attached to specified template.
+ *
+ * @param int $nid
+ *   ID of template.
+ *
+ * @return array
+ *   Array of course node titles keyed by nids.
+ */
+function mal_template_administrative_find_child_courses($nid) {
+  $query = db_select('node', 'n');
+  $query->leftJoin('field_data_field_course_template', 'ft', 'ft.entity_id = n.nid');
+  $query->condition('bundle', 'course');
+  $query->condition('ft.field_course_template_target_id', $nid);
+  $query->fields('n', array('nid', 'title'));
+  return $query->execute();
+}
