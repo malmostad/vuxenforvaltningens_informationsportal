@@ -27,7 +27,11 @@ function mal_template_administrative_form_node_delete_confirm_alter(&$form, &$fo
     $courses = mal_template_administrative_find_child_courses($form['#node']->nid);
     foreach ($courses as $course) {
       if (!empty($course->nid) && !empty($course->title)) {
-        $items[] = l($course->title, 'node/' . $course->nid);
+        $items[] = l($course->title, 'node/' . $course->nid, array(
+          'attributes' => array(
+            'target' => array('_blank'),
+          ),
+        ));
       }
     }
 

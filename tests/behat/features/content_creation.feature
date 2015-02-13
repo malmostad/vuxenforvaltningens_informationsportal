@@ -9,7 +9,7 @@ Feature: Content creation
       And I am on "node/add"
       And I should see the text "Kurspaket" in ".admin-list" element
       And I should see the text "Enstaka kurs" in ".admin-list" element
-      And I should see the text "Kurs mall" in ".admin-list" element
+      And I should see the text "Kursmall" in ".admin-list" element
 
   @api @javascript
   Scenario: School editor: Auto set school
