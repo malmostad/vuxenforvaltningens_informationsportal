@@ -1,0 +1,37 @@
+# $Id$
+#
+# Swedish translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  mal_template_administrative.module: n/a
+#  mal_template_administrative.info: n/a
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2015-02-13 14:22+0100\n"
+"PO-Revision-Date: 2015-02-13 14:22+0100\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Swedish <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: mal_template_administrative.module:37
+msgid "Following courses would be deleted as well:"
+msgstr "Följande kurser skulle tas bort som alltför:"
+
+#: mal_template_administrative.info:0
+msgid "Mal template administrative"
+msgstr "Mal template administrative"
+
+#: mal_template_administrative.info:0
+msgid "Customizations for administrative tasks on course template."
+msgstr "Anpassningar för administrativa uppgifter på kursmall."
+
+#: mal_template_administrative.info:0
+msgid "Propeople"
+msgstr "Propeople"
+

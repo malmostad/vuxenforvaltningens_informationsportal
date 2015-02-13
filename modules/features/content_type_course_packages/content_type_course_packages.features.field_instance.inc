@@ -356,7 +356,7 @@ function content_type_course_packages_field_default_field_instances() {
           'multiple_to' => '',
         ),
         'type' => 'date_default',
-        'weight' => 7,
+        'weight' => 9,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -423,7 +423,7 @@ function content_type_course_packages_field_default_field_instances() {
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_plain',
-        'weight' => 11,
+        'weight' => 7,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -472,10 +472,9 @@ function content_type_course_packages_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'inline',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 10,
+        'type' => 'hidden',
+        'weight' => 4,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -498,7 +497,7 @@ function content_type_course_packages_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_course_group',
-    'label' => 'Kurs group',
+    'label' => 'Kursgrupp',
     'required' => 1,
     'settings' => array(
       'better_formats' => array(
@@ -687,7 +686,7 @@ function content_type_course_packages_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -805,7 +804,7 @@ function content_type_course_packages_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 12,
+        'weight' => 6,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -882,7 +881,7 @@ function content_type_course_packages_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 8,
+        'weight' => 10,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -945,7 +944,7 @@ function content_type_course_packages_field_default_field_instances() {
           'thousand_separator' => ' ',
         ),
         'type' => 'number_integer',
-        'weight' => 9,
+        'weight' => 8,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -1200,9 +1199,9 @@ function content_type_course_packages_field_default_field_instances() {
   t('Kontaktperson');
   t('Kryssa i Lärling om det är en lärlingsutbildning');
   t('Kurs');
-  t('Kurs group');
   t('Kurser som ingår');
   t('Kursform');
+  t('Kursgrupp');
   t('Kursperiod');
   t('Omfattning');
   t('Poäng');

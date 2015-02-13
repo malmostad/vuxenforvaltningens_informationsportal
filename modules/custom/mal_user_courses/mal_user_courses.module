@@ -329,18 +329,30 @@ function mal_user_courses_field_formatter_view($entity_type, $entity, $field, $i
 
   switch ($display['type']) {
     case 'muc_timefield_custom':
-      $sun = $mon = $tue = $wed = $thu = $fri = $sat = array();
+      $days = array(
+        'sun' => array(),
+        'mon' => array(),
+        'tue' => array(),
+        'wed' => array(),
+        'thu' => array(),
+        'fri' => array(),
+        'sat' => array(),
+      );
 
       foreach ($items as $delta => $item) {
         $day = array_search(1, $item);
-        ${$day}[] = array(
+        $days[$day][$item['value']] = array(
           '#theme' => array('timefield_formatter'),
           '#time' => $item,
           '#settings' => $settings,
           '#format' => 'default',
         );
       }
-      $element = array_merge($sun, $mon, $tue, $wed, $thu, $fri, $sat);
+
+      foreach ($days as $key => $day) {
+        ksort($days[$key]);
+        $element = array_merge($element, $days[$key]);
+      }
       break;
   }
 
@@ -372,7 +384,7 @@ function mal_user_courses_field_attach_view_alter(&$output, $context) {
         $items = array(
           array('#markup' => '<span class="date-continuous">' . t('continuous') . '</span>'),
         );
-        $view_mode = $context['display'];
+        $view_mode = $context['view_mode'];
         $display = field_get_display($instance, $view_mode, $entity);
         $info = array(
           '#theme' => 'field',

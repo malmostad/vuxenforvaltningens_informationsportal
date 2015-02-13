@@ -24,7 +24,7 @@ function content_type_course_packages_node_info() {
     'course_packages' => array(
       'name' => t('Kurspaket'),
       'base' => 'node_content',
-      'description' => t('Use <em>kurspaket</em> for your school course packages, which include courses.'),
+      'description' => t('Klicka för att lägga in <em>kurspaket</em>.'),
       'has_title' => '1',
       'title_label' => t('Titel'),
       'help' => '',

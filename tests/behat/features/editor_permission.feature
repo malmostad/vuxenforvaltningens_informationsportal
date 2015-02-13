@@ -11,7 +11,7 @@ Feature: Editors permission
     And I select "Gymnasial vuxenutbildning" from "Utbildningsform"
     And I should not see "Publishing options"
     Then I press the "edit-submit" button
-    And I should see the text "Kurs mall autotest course template has been created."
+    And I should see the text "Kursmall autotest course template has been created."
 
   Scenario: Editor see only own content on admin/content page
     Given I am logged in as "editor" with the password "editor"

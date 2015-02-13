@@ -9,7 +9,7 @@ Feature: Middle admim permission
     And I am on "node/add"
     And I should see the text "Kurspaket" in ".admin-list" element
     And I should see the text "Enstaka kurs" in ".admin-list" element
-    And I should see the text "Kurs mall" in ".admin-list" element
+    And I should see the text "Kursmall" in ".admin-list" element
 #    Then I am on "admin"
 #    And I should not see "Structure"
 #    And I should not see "Configuration"
@@ -39,7 +39,7 @@ Feature: Middle admim permission
         # Required for course
     And I check the box "Klassrumsundervisning"
     And I select "A2 Test school" from "Skola"
-    And I fill in "Kurs group" with "test"
+    And I fill in "Kursgrupp" with "test"
     And I type "test" in "edit-body-und-0-value" WYSIWYG editor
     And I fill in "Kontaktperson" with "test"
     And I fill in "edit-field-course-package-und-0-field-package-course-und-0-value" with "test"
@@ -67,4 +67,4 @@ Feature: Middle admim permission
 #    And I should see "Publishing options"
 #    And the "edit-status" checkbox should be checked
     Then I press the "edit-submit" button
-    And I should see the text "Kurs mall autotest course template has been created."
+    And I should see the text "Kursmall autotest course template has been created."

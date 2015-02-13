@@ -2,5 +2,32 @@
 
 /**
  * @file
- * Empty file.
+ * Helper function to add translations.
  */
+
+/**
+ * Helper to manually add a single translation string.
+ *
+ * After adding strings use locale_clear_cache() for clearing caches.
+ */
+function _mal_update_locale_add_translation($source, $langcode, $translation, $context = '', $textgroup = 'default') {
+  require_once DRUPAL_ROOT . '/includes/locale.inc';
+
+  $report = &drupal_static(__FUNCTION__, array(
+    'additions' => 0,
+    'updates' => 0,
+    'deletes' => 0,
+    'skips' => 0,
+  ));
+  _locale_import_one_string_db($report, $langcode, $context, $source, $translation, $textgroup, 'Manual import via helper ' . __FUNCTION__ . '().', LOCALE_IMPORT_OVERWRITE);
+}
+
+/**
+ * Helper to clear the locale cache.
+ */
+function _mal_update_locale_clear_cache() {
+  require_once DRUPAL_ROOT . '/includes/locale.inc';
+  // Clear locale cache.
+  _locale_invalidate_js();
+  cache_clear_all('locale:', 'cache', TRUE);
+}
