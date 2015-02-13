@@ -372,7 +372,7 @@ function mal_user_courses_field_attach_view_alter(&$output, $context) {
         $items = array(
           array('#markup' => '<span class="date-continuous">' . t('continuous') . '</span>'),
         );
-        $view_mode = $context['display'];
+        $view_mode = $context['view_mode'];
         $display = field_get_display($instance, $view_mode, $entity);
         $info = array(
           '#theme' => 'field',
