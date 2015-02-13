@@ -30,7 +30,6 @@ function content_type_course_packages_field_group_info() {
       4 => 'field_course_weeks_of_study',
       5 => 'field_course_searchable_type',
       6 => 'field_course_form',
-      7 => 'field_course_group',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
