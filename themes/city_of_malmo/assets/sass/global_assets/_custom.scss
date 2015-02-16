@@ -1099,7 +1099,6 @@ footer.bigfoot {
 .second-group {
   font-family: $open-sans;
   font-size: 14px;
-  margin-bottom: 16px;
   max-width: 510px;
 
   .label-inline {
@@ -1113,7 +1112,8 @@ footer.bigfoot {
 
 .third-group {
   .field-label {
-    font-size: 24px;
+    font-weight: bold;
+    margin-top: 5px;
   }
 
   .field-value {
@@ -1129,14 +1129,6 @@ footer.bigfoot {
     font-family: $georgia;
     font-size: 24px;
     margin: 0 0 9px;
-
-    a {
-      color: $black;
-
-      &:hover {
-        text-decoration: none;
-      }
-    }
   }
 
   .views-row {
@@ -1147,6 +1139,7 @@ footer.bigfoot {
 
   .panel-body {
     display: none;
+    margin-top: 16px;
     padding: 0;
 
     > div {
@@ -1162,7 +1155,13 @@ footer.bigfoot {
       font-weight: bold;
     }
 
+    .label-inline {
+      display: inline;
+    }
+
     .field-value {
+      display: inline;
+
       p {
         line-height: 22px;
         margin-bottom: 1em;
@@ -1182,6 +1181,7 @@ footer.bigfoot {
     color: $black;
     cursor: pointer;
     font-size: 17px;
+    margin-top: 16px;
     padding-bottom: 21px;
   }
 }
@@ -1198,19 +1198,26 @@ footer.bigfoot {
 
   th,
   td {
-    background: none !important;
-    border: 1px solid #dedede !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
     white-space: normal !important;
   }
 }
 
 .view-my-courses,
-.view-my-course-application-list {
+.view-my-course-application-list,
+.view-my-courses-search-list,
+.table-responsive {
   border: #b5b5b5 1px solid;
   margin-bottom: 16px;
-  padding: 2em 1.4em 1.4em;
+  padding: 1.6em 1em 1em;
+}
+
+.table-responsive {
+  th,
+  td {
+    background: none !important;
+    border-bottom: 1px solid #b5b5b5 !important;
+    border-top: 1px solid #b5b5b5 !important;
+  }
 }
 
 .tabs {
@@ -1262,9 +1269,10 @@ footer.bigfoot {
       border-right: 0 !important;
       padding: .4em .6em !important;
       position: relative;
+      vertical-align: middle !important;
 
       &:last-child {
-        padding-right: 20px !important;
+        padding-right: 25px !important;
       }
     }
 
