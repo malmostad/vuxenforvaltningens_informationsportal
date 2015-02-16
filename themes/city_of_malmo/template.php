@@ -534,3 +534,10 @@ function city_of_malmo_preprocess_field(&$variables) {
   $variables['label_display'] = $variables['element']['#label_display'];
   $variables['classes_array'] = array($field_name_class);
 }
+
+/**
+ * Derivative of theme_table() solely for the HOOK_preprocess_table__PATTERN().
+ */
+function theme_table__field_collection_table($variables) {
+  return '<div class="view-my-courses-search-list">' . theme_table($variables) . '</div>';
+}
