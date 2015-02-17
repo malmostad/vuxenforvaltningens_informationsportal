@@ -136,14 +136,14 @@ function mal_course_administrative_course_period_validate($form, &$form_state) {
   }
   else {
     // Validate start dates for non-continuos course.
-    if (empty($app_period['value'])) {
+    if (empty($course_date['value'])) {
       $element = $form['field_course_date'][$lang_course_date][0]['value'];
       $error_field = implode('][', $element['#parents']);
       $label = !empty($element['#date_title']) ? $element['#date_title'] : (!empty($element['#title']) ? $element['#title'] : '');
       form_set_error($error_field, t('A valid date is required for %title.', array('%title' => $label)));
     }
 
-    if (empty($course_date['value'])) {
+    if (empty($app_period['value'])) {
       $element = $form['field_course_application_period'][$lang_app_period][0]['value'];
       $error_field = implode('][', $element['#parents']);
       $label = !empty($element['#date_title']) ? $element['#date_title'] : (!empty($element['#title']) ? $element['#title'] : '');
