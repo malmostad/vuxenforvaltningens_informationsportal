@@ -31,7 +31,7 @@ function mal_ctools_subtitle_subtitle_pane_render($subtype, $conf, $panel_args, 
 
   $title = $conf['title'];
   $tag = $conf['title_tag'];
-  $class = !empty($conf['title_tag']) ? ' class="' . $conf['title_tag'] . '"' : '';
+  $class = !empty($conf['title_class']) ? ' class="' . $conf['title_class'] . '"' : '';
 
   $pane->content = "<$tag$class>$title</$tag>";
 

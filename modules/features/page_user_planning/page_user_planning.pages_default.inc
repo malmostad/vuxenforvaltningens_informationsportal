@@ -96,7 +96,7 @@ function page_user_planning_default_page_manager_pages() {
     ),
   );
   $display->cache = array();
-  $display->title = 'My planning';
+  $display->title = 'Min planering';
   $display->uuid = '15b39969-4ae9-4c91-b269-8ee4bcb3b404';
   $display->content = array();
   $display->panels = array();
@@ -154,7 +154,7 @@ function page_user_planning_default_page_manager_pages() {
     );
     $pane->configuration = array(
       'title' => 'Kurs',
-      'title_tag' => 'div',
+      'title_tag' => 'h2',
       'title_class' => 'title course-subtiitle',
       'override_title' => '',
       'override_title_text' => '',
@@ -255,7 +255,7 @@ function page_user_planning_default_page_manager_pages() {
     );
     $pane->configuration = array(
       'title' => 'Kurspaket',
-      'title_tag' => 'div',
+      'title_tag' => 'h2',
       'title_class' => 'title package-subtiitle',
       'override_title' => '',
       'override_title_text' => '',

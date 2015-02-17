@@ -509,3 +509,10 @@ function mal_update_update_7037() {
     'entity_modified',
   ));
 }
+
+/**
+ * Revert user planning page.
+ */
+function mal_update_update_7038() {
+  features_revert_module('page_user_planning');
+}

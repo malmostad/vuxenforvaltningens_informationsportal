@@ -408,3 +408,24 @@ function mal_user_courses_field_attach_view_alter(&$output, $context) {
     }
   }
 }
+
+/**
+ * Implements hook_entity_view_alter().
+ */
+function mal_user_courses_entity_view_alter(&$build, $type) {
+  $field_name = 'field_course_type_education';
+  if ($type == 'node' &&
+    !empty($build['#node']->type) && $build['#node']->type == 'course_packages' &&
+    empty($build[$field_name])) {
+    $build[$field_name] = array(
+      '#type' => 'markup',
+      '#markup' => '<div class="type-education"><div class="field-value">' . t('Gymnasial vuxenutbildning') . '</div></div>',
+      '#weight' => -10,
+    );
+
+    if (!empty($build['#groups']['group_first_group'])) {
+      $build['#groups']['group_first_group']->children[] = $field_name;
+      $build['#group_children'][$field_name] = 'group_first_group';
+    }
+  }
+}
