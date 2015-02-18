@@ -527,3 +527,27 @@ function mal_update_update_7038() {
   }
   features_revert_module('content_type_school');
 }
+
+/**
+ * Revert main layout.
+ */
+function mal_update_update_7039() {
+  features_revert_module('page_main_layout');
+
+  $texts = array(
+    'Show on map' => 'Visa på karta',
+    'Mailing address' => 'Postadress',
+    'Write to us' => 'Skriv till oss',
+    'Address' => 'Besöksadress',
+    'Subtitle' => 'Underrubrik',
+    'Global Contact pane' => 'Global Kontaktruta',
+  );
+
+  foreach ($texts as $origin => $translated) {
+    // @codingStandardsIgnoreStart
+    t($origin);
+    // @codingStandardsIgnoreEnd
+    _mal_update_locale_add_translation($origin, 'sv', $translated);
+  }
+  _mal_update_locale_clear_cache();
+}
