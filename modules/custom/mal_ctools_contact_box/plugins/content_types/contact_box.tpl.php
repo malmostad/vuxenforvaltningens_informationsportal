@@ -19,8 +19,7 @@
     <h3><?php print t('Post address'); ?></h3>
     <div class="adr">
       <div class="fn"><?php print render($address); ?></div>
-      <div class="post-office-box"><?php print render($post_office); ?></div>
-      <div><span class="postal-code"><?php print render($postal_code); ?></span> <span class="locality"><?php print render($locality); ?></span></div>
+      <div><span class="postal-code"><?php print render($postal_code); ?></span></div>
     </div>
 
     <h3 class="visiting-address v-0"><?php print t('Visiting Address'); ?></h3>
