@@ -121,11 +121,6 @@ function mal_generate_content_enable() {
     'format' => 'plain_text',
   );
 
-  $school->field_school_locality[$school->language][] = array(
-    'value' => 'Malmo test',
-    'format' => 'plain_text',
-  );
-
   $school->field_school_maps_link[$school->language][] = array(
     'value' => 'Test link',
     'format' => 'plain_text',
@@ -133,11 +128,6 @@ function mal_generate_content_enable() {
 
   $school->field_school_phone[$school->language][] = array(
     'value' => '380932312332',
-    'format' => 'plain_text',
-  );
-
-  $school->field_school_post_office[$school->language][] = array(
-    'value' => 'Test post C3',
     'format' => 'plain_text',
   );
 
