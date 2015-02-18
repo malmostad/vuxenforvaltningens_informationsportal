@@ -5,14 +5,15 @@
 # Generated from files:
 #  mal_ctools_contact_box.info: n/a
 #  plugins/content_types/contact_box_content_type.inc: n/a
+#  plugins/content_types/contact_box_global.inc: n/a
 #  plugins/content_types/contact_box.tpl.php: n/a
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2014-11-22 17:19+0100\n"
-"PO-Revision-Date: 2014-11-22 17:19+0100\n"
+"POT-Creation-Date: 2015-02-18 15:43+0100\n"
+"PO-Revision-Date: 2015-02-18 15:43+0100\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Swedish <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +25,7 @@ msgstr ""
 msgid "Mal ctools contact box"
 msgstr "Mal ctools kontaktruta"
 
-#: mal_ctools_contact_box.info:0 plugins/content_types/contact_box_content_type.inc:14
+#: mal_ctools_contact_box.info:0 plugins/content_types/contact_box_content_type.inc:14 plugins/content_types/contact_box_global.inc:13
 msgid "Propeople"
 msgstr "Propeople"
 
@@ -32,17 +33,17 @@ msgstr "Propeople"
 msgid "Contact us"
 msgstr "Kontakta oss"
 
-#: plugins/content_types/contact_box.tpl.php:14;28
-msgid "Write to us"
-msgstr "Visa på karta"
-
 #: plugins/content_types/contact_box.tpl.php:19
 msgid "Post address"
 msgstr "Postadress"
 
-#: plugins/content_types/contact_box.tpl.php:26
+#: plugins/content_types/contact_box.tpl.php:25
 msgid "Visiting Address"
 msgstr "Besöksadress"
+
+#: plugins/content_types/contact_box.tpl.php:28 plugins/content_types/contact_box_global.inc:77
+msgid "Write to us"
+msgstr "Skriv till oss"
 
 #: plugins/content_types/contact_box_content_type.inc:9
 msgid "Contact pane"
@@ -52,3 +53,26 @@ msgstr "Kontaktruta"
 msgid "Node"
 msgstr "Nod"
 
+#: plugins/content_types/contact_box_global.inc:9
+msgid "Global Contact pane"
+msgstr "Global Kontaktruta"
+
+#: plugins/content_types/contact_box_global.inc:56
+msgid "Title"
+msgstr "Titel"
+
+#: plugins/content_types/contact_box_global.inc:61
+msgid "Subtitle"
+msgstr "Underrubrik"
+
+#: plugins/content_types/contact_box_global.inc:66
+msgid "Address"
+msgstr "Besöksadress"
+
+#: plugins/content_types/contact_box_global.inc:72
+msgid "Show on map"
+msgstr "Visa på karta"
+
+#: plugins/content_types/contact_box_global.inc:83
+msgid "Mailing address"
+msgstr "Postadress"
