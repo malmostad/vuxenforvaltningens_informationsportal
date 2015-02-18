@@ -58,6 +58,7 @@ function mal_hint_management_form($form, &$form_state) {
         '#title' => t('Selector'),
         '#description' => t('CSS selector to determine what element should receive this hint.'),
         '#default_value' => $default_selector,
+        '#maxlength' => 256,
       );
 
       $default_hint = !empty($hints[$i]['hint']) ?
@@ -69,6 +70,7 @@ function mal_hint_management_form($form, &$form_state) {
         '#title' => t('Text'),
         '#description' => t('Text to display.'),
         '#default_value' => $default_hint,
+        '#maxlength' => 256,
       );
 
       $form['hints']['items'][$i]['remove'] = array(
