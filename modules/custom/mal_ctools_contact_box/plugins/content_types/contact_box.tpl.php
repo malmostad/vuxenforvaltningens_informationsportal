@@ -25,7 +25,7 @@
     <h3 class="visiting-address v-0"><?php print t('Visiting Address'); ?></h3>
     <div class="street-address"><?php print render($street_address); ?></div>
 
-    <div><a class="show-on-map m-icon-location" data-map-selector=".contact-us-map.m-0" data-scroll-to=".visiting-address.v-0" data-poi="<?php print $maps_link; ?>" title="<?php print $maps_link; ?>"><?php print t('Write to us'); ?></a></div>
+    <div><a class="show-on-map m-icon-location" data-map-selector=".contact-us-map.m-0" data-scroll-to=".visiting-address.v-0" data-poi="<?php print $maps_link; ?>" title="<?php print $maps_link; ?>"><?php print t('Show on map'); ?></a></div>
     <div class="contact-us-map m-0"></div>
   </div>
 </aside>
