@@ -19,12 +19,19 @@ function mal_course_scheduler_cron_task() {
   mal_course_scheduler_set_taxonomy($result, variable_get('mal_generate_content_searchable_type_3', 77));
 
   // 1 Searchable now.
-  $query = new EntityFieldQuery();
-  $result = $query
-    ->entityCondition('entity_type', 'node')
-    ->fieldCondition('field_course_application_period', 'value', REQUEST_TIME, '<')
-    ->fieldCondition('field_course_application_period', 'value2', REQUEST_TIME, '>')
-    ->execute();
+  $query = db_select('node', 'n');
+  $query->leftJoin('field_data_field_course_application_period', 'fap', 'fap.entity_id=n.nid');
+  $query->leftJoin('field_data_field_course_continuos', 'fc', 'fc.entity_id=n.nid');
+  $and = db_and();
+  $and->condition('field_course_application_period_value', REQUEST_TIME, '<');
+  $and->condition('field_course_application_period_value2', REQUEST_TIME, '>');
+  $or = db_or();
+  $or->condition('field_course_continuos_value', 1);
+  $or->condition($and);
+  $query->condition($or);
+  $query->addField('n', 'nid');
+  $result = array();
+  $result['node'] = $query->execute()->fetchAllAssoc('nid');
 
   mal_course_scheduler_set_taxonomy($result, variable_get('mal_generate_content_searchable_type_0', 74));
 
@@ -85,7 +92,7 @@ function mal_course_scheduler_set_taxonomy($nodes, $term_id, $unpublish = FALSE)
     if ($unpublish) {
       $node->status = 0;
     }
-
+    $node->scheduler_processed = TRUE;
     node_save($node);
   }
 }

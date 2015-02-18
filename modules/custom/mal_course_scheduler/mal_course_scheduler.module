@@ -25,3 +25,56 @@ function mal_course_scheduler_cronapi() {
 
   return $items;
 }
+
+/**
+ * Implements hook_entity_update().
+ */
+function mal_course_scheduler_field_storage_pre_update($entity_type, $entity, $skip_fields) {
+  if ($entity_type == 'node' && isset($entity->field_course_searchable_type) && empty($entity->scheduler_processed)) {
+    $searchable_lang = field_language($entity_type, $entity, 'field_course_searchable_type');
+    $continuous = field_get_items($entity_type, $entity, 'field_course_continuos');
+    $date = field_get_items($entity_type, $entity, 'field_course_date');
+    $date = empty($date) ? FALSE : $date[0];
+    $app_period = field_get_items($entity_type, $entity, 'field_course_application_period');
+    $app_period = empty($app_period[0]) ? FALSE : $app_period[0];
+
+    // Searchable now from continuous field.
+    if (!empty($continuous) && $continuous[0]['value']) {
+      $entity->field_course_searchable_type[$searchable_lang][0]['tid'] = variable_get('mal_generate_content_searchable_type_0', 74);
+      return;
+    }
+
+    // Searchable now from app period gap.
+    if (!empty($app_period['value']) && !empty($app_period['value2']) &&
+      $app_period['value'] < REQUEST_TIME && $app_period['value2'] > REQUEST_TIME) {
+      $entity->field_course_searchable_type[$searchable_lang][0]['tid'] = variable_get('mal_generate_content_searchable_type_0', 74);
+      return;
+    }
+
+    // Not started yet from app period start.
+    if (!empty($app_period['value']) && $app_period['value'] > REQUEST_TIME) {
+      $entity->field_course_searchable_type[$searchable_lang][0]['tid'] = variable_get('mal_generate_content_searchable_type_3', 77);
+      return;
+    }
+
+    // Regular app period ended.
+    if (!empty($app_period['value2']) && !empty($date['value'])
+      && $app_period['value2'] < REQUEST_TIME && $date['value'] > strtotime("-2 week")) {
+      $entity->field_course_searchable_type[$searchable_lang][0]['tid'] = variable_get('mal_generate_content_searchable_type_1', 75);
+      return;
+    }
+
+    // Not searchable now.
+    if (!empty($date['value']) && !empty($date['value2']) &&
+      $date['value'] < strtotime("-2 week") && $date['value2'] > strtotime("-6 month")) {
+      $entity->field_course_searchable_type[$searchable_lang][0]['tid'] = variable_get('mal_generate_content_searchable_type_2', 76);
+      return;
+    }
+
+    // Inactive.
+    if (!empty($date['value2']) && $date['value2'] < strtotime("-6 month")) {
+      $entity->field_course_searchable_type[$searchable_lang][0]['tid'] = variable_get('mal_generate_content_searchable_type_4', 78);
+      return;
+    }
+  }
+}

@@ -28,6 +28,8 @@ function mal_generate_content_enable() {
     )
   );
 
+  $flex_course_form_term = $course_form_terms[2];
+
   $classroom_term = reset($course_form_terms);
   variable_set('course_package_form_terms', array($classroom_term->tid => $classroom_term->tid));
 
@@ -119,11 +121,6 @@ function mal_generate_content_enable() {
     'format' => 'plain_text',
   );
 
-  $school->field_school_locality[$school->language][] = array(
-    'value' => 'Malmo test',
-    'format' => 'plain_text',
-  );
-
   $school->field_school_maps_link[$school->language][] = array(
     'value' => 'Test link',
     'format' => 'plain_text',
@@ -131,11 +128,6 @@ function mal_generate_content_enable() {
 
   $school->field_school_phone[$school->language][] = array(
     'value' => '380932312332',
-    'format' => 'plain_text',
-  );
-
-  $school->field_school_post_office[$school->language][] = array(
-    'value' => 'Test post C3',
     'format' => 'plain_text',
   );
 
@@ -360,6 +352,88 @@ function mal_generate_content_enable() {
   $node = node_submit($node);
   node_save($node);
 
+  // Continuous course and template for it.///////////////////////////////////
+  $template = new stdClass();
+  $template->title = "Test course 4";
+  $template->type = "course_template";
+  node_object_prepare($template);
+  $template->language = LANGUAGE_NONE;
+  $template->uid = $user->uid;
+  $template->status = 1;
+
+  $orientation = taxonomy_get_term_by_name('Fordon');
+  $orientation = reset($orientation);
+
+  $subject_areas = taxonomy_get_term_by_name('Naturvetenskap');
+  $subject_areas = reset($subject_areas);
+
+  $gymnasie_program = taxonomy_get_term_by_name('Samhälle');
+  $gymnasie_program = reset($gymnasie_program);
+
+  $template->field_course_orientation[$template->language][] = array(
+    'tid' => $orientation->tid,
+  );
+
+  $template->field_course_subject_areas[$template->language][] = array(
+    'tid' => $subject_areas->tid,
+  );
+
+  $template->field_course_gymnasie_program[$template->language][] = array(
+    'tid' => $gymnasie_program->tid,
+  );
+
+  $template = node_submit($template);
+  node_save($template);
+
+  $node = new stdClass();
+  $node->title = "Test course 4";
+  $node->type = "course";
+  $node->language = LANGUAGE_NONE;
+  node_object_prepare($node);
+
+  $node->uid = $user->uid;
+  $node->status = 1;
+
+  $node->field_course_date[$node->language][] = array(
+    'value' => strtotime('-1 day'),
+  );
+
+  $node->field_course_searchable_type[$template->language][] = array(
+    'tid' => variable_get('mal_generate_content_searchable_type_0', 74),
+  );
+
+  $node->field_course_school[$node->language][] = array(
+    'target_id' => $school->nid,
+  );
+
+  $node->field_course_template[$node->language][] = array(
+    'target_id' => $template->nid,
+  );
+
+  $node->field_course_application_period[$node->language][] = array(
+    'value' => strtotime('-1 day'),
+  );
+
+  $node->field_course_form[$node->language][] = array(
+    'tid' => $flex_course_form_term->tid,
+  );
+
+  $node->field_course_periods[$node->language][] = array(
+    'value' => '300',
+    'value2' => '44100',
+    'tue' => 1,
+    'mon' => 1,
+    'wed' => 0,
+    'thu' => 0,
+    'fri' => 0,
+    'sat' => 0,
+    'sun' => 0,
+  );
+
+  $node = node_submit($node);
+  node_save($node);
+  // ///////////////////////////////////////////////////////////////////////////
+
   $node = new stdClass();
   $node->title = "Test qa 3";
   $node->type = "question_and_answer";
@@ -439,6 +513,9 @@ function mal_generate_content_enable() {
  *   Vocabulary machine name.
  * @param array $terms
  *   Term names.
+ *
+ * @return array
+ *   Array of created terms.
  */
 function mal_generate_content_add_taxonomy_terms($voc_name, $terms) {
   $return = array();

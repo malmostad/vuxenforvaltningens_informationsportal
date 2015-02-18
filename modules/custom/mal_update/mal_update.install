@@ -509,3 +509,21 @@ function mal_update_update_7037() {
     'entity_modified',
   ));
 }
+
+/**
+ * Revert user planning page.
+ * 
+ * Remove obsolete fields.
+ */
+function mal_update_update_7038() {
+  features_revert_module('page_user_planning');
+  $fields = array(
+    'field_school_locality',
+    'field_school_post_office',
+  );
+  foreach ($fields as $field) {
+    $instance = field_info_instance('node', $field, 'school');
+    field_delete_instance($instance);
+  }
+  features_revert_module('content_type_school');
+}

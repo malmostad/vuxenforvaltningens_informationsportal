@@ -23,8 +23,6 @@ Feature: School
     Then I should see the text "777777"
     Then I should see the text "Post address"
     Then I should see the text "Test school address"
-    Then I should see the text "Test post C3"
-    Then I should see the text "Malmo test"
     Then I should see the text "Visiting Address"
     Then I should see the text "Test school street address"
     Then I should see the text "Write to us"
