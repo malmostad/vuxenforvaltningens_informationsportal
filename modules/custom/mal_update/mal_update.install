@@ -586,3 +586,11 @@ function mal_update_update_7041() {
 function mal_update_update_7042() {
   variable_set('date_first_day', 1);
 }
+
+/**
+ * Enable per-item delete button.
+ */
+function mal_update_update_7043() {
+  module_enable(array('multiple_field_delete'));
+  variable_set('multiple_field_delete_enabled', array('field_course_periods'));
+}
