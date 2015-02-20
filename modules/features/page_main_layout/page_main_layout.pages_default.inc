@@ -301,7 +301,20 @@ function page_main_layout_default_page_manager_handlers() {
     $pane->type = 'contact_box_global';
     $pane->subtype = 'contact_box_global';
     $pane->shown = TRUE;
-    $pane->access = array();
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'path_visibility',
+          'settings' => array(
+            'visibility_setting' => '1',
+            'paths' => 'node/197
+node/198',
+          ),
+          'context' => 'empty',
+          'not' => FALSE,
+        ),
+      ),
+    );
     $pane->configuration = array(
       'title' => 'Vill du prata med en studie- och yrkesvägledare',
       'subtitle' => 'Vägledningscentrum',
