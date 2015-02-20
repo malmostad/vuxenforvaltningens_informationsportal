@@ -1246,6 +1246,9 @@ footer.bigfoot {
 
   th,
   td {
+    background: none !important;
+    border-bottom: 1px solid #b5b5b5 !important;
+    border-top: 1px solid #b5b5b5 !important;
     white-space: normal !important;
   }
 }
@@ -1253,7 +1256,7 @@ footer.bigfoot {
 .view-my-courses,
 .view-my-course-application-list,
 .view-my-courses-search-list,
-.table-responsive {
+.third-group .table-responsive {
   border: #b5b5b5 1px solid;
   margin-bottom: 16px;
   padding: 1.6em 1em 1em;
@@ -1291,6 +1294,11 @@ footer.bigfoot {
       background: $white;
       cursor: auto;
     }
+  }
+
+  .course-subtiitle {
+    margin: 0;
+    position: static;
   }
 
   .tab-2.active ~ .overlapped-courses {
@@ -1375,6 +1383,7 @@ footer.bigfoot {
 
       .btn {
         float: right;
+        padding-left: 25px;
       }
     }
   }
@@ -1399,7 +1408,7 @@ footer.bigfoot {
     font-weight: bold;
     margin: 15px 0 21px;
     min-width: 120px;
-    padding: 3px 5px 1px;
+    padding: 3px 5px 1px 25px;
     position: relative;
 
     &:before {
