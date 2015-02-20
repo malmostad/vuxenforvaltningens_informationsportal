@@ -83,12 +83,13 @@ function multiple_field_delete_field_widget_form_alter(&$element, &$form_state, 
           'delete-row',
         ),
       ),
-      '#weight' => 99, // Make sure it's always at the bottom.
+      // Make sure it's always at the bottom.
+      '#weight' => 99,
       '#attached' => array(
         'css' => array(
           drupal_get_path('module', 'multiple_field_delete') . '/css/multiple_field_delete.styles.css',
-        )
-      )
+        ),
+      ),
     );
   }
 }
