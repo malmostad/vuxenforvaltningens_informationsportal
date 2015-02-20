@@ -54,44 +54,6 @@ function page_main_layout_default_page_manager_handlers() {
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-67a1064c-5acf-4e8e-ba81-84a494fbf50d';
-    $pane->panel = 'region-five';
-    $pane->type = 'contact_box_global';
-    $pane->subtype = 'contact_box_global';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'title' => 'Vill du prata med en studie- och yrkesvägledare',
-      'subtitle' => 'Vägledningscentrum',
-      'street_address' => array(
-        'value' => '<p>Föreningsgatan 7A</p>',
-        'format' => 'full_html',
-      ),
-      'write_to_us' => array(
-        'value' => '<p>E-post: vagledningscentrum@malmo.se</p><p>Tel: 040 34 49 95</p>',
-        'format' => 'full_html',
-      ),
-      'maps_link' => 'Test link',
-      'address' => array(
-        'value' => '<p>Vägledningscentrum</p><p>Föreningsgatan 7A</p><p>211 44 Malmö</p>',
-        'format' => 'full_html',
-      ),
-      'override_title' => '',
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 0;
-    $pane->locks = array();
-    $pane->uuid = '67a1064c-5acf-4e8e-ba81-84a494fbf50d';
-    $display->content['new-67a1064c-5acf-4e8e-ba81-84a494fbf50d'] = $pane;
-    $display->panels['region-five'][0] = 'new-67a1064c-5acf-4e8e-ba81-84a494fbf50d';
-    $pane = new stdClass();
     $pane->pid = 'new-f941b59c-dd20-4d38-ac5a-e0fed964d242';
     $pane->panel = 'region-five';
     $pane->type = 'panels_mini';
@@ -108,11 +70,11 @@ function page_main_layout_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 1;
+    $pane->position = 0;
     $pane->locks = array();
     $pane->uuid = 'f941b59c-dd20-4d38-ac5a-e0fed964d242';
     $display->content['new-f941b59c-dd20-4d38-ac5a-e0fed964d242'] = $pane;
-    $display->panels['region-five'][1] = 'new-f941b59c-dd20-4d38-ac5a-e0fed964d242';
+    $display->panels['region-five'][0] = 'new-f941b59c-dd20-4d38-ac5a-e0fed964d242';
     $pane = new stdClass();
     $pane->pid = 'new-86acdc5e-aa92-4c39-be21-b86a3e1eb4ee';
     $pane->panel = 'region-five';
@@ -132,11 +94,11 @@ function page_main_layout_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 2;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = '86acdc5e-aa92-4c39-be21-b86a3e1eb4ee';
     $display->content['new-86acdc5e-aa92-4c39-be21-b86a3e1eb4ee'] = $pane;
-    $display->panels['region-five'][2] = 'new-86acdc5e-aa92-4c39-be21-b86a3e1eb4ee';
+    $display->panels['region-five'][1] = 'new-86acdc5e-aa92-4c39-be21-b86a3e1eb4ee';
     $pane = new stdClass();
     $pane->pid = 'new-e8c840e5-c7ed-4d67-98a3-c20e67fa8ff0';
     $pane->panel = 'region-four';
@@ -333,6 +295,41 @@ function page_main_layout_default_page_manager_handlers() {
     $pane->uuid = '91244761-8678-4220-88b8-191d40f5547a';
     $display->content['new-91244761-8678-4220-88b8-191d40f5547a'] = $pane;
     $display->panels['region-three'][2] = 'new-91244761-8678-4220-88b8-191d40f5547a';
+    $pane = new stdClass();
+    $pane->pid = 'new-67a1064c-5acf-4e8e-ba81-84a494fbf50d';
+    $pane->panel = 'region-three';
+    $pane->type = 'contact_box_global';
+    $pane->subtype = 'contact_box_global';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'title' => 'Vill du prata med en studie- och yrkesvägledare',
+      'subtitle' => 'Vägledningscentrum',
+      'street_address' => 'Föreningsgatan 7A',
+      'write_to_us' => array(
+        'value' => '<p>E-post: vagledningscentrum@malmo.se</p><p>Tel: 040 34 49 95</p>',
+        'format' => 'full_html',
+      ),
+      'maps_link' => 'Föreningsgatan 7A',
+      'address' => 'Föreningsgatan 7A',
+      'override_title' => '',
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+      'email' => 'vagledningscentrum@malmo.se',
+      'phone' => '040-34 49 95',
+      'mailing_address' => '211 44 Malmö',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = '67a1064c-5acf-4e8e-ba81-84a494fbf50d';
+    $display->content['new-67a1064c-5acf-4e8e-ba81-84a494fbf50d'] = $pane;
+    $display->panels['region-three'][3] = 'new-67a1064c-5acf-4e8e-ba81-84a494fbf50d';
     $pane = new stdClass();
     $pane->pid = 'new-c3c97728-f933-44a8-8116-867c8e0b044b';
     $pane->panel = 'region-two';
