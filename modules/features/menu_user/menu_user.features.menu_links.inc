@@ -76,7 +76,7 @@ function menu_user_menu_default_menu_links() {
       'identifier' => 'user-menu_user-account:user',
     ),
     'module' => 'system',
-    'hidden' => 0,
+    'hidden' => 1,
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
