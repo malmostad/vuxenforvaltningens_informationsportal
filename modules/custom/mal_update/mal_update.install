@@ -558,3 +558,24 @@ function mal_update_update_7039() {
 function mal_update_update_7040() {
   features_revert_module('view_schools');
 }
+
+/**
+ * Revert main layout.
+ */
+function mal_update_update_7041() {
+  features_revert_module('page_main_layout');
+
+  $texts = array(
+    'Street address' => 'Besöksadress',
+    'E-mail:' => 'E-post:',
+    'Tel:' => 'Tel:',
+  );
+
+  foreach ($texts as $origin => $translated) {
+    // @codingStandardsIgnoreStart
+    t($origin);
+    // @codingStandardsIgnoreEnd
+    _mal_update_locale_add_translation($origin, 'sv', $translated);
+  }
+  _mal_update_locale_clear_cache();
+}
