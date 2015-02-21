@@ -60,12 +60,20 @@ function user_register_menu_alter(&$items) {
  *
  * Alter user login form and add link to restore the password.
  */
-function user_register_form_user_login_alter(&$form, $form_state) {
+function user_register_form_user_login_alter(&$form, &$form_state) {
   $form['actions']['password'] = array(
     '#markup' => l(t('Request new password'), 'user/password', array('attributes' => array('class' => array('btn', 'btn-default')))),
   );
+  $form['#submit'][] = 'user_register_form_user_login_form_submit';
+}
 
-  $form['#action'] = url('<front>');
+/**
+ * User login form submit callback.
+ *
+ * Redirect user to front page.
+ */
+function user_register_form_user_login_form_submit($form, &$form_state) {
+  $form_state['redirect'] = '';
 }
 
 /**
