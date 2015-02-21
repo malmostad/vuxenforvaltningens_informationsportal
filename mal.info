@@ -130,8 +130,8 @@ dependencies[] = mal_update
 dependencies[] = mal_user_courses
 dependencies[] = mal_user_custom_access
 dependencies[] = mal_ux_improvements
+dependencies[] = multiple_field_delete
 dependencies[] = user_register
-dependencies[] = multiple_value_field_delete_button
 ; Registration
 dependencies[] = registration
 dependencies[] = registration_views
