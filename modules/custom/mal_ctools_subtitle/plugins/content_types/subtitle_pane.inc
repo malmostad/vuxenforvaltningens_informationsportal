@@ -46,7 +46,8 @@ function mal_ctools_subtitle_subtitle_pane_edit_form($form, &$form_state) {
 
   $form['override_title']['#access']
     = $form['override_title_text']['#access']
-      = FALSE;
+      = $form['override_title_heading']['#access']
+        = $form['override_title_markup']['#access'] = FALSE;
 
   $form['title'] = array(
     '#type' => 'textfield',
