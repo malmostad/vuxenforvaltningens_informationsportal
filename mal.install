@@ -147,4 +147,7 @@ function mal_install() {
     ),
   );
   drupal_rewrite_settings($settings);
+
+  // Set datePicker to start with Monday.
+  variable_set('date_first_day', 1);
 }

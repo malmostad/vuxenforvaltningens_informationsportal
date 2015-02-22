@@ -62,28 +62,35 @@ function contact_box_global_field_list($conf = array()) {
       '#type' => 'textfield',
       '#default_value' => isset($conf['subtitle']) ? $conf['subtitle'] : '',
     ),
-    'street_address' => array(
+    'email' => array(
+      '#title' => t('E-mail:'),
+      '#type' => 'textfield',
+      '#default_value' => isset($conf['email']) ? $conf['email'] : '',
+    ),
+    'phone' => array(
+      '#title' => t('Tel:'),
+      '#type' => 'textfield',
+      '#default_value' => isset($conf['phone']) ? $conf['phone'] : '',
+    ),
+    'address' => array(
       '#title' => t('Address'),
-      '#type' => 'text_format',
-      '#format' => 'full_html',
-      '#default_value' => isset($conf['street_address']['value']) ? $conf['street_address']['value'] : '',
+      '#type' => 'textfield',
+      '#default_value' => isset($conf['address']) ? $conf['address'] : '',
+    ),
+    'mailing_address' => array(
+      '#title' => t('Mailing address'),
+      '#type' => 'textfield',
+      '#default_value' => isset($conf['mailing_address']) ? $conf['mailing_address'] : '',
+    ),
+    'street_address' => array(
+      '#title' => t('Street address'),
+      '#type' => 'textfield',
+      '#default_value' => isset($conf['street_address']) ? $conf['street_address'] : '',
     ),
     'maps_link' => array(
       '#title' => t('Show on map'),
       '#type' => 'textfield',
       '#default_value' => isset($conf['maps_link']) ? $conf['maps_link'] : '',
-    ),
-    'write_to_us' => array(
-      '#title' => t('Write to us'),
-      '#type' => 'text_format',
-      '#format' => 'full_html',
-      '#default_value' => isset($conf['write_to_us']['value']) ? $conf['write_to_us']['value'] : '',
-    ),
-    'address' => array(
-      '#title' => t('Mailing address'),
-      '#type' => 'text_format',
-      '#format' => 'full_html',
-      '#default_value' => isset($conf['address']['value']) ? $conf['address']['value'] : '',
     ),
   );
 
