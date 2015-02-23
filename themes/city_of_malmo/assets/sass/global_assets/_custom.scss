@@ -1398,6 +1398,15 @@ footer.bigfoot {
   }
 }
 
+.view-my-courses,
+.view-my-course-application-list {
+  tbody {
+    tr:nth-child(odd) {
+      background: #ebebeb !important;
+    }
+  }
+}
+
 // -------- Subscribe button --------- //
 .page-search-courses {
   .view-search {
@@ -1409,7 +1418,6 @@ footer.bigfoot {
 
       .btn {
         float: right;
-        padding-left: 25px;
       }
     }
   }
@@ -1429,16 +1437,14 @@ footer.bigfoot {
 .subscribe,
 .unsubscribe {
   .btn {
-    @include border-left-radius(0);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e0e0e0',GradientType=0 );
     font-weight: bold;
     margin: 15px 0 21px;
     min-width: 120px;
-    padding: 3px 5px 1px 25px;
+    padding: 3px 5px 1px 5px;
     position: relative;
 
     &:before {
-      background: url($icon-sprite) -4px -339px no-repeat;
       content: '';
       display: block;
       height: 10px;
@@ -1453,12 +1459,6 @@ footer.bigfoot {
     .close {
       margin-left: 10px;
     }
-  }
-}
-
-.unsubscribe {
-  .btn:before {
-    background: url($icon-sprite) -4px -356px no-repeat;
   }
 }
 
@@ -1775,6 +1775,10 @@ footer.bigfoot {
 
         &:first-child {
           border-top: 1px solid #ddd;
+        }
+
+        &:nth-child(odd) {
+          background: none !important;
         }
       }
 
