@@ -1372,6 +1372,15 @@ footer.bigfoot {
   }
 }
 
+.view-my-courses,
+.view-my-course-application-list {
+  tbody {
+    tr:nth-child(odd) {
+      background: #ebebeb !important;
+    }
+  }
+}
+
 // -------- Subscribe button --------- //
 .page-search-courses {
   .view-search {
@@ -1753,6 +1762,10 @@ footer.bigfoot {
 
         &:first-child {
           border-top: 1px solid #ddd;
+        }
+
+        &:nth-child(odd) {
+          background: none !important;
         }
       }
 
