@@ -594,3 +594,21 @@ function mal_update_update_7043() {
   module_enable(array('multiple_field_delete'));
   variable_set('multiple_field_delete_enabled', array('field_course_periods'));
 }
+
+/**
+ * Add new translates.
+ */
+function mal_update_update_7044() {
+  $texts = array(
+    'Continuous' => 'Kontinuerlig',
+    'From @date date' => 'Från @date date',
+  );
+
+  foreach ($texts as $origin => $translated) {
+    // @codingStandardsIgnoreStart
+    t($origin);
+    // @codingStandardsIgnoreEnd
+    _mal_update_locale_add_translation($origin, 'sv', $translated);
+  }
+  _mal_update_locale_clear_cache();
+}
