@@ -145,6 +145,12 @@ function mal_search_facet_items_alter(&$build, &$settings) {
       $build[$key]["#markup"] = drupal_ucfirst($item["#markup"]);
     }
   }
+  if ($settings->facet == "field_course_form:name") {
+    unset($build['Distanskurs'], $build['Klassrumsundervisning']);
+    foreach ($build as $key => $item) {
+      $build[$key]["#markup"] = 'Flex';
+    }
+  }
   if ($settings->facet == "global_searchable") {
     foreach ($build as $key => $item) {
       if ($item['#indexed_value'] == 0) {

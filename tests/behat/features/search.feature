@@ -42,7 +42,6 @@ Feature: Search the site
     Given I am on the homepage
     And I press "Search"
     Then the response should contain "Sort by"
-    Then the response should contain "Relevance"
     Then the response should contain "Alfabetic"
     Then the response should contain "Strartdate"
 

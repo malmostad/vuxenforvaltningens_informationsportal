@@ -23,3 +23,11 @@ msgstr ""
 #: mal_course_searchable_type_formatter.module:32
 msgid "The course is searchable from %start"
 msgstr "Kurs/kurspaket är sökbar från %start"
+
+#: mal_course_searchable_type_formatter.module:41
+msgid "Course/course package are searchable subject to availability"
+msgstr "Kurs/kurspaket är sökbar i mån av plats"
+
+#: mal_course_searchable_type_formatter.module:41
+msgid "Course/course package is not searchable right now"
+msgstr "Kurs/kurspaket är inte sökbar just nu"
