@@ -646,3 +646,10 @@ function mal_update_update_7046() {
 function mal_update_update_7047() {
   features_revert_module('config_search_sort');
 }
+
+/**
+ * Revert features.
+ */
+function mal_update_update_7048() {
+  features_revert_module('notification_rules');
+}
