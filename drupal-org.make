@@ -81,7 +81,7 @@ projects[timefield][download][revision] = "d0a518eb41c5d506c4b743d3805a9839978cc
 projects[diff][version] = "3.2"
 projects[diff][subdir] = "contrib"
 
-projects[entity][version] = "1.5"
+projects[entity][version] = "1.6"
 projects[entity][subdir] = "contrib"
 
 projects[entity_view_mode][version] = "1.0-rc1"
