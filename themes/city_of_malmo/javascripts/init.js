@@ -15,6 +15,8 @@
       $('.nav-logo').children('a')
         .attr('href','/')
           .css('background','url("http://assets.malmo.se/external/v4/logo-x1.png") no-repeat');
+
+        jQuery('.facetapi-facet-field-course-formname li').detach().appendTo('.facetapi-facet-field-course-periodsvalue-formatted');
     }
   };
 
