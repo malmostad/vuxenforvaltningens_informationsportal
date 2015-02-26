@@ -613,7 +613,6 @@ function mal_update_update_7044() {
   _mal_update_locale_clear_cache();
 }
 
-
 /**
  * Revert features.
  */
@@ -621,4 +620,22 @@ function mal_update_update_7045() {
   features_revert_module('config_facet');
   features_revert_module('config_search');
   features_revert_module('minipanel_search_facet_date');
+}
+
+/**
+ * Revert features.
+ */
+function mal_update_update_7046() {
+  $texts = array(
+    'Course/course package are searchable subject to availability' => 'Kurs/kurspaket är sökbar i mån av plats',
+    'Course/course package is not searchable right now' => 'Kurs/kurspaket är inte sökbar just nu',
+  );
+
+  foreach ($texts as $origin => $translated) {
+    // @codingStandardsIgnoreStart
+    t($origin);
+    // @codingStandardsIgnoreEnd
+    _mal_update_locale_add_translation($origin, 'sv', $translated);
+  }
+  _mal_update_locale_clear_cache();
 }
