@@ -146,9 +146,13 @@ function mal_search_facet_items_alter(&$build, &$settings) {
     }
   }
   if ($settings->facet == "field_course_form:name") {
-    unset($build['Distanskurs'], $build['Klassrumsundervisning']);
     foreach ($build as $key => $item) {
-      $build[$key]["#markup"] = 'Flex';
+      if ($key == 'Flexkurs') {
+        $build[$key]["#markup"] = 'Flex';
+      }
+      else {
+        unset($build[$key]);
+      }
     }
   }
   if ($settings->facet == "global_searchable") {

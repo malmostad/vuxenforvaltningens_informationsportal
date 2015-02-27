@@ -387,7 +387,7 @@ function mal_user_courses_field_attach_view_alter(&$output, $context) {
           $items = array(
             array(
               '#markup' => '<span class="date-continuous">' .
-              t('From @date date', array(
+              t('From @date', array(
                 '@date' => format_date($field_value[0]['value'], 'mal_short_course'),
               )) . '</span>',
             ),

@@ -653,3 +653,20 @@ function mal_update_update_7047() {
 function mal_update_update_7048() {
   features_revert_module('notification_rules');
 }
+
+/**
+ * Revert features.
+ */
+function mal_update_update_7049() {
+  $texts = array(
+    'From @date' => 'Från @date',
+  );
+
+  foreach ($texts as $origin => $translated) {
+    // @codingStandardsIgnoreStart
+    t($origin);
+    // @codingStandardsIgnoreEnd
+    _mal_update_locale_add_translation($origin, 'sv', $translated);
+  }
+  _mal_update_locale_clear_cache();
+}
