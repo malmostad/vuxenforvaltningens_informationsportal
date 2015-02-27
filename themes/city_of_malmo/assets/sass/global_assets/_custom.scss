@@ -127,6 +127,10 @@ article.body-copy {
     transition: opacity .4s ease-in-out 0s;
     width: 1em;
   }
+
+  .contact-us-global {
+    margin-top: 16px;
+  }
 }
 
 p code,
@@ -1333,7 +1337,7 @@ footer.bigfoot {
     }
 
     .unsubscribe {
-      bottom: 8px;
+      bottom: 34%;
       height: 12px;
       overflow: hidden;
       position: absolute;
@@ -1969,6 +1973,23 @@ footer.bigfoot {
 
         &:before {
           width: 115px;
+        }
+      }
+    }
+  }
+
+  footer.bigfoot {
+    div.navs {
+      .live-person-button {
+        background: url(../../images/chat-icon-sprite.png) 0 0 no-repeat;
+        height: 40px;
+        padding: 0;
+        right: 2%;
+        text-indent: -9999px;
+        width: 49px;
+
+        &:hover {
+          background: url(../../images/chat-icon-sprite.png) 0 -42px no-repeat !important;
         }
       }
     }
