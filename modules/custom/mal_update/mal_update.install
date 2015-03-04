@@ -722,4 +722,5 @@ function mal_update_update_7050() {
  */
 function mal_update_update_7051() {
   features_revert_module('minipanel_search_facet_date');
+  features_revert_module('config_wysiwyg');
 }

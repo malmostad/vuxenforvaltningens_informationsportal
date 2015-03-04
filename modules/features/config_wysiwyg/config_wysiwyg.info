@@ -11,4 +11,3 @@ features[filter][] = full_html
 features[filter][] = plain_text
 features[wysiwyg][] = filtered_html
 features[wysiwyg][] = full_html
-mtime = 1417635893
