@@ -228,6 +228,21 @@ projects[role_delegation][subdir] = "contrib"
 projects[draggableviews][version] = "2.x-dev"
 projects[draggableviews][subdir] = "contrib"
 
+projects[transliteration][version] = "3.2"
+projects[transliteration][subdir] = "contrib"
+
+projects[redirect][version] = "1.0-rc1"
+projects[redirect][subdir] = "contrib"
+
+projects[globalredirect][version] = "1.5"
+projects[globalredirect][subdir] = "contrib"
+
+projects[metatag][version] = "1.4"
+projects[metatag][subdir] = "contrib"
+
+projects[pathauto][version] = "1.2"
+projects[pathauto][subdir] = "contrib"
+
 ; +++++ Themes +++++
 
 ; bootstrap

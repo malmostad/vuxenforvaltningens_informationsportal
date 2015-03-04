@@ -82,8 +82,8 @@ function user_register_form_user_login_form_submit($form, &$form_state) {
  * Alter user update password form and remove all unnecessary stuff.
  */
 function user_register_form_user_profile_form_alter(&$form, $form_state) {
-  unset($form['timezone']);
-  unset($form['locale']);
+  $form['timezone']['#access'] = FALSE;
+  $form['locale']['#access'] = FALSE;
 }
 
 /**

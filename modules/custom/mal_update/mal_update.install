@@ -670,3 +670,57 @@ function mal_update_update_7049() {
   }
   _mal_update_locale_clear_cache();
 }
+
+/**
+ * Enable and configure SEO modules.
+ */
+function mal_update_update_7050() {
+  module_enable(array(
+    'metatag',
+    'metatag_panels',
+    'metatag_opengraph',
+    'redirect',
+    'globalredirect',
+    'pathauto',
+    'transliteration',
+    'config_metatag',
+    'config_url_aliases',
+  ));
+
+  // Add canonical links to pages.
+  $settings = variable_get('globalredirect_settings', array());
+  $settings['canonical'] = TRUE;
+  variable_set('globalredirect_settings', $settings);
+
+  // Enable alias transliteration.
+  variable_set('pathauto_transliterate', TRUE);
+
+  module_load_include('inc', 'pathauto');
+  module_load_include('inc', 'pathauto.pathauto');
+
+  // Generate aliases for all nodes.
+  $query = db_select('node', 'n');
+  $query->addField('n', 'nid');
+  $nids = $query->execute()->fetchCol();
+  pathauto_node_update_alias_multiple($nids, 'bulkupdate');
+
+  // Generate aliases for all terms.
+  $query = db_select('taxonomy_term_data', 't');
+  $query->addField('t', 'tid');
+  $tids = $query->execute()->fetchCol();
+  pathauto_taxonomy_term_update_alias_multiple($tids, 'bulkupdate');
+
+  // Generate aliases for all users.
+  $query = db_select('users', 'u');
+  $query->addField('u', 'uid');
+  $uids = $query->execute()->fetchCol();
+  pathauto_user_update_alias_multiple($uids, 'bulkupdate');
+}
+
+/**
+ * Revert date facet feature.
+ */
+function mal_update_update_7051() {
+  features_revert_module('minipanel_search_facet_date');
+  features_revert_module('config_wysiwyg');
+}

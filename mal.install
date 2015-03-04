@@ -150,4 +150,12 @@ function mal_install() {
 
   // Set datePicker to start with Monday.
   variable_set('date_first_day', 1);
+
+  // Add canonical links to pages.
+  $settings = variable_get('globalredirect_settings', array());
+  $settings['canonical'] = TRUE;
+  variable_set('globalredirect_settings', $settings);
+
+  // Enable alias transliteration.
+  variable_set('pathauto_transliterate', TRUE);
 }
