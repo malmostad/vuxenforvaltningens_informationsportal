@@ -551,3 +551,122 @@ function mal_update_update_7039() {
   }
   _mal_update_locale_clear_cache();
 }
+
+/**
+ * Revert Schools main view feature.
+ */
+function mal_update_update_7040() {
+  features_revert_module('view_schools');
+}
+
+/**
+ * Revert main layout.
+ */
+function mal_update_update_7041() {
+  features_revert_module('page_main_layout');
+
+  $texts = array(
+    'Street address' => 'Besöksadress',
+    'E-mail:' => 'E-post:',
+    'Tel:' => 'Tel:',
+  );
+
+  foreach ($texts as $origin => $translated) {
+    // @codingStandardsIgnoreStart
+    t($origin);
+    // @codingStandardsIgnoreEnd
+    _mal_update_locale_add_translation($origin, 'sv', $translated);
+  }
+  _mal_update_locale_clear_cache();
+}
+
+/**
+ * Change start dat of datePicker to Monday.
+ */
+function mal_update_update_7042() {
+  variable_set('date_first_day', 1);
+}
+
+/**
+ * Enable per-item delete button.
+ */
+function mal_update_update_7043() {
+  module_enable(array('multiple_field_delete'));
+  variable_set('multiple_field_delete_enabled', array('field_course_periods'));
+}
+
+/**
+ * Add new translates.
+ */
+function mal_update_update_7044() {
+  $texts = array(
+    'Continuous' => 'Kontinuerlig',
+    'From @date date' => 'Från @date date',
+  );
+
+  foreach ($texts as $origin => $translated) {
+    // @codingStandardsIgnoreStart
+    t($origin);
+    // @codingStandardsIgnoreEnd
+    _mal_update_locale_add_translation($origin, 'sv', $translated);
+  }
+  _mal_update_locale_clear_cache();
+}
+
+/**
+ * Revert features.
+ */
+function mal_update_update_7045() {
+  features_revert_module('config_facet');
+  features_revert_module('config_search');
+  features_revert_module('minipanel_search_facet_date');
+}
+
+/**
+ * Revert features.
+ */
+function mal_update_update_7046() {
+  $texts = array(
+    'Course/course package are searchable subject to availability' => 'Kurs/kurspaket är sökbar i mån av plats',
+    'Course/course package is not searchable right now' => 'Kurs/kurspaket är inte sökbar just nu',
+  );
+
+  foreach ($texts as $origin => $translated) {
+    // @codingStandardsIgnoreStart
+    t($origin);
+    // @codingStandardsIgnoreEnd
+    _mal_update_locale_add_translation($origin, 'sv', $translated);
+  }
+  _mal_update_locale_clear_cache();
+}
+
+/**
+ * Revert features.
+ */
+function mal_update_update_7047() {
+  features_revert_module('config_search_sort');
+}
+
+/**
+ * Revert features.
+ */
+function mal_update_update_7048() {
+  features_revert_module('notification_rules');
+}
+
+/**
+ * Revert features.
+ */
+function mal_update_update_7049() {
+  $texts = array(
+    'From @date' => 'Från @date',
+  );
+
+  foreach ($texts as $origin => $translated) {
+    // @codingStandardsIgnoreStart
+    t($origin);
+    // @codingStandardsIgnoreEnd
+    _mal_update_locale_add_translation($origin, 'sv', $translated);
+  }
+  _mal_update_locale_clear_cache();
+}

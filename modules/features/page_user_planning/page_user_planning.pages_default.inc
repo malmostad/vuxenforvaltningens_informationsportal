@@ -388,10 +388,11 @@ function page_user_planning_default_page_manager_pages() {
     );
     $pane->configuration = array(
       'title' => 'Kurs',
-      'title_tag' => 'div',
+      'title_tag' => 'h2',
       'title_class' => 'title course-subtiitle',
       'override_title' => '',
       'override_title_text' => '',
+      'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -489,10 +490,11 @@ function page_user_planning_default_page_manager_pages() {
     );
     $pane->configuration = array(
       'title' => 'Kurspaket',
-      'title_tag' => 'div',
+      'title_tag' => 'h2',
       'override_title' => '',
       'override_title_text' => '',
       'title_class' => 'title package-subtiitle',
+      'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(

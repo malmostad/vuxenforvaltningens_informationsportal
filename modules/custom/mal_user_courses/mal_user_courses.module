@@ -207,24 +207,25 @@ function mal_user_courses_clean_days(array $rendered, $day_to_keep) {
 
   return $rendered;
 }
-
-/**
- * Implements hook_preprocess_HOOK().
- */
-function mal_user_courses_preprocess_views_view_field(&$variables) {
-  if (in_array($variables['view']->name, array(
-      'my_courses',
-      'my_course_application_list',
-    ))
-    && in_array($variables['field']->real_field, array(
-      'field_course_date_value',
-      'field_course_application_period_value',
-    ))
-    && !empty($variables['row']->field_field_course_continuos[0]['raw']['value'])
-  ) {
-    $variables['output'] .= ' - <span class="date-continuous">' . t('continuous') . '</span>';
-  }
-}
+// @codingStandardsIgnoreStart
+///**
+// * Implements hook_preprocess_HOOK().
+// */
+//function mal_user_courses_preprocess_views_view_field(&$variables) {
+//  if (in_array($variables['view']->name, array(
+//      'my_courses',
+//      'my_course_application_list',
+//    ))
+//    && in_array($variables['field']->real_field, array(
+//      'field_course_date_value',
+//      'field_course_application_period_value',
+//    ))
+//    && !empty($variables['row']->field_field_course_continuos[0]['raw']['value'])
+//  ) {
+//    $variables['output'] .= ' - <span class="date-continuous">' . t('continuous') . '</span>';
+//  }
+//}
+// @codingStandardsIgnoreEnd
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -381,9 +382,22 @@ function mal_user_courses_field_attach_view_alter(&$output, $context) {
       foreach ($fields as $field_name) {
         $instance = field_info_instance($context['entity_type'], $field_name, $bundle);
         $field = field_info_field_by_id($instance['field_id']);
-        $items = array(
-          array('#markup' => '<span class="date-continuous">' . t('continuous') . '</span>'),
-        );
+        $field_value = field_get_items('node', $entity, $field_name);
+        if (!empty($field_value[0]['value'])) {
+          $items = array(
+            array(
+              '#markup' => '<span class="date-continuous">' .
+              t('From @date', array(
+                '@date' => format_date($field_value[0]['value'], 'mal_short_course'),
+              )) . '</span>',
+            ),
+          );
+        }
+        else {
+          $items = array(
+            array('#markup' => '<span class="date-continuous">' . t('Continuous') . '</span>'),
+          );
+        }
         $view_mode = $context['view_mode'];
         $display = field_get_display($instance, $view_mode, $entity);
         $info = array(

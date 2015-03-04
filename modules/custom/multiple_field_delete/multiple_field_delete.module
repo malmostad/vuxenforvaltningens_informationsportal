@@ -1,0 +1,138 @@
+<?php
+/**
+ * @file
+ * Main module file.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function multiple_field_delete_menu() {
+  $menu = array();
+
+  $menu['admin/config/content/multiple_field_delete'] = array(
+    'title' => 'Multiple fields Delete button',
+    'description' => 'Manage fields which require a delete button',
+    'access arguments' => array('manage fields delete button'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('multiple_field_delete_admin_form'),
+    'file' => 'multiple_field_delete.admin.inc',
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  return $menu;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function multiple_field_delete_permission() {
+  $perm = array();
+
+  $perm['manage fields delete button'] = array(
+    'title' => t('Manage fields delete button'),
+    'description' => t('Access the multiple field list configuration, which are to gain a delete button'),
+  );
+
+  return $perm;
+}
+
+/**
+ * Implements hook_field_widget_form_alter().
+ */
+function multiple_field_delete_field_widget_form_alter(&$element, &$form_state, $context) {
+  $found = FALSE;
+  $details = NULL;
+
+  // When the element is 'on the surface'.
+  if (isset($element['#field_name'])) {
+    $details = $element;
+    $found = TRUE;
+  }
+  else {
+    // When the element is nested.
+    foreach ($element as $key => $value) {
+      if (isset($value['#field_name'])) {
+        $found = TRUE;
+        $details = $value;
+        break;
+      }
+    }
+  }
+
+  $saved_fields = variable_get('multiple_field_delete_enabled', array());
+
+  // That same 'delete' button.
+  if ($found && in_array($details['#field_name'], $saved_fields)) {
+    $element['delete_row'] = array(
+      '#type' => 'submit',
+      '#value' => t('Delete'),
+      '#name' => 'delete-row-' . $details['#delta'],
+      '#prefix' => '<div class="form-item">',
+      '#suffix' => '</div>',
+      '#limit_validation_errors' => array(),
+      '#submit' => array('_multiple_field_delete_delete_row_submit'),
+      '#ajax' => array(
+        'callback' => '_multiple_field_delete_delete_row_callback',
+        'wrapper' => 'edit-' . str_replace('_', '-', $details['#field_name']),
+        'method' => 'replace',
+        'effect' => 'fade',
+      ),
+      '#attributes' => array(
+        'class' => array(
+          'delete-row',
+        ),
+      ),
+      // Make sure it's always at the bottom.
+      '#weight' => 99,
+      '#attached' => array(
+        'css' => array(
+          drupal_get_path('module', 'multiple_field_delete') . '/css/multiple_field_delete.styles.css',
+        ),
+      ),
+    );
+  }
+}
+
+/**
+ * Custom AJAX callback for row deletion functinality.
+ *
+ * @see multiple_field_delete_field_field_widget_form()
+ */
+function _multiple_field_delete_delete_row_callback($form, &$form_state) {
+  $saved_fields = variable_get('multiple_field_delete_enabled', array());
+  // Return the whole field, to be completely redrawed.
+  foreach ($saved_fields as $field) {
+    if (isset($form[$field])) {
+      return $form[$field];
+    }
+  }
+}
+
+/**
+ * Custom submit handler for row deletion button.
+ *
+ * @see multiple_field_delete_field_field_widget_form()
+ */
+function _multiple_field_delete_delete_row_submit($form, &$form_state) {
+  $triggering_element = $form_state['input']['_triggering_element_name'];
+  $form_state['rebuild'] = TRUE;
+  $form_state['storage']['to_delete'][] = str_replace('delete-row-', '', $triggering_element);
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function multiple_field_delete_form_alter(&$form, &$form_state, $form_id) {
+  $saved_fields = variable_get('multiple_field_delete_enabled', array());
+  foreach ($saved_fields as $field) {
+    if (isset($form[$field])) {
+      if (isset($form_state['storage']['to_delete']) && is_array($form_state['storage']['to_delete'])) {
+        $lang = $form[$field]['#language'];
+        foreach ($form_state['storage']['to_delete'] as $value) {
+          unset($form[$field][$lang][$value]);
+        }
+      }
+    }
+  }
+}

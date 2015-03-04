@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Mal search date filter pane.
+ * Mal search filter clear pane.
  */
 
 /**
@@ -22,7 +22,7 @@ function mal_ctools_search_clear_search_clear_ctools_content_types() {
 }
 
 /**
- * Block render callback.
+ * Pane render callback.
  */
 function mal_ctools_search_clear_search_clear_render($subtype, $conf, $args, $context) {
   $block = new stdClass();
@@ -36,7 +36,7 @@ function mal_ctools_search_clear_search_clear_render($subtype, $conf, $args, $co
 }
 
 /**
- * Displays a search form.
+ * Pane config form.
  */
 function mal_ctools_search_clear_search_clear_edit_form($form, &$form_state) {
   $conf = $form_state['conf'];
@@ -57,9 +57,7 @@ function mal_ctools_search_clear_search_clear_edit_form($form, &$form_state) {
 }
 
 /**
- * Form submission handler for search_api_page_search_form().
- *
- * @see user_login_form_validate()
+ * Form submist callback.
  */
 function mal_ctools_search_clear_search_clear_edit_form_submit(array $form, array &$form_state) {
   $form_state['conf']['link_text'] = $form_state['values']['link_text'];

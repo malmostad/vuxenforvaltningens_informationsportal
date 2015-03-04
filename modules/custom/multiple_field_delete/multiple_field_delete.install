@@ -1,0 +1,12 @@
+<?php
+/**
+ * @file
+ * Install/uninstall routine.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function multiple_field_delete_uninstall() {
+  variable_del('multiple_field_delete_enabled');
+}

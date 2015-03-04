@@ -12,8 +12,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2015-02-18 15:43+0100\n"
-"PO-Revision-Date: 2015-02-18 15:43+0100\n"
+"POT-Creation-Date: 2015-02-20 13:53+0100\n"
+"PO-Revision-Date: 2015-02-20 13:53+0100\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Swedish <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
@@ -37,13 +37,13 @@ msgstr "Kontakta oss"
 msgid "Post address"
 msgstr "Postadress"
 
-#: plugins/content_types/contact_box.tpl.php:25
-msgid "Visiting Address"
+#: plugins/content_types/contact_box.tpl.php:25 plugins/content_types/contact_box_global.inc:76
+msgid "Address"
 msgstr "Besöksadress"
 
-#: plugins/content_types/contact_box.tpl.php:28 plugins/content_types/contact_box_global.inc:77
-msgid "Write to us"
-msgstr "Skriv till oss"
+#: plugins/content_types/contact_box.tpl.php:28 plugins/content_types/contact_box_global.inc:91
+msgid "Show on map"
+msgstr "Visa på karta"
 
 #: plugins/content_types/contact_box_content_type.inc:9
 msgid "Contact pane"
@@ -66,13 +66,17 @@ msgid "Subtitle"
 msgstr "Underrubrik"
 
 #: plugins/content_types/contact_box_global.inc:66
-msgid "Address"
-msgstr "Besöksadress"
+msgid "E-mail:"
+msgstr "E-post:"
 
-#: plugins/content_types/contact_box_global.inc:72
-msgid "Show on map"
-msgstr "Visa på karta"
+#: plugins/content_types/contact_box_global.inc:71
+msgid "Tel:"
+msgstr "Tel:"
 
-#: plugins/content_types/contact_box_global.inc:83
+#: plugins/content_types/contact_box_global.inc:81
 msgid "Mailing address"
 msgstr "Postadress"
+
+#: plugins/content_types/contact_box_global.inc:86
+msgid "Street address"
+msgstr "Besöksadress"

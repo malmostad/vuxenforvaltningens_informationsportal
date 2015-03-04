@@ -24,13 +24,30 @@ function mal_course_searchable_type_formatter_field_formatter_view($entity_type,
   $element = array();
   switch ($display['type']) {
     case 'searchable_type_formatter':
-      if ((!empty($items[0]['tid'])) && ($items[0]['tid'] == variable_get('mal_generate_content_searchable_type_3', 51))) {
-        $date = field_get_items($entity_type, $entity, 'field_course_application_period');
-        $date = format_date($date[0]['value'], 'mal_short_course');
+      if (empty($items[0]['tid'])) {
+        return $element;
+      }
+      switch ($items[0]['tid']) {
+        case variable_get('mal_generate_content_searchable_type_3', 51):
+          $date = field_get_items($entity_type, $entity, 'field_course_application_period');
+          $date = format_date($date[0]['value'], 'mal_short_course');
 
-        $element[] = array(
-          '#markup' => '<div class="searchable-warning">' . t('The course is searchable from %start', array('%start' => $date)) . '</div>',
-        );
+          $element[] = array(
+            '#markup' => '<div class="searchable-warning">' . t('The course is searchable from %start', array('%start' => $date)) . '</div>',
+          );
+          break;
+
+        case variable_get('mal_generate_content_searchable_type_1', 75):
+          $element[] = array(
+            '#markup' => '<div class="searchable-warning">' . t('Course/course package are searchable subject to availability') . '</div>',
+          );
+          break;
+
+        case variable_get('mal_generate_content_searchable_type_2', 76):
+          $element[] = array(
+            '#markup' => '<div class="searchable-warning">'  . t('Course/course package is not searchable right now') . '</div>',
+          );
+          break;
       }
       break;
   }

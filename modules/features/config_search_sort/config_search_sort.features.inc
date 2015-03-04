@@ -39,7 +39,7 @@ function config_search_sort_default_search_api_sort() {
     "index_id" : "node",
     "field" : "search_api_relevance",
     "name" : "Relevance",
-    "enabled" : "1",
+    "enabled" : "0",
     "weight" : "0",
     "identifier" : "node__search_api_relevance",
     "default_sort" : "1",

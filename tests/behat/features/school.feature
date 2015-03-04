@@ -14,7 +14,6 @@ Feature: School
     Then I should see the text "Test body"
     Then I should see the text "View all school courses"
     Then I should see the text "Contact us"
-    Then I should see the text "Write to us"
     Then I should see the text "E-post"
     Then I should see the text "school@email.test"
     Then I should see the text "Tel"
@@ -25,4 +24,4 @@ Feature: School
     Then I should see the text "Test school address"
     Then I should see the text "Visiting Address"
     Then I should see the text "Test school street address"
-    Then I should see the text "Write to us"
+    Then I should see the text "Show on map"

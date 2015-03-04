@@ -48,8 +48,12 @@ msgid "Current Format"
 msgstr "Nuvarande Format"
 
 #: mal_user_courses.module:256
-msgid "continuous"
-msgstr "kontinuerlig"
+msgid "Continuous"
+msgstr "Kontinuerlig"
+
+#: mal_user_courses.module:387
+msgid "From @date"
+msgstr "Från @date"
 
 #: mal_user_courses.info:0
 msgid "Malmo User courses"
