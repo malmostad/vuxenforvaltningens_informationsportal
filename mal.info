@@ -168,6 +168,14 @@ dependencies[] = advagg_bundler
 dependencies[] = advagg_js_compress
 dependencies[] = advagg_css_compress
 dependencies[] = entitycache
+; SEO
+dependencies[] = metatag
+dependencies[] = metatag_panels
+dependencies[] = metatag_opengraph
+dependencies[] = redirect
+dependencies[] = globalredirect
+dependencies[] = pathauto
+dependencies[] = transliteration
 ; Features
 dependencies[] = features
 dependencies[] = conf_image_style
@@ -220,3 +228,5 @@ dependencies[] = view_subscribed_app_view
 dependencies[] = config_media
 dependencies[] = view_dashboard_my_content
 dependencies[] = page_dashboard
+dependencies[] = config_metatag
+dependencies[] = config_url_aliases

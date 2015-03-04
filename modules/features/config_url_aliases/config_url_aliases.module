@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Config URL aliases feature.
+ */
+
+include_once 'config_url_aliases.features.inc';
