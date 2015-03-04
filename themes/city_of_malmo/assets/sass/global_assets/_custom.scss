@@ -693,13 +693,13 @@ nav.content {
 // --------FOOTER BOTTOM---------  //
 #malmo-footer {
   color: #000;
-  bottom: 0;
-  position: absolute !important;
+  // bottom: 0;
+  // position: absolute !important;
   width: 100%;
 }
 
 footer.bigfoot {
-  margin-bottom: 147px;
+  // margin-bottom: 147px;
   width: 100%;
 
   div.navs {
@@ -1940,9 +1940,15 @@ footer.bigfoot {
     }
   }
 
-  .pane-contact-box-global {
-    margin-right: 0;
-    width: 100%;
+  footer.bigfoot {
+    // margin-bottom: 460px;
+
+    div.navs {
+      .pane-contact-box-global {
+        margin-right: 0;
+        width: 100%;
+      }
+    }
   }
 }
 
@@ -1971,6 +1977,14 @@ footer.bigfoot {
   .tabs {
     .tab-item {
       padding: 5px;
+    }
+  }
+
+  .front {
+    .top-block {
+      h1 {
+        font-size: 34px;
+      }
     }
   }
 
