@@ -437,6 +437,10 @@ function mal_user_courses_entity_view_alter(&$build, $type) {
       '#weight' => -10,
     );
 
+    if (!empty($build['field_course_searchable_type'])) {
+      $build['field_course_searchable_type']['#weight'] = -15;
+    }
+
     if (!empty($build['#groups']['group_first_group'])) {
       $build['#groups']['group_first_group']->children[] = $field_name;
       $build['#group_children'][$field_name] = 'group_first_group';
