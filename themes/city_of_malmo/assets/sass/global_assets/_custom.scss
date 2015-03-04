@@ -620,13 +620,13 @@ nav.content {
 // --------FOOTER BOTTOM---------  //
 #malmo-footer {
   color: #000;
-  bottom: 0;
-  position: absolute !important;
+  // bottom: 0;
+  // position: absolute !important;
   width: 100%;
 }
 
 footer.bigfoot {
-  margin-bottom: 147px;
+  // margin-bottom: 147px;
   width: 100%;
 
   div.navs {
@@ -1919,7 +1919,8 @@ footer.bigfoot {
   }
 
   footer.bigfoot {
-    margin-bottom: 460px;
+    // margin-bottom: 460px;
+
     div.navs {
       .pane-contact-box-global {
         margin-right: 0;
