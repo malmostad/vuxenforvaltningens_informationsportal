@@ -74,35 +74,49 @@ function mal_user_courses_preprocess_views_view_table(array &$vars) {
     $processed_results_classes = array();
     $delta = 0;
 
+    $flex_forms = variable_get('course_flex_form_terms', array());
+
     foreach ($vars['result'] as $key => $result) {
-      foreach (array('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun') as $day) {
-        if ($result->{'field_data_field_course_periods_field_course_periods_' . $day} == 1) {
-          $processed_result = $vars['rows'][$key];
+      if (!empty($flex_forms) &&
+        !empty($result->field_field_course_form) &&
+        in_array($result->field_field_course_form[0]['raw']['tid'], $flex_forms)) {
+        $processed_result = $vars['rows'][$key];
+        // Mock sorting data.
+        $processed_result['#raw_start_date'] = empty($result->field_field_course_date[0]['raw']['value']) ?
+          -1 : $result->field_field_course_date[0]['raw']['value'];
+        $processed_result['#raw_end_date'] = empty($result->field_field_course_date[0]['raw']['value2']) ?
+          99999999999999 : $result->field_field_course_date[0]['raw']['value2'];
+        $processed_result['#raw_day'] = 0;
+        $processed_result['#raw_start_time'] = -1;
+        $processed_result['#raw_end_time'] = -1;
 
-          // Populate data for sorting and intersections.
-          if (empty($result->field_field_course_date)) {
-            // Exception for continuous period type.
-            $processed_result['#raw_start_date'] = -1;
-            $processed_result['#raw_end_date'] = 99999999999999;
+        $processed_results[] = $processed_result;
+      }
+      else {
+        foreach (array('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun') as $day) {
+          if ($result->{'field_data_field_course_periods_field_course_periods_' . $day} == 1) {
+            $processed_result = $vars['rows'][$key];
+
+            // Populate data for sorting and intersections.
+            $processed_result['#raw_start_date'] = empty($result->field_field_course_date[0]['raw']['value']) ?
+              -1 : $result->field_field_course_date[0]['raw']['value'];
+            $processed_result['#raw_end_date'] = empty($result->field_field_course_date[0]['raw']['value2']) ?
+              99999999999999 : $result->field_field_course_date[0]['raw']['value2'];
+            $processed_result['#raw_day'] = $day;
+            $processed_result['#raw_start_time'] = $result->field_data_field_course_periods_field_course_periods_value;
+            $processed_result['#raw_end_time'] = $result->field_data_field_course_periods_field_course_periods_value2;
+
+            $rendered = $result->field_field_course_periods[0]['rendered'];
+            $rendered = mal_user_courses_clean_days($rendered, $day);
+            $processed_result['field_course_periods'] = theme('timefield_formatter', $rendered);
+
+            $rendered = $result->field_field_course_periods_1[0]['rendered'];
+            $rendered = mal_user_courses_clean_days($rendered, $day);
+            $processed_result['field_course_periods_1'] = theme('timefield_formatter', $rendered);
+            $processed_results[] = $processed_result;
+            $processed_results_classes[] = array();
+            $delta++;
           }
-          else {
-            $processed_result['#raw_start_date'] = $result->field_field_course_date[0]['raw']['value'];
-            $processed_result['#raw_end_date'] = $result->field_field_course_date[0]['raw']['value2'];
-          }
-          $processed_result['#raw_day'] = $day;
-          $processed_result['#raw_start_time'] = $result->field_data_field_course_periods_field_course_periods_value;
-          $processed_result['#raw_end_time'] = $result->field_data_field_course_periods_field_course_periods_value2;
-
-          $rendered = $result->field_field_course_periods[0]['rendered'];
-          $rendered = mal_user_courses_clean_days($rendered, $day);
-          $processed_result['field_course_periods'] = theme('timefield_formatter', $rendered);
-
-          $rendered = $result->field_field_course_periods_1[0]['rendered'];
-          $rendered = mal_user_courses_clean_days($rendered, $day);
-          $processed_result['field_course_periods_1'] = theme('timefield_formatter', $rendered);
-          $processed_results[] = $processed_result;
-          $processed_results_classes[] = array();
-          $delta++;
         }
       }
     }
@@ -436,6 +450,10 @@ function mal_user_courses_entity_view_alter(&$build, $type) {
       '#markup' => '<div class="type-education"><div class="field-value">' . t('Gymnasial vuxenutbildning') . '</div></div>',
       '#weight' => -10,
     );
+
+    if (!empty($build['field_course_searchable_type'])) {
+      $build['field_course_searchable_type']['#weight'] = -15;
+    }
 
     if (!empty($build['#groups']['group_first_group'])) {
       $build['#groups']['group_first_group']->children[] = $field_name;

@@ -22,12 +22,10 @@ function mal_course_scheduler_cron_task() {
   $query = db_select('node', 'n');
   $query->leftJoin('field_data_field_course_application_period', 'fap', 'fap.entity_id=n.nid');
   $query->leftJoin('field_data_field_course_continuos', 'fc', 'fc.entity_id=n.nid');
-  $and = db_and();
-  $and->condition('field_course_application_period_value', REQUEST_TIME, '<');
-  $and->condition('field_course_application_period_value2', REQUEST_TIME, '>');
   $or = db_or();
+  $or->condition('field_course_application_period_value2', REQUEST_TIME, '>');
   $or->condition('field_course_continuos_value', 1);
-  $or->condition($and);
+  $query->condition('field_course_application_period_value', REQUEST_TIME, '<');
   $query->condition($or);
   $query->addField('n', 'nid');
   $result = array();

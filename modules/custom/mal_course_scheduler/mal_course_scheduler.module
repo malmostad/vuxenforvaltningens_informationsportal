@@ -39,7 +39,8 @@ function mal_course_scheduler_field_storage_pre_update($entity_type, $entity, $s
     $app_period = empty($app_period[0]) ? FALSE : $app_period[0];
 
     // Searchable now from continuous field.
-    if (!empty($continuous) && $continuous[0]['value']) {
+    if (!empty($continuous) && $continuous[0]['value'] &&
+      !empty($app_period['value']) && $app_period['value'] < REQUEST_TIME) {
       $entity->field_course_searchable_type[$searchable_lang][0]['tid'] = variable_get('mal_generate_content_searchable_type_0', 74);
       return;
     }
