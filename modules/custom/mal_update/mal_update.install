@@ -716,3 +716,10 @@ function mal_update_update_7050() {
   $uids = $query->execute()->fetchCol();
   pathauto_user_update_alias_multiple($uids, 'bulkupdate');
 }
+
+/**
+ * Revert date facet feature.
+ */
+function mal_update_update_7051() {
+  features_revert_module('minipanel_search_facet_date');
+}
