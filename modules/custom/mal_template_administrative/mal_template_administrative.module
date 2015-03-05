@@ -7,19 +7,6 @@
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function mal_template_administrative_form_course_template_node_form_alter(&$form, &$form_state) {
-  if (!empty($_GET['gp']) && !empty($form['field_course_gymnasie_program'])) {
-    $field_course_gymnasie_program = &$form['field_course_gymnasie_program'];
-    $langcode = $field_course_gymnasie_program['#language'];
-    if (empty($field_course_gymnasie_program[$langcode]['#default_value'])) {
-      $field_course_gymnasie_program[$langcode]['#default_value'][0] = $_GET['gp'];
-    }
-  }
-}
-
-/**
- * Implements hook_form_FORM_ID_alter().
- */
 function mal_template_administrative_form_node_delete_confirm_alter(&$form, &$form_state) {
   if (!empty($form['#node']->type) && $form['#node']->type == 'course_template') {
     $items = array();
