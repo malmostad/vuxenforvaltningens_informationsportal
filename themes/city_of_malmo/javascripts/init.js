@@ -17,7 +17,7 @@
           .css('background','url("http://assets.malmo.se/external/v4/logo-x1.png") no-repeat');
 
       var $flex_group = $('.facetapi-facet-field-course-formname', context);
-      var $time_group = $('.facetapi-facet-field-course-periodsvalue-formatted', context);
+      var $time_group = $('.facetapi-facet-field-course-periodsvalue', context);
       if ($time_group.length > 0 &&
         $flex_group.find('li').length > 0) {
         $flex_group.parent().hide();

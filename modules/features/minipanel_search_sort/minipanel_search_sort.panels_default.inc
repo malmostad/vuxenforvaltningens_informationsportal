@@ -53,7 +53,7 @@ function minipanel_search_sort_default_panels_mini() {
     $pane->configuration = array(
       'admin_title' => '',
       'title' => '',
-      'body' => '<p>Sortera sökresultatet i alfabetisk ordning, utifrån startdatum eller i relevans till ditt sökord. Välj pil uppåt eller nedåt för fallande respektive stigande ordning.</p>',
+      'body' => '<p>Gör dina val till höger.</p>',
       'format' => 'filtered_html',
       'substitute' => TRUE,
     );

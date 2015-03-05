@@ -724,3 +724,18 @@ function mal_update_update_7051() {
   features_revert_module('minipanel_search_facet_date');
   features_revert_module('config_wysiwyg');
 }
+
+/**
+ * Revert facet-related features and reindex content.
+ */
+function mal_update_update_7052() {
+  cache_clear_all();
+
+  features_revert_module('config_search');
+  features_revert_module('config_facet');
+  features_revert_module('minipanel_search_sort');
+
+  $search_api_index = search_api_index_load('node');
+  $search_api_index->clear();
+  search_api_index_items($search_api_index);
+}

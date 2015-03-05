@@ -148,7 +148,6 @@ dependencies[] = search_api_views
 ; Search Toolkit
 dependencies[] = facetapi
 dependencies[] = facetapi_bonus
-dependencies[] = facetapi_ranges
 ; User interface
 dependencies[] = chosen
 dependencies[] = jquery_update

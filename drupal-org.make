@@ -125,9 +125,6 @@ projects[search_api_sorts][subdir] = "contrib"
 projects[facetapi][version] = "1.5"
 projects[facetapi][subdir] = "contrib"
 
-projects[facetapi_ranges][version] = "1.x-dev"
-projects[facetapi_ranges][subdir] = "contrib"
-
 projects[facetapi_bonus][version] = "1.1"
 projects[facetapi_bonus][subdir] = "contrib"
 

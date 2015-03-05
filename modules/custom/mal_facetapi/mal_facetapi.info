@@ -2,3 +2,5 @@ name = Mal facetapi
 description = Hide facetapi breadcrumbs.
 core = 7.x
 package = Propeople
+
+files[] = plugins/facetapi/widget_ranges.inc
