@@ -101,9 +101,11 @@ function content_type_course_template_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
-        'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
         'weight' => 8,
       ),
       'node_teaser' => array(
@@ -127,19 +129,28 @@ function content_type_course_template_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_course_gymnasie_program',
+    'ied_settings' => array(
+      'display_fields' => 0,
+    ),
     'label' => 'Gymnasieprogram',
+    'render_entity_below' => 0,
     'required' => 0,
     'settings' => array(
+      'behaviors' => array(
+        'taxonomy-index' => array(
+          'status' => TRUE,
+        ),
+      ),
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
       'module' => 'options',
       'settings' => array(
-        'apply_chosen' => 1,
+        'apply_chosen' => '',
       ),
       'type' => 'options_select',
-      'weight' => 13,
+      'weight' => 41,
     ),
   );
 

@@ -1,9 +1,12 @@
 name = Config taxonomy
 core = 7.x
 package = Config
+dependencies[] = entityreference
 dependencies[] = features
 dependencies[] = taxonomy
 features[features_api][] = api:2
+features[field_base][] = field_attached_course
+features[field_instance][] = taxonomy_term-course_gymnasie_program-field_attached_course
 features[taxonomy][] = course_form
 features[taxonomy][] = course_gymnasie_program
 features[taxonomy][] = course_orientation
@@ -13,4 +16,3 @@ features[taxonomy][] = course_subject_areas
 features[taxonomy][] = course_type_of_education
 features[taxonomy][] = qa_category
 features[taxonomy][] = type_of_education
-mtime = 1418058901

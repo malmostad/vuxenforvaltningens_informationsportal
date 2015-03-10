@@ -739,3 +739,25 @@ function mal_update_update_7052() {
   $search_api_index->clear();
   search_api_index_items($search_api_index);
 }
+
+/**
+ * Prepare Course template - Gymnasy program relation.
+ */
+function mal_update_update_7053() {
+  $instance = field_info_instance('node', 'field_course_gymnasie_program', 'course_template');
+  field_delete_instance($instance);
+  field_purge_batch(10);
+  features_revert_module('content_type_course_template');
+  features_revert_module('config_taxonomy');
+
+  module_enable(array('cer'));
+  module_load_include('inc', 'cer', 'cer.admin');
+  $form_state = array(
+    'values' => array(
+      'mapping' => 'a:2:{i:0;s:110:"taxonomy_term*course_gymnasie_program*field_attached_course*node*course_template*field_course_gymnasie_program";i:1;s:110:"node*course_template*field_course_gymnasie_program*taxonomy_term*course_gymnasie_program*field_attached_course";}',
+      'enabled_0' => 1,
+      'enabled_1' => 1,
+    ),
+  );
+  cer_settings_form_submit(array(), $form_state);
+}

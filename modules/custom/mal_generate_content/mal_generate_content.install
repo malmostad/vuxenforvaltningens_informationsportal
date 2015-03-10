@@ -190,7 +190,7 @@ function mal_generate_content_enable() {
   );
 
   $template->field_course_gymnasie_program[$template->language][] = array(
-    'tid' => $gymnasie_program->tid,
+    'target_id' => $gymnasie_program->tid,
   );
 
   $template->field_course_type_education[$template->language][] = array(
@@ -300,7 +300,7 @@ function mal_generate_content_enable() {
   );
 
   $template->field_course_gymnasie_program[$template->language][] = array(
-    'tid' => $gymnasie_program->tid,
+    'target_id' => $gymnasie_program->tid,
   );
 
   $template = node_submit($template);
@@ -379,7 +379,7 @@ function mal_generate_content_enable() {
   );
 
   $template->field_course_gymnasie_program[$template->language][] = array(
-    'tid' => $gymnasie_program->tid,
+    'target_id' => $gymnasie_program->tid,
   );
 
   $template = node_submit($template);
