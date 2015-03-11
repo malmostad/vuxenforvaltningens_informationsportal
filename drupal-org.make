@@ -240,6 +240,9 @@ projects[metatag][subdir] = "contrib"
 projects[pathauto][version] = "1.2"
 projects[pathauto][subdir] = "contrib"
 
+projects[cer][version] = "2.x-dev"
+projects[cer][subdir] = "contrib"
+
 ; +++++ Themes +++++
 
 ; bootstrap

@@ -7,6 +7,15 @@
 /**
  * Implements hook_form_FORM_ID_alter().
  */
+function mal_template_administrative_form_course_template_node_form_alter(&$form, &$form_state, $form_id) {
+  if (!empty($form['field_course_gymnasie_program'])) {
+    $form['field_course_gymnasie_program']['#access'] = FALSE;
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
 function mal_template_administrative_form_node_delete_confirm_alter(&$form, &$form_state) {
   if (!empty($form['#node']->type) && $form['#node']->type == 'course_template') {
     $items = array();

@@ -94,6 +94,7 @@ dependencies[] = token
 dependencies[] = ultimate_cron
 dependencies[] = administerusersbyrole
 dependencies[] = role_delegation
+dependencies[] = cer
 ; Panels
 dependencies[] = panels
 dependencies[] = panels_everywhere

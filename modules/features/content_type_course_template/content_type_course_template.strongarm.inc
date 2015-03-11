@@ -122,6 +122,15 @@ function content_type_course_template_strongarm() {
         'title' => array(
           'weight' => '-5',
         ),
+        'metatags' => array(
+          'weight' => '40',
+        ),
+        'path' => array(
+          'weight' => '30',
+        ),
+        'redirect' => array(
+          'weight' => '30',
+        ),
       ),
       'display' => array(),
     ),
