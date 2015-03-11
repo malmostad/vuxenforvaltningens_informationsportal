@@ -247,14 +247,18 @@ function mal_user_courses_clean_days(array $rendered, $day_to_keep) {
 function mal_user_courses_preprocess_views_view_list(&$variables) {
   if ($variables['view']->name == 'sidebar_courses'
     && $variables['view']->current_display == 'course_menu_pane'
-    && ($not_started_tid = variable_get('mal_generate_content_searchable_type_3', FALSE))
   ) {
+    $exclamation_tids = array(
+      variable_get('mal_generate_content_searchable_type_1', FALSE),
+      variable_get('mal_generate_content_searchable_type_2', FALSE),
+      variable_get('mal_generate_content_searchable_type_3', FALSE),
+    );
     $results = $variables['view']->result;
     $classes = &$variables['classes_array'];
     $class = 'has-not-started';
     foreach ($results as $id => $row) {
       if (!empty($row->field_field_course_searchable_type)
-        && $row->field_field_course_searchable_type[0]['raw']['tid'] == $not_started_tid
+        && in_array($row->field_field_course_searchable_type[0]['raw']['tid'], $exclamation_tids)
       ) {
         $classes[$id] = isset($classes[$id]) ? $classes[$id] . ' ' . $class : $class;
       }
