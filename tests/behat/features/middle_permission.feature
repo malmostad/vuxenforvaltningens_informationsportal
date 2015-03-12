@@ -27,7 +27,7 @@ Feature: Middle admim permission
     # Required
     And I select "Flexkurs" from "Kursform"
     And I select "A2 Test school" from "Skola"
-    And I fill in "Kursgrupp" with "test"
+    And I fill in "Sökkod" with "test"
 
     Then I press the "edit-submit" button
 
@@ -39,7 +39,7 @@ Feature: Middle admim permission
         # Required for course
     And I check the box "Klassrumsundervisning"
     And I select "A2 Test school" from "Skola"
-    And I fill in "Kursgrupp" with "test"
+    And I fill in "Sökkod" with "test"
     And I type "test" in "edit-body-und-0-value" WYSIWYG editor
     And I fill in "Kontaktperson" with "test"
     And I fill in "edit-field-course-package-und-0-field-package-course-und-0-value" with "test"

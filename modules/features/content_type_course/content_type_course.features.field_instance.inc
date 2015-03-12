@@ -319,7 +319,7 @@ function content_type_course_field_default_field_instances() {
     'bundle' => 'course',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Ange kursgrupp för kurs',
+    'description' => 'Ange Sökkod för kurs',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -350,7 +350,7 @@ function content_type_course_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_course_group',
-    'label' => 'Kursgrupp',
+    'label' => 'Sökkod',
     'required' => 1,
     'settings' => array(
       'better_formats' => array(
@@ -724,7 +724,7 @@ function content_type_course_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Ange ansökningsperiod');
   t('Ange klockslag (start-slut) samt veckodag för varje lektionstillfälle. Varje lektionstillfälle läggs in separat genom <em>Lägg till ytterligare alternativ</em>.');
-  t('Ange kursgrupp för kurs');
+  t('Ange Sökkod för kurs');
   t('Ange när kurs/kurspaket startar och slutar');
   t('Ansökningsperiod');
   t('Course registration');
@@ -733,7 +733,7 @@ function content_type_course_field_default_field_instances() {
   t('Kryssa i Kontinuerlig ifall kursen har kontinuerlig ansökan och kursstart. Ange vid behov startdatum för kurs samt ansökningsperiod nedan.');
   t('Kurs mall');
   t('Kursform');
-  t('Kursgrupp');
+  t('Sökkod');
   t('Kursperiod');
   t('Searchable type');
   t('Skola');
