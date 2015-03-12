@@ -779,3 +779,10 @@ function mal_update_update_7054() {
 function mal_update_update_7055() {
   features_revert_module('config_search');
 }
+
+/**
+ * Update permissions.
+ */
+function mal_update_update_7056() {
+  features_revert_module('config_permissions');
+}

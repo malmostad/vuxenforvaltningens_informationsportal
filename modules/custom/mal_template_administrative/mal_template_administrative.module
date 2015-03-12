@@ -5,6 +5,35 @@
  */
 
 /**
+ * Implements hook_menu_alter().
+ */
+function mal_template_administrative_menu_alter(&$items) {
+  $items['admin/structure/taxonomy/%taxonomy_vocabulary_machine_name']['access callback'] = 'mal_template_administrative_vocabulary_access_callback';
+  $items['admin/structure/taxonomy/%taxonomy_vocabulary_machine_name']['access arguments'][] = 3;
+
+  $items['admin/structure/taxonomy/%taxonomy_vocabulary_machine_name/list']['access callback'] = 'mal_template_administrative_vocabulary_access_callback';
+  $items['admin/structure/taxonomy/%taxonomy_vocabulary_machine_name/list']['access arguments'][] = 3;
+
+  $items['admin/structure/taxonomy/%taxonomy_vocabulary_machine_name/add']['access callback'] = 'mal_template_administrative_vocabulary_access_callback';
+  $items['admin/structure/taxonomy/%taxonomy_vocabulary_machine_name/add']['access arguments'][] = 3;
+}
+
+/**
+ * Custom callback to check access to vocabulary.
+ */
+function mal_template_administrative_vocabulary_access_callback() {
+  $administer_taxonomy = user_access('administer taxonomy');
+
+  $args = func_get_args();
+
+  if (!empty($args) && ($vocabulary = array_pop($args)) && is_object($vocabulary)) {
+    return user_access('edit terms in ' . $vocabulary->vid) || $administer_taxonomy;
+  }
+
+  return $administer_taxonomy;
+}
+
+/**
  * Implements hook_form_FORM_ID_alter().
  */
 function mal_template_administrative_form_course_template_node_form_alter(&$form, &$form_state, $form_id) {

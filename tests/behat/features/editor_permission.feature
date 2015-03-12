@@ -17,3 +17,8 @@ Feature: Editors permission
     Given I am logged in as "editor" with the password "editor"
     And I am on "admin/content"
     Then I should see only "editor" user content
+
+  Scenario: Editor can modify Gymnasie program terms
+    Given I am logged in as "editor" with the password "editor"
+    And I am on "admin/structure/taxonomy/course_gymnasie_program"
+    Then I should see "Ekonomi"
