@@ -8,6 +8,7 @@
  * Implements hook_form_FORM_ID_alter().
  */
 function mal_course_administrative_form_course_node_form_alter(&$form, &$form_state) {
+  $form['#attached']['css'][drupal_get_path('theme', 'city_of_malmo') . '/assets/stylesheets/overrides.css'] = array('group' => CSS_THEME);
   $form['#attached']['js'][drupal_get_path('module', 'mal_course_administrative') . '/mal_course_administratove.js'] = array('type' => 'file');
 
   $form['field_course_periods']['#states']['invisible'] = array(
