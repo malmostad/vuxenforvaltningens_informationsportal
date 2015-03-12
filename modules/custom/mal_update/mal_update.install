@@ -772,3 +772,10 @@ function mal_update_update_7054() {
   $search_api_index->clear();
   search_api_index_items($search_api_index);
 }
+
+/**
+ * Update search configuration.
+ */
+function mal_update_update_7055() {
+  features_revert_module('config_search');
+}
