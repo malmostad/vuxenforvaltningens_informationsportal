@@ -103,10 +103,12 @@ function mal_search_property_duration_days_getter_callback($item, array $options
     'fri' => t('Friday'),
   );
 
-  foreach (field_get_items($type, $item, 'field_course_periods', $options['language']) as $delta => $period) {
-    foreach ($strings as $machine_day => $day) {
-      if (!empty($period[$machine_day])) {
-        $values[$machine_day] = $day;
+  if (!empty($item->field_course_periods)) {
+    foreach (field_get_items($type, $item, 'field_course_periods', $options['language']) as $delta => $period) {
+      foreach ($strings as $machine_day => $day) {
+        if (!empty($period[$machine_day])) {
+          $values[$machine_day] = $day;
+        }
       }
     }
   }
@@ -165,4 +167,17 @@ function mal_search_facet_items_alter(&$build, &$settings) {
       }
     }
   }
+}
+
+/**
+ * Implements hook_search_api_processor_info().
+ */
+function mal_search_search_api_processor_info() {
+  $processors['mal_data_processor'] = array(
+    'name' => t('Mal index data preprocessor'),
+    'description' => t('Make vital modifications on generated index data.'),
+    'class' => 'MalSearchApiDataProcessor',
+  );
+
+  return $processors;
 }

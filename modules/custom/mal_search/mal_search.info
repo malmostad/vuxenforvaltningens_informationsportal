@@ -1,6 +1,9 @@
 name = Mal search customization
+description = Make customizations in search api.
 core = 7.x
 package = Propeople
 dependencies[] = entity
 dependencies[] = search_api
 dependencies[] = search_api_solr
+
+files[] = includes/processor_index_modify.inc

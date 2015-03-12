@@ -761,3 +761,14 @@ function mal_update_update_7053() {
   );
   cer_settings_form_submit(array(), $form_state);
 }
+
+/**
+ * Set nid of Utbildning node used for Course Package and reindex content.
+ */
+function mal_update_update_7054() {
+  variable_set('course_package_gymnasium_program', 141);
+
+  $search_api_index = search_api_index_load('node');
+  $search_api_index->clear();
+  search_api_index_items($search_api_index);
+}
