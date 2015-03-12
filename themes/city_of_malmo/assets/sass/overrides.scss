@@ -1,0 +1,7 @@
+@import "compass/css3";
+
+// Fix timepicker
+.ui-timepicker-table td a {
+  @include box-sizing(content-box);
+}
+
