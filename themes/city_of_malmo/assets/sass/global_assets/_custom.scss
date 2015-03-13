@@ -1174,7 +1174,8 @@ footer.bigfoot {
 
 // --- Course description --- //
 .first-group,
-.second-group {
+.second-group,
+.third-group {
   font-family: $open-sans;
   font-size: 14px;
   max-width: 510px;
@@ -1870,7 +1871,7 @@ footer.bigfoot {
     td:nth-of-type(1):before { content: "Kurs"; }
     td:nth-of-type(2):before { content: "Ansökningsperiod"; }
     td:nth-of-type(3):before { content: "Kursperiod"; }
-    td:nth-of-type(4):before { content: "Kursgrupp"; }
+    td:nth-of-type(4):before { content: "Sökkod"; }
   }
 
   .pane-my-course-application-list-flex-course-pane {
@@ -1882,28 +1883,28 @@ footer.bigfoot {
 
     td:nth-of-type(2):before { content: "Ansökningsperiod"; }
     td:nth-of-type(3):before { content: "Kursperiod"; }
-    td:nth-of-type(4):before { content: "Kursgrupp"; }
+    td:nth-of-type(4):before { content: "Sökkod"; }
   }
 
   .pane-my-course-application-list-not-searchable-pane {
     td:nth-of-type(1):before { content: "Ej sökbara just nu"; }
     td:nth-of-type(2):before { content: "Ansökningsperiod"; }
     td:nth-of-type(3):before { content: "Kursperiod"; }
-    td:nth-of-type(4):before { content: "Kursgrupp"; }
+    td:nth-of-type(4):before { content: "Sökkod"; }
   }
 
   .pane-my-course-application-list-course-pacage-pane {
     td:nth-of-type(1):before { content: "Kurspaket"; }
     td:nth-of-type(2):before { content: "Ansökningsperiod"; }
     td:nth-of-type(3):before { content: "Kursperiod"; }
-    td:nth-of-type(4):before { content: "Kursgrupp"; }
+    td:nth-of-type(4):before { content: "Sökkod"; }
   }
 
   .pane-my-course-application-list-not-searchable-package-pane {
     td:nth-of-type(1):before { content: "Ej sökbara just nu"; }
     td:nth-of-type(2):before { content: "Ansökningsperiod"; }
     td:nth-of-type(3):before { content: "Kursperiod"; }
-    td:nth-of-type(4):before { content: "Kursgrupp"; }
+    td:nth-of-type(4):before { content: "Sökkod"; }
   }
 }
 

@@ -183,7 +183,7 @@ function view_subscribed_app_view_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Fält: Innehåll: Kursgrupp */
+  /* Fält: Innehåll: Sökkod */
   $handler->display->display_options['fields']['field_course_group']['id'] = 'field_course_group';
   $handler->display->display_options['fields']['field_course_group']['table'] = 'field_data_field_course_group';
   $handler->display->display_options['fields']['field_course_group']['field'] = 'field_course_group';
@@ -228,7 +228,7 @@ function view_subscribed_app_view_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Fält: Innehåll: Kursgrupp */
+  /* Fält: Innehåll: Sökkod */
   $handler->display->display_options['fields']['field_course_group']['id'] = 'field_course_group';
   $handler->display->display_options['fields']['field_course_group']['table'] = 'field_data_field_course_group';
   $handler->display->display_options['fields']['field_course_group']['field'] = 'field_course_group';
@@ -308,7 +308,7 @@ function view_subscribed_app_view_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Fält: Innehåll: Kursgrupp */
+  /* Fält: Innehåll: Sökkod */
   $handler->display->display_options['fields']['field_course_group']['id'] = 'field_course_group';
   $handler->display->display_options['fields']['field_course_group']['table'] = 'field_data_field_course_group';
   $handler->display->display_options['fields']['field_course_group']['field'] = 'field_course_group';
@@ -373,7 +373,7 @@ function view_subscribed_app_view_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Fält: Innehåll: Kursgrupp */
+  /* Fält: Innehåll: Sökkod */
   $handler->display->display_options['fields']['field_course_group']['id'] = 'field_course_group';
   $handler->display->display_options['fields']['field_course_group']['table'] = 'field_data_field_course_group';
   $handler->display->display_options['fields']['field_course_group']['field'] = 'field_course_group';
@@ -446,7 +446,7 @@ function view_subscribed_app_view_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Fält: Innehåll: Kursgrupp */
+  /* Fält: Innehåll: Sökkod */
   $handler->display->display_options['fields']['field_course_group']['id'] = 'field_course_group';
   $handler->display->display_options['fields']['field_course_group']['table'] = 'field_data_field_course_group';
   $handler->display->display_options['fields']['field_course_group']['field'] = 'field_course_group';
@@ -501,7 +501,7 @@ function view_subscribed_app_view_views_default_views() {
     t('Course'),
     t('Continuous'),
     t('Kontinuerlig'),
-    t('Kursgrupp'),
+    t('Sökkod'),
     t('View panes'),
     t('Flex and Distance course'),
     t('Flexkurser och distanskurser'),

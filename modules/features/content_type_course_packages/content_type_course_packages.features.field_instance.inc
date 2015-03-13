@@ -468,7 +468,7 @@ function content_type_course_packages_field_default_field_instances() {
     'bundle' => 'course_packages',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Ange kursgrupp för kurspaket',
+    'description' => 'Ange Sökkod för kurspaket',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -499,7 +499,7 @@ function content_type_course_packages_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_course_group',
-    'label' => 'Kursgrupp',
+    'label' => 'Sökkod',
     'required' => 1,
     'settings' => array(
       'better_formats' => array(
@@ -1188,7 +1188,7 @@ function content_type_course_packages_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Ange ansökningsperiod');
   t('Ange delkurs samt antal poäng. Varje delkurs läggs in separat genom <em>Lägg till ytterligare alternativ</em>.');
-  t('Ange kursgrupp för kurspaket');
+  t('Ange Sökkod för kurspaket');
   t('Ange när kurspaket startar och slutar');
   t('Ange studietakt i procent (t.ex. heltid är 100 %)');
   t('Ansökningsperiod');
@@ -1203,7 +1203,7 @@ function content_type_course_packages_field_default_field_instances() {
   t('Kurs');
   t('Kurser som ingår');
   t('Kursform');
-  t('Kursgrupp');
+  t('Sökkod');
   t('Kursperiod');
   t('Omfattning');
   t('Poäng');
