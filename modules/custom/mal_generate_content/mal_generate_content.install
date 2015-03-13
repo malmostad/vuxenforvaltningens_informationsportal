@@ -264,8 +264,14 @@ function mal_generate_content_enable() {
   $node->uid = $user->uid;
   $node->status = 1;
 
-  $node->field_course_searchable_type[$template->language][] = array(
-    'tid' => variable_get('mal_generate_content_searchable_type_0', 73),
+  $node->field_course_date[$node->language][] = array(
+    'value' => strtotime('+60 day'),
+    'value2' => strtotime('+61 day'),
+  );
+
+  $node->field_course_application_period[$node->language][] = array(
+    'value' => strtotime('+30 day'),
+    'value2' => strtotime('+31 day'),
   );
 
   $node->field_course_template[$node->language][] = array(
