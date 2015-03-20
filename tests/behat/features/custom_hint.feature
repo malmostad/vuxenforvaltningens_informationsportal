@@ -13,5 +13,6 @@ Feature: Custom hints
     And I fill in "edit-hints-items-0-hint" with "Test hint"
     And I press "Save"
     Then I am on the homepage
+    And I wait for 1 seconds
     And I hover over the element ".hint"
     And I should see the text "Test hint"
