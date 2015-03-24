@@ -1203,6 +1203,7 @@ function content_type_course_packages_field_default_field_instances() {
   t('Kurs');
   t('Kurser som ingår');
   t('Kursform');
+  t('Sökkod');
   t('Kursperiod');
   t('Omfattning');
   t('Poäng');

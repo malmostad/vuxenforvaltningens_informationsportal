@@ -27,9 +27,9 @@ function mal_course_scheduler_cronapi() {
 }
 
 /**
- * Implements hook_entity_update().
+ * Implements hook_entity_presave().
  */
-function mal_course_scheduler_field_storage_pre_update($entity_type, $entity, $skip_fields) {
+function mal_course_scheduler_entity_presave($entity, $entity_type) {
   if ($entity_type == 'node' && isset($entity->field_course_searchable_type) && empty($entity->scheduler_processed)) {
     $searchable_lang = field_language($entity_type, $entity, 'field_course_searchable_type');
     $continuous = field_get_items($entity_type, $entity, 'field_course_continuos');

@@ -21,7 +21,7 @@ Feature: Content creation
         # Required
     And I select "Flexkurs" from "Kursform"
     And I select "A2 Test school" from "Skola"
-    And I fill in "Kursgrupp" with "test"
+    And I fill in "Sökkod" with "test"
     When I press "Save"
     Then I should see the text "A2 Test school"
 
