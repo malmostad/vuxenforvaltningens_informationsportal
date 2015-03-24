@@ -1744,6 +1744,7 @@ function config_permissions_user_default_permissions() {
     'name' => 'edit terms in course_gymnasie_program',
     'roles' => array(
       'Malmo top admin' => 'Malmo top admin',
+      'School editor' => 'School editor',
       'administrator' => 'administrator',
     ),
     'module' => 'taxonomy',

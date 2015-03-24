@@ -172,8 +172,8 @@ function user_subscribed_courses_view_views_default_views() {
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['table'] = 'field_data_field_course_searchable_type';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['field'] = 'field_course_searchable_type_tid';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['value'] = array(
-    152 => '152',
-    151 => '151',
+    44 => '44',
+    43 => '43',
   );
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['vocabulary'] = 'course_searchable_type';
@@ -183,8 +183,8 @@ function user_subscribed_courses_view_views_default_views() {
   $handler->display->display_options['filters']['field_course_form_tid']['field'] = 'field_course_form_tid';
   $handler->display->display_options['filters']['field_course_form_tid']['operator'] = 'not';
   $handler->display->display_options['filters']['field_course_form_tid']['value'] = array(
-    130 => '130',
-    131 => '131',
+    28 => '28',
+    27 => '27',
   );
   $handler->display->display_options['filters']['field_course_form_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_course_form_tid']['vocabulary'] = 'course_form';
@@ -345,8 +345,8 @@ function user_subscribed_courses_view_views_default_views() {
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['table'] = 'field_data_field_course_searchable_type';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['field'] = 'field_course_searchable_type_tid';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['value'] = array(
-    152 => '152',
-    151 => '151',
+    44 => '44',
+    43 => '43',
   );
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_course_searchable_type_tid']['vocabulary'] = 'course_searchable_type';
@@ -355,8 +355,8 @@ function user_subscribed_courses_view_views_default_views() {
   $handler->display->display_options['filters']['field_course_form_tid']['table'] = 'field_data_field_course_form';
   $handler->display->display_options['filters']['field_course_form_tid']['field'] = 'field_course_form_tid';
   $handler->display->display_options['filters']['field_course_form_tid']['value'] = array(
-    130 => '130',
-    131 => '131',
+    28 => '28',
+    27 => '27',
   );
   $handler->display->display_options['filters']['field_course_form_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_course_form_tid']['vocabulary'] = 'course_form';

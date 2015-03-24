@@ -272,11 +272,11 @@ function content_type_course_packages_field_default_field_instances() {
     'description' => 'Skriv kontaktperson inklusive e-postadress och telefon',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -285,11 +285,11 @@ function content_type_course_packages_field_default_field_instances() {
         'weight' => 0,
       ),
       'search_result' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 14,
+        'weight' => 15,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -468,14 +468,14 @@ function content_type_course_packages_field_default_field_instances() {
     'bundle' => 'course_packages',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Ange Sökkod för kurspaket',
+    'description' => 'Ange kursgrupp för Sökkod',
     'display' => array(
       'default' => array(
         'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 11,
+        'weight' => 3,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -488,7 +488,7 @@ function content_type_course_packages_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 9,
+        'weight' => 13,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -546,11 +546,11 @@ function content_type_course_packages_field_default_field_instances() {
     'description' => 'Skriv datum och klockslag samt eventuell adress',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -559,11 +559,11 @@ function content_type_course_packages_field_default_field_instances() {
         'weight' => 0,
       ),
       'search_result' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 13,
+        'weight' => 14,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -746,7 +746,7 @@ function content_type_course_packages_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_table_view',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -766,7 +766,7 @@ function content_type_course_packages_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_table_view',
-        'weight' => 15,
+        'weight' => 16,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1188,7 +1188,7 @@ function content_type_course_packages_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Ange ansökningsperiod');
   t('Ange delkurs samt antal poäng. Varje delkurs läggs in separat genom <em>Lägg till ytterligare alternativ</em>.');
-  t('Ange Sökkod för kurspaket');
+  t('Ange kursgrupp för Sökkod');
   t('Ange när kurspaket startar och slutar');
   t('Ange studietakt i procent (t.ex. heltid är 100 %)');
   t('Ansökningsperiod');
@@ -1215,6 +1215,7 @@ function content_type_course_packages_field_default_field_instances() {
   t('Skriv kontaktperson inklusive e-postadress och telefon');
   t('Skriv totala antalet poäng');
   t('Skriv totalt antal studieveckor');
+  t('Sökkod');
   t('Välj inriktning i listan');
 
   return $field_instances;

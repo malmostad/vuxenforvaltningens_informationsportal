@@ -779,3 +779,54 @@ function mal_update_update_7054() {
 function mal_update_update_7055() {
   features_revert_module('config_search');
 }
+
+/**
+ * Update permissions.
+ */
+function mal_update_update_7056() {
+  features_revert_module('config_permissions');
+}
+
+/**
+ * Revert features.
+ */
+function mal_update_update_7057() {
+  features_revert_module('config_jquery_update');
+  features_revert_module('content_type_course_template');
+}
+
+/**
+ * Update CER fields for Course Template and Course Gymnasie Program.
+ */
+function mal_update_update_7058() {
+  $gymnasie_program = taxonomy_vocabulary_machine_name_load('course_gymnasie_program');
+  $tree = taxonomy_get_tree($gymnasie_program->vid);
+
+  foreach ($tree as $branch) {
+    if (($term = taxonomy_term_load($branch->tid)) &&
+      $field_attached_course = field_get_items('taxonomy_term', $term, 'field_attached_course')) {
+      foreach ($field_attached_course as $course_id) {
+        if ($node = entity_load('node', array($course_id['target_id']))) {
+          $node = array_pop($node);
+          $lang = field_language('node', $node, 'field_course_gymnasie_program');
+          $found = FALSE;
+
+          if ($field = field_get_items('node', $node, 'field_course_gymnasie_program')) {
+            foreach ($field as $ref) {
+              if ($ref['target_id'] == $term->tid) {
+                $found = TRUE;
+                break;
+              }
+            }
+          }
+
+          if (!$found) {
+            $node->field_course_gymnasie_program[$lang][] = array('target_id' => $term->tid);
+
+            entity_save('node', $node);
+          }
+        }
+      }
+    }
+  }
+}

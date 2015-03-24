@@ -128,7 +128,6 @@ function content_type_course_packages_field_group_info() {
     'children' => array(
       0 => 'field_course_application_period',
       1 => 'field_course_number_of_points',
-      2 => 'field_course_group',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
@@ -181,7 +180,8 @@ function content_type_course_packages_field_group_info() {
       0 => 'body',
       1 => 'field_course_contact_person',
       2 => 'field_course_package',
-      3 => 'field_course_information_meeting',
+      3 => 'field_course_group',
+      4 => 'field_course_information_meeting',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
