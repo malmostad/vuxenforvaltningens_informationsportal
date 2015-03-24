@@ -19,6 +19,18 @@ function mal_template_administrative_menu_alter(&$items) {
 }
 
 /**
+ * Implements hook_permission().
+ */
+function mal_template_administrative_permission() {
+  return array(
+    'use gp destination field' => array(
+      'title' => t('See GP field'),
+      'description' => t('Be able to see and edit Gymnasium Program field in course template'),
+    ),
+  );
+}
+
+/**
  * Custom callback to check access to vocabulary.
  */
 function mal_template_administrative_vocabulary_access_callback() {
@@ -38,7 +50,7 @@ function mal_template_administrative_vocabulary_access_callback() {
  */
 function mal_template_administrative_form_course_template_node_form_alter(&$form, &$form_state, $form_id) {
   if (!empty($form['field_course_gymnasie_program'])) {
-    $form['field_course_gymnasie_program']['#access'] = FALSE;
+    $form['field_course_gymnasie_program']['#access'] = user_access('use gp destination field');
   }
 }
 

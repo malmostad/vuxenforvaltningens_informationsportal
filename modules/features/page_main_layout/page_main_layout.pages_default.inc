@@ -308,7 +308,13 @@ function page_main_layout_default_page_manager_handlers() {
           'settings' => array(
             'visibility_setting' => '1',
             'paths' => 'node/197
-node/198',
+node/198
+node/196
+node/199
+node/200
+node/201
+node/202
+faq',
           ),
           'context' => 'empty',
           'not' => FALSE,
@@ -316,7 +322,7 @@ node/198',
       ),
     );
     $pane->configuration = array(
-      'title' => 'Vill du prata med en studie- och yrkesvägledare',
+      'title' => 'Vill du prata med en studie- och yrkesvägledare?',
       'subtitle' => 'Vägledningscentrum',
       'street_address' => 'Föreningsgatan 7A',
       'write_to_us' => array(

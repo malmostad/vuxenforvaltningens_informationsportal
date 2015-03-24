@@ -319,7 +319,7 @@ function content_type_course_field_default_field_instances() {
     'bundle' => 'course',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Ange kursgrupp för kurs',
+    'description' => 'Ange Sökkod för kurs',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -722,9 +722,9 @@ function content_type_course_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Ange Sökkod för kurs');
   t('Ange ansökningsperiod');
   t('Ange klockslag (start-slut) samt veckodag för varje lektionstillfälle. Varje lektionstillfälle läggs in separat genom <em>Lägg till ytterligare alternativ</em>.');
-  t('Ange kursgrupp för kurs');
   t('Ange när kurs/kurspaket startar och slutar');
   t('Ansökningsperiod');
   t('Course registration');

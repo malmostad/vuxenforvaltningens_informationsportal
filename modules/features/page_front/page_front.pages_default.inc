@@ -154,7 +154,7 @@ function page_front_default_page_manager_pages() {
     $pane->panel = 'region-three';
     $pane->type = 'global_pane_content_type';
     $pane->subtype = 'global_pane_content_type';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'override_title' => '',
@@ -195,7 +195,7 @@ function page_front_default_page_manager_pages() {
     $pane->panel = 'region-three';
     $pane->type = 'global_pane_content_type';
     $pane->subtype = 'global_pane_content_type';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'override_title' => '',
@@ -236,7 +236,7 @@ function page_front_default_page_manager_pages() {
     $pane->panel = 'region-three';
     $pane->type = 'global_pane_content_type';
     $pane->subtype = 'global_pane_content_type';
-    $pane->shown = TRUE;
+    $pane->shown = FALSE;
     $pane->access = array();
     $pane->configuration = array(
       'override_title' => '',
