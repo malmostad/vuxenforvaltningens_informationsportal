@@ -1,0 +1,5 @@
+name = Mal solr
+description = Solr server configuration.
+core = 7.x
+
+dependencies[] = search_api_solr
