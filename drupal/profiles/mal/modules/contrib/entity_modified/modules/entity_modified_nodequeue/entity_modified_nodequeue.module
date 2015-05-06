@@ -1,0 +1,133 @@
+<?php
+
+/**
+ * @file
+ * Hook implementations and frequently used functions for entity modified - nodequeue module.
+ */
+
+// -----------------------------------------------------------------------
+// Contrib hooks
+
+/**
+ * Implements hook_nodequeue_add().
+ */
+function entity_modified_nodequeue_nodequeue_add($sqid, $nid) {
+  entity_modified_nodequeue_update_modified($sqid, $nid);
+}
+
+/**
+ * Implements hook_nodequeue_remove().
+ */
+function entity_modified_nodequeue_nodequeue_remove($sqid, $nid) {
+  entity_modified_nodequeue_update_modified($sqid, $nid);
+}
+
+/**
+ * Implements hook_nodequeue_swap().
+ */
+function entity_modified_nodequeue_nodequeue_swap($sqid, $nid) {
+  entity_modified_nodequeue_update_modified($sqid, $nid);
+}
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Needed becaused nodequeue does not expose all operations changing a queue
+ * via its hooks.
+ */
+function entity_modified_nodequeue_form_alter(&$form, $form_state, $form_id) {
+  if (strpos($form_id, 'nodequeue_arrange_subqueue_form_') === 0) {
+    foreach (element_children($form['actions']) as $key) {
+      $form['actions'][$key]['#submit'][] = 'entity_modified_nodequeue_form_submit';
+    }
+  }
+}
+
+function entity_modified_nodequeue_form_submit($form, $form_state) {
+  $sqid = $form['nodes']['#subqueue']['sqid'];
+  entity_modified_nodequeue_update_modified($sqid);
+  // @todo Might want to update all re-arranged nodes here.
+}
+
+
+// -----------------------------------------------------------------------
+// Public API
+
+/**
+ * Retrieve the last time a nodequeue was modified.
+ *
+ * @todo Re-factor main entity_modified code for it.
+ *
+ * @param string $nodequeue_name
+ *   The nodequeue to check for modification.
+ * @return timestamp
+ *   The last modified timestap of the nodequeue.
+ */
+function entity_modified_nodequeue_last($nodequeue_name) {
+  $entity_type = 'entity_modified_nodequeue';
+  $nodequeue = nodequeue_load_queue_by_name($nodequeue_name);
+  $qid = $nodequeue->qid;
+
+  $modified_timestamp = db_query(
+    'SELECT modified FROM {entity_modified} WHERE entity_type = :entity_type AND entity_id = :entity_id',
+    array(':entity_type' => $entity_type, ':entity_id' => $qid)
+  )->fetchField();
+
+  // If not found then use '1' as inserting something in a read-only operation
+  // is a bad idea.
+  if (!$modified_timestamp) {
+    $modified_timestamp = 1;
+  }
+
+  return $modified_timestamp;
+}
+
+/**
+ * Update NQ information for a fake entity type; also update the node.
+ *
+ * @todo Re-factor main entity_modified code for it.
+ *
+ * @param int $sqid
+ *   The subqueue id to update.
+ * @param int $nid
+ *   The Node ID of the Node to update.
+ */
+function entity_modified_nodequeue_update_modified($sqid, $nid = NULL) {
+  $type = 'entity_modified_nodequeue';
+
+  $subqueue = subqueue_load($sqid);
+  $qid = $subqueue->qid;
+
+  db_merge('entity_modified')
+    ->key(array(
+      'entity_type' => $type,
+      'entity_id' => $qid,
+    ))
+    ->fields(array(
+      'modified' => REQUEST_TIME,
+    ))
+    ->execute();
+
+  // Now update the affected node as it might be displayed differently while
+  // being in a node queue.
+  if (!empty($nid)) {
+    $node = node_load($nid);
+    entity_modified_entity_update($node, 'node');
+  }
+}
+
+function entity_modified_nodequeue_nodes_last($nodequeue_name) {
+  $nodequeue = nodequeue_load_queue_by_name($nodequeue_name);
+  $subqueues = nodequeue_load_subqueues_by_queue($nodequeue->qid);
+
+  $nodes = array();
+  foreach ($subqueues as $sqid => $subqueue) {
+    $nodes += nodequeue_load_nodes($sqid, FALSE, 0, 0);
+  }
+  $modified = array();
+  foreach ($nodes as $node) {
+    // @todo use entity_modified_get_multiple - once it exists.
+    $modified[$node->nid] = entity_modified_last('node', $node);
+  }
+  return $modified;
+}

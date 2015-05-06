@@ -1,0 +1,82 @@
+<?php
+/**
+ * @file
+ * Hijacks comment.module's implementation of hook_node_view() to enable entity caching.
+ */
+
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function render_cache_comment_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'node_view') {
+    unset($implementations['comment']);
+  }
+}
+
+/**
+ * Implements hook_node_view() and overrides comment_node_view().
+ */
+function render_cache_comment_node_view($node, $view_mode) {
+  // Save original preview state.
+  $in_preview = !empty($node->in_preview);
+
+  // Call the original function, but set the preview bit, so that the comments
+  // are not rendered.
+  $node->in_preview = TRUE;
+  comment_node_view($node, $view_mode);
+
+  // Restore previous value.
+  $node->in_preview = $in_preview;
+
+  // Now do the rest of comment_node_view() that was skipped, but using our own
+  // render function.  This if-clause was copied from comment_node_view().
+  if ($node->comment && $view_mode == 'full' && node_is_page($node) && empty($node->in_preview)) {
+    $node->content['comments'] = render_cache_comment_node_page_additions($node);
+  }
+}
+
+/**
+ * Implements comment_node_page_additions() but with entity caching.
+ *
+ * This uses entity_view() instead of comment_view_multiple() to enable
+ * entity_view() render caching.
+ */
+function render_cache_comment_node_page_additions($node) {
+  $additions = array();
+
+  // Only attempt to render comments if the node has visible comments.
+  // Unpublished comments are not included in $node->comment_count, so show
+  // comments unconditionally if the user is an administrator.
+  if (($node->comment_count && user_access('access comments')) || user_access('administer comments')) {
+    $mode = variable_get('comment_default_mode_' . $node->type, COMMENT_MODE_THREADED);
+    $comments_per_page = variable_get('comment_default_per_page_' . $node->type, 50);
+    if ($cids = comment_get_thread($node, $mode, $comments_per_page)) {
+      $comments = comment_load_multiple($cids);
+      comment_prepare_thread($comments);
+
+      // CHANGED: Use entity_view() here to ensure caching is possible.
+      $build = entity_view('comment', $comments);
+
+      $build['pager']['#theme'] = 'pager';
+      $additions['comments'] = $build;
+    }
+  }
+
+  // Append comment form if needed.
+  if (user_access('post comments') && $node->comment == COMMENT_NODE_OPEN && (variable_get('comment_form_location_' . $node->type, COMMENT_FORM_BELOW) == COMMENT_FORM_BELOW)) {
+    $build = drupal_get_form("comment_node_{$node->type}_form", (object) array('nid' => $node->nid));
+    $additions['comment_form'] = $build;
+  }
+
+  if ($additions) {
+    $additions += array(
+      '#theme' => 'comment_wrapper__node_' . $node->type,
+      '#node' => $node,
+      'comments' => array(),
+      'comment_form' => array(),
+    );
+  }
+
+  return $additions;
+}

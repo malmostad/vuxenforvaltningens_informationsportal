@@ -1,0 +1,35 @@
+<?php
+/**
+ * @file
+ * Install, update and uninstall functions for the hide_formats module.
+ */
+
+
+/*
+ * Implements hook_install().
+ *
+ * We want the module to keep the same UI as before the module install, so add the permission to all users.
+ * hook_uninstall is not needed as permission are removed when the module is unistalled.
+ *
+ */
+function hide_formats_install() {
+
+  try {
+    foreach (user_roles() as $role_id => $role) {
+      db_insert('role_permission')
+      ->fields(array(
+            'rid' => $role_id,
+            'permission' => 'show text format dropdown',
+            'module' => 'hide_formats',
+      ))
+      ->execute();
+    }
+  }
+  catch (Exception $e) {
+    // Something went wrong so log the exception .
+    watchdog_exception('hide_formats', $e);
+  }
+
+}
+
+

@@ -1,0 +1,162 @@
+<?php
+
+/**
+ * @file
+ * Hook implementations and frequently used functions for entity modified module.
+ */
+
+/**
+ * Implements hook_entity_delete().
+ *
+ * Delete our custom stored entity modified record when the entity is deleted.
+ */
+function entity_modified_entity_delete($entity, $type) {
+  // Attempt to delete any record we stored for the entity. We do not check
+  // if it has a modified property because our knowledge of the property could
+  // have occurred after we already had a record (module updates).
+  list($entity_id) = entity_extract_ids($type, $entity);
+
+  db_delete('entity_modified')
+      ->condition('entity_type', $type)
+      ->condition('entity_id', $entity_id)
+      ->execute();
+}
+
+/**
+ * Implements hook_entity_insert().
+ */
+function entity_modified_entity_insert($entity, $type) {
+  entity_modified_entity_update($entity, $type);
+}
+
+/**
+ * Implements hook_entity_update().
+ */
+function entity_modified_entity_update($entity, $type) {
+  // If the module does not have a modified property that we know about then
+  // insert or update.
+  if (!entity_modified_property_name($type)) {
+    list($entity_id) = entity_extract_ids($type, $entity);
+    db_merge('entity_modified')
+      ->key(array(
+        'entity_type' => $type,
+        'entity_id' => $entity_id,
+      ))
+      ->fields(array(
+        'entity_type' => $type,
+        'entity_id' => $entity_id,
+        'modified' => REQUEST_TIME,
+      ))
+      ->execute();
+  }
+}
+
+/**
+ * Retrieve the last time an entity was modified.
+ */
+function entity_modified_last($entity_type, $entity) {
+  $name = entity_modified_property_name($entity_type);
+
+  // If native modified timestamp known.
+  if ($name) {
+    return $entity->$name;
+  }
+
+  // Retrieve entity's last modified from our custom table.
+  list($entity_id) = entity_extract_ids($entity_type, $entity);
+
+  $modified_timestamp = db_query(
+    'SELECT modified FROM {entity_modified} WHERE entity_type = :entity_type AND entity_id = :entity_id',
+    array(':entity_type' => $entity_type, ':entity_id' => $entity_id)
+  )->fetchField();
+
+  // If not found then use '1' as inserting something in a read-only operation
+  // is a bad idea.
+  if (!$modified_timestamp) {
+    $modified_timestamp = 1;
+  }
+
+  return $modified_timestamp;
+}
+
+/**
+ * Retrieve the last time an entity was modified - using an ID.
+ *
+ * @param $entity_type
+ *   The entity type of the entity.
+ * @param $entity_id
+ *   The entity id of the entity.
+ *
+ * @return timestamp
+ *   Returns the last modified timestamp for the given entity_type, entity_id.
+ */
+function entity_modified_last_id($entity_type, $entity_id) {
+  $modified_timestamp = db_query(
+    'SELECT modified FROM {entity_modified} WHERE entity_type = :entity_type AND entity_id = :entity_id',
+    array(':entity_type' => $entity_type, ':entity_id' => $entity_id)
+  )->fetchField();
+
+  // If not found then use '1' as inserting something in a read-only operation
+  // is a bad idea.
+  if (!$modified_timestamp) {
+    $modified_timestamp = 1;
+  }
+
+  return $modified_timestamp;
+}
+
+/**
+ * Retrieve the last modified property name.
+ *
+ * @param string $entity_type
+ *   The entity type to retrieve the property name for.
+ *
+ * @return string|FALSE
+ *   - Returns the modified property name for the given entity_type if it exists.
+ *   - Else it returns FALSE.
+ */
+function entity_modified_property_name($entity_type = NULL) {
+  $info = entity_get_info($entity_type);
+
+  if (isset($info['modified property name'])) {
+    return $info['modified property name'];
+  }
+  return FALSE;
+}
+
+/**
+ * Implements hook_entity_info_alter().
+ */
+function entity_modified_entity_info_alter(&$entity_info) {
+ foreach (entity_modified_supported_core_entities(TRUE) as $type => $property) {
+   $entity_info[$type]['modified property name'] = $property;
+ }
+}
+
+/**
+ * Eating own dog food, define unique identifiers for entity types this module
+ * is aware of.
+ *
+ * @param $enabled
+ *   If set, only return enabled modules.
+ *
+ * @return $modified_property_names.
+ *   Array of modified property names keyed by entity_type.
+ */
+function entity_modified_supported_core_entities($enabled = FALSE) {
+  $modified_property_names = array();
+  // Core entity types.
+  $modified_property_names['comment'] = 'changed';
+  $modified_property_names['node'] = 'changed';
+
+  // File entity module.
+  $modified_property_names['file'] = 'timestamp';
+
+  if ($enabled) {
+    if (!module_exists('comment')) {
+      unset($modified_property_names['comment']);
+    }
+  }
+
+  return $modified_property_names;
+}

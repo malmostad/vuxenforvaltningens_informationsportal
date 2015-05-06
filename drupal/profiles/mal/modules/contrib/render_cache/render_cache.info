@@ -1,0 +1,15 @@
+name = Render cache
+description = Cache rendered items to drastically improve performance.
+package = Performance and scalability
+core = 7.x
+
+configure = admin/config/development/render-cache
+
+dependencies[] = entity_modified
+
+; Information added by Drupal.org packaging script on 2014-07-10
+version = "7.x-1.0"
+core = "7.x"
+project = "render_cache"
+datestamp = "1405017254"
+

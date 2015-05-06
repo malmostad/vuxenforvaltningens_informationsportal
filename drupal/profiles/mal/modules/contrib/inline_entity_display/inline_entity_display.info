@@ -1,0 +1,21 @@
+name = Inline Entity Display
+description = Provides a settings for entity reference fields, to display the referenced entities fields into the content array of the parent entity and on the manage display settings.
+core = 7.x
+package = Fields
+dependencies[] = entity
+dependencies[] = ctools
+
+simplytest_dependencies[] = entityreference
+simplytest_dependencies[] = field_collection
+simplytest_dependencies[] = devel
+simplytest_dependencies[] = devel_generate
+simplytest_dependencies[] = fieldgroup
+simplytest_dependencies[] = ds
+simplytest_dependencies[] = ds_ui
+
+; Information added by Drupal.org packaging script on 2014-09-07
+version = "7.x-1.0-beta3"
+core = "7.x"
+project = "inline_entity_display"
+datestamp = "1410100130"
+

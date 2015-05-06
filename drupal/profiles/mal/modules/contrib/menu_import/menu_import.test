@@ -1,0 +1,257 @@
+<?php
+
+/**
+ * @file
+ * Test file for menu_import module.
+ */
+
+/**
+ * Functionality tests for menu_import module.
+ */
+class MenuImportTestCase extends DrupalWebTestCase {
+
+  private $validate_hidden;
+  private $validate_expanded;
+
+  public static function getInfo() {
+    return array(
+      'name' => 'Menu export/import',
+      'description' => 'Perform various tests on menu_import module.',
+      'group' => 'Menu',
+    );
+  }
+
+  function setUp() {
+    parent::setUp('menu_import');
+    $this->privileged_user = $this->drupalCreateUser(array(
+      'administer menu',
+      'import or export menu',
+    ));
+    $this->drupalLogin($this->privileged_user);
+  }
+
+  /**
+   * Verifies basic functionality by running two imports - the first creates
+   * menu links and new nodes referenced by them, the other one reorders existing menu items
+   * searching for existing content by title.
+   */
+  function testBasicFeatures() {
+    /**
+     * SUBTEST #1: import.
+     */
+    $file = DRUPAL_ROOT . '/' . drupal_get_path('module', 'menu_import') . '/tests/nolinks_3levels.txt';
+    $validate_structure = array(
+      '1' => array('12', '13' => array('131')),
+      '2' => array('21' => array('211')),
+    );
+    $this->validate_hidden = array('12');
+    $this->validate_expanded = array('2');
+    $items_total = 7;
+    $content_items = 5; // 2 items are links
+    $menu_machine_name = 'main-menu';
+    $menu_title = 'Main menu';
+    $post_url = 'admin/structure/menu/import';
+    // End of test file settings.
+
+    $post_data = array(
+      'menu_name' => 'main-menu',
+      'files[upload]'    => $file,
+      'create_content' => TRUE,
+      'link_to_content' => TRUE,
+      'node_type' => 'page',
+      'node_body'   => 'Some test content',
+      'node_author'   => $this->privileged_user->uid,
+      'node_status' => TRUE,
+    );
+    $this->drupalPost($post_url, $post_data, t('Upload & preview'));
+
+    // Assert options are ok, and empty line was skipped.
+    $this->assertText(t('Empty lines skipped: @lines.', array('@lines' => 1)));
+    $this->assertText(
+      t('Import @count items into "@menu_title" menu (@menu_name)',
+      array(
+        '@count' => $items_total,
+        '@menu_title' => $menu_title,
+        '@menu_name' => $menu_machine_name
+      )));
+    $this->assertText('Link to existing content if found');
+    $this->assertText(t('Initial content of type "@type" will be created', array('@type' => 'page')));
+    $this->assertText(t('Content status: @status', array('@status' => 'published')));
+    $this->assertText(t('Content author: @author', array('@author' => $this->privileged_user->name)));
+    $this->assertText(t('Path aliases will be created.'));
+    $this->assertText(t('Language: not defined'));
+
+    // Assert menu is parsed correctly.
+    // Drupal may change this structure.
+    $expected_menu =
+'<tbody>
+ <tr class="odd"><td><span title="Test description">Page 1</span></td><td>No</td><td> - </td><td> - </td><td>1</td> </tr>
+ <tr class="even"><td><span title=""><div class="indentation">&nbsp;</div>Page 12</span></td><td>No</td><td>admin/structure/menu/import</td><td>admin/structure/menu/import</td><td>0</td> </tr>
+ <tr class="odd"><td><span title=""><div class="indentation">&nbsp;</div>Page 13</span></td><td>No</td><td>admin/structure/menu/export?arg=val</td><td>admin/structure/menu/export</td><td>1</td> </tr>
+ <tr class="even"><td><span title=""><div class="indentation">&nbsp;</div><div class="indentation">&nbsp;</div>Page 131</span></td><td>No</td><td> - </td><td> - </td><td>0</td> </tr>
+ <tr class="odd"><td><span title="">Page 2</span></td><td>No</td><td> - </td><td> - </td><td>2</td> </tr>
+ <tr class="even"><td><span title=""><div class="indentation">&nbsp;</div>Page 21</span></td><td>No</td><td> - </td><td> - </td><td>0</td> </tr>
+ <tr class="odd"><td><span title=""><div class="indentation">&nbsp;</div><div class="indentation">&nbsp;</div>Page 211</span></td><td>No</td><td> - </td><td> - </td><td>0</td> </tr>
+</tbody>';
+    $this->assertRaw($expected_menu, 'Menu structure has been parsed.');
+
+    // Get hidden form fields for post.
+    $post_data = $this->getFormHiddenFields();
+
+    // Post to the same page.
+    $this->drupalPost(NULL, $post_data, t('Import'));
+
+    // Check report.
+    $this->assertText(t('Items imported: @items.', array('@items' => $items_total)));
+    $this->assertText(t('New content created: @count items.', array('@count' => $content_items)));
+
+    // Validate menu structure and generated content.
+    $menu_tree = menu_build_tree($menu_machine_name);
+    array_shift($menu_tree); // Remove "Home" link, Drupal may change this structure!
+    $this->validateMenu($validate_structure, $menu_tree);
+
+
+    /**
+     * SUBTEST #2: export.
+     */
+    $post_data = array(
+      'menu_name'   => 'main-menu',
+      'line_ending' => 'unix',
+      'options'     => 1,
+    );
+    $export_url = 'admin/structure/menu/export';
+    $this->drupalPost($export_url, $post_data, t('Export'));
+    $exported_menu = $this->drupalGetContent();
+    $expected_exported_menu =
+'Home {"url":"<front>"}
+Page 1 {"url":"node\/1","options":{"attributes":{"title":"Test description"}}}
+-Page 12 {"url":"admin\/structure\/menu\/import","hidden":true}
+-Page 13 {"url":"admin\/structure\/menu\/export","options":{"query":{"arg":"val"}}}
+--Page 131 {"url":"node\/3"}
+Page 2 {"url":"node\/2","expanded":true}
+-Page 21 {"url":"node\/4"}
+--Page 211 {"url":"node\/5"}
+';
+    $this->assertEqual($exported_menu, $expected_exported_menu, 'Exported menu ok.');
+
+    /**
+     * SUBTEST #3: import with match by title.
+     */
+    // Test file settings to validate against.
+    $file = DRUPAL_ROOT . '/' . drupal_get_path('module', 'menu_import') . '/tests/nolinks_3levels_reordered.txt';
+    $validate_structure = array(
+      '12' => array('1', '131' => array('13')),
+      '211' => array('21' => array('2')),
+    );
+    // Element's index is the id of the node referenced by menu item.
+    $node_ids = array(0, '1', '2', '131', '21', '211');
+
+    $post_data = array(
+      'menu_name' => 'main-menu',
+      'files[upload]'    => $file,
+      'create_content' => FALSE,
+      'link_to_content' => TRUE,
+    );
+    $this->drupalPost($post_url, $post_data, t('Upload & preview'));
+
+    // Assert options are ok.
+    $this->assertText(
+      t('Import @count items into "@menu_title" menu (@menu_name)',
+      array(
+        '@count' => $items_total,
+        '@menu_title' => $menu_title,
+        '@menu_name' => $menu_machine_name
+      )));
+    $this->assertText('Link to existing content if found');
+    $this->assertText(t('Language: not defined'));
+
+    // Assert menu is parsed correctly.
+    // Drupal may change this structure.
+    $expected_menu =
+'<tbody>
+ <tr class="odd"><td><span title="">Page 12</span></td><td>No</td><td> - </td><td> - </td><td>3</td> </tr>
+ <tr class="even"><td><span title=""><div class="indentation">&nbsp;</div>Page 1</span></td><td>Yes</td><td> - </td><td>node/' . array_search('1', $node_ids) . '</td><td>0</td> </tr>
+ <tr class="odd"><td><span title=""><div class="indentation">&nbsp;</div>Page 131</span></td><td>Yes</td><td> - </td><td>node/' . array_search('131', $node_ids) . '</td><td>1</td> </tr>
+ <tr class="even"><td><span title=""><div class="indentation">&nbsp;</div><div class="indentation">&nbsp;</div>Page 13</span></td><td>No</td><td> - </td><td> - </td><td>0</td> </tr>
+ <tr class="odd"><td><span title="">Page 211</span></td><td>Yes</td><td> - </td><td>node/' . array_search('211', $node_ids) . '</td><td>4</td> </tr>
+ <tr class="even"><td><span title=""><div class="indentation">&nbsp;</div>Page 21</span></td><td>Yes</td><td> - </td><td>node/' . array_search('21', $node_ids) . '</td><td>0</td> </tr>
+ <tr class="odd"><td><span title=""><div class="indentation">&nbsp;</div><div class="indentation">&nbsp;</div>Page 2</span></td><td>Yes</td><td> - </td><td>node/' . array_search('2', $node_ids) . '</td><td>0</td> </tr>
+</tbody>';
+    $this->assertRaw($expected_menu, 'Menu structure has been parsed.');
+
+    // Get hidden form fields for post.
+    $post_data = $this->getFormHiddenFields();
+
+    // Post to the same page.
+    $this->drupalPost(NULL, $post_data, t('Import'));
+
+    // Check report.
+    $this->assertText(t('Items imported: @items.', array('@items' => $items_total)));
+    $this->assertText(t('External URLs: 0 items.'));
+    $this->assertText(t('Content not found: 2 items.'));
+    $this->assertText(t('Existing content matched: @cnt items.', array('@cnt' => $content_items)));
+    $this->assertText(t('New content created: 0 items.'));
+    $this->assertText(t('Menu items deleted: 0.'));
+
+    // Validate menu structure and generated content.
+    // Cache clear is required since some items are not updated (a bug?)
+    menu_cache_clear($menu_machine_name);
+    $menu_tree = menu_build_tree($menu_machine_name);
+    // Remove "Home" and two orphanes links that appeared after reorder Drupal may change this structure!
+    $menu_tree = array_slice($menu_tree, 3);
+    $this->validate_expanded = array();
+    $this->validate_hidden = array();
+    $this->validateMenu($validate_structure, $menu_tree);
+  }
+
+  function validateMenu($reference, &$actual) {
+    //global $reference, $hidden
+    foreach ($actual as $id => $menu_item) {
+      list($some_id, $page, $page_id, $mlid) = explode(' ', $id);
+
+      $this->assertEqual($menu_item['link']['link_title'], "$page $page_id");
+      $this->assertEqual(strpos($menu_item['link']['link_path'], 'node/'), 0);
+
+      // Root page
+      if (isset($reference[$page_id])) {
+        $this->assertEqual(count($menu_item['below']), count($reference[$page_id]));
+        $this->validateMenu($reference[$page_id], $menu_item['below']);
+      }
+      // Menu item not found.
+      elseif (!in_array($page_id, $reference)) {
+        $this->fail('Imported structure doesn\'t match the expected one.');
+        return;
+      }
+
+      // Test if hidden.
+      if (in_array($page_id, $this->validate_hidden)) {
+        $this->assertEqual($menu_item['link']['hidden'], 1);
+      }
+
+      // Test if expanded.
+      if (in_array($page_id, $this->validate_expanded)) {
+        $this->assertEqual($menu_item['link']['expanded'], 1);
+      }
+    }
+  }
+
+  function getFormHiddenFields() {
+    $fields = array();
+    $elements = $this->xpath("//input[@type='hidden']");
+    foreach ($elements as $element) {
+      $attrs = $element->attributes();
+      $name = $value = '';
+      foreach ($attrs as $aname => $avalue) {
+        if ($aname == 'name') {
+          $name = $avalue;
+        }
+        if ($aname == 'value') {
+          $value = $avalue;
+        }
+      }
+      $fields["$name"] = "$value";
+    }
+
+    return $fields;
+  }
+}

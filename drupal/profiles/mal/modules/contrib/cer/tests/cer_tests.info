@@ -1,0 +1,16 @@
+name = "CER Tests"
+core = "7.x"
+description = "Automated tests for CER."
+hidden = TRUE
+
+dependencies[] = simpletest
+dependencies[] = cer
+
+files[] = crud.test
+files[] = fields.test
+; Information added by Drupal.org packaging script on 2014-08-08
+version = "7.x-2.x-dev"
+core = "7.x"
+project = "cer"
+datestamp = "1407528862"
+

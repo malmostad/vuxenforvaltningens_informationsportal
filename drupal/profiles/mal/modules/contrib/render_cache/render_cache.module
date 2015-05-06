@@ -1,0 +1,354 @@
+<?php
+
+/**
+ * @file
+ * Hook implementations and frequently used functions for render cache module.
+ */
+
+/**
+ * Override entity API rendering callback to add a caching layer.
+ */
+function render_cache_entity_view_callback($entities, $view_mode, $langcode = NULL, $entity_type) {
+  // Remove any passed values that are not an object, this can happen with out
+  // of date Apache Solr search when entities are deleted and probably other
+  // situations.
+  foreach($entities as $key => $entity) {
+    if (!is_object($entity)) {
+      unset($entities[$key]);
+    }
+  }
+
+  $entity_info = entity_get_info($entity_type);
+  $entity_order = array_keys($entities);
+
+  // Prepare context
+  $context = array(
+    'entity_type' => $entity_type,
+    'view_mode' => $view_mode,
+    'langcode' => $langcode,
+  );
+
+  // Setup drupal_render style cache array.
+  $cache_info = render_cache_cache_info_defaults();
+  $cache_info['keys'] = array(
+    'render_cache',
+    $entity_type,
+    $view_mode,
+  );
+
+  drupal_alter('render_cache_entity_default_cache_info', $cache_info, $context);
+
+  // Retrieve a list of cache_ids
+  $cid_map = array();
+  foreach ($entities as $id => $entity) {
+    list($entity_id, $entity_revision_id, $bundle) = entity_extract_ids($entity_type, $entity);
+    $entity_context = $context + array(
+      'entity_id' => $entity_id,
+      'entity_revision_id' => $entity_revision_id,
+      'bundle' => $bundle,
+    );
+    $cid_map[$id] = render_cache_get_entity_cid($entity, $cache_info, $entity_context);
+  }
+
+  $cids = array_values($cid_map);
+
+  $cached_entities = array();
+  if (isset($cache_info['granularity']) && $cache_info['granularity'] != DRUPAL_NO_CACHE) {
+    $cached_entities = cache_get_multiple($cids, 'cache_render');
+  }
+
+  // Calculate remaining entities
+  $cid_remaining = array_intersect($cid_map, $cids);
+  $entities = array_intersect_key($entities, $cid_remaining);
+
+  // Render non-cached entities.
+  if (!empty($entities)) {
+    // If this is a view callback.
+    if (isset($entity_info['render cache']['callback'])) {
+      $rendered = $entity_info['render cache']['callback']($entities, $view_mode, $langcode, $entity_type);
+    }
+    // Otherwise this is a controller class callback.
+    else {
+      // We need the $page variable from entity_view() that it does not pass us.
+      if (version_compare(PHP_VERSION, '5.4.0') < 0) {
+        $backtrace = debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT);
+      }
+      else {
+        // Get only the stack frames we need (PHP 5.4 only).
+        $backtrace = debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT, 2);
+      }
+      $page = NULL;
+      // As a safety, do not grab an unexpected arg for $page, check that this
+      // was called from entity_view().
+      if ($backtrace[1]['function'] === 'entity_view' && isset($backtrace[1]['args'][4])) {
+        $page = $backtrace[1]['args'][4];
+      }
+      $rendered = entity_get_controller($entity_type)->view($entities, $view_mode, $langcode, $page);
+    }
+    $rendered = reset($rendered);
+
+    // Store rendered entities in cache for future views.
+    foreach (element_children($rendered) as $id) {
+      // Remove #weight as it will not be accurate, we weight in the cached and
+      // rendered merge below.
+      unset($rendered[$id]['#weight']);
+
+      // Cache the entity.
+      $cid = $cid_map[$id];
+      $render = $rendered[$id];
+
+      if (isset($cache_info['granularity']) && $cache_info['granularity'] != DRUPAL_NO_CACHE) {
+        if (empty($cache_info['render_cache_render_to_markup'])) {
+          cache_set($cid, $render, 'cache_render');
+        }
+        else {
+          // Process markup with drupal_render() caching.
+          $render['#cache'] = $cache_info;
+
+          // Explicitly set cache id.
+          $render['#cache']['cid'] = $cid;
+
+          $render_cache_attached = array();
+          // Preserve some properties in #attached?
+          if (!empty($cache_info['render_cache_render_to_markup']['preserve properties']) &&
+              is_array($cache_info['render_cache_render_to_markup']['preserve properties'])) {
+            foreach ($cache_info['render_cache_render_to_markup']['preserve properties'] as $key) {
+              if (isset($render[$key])) {
+                $render_cache_attached[$key] = $render[$key];
+              }
+            }
+          }
+          if (!empty($render_cache_attached)) {
+            $render['#attached']['render_cache'] = $render_cache_attached;
+          }
+
+          // Do we want to render now?
+          if (empty($cache_info['render_cache_render_to_markup']['cache late'])) {
+            // And save things. Also add our preserved properties back.
+            $render = array(
+              '#markup' => drupal_render($render),
+            ) + $render_cache_attached;
+          }
+        }
+      }
+
+      $cached_entities[$cid] = (object) array(
+        'data' => $render,
+      );
+    }
+  }
+
+  // Not needed in rest of function.
+  unset($entities, $rendered);
+
+  // Return false if no entities are available, matches entity_view()'s
+  // functionality.
+  if (empty($cached_entities)) {
+    return FALSE;
+  }
+
+  // Put entities back in their request order and output.
+  $return = array();
+  // Render entities cached as render arrays.
+  foreach ($entity_order as $weight => $id) {
+    $cid = $cid_map[$id];
+    if (!empty($cached_entities[$cid]->data)) {
+      $render = $cached_entities[$cid]->data;
+
+      // Potentially merge back previously saved properties.
+      if (!empty($render['#attached']['render_cache'])) {
+        $render += $render['#attached']['render_cache'];
+        unset($render['#attached']['render_cache']);
+      }
+
+      // Run any post-render callbacks.
+      render_cache_process_attached_callbacks($render, $id);
+
+      $return[$id] = $render;
+      $return[$id]['#weight'] = $weight;
+    }
+  }
+  // Return $return, wrap with entity type key in array to match
+  // entity_view()'s functionality.
+  return array($entity_type => $return);
+}
+
+/**
+ * Invokes attached post-render callbacks.
+ *
+ * This function can not be named "render_cache_post_render" because that is
+ * the name of the #attached element.  Any function with the name of an
+ * #attached element will be invoked to process it from
+ * drupal_process_attached().
+ *
+ * @param &$element Array
+ *    The renderable element to check for and run post-render callbacks on.
+ * @param $id String
+ *    An identifier for this render-cacheable elements.
+ */
+function render_cache_process_attached_callbacks(&$element, $id) {
+  if (isset($element['#markup']) && !empty($element['#attached']['render_cache_post_render'])) {
+    foreach ($element['#attached']['render_cache_post_render'] as $function) {
+      // Fail fatally if the function has not been defined.
+      $element['#markup'] = call_user_func($function, $element['#markup'], $id);
+    }
+    unset($element['#attached']['render_cache_post_render']);
+  }
+}
+
+/**
+ * Implements hook_entity_info_alter().
+ *
+ * We hijack entity rendering, as performed through the Entity API module, to
+ * provide full entity caching.
+ */
+function render_cache_entity_info_alter(&$entity_info) {
+  foreach ($entity_info as $type => $info) {
+    if (isset($info['view callback'])) {
+      // Since we are overwriting the view callback we record the original
+      // callback so that we know how to render.
+      $entity_info[$type]['render cache']['callback'] = $info['view callback'];
+      $entity_info[$type]['view callback'] = 'render_cache_entity_view_callback';
+    }
+    elseif (isset($info['controller class']) &&
+        in_array('EntityAPIControllerInterface', class_implements($info['controller class']))) {
+      // We do not set the render cache callback, when it is missing we will
+      // render using the controller class.
+      $entity_info[$type]['view callback'] = 'render_cache_entity_view_callback';
+    }
+  }
+}
+
+/**
+ * Returns default values for cache info.
+ */
+function render_cache_cache_info_defaults() {
+  // Setup defaults.
+  return array(
+    'bin' => 'cache_render',
+    'expire' => CACHE_PERMANENT,
+    'granularity' => DRUPAL_CACHE_PER_ROLE, // Use per role to support contextual and its safer anyway.
+    'keys' => array(),
+    // Special keys that are only related to our implementation.
+    'render_cache_render_to_markup' => FALSE,
+  );
+}
+
+/**
+ * Retrieve cache ID to use for render caching.
+ *
+ * @param object $entity
+ *   The entity object being rendered.
+ * @param array $cache_info
+ *   A drupal_render style cache array().
+ * @param array $context
+ *   The context of the entity, with the following keys:
+ *
+ *   - entity_type
+ *   - entity_id
+ *   - entity_revision_id
+ *   - bundle
+ *   - langcode
+ *   - view_mode
+ *
+ * @return string
+ */
+function render_cache_get_entity_cid($entity, &$cache_info, $context) {
+  if (isset($cache_info['cid'])) {
+    return $cache_info['cid'];
+  }
+
+  $cache_info += render_cache_cache_info_defaults();
+  
+  drupal_alter('render_cache_entity_cache_info', $cache_info, $entity, $context);
+
+  $cid_parts = array();
+  $hash = array();
+
+  if (!empty($cache_info['keys']) && is_array($cache_info['keys'])) {
+    $cid_parts = $cache_info['keys'];
+  }
+
+  // Add drupal_render cid_parts based on granularity
+  $granularity = isset($cache_info['granularity']) ? $cache_info['granularity'] : NULL;
+  $cid_parts = array_merge($cid_parts, drupal_render_cid_parts($granularity));
+
+  // Calculate hash to expire cached items automatically.
+  $hash['id'] = !empty($context['entity_revision_id']) ? $context['entity_revision_id'] : $context['entity_id'];
+  $hash['bundle'] = !empty($context['bundle']) ? $context['bundle'] : $context['entity_type'];
+  $hash['modified'] = entity_modified_last($context['entity_type'], $entity);
+  $hash['render_method'] = !empty($cache_info['render_cache_render_to_markup']);
+  if ($hash['render_method']) {
+    $hash['render_options'] = serialize($cache_info['render_cache_render_to_markup']);
+  }
+
+  // Generally hash per view_mode - its unlikely they are the same.
+  $hash['view_mode'] = !empty($context['view_mode']) ? $context['view_mode'] : 'default';
+
+  // Allow modules to modify $hash for custom invalidating.
+  drupal_alter('render_cache_entity_hash', $hash, $entity, $cache_info, $context);
+
+  $cid_parts[] = sha1(implode('-', $hash));
+  drupal_alter('render_cache_entity_cid', $cid_parts, $entity, $cache_info, $context);
+
+  return implode(':', $cid_parts);
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ *
+ * Moves our hook_entity_info_alter() implementation to occur last so that we
+ * can consistently hijack the render function of the entity type.
+ */
+function render_cache_module_implements_alter(&$implementations, $hook) {
+  if ($hook === 'entity_info_alter') {
+    // Move our hook implementation to the bottom.
+    $group = $implementations['render_cache'];
+    unset($implementations['render_cache']);
+    $implementations['render_cache'] = $group;
+  }
+}
+
+/**
+ * Implements hook_flush_caches().
+ */
+function render_cache_flush_caches() {
+  return array('cache_render');
+}
+
+/**
+ * Helper function to view a single entity.
+ *
+ * This can be used to replace node_view(), comment_view(), easier.
+ *
+ * @param $entity_type
+ *   The type of the entity.
+ * $parem $entity
+ *   The entity to render.
+ * $param $view_mode
+ *   A view mode as used by this entity type, e.g. 'full', 'teaser'...
+ */
+function render_cache_entity_view_single($entity_type, $entity, $view_mode) {
+  list($entity_id) = entity_extract_ids($entity_type, $entity);
+  $build = entity_view($entity_type, array($entity_id => $entity), $view_mode);
+
+  // The output needs to be compatible to what the single function would have
+  // returned.
+  if (isset($build[$entity_type][$entity_id])) {
+    return $build[$entity_type][$entity_id];
+  }
+  return array();
+}
+
+/**
+ * Implements hook_render_cache_entity_hash_alter().
+ */
+function node_render_cache_entity_hash_alter(&$hash, $entity, $cache_info, $context) {
+  // We generally cache nodes based on comment count.
+  if ($context['entity_type'] == 'node' && isset($entity->comment_count)) {
+    // @todo This is very unreliable if comments can be edited, it would be better
+    //       to directly save a list of entity_modified values but entity_modified
+    //       needs to support multiple get and caching for that first.
+    $hash['node_comment_count'] = $entity->comment_count;
+  }
+}

@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file
+ * A Facet API widget that displays admin-defined ranges.
+ */
+
+/**
+ * Implements hook_facetapi_widgets().
+ */
+function facetapi_ranges_facetapi_widgets() {
+  return array(
+    'facetapi_ranges' => array(
+      'handler' => array(
+        'label' => t('Ranges'),
+        'class' => 'FacetapiWidgetRanges',
+        'query types' => array('numeric_range', 'term'),
+      ),
+    ),
+  );
+}

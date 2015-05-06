@@ -1,0 +1,231 @@
+<?php
+
+/**
+ * @file
+ * Module file for custom_breadcrumbs_features.
+ *
+ * - Declares support for features.
+ * - Provides a machine name field for breadcrumbs.
+ */
+
+/**
+ * Get a list of breadcrumb types, keyed by their associated table.
+ *
+ * Each crumb comes with its human name, module name and form id.
+ */
+function _custom_breadcrumbs_features_get_types() {
+  $types = array();
+  $types['custom_breadcrumb'] = array(
+    'name'   => t('Custom Breadcrumbs Node'),
+    'form'   => 'custom_breadcrumbs_form',
+    'module' => 'custom_breadcrumbs',
+  );
+  $types['custom_breadcrumbsapi'] = array(
+    'name'   => t('Custom Breadcrumbs Api'),
+    'form'   => 'custom_breadcrumbsapi_form',
+    'module' => 'custom_breadcrumbsapi',
+  );
+  $types['custom_breadcrumbs_panels'] = array(
+    'name'   => t('Custom Breadcrumbs Panels'),
+    'form'   => 'custom_breadcrumbs_panels_form',
+    'module' => 'custom_breadcrumbs_panels',
+  );
+  $types['custom_breadcrumbs_paths'] = array(
+    'name'   => t('Custom Breadcrumbs Paths'),
+    'form'   => 'custom_breadcrumbs_paths_form',
+    'module' => 'custom_breadcrumbs_paths',
+  );
+  $types['custom_breadcrumbs_taxonomy_term'] = array(
+    'name'   => t('Custom Breadcrumbs Term'),
+    'form'   => 'custom_breadcrumbs_taxonomy_term_form',
+    'module' => 'custom_breadcrumbs_taxonomy',
+  );
+  $types['custom_breadcrumbs_taxonomy_vocabulary'] = array(
+    'name'   => t('Custom Breadcrumbs Vocabulary'),
+    'form'   => 'custom_breadcrumbs_taxonomy_vocabulary_form',
+    'module' => 'custom_breadcrumbs_taxonomy',
+  );
+  $types['custom_breadcrumbs_views'] = array(
+    'name'   => t('Custom Breadcrumbs Views'),
+    'form'   => 'custom_breadcrumbs_views_form',
+    'module' => 'custom_breadcrumbs_views',
+  );
+  return $types;
+}
+
+/**
+ * Implements hook_features_api().
+ */
+function custom_breadcrumbs_features_features_api() {
+  $cb_types = _custom_breadcrumbs_features_get_types();
+
+  // Keep only installed tables.
+  $tables = array_filter(array_keys($cb_types), 'db_table_exists');
+
+  $exports = array();
+  foreach ($tables as $table) {
+    $exports[$table] = array(
+      'name' => $cb_types[$table]['name'],
+      'feature_source' => TRUE,
+      'default_hook' => $table . '_features_default_settings',
+      'file' => drupal_get_path('module', 'custom_breadcrumbs_features') . '/includes/custom_breadcrumbs_features.features.inc',
+      'default_file' => FEATURES_DEFAULTS_INCLUDED_COMMON,
+    );
+  }
+  return $exports;
+}
+
+
+/**
+ * Implements hook_form_alter().
+ */
+function custom_breadcrumbs_features_form_alter(&$form, &$form_state, $form_id) {
+  $cb_types =  _custom_breadcrumbs_features_get_types();
+
+  foreach ($cb_types as $table => $cb_type) {
+    if ($form_id == $cb_type['form']) {
+
+      // If this is a breadcrumb form, tweak field 'name'.
+      $form['name']['#required'] = TRUE;
+      $form['name']['#attached']['js'] = array(
+        drupal_get_path('module', 'custom_breadcrumbs_features') . '/js/custom_breadcrumbs_features.js',
+      );
+
+      // If this is a breadcrumb form, add field 'machine_name' .
+      if (empty($form['bid']['#value'])) {
+        $default_value = '';
+      }
+      else {
+        $breadcrumb = custom_breadcrumbs_load_breadcrumbs($cb_type['module'], $table, array('bid' => $form['bid']['#value']));
+        $default_value = array_pop($breadcrumb)->machine_name;
+      }
+      $form['machine_name'] = array(
+        '#type' => 'machine_name',
+        '#default_value' => $default_value,
+        '#maxlength' => 32,
+        '#disabled' => !empty($form['bid']['#value']),
+        '#machine_name' => array(
+          'exists' => "{$table}_features_load",
+        ),
+        '#description' => t('A unique machine-readable name for this breadcrumb. It must only contain lowercase letters, numbers, and underscores. This name will be used when featurizing breadcrumbs.'),
+        '#weight' => -49,
+      );
+
+      // No need to loop over all breadcrumb types.
+      break;
+
+    }
+  }
+
+}
+
+/**
+ * Generic function to load a breadcrumb.
+ *
+ * @param $machine_name
+ *   Machine name of the crumb.
+ * @param $table
+ *   Table storing crumbs.
+ *
+ * @return
+ *   Crumb object.
+ */
+function custom_breadcrumbs_features_generic_load($machine_name, $table) {
+  return db_select($table, 'cb')
+    ->fields('cb')
+    ->condition('machine_name', $machine_name)
+    ->execute()
+    ->fetchObject();
+}
+
+/**
+ * Load a crumb of type custom_breadcrumb.
+ *
+ * @param $machine_name
+ *   Machine name of the crumb.
+ *
+ * @return
+ *   Crumb object.
+ */
+function custom_breadcrumb_features_load($machine_name) {
+  return custom_breadcrumbs_features_generic_load($machine_name, 'custom_breadcrumb');
+}
+
+/**
+ * Load a crumb of type custom_breadcrumbsapi.
+ *
+ * @param $machine_name
+ *   Machine name of the crumb.
+ *
+ * @return
+ *   Crumb object.
+ */
+function custom_breadcrumbsapi_features_load($machine_name) {
+  return custom_breadcrumbs_features_generic_load($machine_name, 'custom_breadcrumbsapi');
+}
+
+/**
+ * Load a crumb of type custom_breadcrumbs_panels.
+ *
+ * @param $machine_name
+ *   Machine name of the crumb.
+ *
+ * @return
+ *   Crumb object.
+ */
+function custom_breadcrumbs_panels_features_load($machine_name) {
+  return custom_breadcrumbs_features_generic_load($machine_name, 'custom_breadcrumbs_panels');
+}
+
+/**
+ * Load a crumb of type custom_breadcrumbs_paths.
+ *
+ * @param $machine_name
+ *   Machine name of the crumb.
+ *
+ * @return
+ *   Crumb object.
+ */
+function custom_breadcrumbs_paths_features_load($machine_name) {
+  return custom_breadcrumbs_features_generic_load($machine_name, 'custom_breadcrumbs_paths');
+}
+
+/**
+ * Load a crumb of type custom_breadcrumbs_taxonomy_term.
+ *
+ * @param $machine_name
+ *   Machine name of the crumb.
+ *
+ * @return
+ *   Crumb object.
+ */
+function custom_breadcrumbs_taxonomy_term_features_load($machine_name) {
+  return custom_breadcrumbs_features_generic_load($machine_name, 'custom_breadcrumbs_taxonomy_term');
+}
+
+/**
+ * Load a crumb of type custom_breadcrumbs_taxonomy_vocabulary.
+ *
+ * @param $machine_name
+ *   Machine name of the crumb.
+ *
+ * @return
+ *   Crumb object.
+ */
+function custom_breadcrumbs_taxonomy_vocabulary_features_load($machine_name) {
+  return custom_breadcrumbs_features_generic_load($machine_name, 'custom_breadcrumbs_taxonomy_vocabulary');
+}
+
+/**
+ * Load a crumb of type custom_breadcrumbs_views.
+ *
+ * @param $machine_name
+ *   Machine name of the crumb.
+ *
+ * @return
+ *   Crumb object.
+ */
+function custom_breadcrumbs_views_features_load($machine_name) {
+  return custom_breadcrumbs_features_generic_load($machine_name, 'custom_breadcrumbs_views');
+}
+
