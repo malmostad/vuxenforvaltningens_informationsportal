@@ -6,22 +6,23 @@ Feature: Content creation
   @api
   Scenario: School editor
     Given I am logged in as a user with the "School editor" role
-      And I am on "node/add"
-      And I should see the text "Kurspaket" in ".admin-list" element
-      And I should see the text "Enstaka kurs" in ".admin-list" element
-      And I should see the text "Kursmall" in ".admin-list" element
+      And I am on the homepage
+    Then I should see the text "Content" in "#admin-menu-menu" element
+      And I should see the text "Add content" in "#admin-menu-menu" element
+      And I should see the text "Course" in "#admin-menu-menu" element
+      And I should see the text "Course package" in "#admin-menu-menu" element
+      And I should see the text "Course template" in "#admin-menu-menu" element
 
-  @api @javascript
+  @api
   Scenario: School editor: Auto set school
     Given I am logged in as "editor" with the password "editor"
     And I am on "node/add/course"
-    And I select "Gymnasial vuxenutbildning" from "Utbildningsform"
-    And I wait for AJAX to finish
-    And I select "A1 Test course template" from "Kurs mall"
+    And I fill in "Course template" with "A1 Test course template"
         # Required
-    And I select "Flexkurs" from "Kursform"
-    And I select "A2 Test school" from "Skola"
-    And I fill in "Sökkod" with "test"
+    And I fill in "Course form" with "Flexkurs"
+    And I fill in "School" with "A1 Test school (1)"
+    And I fill in "Course Group" with "test"
+    And I select "Inactive" from "Searchable type"
     When I press "Save"
     Then I should see the text "A2 Test school"
 
@@ -37,8 +38,7 @@ Feature: Content creation
   Scenario: School editor add course template
     Given I am logged in as a user with the "School editor" role
       And I am on "node/add/course-template"
-      And I fill in "Titel" with "A1 test some course"
-      And I select "Gymnasial vuxenutbildning" from "Utbildningsform"
+      And I fill in "Title" with "A1 test some course"
       And I press "Save"
     Then I should see "A1 test some course"
     Given I am on "admin/content"
@@ -51,19 +51,21 @@ Feature: Content creation
     Then I should see "Unpublish"
 
   @api
+  Scenario: Malmo middle admin
+    Given  I am logged in as a user with the "Malmo middle admin" role
+    And I am on the homepage
+    Then I should see the text "Content" in "#admin-menu-menu" element
+    Then I should see the text "Add content" in "#admin-menu-menu" element
+    Then I should see the text "Course" in "#admin-menu-menu" element
+    Then I should see the text "Course package" in "#admin-menu-menu" element
+    Then I should see the text "Course template" in "#admin-menu-menu" element
+
+  @api
   Scenario: Pure authenticated user
     Given  I am logged in as a user with the "authenticated user" role
-    And I am on "node/add"
-    And I should not see the text "Kurspaket" in ".admin-list" element
-    And I should not see the text "Enstaka kurs" in ".admin-list" element
-    And I should not see the text "Course template" in ".admin-list" element
-
-  @api @javascript
-  Scenario: Check if course is automatically assigned to correct Searchable type
-    Given I am logged in as a user with the "authenticated user" role
-    Given I am on "search-courses/Test%20course%204"
-    Then I follow "Test course 4"
-    Then I press the "Register" button
-    Then I wait for AJAX to finish
-    Then I am on "/my-planning"
-    And I should see the text "Test course 4" in ".pane-my-courses-course-pane" element
+    And I am on the homepage
+    Then I should not see the text "Content" in "#admin-menu-menu" element
+    Then I should not see the text "Add content" in "#admin-menu-menu" element
+    Then I should not see the text "Course" in "#admin-menu-menu" element
+    Then I should not see the text "Course package" in "#admin-menu-menu" element
+    Then I should not see the text "Course template" in "#admin-menu-menu" element

@@ -1,5 +1,0 @@
----
-- name: Install given gems.
-  gem: name={{ item.value.name }} version={{ item.value.version }}
-  with_dict: gems
-  sudo_user: vagrant
