@@ -24,9 +24,6 @@
     # This variable allows select type of installation. Can be overridden by CI server.
     # From installation profile = 'profile', from sql dump = 'sql'.
     workflow_type: 'sql'
-    # This variable allows make backup before processing. Can be overridden by CI server.
-    # true, false.
-    make_backup: false
     # htpasswd protection for securing backups.
     backup_user: propeople
     backup_pass: givemebackup
@@ -38,11 +35,11 @@
   - name: Getting timestamp
     shell: date +'%Y_%m_%d_%M_%S'
     register: backup_name_raw
-    when: pp_environment == "staging" or make_backup
+    when: pp_environment == "staging"
 
   - name: Getting name for backup
     set_fact: backup_name={{ backup_name_raw.stdout }}
-    when: pp_environment == "staging" or make_backup
+    when: pp_environment == "staging"
 
   - name: Creating backup folder
     sudo: yes
@@ -51,7 +48,7 @@
   - name: Making regular backup
     sudo: yes
     mysql_db: name=staging state=dump target={{ backup_folder }}/{{ backup_name }}.sql.gz login_user={{ mysql_user }} login_password={{ mysql_pass }}
-    when: pp_environment == "staging" or make_backup
+    when: pp_environment == "staging"
 
   - name: Check if latest backup exists
     stat: path={{ backup_folder }}/latest.sql.gz
@@ -60,10 +57,10 @@
 
   - name: Create initial backup from staging
     mysql_db: name=staging state=dump target={{ backup_folder }}/latest.sql.gz login_user={{ mysql_user }} login_password={{ mysql_pass }}
-    when: make_backup == true and workflow_type == "sql" and latest_backup_exists.stat.exists == false
+    when: pp_environment == "staging" and workflow_type == "sql" and latest_backup_exists.stat.exists == false
 
   - name: Downloading latest backup
-    get_url: url={{ source_database }} dest={{ backup_folder }}/latest_remote.sql.gz force=yes
+    get_url: url={{ source_database }} dest={{ backup_folder }}/latest.sql.gz force=yes
     when: workflow_type == "sql" and pp_environment == "default"
 
   - name: Droping drupal database
@@ -74,23 +71,8 @@
     mysql_db: name={{ mysql_db }} state=present login_user={{ mysql_user }} login_password={{ mysql_pass }}
 
   - name: Importing from remote backup
-    mysql_db: name={{ mysql_db }} state=import target={{ backup_folder }}/latest_remote.sql.gz login_user={{ mysql_user }} login_password={{ mysql_pass }}
+    mysql_db: name={{ mysql_db }} state=import target={{ backup_folder }}/latest.sql.gz login_user={{ mysql_user }} login_password={{ mysql_pass }}
     sudo: yes
-    when: workflow_type == "sql" and pp_environment == "default"
-
-  - name: Copy local backup to build folder
-    sudo: yes
-    copy: src={{ backup_folder }}/latest.sql.gz dest=./latest.sql.gz force=yes mode=0644
-    when: make_backup == true and workflow_type == "sql" and (pp_environment == "default" or pp_environment == "demo")
-
-  - name: Importing from local backup
-    mysql_db: name={{ mysql_db }} state=import target=./latest.sql.gz login_user={{ mysql_user }} login_password={{ mysql_pass }}
-    sudo: yes
-    when: make_backup == true and workflow_type == "sql" and (pp_environment == "default" or pp_environment == "demo")
-
-  - name: Remove local backup from build folder
-    sudo: yes
-    file: name=./latest.sql.gz state=absent
     when: workflow_type == "sql" and (pp_environment == "default" or pp_environment == "demo")
 
   - name: Creating cache folder
@@ -199,7 +181,7 @@
   - name: Creating latest staging backup
     sudo: yes
     mysql_db: name=staging state=dump target={{ backup_folder }}/latest.sql.gz login_user={{ mysql_user }} login_password={{ mysql_pass }}
-    when: make_backup == true and pp_environment == "staging" or make_backup
+    when: pp_environment == "staging"
 
   - name: Solr - clearing index
     sudo: yes
