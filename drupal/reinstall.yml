@@ -204,5 +204,6 @@
 
   - name: CSS | Compass compile
     shell: "cd profiles/mal/themes/city_of_malmo/assets && compass compile"
+    sudo: yes
     when: pp_environment == "demo" or pp_environment == "default"
 
