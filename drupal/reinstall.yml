@@ -203,6 +203,7 @@
     file: dest=sites/default/files mode=777 state=directory
 
   - name: CSS | Compass compile
+    sudo: yes
     shell: "cd profiles/mal/themes/city_of_malmo/assets && compass compile"
     when: pp_environment == "demo" or pp_environment == "default"
 
