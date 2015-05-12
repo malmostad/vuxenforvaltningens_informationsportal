@@ -69,3 +69,4 @@
     name: jetty
     state: started
     enabled: yes
+  notify: restart jetty

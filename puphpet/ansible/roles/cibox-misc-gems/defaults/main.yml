@@ -1,0 +1,18 @@
+---
+
+gems:
+  sass:
+    name: sass
+    version: 3.2.19
+  compass:
+    name: compass
+    version: 0.12.6
+  susy:
+    name: susy
+    version: 1.0.9
+  chunky_png:
+    name: chunky_png
+    version: 1.3.4
+  fssm:
+    name: fssm
+    version: 0.2.10

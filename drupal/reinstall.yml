@@ -149,7 +149,6 @@
     ignore_errors: true
 
   - name: Downloading registry_rebuild
-    sudo: yes
     shell: "{{ php_env_vars }} drush -y dl registry_rebuild"
     when: workflow_type == "sql" and registry_rebuild_installed.stdout == "0"
 
