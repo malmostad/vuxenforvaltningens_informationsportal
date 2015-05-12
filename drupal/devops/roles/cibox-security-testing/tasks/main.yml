@@ -4,6 +4,7 @@
   file: path=sites/all/modules/contrib state=directory recurse=yes mode=0777
 
 - name: Install Security Testing
+  sudo: yes
   shell: "rsync -avz devops/modules/ sites/all/modules/contrib/"
 
 - name: Enable Security Review module
