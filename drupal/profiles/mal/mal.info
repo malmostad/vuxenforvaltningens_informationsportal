@@ -95,6 +95,7 @@ dependencies[] = ultimate_cron
 dependencies[] = administerusersbyrole
 dependencies[] = role_delegation
 dependencies[] = cer
+dependencies[] = unique_field
 ; Panels
 dependencies[] = panels
 dependencies[] = panels_everywhere
@@ -230,3 +231,4 @@ dependencies[] = view_dashboard_my_content
 dependencies[] = page_dashboard
 dependencies[] = config_metatag
 dependencies[] = config_url_aliases
+dependencies[] = config_unique_fields

@@ -4,3 +4,8 @@ sites/*/settings*.php
 # Ignore paths that contain user-generated content.
 sites/*/files
 sites/*/private
+
+profiles/mal/themes/city_of_malmo/assets/.sass-cache/
+profiles/mal/themes/city_of_malmo/assets/stylesheets/
+sites/all/
+build_reports/
