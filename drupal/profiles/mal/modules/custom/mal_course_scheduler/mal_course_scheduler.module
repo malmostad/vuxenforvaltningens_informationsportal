@@ -75,6 +75,7 @@ function mal_course_scheduler_entity_presave($entity, $entity_type) {
     // Inactive.
     if (!empty($date['value2']) && $date['value2'] < strtotime("-6 month")) {
       $entity->field_course_searchable_type[$searchable_lang][0]['tid'] = variable_get('mal_generate_content_searchable_type_4', 78);
+      $entity->status = FALSE;
       return;
     }
   }
