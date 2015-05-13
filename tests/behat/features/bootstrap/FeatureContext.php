@@ -22,12 +22,12 @@ class FeatureContext extends DrupalContext {
   /**
    * Initializes context.
    *
-   * Every scenario gets its own context object.
-   *
-   * @param array $parameters
-   *   Context parameters (set them up through behat.yml)
+   * Every scenario gets its own context instance.
+   * You can also pass arbitrary arguments to the
+   * context constructor through behat.yml.
    */
-  public function __construct(array $parameters) {
+  public function __construct()
+  {
 
   }
 
