@@ -851,3 +851,10 @@ function mal_update_update_7060() {
     'config_unique_fields',
   ));
 }
+
+/**
+ * Add preamble.
+ */
+function mal_update_update_7061() {
+  features_revert_module('config_wysiwyg');
+}
