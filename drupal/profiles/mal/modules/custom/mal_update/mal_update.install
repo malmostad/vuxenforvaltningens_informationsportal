@@ -841,3 +841,20 @@ function mal_update_update_7059() {
 
   features_revert_module('config_search');
 }
+
+/**
+ * Enable unique field.
+ */
+function mal_update_update_7060() {
+  module_enable(array(
+    'unique_field',
+    'config_unique_fields',
+  ));
+}
+
+/**
+ * Add preamble.
+ */
+function mal_update_update_7061() {
+  features_revert_module('config_wysiwyg');
+}

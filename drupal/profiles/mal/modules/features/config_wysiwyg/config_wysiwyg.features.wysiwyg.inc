@@ -91,7 +91,7 @@ function config_wysiwyg_wysiwyg_default_profiles() {
       'block_formats' => 'p,address,pre,h2,h3,h4,h5,h6,div',
       'css_setting' => 'theme',
       'css_path' => '',
-      'css_classes' => '',
+      'css_classes' => 'Preamble=p.preamble',
     ),
     'rdf_mapping' => array(),
   );
@@ -178,7 +178,7 @@ function config_wysiwyg_wysiwyg_default_profiles() {
       'block_formats' => 'p,address,pre,h1,h2,h3,h4,h5,h6,div',
       'css_setting' => 'theme',
       'css_path' => '',
-      'css_classes' => '',
+      'css_classes' => 'Preamble=p.preamble',
     ),
     'rdf_mapping' => array(),
   );

@@ -11,7 +11,7 @@
     artifacts_file: commentinfo.md
     webroot: http://localhost
     installation_profile_name: pp
-    scan_security: true
+    scan_security: false
     phpcs_extensions: php,inc,install,module
     phpcs_features_extensions: module
     custom_modules_path: sites/all/modules/custom/
