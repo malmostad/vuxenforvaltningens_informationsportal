@@ -76,30 +76,6 @@ function page_main_layout_default_page_manager_handlers() {
     $display->content['new-f941b59c-dd20-4d38-ac5a-e0fed964d242'] = $pane;
     $display->panels['region-five'][0] = 'new-f941b59c-dd20-4d38-ac5a-e0fed964d242';
     $pane = new stdClass();
-    $pane->pid = 'new-86acdc5e-aa92-4c39-be21-b86a3e1eb4ee';
-    $pane->panel = 'region-five';
-    $pane->type = 'live_person_button';
-    $pane->subtype = 'live_person_button';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => '',
-      'override_title_text' => '',
-      'pane_title' => 'Chatta med en studie- och yrkesvägledare',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-      'style' => 'naked',
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 1;
-    $pane->locks = array();
-    $pane->uuid = '86acdc5e-aa92-4c39-be21-b86a3e1eb4ee';
-    $display->content['new-86acdc5e-aa92-4c39-be21-b86a3e1eb4ee'] = $pane;
-    $display->panels['region-five'][1] = 'new-86acdc5e-aa92-4c39-be21-b86a3e1eb4ee';
-    $pane = new stdClass();
     $pane->pid = 'new-e8c840e5-c7ed-4d67-98a3-c20e67fa8ff0';
     $pane->panel = 'region-four';
     $pane->type = 'block';
@@ -195,6 +171,30 @@ function page_main_layout_default_page_manager_handlers() {
     $display->content['new-515be1a3-6af5-4da1-b336-2f23dc97f3a4'] = $pane;
     $display->panels['region-four'][3] = 'new-515be1a3-6af5-4da1-b336-2f23dc97f3a4';
     $pane = new stdClass();
+    $pane->pid = 'new-86acdc5e-aa92-4c39-be21-b86a3e1eb4ee';
+    $pane->panel = 'region-one';
+    $pane->type = 'live_person_button';
+    $pane->subtype = 'live_person_button';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => '',
+      'override_title_text' => '',
+      'pane_title' => 'Chatta med en studie- och yrkesvägledare',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'naked',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $pane->uuid = '86acdc5e-aa92-4c39-be21-b86a3e1eb4ee';
+    $display->content['new-86acdc5e-aa92-4c39-be21-b86a3e1eb4ee'] = $pane;
+    $display->panels['region-one'][0] = 'new-86acdc5e-aa92-4c39-be21-b86a3e1eb4ee';
+    $pane = new stdClass();
     $pane->pid = 'new-db383758-486c-45d6-871c-69be35f14b5b';
     $pane->panel = 'region-one';
     $pane->type = 'page_breadcrumb';
@@ -208,11 +208,11 @@ function page_main_layout_default_page_manager_handlers() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
     $pane->uuid = 'db383758-486c-45d6-871c-69be35f14b5b';
     $display->content['new-db383758-486c-45d6-871c-69be35f14b5b'] = $pane;
-    $display->panels['region-one'][0] = 'new-db383758-486c-45d6-871c-69be35f14b5b';
+    $display->panels['region-one'][1] = 'new-db383758-486c-45d6-871c-69be35f14b5b';
     $pane = new stdClass();
     $pane->pid = 'new-2e1aabd4-9ae0-45f0-af72-5606dec1d074';
     $pane->panel = 'region-three';
