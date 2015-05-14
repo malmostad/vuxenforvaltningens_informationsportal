@@ -134,6 +134,7 @@ dependencies[] = mal_user_custom_access
 dependencies[] = mal_ux_improvements
 dependencies[] = multiple_field_delete
 dependencies[] = user_register
+dependencies[] = mal_notification
 ; Registration
 dependencies[] = registration
 dependencies[] = registration_views

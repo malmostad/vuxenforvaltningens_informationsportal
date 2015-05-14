@@ -1,0 +1,4 @@
+name = Mal notifications
+description = Notifications for users.
+core = 7.x
+package = Propeople
