@@ -858,3 +858,9 @@ function mal_update_update_7060() {
 function mal_update_update_7061() {
   features_revert_module('config_wysiwyg');
 }
+/**
+ * Add preamble.
+ */
+function mal_update_update_7062() {
+  features_revert_module('page_main_layout');
+}
