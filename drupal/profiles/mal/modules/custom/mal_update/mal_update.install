@@ -871,7 +871,7 @@ function mal_update_update_7062() {
  */
 function mal_update_update_7063() {
   module_enable(array(
-    'mal_notification',
+    'mal_notifications',
   ));
 
   _mal_update_locale_add_translation('You are now logged out from My planning.', 'sv', 'Du är nu utloggad från Min planering.');
