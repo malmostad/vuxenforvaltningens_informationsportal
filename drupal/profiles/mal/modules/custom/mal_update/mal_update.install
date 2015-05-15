@@ -877,3 +877,12 @@ function mal_update_update_7063() {
   _mal_update_locale_add_translation('You are now logged out from My planning.', 'sv', 'Du är nu utloggad från Min planering.');
   _mal_update_locale_clear_cache();
 }
+
+
+/**
+ * Continuous from label.
+ */
+function mal_update_update_7064() {
+  _mal_update_locale_add_translation('Continuous from @date', 'sv', 'Kontinuerlig från @date');
+  _mal_update_locale_clear_cache();
+}
