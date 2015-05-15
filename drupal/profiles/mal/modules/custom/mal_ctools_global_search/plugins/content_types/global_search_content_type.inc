@@ -77,7 +77,7 @@ function global_search_form(array $form, array &$form_state, $conf) {
 
   $form['submit'] = array(
     '#type' => 'submit',
-    '#value' => t('Search'),
+    '#value' => t('Search') . ' <span>' . t('course') .'</span>',
   );
 
   return $form;

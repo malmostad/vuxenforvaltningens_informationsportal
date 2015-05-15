@@ -43,3 +43,7 @@ msgstr "Sök kurs, kurspaket, skola eller inriktning"
 msgid "Search"
 msgstr "Sök"
 
+#: plugins/content_types/global_search_content_type.inc:80
+msgid "course"
+msgstr "utbildning"
+

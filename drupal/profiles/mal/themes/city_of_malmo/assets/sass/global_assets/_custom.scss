@@ -1731,6 +1731,9 @@ footer.bigfoot {
       max-width: 34em;
     }
   }
+  #global-search-form button span {
+    display: none;
+  }
 }
 
 @media (max-width: 43em) {
