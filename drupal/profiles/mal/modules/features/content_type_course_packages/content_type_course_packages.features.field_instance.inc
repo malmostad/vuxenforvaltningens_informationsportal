@@ -115,16 +115,11 @@ function content_type_course_packages_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'field_collection_table',
+        'module' => 'field_collection',
         'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
-          'empty' => TRUE,
           'view_mode' => 'full',
         ),
-        'type' => 'field_collection_table_view',
+        'type' => 'field_collection_fields',
         'weight' => 1,
       ),
     ),
@@ -1147,7 +1142,7 @@ function content_type_course_packages_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'hidden',
+        'label' => 'inline',
         'module' => 'field_collection_table',
         'settings' => array(
           'add' => '',
@@ -1158,7 +1153,7 @@ function content_type_course_packages_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_table_view',
-        'weight' => 14,
+        'weight' => 6,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -1167,7 +1162,7 @@ function content_type_course_packages_field_default_field_instances() {
         'weight' => 0,
       ),
       'search_result' => array(
-        'label' => 'hidden',
+        'label' => 'inline',
         'module' => 'field_collection_table',
         'settings' => array(
           'add' => '',
@@ -1178,7 +1173,7 @@ function content_type_course_packages_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_table_view',
-        'weight' => 2,
+        'weight' => 16,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1192,7 +1187,7 @@ function content_type_course_packages_field_default_field_instances() {
     'ied_settings' => array(
       'display_fields' => 0,
     ),
-    'label' => 'Master course package',
+    'label' => 'Kurser som ingår',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -1300,7 +1295,6 @@ function content_type_course_packages_field_default_field_instances() {
   t('Kurser som ingår');
   t('Kursform');
   t('Kursperiod');
-  t('Master course package');
   t('Omfattning');
   t('Poäng');
   t('Searchable type');

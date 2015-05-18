@@ -99,6 +99,7 @@ function content_type_course_packages_field_group_info() {
       3 => 'field_course_number_of_points',
       4 => 'field_course_group',
       5 => 'field_course_information_meeting',
+      6 => 'field_master_course_package',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -180,6 +181,7 @@ function content_type_course_packages_field_group_info() {
       1 => 'field_course_contact_person',
       2 => 'field_course_group',
       3 => 'field_course_information_meeting',
+      4 => 'field_master_course_package',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
