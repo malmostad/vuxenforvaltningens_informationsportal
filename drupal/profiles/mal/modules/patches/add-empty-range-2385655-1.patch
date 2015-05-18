@@ -1,0 +1,16 @@
+diff --git a/plugins/facetapi/widget_ranges.inc b/plugins/facetapi/widget_ranges.inc
+index b5b1777..fdd75b3 100644
+--- a/plugins/facetapi/widget_ranges.inc
++++ b/plugins/facetapi/widget_ranges.inc
+@@ -86,6 +86,11 @@ class FacetapiWidgetRanges extends FacetapiWidget {
+ 
+       // Add new query element for the link.
+       $new_f = $this->facet['field alias'] . ':[' . $from . ' TO ' . $to . ']';
++
++      if (($from == NULL) || ($to == NULL)) {
++        $new_f = $this->facet['field alias'] . ':NULL';
++      }
++
+       $query['f'][] = $new_f;
+ 
+       // Start building link.

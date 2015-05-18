@@ -1,0 +1,48 @@
+diff --git a/cer.module b/cer.module
+index 9d3e703..52749f7 100644
+--- a/cer.module
++++ b/cer.module
+@@ -207,7 +207,7 @@ function cer_processing_entity($op, $entity, $entity_type = NULL, array &$contex
+       $entity = entity_object_load($entity, $entity_type);
+     }
+ 
+-    if (is_object($entity)) {
++    if (is_object($entity) && (!isset($entity->cer_processed) || !$entity->cer_processed)) {
+       cer_processing_entity($op, new EntityDrupalWrapper($entity_type, $entity), NULL, $context);
+     }
+   }
+diff --git a/extensions/cer_entity_settings/cer_entity_settings.module b/extensions/cer_entity_settings/cer_entity_settings.module
+index a7237e8..c09f583 100644
+--- a/extensions/cer_entity_settings/cer_entity_settings.module
++++ b/extensions/cer_entity_settings/cer_entity_settings.module
+@@ -47,9 +47,8 @@ function cer_entity_settings_exit() {
+       $entity->cer_settings->set(NULL);
+ 
+       $entity = $entity->value();
+-      // We don't use $entity->save() here in order to prevent an infinite loop.
+-      field_attach_presave($entity_type, $entity);
+-      field_attach_update($entity_type, $entity);
++      $entity->cer_processed = TRUE;
++      entity_save($entity_type, $entity);
+     }
+   }
+ }
+diff --git a/includes/CerFieldHandler.inc b/includes/CerFieldHandler.inc
+index a7b660e..716b7a7 100644
+--- a/includes/CerFieldHandler.inc
++++ b/includes/CerFieldHandler.inc
+@@ -147,12 +147,8 @@ class CerFieldHandler implements Countable, SeekableIterator {
+     $entityID = $this->entity->getIdentifier();
+     $entity = $this->entity->value();
+ 
+-    // Don't call $entity->save(), or we'll cause an infinite loop.
+-    field_attach_presave($entity_type, $entity);
+-    field_attach_update($entity_type, $entity);
+-
+-    // Issue #2225071
+-    entity_get_controller($entity_type)->resetCache((array) $entityID);
++    $entity->cer_processed = TRUE;
++    entity_save($entity_type, $entity);
+ 
+     // Reload the entity we just saved and cleared from the static cache.
+     $entities = entity_load($entity_type, (array) $entityID);
