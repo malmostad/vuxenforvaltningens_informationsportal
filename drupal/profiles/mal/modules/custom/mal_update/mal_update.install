@@ -899,4 +899,5 @@ function mal_update_update_7067() {
  */
 function mal_update_update_7068() {
   features_revert_module('content_type_course_packages');
+  module_enable(array('mal_course_package_table'));
 }

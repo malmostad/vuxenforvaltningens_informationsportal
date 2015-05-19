@@ -1143,16 +1143,9 @@ function content_type_course_packages_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'inline',
-        'module' => 'field_collection_table',
-        'settings' => array(
-          'add' => '',
-          'delete' => '',
-          'description' => 1,
-          'edit' => '',
-          'empty' => 1,
-          'view_mode' => 'full',
-        ),
-        'type' => 'field_collection_table_view',
+        'module' => 'mal_course_package_table',
+        'settings' => array(),
+        'type' => 'mal_course_package_table',
         'weight' => 6,
       ),
       'node_teaser' => array(
@@ -1163,16 +1156,9 @@ function content_type_course_packages_field_default_field_instances() {
       ),
       'search_result' => array(
         'label' => 'inline',
-        'module' => 'field_collection_table',
-        'settings' => array(
-          'add' => '',
-          'delete' => '',
-          'description' => 1,
-          'edit' => '',
-          'empty' => 1,
-          'view_mode' => 'full',
-        ),
-        'type' => 'field_collection_table_view',
+        'module' => 'mal_course_package_table',
+        'settings' => array(),
+        'type' => 'mal_course_package_table',
         'weight' => 16,
       ),
       'teaser' => array(
