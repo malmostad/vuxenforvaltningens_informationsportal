@@ -901,3 +901,10 @@ function mal_update_update_7068() {
   features_revert_module('content_type_course_packages');
   module_enable(array('mal_course_package_table'));
 }
+
+/**
+ * Add opportunity to add preamble for login page.
+ */
+function mal_update_update_7069() {
+  module_enable(array('page_user_pages', 'user_pages'));
+}

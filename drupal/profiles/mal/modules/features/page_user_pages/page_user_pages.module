@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Page user pages feature.
+ */
+
+include_once 'page_user_pages.features.inc';
