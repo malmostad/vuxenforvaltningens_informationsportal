@@ -25,11 +25,25 @@ function mal_course_package_table_field_formatter_view($entity_type, $entity, $f
   switch ($display['type']) {
     case 'mal_course_package_table':
       $rows = array();
-      foreach($items as $item) {
-        $entity = entity_load('field_collection_item', array($item['value']));
-        $master_wrapper = entity_metadata_wrapper('field_collection_item', reset($entity));
+      array_walk($items, function(&$value, &$key) {
+        $value = $value['value'];
+      });
+      $entities = entity_load('field_collection_item', $items);
+      foreach($entities as $entity) {
+        $master_wrapper = entity_metadata_wrapper('field_collection_item', $entity);
         $title = $master_wrapper->field_master_course_title->value();
-        $rows[] = array('data' => array(array('data' => $title, 'header' => TRUE), array('data' => t('Number of points'), 'header' => TRUE)));
+        $rows[] = array(
+          'data' => array(
+            array(
+              'data' => $title,
+              'header' => TRUE
+            ),
+            array(
+              'data' => t('Number of points'),
+              'header' => TRUE
+            ),
+          )
+        );
         foreach ($master_wrapper->field_course_package->getIterator() as $field_course_package) {
           $rows[] = array(
             $field_course_package->field_package_course->value(),
