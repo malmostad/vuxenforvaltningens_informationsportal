@@ -1,0 +1,81 @@
+diff --git a/theme/timefield.tpl.php b/theme/timefield.tpl.php
+deleted file mode 100644
+index 66d60c4..0000000
+--- a/theme/timefield.tpl.php
++++ /dev/null
+@@ -1,28 +0,0 @@
+-<?php
+-
+-/**
+- * @file
+- * Template file for timefield
+- *
+- * variables available:
+- *
+- * $time['time'] - the formatted output of this field, with a hyphen between
+- * the first and second time if the "to time" exists.
+- * $time['formatted_value'] - first time value formatted as described in display
+- * settings
+- * $time['formatted_value2'] - second time value formatted as described in
+- * display settings
+- * $time['value'] - integer value of first time, expressed as timezone
+- * agnostic offset from 00:00
+- * $time['value2'] - integer value of second time, expressed as timezone
+- * agnostic offset from 00:00
+- *
+- * If this is a weekly repeat, the following array will also be available
+- * $time['days'] - an array of days, keyed by 3 letter signifier
+- *
+- */
+-
+-?>
+-<div class="time-default">
+-<?php print $time['time'] ?>
+-</div>
+diff --git a/theme/timefield_formatter.tpl.php b/theme/timefield_formatter.tpl.php
+new file mode 100644
+index 0000000..66d60c4
+--- /dev/null
++++ b/theme/timefield_formatter.tpl.php
+@@ -0,0 +1,28 @@
++<?php
++
++/**
++ * @file
++ * Template file for timefield
++ *
++ * variables available:
++ *
++ * $time['time'] - the formatted output of this field, with a hyphen between
++ * the first and second time if the "to time" exists.
++ * $time['formatted_value'] - first time value formatted as described in display
++ * settings
++ * $time['formatted_value2'] - second time value formatted as described in
++ * display settings
++ * $time['value'] - integer value of first time, expressed as timezone
++ * agnostic offset from 00:00
++ * $time['value2'] - integer value of second time, expressed as timezone
++ * agnostic offset from 00:00
++ *
++ * If this is a weekly repeat, the following array will also be available
++ * $time['days'] - an array of days, keyed by 3 letter signifier
++ *
++ */
++
++?>
++<div class="time-default">
++<?php print $time['time'] ?>
++</div>
+diff --git a/timefield.module b/timefield.module
+index ac48533..9928f5e 100644
+--- a/timefield.module
++++ b/timefield.module
+@@ -88,7 +88,7 @@ function timefield_theme() {
+   return array(
+     'timefield_formatter' => array(
+       'variables' => array('time' => NULL, 'settings' => NULL, 'format' => NULL),
+-      'template' => 'timefield',
++      'template' => 'timefield_formatter',
+       'path' => drupal_get_path('module', 'timefield') . '/theme',
+     ),
+     'timefield_weekly_summary_minical_box' => array(

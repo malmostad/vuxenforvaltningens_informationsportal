@@ -1285,8 +1285,7 @@ footer.bigfoot {
 
 .view-my-courses,
 .view-my-course-application-list,
-.view-my-courses-search-list,
-.third-group .table-responsive {
+.view-my-courses-search-list {
   border: #b5b5b5 1px solid;
   margin-bottom: 16px;
   padding: 1.6em 1em 1em;
@@ -1730,6 +1729,9 @@ footer.bigfoot {
     div.navs {
       max-width: 34em;
     }
+  }
+  #global-search-form button span {
+    display: none;
   }
 }
 

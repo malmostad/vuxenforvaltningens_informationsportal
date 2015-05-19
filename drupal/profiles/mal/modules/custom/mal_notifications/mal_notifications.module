@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Main functionality.
+ */
+
+/**
+ * Implements hook_user_logout().
+ */
+function mal_notifications_user_logout($account) {
+  session_destroy();
+
+  drupal_set_message(t('You are now logged out from My planning.'));
+
+  drupal_goto();
+}

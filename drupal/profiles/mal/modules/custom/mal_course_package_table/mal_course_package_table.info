@@ -1,0 +1,4 @@
+name = Mal course package table
+description = Add custom formatter for table with course package
+core = 7.x
+package = Propeople

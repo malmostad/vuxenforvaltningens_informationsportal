@@ -106,6 +106,98 @@ function content_type_course_packages_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'field_collection_item-field_master_course_package-field_course_package'
+  $field_instances['field_collection_item-field_master_course_package-field_course_package'] = array(
+    'bundle' => 'field_master_course_package',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'field_collection',
+        'settings' => array(
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_fields',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_course_package',
+    'ied_settings' => array(
+      'display_fields' => 0,
+    ),
+    'label' => 'Kurser som ingår',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 33,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_master_course_package-field_master_course_title'
+  $field_instances['field_collection_item-field_master_course_package-field_master_course_title'] = array(
+    'bundle' => 'field_master_course_package',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_master_course_title',
+    'label' => 'Title',
+    'required' => 0,
+    'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'filtered_html' => 'filtered_html',
+          'full_html' => 'full_html',
+          'plain_text' => 'plain_text',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'filtered_html' => array(
+              'weight' => 0,
+            ),
+            'full_html' => array(
+              'weight' => 1,
+            ),
+            'plain_text' => array(
+              'weight' => 10,
+            ),
+          ),
+        ),
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 31,
+    ),
+  );
+
   // Exported field_instance: 'node-course_packages-body'
   $field_instances['node-course_packages-body'] = array(
     'bundle' => 'course_packages',
@@ -727,73 +819,6 @@ function content_type_course_packages_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-course_packages-field_course_package'
-  $field_instances['node-course_packages-field_course_package'] = array(
-    'bundle' => 'course_packages',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'Ange delkurs samt antal poäng. Varje delkurs läggs in separat genom <em>Lägg till ytterligare alternativ</em>.',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'field_collection_table',
-        'settings' => array(
-          'add' => '',
-          'delete' => '',
-          'description' => 1,
-          'edit' => '',
-          'empty' => 0,
-          'view_mode' => 'full',
-        ),
-        'type' => 'field_collection_table_view',
-        'weight' => 6,
-      ),
-      'node_teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'search_result' => array(
-        'label' => 'above',
-        'module' => 'field_collection_table',
-        'settings' => array(
-          'add' => '',
-          'delete' => '',
-          'description' => 1,
-          'edit' => '',
-          'empty' => 1,
-          'view_mode' => 'full',
-        ),
-        'type' => 'field_collection_table_view',
-        'weight' => 16,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_course_package',
-    'ied_settings' => array(
-      'display_fields' => 0,
-    ),
-    'label' => 'Kurser som ingår',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'field_collection',
-      'settings' => array(),
-      'type' => 'field_collection_embed',
-      'weight' => 10,
-    ),
-  );
-
   // Exported field_instance: 'node-course_packages-field_course_prerequisites'
   $field_instances['node-course_packages-field_course_prerequisites'] = array(
     'bundle' => 'course_packages',
@@ -1109,6 +1134,59 @@ function content_type_course_packages_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-course_packages-field_master_course_package'
+  $field_instances['node-course_packages-field_master_course_package'] = array(
+    'bundle' => 'course_packages',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'mal_course_package_table',
+        'settings' => array(),
+        'type' => 'mal_course_package_table',
+        'weight' => 6,
+      ),
+      'node_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'search_result' => array(
+        'label' => 'inline',
+        'module' => 'mal_course_package_table',
+        'settings' => array(),
+        'type' => 'mal_course_package_table',
+        'weight' => 16,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_master_course_package',
+    'ied_settings' => array(
+      'display_fields' => 0,
+    ),
+    'label' => 'Kurser som ingår',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 10,
+    ),
+  );
+
   // Exported field_instance: 'node-course_packages-field_registration'
   $field_instances['node-course_packages-field_registration'] = array(
     'bundle' => 'course_packages',
@@ -1138,7 +1216,7 @@ function content_type_course_packages_field_default_field_instances() {
         'module' => 'user_register',
         'settings' => array(),
         'type' => 'toggling_registration_form',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -1187,7 +1265,6 @@ function content_type_course_packages_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Ange ansökningsperiod');
-  t('Ange delkurs samt antal poäng. Varje delkurs läggs in separat genom <em>Lägg till ytterligare alternativ</em>.');
   t('Ange kursgrupp för Sökkod');
   t('Ange när kurspaket startar och slutar');
   t('Ange studietakt i procent (t.ex. heltid är 100 %)');
@@ -1203,7 +1280,6 @@ function content_type_course_packages_field_default_field_instances() {
   t('Kurs');
   t('Kurser som ingår');
   t('Kursform');
-  t('Sökkod');
   t('Kursperiod');
   t('Omfattning');
   t('Poäng');
@@ -1216,6 +1292,7 @@ function content_type_course_packages_field_default_field_instances() {
   t('Skriv totala antalet poäng');
   t('Skriv totalt antal studieveckor');
   t('Sökkod');
+  t('Title');
   t('Välj inriktning i listan');
 
   return $field_instances;

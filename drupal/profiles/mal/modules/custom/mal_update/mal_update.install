@@ -858,9 +858,53 @@ function mal_update_update_7060() {
 function mal_update_update_7061() {
   features_revert_module('config_wysiwyg');
 }
+
 /**
  * Add preamble.
  */
 function mal_update_update_7062() {
   features_revert_module('page_main_layout');
+}
+
+/**
+ * Add notification on user logout.
+ */
+function mal_update_update_7063() {
+  module_enable(array(
+    'mal_notifications',
+  ));
+
+  _mal_update_locale_add_translation('You are now logged out from My planning.', 'sv', 'Du är nu utloggad från Min planering.');
+  _mal_update_locale_clear_cache();
+}
+
+/**
+ * Continuous from label.
+ */
+function mal_update_update_7064() {
+  _mal_update_locale_add_translation('Continuous from @date', 'sv', 'Kontinuerlig från @date');
+  _mal_update_locale_clear_cache();
+}
+
+/**
+ * Search button.
+ */
+function mal_update_update_7067() {
+  _mal_update_locale_add_translation('course', 'sv', 'utbildning');
+  _mal_update_locale_clear_cache();
+}
+
+/**
+ * Update course package.
+ */
+function mal_update_update_7068() {
+  features_revert_module('content_type_course_packages');
+  module_enable(array('mal_course_package_table'));
+}
+
+/**
+ * Add opportunity to add preamble for login page.
+ */
+function mal_update_update_7069() {
+  module_enable(array('page_user_pages', 'user_pages'));
 }
