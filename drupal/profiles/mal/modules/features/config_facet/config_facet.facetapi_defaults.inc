@@ -204,6 +204,9 @@ function config_facet_facetapi_default_facet_settings() {
       'facets' => array(),
       'force_deactivation' => TRUE,
       'regex' => FALSE,
+      'roles' => array(),
+      'bundle' => 'none',
+      'bundle_selected' => array(),
     ),
     'facet_mincount' => '1',
     'facet_missing' => '0',
@@ -1214,7 +1217,7 @@ function config_facet_facetapi_default_facet_settings() {
   $facet->enabled = TRUE;
   $facet->settings = array(
     'weight' => 0,
-    'widget' => 'mal_facetapi_ranges',
+    'widget' => 'search_api_ranges_ui_links',
     'filters' => array(),
     'active_sorts' => array(
       'active' => 'active',
@@ -1248,13 +1251,19 @@ function config_facet_facetapi_default_facet_settings() {
     'soft_limit' => '20',
     'nofollow' => 1,
     'show_expanded' => 0,
-    'ranges' => '21600-43200|Morning
-43200-61200|Afternoon
-61200-86400|Evening',
+    'ranges' => '',
     'empty_text' => array(
       'value' => '',
       'format' => 'filtered_html',
     ),
+    'name' => 'field_course_periods',
+    'prefix' => '',
+    'suffix' => '',
+    'auto-submit-delay' => '1500',
+    'range_simple' => '10',
+    'range_advanced' => '21600-43200|Morning
+43200-61200|Afternoon
+61200-86400|Evening',
   );
   $export['search_api@node:block:field_course_periods:value'] = $facet;
 

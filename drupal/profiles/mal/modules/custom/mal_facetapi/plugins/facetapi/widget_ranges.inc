@@ -100,7 +100,7 @@ class MalFacetapiWidgetRanges extends FacetapiWidget {
       list($from, $to) = explode('-', $values);
 
       // Get current query.
-      $query = $qeury_clean;
+      $query = $item['#query'];
 
       // Add new query element for the link.
       $new_f = $field_alias . ':[' . $from . ' TO ' . $to . ']';

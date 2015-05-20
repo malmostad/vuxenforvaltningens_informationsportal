@@ -908,3 +908,13 @@ function mal_update_update_7068() {
 function mal_update_update_7069() {
   module_enable(array('page_user_pages', 'user_pages'));
 }
+
+/**
+ * OR operator for course periods.
+ */
+function mal_update_update_7070() {
+  module_enable(array('search_api_ranges'));
+  features_revert_module('config_facet');
+  module_disable(array('mal_facetapi', 'facetapi_ranges'));
+  drupal_uninstall_modules(array('mal_facetapi', 'facetapi_ranges'));
+}

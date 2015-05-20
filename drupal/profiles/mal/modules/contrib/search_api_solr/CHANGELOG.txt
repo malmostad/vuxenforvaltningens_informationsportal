@@ -1,3 +1,14 @@
+Search API Solr search 1.x, dev (xx/xx/xxxx):
+---------------------------------------------
+- #2442077 by drunken monkey, basvredeling: Added support for Solr 5.
+- #2451037 by drunken monkey: Fixed timeout errors during indexing.
+- #2054551 by paolomainardi, drunken monkey, lex0r: Added possibility to
+  retrieve Solr field values in multi-index searches.
+- #1908990 by drunken monkey: Fixed various issues with excerpts.
+- #2368399 by das-peter, drunken monkey: Added Support for location filtering
+  with a bounding box.
+- #2333133 by drunken monkey: Fixed behavior of filters on fulltext fields.
+
 Search API Solr search 1.6 (09/08/2014):
 ----------------------------------------
 - #2050961 by das-peter, drunken monkey: Added proximity/distance information
