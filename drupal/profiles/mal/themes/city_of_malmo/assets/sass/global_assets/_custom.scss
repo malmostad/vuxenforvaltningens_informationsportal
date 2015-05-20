@@ -1356,7 +1356,12 @@ footer.bigfoot {
       position: relative;
       vertical-align: middle !important;
 
+      &.views-field-field-course-periods-1 {
+        @include word-break(normal);
+      }
+
       &:last-child {
+        @include word-break(normal);
         padding-right: 25px !important;
       }
     }
@@ -1628,6 +1633,21 @@ footer.bigfoot {
 
     &:nth-child(2n) {
       margin-right: 0;
+    }
+  }
+
+  .tabs {
+    table {
+      td,
+      th {
+        &.views-field-field-course-periods-1 {
+          @include word-break(break-word);
+        }
+
+        &:last-child {
+          @include word-break(break-word);
+        }
+      }
     }
   }
 }
