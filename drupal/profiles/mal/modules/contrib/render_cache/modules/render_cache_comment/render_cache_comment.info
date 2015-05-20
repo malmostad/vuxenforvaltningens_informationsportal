@@ -1,0 +1,15 @@
+name = Render cache for comments added to a node.
+description = Hijacks the comment_node_view callback to enable entity_view caching.
+package = Performance and scalability
+core = 7.x
+
+dependencies[] = render_cache
+dependencies[] = entity
+
+
+; Information added by Drupal.org packaging script on 2014-07-10
+version = "7.x-1.0"
+core = "7.x"
+project = "render_cache"
+datestamp = "1405017254"
+

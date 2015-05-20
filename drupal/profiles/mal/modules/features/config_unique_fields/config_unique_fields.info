@@ -1,0 +1,14 @@
+name = Config unique fields
+description = Configure unique fields
+core = 7.x
+package = Config
+version = 7.x-1.0
+project = config_unique_fields
+dependencies[] = ctools
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[variable][] = unique_field_comp_course_template
+features[variable][] = unique_field_fields_course_template
+features[variable][] = unique_field_scope_course_template
+features[variable][] = unique_field_show_matches_course_template

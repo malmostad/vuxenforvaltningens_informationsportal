@@ -1,0 +1,13 @@
+name = Panel pane suggestions
+description = Provide custom template suggestions for panel panes.
+core = 7.x
+package = "Panels"
+dependencies[] = panels
+
+
+; Information added by drupal.org packaging script on 2013-10-05
+version = "7.x-1.0"
+core = "7.x"
+project = "pps"
+datestamp = "1380980683"
+

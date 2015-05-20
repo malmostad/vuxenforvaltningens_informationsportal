@@ -1,0 +1,15 @@
+name = "Live Person"
+description = Adds Live Person javascript tracking code to all your site's pages.
+package = Statistics
+core = 7.x
+files[] = live_person.module
+files[] = live_person.admin.inc
+files[] = live_person.install
+configure = admin/config/system/live-person
+
+; Information added by drupal.org packaging script on 2013-09-30
+version = "7.x-1.5+3-dev"
+core = "7.x"
+project = "live_person"
+datestamp = "1380585160"
+

@@ -1,6 +1,0 @@
----
-php_xdebug_remote_enable: "true"
-php_xdebug_remote_connect_back: "true"
-php_xdebug_module_path: /usr/lib/php5/modules
-php_xdebug_idekey: PHP_IDE_CONFIG
-php_xdebug_max_nesting_level: 550

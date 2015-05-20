@@ -1,0 +1,11 @@
+name = Entity modified - Node Queue support
+description = Adds support for node queues. Also uses a fake 'entity' type to get modified timestamps of subqueues.
+package = Performance and scalability
+core = 7.x
+
+; Information added by Drupal.org packaging script on 2014-09-06
+version = "7.x-1.2"
+core = "7.x"
+project = "entity_modified"
+datestamp = "1409989131"
+

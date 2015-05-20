@@ -1,0 +1,920 @@
+<?php
+
+/**
+ * @file
+ * All updates.
+ */
+
+/**
+ * Revert config_permissions.
+ */
+function mal_update_update_7000() {
+  $features = array(
+    'config_permissions',
+  );
+
+  features_revert($features);
+  node_access_needs_rebuild(FALSE);
+}
+
+/**
+ * Enable search_api_autocomplete and revert config_facet.
+ */
+function mal_update_update_7001() {
+  module_enable('search_api_autocomplete');
+
+  $features = array(
+    'config_facet',
+  );
+
+  features_revert($features);
+  node_access_needs_rebuild(FALSE);
+}
+
+/**
+ * Enable features with Language settings, rules settings, some contrib modules.
+ */
+function mal_update_update_7003() {
+  module_enable('rules');
+  module_enable('rules_admin');
+  module_enable('notification_rules');
+
+  module_enable('config_language');
+  module_enable('l10n_update');
+  module_enable('language_cookie');
+
+  module_enable('mal_ctools_front_page_allowed_content');
+  module_enable('mal_course_administrative');
+  module_enable('view_subscribed_app_view');
+
+  drush_invoke('drush_l10n_update', array());
+  exec("drush fra -y", $output);
+}
+
+/**
+ * Enable features with Language settings, rules settings, some contrib modules.
+ */
+function mal_update_update_7004() {
+  $features = array(
+    'config_wysiwyg',
+    'config_facet',
+  );
+
+  features_revert($features);
+}
+
+/**
+ * Enable hints module.
+ */
+function mal_update_update_7005() {
+  module_enable('mal_hint');
+}
+
+/**
+ * Save image and set it into the banner.
+ */
+function mal_update_update_7006() {
+  $image_name = 'oppet_hus3.jpg';
+  $image_path = DRUPAL_ROOT . '/' . drupal_get_path('profile', 'mal') . '/files/' . $image_name;
+  $image_data = file_get_contents($image_path);
+  if ($file = file_save_data($image_data, 'public://' . $image_name, FILE_EXISTS_REPLACE)) {
+    variable_set('page_main_layout_banner_image_fid', $file->fid);
+  }
+
+  $features = array(
+    'page_main_layout',
+  );
+  features_revert($features);
+}
+
+/**
+ * Increase tooltip trigger bound for descriptions.
+ */
+function mal_update_update_7007() {
+  if ($settings = variable_get('theme_city_of_malmo_settings', FALSE)) {
+    $settings['bootstrap_tooltip_descriptions_length'] = 400;
+    variable_set('theme_city_of_malmo_settings', $settings);
+  }
+}
+
+/**
+ * Enable subtitle pane module.
+ */
+function mal_update_update_7008() {
+  module_enable('mal_ctools_subtitle');
+  module_enable('view_sidebar_courses');
+  $features = array(
+    'page_main_layout',
+  );
+
+  features_revert($features);
+}
+
+/**
+ * Enable searchable feature.
+ */
+function mal_update_update_7009() {
+  module_enable('mal_course_scheduler');
+  module_enable('mal_course_searchable_type_formatter');
+
+  $features = array(
+    'config_facet',
+    'config_search',
+    'config_taxonomy',
+    'content_type_course',
+    'content_type_course_packages',
+    'page_main_layout',
+    'page_search',
+  );
+
+  features_revert($features);
+}
+
+/**
+ * Revert breadcrumbs.
+ */
+function mal_update_update_7011() {
+  $features = array(
+    'config_breadrumbs',
+  );
+
+  features_revert($features);
+}
+
+/**
+ * Enable UI improvement modules.
+ */
+function mal_update_update_7012() {
+  module_enable(array(
+    'better_formats',
+    'publish_button',
+    'chosen',
+    'node_edit_protection',
+    'navbar',
+    'hide_formats',
+  ));
+
+  theme_enable(array('ember'));
+}
+
+/**
+ * Switch from Admin menu module to Navbar.
+ */
+function mal_update_update_7013() {
+  module_disable(array('admin_menu'));
+  module_enable(array('navbar'));
+}
+
+/**
+ * Enable Override node options module.
+ */
+function mal_update_update_7014() {
+  module_enable(array('override_node_options'));
+}
+
+/**
+ * Add cache configuration.
+ */
+function mal_update_update_7015() {
+  // Add hash salt and database settings as long as function below is designed
+  // for one-time usage and will skip this important settings.
+  $settings = array(
+    'databases' => array(
+      'value' => $GLOBALS['databases'],
+      'required' => TRUE,
+    ),
+    'drupal_hash_salt' => array(
+      'value' => $GLOBALS['drupal_hash_salt'],
+      'required' => TRUE,
+    ),
+    'cache_backends' => array(
+      'value' => array(
+        drupal_get_path('module', 'memcache') . '/memcache.inc',
+        drupal_get_path('module', 'memcache') . '/varnish.cache.inc',
+      ),
+      'required' => TRUE,
+    ),
+    'cache_default_class' => array(
+      'value' => 'MemCacheDrupal',
+      'required' => TRUE,
+    ),
+    'cache_class_cache_form' => array(
+      'value' => 'DrupalDatabaseCache',
+      'required' => TRUE,
+    ),
+    'cache_class_cache_page' => array(
+      'value' => 'VarnishCache',
+      'required' => TRUE,
+    ),
+    'page_cache_invoke_hooks' => array(
+      'value' => FALSE,
+      'required' => TRUE,
+    ),
+  );
+  drupal_rewrite_settings($settings);
+}
+
+/**
+ * Add usage for banner image.
+ */
+function mal_update_update_7016() {
+  if ($file = file_load(variable_get('page_main_layout_banner_image_fid'))) {
+    file_usage_add($file, 'file', 'user', 1);
+  }
+}
+
+/**
+ * Update module weight.
+ */
+function mal_update_update_7017() {
+  db_update('system')
+    ->fields(array('weight' => 1000))
+    ->condition('name', 'mal_ux_improvements', '=')
+    ->execute();
+
+  module_enable(array('view_dashboard_my_content', 'page_dashboard'));
+
+  $features = array(
+    'config_facet',
+    'config_permissions',
+    'content_type_course_packages',
+    'content_type_course_template',
+  );
+
+  features_revert($features);
+}
+
+/**
+ * Update cache configuration.
+ */
+function mal_update_update_7018() {
+  // Add hash salt and database settings as long as function below is designed
+  // for one-time usage and will skip this important settings.
+  $settings = array(
+    'databases' => array(
+      'value' => $GLOBALS['databases'],
+      'required' => TRUE,
+    ),
+    'drupal_hash_salt' => array(
+      'value' => $GLOBALS['drupal_hash_salt'],
+      'required' => TRUE,
+    ),
+    "conf['cache_backends']" => array(
+      'value' => array(
+        drupal_get_path('module', 'memcache') . '/memcache.inc',
+        drupal_get_path('module', 'varnish') . '/varnish.cache.inc',
+      ),
+      'required' => TRUE,
+    ),
+    "conf['cache_default_class']" => array(
+      'value' => 'MemCacheDrupal',
+      'required' => TRUE,
+    ),
+    "conf['cache_class_cache_form']" => array(
+      'value' => 'DrupalDatabaseCache',
+      'required' => TRUE,
+    ),
+    "conf['cache_class_cache_page']" => array(
+      'value' => 'VarnishCache',
+      'required' => TRUE,
+    ),
+    "conf['page_cache_invoke_hooks']" => array(
+      'value' => FALSE,
+      'required' => TRUE,
+    ),
+  );
+  drupal_rewrite_settings($settings);
+}
+
+/**
+ * Faq category feature.
+ */
+function mal_update_update_7019() {
+  module_enable(array('administerusersbyrole', 'role_delegation'));
+
+  $features = array(
+    'config_taxonomy',
+    'content_type_question_and_answer',
+    'view_faq',
+    'content_type_course_packages',
+    'config_permissions',
+  );
+
+  features_revert($features);
+
+  $vocabulary = taxonomy_vocabulary_machine_name_load('qa_category');
+
+  foreach (array(
+             'Vad är Komvux?',
+             'Vad behöver jag tänka på?',
+             'Hur gör jag min ansökan?',
+             'Har jag fått en plats?',
+             'Efter mina studier',
+           ) as $name) {
+    $term = new stdClass();
+    $term->name = $name;
+    $term->vid = $vocabulary->vid;
+    taxonomy_term_save($term);
+    $return[] = $term;
+  }
+}
+
+/**
+ * Enable mal_facetapi.
+ */
+function mal_update_update_7020() {
+  module_enable(array('mal_facetapi'));
+}
+
+/**
+ * Remove field_course_orientation.
+ */
+function mal_update_update_7021() {
+  $features = array(
+    'content_type_course_template',
+    'config_permissions',
+    'content_type_course',
+    'content_type_course_packages',
+    'content_type_user',
+    'config_facet',
+    'config_search',
+    'minipanel_search_facet',
+  );
+
+  features_revert($features);
+
+  if ($instance = field_info_instance('node', 'field_course_orientation', 'course_template')) {
+    field_delete_instance($instance);
+  }
+  if ($instance = field_info_instance('user', 'field_course_school', 'user')) {
+    field_delete_instance($instance);
+  }
+}
+
+/**
+ * Add Live person chat functionality.
+ */
+function mal_update_update_7022() {
+  module_enable(array('mal_ctools_live_person', 'live_person'));
+
+  features_revert_module('page_main_layout');
+
+  variable_set('live_person_account', 26252283);
+}
+
+/**
+ * Change type of field_course_information_meeting and add end_date sync.
+ */
+function mal_update_update_7023() {
+  if ($instance = field_info_instance('node', 'field_course_information_meeting', 'course_packages')) {
+    field_delete_instance($instance);
+  }
+
+  features_revert_module('content_type_course_packages');
+
+  module_enable(array('mal_date_end_date'));
+}
+
+/**
+ * Hide education.
+ */
+function mal_update_update_7024() {
+  module_disable(array('mal_ux_improvements'), FALSE);
+  module_enable(array('mal_ux_improvements'));
+  features_revert_module('config_permissions');
+}
+
+/**
+ * Change date format.
+ */
+function mal_update_update_7025() {
+  db_merge('date_formats')
+    ->key(array('type' => 'mal_short_course'))
+    ->fields(array(
+      'format' => 'Y-m-d',
+      'type' => 'mal_short_course',
+      'locked' => 0,
+    ))
+    ->execute();
+
+  variable_set('date_format_mal_short_course', 'Y-m-d');
+
+  features_revert_module('content_type_course');
+  features_revert_module('content_type_course_packages');
+}
+
+/**
+ * Enable and configure extended template selection.
+ */
+function mal_update_update_7026() {
+  module_enable(array('mal_course_template_selection'));
+  variable_set('mal_advanced_template_filter_nid', 141);
+}
+
+/**
+ * Fix notification rule.
+ */
+function mal_update_update_7027() {
+  features_revert_module('notification_rules');
+}
+
+/**
+ * Enable course template administrative module.
+ */
+function mal_update_update_7029() {
+  module_enable(array(
+    'mal_template_administrative',
+    'view_gymnasium_program_selection',
+  ));
+  // Hide old link.
+  $query = db_update('menu_links');
+  $query->condition('router_path', 'node/add/course-template');
+  $query->fields(array('hidden' => 1));
+  $query->execute();
+}
+
+/**
+ * Implement FAQ page sorting.
+ */
+function mal_update_update_7030() {
+  module_enable(array('draggableviews'));
+  features_revert_module('view_faq');
+}
+
+/**
+ * Set descriptions for template filter fields.
+ */
+function mal_update_update_7031() {
+  module_enable(array('mal_node_description'));
+  features_revert_module('content_type_course');
+  features_revert_module('content_type_course_packages');
+  features_revert_module('content_type_course_template');
+  variable_set('mal_course_template_selection__course__type_of_education', 'Välj i listan för att hitta kursmall');
+  variable_set('mal_node_description__course__subject_area', 'Välj ämnesområde i listan');
+}
+
+/**
+ * Update search result output.
+ */
+function mal_update_update_7032() {
+  features_revert_module('content_type_course');
+  features_revert_module('content_type_course_packages');
+}
+
+/**
+ * Update search result output.
+ */
+function mal_update_update_7033() {
+  features_revert_module('content_type_course');
+}
+
+/**
+ * Update output of timefield.
+ *
+ * Re-arrange fields on course and course package node pages.
+ */
+function mal_update_update_7034() {
+  features_revert_module('content_type_course');
+  features_revert_module('content_type_course_packages');
+}
+
+/**
+ * Add translation for deletion message.
+ */
+function mal_update_update_7035() {
+  features_revert_module('content_type_course_packages');
+
+  t('Following courses would be deleted as well:');
+  _mal_update_locale_add_translation('Following courses would be deleted as well:', 'sv', 'Följande kurser skulle tas bort som alltför:');
+  _mal_update_locale_clear_cache();
+}
+
+/**
+ * Update translation.
+ */
+function mal_update_update_7036() {
+  t('Show only searchable courses');
+  _mal_update_locale_add_translation('Show only searchable courses', 'sv', 'Visa enbart sökbara');
+  _mal_update_locale_clear_cache();
+}
+
+/**
+ * Disable Render Cache module and it's dependencies.
+ *
+ * Since it breaks subscription.
+ */
+function mal_update_update_7037() {
+  module_disable(array(
+    'render_cache',
+    'entity_modified',
+  ));
+}
+
+/**
+ * Revert user planning page.
+ * 
+ * Remove obsolete fields.
+ */
+function mal_update_update_7038() {
+  features_revert_module('page_user_planning');
+  $fields = array(
+    'field_school_locality',
+    'field_school_post_office',
+  );
+  foreach ($fields as $field) {
+    $instance = field_info_instance('node', $field, 'school');
+    field_delete_instance($instance);
+  }
+  features_revert_module('content_type_school');
+}
+
+/**
+ * Revert main layout.
+ */
+function mal_update_update_7039() {
+  features_revert_module('page_main_layout');
+
+  $texts = array(
+    'Show on map' => 'Visa på karta',
+    'Mailing address' => 'Postadress',
+    'Write to us' => 'Skriv till oss',
+    'Address' => 'Besöksadress',
+    'Subtitle' => 'Underrubrik',
+    'Global Contact pane' => 'Global Kontaktruta',
+  );
+
+  foreach ($texts as $origin => $translated) {
+    // @codingStandardsIgnoreStart
+    t($origin);
+    // @codingStandardsIgnoreEnd
+    _mal_update_locale_add_translation($origin, 'sv', $translated);
+  }
+  _mal_update_locale_clear_cache();
+}
+
+/**
+ * Revert Schools main view feature.
+ */
+function mal_update_update_7040() {
+  features_revert_module('view_schools');
+}
+
+/**
+ * Revert main layout.
+ */
+function mal_update_update_7041() {
+  features_revert_module('page_main_layout');
+
+  $texts = array(
+    'Street address' => 'Besöksadress',
+    'E-mail:' => 'E-post:',
+    'Tel:' => 'Tel:',
+  );
+
+  foreach ($texts as $origin => $translated) {
+    // @codingStandardsIgnoreStart
+    t($origin);
+    // @codingStandardsIgnoreEnd
+    _mal_update_locale_add_translation($origin, 'sv', $translated);
+  }
+  _mal_update_locale_clear_cache();
+}
+
+/**
+ * Change start dat of datePicker to Monday.
+ */
+function mal_update_update_7042() {
+  variable_set('date_first_day', 1);
+}
+
+/**
+ * Enable per-item delete button.
+ */
+function mal_update_update_7043() {
+  module_enable(array('multiple_field_delete'));
+  variable_set('multiple_field_delete_enabled', array('field_course_periods'));
+}
+
+/**
+ * Add new translates.
+ */
+function mal_update_update_7044() {
+  $texts = array(
+    'Continuous' => 'Kontinuerlig',
+    'From @date date' => 'Från @date date',
+  );
+
+  foreach ($texts as $origin => $translated) {
+    // @codingStandardsIgnoreStart
+    t($origin);
+    // @codingStandardsIgnoreEnd
+    _mal_update_locale_add_translation($origin, 'sv', $translated);
+  }
+  _mal_update_locale_clear_cache();
+}
+
+/**
+ * Revert features.
+ */
+function mal_update_update_7045() {
+  features_revert_module('config_facet');
+  features_revert_module('config_search');
+  features_revert_module('minipanel_search_facet_date');
+}
+
+/**
+ * Revert features.
+ */
+function mal_update_update_7046() {
+  $texts = array(
+    'Course/course package are searchable subject to availability' => 'Kurs/kurspaket är sökbar i mån av plats',
+    'Course/course package is not searchable right now' => 'Kurs/kurspaket är inte sökbar just nu',
+  );
+
+  foreach ($texts as $origin => $translated) {
+    // @codingStandardsIgnoreStart
+    t($origin);
+    // @codingStandardsIgnoreEnd
+    _mal_update_locale_add_translation($origin, 'sv', $translated);
+  }
+  _mal_update_locale_clear_cache();
+}
+
+/**
+ * Revert features.
+ */
+function mal_update_update_7047() {
+  features_revert_module('config_search_sort');
+}
+
+/**
+ * Revert features.
+ */
+function mal_update_update_7048() {
+  features_revert_module('notification_rules');
+}
+
+/**
+ * Revert features.
+ */
+function mal_update_update_7049() {
+  $texts = array(
+    'From @date' => 'Från @date',
+  );
+
+  foreach ($texts as $origin => $translated) {
+    // @codingStandardsIgnoreStart
+    t($origin);
+    // @codingStandardsIgnoreEnd
+    _mal_update_locale_add_translation($origin, 'sv', $translated);
+  }
+  _mal_update_locale_clear_cache();
+}
+
+/**
+ * Enable and configure SEO modules.
+ */
+function mal_update_update_7050() {
+  module_enable(array(
+    'metatag',
+    'metatag_panels',
+    'metatag_opengraph',
+    'redirect',
+    'globalredirect',
+    'pathauto',
+    'transliteration',
+    'config_metatag',
+    'config_url_aliases',
+  ));
+
+  // Add canonical links to pages.
+  $settings = variable_get('globalredirect_settings', array());
+  $settings['canonical'] = TRUE;
+  variable_set('globalredirect_settings', $settings);
+
+  // Enable alias transliteration.
+  variable_set('pathauto_transliterate', TRUE);
+
+  module_load_include('inc', 'pathauto');
+  module_load_include('inc', 'pathauto.pathauto');
+
+  // Generate aliases for all nodes.
+  $query = db_select('node', 'n');
+  $query->addField('n', 'nid');
+  $nids = $query->execute()->fetchCol();
+  pathauto_node_update_alias_multiple($nids, 'bulkupdate');
+
+  // Generate aliases for all terms.
+  $query = db_select('taxonomy_term_data', 't');
+  $query->addField('t', 'tid');
+  $tids = $query->execute()->fetchCol();
+  pathauto_taxonomy_term_update_alias_multiple($tids, 'bulkupdate');
+
+  // Generate aliases for all users.
+  $query = db_select('users', 'u');
+  $query->addField('u', 'uid');
+  $uids = $query->execute()->fetchCol();
+  pathauto_user_update_alias_multiple($uids, 'bulkupdate');
+}
+
+/**
+ * Revert date facet feature.
+ */
+function mal_update_update_7051() {
+  features_revert_module('minipanel_search_facet_date');
+  features_revert_module('config_wysiwyg');
+}
+
+/**
+ * Revert facet-related features and reindex content.
+ */
+function mal_update_update_7052() {
+  cache_clear_all();
+
+  features_revert_module('config_search');
+  features_revert_module('config_facet');
+  features_revert_module('minipanel_search_sort');
+
+  $search_api_index = search_api_index_load('node');
+  $search_api_index->clear();
+  search_api_index_items($search_api_index);
+}
+
+/**
+ * Prepare Course template - Gymnasy program relation.
+ */
+function mal_update_update_7053() {
+  $instance = field_info_instance('node', 'field_course_gymnasie_program', 'course_template');
+  field_delete_instance($instance);
+  field_purge_batch(10);
+  features_revert_module('content_type_course_template');
+  features_revert_module('config_taxonomy');
+
+  module_enable(array('cer'));
+  module_load_include('inc', 'cer', 'cer.admin');
+  $form_state = array(
+    'values' => array(
+      'mapping' => 'a:2:{i:0;s:110:"taxonomy_term*course_gymnasie_program*field_attached_course*node*course_template*field_course_gymnasie_program";i:1;s:110:"node*course_template*field_course_gymnasie_program*taxonomy_term*course_gymnasie_program*field_attached_course";}',
+      'enabled_0' => 1,
+      'enabled_1' => 1,
+    ),
+  );
+  cer_settings_form_submit(array(), $form_state);
+}
+
+/**
+ * Set nid of Utbildning node used for Course Package and reindex content.
+ */
+function mal_update_update_7054() {
+  variable_set('course_package_gymnasium_program', 141);
+
+  $search_api_index = search_api_index_load('node');
+  $search_api_index->clear();
+  search_api_index_items($search_api_index);
+}
+
+/**
+ * Update search configuration.
+ */
+function mal_update_update_7055() {
+  features_revert_module('config_search');
+}
+
+/**
+ * Update permissions.
+ */
+function mal_update_update_7056() {
+  features_revert_module('config_permissions');
+}
+
+/**
+ * Revert features.
+ */
+function mal_update_update_7057() {
+  features_revert_module('config_jquery_update');
+  features_revert_module('content_type_course_template');
+}
+
+/**
+ * Update CER fields for Course Template and Course Gymnasie Program.
+ */
+function mal_update_update_7058() {
+  $gymnasie_program = taxonomy_vocabulary_machine_name_load('course_gymnasie_program');
+  $tree = taxonomy_get_tree($gymnasie_program->vid);
+
+  foreach ($tree as $branch) {
+    if (($term = taxonomy_term_load($branch->tid)) &&
+      $field_attached_course = field_get_items('taxonomy_term', $term, 'field_attached_course')) {
+      foreach ($field_attached_course as $course_id) {
+        if ($node = entity_load('node', array($course_id['target_id']))) {
+          $node = array_pop($node);
+          $lang = field_language('node', $node, 'field_course_gymnasie_program');
+          $found = FALSE;
+
+          if ($field = field_get_items('node', $node, 'field_course_gymnasie_program')) {
+            foreach ($field as $ref) {
+              if ($ref['target_id'] == $term->tid) {
+                $found = TRUE;
+                break;
+              }
+            }
+          }
+
+          if (!$found) {
+            $node->field_course_gymnasie_program[$lang][] = array('target_id' => $term->tid);
+
+            entity_save('node', $node);
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Enable solr server conf.
+ */
+function mal_update_update_7059() {
+   module_enable(array(
+     'mal_solr',
+   ));
+
+  features_revert_module('config_search');
+}
+
+/**
+ * Enable unique field.
+ */
+function mal_update_update_7060() {
+  module_enable(array(
+    'unique_field',
+    'config_unique_fields',
+  ));
+}
+
+/**
+ * Add preamble.
+ */
+function mal_update_update_7061() {
+  features_revert_module('config_wysiwyg');
+}
+
+/**
+ * Add preamble.
+ */
+function mal_update_update_7062() {
+  features_revert_module('page_main_layout');
+}
+
+/**
+ * Add notification on user logout.
+ */
+function mal_update_update_7063() {
+  module_enable(array(
+    'mal_notifications',
+  ));
+
+  _mal_update_locale_add_translation('You are now logged out from My planning.', 'sv', 'Du är nu utloggad från Min planering.');
+  _mal_update_locale_clear_cache();
+}
+
+/**
+ * Continuous from label.
+ */
+function mal_update_update_7064() {
+  _mal_update_locale_add_translation('Continuous from @date', 'sv', 'Kontinuerlig från @date');
+  _mal_update_locale_clear_cache();
+}
+
+/**
+ * Search button.
+ */
+function mal_update_update_7067() {
+  _mal_update_locale_add_translation('course', 'sv', 'utbildning');
+  _mal_update_locale_clear_cache();
+}
+
+/**
+ * Update course package.
+ */
+function mal_update_update_7068() {
+  features_revert_module('content_type_course_packages');
+  module_enable(array('mal_course_package_table'));
+}
+
+/**
+ * Add opportunity to add preamble for login page.
+ */
+function mal_update_update_7069() {
+  module_enable(array('page_user_pages', 'user_pages'));
+}
+
+/**
+ * OR operator for course periods.
+ */
+function mal_update_update_7070() {
+  module_enable(array('search_api_ranges'));
+  features_revert_module('config_facet');
+  module_disable(array('mal_facetapi', 'facetapi_ranges'));
+  drupal_uninstall_modules(array('mal_facetapi', 'facetapi_ranges'));
+}

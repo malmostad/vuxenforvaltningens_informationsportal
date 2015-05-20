@@ -1,0 +1,17 @@
+; $Id
+name = Menu import
+description = Import menu hierarchy from an indented text file.
+package = Development
+core = 7.x
+
+dependencies[] = menu
+files[] = menu_import.test
+
+configure = admin/structure/menu/import
+
+; Information added by Drupal.org packaging script on 2014-04-19
+version = "7.x-1.6"
+core = "7.x"
+project = "menu_import"
+datestamp = "1397928231"
+

@@ -1,0 +1,68 @@
+<?php
+
+/**
+ * @file
+ * Add custom formatter.
+ */
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function mal_course_package_table_field_formatter_info() {
+  return array(
+    'mal_course_package_table' => array(
+      'label' => t('Mal course package table'),
+      'field types' => array('field_collection'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function mal_course_package_table_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  switch ($display['type']) {
+    case 'mal_course_package_table':
+      $rows = array();
+      array_walk($items, function(&$value, &$key) {
+        $value = $value['value'];
+      });
+      $entities = entity_load('field_collection_item', $items);
+      foreach($entities as $entity) {
+        $master_wrapper = entity_metadata_wrapper('field_collection_item', $entity);
+        $title = $master_wrapper->field_master_course_title->value();
+        $rows[] = array(
+          'data' => array(
+            array(
+              'data' => $title,
+              'header' => TRUE
+            ),
+            array(
+              'data' => t('Number of points'),
+              'header' => TRUE
+            ),
+          )
+        );
+        foreach ($master_wrapper->field_course_package->getIterator() as $field_course_package) {
+          $rows[] = array(
+            $field_course_package->field_package_course->value(),
+            $field_course_package->field_package_point->value(),
+          );
+        }
+      }
+      $element[0]['container'] = array(
+        '#type' => 'container',
+        '#attributes' => array(
+          'class' => array(
+            'view-my-courses-search-list',
+          ),
+        ),
+      );
+      $element[0]['container'][] = array(
+        '#markup' => theme('table', array('rows' => $rows)),
+      );
+      break;
+  }
+  return $element;
+}

@@ -1,0 +1,19 @@
+diff --git a/search_api_ranges.module b/search_api_ranges.module
+index ec7c254..7cf6bf3 100644
+--- a/search_api_ranges.module
++++ b/search_api_ranges.module
+@@ -530,7 +530,13 @@ function search_api_ranges_generate_ranges_simple($variables, $step) {
+ function search_api_ranges_generate_ranges_advanced($variables, $steps) {
+   $element = $variables['element'];
+   // Calculate the min and max of the ranges.
+-  $values = array_keys($element);
++  $values = array();
++  foreach ($element as $key => $value) {
++    // Exclude values that don't belong to ranges list
++    if (is_numeric($key)) {
++      $values[] = $key;
++    }
++  }
+   sort($values, SORT_NUMERIC);
+   $min_all = $values[0];
+   $max_all = $values[count($values) - 1];

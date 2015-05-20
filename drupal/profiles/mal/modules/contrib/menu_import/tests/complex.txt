@@ -1,0 +1,7 @@
+Page1 {"url": "http://drupal.org/"}
+* Page2 {"url":"<front>", "description":"This is a menu link description."}
+** Page3 {"url": "admin/content", "description" : "Whitespaces allowed"}
+Page4 {"description":"By default links to front page if no/invalid path specified."}
+* Page5 {"hidden":true}
+* Page6 {"expanded":true,"hidden":true}
+** Page7

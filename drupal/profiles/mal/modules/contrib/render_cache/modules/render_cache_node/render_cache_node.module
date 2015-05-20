@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * @file
+ * Hijacks node_show router path to enable entity_view caching.
+ */
+
+/**
+ * Implements hook_menu_alter().
+ */
+function render_cache_node_menu_alter(&$items) {
+  // Use a custom callback for node/% to use entity_view caching().
+  $items['node/%node']['page callback'] = 'render_cache_node_node_show';
+}
+
+/**
+ * Overrides node_show().
+ *
+ * This uses entity_view() instead of node_view_multiple to enable
+ * entity_view() render caching.
+ */
+function render_cache_node_node_show($node, $message = FALSE) {
+  // Do not cache if there is a message.
+  if ($message) {
+    return node_view($node, $message);
+  }
+
+  // Use entity_view to display this node potentially cached.
+  // entity_view() is almost compatible to node_view_multiple().
+  // just the key is different ('node' vs 'nodes').
+  $nodes = entity_view('node', array($node->nid => $node), 'full');
+
+  // Update the history table, stating that this user viewed this node.
+  node_tag_new($node);
+
+  // Re-key the array key here to be compatible to normal node_show().
+  if (isset($nodes['node'])) {
+    return array(
+      'nodes' => $nodes['node'],
+    );
+  }
+  return $nodes;
+}

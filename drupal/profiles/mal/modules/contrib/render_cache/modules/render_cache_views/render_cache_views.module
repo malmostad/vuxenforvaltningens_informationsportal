@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Hook implementations and frequently used functions for render cache views module.
+ */
+
+/**
+ * Implements hook_views_api().
+ */
+function render_cache_views_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'render_cache_views') . '/views',
+  );
+}
+

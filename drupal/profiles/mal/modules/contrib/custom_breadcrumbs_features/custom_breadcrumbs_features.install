@@ -1,0 +1,191 @@
+<?php
+
+/**
+ * @file
+ * Install file for custom_breadcrumbs_features.
+ *
+ * - Adds a machine_name field in custom_breadcrumbs tables.
+ * - Generates machine names for crumbs that miss one.
+ */
+
+/**
+ * Implements hook_schema_alter().
+ *
+ * Declare machine_name field in breadcrumb tables.
+ */
+function custom_breadcrumbs_schema_alter(&$schema) {
+  // Load .module so we can retrieve types.
+  drupal_load('module', 'custom_breadcrumbs_features');
+  $tables =  array_keys(_custom_breadcrumbs_features_get_types());
+
+  foreach ($tables as $table) {
+    $schema[$table]['fields']['machine_name'] = array(
+      'type' => 'varchar',
+      'length' => 128,
+      'not null' => FALSE,
+      'description' => 'The unique machine name for the custom breadcrumb.',
+    );
+    $schema[$table]['unique keys']['machine_name'] = array('machine_name');
+  }
+}
+
+/**
+ * Implements hook_modules_installed().
+ *
+ * Add machine_name field in newly installed breadcrumb tables.
+ */
+function custom_breadcrumbs_features_modules_installed($modules) {
+  $cb_types = _custom_breadcrumbs_features_get_types();
+  foreach ($cb_types as $table => $cb_type) {
+
+    // Keep only modules newly installed.
+    if (in_array($cb_type['module'], $modules) && !db_field_exists($table, 'machine_name')) {
+
+      // Add field machine_name.
+      $schema = drupal_get_schema($table);
+      db_add_field($table, 'machine_name', $schema['fields']['machine_name']);
+      db_add_unique_key($table, 'machine_name', $schema['unique keys']['machine_name']);
+
+    }
+
+  }
+}
+
+/**
+ * Implements hook_modules_enabled().
+ *
+ * Generate missing machine names (crumbs created by submodules's hook_install).
+ */
+function custom_breadcrumbs_features_modules_enabled($modules) {
+  $cb_types = _custom_breadcrumbs_features_get_types();
+  foreach ($cb_types as $table => $cb_type) {
+
+    // Keep only modules newly installed.
+    if (in_array($cb_type['module'], $modules) && db_field_exists($table, 'machine_name')) {
+      // Generate machine names.
+      custom_breadcrumbs_features_generate_missing_machine_names($table);
+    }
+
+  }
+}
+
+/**
+ * Implements hook_install().
+ *
+ * Add machine_name field in all installed breadcrumb tables.
+ */
+function custom_breadcrumbs_features_install() {
+  $tables = array_keys(_custom_breadcrumbs_features_get_types());
+
+  // Keep only tables installed.
+  $tables = array_filter($tables, 'db_table_exists');
+
+  // Add field machine_name.
+  foreach ($tables as $table) {
+    $schema = drupal_get_schema($table);
+    db_add_field($table, 'machine_name', $schema['fields']['machine_name']);
+    db_add_unique_key($table, 'machine_name', $schema['unique keys']['machine_name']);
+  }
+}
+
+/**
+ * Implements hook_enable().
+ *
+ * Generate missing machine names (e.g. crumbs created prior to installing this module).
+ */
+function custom_breadcrumbs_features_enable() {
+  $tables = array_keys(_custom_breadcrumbs_features_get_types());
+
+  // Keep only tables installed.
+  $tables = array_filter($tables, 'db_table_exists');
+
+  // Generate machine names.
+  foreach ($tables as $table) {
+    custom_breadcrumbs_features_generate_missing_machine_names($table);
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ *
+ * Remove machine_name field from all installed breadcrumb tables.
+ */
+function custom_breadcrumbs_features_uninstall() {
+  // Load .module so we can retrieve types.
+  drupal_load('module', 'custom_breadcrumbs_features');
+  $tables = array_keys(_custom_breadcrumbs_features_get_types());
+
+  // Keep only tables installed.
+  $tables = array_filter($tables, 'db_table_exists');
+
+  // Remove field machine_name.
+  foreach ($tables as $table) {
+    db_drop_field($table, 'machine_name');
+    db_drop_unique_key($table, 'machine_name');
+  }
+}
+
+/**
+ * Generates machine names for crumbs that do not have one.
+ *
+ * Note: we assume users do not store hundreds of breadcrumb configs.
+ * Otherwise we should probably use the batch api.
+ *
+ * @param $table
+ *   Table storing crumbs.
+ *
+ * @return
+ *   Updated crumbs keyed by machine name.
+ */
+function custom_breadcrumbs_features_generate_missing_machine_names($table) {
+  $transaction = db_transaction();
+
+  // Get crumbs that miss a machine name.
+  $crumbs = db_select($table, 'cb')
+    ->fields('cb')
+    ->isNull('machine_name')
+    ->execute();
+
+  // Generate machine names, if needed.
+  if ($crumbs->rowCount()) {
+
+    // Get max length of machine_name field.
+    $schema = drupal_get_schema($table);
+    $maxlength = $schema['fields']['machine_name']['length'];
+
+    foreach ($crumbs as $crumb) {
+      // Generate unique machine name.
+      $i = 0;
+      do {
+        $machine_name = custom_breadcrumbs_features_transliterate($crumb->name, $maxlength) . ($i ? "_$i" : '');
+        $i++;
+      } while (custom_breadcrumbs_features_generic_load($machine_name, $table));
+      // Update crumb in DB.
+      $crumb->machine_name = $machine_name;
+      drupal_write_record($table, $crumb, array('bid'));
+      drupal_set_message(t('Generated machine name %machine for @type %name.', array('%machine' => $machine_name, '@type' => $table, '%name' => $crumb->name)));
+    }
+
+  }
+
+}
+
+/**
+ * Transliterate a human readable name into a machine name.
+ *
+ * @param $name
+ *   Human readable name to convert.
+ * @param $maxlength
+ *   Maximum length of machine name.
+ *
+ * @return
+ *   Machine name.
+ *
+ * @see Drupal.behaviors.machineName.transliterate().
+ */
+function custom_breadcrumbs_features_transliterate($name, $maxlength) {
+  $name = drupal_strtolower($name);
+  $name = preg_replace('/[^a-z0-9_]+/', '_', $name);
+  $name = drupal_substr($name, 0, $maxlength);
+  return $name;
+}

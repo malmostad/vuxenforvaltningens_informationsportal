@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * Implements hook_context_registry_alter().
+ */
+function render_cache_context_context_registry_alter(&$registry) {
+  $registry['reactions']['block']['plugin'] = 'render_cache_hijack_context_reaction_block';
+}
+
+/**
+ * Implementation of hook_context_plugins().
+ *
+ * This is a ctools plugins hook.
+ */
+function render_cache_context_context_plugins() {
+  $plugins['render_cache_hijack_context_reaction_block'] = array(
+    'handler' => array(
+      'path' => drupal_get_path('module', 'render_cache_context') . '/context/plugins',
+      'file' => 'render_cache_hijack_context_reaction_block.inc',
+      'class' => 'render_cache_hijack_context_reaction_block',
+      'parent' => 'context_reaction_block',
+    ),
+  );
+  return $plugins;
+}

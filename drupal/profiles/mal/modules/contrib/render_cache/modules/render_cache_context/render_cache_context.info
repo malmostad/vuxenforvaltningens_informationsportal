@@ -1,0 +1,16 @@
+name = Render cache for context blocks
+description = Hijacks the context block plugin to enable better caching control
+package = Performance and scalability
+core = 7.x
+
+dependencies[] = render_cache
+dependencies[] = context
+
+files[] = context/plugins/render_cache_hijack_context_reaction_block.inc
+
+; Information added by Drupal.org packaging script on 2014-07-10
+version = "7.x-1.0"
+core = "7.x"
+project = "render_cache"
+datestamp = "1405017254"
+

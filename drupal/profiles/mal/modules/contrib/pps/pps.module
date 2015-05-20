@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * @file
+ * Main functions for "Panel pane suggestions" module.
+ */
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function pps_form_panels_edit_configure_pane_css_form_alter(&$form, &$form_state, $form_id) {
+  $pane = $form_state['pane'];
+
+  $form['template_suggestion'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Template suggestion'),
+    '#description' => t('Name of template to use for this pane as additional template suggestion.'),
+    '#default_value' => empty($pane->css['template_suggestion']) ? $pane->type : $pane->css['template_suggestion'],
+    '#field_prefix' => 'panels-pane--',
+    '#field_suffix' => '.tpl.php',
+    '#size' => 30,
+    '#weight' => 1,
+  );
+
+  if (!empty($form['next'])) {
+    $form['next']['#weight'] = 10;
+  }
+
+  // Add custom submit handler.
+  $form['#submit'][] = 'pps_edit_configure_pane_css_form_submit';
+}
+
+/**
+ * Additional submit handler for pane css settings form.
+ */
+function pps_edit_configure_pane_css_form_submit($form, &$form_state) {
+  $pane = &$form_state['pane'];
+
+  $pane->css['template_suggestion'] = $form_state['values']['template_suggestion'];
+}
+
+/**
+ * Override variables used in panel-pane templates.
+ */
+function pps_preprocess_panels_pane(&$vars) {
+  $pane = $vars['pane'];
+  if (!empty($pane->css['template_suggestion'])) {
+    $suggestion = sprintf('panels-pane--%s', $pane->css['template_suggestion']);
+    // Replace dashes with underscores.
+    $suggestion = strtr(strtolower($suggestion), '-', '_');
+    // Add class-based template suggestion.
+    $vars['theme_hook_suggestions'][] = $suggestion;
+  }
+}

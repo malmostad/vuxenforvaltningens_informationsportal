@@ -1,0 +1,22 @@
+---
+- name: Create directory
+  sudo: yes
+  file: path=sites/all/modules/contrib state=directory recurse=yes mode=0777
+
+- name: Install Security Testing
+  sudo: yes
+  shell: "rsync -avz devops/modules/ sites/all/modules/contrib/"
+
+- name: Enable Security Review module
+  shell: "drush en -y security_review"
+
+- name: Creating build reports dir
+  sudo: yes
+  file: path={{ build_reports_dir }} state=directory recurse=yes mode=0777
+
+
+- name: Creating Security Review file
+  shell: echo " " >> {{ build_reports_dir }}/SecurityReview.txt
+
+- name: Run Security Review
+  shell: "drush secrev 2>&1 | grep error | tee -a {{ build_reports_dir }}/SecurityReview.txt"

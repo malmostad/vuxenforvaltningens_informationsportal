@@ -1,0 +1,13 @@
+diff --git a/timefield.module b/timefield.module
+index ac48533..46d6f36 100644
+--- a/timefield.module
++++ b/timefield.module
+@@ -910,7 +910,7 @@ function template_preprocess_timefield_formatter(&$variables) {
+           $days[$day] = $day_text;
+         }
+       }
+-      if ($days) {
++      if (isset($days)) {
+         $variables['time']['days'] = $days;
+         $variables['time']['time'] = implode(', ', $days) . ' ' . $variables['time']['time'];
+       }

@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Install, uninstall, and update implementations for render cache module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function render_cache_schema() {
+  // Define our own cache bin, for advanced management with external caching.
+  $schema['cache_render'] = drupal_get_schema_unprocessed('system', 'cache');
+  return $schema;
+}
+
+/**
+ * Implements hook_update_N().
+ *
+ * Drop modified table as now supplied in entity_modified module.
+ */
+function render_cache_update_7101() {
+  db_drop_table('render_cache_modified');
+}
+
+/**
+ * Install cache_render schema - if it does not exist, yet.
+ */
+function render_cache_update_7102() {
+  if (db_table_exists('cache_render')) {
+    return;
+  }
+  $schema['cache_render'] = drupal_get_schema_unprocessed('system', 'cache');
+  db_create_table('cache_render', $schema['cache_render']);
+}

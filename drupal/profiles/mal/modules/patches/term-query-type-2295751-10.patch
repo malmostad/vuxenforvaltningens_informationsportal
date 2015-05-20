@@ -1,0 +1,13 @@
+diff --git a/facetapi_ranges.module b/facetapi_ranges.module
+index 4edb8a0..71a3b6e 100644
+--- a/facetapi_ranges.module
++++ b/facetapi_ranges.module
+@@ -14,7 +14,7 @@ function facetapi_ranges_facetapi_widgets() {
+       'handler' => array(
+         'label' => t('Ranges'),
+         'class' => 'FacetapiWidgetRanges',
+-        'query types' => array('numeric_range'),
++        'query types' => array('numeric_range', 'term'),
+       ),
+     ),
+   );

@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Installation file for Live Person module.
+ */
+
+function live_person_install() {
+  variable_set('live_person_visibility', 0);
+
+  // Remove tracking from all administrative pages
+  $pages = array(
+    'admin',
+    'admin/*',
+    'user/*/*',
+    'node/add*',
+    'node/*/*',
+  );
+  variable_set('live_person_pages', implode("\n", $pages));
+}
+
+function live_person_uninstall() {
+  variable_del('live_person_account');
+  variable_del('live_person_visibility');
+  variable_del('live_person_pages');
+  variable_del('live_person_roles');
+}

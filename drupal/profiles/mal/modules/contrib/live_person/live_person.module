@@ -1,0 +1,315 @@
+<?php
+
+/*
+ * @file
+ * Drupal Module: live_person
+ * Adds the required Javascript to the bottom of all your Drupal pages
+ * Provides a themable Live Chat block
+ */
+
+define('LIVE_PERSON_URL', 'https://server.iad.liveperson.net/hc/');
+
+function live_person_help($path, $arg) {
+  switch ($path) {
+    case 'admin/settings/live_person':
+      return;
+  }
+}
+
+function live_person_permission() {
+  return array(
+    'administer live person' => array(
+      'title' => 'Administer Live Person'
+    ),
+    'use PHP for live person visibility' => array(
+      'title' => 'Use PHP for live person visibility'
+    )
+  );
+}
+
+function live_person_menu() {
+  $items['admin/config/system/live-person'] = array(
+    'title' => 'Live Person',
+    'description' => 'Configure the settings used to generate your Live Person code.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('live_person_admin_settings_form'),
+    'access arguments' => array('administer live person'),
+    'file' => 'live_person.admin.inc',
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_page_alter().
+ */
+function live_person_page_alter(&$page) {
+  global $user;
+  $account_id = variable_get('live_person_account', '');
+
+  // 1. Check if the LP account number has a value.
+  // 2. Track page views based on visibility value.
+  // 3. Check if we should track the currently active user's role.
+  if (!empty($account_id) && _live_person_visibility_pages() && _live_person_visibility_user_test($user)) {
+    $script = 'var lpMTagConfig = {\'lpServer\' : "server.iad.liveperson.net",\'lpNumber\' : "' . $account_id . '",\'lpProtocol\' : "https"}; function lpAddMonitorTag(src){if(typeof(src)==\'undefined\'||typeof(src)==\'object\'){src=lpMTagConfig.lpMTagSrc?lpMTagConfig.lpMTagSrc:\'/hcp/html/mTag.js\';}if(src.indexOf(\'http\')!=0){src=lpMTagConfig.lpProtocol+"://"+lpMTagConfig.lpServer+src+\'?site=\'+lpMTagConfig.lpNumber;}else{if(src.indexOf(\'site=\')<0){if(src.indexOf(\'?\')<0)src=src+\'?\';else src=src+\'&\';src=src+\'site=\'+lpMTagConfig.lpNumber;}};var s=document.createElement(\'script\');s.setAttribute(\'type\',\'text/javascript\');s.setAttribute(\'charset\',\'iso-8859-1\');s.setAttribute(\'src\',src);document.getElementsByTagName(\'head\').item(0).appendChild(s);} if (window.attachEvent) window.attachEvent(\'onload\',lpAddMonitorTag); else window.addEventListener("load",lpAddMonitorTag,false);';
+    drupal_add_js($script, array('type' => 'inline', 'scope' => 'footer'));
+    $jquery_params = array(
+      'livePerson' => array(
+        'accountId' => $account_id,
+        'url' => url(LIVE_PERSON_URL . $account_id, array('query' => _live_person_build_query('file', TRUE))),
+        'width' => variable_get('live_person_block_width', 500),
+        'height' => variable_get('live_person_block_height', 500),
+      ),
+    );
+    drupal_add_js($jquery_params, 'setting');
+    drupal_add_js(drupal_get_path('module', 'live_person') . '/live_person.js', 'file');
+  }
+}
+
+/**
+ * Implements hook_requirements().
+ */
+function live_person_requirements($phase) {
+  $requirements = array();
+
+  if ($phase == 'runtime') {
+    // Raise warning if Live Person user account has not been set yet.
+    if (variable_get('live_person_account', FALSE) == FALSE) {
+      $requirements['live_person'] = array(
+        'title' => t('Live Person module'),
+        'description' => t('Live Person module has not been configured yet. Please configure its settings from the <a href="@url">Live Person settings page</a>.', array('@url' => url('admin/settings/live_person'))),
+        'severity' => REQUIREMENT_ERROR,
+        'value' => t('Not configured'),
+      );
+    }
+  }
+
+  return $requirements;
+}
+
+/**
+ * Implement hook_block_info()
+ * @return array
+ */
+function live_person_block_info() {
+  return array(
+    'live_person' => array(
+    'info' => t('Live Person Chat Block'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+    ),
+  );
+}
+
+/**
+ * Implement hook_block_configure()
+ * @todo perhaps make images configurable from block.
+ * @param string $delta
+ * @return array
+ */
+function live_person_block_configure($delta) {
+  switch ($delta) {
+    case 'live_person':
+      $form = array(
+        'width' => array(
+          '#type' => 'textfield',
+          '#title' => t('Pop-up window width'),
+          '#description' => t('Set the width of the pop-up chat window'),
+          '#default_value' => variable_get('live_person_block_width', 500),
+        ),
+        'height' => array(
+          '#type' => 'textfield',
+          '#title' => t('Pop-up window height'),
+          '#description' => t('Set the height of the pop-up chat window'),
+          '#default_value' => variable_get('live_person_block_height', 500),
+        ),
+      );
+      return $form;
+      break;
+  }
+}
+
+/**
+ * Implement hook_block_save()
+ * @param string $delta
+ * @param array $edit
+ */
+function live_person_block_save($delta, $edit) {
+  switch ($delta) {
+    case 'live_person':
+      variable_set('live_person_block_width', $edit['width']);
+      variable_set('live_person_block_height', $edit['height']);
+      break;
+  }
+}
+
+/**
+ * Implement hook_block_view()
+ * @param string $delta
+ * @return array
+ */
+function live_person_block_view($delta) {
+  switch ($delta) {
+    case 'live_person':
+      return array(
+        'subject' => t('Live Chat'),
+        'content' => _live_person_block_content(),
+      );
+  }
+}
+
+/**
+ * Return content for the block
+ * @return string
+ */
+function _live_person_block_content() {
+  $account_id = variable_get('live_person_account', '');
+  $image_src = url(LIVE_PERSON_URL . $account_id . '/', array(
+    'query' => _live_person_build_query('repstate'),
+  ));
+  $image = theme('image', array(
+    'path' => $image_src,
+    'attributes' => array('border' => 0, 'name' => 'hcIcon'),
+  ));
+  return l($image, LIVE_PERSON_URL . $account_id . '/', array(
+    'html' => TRUE,
+    'attributes' => array(
+      'id' => 'live-person',
+      'target' => 'chat' . $account_id,
+    ),
+    'query' => _live_person_build_query('file'),
+  ));
+}
+
+/**
+ * Build a query array for various src attributes in the block
+ * @param string $cmd
+ * @return array
+ */
+function _live_person_build_query($cmd, $javascript = FALSE) {
+  $account_id = variable_get('live_person_account', '');
+  $image_url = _live_person_get_image_url();
+  $query = array(
+    'cmd' => $cmd,
+    'site' => $account_id,
+  );
+  if (!$javascript) {
+    $query['channel'] = 'web';
+    $query['ver'] = 1;
+  }
+  if ($cmd == 'file') {
+    $query['file'] = 'visitorWantsToChat';
+    if ($javascript) {
+      $query['referrer'] = $_SERVER['HTTP_REFERER'];
+    }
+    else {
+      $query['byhref'] = 1;
+    }
+  }
+  if ($image_url) {
+    $query['imageUrl'] = $image_url;
+  }
+  return $query;
+}
+
+/**
+ * Check for a live_person directory in the theme and use that directory for
+ * images in the block.
+ *
+ * @return mixed
+ *  A URL string or FALSE if there is no directory in the theme
+ */
+function _live_person_get_image_url() {
+  global $theme;
+  $live_person_theme_path = drupal_get_path('theme', $theme) . '/live_person';
+  if (file_exists($live_person_theme_path)) {
+    global $base_url;
+    return url($base_url . '/'. $live_person_theme_path, array('absolute' => TRUE));
+  }
+  else {
+    return FALSE;
+  }
+}
+
+/**
+ * Based on visibility setting this function returns TRUE if Live Person code should
+ * be added to the current page and otherwise FALSE.
+ */
+function _live_person_visibility_pages() {
+  static $page_match;
+
+  // Cache visibility setting in hook_init for hook_footer.
+  if (!isset($page_match)) {
+
+    $visibility = variable_get('live_person_visibility', 0);
+    $pages = variable_get('live_person_pages', '');
+
+    // Match path if necessary.
+    if (!empty($pages)) {
+      if ($visibility < 2) {
+        $path = drupal_get_path_alias($_GET['q']);
+        // Compare with the internal and path alias (if any).
+        $page_match = drupal_match_path($path, $pages);
+        if ($path != $_GET['q']) {
+          $page_match = $page_match || drupal_match_path($_GET['q'], $pages);
+        }
+        // When $visibility has a value of 0, the block is displayed on
+        // all pages except those listed in $pages. When set to 1, it
+        // is displayed only on those pages listed in $pages.
+        $page_match = !($visibility xor $page_match);
+      }
+      elseif (module_exists('php')) {
+        $page_match = php_eval($pages);
+      }
+    }
+    else {
+      $page_match = TRUE;
+    }
+
+  }
+  return $page_match;
+}
+
+/**
+ * Tracking visibility check for an user object.
+ *
+ * @param $account
+ *   A user object containing an array of roles to check.
+ * @return boolean
+ *   A decision on if the current user is being tracked by Live Person.
+ */
+function _live_person_visibility_user_test($account) {
+
+  $enabled = FALSE;
+
+  // Is current user a member of a role that should be tracked?
+  if (_live_person_visibility_roles($account)) {
+    $enabled = TRUE;
+  }
+
+  return $enabled;
+}
+
+/**
+ * Based on visibility setting this function returns TRUE if Live Person code should
+ * be added for the current role and otherwise FALSE.
+ */
+function _live_person_visibility_roles($account) {
+
+  $enabled = TRUE;
+  $roles = variable_get('live_person_roles', array());
+
+  if (array_sum($roles) > 0) {
+    // One or more roles are selected for tracking.
+    foreach (array_keys($account->roles) as $rid) {
+      // Is the current user a member of one role selected in admin settings?
+      if (isset($roles[$rid]) && $rid == $roles[$rid]) {
+        // Current user is a member of a role that is selected in admin settings.
+        $enabled = FALSE;
+        break;
+      }
+    }
+  }
+
+  return $enabled;
+}
