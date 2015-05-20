@@ -12,6 +12,7 @@
     mysql_user: root
     mysql_pass: root
     mysql_db: drupal
+    mysql_host: 127.0.0.1
     cache_folder: /var/www/cache
     backup_folder: /var/www/backup
     php_env_vars: 'APP_ENV=dev' # APP_ENV=dev - this varible will be set at PR_BUILDER from CI shell executor.
@@ -47,7 +48,7 @@
 
   - name: Making regular backup
     sudo: yes
-    mysql_db: name=staging state=dump target={{ backup_folder }}/{{ backup_name }}.sql.gz login_user={{ mysql_user }} login_password={{ mysql_pass }}
+    mysql_db: name=staging state=dump target={{ backup_folder }}/{{ backup_name }}.sql.gz login_user={{ mysql_user }} login_password={{ mysql_pass }} login_host={{ mysql_host }}
     when: pp_environment == "staging"
 
   - name: Check if latest backup exists
@@ -56,7 +57,7 @@
     when: workflow_type == "sql"
 
   - name: Create initial backup from staging
-    mysql_db: name=staging state=dump target={{ backup_folder }}/latest.sql.gz login_user={{ mysql_user }} login_password={{ mysql_pass }}
+    mysql_db: name=staging state=dump target={{ backup_folder }}/latest.sql.gz login_user={{ mysql_user }} login_password={{ mysql_pass }} login_host={{ mysql_host }}
     when: pp_environment == "staging" and workflow_type == "sql" and latest_backup_exists.stat.exists == false
 
   - name: Downloading latest backup
@@ -64,14 +65,14 @@
     when: workflow_type == "sql" and pp_environment == "default"
 
   - name: Droping drupal database
-    mysql_db: name={{ mysql_db }} state=absent login_user={{ mysql_user }} login_password={{ mysql_pass }}
+    mysql_db: name={{ mysql_db }} state=absent login_user={{ mysql_user }} login_password={{ mysql_pass }} login_host={{ mysql_host }}
     when: pp_environment == "demo" or pp_environment == "default" or workflow_type == "profile"
 
   - name: Creating drupal database
-    mysql_db: name={{ mysql_db }} state=present login_user={{ mysql_user }} login_password={{ mysql_pass }}
+    mysql_db: name={{ mysql_db }} state=present login_user={{ mysql_user }} login_password={{ mysql_pass }} login_host={{ mysql_host }}
 
   - name: Importing from remote backup
-    mysql_db: name={{ mysql_db }} state=import target={{ backup_folder }}/latest.sql.gz login_user={{ mysql_user }} login_password={{ mysql_pass }}
+    mysql_db: name={{ mysql_db }} state=import target={{ backup_folder }}/latest.sql.gz login_user={{ mysql_user }} login_password={{ mysql_pass }} login_host={{ mysql_host }}
     sudo: yes
     when: workflow_type == "sql" and (pp_environment == "default" or pp_environment == "demo")
 
@@ -102,7 +103,7 @@
 
   - name: Adding database variable to settings.php
     sudo: yes
-    lineinfile: dest='sites/default/settings.php' line='$databases = array(\"default\" => array (\"default\" => array (\"database\" => \"{{ mysql_db }}\", \"username\" => \"{{ mysql_user }}\", \"password\" => \"{{ mysql_pass }}\", \"host\" => \"127.0.0.1\", \"port\" => \"\", \"driver\" => \"mysql\", \"prefix\" => \"\", ), ), );'
+    lineinfile: dest='sites/default/settings.php' line='$databases = array(\"default\" => array (\"default\" => array (\"database\" => \"{{ mysql_db }}\", \"username\" => \"{{ mysql_user }}\", \"password\" => \"{{ mysql_pass }}\", \"host\" => \"{{ mysql_host }}\", \"port\" => \"\", \"driver\" => \"mysql\", \"prefix\" => \"\", ), ), );'
 
   - name: Random prefix for memcache to settings.php
     sudo: yes
@@ -166,7 +167,7 @@
     sudo: yes
     shell: "{{ php_env_vars }} drush -dvy updb -l {{ site_url }}"
     when: workflow_type == "sql"
-    
+
   - name: Enable module Stage File Proxy
     sudo: yes
     shell: "{{ php_env_vars }} drush -y en stage_file_proxy"
@@ -179,7 +180,7 @@
 
   - name: Creating latest staging backup
     sudo: yes
-    mysql_db: name=staging state=dump target={{ backup_folder }}/latest.sql.gz login_user={{ mysql_user }} login_password={{ mysql_pass }}
+    mysql_db: name=staging state=dump target={{ backup_folder }}/latest.sql.gz login_user={{ mysql_user }} login_password={{ mysql_pass }} login_host={{ mysql_host }}
     when: pp_environment == "staging"
 
   - name: Solr - clearing index
