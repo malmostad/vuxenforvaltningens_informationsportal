@@ -59,31 +59,10 @@ class MalFacetapiWidgetRanges extends FacetapiWidget {
     $attributes = ($settings['nofollow']) ? array('rel' => 'nofollow') : array();
     $attributes += array('class' => $this->getItemClasses());
 
-    $item = end($build);
-
-    $query_original = $item['#query'];
-
-    $field_alias = urlencode($this->facet['field alias']);
-
-    $filter_key = $this->facet->getAdapter()->getUrlProcessor()->getFilterKey();
-
-    // Remove original facet provided by FacetAPI.
-    $original_facet_query = $field_alias . ':' . $item['#indexed_value'];
-    if (FALSE !== $index = array_search($original_facet_query, $query_original[$filter_key])) {
-      unset($query_original[$filter_key][$index]);
-    }
-
-    $qeury_clean = $query_original;
-
-    foreach ($qeury_clean[$filter_key] as $key => $f) {
-      if (strpos($f, $field_alias) !== FALSE) {
-        unset($qeury_clean[$filter_key][$key]);
-      }
-    }
+    $item = reset($build);
 
     // One range per line.
     $ranges = explode(PHP_EOL, $settings['ranges']);
-    $items = array();
     foreach ($ranges as $range) {
 
       // Range formatted as key|label.
@@ -100,37 +79,32 @@ class MalFacetapiWidgetRanges extends FacetapiWidget {
       list($from, $to) = explode('-', $values);
 
       // Get current query.
-      $query = $qeury_clean;
+      $query = $item['#query'];
+
+      // Remove query elements like 'ism_commerce_price:ism_commerce_price'.
+      $needle = $this->facet['field alias'] . ':' . $this->facet['field alias'];
+      if (FALSE !== $index = array_search($needle, $query['f'])) {
+        unset($query['f'][$index]);
+      }
 
       // Add new query element for the link.
-      $new_f = $field_alias . ':[' . $from . ' TO ' . $to . ']';
+      $new_f = $this->facet['field alias'] . ':[' . $from . ' TO ' . $to . ']';
 
       if (($from == NULL) || ($to == NULL)) {
-        $new_f = $field_alias . ':NULL';
+        $new_f = $this->facet['field alias'] . ':NULL';
       }
 
-      $active = FALSE;
-      if (in_array($new_f, $query_original[$filter_key])) {
-        $active = TRUE;
-      }
-      else {
-        $query[$filter_key][] = $new_f;
-      }
+      $query['f'][] = $new_f;
 
       // Start building link.
       $options = array(
+        'query' => $query,
         'attributes' => $attributes,
       );
-
-      if (!empty($query[$filter_key])) {
-        $options['query'] = $query;
-      }
-
-      $class = $active ? 'facetapi-active' : 'facetapi-inactive';
+      $class = (in_array($new_f, $item['#query']['f'])) ? 'facetapi-active' : 'facetapi-inactive';
       $options['attributes']['class'][] = $class;
-      // @codingStandardsIgnoreStart
+
       $items[] = l(t($label), $item['#path'], $options);
-      // @codingStandardsIgnoreEnd
     }
 
     return $items;
