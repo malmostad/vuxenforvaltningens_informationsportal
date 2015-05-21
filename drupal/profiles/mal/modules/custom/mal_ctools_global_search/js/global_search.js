@@ -5,7 +5,7 @@
       $("#edit-keys").autocomplete({
         source: function(request, response) {
           $.ajax({
-            url: "/mal_ctools_global_search/search_api_views_search/-/" + request.term,
+            url: Drupal.settings.basePath + "mal_ctools_global_search/search_api_views_search/-/" + request.term,
             dataType: "json",
             success: function(data) {
               var result = [];

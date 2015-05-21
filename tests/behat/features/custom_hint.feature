@@ -8,10 +8,11 @@ Feature: Custom hints
   @api @javascript
   Scenario: Check ability to add and see hints
   Given I am logged in as a user with the "administrator" role
-    And I am on "admin/config/system/mal-hint"
+    And I am on "admin/structure/mal-hint"
     And I fill in "edit-hints-items-0-selector" with ".pane-menu-menu-global-menu .pane-title"
     And I fill in "edit-hints-items-0-hint" with "Test hint"
     And I press "Save"
     Then I am on the homepage
+    And I wait for 1 seconds
     And I hover over the element ".hint"
     And I should see the text "Test hint"
