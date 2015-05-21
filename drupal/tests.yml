@@ -7,7 +7,7 @@
     workspace_root: .
     artifacts_file: commentinfo.md
     build_reports_dir: build_reports
-    behat_base_url: mal.dev # WITHOUT TRAILING SLASH
+    behat_base_url: http://mal.dev # WITHOUT TRAILING SLASH
     behat_drupal_root: /var/www/drupal
     behat_root: '../tests/behat'
     config_file: behat.yml
