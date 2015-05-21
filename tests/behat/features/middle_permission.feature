@@ -7,9 +7,9 @@ Feature: Middle admim permission
   Scenario: Proper content available to add
     Given I am logged in as a user with the "Malmo middle admin" role
     And I am on "node/add"
-    And I should see the text "Kurspaket" in ".admin-list" element
-    And I should see the text "Enstaka kurs" in ".admin-list" element
-    And I should see the text "Kursmall" in ".admin-list" element
+    And I should see the text "Kurspaket"
+    And I should see the text "Enstaka kurs"
+    And I should see the text "Kursmall"
 #    Then I am on "admin"
 #    And I should not see "Structure"
 #    And I should not see "Configuration"
