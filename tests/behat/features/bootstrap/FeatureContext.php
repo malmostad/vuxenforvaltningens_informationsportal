@@ -11,13 +11,15 @@ use Drupal\DrupalExtension\Context\DrupalContext;
 
 use Behat\Behat\Context\Step\Then;
 use Behat\Behat\Event\ScenarioEvent;
+use Behat\Behat\Context\SnippetAcceptingContext;
+use Behat\Drupal\Propeople\RawPropeopleContext;
 
 require 'vendor/autoload.php';
 
 /**
  * Features context.
  */
-class FeatureContext extends DrupalContext {
+class FeatureContext extends RawPropeopleContext implements SnippetAcceptingContext {
 
   /**
    * Initializes context.
@@ -39,11 +41,12 @@ class FeatureContext extends DrupalContext {
    * @param BaseScenarioEvent $event
    *   Behat event object.
    */
-  public function beforeEachScenario(BaseScenarioEvent $event) {
+  public function beforeEachScenario() {
     /* @var DrupalContext $context */
-    $context = $event->getContext();
-    $context->getSession()->visit($this->getMinkParameter('base_url'));
-    $context->getSession()->setCookie('language', 'en');
+    $session = $this->getSession();
+    $session->start();
+    $session->visit($this->getMinkParameter('base_url'));
+    $session->setCookie('language', 'en');
   }
 
   /**

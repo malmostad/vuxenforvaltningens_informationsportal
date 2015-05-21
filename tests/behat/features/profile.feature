@@ -20,7 +20,7 @@ Feature: Profile page
   Scenario: Visit front
     Given I am an anonymous user
     And I am on the homepage
-    And I should see the text "Registration"
+    And I should see the text "Registrering"
     And I should see the text "Log in"
     And I should not see the text "My account"
     And I should not see the text "Log out"

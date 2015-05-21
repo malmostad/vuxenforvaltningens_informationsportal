@@ -7,9 +7,9 @@ Feature: Middle admim permission
   Scenario: Proper content available to add
     Given I am logged in as a user with the "Malmo middle admin" role
     And I am on "node/add"
-    Then I should see the link "Course"
-    And I should see the link "Course package"
-    And I should see the link "Course template"
+    And I should see the text "Kurspaket" in ".admin-list" element
+    And I should see the text "Enstaka kurs" in ".admin-list" element
+    And I should see the text "Kursmall" in ".admin-list" element
 #    Then I am on "admin"
 #    And I should not see "Structure"
 #    And I should not see "Configuration"
@@ -21,53 +21,50 @@ Feature: Middle admim permission
   Scenario: Published course and course package creating
     Given I am logged in as a user with the "Malmo middle admin" role
     And I am on "node/add/course"
-    And I fill in "Course template" with "A1 Test course template"
-    And I press the "insert" key in the "Course template" field
-    And I wait for 1 seconds
-    And I press element ".reference-autocomplete"
-    Then I press the "edit-submit" button
+    And I select "Gymnasial vuxenutbildning" from "Utbildningsform"
+    And I wait for AJAX to finish
+    And I select "A1 Test course template" from "Kurs mall"
     # Required
-    And I fill in "Course form" with "Flexkurs"
-    And I fill in "School" with "A1 Test school (1)"
-    And I fill in "Course Group" with "test"
-    And I select "Inactive" from "Searchable type"
+    And I select "Flexkurs" from "Kursform"
+    And I select "A2 Test school" from "Skola"
+    And I fill in "Sökkod" with "test"
 
     Then I press the "edit-submit" button
 
-    And I should see "Course A1 Test course template has been created."
+    And I should see "Enstaka kurs A1 Test course template has been created."
     Then I click "Edit"
-    And the "edit-status" checkbox should be checked
+#    And the "edit-status" checkbox should be checked
     Then I am on "node/add/course-packages"
-    And I fill in "Course template" with "A1 Test course template"
-    And I press the "insert" key in the "Course template" field
-    And I wait for 1 seconds
-    And I press element ".reference-autocomplete"
-    Then I press the "edit-submit" button
+    And I fill in "Titel" with "A1 Test course template"
         # Required for course
-    And I fill in "Course form" with "Flexkurs"
-    And I fill in "School" with "A1 Test school (1)"
-    And I fill in "Course Group" with "test"
-    And I select "Inactive" from "Searchable type"
+    And I check the box "Klassrumsundervisning"
+    And I select "A2 Test school" from "Skola"
+    And I fill in "Sökkod" with "test"
     And I type "test" in "edit-body-und-0-value" WYSIWYG editor
-    And I fill in "Contact Person" with "test"
-    And I fill in "Number of points" with "100"
+    And I fill in "Kontaktperson" with "test"
     And I fill in "edit-field-course-package-und-0-field-package-course-und-0-value" with "test"
-    And I fill in "Point" with "233"
-    And I fill in "Prerequisites" with "233"
-    And I fill in "Scope" with "23"
-    And I fill in "Weeks of study" with "2"
+    And I fill in "edit-field-course-package-und-0-field-package-point-und-0-value" with "233"
+    And I fill in "Omfattning " with "23"
+    And I fill in "Antal studieveckor" with "2"
 
     Then I press the "edit-submit" button
-    And I should see "Course package A1 Test course template has been created."
+    And I should see "Kurspaket A1 Test course template has been created."
     Then I click "Edit"
-    And the "edit-status" checkbox should be checked
+#    And the "edit-status" checkbox should be checked
+    # todo need add test course package and return to search.feature
+    Given I am on the homepage
+    And I press "Search"
+    And I press element ".minipanel-search-facet.pane-title"
+    And I should see the text "Inriktningar för kurspaket"
+
 
 
   Scenario: Unpublished course template and course package template creating
     Given I am logged in as a user with the "Malmo middle admin" role
     And I am on "node/add/course-template"
     And I fill in "edit-title" with "autotest course template"
-    And I should see "Publishing options"
-    And the "edit-status" checkbox should be checked
+    And I select "Gymnasial vuxenutbildning" from "Utbildningsform"
+#    And I should see "Publishing options"
+#    And the "edit-status" checkbox should be checked
     Then I press the "edit-submit" button
-    And I should see the text "Course template autotest course template has been created."
+    And I should see the text "Kursmall autotest course template has been created."
