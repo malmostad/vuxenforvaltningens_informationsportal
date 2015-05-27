@@ -190,7 +190,7 @@ function content_type_course_template_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_course_national_code',
     'label' => 'Nationell kurskod',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'better_formats' => array(
         'allowed_formats' => array(
@@ -269,7 +269,7 @@ function content_type_course_template_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_course_number_of_points',
     'label' => 'Antal poäng',
-    'required' => 0,
+    'required' => 1,
     'settings' => array(
       'max' => '',
       'min' => '',

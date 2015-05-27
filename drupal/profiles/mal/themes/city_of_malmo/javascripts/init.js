@@ -13,8 +13,8 @@
       $('.faq-list-questions').find('.question').on('click',openListFAQ);
 
       $('.nav-logo').children('a')
-        .attr('href','/')
-          .css('background','url("http://assets.malmo.se/external/v4/external/logo-x1.png") no-repeat');
+        .attr('href', Drupal.settings.basePath)
+          .css('background', 'url("http://assets.malmo.se/external/v4/external/logo-x1.png") no-repeat');
 
       var $flex_group = $('.facetapi-facet-field-course-formname', context);
       var $time_group = $('.facetapi-facet-field-course-periodsvalue', context);
