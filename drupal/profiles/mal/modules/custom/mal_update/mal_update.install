@@ -918,3 +918,10 @@ function mal_update_update_7070() {
   module_disable(array('mal_facetapi', 'facetapi_ranges'));
   drupal_uninstall_modules(array('mal_facetapi', 'facetapi_ranges'));
 }
+
+/**
+ * Add required field to course template.
+ */
+function mal_update_update_7071() {
+  features_revert_module('content_type_course_template');
+}
