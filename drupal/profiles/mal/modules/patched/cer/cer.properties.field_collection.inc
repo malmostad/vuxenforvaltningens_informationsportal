@@ -29,6 +29,11 @@ function cer_get_field_collection_lineage_array(array $data, array $options, $pr
 
   $data[0] = $collection->hostEntityType();
   $data[1] = $collection->hostEntity();
+
+  if (!$data[1]) {
+    return $options['lineage'];
+  }
+
   list (, , $host_bundle) = entity_extract_IDs($data[0], $data[1]);
   array_unshift($options['lineage'], $data[0] . ":{$host_bundle}:{$collection->field_name}");
 
