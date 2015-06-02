@@ -16,7 +16,6 @@ dependencies[] = field_group
 dependencies[] = list
 dependencies[] = mal_course_package_table
 dependencies[] = mal_course_searchable_type_formatter
-dependencies[] = node
 dependencies[] = number
 dependencies[] = options
 dependencies[] = registration

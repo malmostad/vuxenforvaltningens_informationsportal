@@ -925,3 +925,15 @@ function mal_update_update_7070() {
 function mal_update_update_7071() {
   features_revert_module('content_type_course_template');
 }
+
+/**
+ * Course package little changes.
+ */
+function mal_update_update_7072() {
+  features_revert_module('content_type_course_packages');
+  module_enable(array('custom_add_another', 'i18n_custom_add_another'));
+
+  _mal_update_locale_add_translation('Add another specialization', 'sv', 'Lägg till ytterligare inriktning');
+  _mal_update_locale_add_translation('Add another course', 'sv', 'Lägg till ytterligare kurs');
+  _mal_update_locale_clear_cache();
+}
