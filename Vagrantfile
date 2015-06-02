@@ -8,7 +8,6 @@ data = configValues['vagrantfile-local']
 if !data['vm']['provider']['virtualbox'].empty?
   ENV['VAGRANT_DEFAULT_PROVIDER'] = 'virtualbox'
 end
-ENV['VAGRANT_CI'] = 'TRUE'
 if !ENV['VAGRANT_CI'].nil?
   ENV['VAGRANT_DEFAULT_PROVIDER'] = 'lxc'
 end
@@ -17,7 +16,6 @@ Vagrant.configure("2") do |config|
   config.vm.box = "#{data['vm']['box']}"
   config.vm.box_url = "#{data['vm']['box_url']}"
 
-  ENV['VAGRANT_CI'] = 'TRUE'
 
   if !ENV['VAGRANT_CI'].nil?
     config.vm.box = "#{data['vm']['provider']['lxc']['box']}"
