@@ -835,9 +835,9 @@ function mal_update_update_7058() {
  * Enable solr server conf.
  */
 function mal_update_update_7059() {
-   module_enable(array(
-     'mal_solr',
-   ));
+  module_enable(array(
+    'mal_solr',
+  ));
 
   features_revert_module('config_search');
 }
