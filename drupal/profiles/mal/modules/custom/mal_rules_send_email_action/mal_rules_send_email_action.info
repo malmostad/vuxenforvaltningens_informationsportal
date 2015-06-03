@@ -1,0 +1,4 @@
+name = Mal rules custom action send email
+description = Send email to particular schooleditors.
+core = 7.x
+package = Propeople

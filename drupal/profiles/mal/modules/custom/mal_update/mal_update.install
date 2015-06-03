@@ -937,3 +937,12 @@ function mal_update_update_7072() {
   _mal_update_locale_add_translation('Add another course', 'sv', 'Lägg till ytterligare kurs');
   _mal_update_locale_clear_cache();
 }
+
+/**
+ * Change notification.
+ */
+function mal_update_update_7073() {
+  module_enable(array('mal_rules_send_email_action', 'maillog'));
+  features_revert_module('notification_rules');
+  variable_set('maillog_devel', FALSE);
+}
