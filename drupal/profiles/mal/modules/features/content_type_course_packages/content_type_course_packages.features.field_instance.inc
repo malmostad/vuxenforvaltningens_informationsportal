@@ -153,10 +153,12 @@ function content_type_course_packages_field_default_field_instances() {
   // Exported field_instance: 'field_collection_item-field_master_course_package-field_master_course_title'
   $field_instances['field_collection_item-field_master_course_package-field_master_course_title'] = array(
     'bundle' => 'field_master_course_package',
+    'custom_add_another' => '',
+    'custom_remove' => '',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '<ul> <li>Exempel: Gemensamma kurser eller Personalassistent osv.</li>
-<li>Lämna fältet ovan tomt ifall alla kurser är gemensamma. Om det finns inriktningar, skriv gemensamma kurser ovan. nästa kursgrupp är inkriktning 1 osv.</li><ul>',
+    'description' => '<ul> <li>Lämna fältet ovan tomt ifall alla kurser är gemensamma. Om det finns inriktningar, skriv gemensamma kurser ovan. nästa kursgrupp är inkriktning 1 osv.</li>
+<li>Exempel: Gemensamma kurser eller Personalassistent osv.</li><ul>',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1309,8 +1311,8 @@ function content_type_course_packages_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('<ul> <li>Exempel: Gemensamma kurser eller Personalassistent osv.</li>
-<li>Lämna fältet ovan tomt ifall alla kurser är gemensamma. Om det finns inriktningar, skriv gemensamma kurser ovan. nästa kursgrupp är inkriktning 1 osv.</li><ul>');
+  t('<ul> <li>Lämna fältet ovan tomt ifall alla kurser är gemensamma. Om det finns inriktningar, skriv gemensamma kurser ovan. nästa kursgrupp är inkriktning 1 osv.</li>
+<li>Exempel: Gemensamma kurser eller Personalassistent osv.</li><ul>');
   t('Ange ansökningsperiod');
   t('Ange kursgrupp för Sökkod');
   t('Ange när kurspaket startar och slutar');
