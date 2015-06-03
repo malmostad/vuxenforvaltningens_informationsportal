@@ -29,7 +29,7 @@ function mal_course_package_table_field_formatter_view($entity_type, $entity, $f
         $value = $value['value'];
       });
       $entities = entity_load('field_collection_item', $items);
-      foreach($entities as $entity) {
+      foreach ($entities as $entity) {
         $master_wrapper = entity_metadata_wrapper('field_collection_item', $entity);
         $title = $master_wrapper->field_master_course_title->value();
         $rows[] = array(

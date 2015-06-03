@@ -835,9 +835,9 @@ function mal_update_update_7058() {
  * Enable solr server conf.
  */
 function mal_update_update_7059() {
-   module_enable(array(
-     'mal_solr',
-   ));
+  module_enable(array(
+    'mal_solr',
+  ));
 
   features_revert_module('config_search');
 }
@@ -933,7 +933,16 @@ function mal_update_update_7072() {
   features_revert_module('content_type_course_packages');
   module_enable(array('custom_add_another', 'i18n_custom_add_another'));
 
-  _mal_update_locale_add_translation('Add another specialization', 'sv', 'Lägg till ytterligare inriktning');
+  _mal_update_locale_add_translation('Add another specialization', 'sv', 'Klicka här för att lägga till inrikningar');
   _mal_update_locale_add_translation('Add another course', 'sv', 'Lägg till ytterligare kurs');
   _mal_update_locale_clear_cache();
+}
+
+/**
+ * Change notification.
+ */
+function mal_update_update_7073() {
+  module_enable(array('mal_rules_send_email_action', 'maillog'));
+  features_revert_module('notification_rules');
+  variable_set('maillog_devel', FALSE);
 }

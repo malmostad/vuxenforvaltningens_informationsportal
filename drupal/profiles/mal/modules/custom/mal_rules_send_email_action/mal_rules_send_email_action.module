@@ -1,0 +1,64 @@
+<?php
+
+/**
+ * @file
+ * Main functionality.
+ */
+
+/**
+ * Implement hook_rules_action_info().
+ */
+function mal_rules_send_email_action_rules_action_info() {
+  return array(
+    'mal_rules_send_email_action' => array(
+      'label' => t('Send email to certain school editors'),
+      'group' => t('Custom'),
+      'parameter' => array(
+        'node' => array(
+          'type' => 'node',
+          'label' => t('Node'),
+          'description' => t('The node to add the prefix.'),
+        ),
+        'subject' => array(
+          'type' => 'text',
+          'label' => t('Subject'),
+          'description' => t("The mail's subject."),
+        ),
+        'message' => array(
+          'type' => 'text',
+          'label' => t('Message'),
+          'description' => t("The mail's message body."),
+        ),
+      ),
+    ),
+  );
+}
+
+/**
+ * Callback.
+ */
+function mal_rules_send_email_action($node, $subject, $message, $settings, RulesState $state, RulesPlugin $element) {
+  $from = NULL;
+
+  // Now, actually send the mails.
+  $params = array(
+    'subject' => $subject,
+    'message' => $message,
+  );
+
+  // Set a unique key for this mail.
+  $name = isset($element->root()->name) ? $element->root()->name : 'unnamed';
+  $key = 'rules_action_mail_to_users_of_role_' . $name . '_' . $element->elementId();
+
+  foreach (field_get_items('node', $node, 'field_course_school') as $school_id) {
+    $query = new EntityFieldQuery();
+    $query->entityCondition('entity_type', 'user')
+      ->fieldCondition('field_user_school', 'target_id', $school_id['target_id']);
+
+    $result = $query->execute();
+    $users_ids = user_load_multiple(array_keys($result['user']));
+    foreach ($users_ids as $user) {
+      drupal_mail('rules', $key, $user->mail, language_default(), $params, $from);
+    }
+  }
+}
