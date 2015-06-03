@@ -53,7 +53,13 @@ function mal_rules_send_email_action($node, $subject, $message, $settings, Rules
   foreach (field_get_items('node', $node, 'field_course_school') as $school_id) {
     $query = new EntityFieldQuery();
     $query->entityCondition('entity_type', 'user')
-      ->fieldCondition('field_user_school', 'target_id', $school_id['target_id']);
+      ->fieldCondition('field_user_school', 'target_id', $school_id['target_id'])
+      ->propertyCondition('uid', 0, '!=');
+
+    $role = user_role_load_by_name('School editor');
+
+    $query->addTag('rolequery');
+    $query->addMetaData('rolequery_rid', $role->rid);
 
     $result = $query->execute();
     $users_ids = user_load_multiple(array_keys($result['user']));
@@ -61,4 +67,17 @@ function mal_rules_send_email_action($node, $subject, $message, $settings, Rules
       drupal_mail('rules', $key, $user->mail, language_default(), $params, $from);
     }
   }
+}
+
+/**
+ * Implements hook_query_TAG_alter().
+ */
+function mal_rules_send_email_action_query_rolequery_alter(QueryAlterableInterface $query) {
+  $rid = $query->getMetaData('rolequery_rid');
+
+  $query->leftJoin('users_roles', 'r', 'users.uid = r.uid');
+  $and = db_and()
+    ->condition('r.rid', $rid, '=');
+  $query
+    ->condition($and);
 }
