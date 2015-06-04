@@ -23,7 +23,7 @@ end
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "#{data['vm']['box']}"
-
+  config.vm.box_url = "#{data['vm']['box_url']}"
 
   if !ENV['VAGRANT_CI'].nil?
     config.vm.box = "#{data['vm']['provider']['lxc']['box']}"
@@ -54,10 +54,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
   end
 
-  data['vm']['synced_folder'].each do |i, folder|
+  data['vm']['synced_folder'].each do |id, folder|
     nfs = (folder['nfs'] == "true") ? "nfs" : nil
-    config.vm.synced_folder "#{folder['source']}", "#{folder['target']}",
-      id: "#{folder['id']}",
+    config.vm.synced_folder folder['source'], folder['target'],
+      id: folder['id'],
       type: nfs,
       rsync__auto: "true",
       rsync__exclude: folder['excluded_paths'],

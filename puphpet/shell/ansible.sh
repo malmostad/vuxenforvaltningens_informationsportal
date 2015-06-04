@@ -3,7 +3,7 @@
 echo 'Installing base packages for ansible'
 export "DEBIAN_FRONTEND=noninteractive"
 # ansible needs python.
-apt-get -y install python python-dev python-simplejson sudo curl make rsync git apparmor-utils >/dev/null
+apt-get -y install python python-dev python-simplejson sudo curl make rsync git libmysqlclient-dev apparmor-utils >/dev/null
 
 # because basic ubuntu is too stripped down we need to add logging.
 apt-get --reinstall install -y bsdutils >/dev/null
@@ -23,7 +23,7 @@ easy_install pip
 pip install setuptools --no-use-wheel --upgrade
 
 echo "Installing required python modules."
-pip install paramiko pyyaml jinja2 markupsafe
+pip install paramiko pyyaml jinja2 markupsafe MySQL-python
 
 echo "Installing Ansible."
 pip install ansible
