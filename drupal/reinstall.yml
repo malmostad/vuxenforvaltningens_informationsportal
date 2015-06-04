@@ -168,6 +168,11 @@
     shell: "{{ php_env_vars }} drush -dvy updb -l {{ site_url }}"
     when: workflow_type == "sql"
 
+  - name: Enable module maillog
+    sudo: yes
+    shell: "{{ php_env_vars }} drush -y en maillog"
+    when: pp_environment == "demo" or pp_environment == "default"
+
   - name: Enable module Stage File Proxy
     sudo: yes
     shell: "{{ php_env_vars }} drush -y en stage_file_proxy"

@@ -62,9 +62,12 @@ function mal_rules_send_email_action($node, $subject, $message, $settings, Rules
     $query->addMetaData('rolequery_rid', $role->rid);
 
     $result = $query->execute();
-    $users_ids = user_load_multiple(array_keys($result['user']));
-    foreach ($users_ids as $user) {
-      drupal_mail('rules', $key, $user->mail, language_default(), $params, $from);
+    if (!empty($result['user'])) {
+      $users_ids = user_load_multiple(array_keys($result['user']));
+
+      foreach ($users_ids as $user) {
+        drupal_mail('rules', $key, $user->mail, language_default(), $params, $from);
+      }
     }
   }
 }
