@@ -1589,8 +1589,11 @@ footer.bigfoot {
 
 .preamble {
   font-family: $open-sans;
-  font-size: 16px;
   margin-bottom: 30px;
+
+  p {
+    font-size: 16px;
+  }
 }
 
 // ---------media-------- //
