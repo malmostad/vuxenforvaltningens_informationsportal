@@ -1047,6 +1047,7 @@ footer.bigfoot {
     padding: 15px 20px;
     position: absolute;
     top: 33px;
+    width: 100%;
     z-index: 5;
   }
 
@@ -2040,20 +2041,16 @@ footer.bigfoot {
     }
   }
 
-  footer.bigfoot {
-    div.navs {
-      .live-person-button {
-        background: url(../../images/chat-icon-sprite.png) 0 0 no-repeat;
-        height: 40px;
-        padding: 0;
-        right: 2%;
-        text-indent: -9999px;
-        width: 49px;
+  .live-person-button {
+    background: url(../../images/chat-icon-sprite.png) 0 0 no-repeat;
+    height: 40px;
+    padding: 0;
+    right: 2%;
+    text-indent: -9999px;
+    width: 49px;
 
-        &:hover {
-          background: url(../../images/chat-icon-sprite.png) 0 -42px no-repeat !important;
-        }
-      }
+    &:hover {
+      background: url(../../images/chat-icon-sprite.png) 0 -42px no-repeat !important;
     }
   }
 }
