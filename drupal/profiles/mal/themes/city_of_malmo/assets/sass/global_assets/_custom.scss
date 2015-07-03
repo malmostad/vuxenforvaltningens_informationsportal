@@ -44,7 +44,7 @@ html {
 .wrapper {
   *zoom: 1;
   margin: 4px auto 1em;
-  max-width: 62em;
+  max-width: 55em;
   padding: 0 1em 0;
 
   &:before,
@@ -63,8 +63,8 @@ html {
     clear: both;
     float: left;
     margin-bottom: 1em;
-    margin-right: 2%;
-    width: 74.3%;
+    margin-right: 4%;
+    width: 65.33333%;
 
     strong,
     b {
@@ -78,7 +78,7 @@ html {
       @include box-sizing(border-box);
       float: left;
       margin-right: 0;
-      width: 23.7%;
+      width: 30.66667%;
     }
   }
 
