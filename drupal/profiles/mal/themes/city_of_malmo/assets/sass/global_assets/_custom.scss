@@ -44,7 +44,7 @@ html {
 .wrapper {
   *zoom: 1;
   margin: 4px auto 1em;
-  max-width: 62em;
+  max-width: 55em;
   padding: 0 1em 0;
 
   &:before,
@@ -63,8 +63,8 @@ html {
     clear: both;
     float: left;
     margin-bottom: 1em;
-    margin-right: 2%;
-    width: 74.3%;
+    margin-right: 4%;
+    width: 65.33333%;
 
     strong,
     b {
@@ -78,7 +78,7 @@ html {
       @include box-sizing(border-box);
       float: left;
       margin-right: 0;
-      width: 23.7%;
+      width: 30.66667%;
     }
   }
 
@@ -445,6 +445,8 @@ body {
   color: $black;
   left: 0;
   min-height: 100%;
+  margin: 0;
+  padding: 3em 0 147px;
   position: absolute;
   top: 0;
   width: 100%;
@@ -693,8 +695,8 @@ nav.content {
 // --------FOOTER BOTTOM---------  //
 #malmo-footer {
   color: #000;
-  // bottom: 0;
-  // position: absolute !important;
+  bottom: 0;
+  position: absolute !important;
   width: 100%;
 }
 
@@ -1663,6 +1665,10 @@ footer.bigfoot {
 }
 
 @media (max-width: 48em) {
+  body {
+    padding-bottom: 0;
+  }
+
   .wrapper {
     max-width: 34em;
     padding-bottom: 0;
@@ -1762,6 +1768,10 @@ footer.bigfoot {
   }
   #global-search-form button span {
     display: none;
+  }
+
+  #malmo-footer {
+    position: static !important;
   }
 }
 
