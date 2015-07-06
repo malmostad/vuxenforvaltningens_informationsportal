@@ -23,6 +23,12 @@ html {
     padding-top: 50px;
   }
 
+  padding-top: 90px !important;
+
+  &.navbar-tray-open {
+    padding-top: 130px !important;
+  }
+
   #admin-menu {
     z-index: 1001;
   }
