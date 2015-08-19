@@ -110,29 +110,6 @@ function minipanel_search_facet_date_default_panels_mini() {
     $display->content['new-5b42c05f-ccd6-4980-8a44-d58c798aacb4'] = $pane;
     $display->panels['region-two'][1] = 'new-5b42c05f-ccd6-4980-8a44-d58c798aacb4';
     $pane = new stdClass();
-    $pane->pid = 'new-15ab3818-a949-4ff8-8f5f-ed46307644e1';
-    $pane->panel = 'region-two';
-    $pane->type = 'block';
-    $pane->subtype = 'facetapi-511W1ObRGr1TC075gFYlodxtci14g8Bg';
-    $pane->shown = TRUE;
-    $pane->access = array();
-    $pane->configuration = array(
-      'override_title' => 0,
-      'override_title_text' => '',
-      'override_title_heading' => 'h2',
-    );
-    $pane->cache = array();
-    $pane->style = array(
-      'settings' => NULL,
-    );
-    $pane->css = array();
-    $pane->extras = array();
-    $pane->position = 2;
-    $pane->locks = array();
-    $pane->uuid = '15ab3818-a949-4ff8-8f5f-ed46307644e1';
-    $display->content['new-15ab3818-a949-4ff8-8f5f-ed46307644e1'] = $pane;
-    $display->panels['region-two'][2] = 'new-15ab3818-a949-4ff8-8f5f-ed46307644e1';
-    $pane = new stdClass();
     $pane->pid = 'new-229431f7-7dc7-44b0-821b-bc1d27a5a5b3';
     $pane->panel = 'region-two';
     $pane->type = 'block';
@@ -150,11 +127,80 @@ function minipanel_search_facet_date_default_panels_mini() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 3;
+    $pane->position = 2;
     $pane->locks = array();
     $pane->uuid = '229431f7-7dc7-44b0-821b-bc1d27a5a5b3';
     $display->content['new-229431f7-7dc7-44b0-821b-bc1d27a5a5b3'] = $pane;
-    $display->panels['region-two'][3] = 'new-229431f7-7dc7-44b0-821b-bc1d27a5a5b3';
+    $display->panels['region-two'][2] = 'new-229431f7-7dc7-44b0-821b-bc1d27a5a5b3';
+    $pane = new stdClass();
+    $pane->pid = 'new-6d487afe-be96-4f8b-8f6b-12f5afca7575';
+    $pane->panel = 'region-two';
+    $pane->type = 'block';
+    $pane->subtype = 'facetapi-wEM2olW1loVwjioTmD2onLvkBdaGaXAN';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Tider',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $pane->uuid = '6d487afe-be96-4f8b-8f6b-12f5afca7575';
+    $display->content['new-6d487afe-be96-4f8b-8f6b-12f5afca7575'] = $pane;
+    $display->panels['region-two'][3] = 'new-6d487afe-be96-4f8b-8f6b-12f5afca7575';
+    $pane = new stdClass();
+    $pane->pid = 'new-1e53d295-9bf2-44a1-9660-eed60a65b49d';
+    $pane->panel = 'region-two';
+    $pane->type = 'block';
+    $pane->subtype = 'facetapi-AB6KsgUAPgK12xEgNgWDTCO9iTu7Zv07';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 4;
+    $pane->locks = array();
+    $pane->uuid = '1e53d295-9bf2-44a1-9660-eed60a65b49d';
+    $display->content['new-1e53d295-9bf2-44a1-9660-eed60a65b49d'] = $pane;
+    $display->panels['region-two'][4] = 'new-1e53d295-9bf2-44a1-9660-eed60a65b49d';
+    $pane = new stdClass();
+    $pane->pid = 'new-98bad5b1-e40e-49e2-96a6-9b2138e5b87d';
+    $pane->panel = 'region-two';
+    $pane->type = 'block';
+    $pane->subtype = 'facetapi-0qkO9Za0AVzKQJxQ0szckasnfviW0s1G';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+      'override_title_heading' => 'h2',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 5;
+    $pane->locks = array();
+    $pane->uuid = '98bad5b1-e40e-49e2-96a6-9b2138e5b87d';
+    $display->content['new-98bad5b1-e40e-49e2-96a6-9b2138e5b87d'] = $pane;
+    $display->panels['region-two'][5] = 'new-98bad5b1-e40e-49e2-96a6-9b2138e5b87d';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $mini->display = $display;
