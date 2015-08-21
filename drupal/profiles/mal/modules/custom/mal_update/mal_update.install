@@ -954,4 +954,5 @@ function mal_update_update_7074() {
   features_revert_module('config_facet');
   features_revert_module('config_search');
   features_revert_module('minipanel_search_facet_date');
+  search_api_server_delete("apache_solr");
 }
