@@ -118,7 +118,7 @@ function minipanel_search_facet_date_default_panels_mini() {
     $pane->access = array();
     $pane->configuration = array(
       'override_title' => 1,
-      'override_title_text' => 'Tider',
+      'override_title_text' => '',
       'override_title_heading' => 'h2',
     );
     $pane->cache = array();
@@ -148,7 +148,11 @@ function minipanel_search_facet_date_default_panels_mini() {
     $pane->style = array(
       'settings' => NULL,
     );
-    $pane->css = array();
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'course-perods-base',
+      'template_suggestion' => 'block',
+    );
     $pane->extras = array();
     $pane->position = 3;
     $pane->locks = array();
