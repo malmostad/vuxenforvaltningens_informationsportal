@@ -17,21 +17,23 @@
           .css('background', 'url("http://assets.malmo.se/external/v4/external/logo-x1.png") no-repeat');
 
       var $flex_group = $('.facetapi-facet-course-periods-afternoon', context);
-      var $time_group = $('.facetapi-facet-course-periods-morning', context);
+      var $time_group = $('.course-perods-base .facetapi-facet-course-periods-morning', context);
+      if ($time_group.length == 0) {
+        $('.course-perods-base', context).append("<ul class=\"facetapi-facet-course-periods-morning\"></ul>");
+        $time_group = $('.course-perods-base .facetapi-facet-course-periods-morning', context);
+      }
       if ($time_group.length > 0 &&
         $flex_group.find('li').length > 0) {
         $flex_group.parent().hide();
         $flex_group.find('li').detach().appendTo($time_group);
       }
       $flex_group = $('.facetapi-facet-course-periods-evening', context);
-      $time_group = $('.facetapi-facet-course-periods-morning', context);
       if ($time_group.length > 0 &&
         $flex_group.find('li').length > 0) {
         $flex_group.parent().hide();
         $flex_group.find('li').detach().appendTo($time_group);
       }
       $flex_group = $('.facetapi-facet-field-course-formname', context);
-      $time_group = $('.facetapi-facet-course-periods-morning', context);
       if ($time_group.length > 0 &&
         $flex_group.find('li').length > 0) {
         $flex_group.parent().hide();

@@ -115,39 +115,33 @@ function mal_search_property_global_searchable_getter_callback($item, array $opt
  * Getter callback.
  */
 function mal_search_property_course_periods_morning($item, array $options, $name, $type, $info) {
-  $return = FALSE;
-  foreach (field_get_items($type, $item, 'field_course_periods', $options['language']) as $delta => $value) {
-    if (($value['value'] > 21600) && ($value['value'] < 43200)) {
-      $return = TRUE;
-    }
-  }
-  return $return;
+  return mal_search_check_period($item, $options, $type, 21600, 43200);
 }
 
 /**
  * Getter callback.
  */
 function mal_search_property_course_periods_afternoon($item, array $options, $name, $type, $info) {
-  $return = FALSE;
-  foreach (field_get_items($type, $item, 'field_course_periods', $options['language']) as $delta => $value) {
-    if (($value['value'] > 43200) && ($value['value'] < 61200)) {
-      $return = TRUE;
-    }
-  }
-  return $return;
+  return mal_search_check_period($item, $options, $type, 43200, 61200);
 }
 
 /**
  * Getter callback.
  */
 function mal_search_property_course_periods_evening($item, array $options, $name, $type, $info) {
-  $return = FALSE;
+  return mal_search_check_period($item, $options, $type, 61200, 86400);
+}
+
+/**
+ * Helper function.
+ */
+function mal_search_check_period($item, array $options, $type, $min, $max) {
   foreach (field_get_items($type, $item, 'field_course_periods', $options['language']) as $delta => $value) {
-    if (($value['value'] > 61200) && ($value['value'] < 86400)) {
-      $return = TRUE;
+    if (($value['value'] > $min) && ($value['value'] < $max)) {
+      return TRUE;
     }
   }
-  return $return;
+  return FALSE;
 }
 
 /**
