@@ -7,3 +7,4 @@ dependencies[] = search_api
 dependencies[] = search_api_solr
 
 files[] = includes/processor_index_modify.inc
+files[] = includes/course_periods_facetapi_widget_select.inc

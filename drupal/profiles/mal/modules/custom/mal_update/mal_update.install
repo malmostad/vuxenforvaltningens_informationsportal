@@ -946,3 +946,12 @@ function mal_update_update_7073() {
   features_revert_module('notification_rules');
   variable_set('maillog_devel', FALSE);
 }
+
+/**
+ * Converse implication for Mornings.
+ */
+function mal_update_update_7074() {
+  features_revert_module('config_facet');
+  features_revert_module('config_search');
+  features_revert_module('minipanel_search_facet_date');
+}

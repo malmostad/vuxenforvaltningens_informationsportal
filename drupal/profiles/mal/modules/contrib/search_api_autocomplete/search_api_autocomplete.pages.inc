@@ -73,6 +73,12 @@ function search_api_autocomplete_autocomplete(SearchApiAutocompleteSearch $searc
           drupal_alter('search_api_autocomplete_suggestions', $ret, $alter_params);
 
           foreach ($ret as $key => $suggestion) {
+            $escaped_variables = array('suggestion_prefix', 'user_input', 'suggestion_suffix');
+            foreach ($escaped_variables as $variable) {
+              if ($suggestion[$variable]) {
+                $suggestion[$variable] = check_plain($suggestion[$variable]);
+              }
+            }
             $ret[$key] = theme('search_api_autocomplete_suggestion', $suggestion);
           }
         }
@@ -91,7 +97,8 @@ function search_api_autocomplete_autocomplete(SearchApiAutocompleteSearch $searc
  *
  * @param array $variables
  *   An associative array containing:
- *   - prefix: For special suggestions, some kind of prefix describing them.
+ *   - prefix: For special suggestions, some kind of HTML prefix describing
+ *     them.
  *   - suggestion_prefix: A suggested prefix for the entered input.
  *   - user_input: The input entered by the user.
  *   - suggestion_suffix: A suggested suffix for the entered input.

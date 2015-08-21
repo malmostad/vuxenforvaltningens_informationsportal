@@ -28,6 +28,30 @@ function mal_search_entity_property_info_alter(&$info) {
     'computed' => TRUE,
     'getter callback' => 'mal_search_property_global_searchable_getter_callback',
   );
+  $info['node']['properties']['course_periods_morning'] = array(
+    'type' => 'boolean',
+    'label' => t('Course periods morning'),
+    'field' => TRUE,
+    'sanitized' => TRUE,
+    'computed' => TRUE,
+    'getter callback' => 'mal_search_property_course_periods_morning',
+  );
+  $info['node']['properties']['course_periods_afternoon'] = array(
+    'type' => 'boolean',
+    'label' => t('Course periods afternoon'),
+    'field' => TRUE,
+    'sanitized' => TRUE,
+    'computed' => TRUE,
+    'getter callback' => 'mal_search_property_course_periods_afternoon',
+  );
+  $info['node']['properties']['course_periods_evening'] = array(
+    'type' => 'boolean',
+    'label' => t('Course periods evening'),
+    'field' => TRUE,
+    'sanitized' => TRUE,
+    'computed' => TRUE,
+    'getter callback' => 'mal_search_property_course_periods_evening',
+  );
 }
 
 /**
@@ -86,6 +110,40 @@ function mal_search_property_global_searchable_getter_callback($item, array $opt
     ));
   }
 }
+
+/**
+ * Getter callback.
+ */
+function mal_search_property_course_periods_morning($item, array $options, $name, $type, $info) {
+  return mal_search_check_period($item, $options, $type, 21600, 43200);
+}
+
+/**
+ * Getter callback.
+ */
+function mal_search_property_course_periods_afternoon($item, array $options, $name, $type, $info) {
+  return mal_search_check_period($item, $options, $type, 43200, 61200);
+}
+
+/**
+ * Getter callback.
+ */
+function mal_search_property_course_periods_evening($item, array $options, $name, $type, $info) {
+  return mal_search_check_period($item, $options, $type, 61200, 86400);
+}
+
+/**
+ * Helper function.
+ */
+function mal_search_check_period($item, array $options, $type, $min, $max) {
+  foreach (field_get_items($type, $item, 'field_course_periods', $options['language']) as $delta => $value) {
+    if (($value['value'] > $min) && ($value['value'] < $max)) {
+      return TRUE;
+    }
+  }
+  return FALSE;
+}
+
 /**
  * Getter callback for time field.
  *
@@ -180,4 +238,44 @@ function mal_search_search_api_processor_info() {
   );
 
   return $processors;
+}
+
+/**
+ * Implements hook_facetapi_widgets()
+ */
+function mal_search_facetapi_widgets() {
+  return array(
+    'course_periods' => array(
+      'handler' => array(
+        'label' => t('Course periods'),
+        'class' => 'CoursePeriodsFacetapiWidgetSelect',
+        'query types' => array('term', 'date'),
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_facetapi_url_processors().
+ */
+function mal_search_facetapi_url_processors() {
+  return array(
+    'standard' => array(
+      'handler' => array(
+        'label' => t('Hide breadcrumbs URL processor'),
+        'class' => 'FacetApiHideBreadcrumbs',
+      ),
+    ),
+  );
+}
+
+/**
+ * Class FacetApiHideBreadcrumbs
+ */
+class FacetApiHideBreadcrumbs extends FacetapiUrlProcessorStandard {
+  /**
+   * Hide breadcrumbs.
+   */
+  public function setBreadcrumb() {
+  }
 }

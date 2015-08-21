@@ -19,6 +19,9 @@ function config_search_default_search_api_index() {
       "index_directly" : 1,
       "cron_limit" : "50",
       "fields" : {
+        "course_periods_afternoon" : { "type" : "boolean" },
+        "course_periods_evening" : { "type" : "boolean" },
+        "course_periods_morning" : { "type" : "boolean" },
         "duration_days" : { "type" : "list\\u003Ctext\\u003E" },
         "field_course_date:value" : { "type" : "string" },
         "field_course_date:value2" : { "type" : "date" },
@@ -31,10 +34,12 @@ function config_search_default_search_api_index() {
         "field_course_periods:value" : { "type" : "list\\u003Cinteger\\u003E" },
         "field_course_prerequisites" : { "type" : "text" },
         "field_course_school" : { "type" : "integer", "entity_type" : "node" },
-        "field_course_template:field_course_gymnasie_program" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "field_course_template:field_course_gymnasie_program" : {
+          "type" : "list\\u003Clist\\u003Cinteger\\u003E\\u003E",
+          "entity_type" : "taxonomy_term"
+        },
         "field_course_template:field_course_subject_areas" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_course_template:field_course_type_education" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
-        "global_searchable" : { "type" : "boolean" },
         "search_api_aggregation_1" : { "type" : "text", "boost" : "8.0" },
         "search_api_language" : { "type" : "string" },
         "search_api_url" : { "type" : "uri" },

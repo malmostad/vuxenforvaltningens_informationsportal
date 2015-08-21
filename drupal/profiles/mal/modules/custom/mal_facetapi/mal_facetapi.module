@@ -20,28 +20,3 @@ function mal_facetapi_facetapi_widgets() {
   );
 }
 
-
-/**
- * Implements hook_facetapi_url_processors().
- */
-function mal_facetapi_facetapi_url_processors() {
-  return array(
-    'standard' => array(
-      'handler' => array(
-        'label' => t('Hide breadcrumbs URL processor'),
-        'class' => 'FacetApiHideBreadcrumbs',
-      ),
-    ),
-  );
-}
-
-/**
- * Class FacetApiHideBreadcrumbs
- */
-class FacetApiHideBreadcrumbs extends FacetapiUrlProcessorStandard {
-  /**
-   * Hide breadcrumbs.
-   */
-  public function setBreadcrumb() {
-  }
-}
