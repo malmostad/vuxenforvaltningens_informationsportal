@@ -165,7 +165,7 @@
 
   - name: Remove live search server
     sudo: yes
-    shell: "{{ php_env_vars }} drush eval 'search_api_server_delete("apache_solr");'"
+    shell: "{{ php_env_vars }} drush eval 'search_api_server_delete(\'apache_solr\');'"
     when: workflow_type == "sql"
 
   - name: Updating database
