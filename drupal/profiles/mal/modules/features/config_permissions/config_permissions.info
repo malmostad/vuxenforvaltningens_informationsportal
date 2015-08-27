@@ -1,7 +1,7 @@
 name = Config permissions
 core = 7.x
 package = Config
-version = 7.x-1.0
+version = 7.x-1.1
 project = config_permissions
 dependencies[] = administerusersbyrole
 dependencies[] = advagg

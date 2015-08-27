@@ -115,21 +115,21 @@ function mal_search_property_global_searchable_getter_callback($item, array $opt
  * Getter callback.
  */
 function mal_search_property_course_periods_morning($item, array $options, $name, $type, $info) {
-  return mal_search_check_period($item, $options, $type, 21600, 43200);
+  return mal_search_check_period($item, $options, $type, 0, 44041);
 }
 
 /**
  * Getter callback.
  */
 function mal_search_property_course_periods_afternoon($item, array $options, $name, $type, $info) {
-  return mal_search_check_period($item, $options, $type, 43200, 61200);
+  return mal_search_check_period($item, $options, $type, 44099, 59341);
 }
 
 /**
  * Getter callback.
  */
 function mal_search_property_course_periods_evening($item, array $options, $name, $type, $info) {
-  return mal_search_check_period($item, $options, $type, 61200, 86400);
+  return mal_search_check_period($item, $options, $type, 59399, 86401);
 }
 
 /**
