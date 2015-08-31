@@ -44,7 +44,7 @@
 
   Drupal.behaviors.searchFilter = {
     attach: function(context, settings) {
-      var $filter = $('.search-filter > h2'),
+      var $filter = $('.search-filter > h2', context),
           $popup = $('.search-filter *');
 
       $filter.click(function(e) {
