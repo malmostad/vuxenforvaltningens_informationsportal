@@ -955,10 +955,19 @@ function mal_update_update_7074() {
   features_revert_module('config_search');
   features_revert_module('minipanel_search_facet_date');
 }
+
 /**
  * Update facets.
  */
 function mal_update_update_7075() {
   features_revert_module('config_facet');
   features_revert_module('config_permissions');
+}
+
+/**
+ * Checkbox show only searchable.
+ */
+function mal_update_update_7076() {
+  features_revert_module('page_search');
+  features_revert_module('config_search');
 }
