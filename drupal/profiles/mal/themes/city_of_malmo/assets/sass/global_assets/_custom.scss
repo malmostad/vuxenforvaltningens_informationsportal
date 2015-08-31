@@ -1184,7 +1184,6 @@ footer.bigfoot {
 .first-group,
 .second-group,
 .third-group {
-  font-family: $open-sans;
   font-size: 14px;
   max-width: 510px;
 
@@ -1197,7 +1196,19 @@ footer.bigfoot {
   }
 }
 
+.second-group {
+  font-family: Georgia, "Droid Serif", "DejaVu Serif", "Bitstream Vera Serif", serif;
+  font-size: 100%;
+  margin-top: 16px;
+
+  .field-label {
+    font-weight: bold;
+  }
+}
+
 .third-group {
+  font-size: 100%;
+
   .field-label {
     font-weight: bold;
     margin-top: 5px;
