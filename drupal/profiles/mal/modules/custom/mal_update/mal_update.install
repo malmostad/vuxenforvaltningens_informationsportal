@@ -970,4 +970,9 @@ function mal_update_update_7075() {
 function mal_update_update_7076() {
   features_revert_module('page_search');
   features_revert_module('config_search');
+
+  // Hide Instumentpanel from menu.
+  $item = menu_link_load(1293);
+  $item['hidden'] = 1;
+  menu_link_save($item);
 }
