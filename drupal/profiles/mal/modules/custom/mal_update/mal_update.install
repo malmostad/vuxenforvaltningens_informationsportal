@@ -976,3 +976,11 @@ function mal_update_update_7076() {
   $item['hidden'] = 1;
   menu_link_save($item);
 }
+
+/**
+ * Just remove badass menu item.
+ */
+function mal_update_update_7077() {
+  $item = menu_link_load(1293);
+  _menu_delete_item($item, TRUE);
+}
