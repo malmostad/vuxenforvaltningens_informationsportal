@@ -986,7 +986,7 @@ function mal_update_update_7077() {
 }
 
 /**
- * Remove for nodes 'published' status by default.
+ * Remove for nodes 'published' status by default and change permissions.
  */
 function mal_update_update_7078() {
   foreach(array(
@@ -997,6 +997,8 @@ function mal_update_update_7078() {
             'content_type_school',
             'content_type_course_packages',
             'content_type_course_template',
+    // View own unpublished content.
+            'config_permissions',
   ) as $module)
   features_revert_module($module);
 }
