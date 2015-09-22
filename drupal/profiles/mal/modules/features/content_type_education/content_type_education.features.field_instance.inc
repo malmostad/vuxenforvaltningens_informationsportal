@@ -79,6 +79,8 @@ function content_type_education_field_default_field_instances() {
           ),
         ),
       ),
+      'custom_add_another' => '',
+      'custom_remove' => '',
       'display_summary' => 1,
       'text_processing' => 1,
       'user_register_form' => FALSE,

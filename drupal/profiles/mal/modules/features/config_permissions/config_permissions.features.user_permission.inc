@@ -3057,6 +3057,7 @@ function config_permissions_user_default_permissions() {
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
       'Malmo top admin' => 'Malmo top admin',
+      'School editor' => 'School editor',
       'administrator' => 'administrator',
     ),
     'module' => 'node',

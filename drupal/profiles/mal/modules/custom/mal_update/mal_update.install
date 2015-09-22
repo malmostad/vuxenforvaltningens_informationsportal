@@ -984,3 +984,21 @@ function mal_update_update_7077() {
   $item = menu_link_load(1293);
   _menu_delete_item($item, TRUE);
 }
+
+/**
+ * Remove for nodes 'published' status by default and change permissions.
+ */
+function mal_update_update_7078() {
+  foreach(array(
+            'content_type_basic_page',
+            'content_type_course',
+            'content_type_education',
+            'content_type_question_and_answer',
+            'content_type_school',
+            'content_type_course_packages',
+            'content_type_course_template',
+    // View own unpublished content.
+            'config_permissions',
+  ) as $module)
+  features_revert_module($module);
+}
