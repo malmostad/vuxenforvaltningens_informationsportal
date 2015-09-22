@@ -60,6 +60,8 @@ function content_type_course_field_default_field_instances() {
     'label' => 'Ansökningsperiod',
     'required' => 0,
     'settings' => array(
+      'custom_add_another' => '',
+      'custom_remove' => '',
       'default_value' => 'now',
       'default_value2' => 'same',
       'default_value_code' => '',
@@ -123,6 +125,8 @@ function content_type_course_field_default_field_instances() {
     'label' => 'Kontinuerlig',
     'required' => 0,
     'settings' => array(
+      'custom_add_another' => '',
+      'custom_remove' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -186,6 +190,8 @@ function content_type_course_field_default_field_instances() {
     'label' => 'Kursperiod',
     'required' => 0,
     'settings' => array(
+      'custom_add_another' => '',
+      'custom_remove' => '',
       'default_value' => 'now',
       'default_value2' => 'same',
       'default_value_code' => '',
@@ -249,6 +255,8 @@ function content_type_course_field_default_field_instances() {
     'label' => 'Flex',
     'required' => 0,
     'settings' => array(
+      'custom_add_another' => '',
+      'custom_remove' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -301,6 +309,8 @@ function content_type_course_field_default_field_instances() {
     'label' => 'Kursform',
     'required' => 1,
     'settings' => array(
+      'custom_add_another' => '',
+      'custom_remove' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -350,7 +360,7 @@ function content_type_course_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_course_group',
-    'label' => 'Sökkod',
+    'label' => 'Kursgrupp',
     'required' => 1,
     'settings' => array(
       'better_formats' => array(
@@ -375,6 +385,8 @@ function content_type_course_field_default_field_instances() {
           ),
         ),
       ),
+      'custom_add_another' => '',
+      'custom_remove' => '',
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -444,6 +456,8 @@ function content_type_course_field_default_field_instances() {
     'label' => 'Tider',
     'required' => 0,
     'settings' => array(
+      'custom_add_another' => '',
+      'custom_remove' => '',
       'disable_plugin' => 0,
       'input_format' => array(
         'am_text' => 'AM',
@@ -526,6 +540,8 @@ function content_type_course_field_default_field_instances() {
           'status' => TRUE,
         ),
       ),
+      'custom_add_another' => '',
+      'custom_remove' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -578,6 +594,8 @@ function content_type_course_field_default_field_instances() {
     'label' => 'Searchable type',
     'required' => 0,
     'settings' => array(
+      'custom_add_another' => '',
+      'custom_remove' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -632,6 +650,8 @@ function content_type_course_field_default_field_instances() {
     'render_entity_below' => 1,
     'required' => 1,
     'settings' => array(
+      'custom_add_another' => '',
+      'custom_remove' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -688,6 +708,8 @@ function content_type_course_field_default_field_instances() {
     'label' => 'Course registration',
     'required' => 0,
     'settings' => array(
+      'custom_add_another' => '',
+      'custom_remove' => '',
       'default_registration_settings' => array(
         'capacity' => 0,
         'reminder' => array(
@@ -725,7 +747,6 @@ function content_type_course_field_default_field_instances() {
   t('Ange Sökkod för kurs');
   t('Ange ansökningsperiod');
   t('Ange klockslag (start-slut) samt veckodag för varje lektionstillfälle. Varje lektionstillfälle läggs in separat genom <em>Lägg till ytterligare alternativ</em>.');
-  t('Ange Sökkod för kurs');
   t('Ange när kurs/kurspaket startar och slutar');
   t('Ansökningsperiod');
   t('Course registration');
@@ -734,7 +755,7 @@ function content_type_course_field_default_field_instances() {
   t('Kryssa i Kontinuerlig ifall kursen har kontinuerlig ansökan och kursstart. Ange vid behov startdatum för kurs samt ansökningsperiod nedan.');
   t('Kurs mall');
   t('Kursform');
-  t('Sökkod');
+  t('Kursgrupp');
   t('Kursperiod');
   t('Searchable type');
   t('Skola');

@@ -129,9 +129,8 @@ function content_type_question_and_answer_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_question_and_answer';
   $strongarm->value = array(
-    0 => 'status',
-    1 => 'promote',
-    2 => 'revision',
+    0 => 'promote',
+    1 => 'revision',
   );
   $export['node_options_question_and_answer'] = $strongarm;
 

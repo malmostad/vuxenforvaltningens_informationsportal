@@ -79,6 +79,8 @@ function content_type_question_and_answer_field_default_field_instances() {
           ),
         ),
       ),
+      'custom_add_another' => '',
+      'custom_remove' => '',
       'display_summary' => 1,
       'text_processing' => 1,
       'user_register_form' => FALSE,
@@ -133,6 +135,8 @@ function content_type_question_and_answer_field_default_field_instances() {
     'label' => 'Kategori',
     'required' => 0,
     'settings' => array(
+      'custom_add_another' => '',
+      'custom_remove' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(

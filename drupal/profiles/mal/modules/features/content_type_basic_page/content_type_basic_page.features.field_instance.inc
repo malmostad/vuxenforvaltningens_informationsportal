@@ -87,6 +87,8 @@ function content_type_basic_page_field_default_field_instances() {
           ),
         ),
       ),
+      'custom_add_another' => '',
+      'custom_remove' => '',
       'display_summary' => 1,
       'text_processing' => 1,
       'user_register_form' => FALSE,
@@ -162,6 +164,8 @@ function content_type_basic_page_field_default_field_instances() {
     'required' => FALSE,
     'settings' => array(
       'alt_field' => 0,
+      'custom_add_another' => '',
+      'custom_remove' => '',
       'default_image' => 0,
       'file_directory' => '',
       'file_extensions' => 'png gif jpg jpeg',

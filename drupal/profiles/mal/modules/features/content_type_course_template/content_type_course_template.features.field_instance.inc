@@ -76,6 +76,8 @@ function content_type_course_template_field_default_field_instances() {
           ),
         ),
       ),
+      'custom_add_another' => '',
+      'custom_remove' => '',
       'display_summary' => 0,
       'text_processing' => 1,
       'user_register_form' => FALSE,
@@ -141,6 +143,8 @@ function content_type_course_template_field_default_field_instances() {
           'status' => TRUE,
         ),
       ),
+      'custom_add_another' => '',
+      'custom_remove' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -214,6 +218,8 @@ function content_type_course_template_field_default_field_instances() {
           ),
         ),
       ),
+      'custom_add_another' => '',
+      'custom_remove' => '',
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -271,6 +277,8 @@ function content_type_course_template_field_default_field_instances() {
     'label' => 'Antal poäng',
     'required' => 1,
     'settings' => array(
+      'custom_add_another' => '',
+      'custom_remove' => '',
       'max' => '',
       'min' => '',
       'prefix' => '',
@@ -346,6 +354,8 @@ function content_type_course_template_field_default_field_instances() {
           ),
         ),
       ),
+      'custom_add_another' => '',
+      'custom_remove' => '',
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -398,6 +408,8 @@ function content_type_course_template_field_default_field_instances() {
     'label' => 'Ämnesområden',
     'required' => 0,
     'settings' => array(
+      'custom_add_another' => '',
+      'custom_remove' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -455,6 +467,8 @@ function content_type_course_template_field_default_field_instances() {
     'render_entity_below' => 0,
     'required' => 0,
     'settings' => array(
+      'custom_add_another' => '',
+      'custom_remove' => '',
       'user_register_form' => FALSE,
     ),
     'widget' => array(

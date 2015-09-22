@@ -315,8 +315,7 @@ function content_type_course_packages_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_course_packages';
   $strongarm->value = array(
-    0 => 'status',
-    1 => 'promote',
+    0 => 'promote',
   );
   $export['node_options_course_packages'] = $strongarm;
 

@@ -28,4 +28,3 @@ features[variable][] = menu_parent_education
 features[variable][] = node_options_education
 features[variable][] = node_preview_education
 features[variable][] = node_submitted_education
-mtime = 1422263479
