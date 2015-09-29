@@ -1217,7 +1217,12 @@ footer.bigfoot {
 
   .field-value {
     p {
+      font-family: Georgia, "Droid Serif", "DejaVu Serif", "Bitstream Vera Serif", serif;
       line-height: 22px;
+    }
+
+    li {
+      font-family: Georgia, "Droid Serif", "DejaVu Serif", "Bitstream Vera Serif", serif;;
     }
   }
 }
