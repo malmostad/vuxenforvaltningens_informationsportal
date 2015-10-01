@@ -1217,7 +1217,12 @@ footer.bigfoot {
 
   .field-value {
     p {
+      font-family: Georgia, "Droid Serif", "DejaVu Serif", "Bitstream Vera Serif", serif;
       line-height: 22px;
+    }
+
+    li {
+      font-family: Georgia, "Droid Serif", "DejaVu Serif", "Bitstream Vera Serif", serif;;
     }
   }
 }
@@ -1290,6 +1295,7 @@ footer.bigfoot {
 .node-course-packages,
 .tabs {
   table {
+    font-size: 14px;
     margin-bottom: 10px;
     max-width: 628px;
     width: 100%;
