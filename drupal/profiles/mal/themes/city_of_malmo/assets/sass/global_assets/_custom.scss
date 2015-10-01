@@ -1211,6 +1211,7 @@ footer.bigfoot {
   font-size: 100%;
 
   .field-label {
+    font-family: Georgia, "Droid Serif", "DejaVu Serif", "Bitstream Vera Serif", serif;
     font-weight: bold;
     margin-top: 5px;
   }
@@ -1394,9 +1395,10 @@ footer.bigfoot {
     }
 
     .unsubscribe {
-      bottom: 34%;
+      top: 50%;
       height: 12px;
       overflow: hidden;
+      margin-top: -6px;
       position: absolute;
       right: 8px;
       width: 12px;
