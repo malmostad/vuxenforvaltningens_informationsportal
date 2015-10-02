@@ -1,0 +1,3 @@
+---
+xhprof_output_dir: /tmp/xhprof
+php_extension_conf_path: /etc/php5/conf.d

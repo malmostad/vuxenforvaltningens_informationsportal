@@ -1,0 +1,31 @@
+diff --git a/timefield.module b/timefield.module
+index ac48533..01ade36 100644
+--- a/timefield.module
++++ b/timefield.module
+@@ -595,6 +595,17 @@ function timefield_time_validate($element, &$form_state, $form) {
+       }
+     }
+ 
++    // Add default values for case when some days deleted.
++    $values['days'] += array(
++      'mon' => 0,
++      'tue' => 0,
++      'wed' => 0,
++      'thu' => 0,
++      'fri' => 0,
++      'sat' => 0,
++      'sun' => 0,
++    );
++
+     if (!empty($values['days'])) {
+       foreach ($values['days'] as $index => $day) {
+         $new_values[$index] = ($day === 0) ? $day : 1;
+@@ -1243,7 +1254,7 @@ function _timefield_weekly_summary_days() {
+     'sun' => t('Sunday'),
+   );
+ 
+-  return $days;
++  return variable_get('timefield_weekly_summary_days', $days);
+ }
+ 
+ /**

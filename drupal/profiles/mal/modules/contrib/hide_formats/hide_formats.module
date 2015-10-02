@@ -1,0 +1,202 @@
+<?php
+/**
+ * @file
+ * Provides permissions to show/hide the input formats dropdown
+ *
+ * Credits go to D6 verson of http://drupal.org/project/better_formats for the hiding solution
+ */
+
+
+
+
+/**
+ * Implements hook_permission().
+ */
+function hide_formats_permission() {
+  return array(
+    'show text format dropdown' => array(
+      'title' => t('Show text format dropdown'),
+      'description' => t('Show the text format dropdowns where more than one text format is available. If a user does not have this permission then the text format dropdown will be displayed in a collapsed fieldset.'),
+    ),
+  );
+}
+
+
+
+
+/**
+ * Implements hook_element_info_alter().
+ *
+ * We are using the implementation of better_formats module to intercept the display of input formats and
+ * display this with our own function
+ *
+ */
+function hide_formats_element_info_alter(&$type) {
+  // Change text format processing on elements to our version.
+  if (isset($type['text_format']['#process'])) {
+    foreach ($type['text_format']['#process'] as &$callback) {
+      if ($callback === 'filter_process_format') {
+      $callback = 'hide_formats_filter_process_format';
+      }
+    }
+  }
+}
+
+/*
+ * Started as a direct copy of filter_process_format from core filter.module
+ *
+ *
+ *
+ */
+
+function hide_formats_filter_process_format($element) {
+  global $user;
+
+  // Ensure that children appear as subkeys of this element.
+  $element['#tree'] = TRUE;
+  $blacklist = array(
+    // Make form_builder() regenerate child properties.
+    '#parents',
+    '#id',
+    '#name',
+    // Do not copy this #process function to prevent form_builder() from
+    // recursing infinitely.
+    '#process',
+    // Description is handled by theme_text_format_wrapper().
+    '#description',
+    // Ensure proper ordering of children.
+    '#weight',
+    // Properties already processed for the parent element.
+    '#prefix',
+    '#suffix',
+    '#attached',
+    '#processed',
+    '#theme_wrappers',
+  );
+  // Move this element into sub-element 'value'.
+  unset($element['value']);
+  foreach (element_properties($element) as $key) {
+    if (!in_array($key, $blacklist)) {
+      $element['value'][$key] = $element[$key];
+    }
+  }
+
+  $element['value']['#type'] = $element['#base_type'];
+  $element['value'] += element_info($element['#base_type']);
+
+  // Turn original element into a text format wrapper.
+  $path = drupal_get_path('module', 'filter');
+  $element['#attached']['js'][] = $path . '/filter.js';
+  $element['#attached']['css'][] = $path . '/filter.css';
+
+  // Setup child container for the text format widget.
+  $element['format'] = array(
+    '#type' => 'fieldset',
+    '#attributes' => array('class' => array('filter-wrapper')),
+  );
+
+  /*
+   * Custom addition start
+   */
+  if (!user_access('show text format dropdown')) {
+    $element['format']['#title'] = "Text formats options";  // Title is needed in our theme or you can't expand the fieldset
+    $element['format']['#collapsible'] = TRUE;
+    $element['format']['#collapsed'] = TRUE;
+
+    // Add custom CSS to fix overlap in fieldsets for seven theme. #17892227
+    global $theme;
+    if ($theme == 'seven') {
+      $custom_css = 'fieldset.filter-wrapper { padding-bottom: 20px;} fieldset.filter-wrapper div.fieldset-wrapper { padding-top: 20px;}';
+      drupal_add_css($custom_css, 'inline');
+    }
+  }
+  /*
+  * Custom addition end
+  */
+
+
+  // Prepare text format guidelines.
+  $element['format']['guidelines'] = array(
+    '#type' => 'container',
+    '#attributes' => array('class' => array('filter-guidelines')),
+    '#weight' => 20,
+  );
+  // Get a list of formats that the current user has access to.
+  $formats = filter_formats($user);
+  foreach ($formats as $format) {
+    $options[$format->format] = $format->name;
+    $element['format']['guidelines'][$format->format] = array(
+      '#theme' => 'filter_guidelines',
+      '#format' => $format,
+    );
+  }
+
+  // Use the default format for this user if none was selected.
+  if (!isset($element['#format'])) {
+    $element['#format'] = filter_default_format($user);
+  }
+
+  $element['format']['format'] = array(
+    '#type' => 'select',
+    '#title' => t('Text format'),
+    '#options' => $options,
+    '#default_value' => $element['#format'],
+    '#access' => count($formats) > 1,
+    '#weight' => 10,
+    '#attributes' => array('class' => array('filter-list')),
+    '#parents' => array_merge($element['#parents'], array('format')),
+  );
+
+  $element['format']['help'] = array(
+    '#type' => 'container',
+    '#theme' => 'filter_tips_more_info',
+    '#attributes' => array('class' => array('filter-help')),
+    '#weight' => 0,
+  );
+
+  $all_formats = filter_formats();
+  $format_exists = isset($all_formats[$element['#format']]);
+  $user_has_access = isset($formats[$element['#format']]);
+  $user_is_admin = user_access('administer filters');
+
+  // If the stored format does not exist, administrators have to assign a new
+  // format.
+  if (!$format_exists && $user_is_admin) {
+    $element['format']['format']['#required'] = TRUE;
+    $element['format']['format']['#default_value'] = NULL;
+    // Force access to the format selector (it may have been denied above if
+    // the user only has access to a single format).
+    $element['format']['format']['#access'] = TRUE;
+  }
+  // Disable this widget, if the fieldset .fieldset-wrapperuser is not allowed to use the stored format,
+  // or if the stored format does not exist. The 'administer filters' permission
+  // only grants access to the filter administration, not to all formats.
+  elseif (!$user_has_access || !$format_exists) {
+    // Overload default values into #value to make them unalterable.
+    $element['value']['#value'] = $element['value']['#default_value'];
+    $element['format']['format']['#value'] = $element['format']['format']['#default_value'];
+
+    // Prepend #pre_render callback to replace field value with user notice
+    // prior to rendering.
+    $element['value'] += array('#pre_render' => array());
+    array_unshift($element['value']['#pre_render'], 'filter_form_access_denied');
+
+    // Cosmetic adjustments.
+    if (isset($element['value']['#rows'])) {
+      $element['value']['#rows'] = 3;
+    }
+    $element['value']['#disabled'] = TRUE;
+    $element['value']['#resizable'] = FALSE;
+
+    // Hide the text format selector and any other child element (such as text
+    // field's summary).
+    foreach (element_children($element) as $key) {
+      if ($key != 'value') {
+        $element[$key]['#access'] = FALSE;
+      }
+    }
+  }
+
+  return $element;
+}
+

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Custom Breadcrumbs Features Test feature.
+ */
+
+include_once 'custom_breadcrumbs_features_test.features.inc';

@@ -1,0 +1,11 @@
+name = Notification rules
+core = 7.x
+package = Rules
+version = 7.x-1.0
+project = notification_rules
+dependencies[] = entity
+dependencies[] = mal_rules_send_email_action
+dependencies[] = rules
+features[features_api][] = api:2
+features[rules_config][] = rules_notification_on_new_template_content
+features[rules_config][] = rules_notification_on_unpublish_courses

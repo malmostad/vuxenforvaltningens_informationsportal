@@ -1,0 +1,96 @@
+<?php
+
+/**
+ * @file
+ * Common helpers for custom_breadcrumbs_features tests.
+ */
+
+/**
+ * Common functions for Custom Breadcrumbs Features tests.
+ */
+class CustomBreadcrumbsFeaturesCommonTestCase extends DrupalWebTestCase {
+
+  /**
+   * Helper - Create a breadcrumb using the web UI.
+   *
+   * @param $cb_type
+   *   Breadcrumb type.
+   * @param $edit
+   *   Array of breadcrumb values.
+   */
+  function createBreadcrumb($cb_type, $edit = array()) {
+    $edit += array(
+      'name' => 'Foo Bar',
+      'titles' => 'crumb|title',
+    );
+    $paths = $this->getBreadcrumbTypes();
+    $this->drupalGet('admin/structure/custom_breadcrumbs/' . $paths[$cb_type] . '/add');
+    $this->assertResponse(200);
+    $this->drupalPost(NULL, $edit, t('Save'));
+    $this->assertResponse(200);
+  }
+
+  /**
+   * Helper - Delete a breadcrumb using the web UI.
+   *
+   * @param $cb_type
+   *   Type of breadcrumb.
+   * @param $bid
+   *   Breadcrumb id.
+   */
+  function deleteBreadcrumb($cb_type, $bid) {
+    $paths = $this->getBreadcrumbTypes();
+    $this->drupalGet('admin/structure/custom_breadcrumbs/' . $paths[$cb_type] . '/edit/' . $bid);
+    $this->assertResponse(200);
+    $edit = array();
+    $this->drupalPost(NULL, $edit, t('Delete'));
+    $this->assertResponse(200);
+  }
+
+  /**
+   * Helper - Load a breadcrumb programmatically.
+   *
+   * @param $cb_type
+   *   Type of breadcrumb.
+   * @param $machine_name
+   *   Machine name of the breadcrumb.
+   *
+   * @return
+   *   Breadcrumb object or FALSE.
+   */
+  function loadBreadcrumb($cb_type, $machine_name) {
+    return db_select($cb_type, 'cb')
+      ->fields('cb')
+      ->condition('machine_name', $machine_name)
+      ->execute()
+      ->fetchObject();
+  }
+
+  /**
+   * Helper - Save a breadcrumb programmatically.
+   *
+   * @param $cb_type
+   *   Type of breadcrumb.
+   * @param $breadcrumb
+   *   Breadcrumb object.
+   */
+  function saveBreadcrumb($cb_type, $breadcrumb) {
+    drupal_write_record($cb_type, $breadcrumb, array('bid'));
+  }
+
+  /**
+   * Helper - List of paths keyed by crumb type.
+   */
+  function getBreadcrumbTypes() {
+    return array(
+      'custom_breadcrumb'                      => 'node',
+      'custom_breadcrumbsapi'                  => 'module',
+      'custom_breadcrumbs_paths'               => 'path',
+      'custom_breadcrumbs_panels'              => 'panels',
+      'custom_breadcrumbs_taxonomy_term'       => 'taxonomy_term',
+      'custom_breadcrumbs_taxonomy_vocabulary' => 'taxonomy_vocabulary',
+      'custom_breadcrumbs_views'               => 'views',
+    );
+  }
+
+}

@@ -1,3 +1,4 @@
+
 Feature: Content creation
   In order to create and moderate content
   As any user
@@ -7,9 +8,9 @@ Feature: Content creation
   Scenario: School editor
     Given I am logged in as a user with the "School editor" role
       And I am on "node/add"
-      And I should see the text "Kurspaket" in ".admin-list" element
-      And I should see the text "Enstaka kurs" in ".admin-list" element
-      And I should see the text "Kursmall" in ".admin-list" element
+      And I should see the text "Kurspaket"
+      And I should see the text "Enstaka kurs"
+      And I should see the text "Kursmall"
 
   @api @javascript
   Scenario: School editor: Auto set school
@@ -54,9 +55,9 @@ Feature: Content creation
   Scenario: Pure authenticated user
     Given  I am logged in as a user with the "authenticated user" role
     And I am on "node/add"
-    And I should not see the text "Kurspaket" in ".admin-list" element
-    And I should not see the text "Enstaka kurs" in ".admin-list" element
-    And I should not see the text "Course template" in ".admin-list" element
+    And I should not see the text "Kurspaket"
+    And I should not see the text "Enstaka kurs"
+    And I should not see the text "Course template"
 
   @api @javascript
   Scenario: Check if course is automatically assigned to correct Searchable type

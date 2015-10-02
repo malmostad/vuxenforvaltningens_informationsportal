@@ -1,0 +1,4 @@
+---
+- name: Install given gems.
+  shell: gem install {{ item.value.name }} --version {{ item.value.version }}
+  with_dict: gems

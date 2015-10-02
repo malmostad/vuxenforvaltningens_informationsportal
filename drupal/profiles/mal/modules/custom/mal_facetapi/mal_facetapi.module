@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * @file
+ * Hide FacetAPI breadcrumbs.
+ */
+
+/**
+ * Implements hook_facetapi_widgets().
+ */
+function mal_facetapi_facetapi_widgets() {
+  return array(
+    'mal_facetapi_ranges' => array(
+      'handler' => array(
+        'label' => t('Ranges'),
+        'class' => 'MalFacetapiWidgetRanges',
+        'query types' => array('numeric_range', 'term'),
+      ),
+    ),
+  );
+}
+

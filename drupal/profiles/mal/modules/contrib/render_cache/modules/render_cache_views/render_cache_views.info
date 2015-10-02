@@ -1,0 +1,17 @@
+name = Render cache for views_plugin_row_node_view
+description = Hijacks the node_view row plugin of views to enable entity_view caching.
+package = Performance and scalability
+core = 7.x
+
+dependencies[] = render_cache
+dependencies[] = views
+dependencies[] = entity
+
+files[] = views/plugins/render_cache_hijack_views_plugin_row_node_view.inc
+
+; Information added by Drupal.org packaging script on 2014-07-10
+version = "7.x-1.0"
+core = "7.x"
+project = "render_cache"
+datestamp = "1405017254"
+

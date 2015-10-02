@@ -1,0 +1,222 @@
+---
+# This playbook should be executed using reinstall.sh script
+# Developed for ansible version >= 1.7
+- hosts: localhost
+  connection: local
+  gather_facts: yes
+
+  vars:
+    drupal_user: admin
+    drupal_pass: propeople
+    installation_profile_name: mal
+    mysql_user: root
+    mysql_pass: root
+    mysql_db: drupal
+    mysql_host: 127.0.0.1
+    cache_folder: /var/www/cache
+    backup_folder: /var/www/backup
+    php_env_vars: 'APP_ENV=dev' # APP_ENV=dev - this varible will be set at PR_BUILDER from CI shell executor.
+    site_url: 'http://mal.dev/'
+    stage_file_proxy_url: 'http://malmo-live.propeople.com.ua/'
+    solr_search_api_path: demo
+    # This variable will be used for variable_get('environment'). Can be overridden by CI server.
+    # development = 'default', demo = 'demo', staging = 'staging', production = 'production'.
+    pp_environment: 'default'
+    # This variable allows select type of installation. Can be overridden by CI server.
+    # From installation profile = 'profile', from sql dump = 'sql'.
+    workflow_type: 'sql'
+    # htpasswd protection for securing backups.
+    backup_user: sweden-ci-backup
+    backup_pass: XC8J5m50F46kxo74pOqMw3cI
+    # URL to the source database. Can be overridden by CI server.
+    source_database: http://{{ backup_user }}:{{ backup_pass }}@128.199.38.86/backup/latest_malmo.sql.gz
+
+  tasks:
+
+  - name: Getting timestamp
+    shell: date +'%Y_%m_%d_%M_%S'
+    register: backup_name_raw
+    when: pp_environment == "staging"
+
+  - name: Getting name for backup
+    set_fact: backup_name={{ backup_name_raw.stdout }}
+    when: pp_environment == "staging"
+
+  - name: Creating backup folder
+    sudo: yes
+    file: path={{ backup_folder }} state=directory recurse=yes
+
+  - name: Making regular backup
+    sudo: yes
+    mysql_db: name=staging state=dump target={{ backup_folder }}/{{ backup_name }}.sql.gz login_user={{ mysql_user }} login_password={{ mysql_pass }} login_host={{ mysql_host }}
+    when: pp_environment == "staging"
+
+  - name: Check if latest backup exists
+    stat: path={{ backup_folder }}/latest.sql.gz
+    register: latest_backup_exists
+    when: workflow_type == "sql"
+
+  - name: Create initial backup from staging
+    mysql_db: name=staging state=dump target={{ backup_folder }}/latest.sql.gz login_user={{ mysql_user }} login_password={{ mysql_pass }} login_host={{ mysql_host }}
+    when: pp_environment == "staging" and workflow_type == "sql" and latest_backup_exists.stat.exists == false
+
+  - name: Downloading latest backup
+    get_url: url={{ source_database }} dest={{ backup_folder }}/latest.sql.gz force=yes
+    when: workflow_type == "sql" and pp_environment == "default"
+
+  - name: Droping drupal database
+    mysql_db: name={{ mysql_db }} state=absent login_user={{ mysql_user }} login_password={{ mysql_pass }} login_host={{ mysql_host }}
+    when: pp_environment == "demo" or pp_environment == "default" or workflow_type == "profile"
+
+  - name: Creating drupal database
+    mysql_db: name={{ mysql_db }} state=present login_user={{ mysql_user }} login_password={{ mysql_pass }} login_host={{ mysql_host }}
+
+  - name: Importing from remote backup
+    mysql_db: name={{ mysql_db }} state=import target={{ backup_folder }}/latest.sql.gz login_user={{ mysql_user }} login_password={{ mysql_pass }} login_host={{ mysql_host }}
+    sudo: yes
+    when: workflow_type == "sql" and (pp_environment == "default" or pp_environment == "demo")
+
+  - name: Creating cache folder
+    sudo: yes
+    file: path={{ cache_folder }} state=directory recurse=yes
+
+  - name: Installing drupal
+    sudo: yes
+    shell: "{{ php_env_vars }} drush -y si {{ installation_profile_name }} --db-url=mysql://{{ mysql_user }}:{{ mysql_pass }}@127.0.0.1:/{{ mysql_db }} --account-name={{ drupal_user }} --account-pass={{ drupal_pass }} --uri={{ site_url }}"
+    when: workflow_type == "profile"
+
+  - name: Making permissions usable
+    shell: chmod -R 777 sites/default
+    sudo: yes
+
+  - name: Remove settings.php
+    file: name=sites/default/settings.php state=absent
+    sudo: yes
+
+  - name: Changing permissions for sites/default
+    sudo: yes
+    file: name=sites/default state=directory mode=777
+
+  - name: Creating settings.php
+    sudo: yes
+    shell: "cp sites/default/default.settings.php sites/default/settings.php"
+
+  - name: Adding base_url variable to settings.php
+    sudo: yes
+    lineinfile: dest='sites/default/settings.php' line='$base_url = \"{{ site_url }}\";'
+
+  - name: Adding database variable to settings.php
+    sudo: yes
+    lineinfile: dest='sites/default/settings.php' line='$databases = array(\"default\" => array (\"default\" => array (\"database\" => \"{{ mysql_db }}\", \"username\" => \"{{ mysql_user }}\", \"password\" => \"{{ mysql_pass }}\", \"host\" => \"{{ mysql_host }}\", \"port\" => \"\", \"driver\" => \"mysql\", \"prefix\" => \"\", ), ), );'
+
+  - name: Random prefix for memcache to settings.php
+    sudo: yes
+    lineinfile: dest='sites/default/settings.php' line='$conf[\"memcache_key_prefix\"] = \"{{ pp_environment }}\";'
+    when: pp_environment == "CHANGE_ME"
+
+  - name: Memcache settings to settings.php
+    sudo: yes
+    lineinfile: dest='sites/default/settings.php' line='$conf[\"cache_backends\"][] = \"sites/all/modules/contrib/memcache/memcache.inc\";'
+    when: pp_environment == "CHANGE_ME"
+
+  - name: Memcache settings to settings.php
+    sudo: yes
+    lineinfile: dest='sites/default/settings.php' line='$conf[\"cache_default_class\"] = \"MemCacheDrupal\";'
+    when: pp_environment == "CHANGE_ME"
+
+  - name: Adding environment variable to settings.php
+    sudo: yes
+    lineinfile: dest='sites/default/settings.php' line='$conf[\"pp_environment\"] = \"{{ pp_environment }}\";'
+
+  - name: Add searchapi host to settings.php
+    sudo: yes
+    lineinfile: dest=sites/default/settings.php line='$conf[\"solr_search_api_host\"] = \"127.0.0.1\";'
+
+  - name: Add searchapi port to settings.php
+    sudo: yes
+    lineinfile: dest=sites/default/settings.php line='$conf[\"solr_search_api_port\"] = \"8983\";'
+
+  - name: Add searchapi path to settings.php
+    sudo: yes
+    lineinfile: dest=sites/default/settings.php line='$conf[\"solr_search_api_path\"] = \"{{ solr_search_api_path }}\";'
+
+  - name: Add searchapi user to settings.php
+    sudo: yes
+    lineinfile: dest=sites/default/settings.php line='$conf[\"solr_search_api_user\"] = \"\";'
+
+  - name: Add searchapi pass to settings.php
+    sudo: yes
+    lineinfile: dest=sites/default/settings.php line='$conf[\"solr_search_api_pass\"] = \"\";'
+
+  - name: Check if registry_rebuild is installed
+    shell: "{{ php_env_vars }} drush | grep -c registry_rebuild"
+    register: registry_rebuild_installed
+    ignore_errors: true
+
+  - name: Downloading registry_rebuild
+    shell: "{{ php_env_vars }} drush -y dl registry_rebuild"
+    when: workflow_type == "sql" and registry_rebuild_installed.stdout == "0"
+
+  - name: Clear drush cache
+    sudo: yes
+    shell: "{{ php_env_vars }} drush cc drush"
+    when: workflow_type == "sql" and registry_rebuild_installed.stdout == "0"
+
+  - name: Rebuilding drupal registry
+    #sudo: yes
+    shell: "drush rr" #"{{ php_env_vars }} drush -y rr -l {{ site_url }} || true && {{ php_env_vars }} drush -y rr -l {{ site_url }} || true"
+    when: workflow_type == "sql"
+
+  - name: Remove live search server
+    sudo: yes
+    shell: "{{ php_env_vars }} drush eval 'search_api_server_delete(\'apache_solr\');'"
+    when: workflow_type == "sql"
+
+  - name: Updating database
+    sudo: yes
+    shell: "{{ php_env_vars }} drush -dvy updb -l {{ site_url }}"
+    when: workflow_type == "sql"
+
+  - name: Enable module maillog
+    sudo: yes
+    shell: "{{ php_env_vars }} drush -y en maillog"
+    when: pp_environment == "demo" or pp_environment == "default"
+
+  - name: Enable module Stage File Proxy
+    sudo: yes
+    shell: "{{ php_env_vars }} drush -y en stage_file_proxy"
+    when: pp_environment == "demo" or pp_environment == "default"
+
+  - name: Stage File Proxy settings
+    sudo: yes
+    lineinfile: dest='sites/default/settings.php' line='$conf[\"stage_file_proxy_origin\"] = \"{{ stage_file_proxy_url }}";'
+    when: pp_environment == "demo" or pp_environment == "default"
+
+  - name: Creating latest staging backup
+    sudo: yes
+    mysql_db: name=staging state=dump target={{ backup_folder }}/latest.sql.gz login_user={{ mysql_user }} login_password={{ mysql_pass }} login_host={{ mysql_host }}
+    when: pp_environment == "staging"
+
+  - name: Set writable files dir
+    sudo: yes
+    file: dest=sites/default/files mode=777 state=directory
+
+  - name: Error messages to display settings
+    sudo: yes
+    shell: "{{ php_env_vars }} drush vset error_level 2"
+    when: pp_environment == "default"
+
+  - name: CSS | Compass compile
+    shell: "cd profiles/mal/themes/city_of_malmo/assets && compass compile"
+    sudo: yes
+    when: pp_environment == "demo" or pp_environment == "default"
+
+  - name: Solr - clearing index
+    sudo: yes
+    shell: "{{ php_env_vars }} drush -y search-api-clear -l {{ site_url }}"
+    when: pp_environment == "demo" or pp_environment == "default"
+
+  - name: Solr - reindexing
+    sudo: yes
+    shell: "{{ php_env_vars }} drush -y search-api-index -l {{ site_url }}"
+    when: pp_environment == "demo" or pp_environment == "default"

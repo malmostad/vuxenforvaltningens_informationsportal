@@ -1,0 +1,133 @@
+<?php
+
+/**
+ * @file
+ * Test that custom_breadcrumbs_features provides custom_breadcrumbs with features integration.
+ */
+
+/**
+ * Test that Custom Breadcrumbs can be exported and rebuilt using Features.
+ */
+class CustomBreadcrumbsFeaturesIntegrationTestCase extends CustomBreadcrumbsFeaturesCommonTestCase {
+
+  public static function getInfo() {
+    return array(
+      'name' => t('Features integration'),
+      'description' => t('Test that breadcrumbs can be exported and rebuilt using Features.') ,
+      'group' => t('Custom Breadcrumbs Features'),
+    );
+  }
+
+  private $user;
+
+  public function setUp() {
+    parent::setUp(
+      'custom_breadcrumbs_features',
+      'custom_breadcrumbs',
+      'custom_breadcrumbsapi',
+      'custom_breadcrumbs_panels',
+      'custom_breadcrumbs_paths',
+      'custom_breadcrumbs_taxonomy',
+      'custom_breadcrumbs_views'
+    );
+    $this->user = $this->drupalCreateUser(array('administer features', 'administer custom breadcrumbs'));
+    $this->drupalLogin($this->user);
+  }
+
+  /**
+   * 1) By default, crumbs are in default state in Features.
+   * 2) If we modify a crumb, its state becomes override.
+   * 3) If we revert the feature, the crumb loses its modifications.
+   */
+  public function testFeaturesIntegration() {
+    module_enable(array('custom_breadcrumbs_features_test'));
+    // Run a features rebuild to ensure our feature is fully installed.
+    features_rebuild();
+
+    module_load_include('inc', 'features', 'features.export');
+
+    // Crumbs featurized in custom_breadcrumbs_features_test, keyed by type.
+    $machine_names = array(
+      'custom_breadcrumb'                       => 'page',
+      'custom_breadcrumbsapi'                   => 'maintenance_page',
+      'custom_breadcrumbs_panels'               => 'panel',
+      'custom_breadcrumbs_paths'                => 'admin',
+      'custom_breadcrumbs_taxonomy_term'        => 'my_term',
+      'custom_breadcrumbs_taxonomy_vocabulary'  => 'my_vocabulary',
+      'custom_breadcrumbs_views'                => 'my_view',
+    );
+
+    foreach ($machine_names as $type => $machine_name) {
+
+      // Ensure that the crumb is properly available.
+      $crumb = $this->loadBreadcrumb($type, $machine_name);
+      $this->assertTrue(!empty($crumb), t('@type present.', array('@type' => $type)));
+
+      // Ensure that the crumb is defaulted.
+      $states = features_get_component_states(array('custom_breadcrumbs_features_test'), FALSE, TRUE);
+      $this->assertTrue($states['custom_breadcrumbs_features_test'][$type] === FEATURES_DEFAULT, t('@type state: Default.', array('@type' => $type)));
+
+      // Override crumb and test that Features detects the override.
+      $crumb->name = 'Foo Bar';
+      $this->saveBreadcrumb($type, $crumb);
+      $states = features_get_component_states(array('custom_breadcrumbs_features_test'), FALSE, TRUE);
+      $this->assertTrue($states['custom_breadcrumbs_features_test'][$type] === FEATURES_OVERRIDDEN, t('@type state: Overridden.', array('@type' => $type)));
+    }
+
+    // Revert crumb and ensure that crumb has reverted.
+    // Do this in separate loops so we only have to run
+    // drupal_flush_all_caches() once.
+    foreach ($machine_names as $type => $machine_name) {
+      features_revert(array('custom_breadcrumbs_features_test' => array($type)));
+    }
+    drupal_flush_all_caches();
+    foreach ($machine_names as $type => $machine_name) {
+      // Reload so load funcion can clear cache if needed.
+      $crumb = $this->loadBreadcrumb($type, $machine_name);
+      $states = features_get_component_states(array('custom_breadcrumbs_features_test'), FALSE, TRUE);
+      $this->assertTrue($states['custom_breadcrumbs_features_test'][$type] === FEATURES_DEFAULT, t('@type reverted.', array('@type' => $type)));
+    }
+  }
+
+  /**
+   * If I create a breadcrumb, it          shows up in the features interface.
+   * If I delete a breadcrumb, it does not show  up in the features interface.
+   */
+  function testFeaturesUI() {
+    // Create dummy breadcrumbs, keyed by type.
+    $crumbs = array();
+    $crumbs['custom_breadcrumb']                      = array('node_type' => 'page');
+    $crumbs['custom_breadcrumbsapi']                  = array('module_page' => 'maintenance_page');
+    $crumbs['custom_breadcrumbs_paths']               = array('specific_path' => 'admin');
+    $crumbs['custom_breadcrumbs_taxonomy_vocabulary'] = array('vid' => taxonomy_vocabulary_machine_name_load('tags')->vid, 'paths' => 'node');
+    foreach ($crumbs as $table => $edit) {
+      $crumbs[$table]['name'] = $this->randomName();
+      $crumbs[$table]['machine_name'] = drupal_strtolower($crumbs[$table]['name']);
+    }
+    foreach ($crumbs as $table => $edit) {
+      $this->createBreadcrumb($table, $edit);
+    }
+
+    // Assert they show up in features UI.
+    $this->drupalGet('admin/structure/features/create');
+    $this->assertResponse(200);
+    foreach ($crumbs as $edit) {
+      $this->assertText($edit['name']);
+    }
+
+    // Delete breadcrumbs.
+    foreach ($crumbs as $table => $edit) {
+      $crumb = $this->loadBreadcrumb($table, $edit['machine_name']);
+      $this->deleteBreadcrumb($table, $crumb->bid);
+    }
+
+    // Assert they do not show up in features UI.
+    $this->drupalGet('admin/structure/features/create');
+    $this->assertResponse(200);
+    foreach ($crumbs as $edit) {
+      $this->assertNoText($edit['name']);
+    }
+  }
+
+}
+

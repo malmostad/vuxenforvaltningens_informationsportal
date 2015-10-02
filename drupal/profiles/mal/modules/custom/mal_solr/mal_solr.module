@@ -1,0 +1,46 @@
+<?php
+
+/**
+ * @file
+ * Solr related customizations.
+ */
+
+/**
+ * Implements hook_default_search_api_server().
+ */
+function mal_solr_default_search_api_server() {
+  $items = array();
+
+  $host = variable_get('solr_search_api_host', '');
+  $port = variable_get('solr_search_api_port', '');
+  $path = variable_get('solr_search_api_path', '');
+  $user = variable_get('solr_search_api_user', '');
+  $pass = variable_get('solr_search_api_pass', '');
+
+  $items['apache_solr'] = entity_import('search_api_server', '{
+    "name" : "Apache solr",
+    "machine_name" : "apache_solr",
+    "description" : "",
+    "class" : "search_api_solr_service",
+    "options" : {
+      "clean_ids" : true,
+      "site_hash" : true,
+      "scheme" : "http",
+      "host" : "' . $host . '",
+      "port" : "' . $port . '",
+      "path" : "\\/solr\\/' . $path . '",
+      "http_user" : "' . $user . '",
+      "http_pass" : "' . $pass . '",
+      "excerpt" : 0,
+      "retrieve_data" : 0,
+      "highlight_data" : 0,
+      "skip_schema_check" : 0,
+      "solr_version" : "",
+      "http_method" : "AUTO"
+    },
+    "enabled" : "1",
+    "rdf_mapping" : []
+  }');
+
+  return $items;
+}

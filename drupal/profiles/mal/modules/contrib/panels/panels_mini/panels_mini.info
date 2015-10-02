@@ -1,0 +1,12 @@
+name = Mini panels
+description = Create mini panels that can be used as blocks by Drupal and panes by other panel modules.
+package = "Panels"
+dependencies[] = panels
+core = 7.x
+files[] = plugins/export_ui/panels_mini_ui.class.php
+
+; Information added by drush on 2015-03-24
+version = "f7ed1af2a50c0eef9f0be0420a6bdad85811ab92"
+project = "panels"
+datestamp = "1427206687"
+

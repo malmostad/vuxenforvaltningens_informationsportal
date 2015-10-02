@@ -31,9 +31,9 @@ Feature: Search the site
     And I should not see the text "Sunday"
     And I should not see the text "Saturday"
     And I should see the text "Tider"
-    And I should see the text "Morning"
-    And I should see the text "Afternoon"
-    And I should see the text "Evening"
+    And I should see the text "Förmiddag"
+    And I should see the text "Eftermiddag"
+    And I should see the text "Kväll"
     And I should see the text "Show only searchable courses"
     And I should see the text "Enstaka kurs eller kurspaket"
 

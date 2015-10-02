@@ -1,0 +1,35 @@
+name = Custom Breadcrumbs Features Test
+description = Test module for Custom Breadcrumbs Features.
+core = 7.x
+package = Testing
+dependencies[] = custom_breadcrumbs
+dependencies[] = custom_breadcrumbs_features
+dependencies[] = custom_breadcrumbs_panels
+dependencies[] = custom_breadcrumbs_paths
+dependencies[] = custom_breadcrumbs_taxonomy
+dependencies[] = custom_breadcrumbs_views
+dependencies[] = custom_breadcrumbsapi
+dependencies[] = features
+dependencies[] = taxonomy
+dependencies[] = views
+features[ctools][] = strongarm:strongarm:1
+features[ctools][] = views:views_default:3.0
+features[custom_breadcrumb][] = page
+features[custom_breadcrumbs_panels][] = panel
+features[custom_breadcrumbs_paths][] = admin
+features[custom_breadcrumbs_taxonomy_term][] = my_term
+features[custom_breadcrumbs_taxonomy_vocabulary][] = my_vocabulary
+features[custom_breadcrumbs_views][] = my_view
+features[custom_breadcrumbsapi][] = maintenance_page
+features[features_api][] = api:2
+features[node][] = page
+features[taxonomy][] = my_vocabulary
+features[views_view][] = my_view
+hidden = 1
+
+; Information added by Drupal.org packaging script on 2013-12-14
+version = "7.x-2.0-rc1"
+core = "7.x"
+project = "custom_breadcrumbs_features"
+datestamp = "1387046006"
+

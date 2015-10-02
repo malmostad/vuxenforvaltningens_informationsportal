@@ -1,0 +1,11 @@
+name = Entity modified
+description = Read the last modified date from an entity, supports entities which do support a last modified natively.
+package = Performance and scalability
+core = 7.x
+
+; Information added by Drupal.org packaging script on 2014-09-06
+version = "7.x-1.2"
+core = "7.x"
+project = "entity_modified"
+datestamp = "1409989131"
+
