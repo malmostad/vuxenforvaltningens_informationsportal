@@ -1014,4 +1014,6 @@ function mal_update_update_7079() {
 
   // Enable new admin/content view.
   module_enable(array('view_admin_content'));
+
+  features_revert_module('config_permissions');
 }
