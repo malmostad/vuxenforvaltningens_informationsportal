@@ -26,10 +26,10 @@
     # From installation profile = 'profile', from sql dump = 'sql'.
     workflow_type: 'sql'
     # htpasswd protection for securing backups.
-    backup_user: propeople
-    backup_pass: givemebackup
+    backup_user: sweden-ci-backup
+    backup_pass: XC8J5m50F46kxo74pOqMw3cI
     # URL to the source database. Can be overridden by CI server.
-    source_database: http://{{ backup_user }}:{{ backup_pass }}@95.85.26.139/backup/latest.sql.gz
+    source_database: http://{{ backup_user }}:{{ backup_pass }}@128.199.38.86/backup/latest_malmo.sql.gz
 
   tasks:
 
