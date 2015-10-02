@@ -998,7 +998,7 @@ function mal_update_update_7078() {
             'content_type_course_packages',
             'content_type_course_template',
     // View own unpublished content.
-            'config_permissions',git 
+            'config_permissions',git
   ) as $module)
   features_revert_module($module);
 }
@@ -1006,7 +1006,7 @@ function mal_update_update_7078() {
 /**
  * Clone nodes.
  */
-function mal_update_update_7079() {
+function mal_update_update_7080() {
   module_enable(array(
     'config_node_clone',
     'node_clone',
@@ -1018,5 +1018,4 @@ function mal_update_update_7079() {
             'config_permissions',
           ) as $module)
     features_revert_module($module);
-  ));
 }
