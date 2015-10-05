@@ -998,7 +998,7 @@ function mal_update_update_7078() {
             'content_type_course_packages',
             'content_type_course_template',
     // View own unpublished content.
-            'config_permissions',git
+            'config_permissions',
   ) as $module)
   features_revert_module($module);
 }
