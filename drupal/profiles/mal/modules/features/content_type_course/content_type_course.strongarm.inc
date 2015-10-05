@@ -167,6 +167,10 @@ function content_type_course_strongarm() {
             'weight' => '6',
             'visible' => FALSE,
           ),
+          'teaser' => array(
+            'weight' => '6',
+            'visible' => FALSE,
+          ),
         ),
         'node:course_template:log' => array(
           'default' => array(
@@ -178,6 +182,10 @@ function content_type_course_strongarm() {
             'visible' => FALSE,
           ),
           'node_teaser' => array(
+            'weight' => '4',
+            'visible' => FALSE,
+          ),
+          'teaser' => array(
             'weight' => '4',
             'visible' => FALSE,
           ),
@@ -195,6 +203,10 @@ function content_type_course_strongarm() {
             'weight' => '0',
             'visible' => FALSE,
           ),
+          'teaser' => array(
+            'weight' => '0',
+            'visible' => FALSE,
+          ),
         ),
         'node:course_template:field_course_number_of_points' => array(
           'default' => array(
@@ -206,6 +218,10 @@ function content_type_course_strongarm() {
             'visible' => TRUE,
           ),
           'node_teaser' => array(
+            'weight' => '1',
+            'visible' => FALSE,
+          ),
+          'teaser' => array(
             'weight' => '1',
             'visible' => FALSE,
           ),
@@ -223,6 +239,10 @@ function content_type_course_strongarm() {
             'weight' => '16',
             'visible' => FALSE,
           ),
+          'teaser' => array(
+            'weight' => '16',
+            'visible' => FALSE,
+          ),
         ),
         'node:course_template:body' => array(
           'default' => array(
@@ -237,6 +257,10 @@ function content_type_course_strongarm() {
             'weight' => '17',
             'visible' => FALSE,
           ),
+          'teaser' => array(
+            'weight' => '17',
+            'visible' => FALSE,
+          ),
         ),
         'node:course_template:field_course_national_code' => array(
           'default' => array(
@@ -248,6 +272,10 @@ function content_type_course_strongarm() {
             'visible' => TRUE,
           ),
           'node_teaser' => array(
+            'weight' => '18',
+            'visible' => FALSE,
+          ),
+          'teaser' => array(
             'weight' => '18',
             'visible' => FALSE,
           ),
@@ -275,6 +303,10 @@ function content_type_course_strongarm() {
             'weight' => '20',
             'visible' => FALSE,
           ),
+          'teaser' => array(
+            'weight' => '20',
+            'visible' => FALSE,
+          ),
         ),
         'node:course_template:field_course_orientation' => array(
           'default' => array(
@@ -296,6 +328,10 @@ function content_type_course_strongarm() {
             'visible' => FALSE,
           ),
           'node_teaser' => array(
+            'weight' => '19',
+            'visible' => FALSE,
+          ),
+          'teaser' => array(
             'weight' => '19',
             'visible' => FALSE,
           ),

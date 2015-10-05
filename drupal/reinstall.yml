@@ -167,11 +167,6 @@
     shell: "drush rr" #"{{ php_env_vars }} drush -y rr -l {{ site_url }} || true && {{ php_env_vars }} drush -y rr -l {{ site_url }} || true"
     when: workflow_type == "sql"
 
-  - name: Remove live search server
-    sudo: yes
-    shell: "{{ php_env_vars }} drush eval 'search_api_server_delete(\'apache_solr\');'"
-    when: workflow_type == "sql"
-
   - name: Updating database
     sudo: yes
     shell: "{{ php_env_vars }} drush -dvy updb -l {{ site_url }}"
@@ -220,3 +215,8 @@
     sudo: yes
     shell: "{{ php_env_vars }} drush -y search-api-index -l {{ site_url }}"
     when: pp_environment == "demo" or pp_environment == "default"
+
+  - name: Remove live search server
+    sudo: yes
+    shell: "{{ php_env_vars }} drush eval 'search_api_server_delete(\'apache_solr\');'"
+    when: workflow_type == "sql"
