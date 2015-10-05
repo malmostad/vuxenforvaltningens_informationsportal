@@ -1008,14 +1008,15 @@ function mal_update_update_7078() {
  */
 function mal_update_update_7080() {
   module_enable(array(
-    'config_node_clone',
-    'node_clone',
+    'clone',
     'field_collection_node_clone',
+    'config_node_clone',
   ));
-  foreach(array(
-            'config_search',
-            'content_type_course',
-            'config_permissions',
-          ) as $module)
+  foreach (array(
+             'config_search',
+             'content_type_course',
+             'config_permissions',
+           ) as $module) {
     features_revert_module($module);
+  }
 }
