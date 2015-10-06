@@ -1012,8 +1012,11 @@ function mal_update_update_7079() {
   $status['admin_views_node'] = TRUE;
   variable_set('views_defaults', $status);
 
-  // Enable new admin/content view.
-  module_enable(array('view_admin_content'));
+  module_enable(array(
+    'pm_existing_pages',
+    'view_admin_content',
+    'page_admin_content',
+  ));
 
   features_revert_module('config_permissions');
 }
