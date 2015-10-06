@@ -30,7 +30,6 @@ function mal_ux_improvements_navbar() {
     'tab' => array(
       '#type' => 'link',
       '#title' => t('Help'),
-
       '#href' => variable_get('mal_help_link', 'http://drupal.org'),
       '#options' => array(
         'attributes' => array('target' => '_blank'),
@@ -50,4 +49,18 @@ function mal_ux_improvements_navbar() {
  */
 function mal_ux_improvements_update_projects_alter(&$projects) {
   $projects['panels']['info']['version'] = '7.x-3.x-dev';
+}
+
+/**
+ * Implements hook_views_query_alter().
+ */
+function mal_ux_improvements_views_query_alter(&$view, &$query) {
+  global $user;
+  if (($view->name == 'new_administration_nodes')
+    && (in_array('School editor', $user->roles))
+  ) {
+//    $or = db_or()
+//      ->condition('field_course_school_node.type', array('course_template'), 'IN');
+//    $query->add_where(1, $or);
+  }
 }
