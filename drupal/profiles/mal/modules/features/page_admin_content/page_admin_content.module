@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Page admin content feature.
+ */
+
+include_once 'page_admin_content.features.inc';
