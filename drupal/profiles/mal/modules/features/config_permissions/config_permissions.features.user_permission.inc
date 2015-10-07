@@ -717,6 +717,7 @@ function config_permissions_user_default_permissions() {
   $permissions['bypass node access'] = array(
     'name' => 'bypass node access',
     'roles' => array(
+      'School editor' => 'School editor',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -807,6 +808,30 @@ function config_permissions_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'user',
+  );
+
+  // Exported permission: 'clone node'.
+  $permissions['clone node'] = array(
+    'name' => 'clone node',
+    'roles' => array(
+      'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
+      'School editor' => 'School editor',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'clone',
+  );
+
+  // Exported permission: 'clone own nodes'.
+  $permissions['clone own nodes'] = array(
+    'name' => 'clone own nodes',
+    'roles' => array(
+      'Malmo middle admin' => 'Malmo middle admin',
+      'Malmo top admin' => 'Malmo top admin',
+      'School editor' => 'School editor',
+      'administrator' => 'administrator',
+    ),
+    'module' => 'clone',
   );
 
   // Exported permission: 'create course content'.
@@ -1420,6 +1445,7 @@ function config_permissions_user_default_permissions() {
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
       'Malmo top admin' => 'Malmo top admin',
+      'School editor' => 'School editor',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -1431,6 +1457,7 @@ function config_permissions_user_default_permissions() {
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
       'Malmo top admin' => 'Malmo top admin',
+      'School editor' => 'School editor',
       'administrator' => 'administrator',
     ),
     'module' => 'node',

@@ -13,21 +13,6 @@ function mal_ux_improvements_views_api() {
 }
 
 /**
- * Implements hook_views_query_alter().
- */
-function mal_ux_improvements_views_query_alter(&$view, &$query) {
-  global $user;
-  if (($view->name == 'admin_views_node')
-        && (in_array('School editor', $user->roles))) {
-    $group_id = $query->set_where_group();
-    $query->add_where($group_id,
-      db_and()
-         ->condition('node.uid', $user->uid)
-     );
-  }
-}
-
-/**
  * Implements hook_form_FORM_TYPE_alter().
  */
 function mal_ux_improvements_form_node_form_alter(&$form, &$form_state) {
@@ -45,7 +30,6 @@ function mal_ux_improvements_navbar() {
     'tab' => array(
       '#type' => 'link',
       '#title' => t('Help'),
-
       '#href' => variable_get('mal_help_link', 'http://drupal.org'),
       '#options' => array(
         'attributes' => array('target' => '_blank'),
@@ -65,4 +49,39 @@ function mal_ux_improvements_navbar() {
  */
 function mal_ux_improvements_update_projects_alter(&$projects) {
   $projects['panels']['info']['version'] = '7.x-3.x-dev';
+}
+
+/**
+ * Implements hook_views_query_alter().
+ */
+function mal_ux_improvements_views_query_alter(&$view, &$query) {
+  global $user;
+
+  if (($view->name == 'new_administration_nodes')
+  ) {
+    // Custom query for non Kursmall filter. Exclude kursmall results when
+    // course or course_package selected.
+    if (!in_array($view->exposed_raw_input['type'], array('All', 'course_template'))) {
+      // Exclude kursmall if checked course ore course_template.
+      if (isset($query->where[2])) {
+        unset($query->where[2]);
+      }
+    }
+
+    // Set up "contextual filter" - filter results by user's schools.
+    $account = user_load($user->uid);
+    $field_items = field_get_items('user', $account, 'field_user_school');
+
+    if ($field_items) {
+      $target_ids = array();
+
+      foreach ($field_items as $item) {
+        $target_ids[] = $item['target_id'];
+      }
+
+      $and = db_and()
+        ->condition('field_data_field_course_school.field_course_school_target_id', $target_ids, 'IN');
+      $query->add_where(1, $and);
+    }
+  }
 }

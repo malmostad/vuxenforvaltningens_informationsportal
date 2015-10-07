@@ -1,0 +1,17 @@
+name = Page admin content
+core = 7.x
+package = Pages
+version = 7.x-1.0
+project = page_admin_content
+dependencies[] = ctools
+dependencies[] = page_manager
+dependencies[] = pm_existing_pages
+dependencies[] = strongarm
+features[ctools][] = page_manager:pages_default:1
+features[ctools][] = pm_existing_pages:pm_existing_pages:1
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[page_manager_existing_pages][] = admin_content_views
+features[page_manager_handlers][] = pm_existing_pages_admin_content_views__panel_context_bb5f36d0-179b-4d04-9f89-d979f70ce98c
+features[variable][] = pm_existing_pages_disabled_admin_content_views
+project path = profiles/mal/modules/features

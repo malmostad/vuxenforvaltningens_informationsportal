@@ -96,7 +96,8 @@ function content_type_course_field_group_info() {
     'weight' => '3',
     'children' => array(
       0 => 'field_course_group',
-      1 => 'node:course_template:field_course_national_code',
+      1 => 'field_course_info',
+      2 => 'node:course_template:field_course_national_code',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(
@@ -127,8 +128,9 @@ function content_type_course_field_group_info() {
     'children' => array(
       0 => 'field_course_application_period',
       1 => 'field_course_group',
-      2 => 'node:course_template:body',
-      3 => 'node:course_template:field_course_national_code',
+      2 => 'field_course_info',
+      3 => 'node:course_template:body',
+      4 => 'node:course_template:field_course_national_code',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
