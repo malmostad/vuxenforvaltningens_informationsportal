@@ -56,11 +56,32 @@ function mal_ux_improvements_update_projects_alter(&$projects) {
  */
 function mal_ux_improvements_views_query_alter(&$view, &$query) {
   global $user;
+
   if (($view->name == 'new_administration_nodes')
-    && (in_array('School editor', $user->roles))
   ) {
-//    $or = db_or()
-//      ->condition('field_course_school_node.type', array('course_template'), 'IN');
-//    $query->add_where(1, $or);
+    // Custom query for non Kursmall filter. Exclude kursmall results when
+    // course or course_package selected.
+    if (!in_array($view->exposed_raw_input['type'], array('All', 'course_template'))) {
+      // Exclude kursmall if checked course ore course_template.
+      if (isset($query->where[2])) {
+        unset($query->where[2]);
+      }
+    }
+
+    // Set up "contextual filter" - filter results by user's schools.
+    $account = user_load($user->uid);
+    $field_items = field_get_items('user', $account, 'field_user_school');
+
+    if ($field_items) {
+      $target_ids = array();
+
+      foreach ($field_items as $item) {
+        $target_ids[] = $item['target_id'];
+      }
+
+      $and = db_and()
+        ->condition('field_data_field_course_school.field_course_school_target_id', $target_ids, 'IN');
+      $query->add_where(1, $and);
+    }
   }
 }
