@@ -1002,3 +1002,21 @@ function mal_update_update_7078() {
   ) as $module)
   features_revert_module($module);
 }
+
+/**
+ * New admin/content view.
+ */
+function mal_update_update_7079() {
+  // Disable standard admin/content view.
+  $status = variable_get('views_defaults', array());
+  $status['admin_views_node'] = TRUE;
+  variable_set('views_defaults', $status);
+
+  module_enable(array(
+    'pm_existing_pages',
+    'view_admin_content',
+    'page_admin_content',
+  ));
+
+  features_revert_module('config_permissions');
+}
