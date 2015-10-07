@@ -393,7 +393,7 @@ function content_type_course_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'timefield_weekly_summary_days';
   $strongarm->value = array(
-    'mon' => 'Mandag',
+    'mon' => 'Måndag',
     'tue' => 'Tisdag',
     'wed' => 'Onsdag',
     'thu' => 'Torsdag',
