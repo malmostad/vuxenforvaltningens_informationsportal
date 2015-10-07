@@ -512,7 +512,7 @@ function mal_update_update_7037() {
 
 /**
  * Revert user planning page.
- * 
+ *
  * Remove obsolete fields.
  */
 function mal_update_update_7038() {
@@ -1019,4 +1019,23 @@ function mal_update_update_7079() {
   ));
 
   features_revert_module('config_permissions');
+}
+
+/**
+ * Clone nodes.
+ */
+function mal_update_update_7080() {
+  module_enable(array(
+    'clone',
+    'field_collection_node_clone',
+    'config_node_clone',
+  ));
+  foreach (array(
+             'config_search',
+             'content_type_course',
+             'config_permissions',
+             'view_admin_content',
+           ) as $module) {
+    features_revert_module($module);
+  }
 }
