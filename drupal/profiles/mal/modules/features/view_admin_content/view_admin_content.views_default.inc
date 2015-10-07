@@ -529,6 +529,37 @@ function view_admin_content_views_default_views() {
     4 => 0,
   );
   $handler->display->display_options['filters']['type']['expose']['reduce'] = TRUE;
+  /* Filterkriterium: Innehåll: Kursform (field_course_form) */
+  $handler->display->display_options['filters']['field_course_form_tid']['id'] = 'field_course_form_tid';
+  $handler->display->display_options['filters']['field_course_form_tid']['table'] = 'field_data_field_course_form';
+  $handler->display->display_options['filters']['field_course_form_tid']['field'] = 'field_course_form_tid';
+  $handler->display->display_options['filters']['field_course_form_tid']['value'] = array(
+    26 => '26',
+    28 => '28',
+    27 => '27',
+    48 => '48',
+    49 => '49',
+  );
+  $handler->display->display_options['filters']['field_course_form_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_course_form_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_course_form_tid']['expose']['operator_id'] = 'field_course_form_tid_op';
+  $handler->display->display_options['filters']['field_course_form_tid']['expose']['label'] = 'Kursform';
+  $handler->display->display_options['filters']['field_course_form_tid']['expose']['operator'] = 'field_course_form_tid_op';
+  $handler->display->display_options['filters']['field_course_form_tid']['expose']['identifier'] = 'field_course_form_tid';
+  $handler->display->display_options['filters']['field_course_form_tid']['expose']['remember'] = TRUE;
+  $handler->display->display_options['filters']['field_course_form_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    6 => 0,
+    5 => 0,
+    3 => 0,
+    4 => 0,
+  );
+  $handler->display->display_options['filters']['field_course_form_tid']['expose']['reduce'] = TRUE;
+  $handler->display->display_options['filters']['field_course_form_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_course_form_tid']['vocabulary'] = 'course_form';
+  $handler->display->display_options['filters']['field_course_form_tid']['hierarchy'] = 1;
+  $handler->display->display_options['filters']['field_course_form_tid']['error_message'] = FALSE;
   /* Filterkriterium: Innehåll: Publicerad */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -638,6 +669,7 @@ function view_admin_content_views_default_views() {
     t('View panes'),
     t('New content pane'),
     t('författare'),
+    t('Kursform'),
   );
   $export['new_administration_nodes'] = $view;
 
