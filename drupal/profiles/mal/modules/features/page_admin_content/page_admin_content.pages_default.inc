@@ -77,10 +77,10 @@ function page_admin_content_default_page_manager_handlers() {
     $display->content['new-220c09d1-af44-4299-82ac-8b3075f51d7c'] = $pane;
     $display->panels['middle'][0] = 'new-220c09d1-af44-4299-82ac-8b3075f51d7c';
     $pane = new stdClass();
-    $pane->pid = 'new-8d4bd66b-4b70-43c5-953a-70b2eb77ed27';
+    $pane->pid = 'new-1cf87e36-d798-4415-876c-ee6921e4023c';
     $pane->panel = 'middle';
     $pane->type = 'views_panes';
-    $pane->subtype = 'new_administration_nodes-panel_pane_1';
+    $pane->subtype = 'new_administration_nodes-panel_pane_2';
     $pane->shown = TRUE;
     $pane->access = array(
       'plugins' => array(
@@ -105,9 +105,9 @@ function page_admin_content_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $pane->uuid = '8d4bd66b-4b70-43c5-953a-70b2eb77ed27';
-    $display->content['new-8d4bd66b-4b70-43c5-953a-70b2eb77ed27'] = $pane;
-    $display->panels['middle'][1] = 'new-8d4bd66b-4b70-43c5-953a-70b2eb77ed27';
+    $pane->uuid = '1cf87e36-d798-4415-876c-ee6921e4023c';
+    $display->content['new-1cf87e36-d798-4415-876c-ee6921e4023c'] = $pane;
+    $display->panels['middle'][1] = 'new-1cf87e36-d798-4415-876c-ee6921e4023c';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
