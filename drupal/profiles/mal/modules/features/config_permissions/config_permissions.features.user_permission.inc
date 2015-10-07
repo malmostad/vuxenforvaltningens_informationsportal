@@ -717,6 +717,7 @@ function config_permissions_user_default_permissions() {
   $permissions['bypass node access'] = array(
     'name' => 'bypass node access',
     'roles' => array(
+      'School editor' => 'School editor',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -1444,6 +1445,7 @@ function config_permissions_user_default_permissions() {
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
       'Malmo top admin' => 'Malmo top admin',
+      'School editor' => 'School editor',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -1455,6 +1457,7 @@ function config_permissions_user_default_permissions() {
     'roles' => array(
       'Malmo middle admin' => 'Malmo middle admin',
       'Malmo top admin' => 'Malmo top admin',
+      'School editor' => 'School editor',
       'administrator' => 'administrator',
     ),
     'module' => 'node',

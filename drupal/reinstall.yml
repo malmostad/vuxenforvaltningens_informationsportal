@@ -16,7 +16,7 @@
     cache_folder: /var/www/cache
     backup_folder: /var/www/backup
     php_env_vars: 'APP_ENV=dev' # APP_ENV=dev - this varible will be set at PR_BUILDER from CI shell executor.
-    site_url: 'http://mal.dev/'
+    site_url: 'http://mal.dev'
     stage_file_proxy_url: 'http://malmo-live.propeople.com.ua/'
     solr_search_api_path: demo
     # This variable will be used for variable_get('environment'). Can be overridden by CI server.
