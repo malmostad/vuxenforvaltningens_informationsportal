@@ -1034,6 +1034,7 @@ function mal_update_update_7080() {
              'config_search',
              'content_type_course',
              'config_permissions',
+             'view_admin_content',
            ) as $module) {
     features_revert_module($module);
   }
