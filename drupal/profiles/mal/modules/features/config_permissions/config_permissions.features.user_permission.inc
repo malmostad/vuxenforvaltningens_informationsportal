@@ -717,7 +717,6 @@ function config_permissions_user_default_permissions() {
   $permissions['bypass node access'] = array(
     'name' => 'bypass node access',
     'roles' => array(
-      'School editor' => 'School editor',
       'administrator' => 'administrator',
     ),
     'module' => 'node',
@@ -2881,14 +2880,18 @@ function config_permissions_user_default_permissions() {
   // Exported permission: 'view any unpublished course content'.
   $permissions['view any unpublished course content'] = array(
     'name' => 'view any unpublished course content',
-    'roles' => array(),
+    'roles' => array(
+      'School editor' => 'School editor',
+    ),
     'module' => 'view_unpublished',
   );
 
   // Exported permission: 'view any unpublished course_packages content'.
   $permissions['view any unpublished course_packages content'] = array(
     'name' => 'view any unpublished course_packages content',
-    'roles' => array(),
+    'roles' => array(
+      'School editor' => 'School editor',
+    ),
     'module' => 'view_unpublished',
   );
 

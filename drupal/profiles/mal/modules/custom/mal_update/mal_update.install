@@ -1039,3 +1039,10 @@ function mal_update_update_7080() {
     features_revert_module($module);
   }
 }
+
+/**
+ * Revert config_permissions feature.
+ */
+function mal_update_update_7081() {
+  features_revert_module('config_permissions');
+}
