@@ -1041,14 +1041,23 @@ function mal_update_update_7080() {
 }
 
 /**
- * Change filter options in view 'My courses'.
+ * Revert config_permissions feature.
  */
 function mal_update_update_7081() {
-  foreach (array(
-    'user_subscribed_courses_view',
-    'content_type_course',
-    'view_admin_content',
-  ) as $module) {
+  features_revert_module('config_permissions');
+}
+
+/**
+ * Change filter options in view 'My courses'.
+ */
+function mal_update_update_7082() {
+  foreach (
+    array(
+      'user_subscribed_courses_view',
+      'content_type_course',
+      'view_admin_content',
+    ) as $module
+  ) {
     features_revert_module($module);
   }
 }
