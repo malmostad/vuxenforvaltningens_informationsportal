@@ -55,7 +55,6 @@ function mal_entityreference_widget_alter_field_widget_form_alter(&$element, &$f
     }
     if (($element['#field_name'] == 'field_course_school') && ($form_state['build_info']['form_id'] != 'user_profile_form')) {
       // Only on node creation.
-      // TODO: BUG HERE. Should be and fixed.
       if (!user_access('change field_course_school field')) {
         global $user;
         $entity = user_load($user->uid);

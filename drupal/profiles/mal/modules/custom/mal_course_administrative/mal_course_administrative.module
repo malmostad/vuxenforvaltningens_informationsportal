@@ -11,10 +11,6 @@ function mal_course_administrative_form_course_node_form_alter(&$form, &$form_st
   $form['#attached']['css'][drupal_get_path('theme', 'city_of_malmo') . '/assets/stylesheets/overrides.css'] = array('group' => CSS_THEME);
   $form['#attached']['js'][drupal_get_path('module', 'mal_course_administrative') . '/mal_course_administratove.js'] = array('type' => 'file');
 
-  $form['field_course_periods']['#states']['invisible'] = array(
-    ':input[name="field_course_flex[und]"]' => array('checked' => TRUE),
-  );
-
   $form['field_course_application_period']['#after_build'][]
     = $form['field_course_date']['#after_build'][]
       = 'mal_course_administrative_app_period_after_build';
@@ -114,17 +110,6 @@ function mal_course_administrative_course_period_validate($form, &$form_state) {
   }
   else {
     $values['field_course_flex'][$lang_flex][0]['value'] = $form['field_course_flex'][$lang_flex]['#off_value'];
-  }
-
-  if ($values['field_course_flex'][$lang_flex][0]['value']) {
-    $lang_days = field_language('node', $form_state['node'], 'field_course_periods');
-
-    // Remove all periods from node.
-    $values['field_course_periods'][$lang_days] = array(
-      0 => array(
-        'value' => NULL,
-      ),
-    );
   }
 
   $lang_course_date = field_language('node', $form_state['node'], 'field_course_date');

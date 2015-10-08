@@ -1,3 +1,4 @@
+/* jshint loopfunc:true */
 (function ($) {
   Drupal.behaviors.malHint = {
     attach: function (context, settings) {
@@ -8,10 +9,10 @@
               title: settings.malHint[arg].hint,
               placement: 'auto'
             });
-            $(this).prepend(hint)
+            $(this).prepend(hint);
           });
         }
       }
     }
-  }
+  };
 })(jQuery);

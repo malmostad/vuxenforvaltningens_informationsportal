@@ -51,8 +51,8 @@ function search_date_filter_form(array $form, array &$form_state, $conf) {
     '#suffix' => '<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>',
   );
 
-  drupal_add_js(drupal_get_path('module', 'mal_ctools_search_date_filter') . '/js/bootstrap-datepicker.js');
-  drupal_add_js(drupal_get_path('module', 'mal_ctools_search_date_filter') . '/js/bootstrap-datepicker.sv.js');
+  drupal_add_js(drupal_get_path('module', 'mal_ctools_search_date_filter') . '/js/bootstrap-datepicker.min.js');
+  drupal_add_js(drupal_get_path('module', 'mal_ctools_search_date_filter') . '/js/bootstrap-datepicker.sv.min.js');
   drupal_add_js(drupal_get_path('module', 'mal_ctools_search_date_filter') . '/js/facetapi_date_popup_calendar.js');
 
   $form['submit'] = array(

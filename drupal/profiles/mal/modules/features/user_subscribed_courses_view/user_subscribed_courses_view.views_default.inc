@@ -274,6 +274,47 @@ function user_subscribed_courses_view_views_default_views() {
   $handler->display->display_options['fields']['field_course_continuos']['label'] = '';
   $handler->display->display_options['fields']['field_course_continuos']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_course_continuos']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filterkriterium: Innehåll: Publicerad */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filterkriterium: Innehåll: Typ */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'course' => 'course',
+  );
+  /* Filterkriterium: Innehåll: Searchable type (field_course_searchable_type) */
+  $handler->display->display_options['filters']['field_course_searchable_type_tid']['id'] = 'field_course_searchable_type_tid';
+  $handler->display->display_options['filters']['field_course_searchable_type_tid']['table'] = 'field_data_field_course_searchable_type';
+  $handler->display->display_options['filters']['field_course_searchable_type_tid']['field'] = 'field_course_searchable_type_tid';
+  $handler->display->display_options['filters']['field_course_searchable_type_tid']['value'] = array(
+    44 => '44',
+    43 => '43',
+  );
+  $handler->display->display_options['filters']['field_course_searchable_type_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_course_searchable_type_tid']['vocabulary'] = 'course_searchable_type';
+  /* Filterkriterium: Innehåll: Kursform (field_course_form) */
+  $handler->display->display_options['filters']['field_course_form_tid']['id'] = 'field_course_form_tid';
+  $handler->display->display_options['filters']['field_course_form_tid']['table'] = 'field_data_field_course_form';
+  $handler->display->display_options['filters']['field_course_form_tid']['field'] = 'field_course_form_tid';
+  $handler->display->display_options['filters']['field_course_form_tid']['operator'] = 'not';
+  $handler->display->display_options['filters']['field_course_form_tid']['value'] = array(
+    27 => '27',
+  );
+  $handler->display->display_options['filters']['field_course_form_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_course_form_tid']['vocabulary'] = 'course_form';
+  /* Filterkriterium: Innehåll: Tider (field_course_periods) */
+  $handler->display->display_options['filters']['field_course_periods_value']['id'] = 'field_course_periods_value';
+  $handler->display->display_options['filters']['field_course_periods_value']['table'] = 'field_data_field_course_periods';
+  $handler->display->display_options['filters']['field_course_periods_value']['field'] = 'field_course_periods_value';
+  $handler->display->display_options['filters']['field_course_periods_value']['operator'] = 'not empty';
 
   /* Display: Flex and Distance course */
   $handler = $view->new_display('panel_pane', 'Flex and Distance course', 'flex_course_pane');
@@ -360,6 +401,11 @@ function user_subscribed_courses_view_views_default_views() {
   );
   $handler->display->display_options['filters']['field_course_form_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_course_form_tid']['vocabulary'] = 'course_form';
+  /* Filterkriterium: Innehåll: Tider (field_course_periods) */
+  $handler->display->display_options['filters']['field_course_periods_value']['id'] = 'field_course_periods_value';
+  $handler->display->display_options['filters']['field_course_periods_value']['table'] = 'field_data_field_course_periods';
+  $handler->display->display_options['filters']['field_course_periods_value']['field'] = 'field_course_periods_value';
+  $handler->display->display_options['filters']['field_course_periods_value']['operator'] = 'empty';
 
   /* Display: Course pacage */
   $handler = $view->new_display('panel_pane', 'Course pacage', 'course_pacage_pane');

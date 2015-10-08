@@ -1,3 +1,4 @@
+/* jshint loopfunc:true */
 (function ($) {
     // Use strict mode to avoid errors: https://developer.mozilla.org/en/JavaScript/Strict_mode
     "use strict";
@@ -9,7 +10,7 @@
                     $('#' + field + '-value-datepicker-popup-0').change(function(){
                         $('#' + field + '-value2-datepicker-popup-0').val($(this).val());
                     });
-                })(field)
+                })(field);
             }
         }
     };
