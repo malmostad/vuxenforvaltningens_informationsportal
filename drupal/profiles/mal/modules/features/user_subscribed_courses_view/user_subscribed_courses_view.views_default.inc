@@ -310,6 +310,11 @@ function user_subscribed_courses_view_views_default_views() {
   );
   $handler->display->display_options['filters']['field_course_form_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_course_form_tid']['vocabulary'] = 'course_form';
+  /* Filterkriterium: Innehåll: Tider (field_course_periods) */
+  $handler->display->display_options['filters']['field_course_periods_value']['id'] = 'field_course_periods_value';
+  $handler->display->display_options['filters']['field_course_periods_value']['table'] = 'field_data_field_course_periods';
+  $handler->display->display_options['filters']['field_course_periods_value']['field'] = 'field_course_periods_value';
+  $handler->display->display_options['filters']['field_course_periods_value']['operator'] = 'not empty';
 
   /* Display: Flex and Distance course */
   $handler = $view->new_display('panel_pane', 'Flex and Distance course', 'flex_course_pane');
