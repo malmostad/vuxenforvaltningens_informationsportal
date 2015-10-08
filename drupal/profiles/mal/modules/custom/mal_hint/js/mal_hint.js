@@ -8,10 +8,10 @@
               title: settings.malHint[arg].hint,
               placement: 'auto'
             });
-            $(this).prepend(hint)
+            $(this).prepend(hint);
           });
         }
       }
     }
-  }
+  };
 })(jQuery);

@@ -9,7 +9,7 @@
                     $('#' + field + '-value-datepicker-popup-0').change(function(){
                         $('#' + field + '-value2-datepicker-popup-0').val($(this).val());
                     });
-                })(field)
+                })(field);
             }
         }
     };

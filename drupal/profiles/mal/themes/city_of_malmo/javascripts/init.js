@@ -18,7 +18,7 @@
 
       var $flex_group = $('.facetapi-facet-course-periods-afternoon', context);
       var $time_group = $('.course-perods-base .facetapi-facet-course-periods-morning', context);
-      if ($time_group.length == 0) {
+      if ($time_group.length === 0) {
         $('.course-perods-base', context).append("<ul class=\"facetapi-facet-course-periods-morning\"></ul>");
         $time_group = $('.course-perods-base .facetapi-facet-course-periods-morning', context);
       }
