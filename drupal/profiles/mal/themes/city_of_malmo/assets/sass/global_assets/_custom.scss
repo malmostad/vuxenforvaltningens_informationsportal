@@ -1211,6 +1211,7 @@ footer.bigfoot {
   font-size: 100%;
 
   .field-label {
+    font-family: Georgia, "Droid Serif", "DejaVu Serif", "Bitstream Vera Serif", serif;
     font-weight: bold;
     margin-top: 5px;
   }
@@ -1287,6 +1288,11 @@ footer.bigfoot {
     font-size: 17px;
     margin-top: 16px;
     padding-bottom: 21px;
+  }
+
+  .pagination {
+    margin-left: 0;
+    padding-left: 0;
   }
 }
 
@@ -1394,9 +1400,10 @@ footer.bigfoot {
     }
 
     .unsubscribe {
-      bottom: 34%;
+      top: 50%;
       height: 12px;
       overflow: hidden;
+      margin-top: -6px;
       position: absolute;
       right: 8px;
       width: 12px;
@@ -2030,6 +2037,22 @@ footer.bigfoot {
       right: 0;
     }
   }
+
+  .pagination {
+    .next,
+    .previous {
+      a {
+        text-indent: -9999px;
+
+        &:after,
+        &:before {
+          display: block;
+          float: left;
+          text-indent: 0;
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 480px) {
@@ -2092,5 +2115,15 @@ footer.bigfoot {
 @media (max-width: 25em) {
   .example.buttons .btn {
     margin-bottom: .5em;
+  }
+
+  .pagination {
+    li {
+      a,
+      span {
+        font-size: 10px;
+        padding: 6px 10px 4px;
+      }
+    }
   }
 }
