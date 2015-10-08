@@ -1,5 +1,5 @@
+/* jshint loopfunc:true */
 (function ($) {
-  /* jshint loopfunc:true */
   Drupal.behaviors.malHint = {
     attach: function (context, settings) {
       if (typeof($.prototype.tooltip) != 'undefined' && typeof(settings.malHint) != 'undefined' && settings.malHint.length) {

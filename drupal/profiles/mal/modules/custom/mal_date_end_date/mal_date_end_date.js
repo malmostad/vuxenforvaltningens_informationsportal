@@ -1,6 +1,6 @@
+/* jshint loopfunc:true */
 (function ($) {
     // Use strict mode to avoid errors: https://developer.mozilla.org/en/JavaScript/Strict_mode
-    /* jshint loopfunc:true */
     "use strict";
     Drupal.behaviors.datepickertweaks = {
         attach: function (context, settings) {
