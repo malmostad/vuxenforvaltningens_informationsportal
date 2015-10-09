@@ -193,7 +193,7 @@ function mal_course_template_selection_form_course_node_form_alter(&$form, &$for
     }
   }
 
-  if (isset($field_course_template['filter_subject_areas']) && !is_null($field_course_template['filter_subject_areas'])) {
+  if (!empty($field_course_template['filter_subject_areas']['#options'])) {
     asort($field_course_template['filter_subject_areas']['#options']);
   }
 }
