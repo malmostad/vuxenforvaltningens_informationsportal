@@ -24,7 +24,6 @@ function view_admin_content_views_default_views() {
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->display->display_options['title'] = 'Innehåll';
   $handler->display->display_options['css_class'] = 'admin-views-view';
-  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'mer';
   $handler->display->display_options['access']['type'] = 'menu';
@@ -633,6 +632,7 @@ function view_admin_content_views_default_views() {
   $handler->display->display_options['filters']['status_1']['field'] = 'status';
   $handler->display->display_options['filters']['status_1']['value'] = '1';
   $handler->display->display_options['filters']['status_1']['group'] = 2;
+  $handler->display->display_options['inherit_panels_path'] = '1';
   $translatables['new_administration_nodes'] = array(
     t('Defaults'),
     t('Innehåll'),
@@ -692,7 +692,6 @@ function view_admin_content_views_default_views() {
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->display->display_options['title'] = 'Innehåll';
   $handler->display->display_options['css_class'] = 'admin-views-view';
-  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'mer';
   $handler->display->display_options['access']['type'] = 'menu';
@@ -1000,6 +999,7 @@ function view_admin_content_views_default_views() {
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler->display->display_options['inherit_panels_path'] = '1';
   $translatables['view_admin_view_old'] = array(
     t('Defaults'),
     t('Innehåll'),
