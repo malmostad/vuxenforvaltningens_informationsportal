@@ -2409,6 +2409,15 @@ function config_permissions_user_default_permissions() {
     'module' => 'publish_button',
   );
 
+  // Exported permission: 'publish button publish own course_packages'.
+  $permissions['publish button publish own course_packages'] = array(
+    'name' => 'publish button publish own course_packages',
+    'roles' => array(
+      'School editor' => 'School editor',
+    ),
+    'module' => 'publish_button',
+  );
+
   // Exported permission: 'publish button unpublish any content types'.
   $permissions['publish button unpublish any content types'] = array(
     'name' => 'publish button unpublish any content types',
