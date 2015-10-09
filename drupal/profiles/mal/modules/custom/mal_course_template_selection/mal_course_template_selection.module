@@ -192,6 +192,10 @@ function mal_course_template_selection_form_course_node_form_alter(&$form, &$for
       $field_course_template[$langcode_ct]['#access'] = TRUE;
     }
   }
+
+  if (!empty($field_course_template['filter_subject_areas']['#options'])) {
+    asort($field_course_template['filter_subject_areas']['#options']);
+  }
 }
 
 /**
