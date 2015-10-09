@@ -436,6 +436,11 @@ function view_admin_content_views_default_views() {
   $handler->display->display_options['fields']['type']['table'] = 'node';
   $handler->display->display_options['fields']['type']['field'] = 'type';
   $handler->display->display_options['fields']['type']['relationship'] = 'reverse_field_course_school_node';
+  /* Fält: Innehåll: Kursform */
+  $handler->display->display_options['fields']['field_course_form']['id'] = 'field_course_form';
+  $handler->display->display_options['fields']['field_course_form']['table'] = 'field_data_field_course_form';
+  $handler->display->display_options['fields']['field_course_form']['field'] = 'field_course_form';
+  $handler->display->display_options['fields']['field_course_form']['type'] = 'taxonomy_term_reference_plain';
   /* Fält: Användare: Namn */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
