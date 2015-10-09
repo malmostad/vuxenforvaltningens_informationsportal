@@ -1075,3 +1075,10 @@ function mal_update_update_7083() {
 function mal_update_update_7084() {
   features_revert_module('view_admin_content');
 }
+
+/**
+ * Disable ajax in admin/content.
+ */
+function mal_update_update_7085() {
+  features_revert_module('view_admin_content');
+}
