@@ -191,3 +191,16 @@ function mal_course_administrative_form_course_packages_node_form_alter(&$form, 
     }
   }
 }
+
+/**
+ * Implements hook_preprocess().
+ */
+function mal_course_administrative_preprocess(&$variables, $hook) {
+  if ('page' == $hook && 'admin' == arg(0)) {
+    $file_relative_path = drupal_get_path('theme', 'city_of_malmo') . "/assets/stylesheets/malmo-admin.css";
+
+    if (file_exists(DRUPAL_ROOT . '/' . $file_relative_path)) {
+      drupal_add_css($file_relative_path);
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.view-new-administration-nodes {
+  .views-exposed-widget {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+  }
+
+  .views-widget-filter-uid {
+    label {
+      margin-top: 4px;
+      vertical-align: top;
+    }
+
+    input {
+      width: 300px !important;
+    }
+  }
+}
