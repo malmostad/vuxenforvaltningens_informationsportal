@@ -1,6 +1,8 @@
 name = View admin content
 core = 7.x
 package = Views
+version = 7.x-1.0
+project = view_admin_content
 dependencies[] = views
 dependencies[] = views_content
 features[ctools][] = views:views_default:3.0
