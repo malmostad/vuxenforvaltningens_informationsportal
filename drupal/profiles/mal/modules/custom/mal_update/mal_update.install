@@ -1089,10 +1089,3 @@ function mal_update_update_7085() {
 function mal_update_update_7086() {
   features_revert_module('view_admin_content');
 }
-
-/**
- * Enable AJAX in view 'Search (Node)'.
- */
-function mal_update_update_7087() {
-  features_revert_module('view_search');
-}
