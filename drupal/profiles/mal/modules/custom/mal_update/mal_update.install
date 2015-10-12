@@ -1082,3 +1082,10 @@ function mal_update_update_7084() {
 function mal_update_update_7085() {
   features_revert_module('view_admin_content');
 }
+
+/**
+ * Rename clone link to Kopiera.
+ */
+function mal_update_update_7086() {
+  features_revert_module('view_admin_content');
+}
