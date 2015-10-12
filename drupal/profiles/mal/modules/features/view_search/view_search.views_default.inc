@@ -78,6 +78,8 @@ function view_search_views_default_views() {
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['argument_input'] = array(
     'search_api_views_fulltext' => array(
       'type' => 'panel',
