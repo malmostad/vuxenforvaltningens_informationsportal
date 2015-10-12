@@ -1068,3 +1068,10 @@ function mal_update_update_7082() {
 function mal_update_update_7083() {
   features_revert_module('config_permissions');
 }
+
+/**
+ * Revert Admin content view.
+ */
+function mal_update_update_7084() {
+  features_revert_module('view_admin_content');
+}

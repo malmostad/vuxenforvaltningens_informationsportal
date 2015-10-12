@@ -475,6 +475,7 @@ function view_admin_content_views_default_views() {
   $handler->display->display_options['fields']['clone_node']['field'] = 'clone_node';
   $handler->display->display_options['fields']['clone_node']['label'] = '';
   $handler->display->display_options['fields']['clone_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['clone_node']['text'] = 'kopiera';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['filter_groups']['operator'] = 'OR';
@@ -669,6 +670,7 @@ function view_admin_content_views_default_views() {
     t('View panes'),
     t('New content pane'),
     t('författare'),
+    t('kopiera'),
     t('Kursform'),
   );
   $export['new_administration_nodes'] = $view;
@@ -931,6 +933,7 @@ function view_admin_content_views_default_views() {
   $handler->display->display_options['fields']['clone_node']['field'] = 'clone_node';
   $handler->display->display_options['fields']['clone_node']['label'] = '';
   $handler->display->display_options['fields']['clone_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['clone_node']['text'] = 'kopiera';
   /* Filterkriterium: Innehåll: Titel */
   $handler->display->display_options['filters']['title']['id'] = 'title';
   $handler->display->display_options['filters']['title']['table'] = 'node';
@@ -1030,6 +1033,7 @@ function view_admin_content_views_default_views() {
     t('Publicerad'),
     t('Uppdaterad'),
     t('Funktioner'),
+    t('kopiera'),
     t('Content pane'),
     t('View panes'),
   );
