@@ -40,7 +40,7 @@ function mal_course_scheduler_entity_presave($entity, $entity_type) {
 
     // Searchable now from continuous field and app period is empty.
     if (!empty($continuous) && $continuous[0]['value'] && empty($app_period['value'])) {
-      $entity->field_course_searchable_type[$searchable_lang][0]['tid'] = variable_get('mal_generate_content_searchable_type_0', 73);
+      $entity->field_course_searchable_type[$searchable_lang][0]['tid'] = variable_get('mal_generate_content_searchable_type_0', 74);
       return;
     }
 
