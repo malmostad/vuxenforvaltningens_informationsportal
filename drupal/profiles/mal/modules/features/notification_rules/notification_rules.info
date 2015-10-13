@@ -9,3 +9,4 @@ dependencies[] = rules
 features[features_api][] = api:2
 features[rules_config][] = rules_notification_on_new_template_content
 features[rules_config][] = rules_notification_on_unpublish_courses
+features[rules_config][] = rules_uncheck_dont_send_mail_checkbox_when_course_is_published
