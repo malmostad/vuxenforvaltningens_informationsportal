@@ -744,6 +744,65 @@ function content_type_course_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-course-field_dont_send_mail'
+  $field_instances['node-course-field_dont_send_mail'] = array(
+    'bundle' => 'course',
+    'custom_add_another' => '',
+    'custom_remove' => '',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 16,
+      ),
+      'node_teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'search_result' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_dont_send_mail',
+    'label' => 'Don\'t send mail',
+    'required' => 0,
+    'settings' => array(
+      'custom_add_another' => '',
+      'custom_remove' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 16,
+    ),
+  );
+
   // Exported field_instance: 'node-course-field_registration'
   $field_instances['node-course-field_registration'] = array(
     'bundle' => 'course',
@@ -829,6 +888,7 @@ function content_type_course_field_default_field_instances() {
   t('Ange när kurs/kurspaket startar och slutar');
   t('Ansökningsperiod');
   t('Course registration');
+  t('Don\'t send mail');
   t('Flex');
   t('Kommentar');
   t('Kontinuerlig');

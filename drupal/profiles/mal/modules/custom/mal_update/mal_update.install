@@ -1098,6 +1098,7 @@ function mal_update_update_7087() {
     array(
       'notification_rules',
       'content_type_course_packages',
+      'content_type_course',
     ) as $module
   ) {
     features_revert_module($module);
