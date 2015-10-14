@@ -42,6 +42,29 @@ function mal_user_custom_access_node_access($node, $op, $account) {
       }
     }
   }
+
+  // Editor should not edit courses and course-packages of schools that does
+  // not specified in user's account.
+  if (($op == 'update')
+    && (!empty($node->type))
+    && (in_array($node->type, array('course', 'course-packages')))
+  ) {
+    $user_wrapper = entity_metadata_wrapper('user', $account);
+    $node_wrapper = entity_metadata_wrapper('node', $node);
+    $course_school = !empty($node_wrapper->field_course_school) ? $node_wrapper->field_course_school->value() : new stdClass();
+    $result = NODE_ACCESS_DENY;
+
+    if (!empty($user_wrapper->field_user_school)) {
+      foreach ($user_wrapper->field_user_school->value() as $school) {
+        if (!empty($course_school->nid) && $school->nid == $course_school->nid) {
+          $result = NODE_ACCESS_ALLOW;
+        }
+      }
+    }
+
+    return $result;
+  }
+
   return NODE_ACCESS_IGNORE;
 }
 
