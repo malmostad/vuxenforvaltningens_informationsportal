@@ -117,7 +117,7 @@ function user_subscribed_courses_view_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Fält: Innehåll: Course package registration */
+  /* Fält: Innehåll: Course registration */
   $handler->display->display_options['fields']['field_registration']['id'] = 'field_registration';
   $handler->display->display_options['fields']['field_registration']['table'] = 'field_data_field_registration';
   $handler->display->display_options['fields']['field_registration']['field'] = 'field_registration';
@@ -221,7 +221,7 @@ function user_subscribed_courses_view_views_default_views() {
   $handler->display->display_options['fields']['field_course_periods']['id'] = 'field_course_periods';
   $handler->display->display_options['fields']['field_course_periods']['table'] = 'field_data_field_course_periods';
   $handler->display->display_options['fields']['field_course_periods']['field'] = 'field_course_periods';
-  $handler->display->display_options['fields']['field_course_periods']['label'] = 'Tid punkt';
+  $handler->display->display_options['fields']['field_course_periods']['label'] = 'Tidpunkt';
   $handler->display->display_options['fields']['field_course_periods']['type'] = 'muc_timefield_custom';
   $handler->display->display_options['fields']['field_course_periods']['settings'] = array(
     'display_format' => array(
@@ -248,7 +248,7 @@ function user_subscribed_courses_view_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Fält: Innehåll: Course package registration */
+  /* Fält: Innehåll: Course registration */
   $handler->display->display_options['fields']['field_registration']['id'] = 'field_registration';
   $handler->display->display_options['fields']['field_registration']['table'] = 'field_data_field_registration';
   $handler->display->display_options['fields']['field_registration']['field'] = 'field_registration';
@@ -339,7 +339,7 @@ function user_subscribed_courses_view_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Fält: Innehåll: Course package registration */
+  /* Fält: Innehåll: Course registration */
   $handler->display->display_options['fields']['field_registration']['id'] = 'field_registration';
   $handler->display->display_options['fields']['field_registration']['table'] = 'field_data_field_registration';
   $handler->display->display_options['fields']['field_registration']['field'] = 'field_registration';
@@ -429,7 +429,7 @@ function user_subscribed_courses_view_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Fält: Innehåll: Course package registration */
+  /* Fält: Innehåll: Course registration */
   $handler->display->display_options['fields']['field_registration']['id'] = 'field_registration';
   $handler->display->display_options['fields']['field_registration']['table'] = 'field_data_field_registration';
   $handler->display->display_options['fields']['field_registration']['field'] = 'field_registration';
@@ -498,7 +498,7 @@ function user_subscribed_courses_view_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Fält: Innehåll: Course package registration */
+  /* Fält: Innehåll: Course registration */
   $handler->display->display_options['fields']['field_registration']['id'] = 'field_registration';
   $handler->display->display_options['fields']['field_registration']['table'] = 'field_data_field_registration';
   $handler->display->display_options['fields']['field_registration']['field'] = 'field_registration';
@@ -575,7 +575,7 @@ function user_subscribed_courses_view_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Fält: Innehåll: Course package registration */
+  /* Fält: Innehåll: Course registration */
   $handler->display->display_options['fields']['field_registration']['id'] = 'field_registration';
   $handler->display->display_options['fields']['field_registration']['table'] = 'field_data_field_registration';
   $handler->display->display_options['fields']['field_registration']['field'] = 'field_registration';
@@ -649,7 +649,6 @@ function user_subscribed_courses_view_views_default_views() {
     t('[field_registration]'),
     t('Alla'),
     t('Course'),
-    t('Tid punkt'),
     t('<span class="course-form">[field_course_form]</span>
 [field_registration]'),
     t('View panes'),
