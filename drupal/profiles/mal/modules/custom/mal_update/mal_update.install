@@ -1096,3 +1096,18 @@ function mal_update_update_7086() {
 function mal_update_update_7087() {
   features_revert_module('user_subscribed_courses_view');
 }
+
+/**
+ * Send e-mail once if course or course package is unpublished.
+ */
+function mal_update_update_7088() {
+  foreach (
+    array(
+      'notification_rules',
+      'content_type_course_packages',
+      'content_type_course',
+    ) as $module
+  ) {
+    features_revert_module($module);
+  }
+}
