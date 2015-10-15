@@ -207,7 +207,7 @@ function user_register_field_formatter_view($entity_type, $entity, $field, $inst
       case 'toggling_registration_form':
         if (user_is_anonymous()) {
           $message = t('!login or !register to subscribe the course.', array(
-            '!login' => l(t('Log in'), 'user'),
+            '!login' => l(t('Log in'), 'user/login'),
             '!register' => l(t('register'), 'register'),
           ));
           $element[0] = array(
