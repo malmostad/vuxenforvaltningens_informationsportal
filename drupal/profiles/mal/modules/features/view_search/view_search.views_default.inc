@@ -78,6 +78,13 @@ function view_search_views_default_views() {
 
   /* Display: Content pane */
   $handler = $view->new_display('panel_pane', 'Content pane', 'panel_pane_1');
+  /* Beteende vid inget resultat: Globalt: Textområde */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'Din sökning gav inget resultat';
+  $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
   $handler->display->display_options['argument_input'] = array(
     'search_api_views_fulltext' => array(
       'type' => 'panel',
@@ -117,6 +124,7 @@ function view_search_views_default_views() {
     t(','),
     t('Alla'),
     t('Content pane'),
+    t('Din sökning gav inget resultat'),
     t('View panes'),
   );
   $export['search'] = $view;
