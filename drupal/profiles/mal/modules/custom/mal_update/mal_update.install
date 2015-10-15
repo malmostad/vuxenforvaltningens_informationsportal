@@ -1111,3 +1111,10 @@ function mal_update_update_7088() {
     features_revert_module($module);
   }
 }
+
+/**
+ * Revert user_subscribed_courses_view feature.
+ */
+function mal_update_update_7089() {
+  features_revert_module('view_search');
+}
