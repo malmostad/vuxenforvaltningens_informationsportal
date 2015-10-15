@@ -1091,9 +1091,16 @@ function mal_update_update_7086() {
 }
 
 /**
- * Send e-mail once if course or course package is unpublished.
+ * Revert user_subscribed_courses_view feature.
  */
 function mal_update_update_7087() {
+  features_revert_module('user_subscribed_courses_view');
+}
+
+/**
+ * Send e-mail once if course or course package is unpublished.
+ */
+function mal_update_update_7088() {
   foreach (
     array(
       'notification_rules',
@@ -1104,4 +1111,3 @@ function mal_update_update_7087() {
     features_revert_module($module);
   }
 }
-

@@ -231,6 +231,7 @@ function user_subscribed_courses_view_views_default_views() {
       'period' => 'none',
       'period_separator' => '',
       'day_of_week' => 'none',
+      'day_separator' => '',
     ),
   );
   $handler->display->display_options['fields']['field_course_periods']['group_rows'] = FALSE;

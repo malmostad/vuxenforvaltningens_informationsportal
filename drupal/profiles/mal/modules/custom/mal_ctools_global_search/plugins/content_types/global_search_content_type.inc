@@ -90,10 +90,20 @@ function global_search_form(array $form, array &$form_state, $conf) {
  */
 function global_search_form_submit(array $form, array &$form_state) {
   $keys = trim($form_state['values']['keys']);
+  $queries = array();
 
   $keys = strtr($keys, array("\\" => "\\\\", '/' => "\\"));
 
-  $form_state['redirect'] = array($form_state['values']['base'] . '/' . $keys, array('query' => drupal_get_query_parameters()));
+  foreach (drupal_get_query_parameters() as $name => $query) {
+    if ('page' != $name) {
+      $queries[] = [$name => $query];
+    }
+  }
+
+  $form_state['redirect'] = array(
+    $form_state['values']['base'] . '/' . $keys,
+    array('query' => $queries)
+  );
 
   // To completely controll the redirect destination, we need to remove the
   // 'destination' GET parameter, which would override our destination, if
