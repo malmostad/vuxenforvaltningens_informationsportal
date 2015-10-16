@@ -58,7 +58,6 @@ features[field_instance][] = node-course_packages-field_course_group
 features[field_instance][] = node-course_packages-field_course_information_meeting
 features[field_instance][] = node-course_packages-field_course_number_of_points
 features[field_instance][] = node-course_packages-field_course_orientation
-features[field_instance][] = node-course_packages-field_course_package
 features[field_instance][] = node-course_packages-field_course_prerequisites
 features[field_instance][] = node-course_packages-field_course_school
 features[field_instance][] = node-course_packages-field_course_scope
