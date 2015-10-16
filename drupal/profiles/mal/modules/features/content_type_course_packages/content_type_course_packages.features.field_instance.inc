@@ -850,75 +850,6 @@ function content_type_course_packages_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-course_packages-field_course_package'
-  $field_instances['node-course_packages-field_course_package'] = array(
-    'bundle' => 'course_packages',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'Ange delkurs samt antal poäng. Varje delkurs läggs in separat genom <em>Lägg till ytterligare alternativ</em>.',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'field_collection_table',
-        'settings' => array(
-          'add' => '',
-          'delete' => '',
-          'description' => 1,
-          'edit' => '',
-          'empty' => 0,
-          'view_mode' => 'full',
-        ),
-        'type' => 'field_collection_table_view',
-        'weight' => 6,
-      ),
-      'node_teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'search_result' => array(
-        'label' => 'above',
-        'module' => 'field_collection_table',
-        'settings' => array(
-          'add' => '',
-          'delete' => '',
-          'description' => 1,
-          'edit' => '',
-          'empty' => 1,
-          'view_mode' => 'full',
-        ),
-        'type' => 'field_collection_table_view',
-        'weight' => 16,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_course_package',
-    'ied_settings' => array(
-      'display_fields' => 0,
-    ),
-    'label' => 'Kurser som ingår',
-    'required' => 1,
-    'settings' => array(
-      'custom_add_another' => '',
-      'custom_remove' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'field_collection',
-      'settings' => array(),
-      'type' => 'field_collection_embed',
-      'weight' => 10,
-    ),
-  );
-
   // Exported field_instance: 'node-course_packages-field_course_prerequisites'
   $field_instances['node-course_packages-field_course_prerequisites'] = array(
     'bundle' => 'course_packages',
@@ -1442,7 +1373,6 @@ function content_type_course_packages_field_default_field_instances() {
   t('<ul> <li>Lämna fältet ovan tomt ifall alla kurser är gemensamma. Om det finns inriktningar, skriv gemensamma kurser ovan. nästa kursgrupp är inkriktning 1 osv.</li>
 <li>Exempel: Gemensamma kurser eller Personalassistent osv.</li><ul>');
   t('Ange ansökningsperiod');
-  t('Ange delkurs samt antal poäng. Varje delkurs läggs in separat genom <em>Lägg till ytterligare alternativ</em>.');
   t('Ange kursgrupp för Sökkod');
   t('Ange när kurspaket startar och slutar');
   t('Ange studietakt i procent (t.ex. heltid är 100 %)');
