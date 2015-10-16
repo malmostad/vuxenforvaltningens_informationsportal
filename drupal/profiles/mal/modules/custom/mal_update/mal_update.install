@@ -1118,3 +1118,15 @@ function mal_update_update_7088() {
 function mal_update_update_7089() {
   features_revert_module('view_search');
 }
+
+/**
+ * Remove field 'field_course_package' in content type 'Course packages'
+ */
+function mal_update_update_7090() {
+  if ($instance = field_info_instance('node', 'field_course_package', 'course_packages')) {
+    field_delete_instance($instance);
+  }
+
+  features_revert_module('content_type_course_packages');
+}
+
