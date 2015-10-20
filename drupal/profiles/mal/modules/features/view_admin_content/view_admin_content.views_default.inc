@@ -52,13 +52,15 @@ function view_admin_content_views_default_views() {
     'title' => 'title',
     'timestamp' => 'title',
     'type' => 'type',
+    'field_course_form' => 'field_course_form',
     'name' => 'name',
     'status' => 'status',
-    'changed' => 'changed',
+    'field_updated_by_editor' => 'field_updated_by_editor',
     'edit_node' => 'edit_node',
     'delete_node' => 'edit_node',
+    'clone_node' => 'clone_node',
   );
-  $handler->display->display_options['style_options']['default'] = 'changed';
+  $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
     'views_bulk_operations' => array(
       'align' => '',
@@ -84,6 +86,13 @@ function view_admin_content_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
+    'field_course_form' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
     'name' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
@@ -98,9 +107,9 @@ function view_admin_content_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
-    'changed' => array(
+    'field_updated_by_editor' => array(
       'sortable' => 1,
-      'default_sort_order' => 'desc',
+      'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -111,6 +120,11 @@ function view_admin_content_views_default_views() {
       'empty_column' => 0,
     ),
     'delete_node' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'clone_node' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -452,14 +466,17 @@ function view_admin_content_views_default_views() {
   $handler->display->display_options['fields']['status']['field'] = 'status';
   $handler->display->display_options['fields']['status']['relationship'] = 'reverse_field_course_school_node';
   $handler->display->display_options['fields']['status']['not'] = 0;
-  /* Fält: Innehåll: Uppdaterad datum */
-  $handler->display->display_options['fields']['changed']['id'] = 'changed';
-  $handler->display->display_options['fields']['changed']['table'] = 'node';
-  $handler->display->display_options['fields']['changed']['field'] = 'changed';
-  $handler->display->display_options['fields']['changed']['relationship'] = 'reverse_field_course_school_node';
-  $handler->display->display_options['fields']['changed']['label'] = 'Uppdaterad';
-  $handler->display->display_options['fields']['changed']['date_format'] = 'short';
-  $handler->display->display_options['fields']['changed']['second_date_format'] = 'long';
+  /* Fält: Innehåll: Ändrad */
+  $handler->display->display_options['fields']['field_updated_by_editor']['id'] = 'field_updated_by_editor';
+  $handler->display->display_options['fields']['field_updated_by_editor']['table'] = 'field_data_field_updated_by_editor';
+  $handler->display->display_options['fields']['field_updated_by_editor']['field'] = 'field_updated_by_editor';
+  $handler->display->display_options['fields']['field_updated_by_editor']['settings'] = array(
+    'format_type' => 'short',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
   /* Fält: Innehåll: Länk för redigering */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
@@ -675,8 +692,9 @@ function view_admin_content_views_default_views() {
     t('View panes'),
     t('New content pane'),
     t('författare'),
-    t('kopiera'),
     t('Kursform'),
+    t('Ändrad'),
+    t('kopiera'),
   );
   $export['new_administration_nodes'] = $view;
 
@@ -726,8 +744,10 @@ function view_admin_content_views_default_views() {
     'name' => 'name',
     'status' => 'status',
     'changed' => 'changed',
+    'field_updated_by_editor' => 'field_updated_by_editor',
     'edit_node' => 'edit_node',
     'delete_node' => 'edit_node',
+    'clone_node' => 'clone_node',
   );
   $handler->display->display_options['style_options']['default'] = 'changed';
   $handler->display->display_options['style_options']['info'] = array(
@@ -776,12 +796,24 @@ function view_admin_content_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
+    'field_updated_by_editor' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
     'edit_node' => array(
       'align' => '',
       'separator' => '&emsp;',
       'empty_column' => 0,
     ),
     'delete_node' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'clone_node' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -921,6 +953,18 @@ function view_admin_content_views_default_views() {
   $handler->display->display_options['fields']['changed']['field'] = 'changed';
   $handler->display->display_options['fields']['changed']['label'] = 'Uppdaterad';
   $handler->display->display_options['fields']['changed']['date_format'] = 'short';
+  /* Fält: Innehåll: Ändrad */
+  $handler->display->display_options['fields']['field_updated_by_editor']['id'] = 'field_updated_by_editor';
+  $handler->display->display_options['fields']['field_updated_by_editor']['table'] = 'field_data_field_updated_by_editor';
+  $handler->display->display_options['fields']['field_updated_by_editor']['field'] = 'field_updated_by_editor';
+  $handler->display->display_options['fields']['field_updated_by_editor']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_updated_by_editor']['settings'] = array(
+    'format_type' => 'short',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
   /* Fält: Innehåll: Länk för redigering */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
@@ -1037,6 +1081,7 @@ function view_admin_content_views_default_views() {
     t('Författare'),
     t('Publicerad'),
     t('Uppdaterad'),
+    t('Ändrad'),
     t('Funktioner'),
     t('kopiera'),
     t('Content pane'),

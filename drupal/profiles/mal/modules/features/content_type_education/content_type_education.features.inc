@@ -23,7 +23,7 @@ function content_type_education_node_info() {
       'base' => 'node_content',
       'description' => t('Använd <em> utbildning </ em> för administrera utbildningsformer.'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
   );

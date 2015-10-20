@@ -1,0 +1,25 @@
+<?php
+/**
+ * @file
+ * Fills "Updated by editor" field if node was updated manually.
+ */
+
+/**
+ * Implements hook_node_presave().
+ */
+function mal_content_updated_manually_node_presave($node) {
+  global $user;
+  if ($user->uid != 0) {
+    $node->field_updated_by_editor[LANGUAGE_NONE][0]['value'] = $node->changed;
+  }
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function mal_content_updated_manually_views_pre_render(&$view) {
+  global $user;
+  if ($view->name == 'view_admin_view_old' && in_array('Malmo middle admin', $user->roles)) {
+    unset($view->field['changed']);
+  }
+}
