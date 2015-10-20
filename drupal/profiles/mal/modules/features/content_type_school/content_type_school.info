@@ -24,6 +24,7 @@ features[field_instance][] = node-school-field_school_maps_link
 features[field_instance][] = node-school-field_school_phone
 features[field_instance][] = node-school-field_school_postal_code
 features[field_instance][] = node-school-field_school_street_address
+features[field_instance][] = node-school-field_updated_by_editor
 features[node][] = school
 features[variable][] = ant_pattern_school
 features[variable][] = ant_php_school

@@ -13,6 +13,7 @@ features[features_api][] = api:2
 features[field_base][] = field_basic_image
 features[field_instance][] = node-page-body
 features[field_instance][] = node-page-field_basic_image
+features[field_instance][] = node-page-field_updated_by_editor
 features[node][] = page
 features[variable][] = ant_page
 features[variable][] = ant_pattern_page

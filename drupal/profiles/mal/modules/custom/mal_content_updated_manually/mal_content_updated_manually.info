@@ -1,0 +1,4 @@
+name = Mal Content Updated Manually
+description = Fills "Updated by editor" field if node was updated manually
+core = 7.x
+package = Propeople

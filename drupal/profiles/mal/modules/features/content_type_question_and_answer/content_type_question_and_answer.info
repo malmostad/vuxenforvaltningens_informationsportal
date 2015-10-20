@@ -15,6 +15,7 @@ features[features_api][] = api:2
 features[field_base][] = field_qa_category
 features[field_instance][] = node-question_and_answer-body
 features[field_instance][] = node-question_and_answer-field_qa_category
+features[field_instance][] = node-question_and_answer-field_updated_by_editor
 features[node][] = question_and_answer
 features[variable][] = ant_pattern_question_and_answer
 features[variable][] = ant_php_question_and_answer

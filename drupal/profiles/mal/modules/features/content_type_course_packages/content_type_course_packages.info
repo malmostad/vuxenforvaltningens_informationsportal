@@ -66,6 +66,7 @@ features[field_instance][] = node-course_packages-field_course_weeks_of_study
 features[field_instance][] = node-course_packages-field_dont_send_mail
 features[field_instance][] = node-course_packages-field_master_course_package
 features[field_instance][] = node-course_packages-field_registration
+features[field_instance][] = node-course_packages-field_updated_by_editor
 features[node][] = course_packages
 features[variable][] = ant_course_packages
 features[variable][] = ant_pattern_course_packages

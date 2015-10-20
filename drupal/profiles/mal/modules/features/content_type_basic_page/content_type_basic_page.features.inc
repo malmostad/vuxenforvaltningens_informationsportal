@@ -23,7 +23,7 @@ function content_type_basic_page_node_info() {
       'base' => 'node_content',
       'description' => t('Använd <em> grundläggande sidor </ em> för din statiskt innehåll, till exempel en "Om oss" sidan.'),
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
   );

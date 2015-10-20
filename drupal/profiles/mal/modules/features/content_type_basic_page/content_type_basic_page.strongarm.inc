@@ -101,11 +101,41 @@ function content_type_basic_page_strongarm() {
       'search_result' => array(
         'custom_settings' => TRUE,
       ),
+      'node_teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'node_full' => array(
+        'custom_settings' => FALSE,
+      ),
+      'node_rss' => array(
+        'custom_settings' => FALSE,
+      ),
+      'node_diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'node_search_result' => array(
+        'custom_settings' => FALSE,
+      ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
         'title' => array(
           'weight' => '-5',
+        ),
+        'metatags' => array(
+          'weight' => '40',
+        ),
+        'path' => array(
+          'weight' => '30',
+        ),
+        'redirect' => array(
+          'weight' => '30',
         ),
       ),
       'display' => array(),
