@@ -1145,6 +1145,7 @@ function mal_update_update_7091() {
       'content_type_education',
       'content_type_basic_page',
       'view_admin_content',
+      'config_permissions',
     ) as $module
   ) {
     features_revert_module($module);
