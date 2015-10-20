@@ -109,7 +109,7 @@ function content_type_school_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_plain',
-        'weight' => 4,
+        'weight' => 1,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -185,7 +185,7 @@ function content_type_school_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_plain',
-        'weight' => 13,
+        'weight' => 4,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -261,7 +261,7 @@ function content_type_school_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_plain',
-        'weight' => 15,
+        'weight' => 6,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -315,7 +315,7 @@ function content_type_school_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 16,
+        'weight' => 7,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -391,7 +391,7 @@ function content_type_school_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_plain',
-        'weight' => 14,
+        'weight' => 5,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -467,7 +467,7 @@ function content_type_school_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_plain',
-        'weight' => 6,
+        'weight' => 2,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -543,7 +543,7 @@ function content_type_school_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_plain',
-        'weight' => 8,
+        'weight' => 3,
       ),
       'node_teaser' => array(
         'label' => 'above',
@@ -607,6 +607,75 @@ function content_type_school_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-school-field_updated_by_editor'
+  $field_instances['node-school-field_updated_by_editor'] = array(
+    'bundle' => 'school',
+    'custom_add_another' => '',
+    'custom_remove' => '',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'date',
+        'settings' => array(
+          'format_type' => 'long',
+          'fromto' => 'both',
+          'multiple_from' => '',
+          'multiple_number' => '',
+          'multiple_to' => '',
+        ),
+        'type' => 'date_default',
+        'weight' => 8,
+      ),
+      'node_teaser' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'search_result' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_updated_by_editor',
+    'label' => 'Ändrad',
+    'required' => 0,
+    'settings' => array(
+      'custom_add_another' => '',
+      'custom_remove' => '',
+      'default_value' => 'now',
+      'default_value2' => 'same',
+      'default_value_code' => '',
+      'default_value_code2' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'date',
+      'settings' => array(
+        'increment' => 15,
+        'input_format' => 'm/d/Y - H:i:s',
+        'input_format_custom' => '',
+        'label_position' => 'above',
+        'text_parts' => array(),
+        'year_range' => '-3:+3',
+      ),
+      'type' => 'date_text',
+      'weight' => 42,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Adress');
@@ -617,6 +686,7 @@ function content_type_school_field_default_field_instances() {
   t('Kartor länk');
   t('Postadress');
   t('Tel');
+  t('Ändrad');
 
   return $field_instances;
 }

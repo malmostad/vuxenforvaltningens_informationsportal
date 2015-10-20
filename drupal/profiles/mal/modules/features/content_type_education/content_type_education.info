@@ -10,6 +10,7 @@ dependencies[] = text
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:2
 features[field_instance][] = node-education-body
+features[field_instance][] = node-education-field_updated_by_editor
 features[node][] = education
 features[variable][] = ant_education
 features[variable][] = ant_pattern_education

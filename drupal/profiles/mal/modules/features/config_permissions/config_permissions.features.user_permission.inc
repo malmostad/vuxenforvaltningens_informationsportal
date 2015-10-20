@@ -937,6 +937,13 @@ function config_permissions_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'create field_updated_by_editor'.
+  $permissions['create field_updated_by_editor'] = array(
+    'name' => 'create field_updated_by_editor',
+    'roles' => array(),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'create field_user_school'.
   $permissions['create field_user_school'] = array(
     'name' => 'create field_user_school',
@@ -1577,6 +1584,13 @@ function config_permissions_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'edit field_updated_by_editor'.
+  $permissions['edit field_updated_by_editor'] = array(
+    'name' => 'edit field_updated_by_editor',
+    'roles' => array(),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'edit field_user_school'.
   $permissions['edit field_user_school'] = array(
     'name' => 'edit field_user_school',
@@ -1684,6 +1698,13 @@ function config_permissions_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
     ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'edit own field_updated_by_editor'.
+  $permissions['edit own field_updated_by_editor'] = array(
+    'name' => 'edit own field_updated_by_editor',
+    'roles' => array(),
     'module' => 'field_permissions',
   );
 
@@ -2996,6 +3017,17 @@ function config_permissions_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'view field_updated_by_editor'.
+  $permissions['view field_updated_by_editor'] = array(
+    'name' => 'view field_updated_by_editor',
+    'roles' => array(
+      'School editor' => 'School editor',
+      'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'view field_user_school'.
   $permissions['view field_user_school'] = array(
     'name' => 'view field_user_school',
@@ -3053,6 +3085,17 @@ function config_permissions_user_default_permissions() {
     'name' => 'view own field_registration',
     'roles' => array(
       'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'view own field_updated_by_editor'.
+  $permissions['view own field_updated_by_editor'] = array(
+    'name' => 'view own field_updated_by_editor',
+    'roles' => array(
+      'School editor' => 'School editor',
+      'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'field_permissions',
   );

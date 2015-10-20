@@ -1131,9 +1131,32 @@ function mal_update_update_7090() {
 }
 
 /**
- * Send e-mail once if course or course package is unpublished.
+ * Add field "Updated by editor" to all content types.
  */
 function mal_update_update_7091() {
+  module_enable(array('mal_content_updated_manually'));
+  foreach (
+    array(
+      'content_type_course_packages',
+      'content_type_course',
+      'content_type_course_template',
+      'content_type_school',
+      'content_type_question_and_answer',
+      'content_type_education',
+      'content_type_basic_page',
+      'view_admin_content',
+      'config_permissions',
+    ) as $module
+  ) {
+    features_revert_module($module);
+  }
+}
+
+
+/*
+ * Change url aliases.
+ */
+function mal_update_update_7092() {
   foreach (
     array(
       'page_faq',
