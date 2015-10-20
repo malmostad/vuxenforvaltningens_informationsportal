@@ -63,14 +63,14 @@ function config_url_aliases_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_course_packages_pattern';
-  $strongarm->value = 'search-courses/[node:title]';
+  $strongarm->value = 'kurser-och-utbildningar/[node:title]';
   $export['pathauto_node_course_packages_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_course_pattern';
-  $strongarm->value = 'search-courses/[node:field-course-school]-[node:title]';
+  $strongarm->value = 'kurser-och-utbildningar/[node:field-course-school]-[node:title]';
   $export['pathauto_node_course_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -112,7 +112,7 @@ function config_url_aliases_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_school_pattern';
-  $strongarm->value = 'schools/[node:title]';
+  $strongarm->value = 'utbildningsanordnare/[node:title]';
   $export['pathauto_node_school_pattern'] = $strongarm;
 
   $strongarm = new stdClass();

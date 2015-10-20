@@ -1130,3 +1130,23 @@ function mal_update_update_7090() {
   features_revert_module('content_type_course_packages');
 }
 
+/**
+ * Send e-mail once if course or course package is unpublished.
+ */
+function mal_update_update_7091() {
+  foreach (
+    array(
+      'page_faq',
+      'menu_user',
+      'menu_global',
+      'page_search',
+      'page_schools',
+      'page_main_layout',
+      'config_breadrumbs',
+      'config_url_aliases',
+      'page_user_planning',
+    ) as $module
+  ) {
+    features_revert_module($module);
+  }
+}
