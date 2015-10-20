@@ -14,7 +14,7 @@ function config_breadrumbs_custom_breadcrumbs_panels_features_default_settings()
   $custom_breadcrumbs['course_package_view'] = array(
     'name' => 'Course package view',
     'titles' => 'Kurser och utbildningar',
-    'paths' => 'search-courses',
+    'paths' => 'kurser-och-utbildningar',
     'visibility_php' => '',
     'panel_id' => 'node_view_panel_context_3',
     'language' => '',
@@ -25,7 +25,7 @@ function config_breadrumbs_custom_breadcrumbs_panels_features_default_settings()
   $custom_breadcrumbs['course_view'] = array(
     'name' => 'Course view',
     'titles' => 'Kurser och utbildningar',
-    'paths' => 'search-courses',
+    'paths' => 'kurser-och-utbildningar',
     'visibility_php' => '',
     'panel_id' => 'node_view_panel_context',
     'language' => '',

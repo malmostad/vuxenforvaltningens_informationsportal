@@ -10,17 +10,17 @@
 function menu_global_menu_default_menu_links() {
   $menu_links = array();
 
-  // Exported menu link: menu-global-menu_anskningswebb:http://malmo.se
-  $menu_links['menu-global-menu_anskningswebb:http://malmo.se'] = array(
+  // Exported menu link: menu-global-menu_anskningswebb:https://open24-3.ist-asp.com/malmo
+  $menu_links['menu-global-menu_anskningswebb:https://open24-3.ist-asp.com/malmo'] = array(
     'menu_name' => 'menu-global-menu',
-    'link_path' => 'http://malmo.se',
+    'link_path' => 'https://open24-3.ist-asp.com/malmo',
     'router_path' => '',
     'link_title' => 'Ansökningswebb',
     'options' => array(
       'attributes' => array(
         'title' => '',
       ),
-      'identifier' => 'menu-global-menu_anskningswebb:http://malmo.se',
+      'identifier' => 'menu-global-menu_anskningswebb:https://open24-3.ist-asp.com/malmo',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -30,17 +30,17 @@ function menu_global_menu_default_menu_links() {
     'weight' => -47,
     'customized' => 1,
   );
-  // Exported menu link: menu-global-menu_frgor-och-svar:faq
-  $menu_links['menu-global-menu_frgor-och-svar:faq'] = array(
+  // Exported menu link: menu-global-menu_frgor-och-svar:fragor-och-svar
+  $menu_links['menu-global-menu_frgor-och-svar:fragor-och-svar'] = array(
     'menu_name' => 'menu-global-menu',
-    'link_path' => 'faq',
-    'router_path' => 'faq',
+    'link_path' => 'fragor-och-svar',
+    'router_path' => 'fragor-och-svar',
     'link_title' => 'Frågor och svar',
     'options' => array(
       'attributes' => array(
         'title' => '',
       ),
-      'identifier' => 'menu-global-menu_frgor-och-svar:faq',
+      'identifier' => 'menu-global-menu_frgor-och-svar:fragor-och-svar',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -50,17 +50,17 @@ function menu_global_menu_default_menu_links() {
     'weight' => -50,
     'customized' => 1,
   );
-  // Exported menu link: menu-global-menu_kurser-och-utbildningar:search-courses
-  $menu_links['menu-global-menu_kurser-och-utbildningar:search-courses'] = array(
+  // Exported menu link: menu-global-menu_kurser-och-utbildningar:kurser-och-utbildningar
+  $menu_links['menu-global-menu_kurser-och-utbildningar:kurser-och-utbildningar'] = array(
     'menu_name' => 'menu-global-menu',
-    'link_path' => 'search-courses',
-    'router_path' => 'search-courses',
+    'link_path' => 'kurser-och-utbildningar',
+    'router_path' => 'kurser-och-utbildningar',
     'link_title' => 'Kurser och utbildningar',
     'options' => array(
       'attributes' => array(
         'title' => '',
       ),
-      'identifier' => 'menu-global-menu_kurser-och-utbildningar:search-courses',
+      'identifier' => 'menu-global-menu_kurser-och-utbildningar:kurser-och-utbildningar',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -70,32 +70,11 @@ function menu_global_menu_default_menu_links() {
     'weight' => -49,
     'customized' => 1,
   );
-  // Exported menu link: menu-global-menu_skolor:schools
-  $menu_links['menu-global-menu_skolor:schools'] = array(
-    'menu_name' => 'menu-global-menu',
-    'link_path' => 'schools',
-    'router_path' => 'schools',
-    'link_title' => 'Utbildningsanordnare',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'identifier' => 'menu-global-menu_skolor:schools',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -48,
-    'customized' => 1,
-  );
   // Translatables
   // Included for use with string extractors like potx.
   t('Ansökningswebb');
   t('Frågor och svar');
   t('Kurser och utbildningar');
-  t('Utbildningsanordnare');
 
 
   return $menu_links;

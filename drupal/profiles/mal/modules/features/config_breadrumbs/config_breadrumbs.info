@@ -10,4 +10,3 @@ features[custom_breadcrumbs_panels][] = course_package_view
 features[custom_breadcrumbs_panels][] = course_view
 features[custom_breadcrumbs_panels][] = node_view_panel_context_2
 features[features_api][] = api:2
-mtime = 1422263479

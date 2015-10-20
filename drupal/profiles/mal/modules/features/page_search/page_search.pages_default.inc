@@ -15,7 +15,7 @@ function page_search_default_page_manager_pages() {
   $page->task = 'page';
   $page->admin_title = 'Search courses';
   $page->admin_description = '';
-  $page->path = 'search-courses';
+  $page->path = 'kurser-och-utbildningar';
   $page->access = array();
   $page->menu = array();
   $page->arguments = array();
@@ -72,7 +72,8 @@ function page_search_default_page_manager_pages() {
     $pane->configuration = array(
       'override_title' => 0,
       'override_title_text' => '',
-      'search_path' => 'search-courses',
+      'search_path' => 'kurser-och-utbildningar',
+      'override_title_heading' => 'h2',
     );
     $pane->cache = array(
       'method' => '0',

@@ -14,11 +14,11 @@ function menu_user_menu_default_menu_custom() {
   $menus['user-menu'] = array(
     'menu_name' => 'user-menu',
     'title' => 'User menu',
-    'description' => 'The <em>User</em> menu contains links related to the user\'s account, as well as the \'Log out\' link.',
+    'description' => 'Den <em> User </ em> menyn innehåller länkar till användarens konto, liksom "Logga ut" länken.',
   );
   // Translatables
   // Included for use with string extractors like potx.
-  t('The <em>User</em> menu contains links related to the user\'s account, as well as the \'Log out\' link.');
+  t('Den <em> User </ em> menyn innehåller länkar till användarens konto, liksom "Logga ut" länken.');
   t('User menu');
 
 

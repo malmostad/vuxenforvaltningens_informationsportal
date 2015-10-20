@@ -15,7 +15,7 @@ function page_user_planning_default_page_manager_pages() {
   $page->task = 'page';
   $page->admin_title = 'User planning page';
   $page->admin_description = '';
-  $page->path = 'my-planning';
+  $page->path = 'min-planering';
   $page->access = array(
     'plugins' => array(
       0 => array(
@@ -126,6 +126,35 @@ function page_user_planning_default_page_manager_pages() {
     $pane->uuid = '695fa0ef-ff3c-4512-aab3-863a99df459d';
     $display->content['new-695fa0ef-ff3c-4512-aab3-863a99df459d'] = $pane;
     $display->panels['region-head'][0] = 'new-695fa0ef-ff3c-4512-aab3-863a99df459d';
+    $pane = new stdClass();
+    $pane->pid = 'new-fde5bccd-f71f-4b08-9d72-057bd3eb71b6';
+    $pane->panel = 'region-head';
+    $pane->type = 'custom';
+    $pane->subtype = 'custom';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'admin_title' => '',
+      'title' => '',
+      'body' => '<p class="preamble">Här hittar du de kurser och utbildningar som du sparat. Det är en veckoöversikt och en ansökningslista. Listan är ett stöd när du ska göra din ansökan i ansökningswebben.</p>',
+      'format' => 'full_html',
+      'substitute' => TRUE,
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => '',
+      'template_suggestion' => 'custom',
+    );
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $pane->uuid = 'fde5bccd-f71f-4b08-9d72-057bd3eb71b6';
+    $display->content['new-fde5bccd-f71f-4b08-9d72-057bd3eb71b6'] = $pane;
+    $display->panels['region-head'][1] = 'new-fde5bccd-f71f-4b08-9d72-057bd3eb71b6';
     $pane = new stdClass();
     $pane->pid = 'new-37f9c5b6-5bd1-4b66-ad59-bababf356698';
     $pane->panel = 'tab-first';

@@ -314,7 +314,8 @@ node/199
 node/200
 node/201
 node/202
-faq',
+fragor-och-svar
+ny-webbplats-vuxenutbildningar',
           ),
           'context' => 'empty',
           'not' => FALSE,
@@ -399,13 +400,14 @@ faq',
     );
     $pane->configuration = array(
       'banner_text' => array(
-        'value' => '<h1>Håll koll – följ oss på Facebook och Twitter</h1><p>Nyfiken på vad som händer i Malmö? Vi finns i sociala medier, följ oss där och håll dig uppdaterad.</p>',
+        'value' => '<h1>Välkommen till en ny webbplats för vuxenutbildningar i Malmö</h1><p>Läs mer om hur webbplatsen fungerar.&nbsp;</p>',
         'format' => 'full_html',
       ),
-      'link' => '',
+      'link' => '/ny-webbplats-vuxenutbildningar',
       'override_title' => '',
       'override_title_text' => '',
-      'image' => '1',
+      'image' => '27',
+      'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -436,7 +438,8 @@ faq',
     $pane->configuration = array(
       'override_title' => 0,
       'override_title_text' => '',
-      'search_path' => 'search-courses',
+      'search_path' => 'kurser-och-utbildningar',
+      'override_title_heading' => 'h2',
     );
     $pane->cache = array();
     $pane->style = array(
