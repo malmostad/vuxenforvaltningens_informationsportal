@@ -8,3 +8,4 @@ features[menu_custom][] = menu-global-menu
 features[menu_links][] = menu-global-menu_anskningswebb:https://open24-3.ist-asp.com/malmo
 features[menu_links][] = menu-global-menu_frgor-och-svar:fragor-och-svar
 features[menu_links][] = menu-global-menu_kurser-och-utbildningar:kurser-och-utbildningar
+features[menu_links][] = menu-global-menu_skolor:utbildningsanordnare

@@ -70,11 +70,32 @@ function menu_global_menu_default_menu_links() {
     'weight' => -49,
     'customized' => 1,
   );
+  // Exported menu link: menu-global-menu_skolor:utbildningsanordnare
+  $menu_links['menu-global-menu_skolor:utbildningsanordnare'] = array(
+    'menu_name' => 'menu-global-menu',
+    'link_path' => 'utbildningsanordnare',
+    'router_path' => 'utbildningsanordnare',
+    'link_title' => 'Utbildningsanordnare',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'menu-global-menu_skolor:utbildningsanordnare',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -48,
+    'customized' => 1,
+  );
   // Translatables
   // Included for use with string extractors like potx.
   t('Ansökningswebb');
   t('Frågor och svar');
   t('Kurser och utbildningar');
+  t('Utbildningsanordnare');
 
 
   return $menu_links;
