@@ -9,6 +9,10 @@
  */
 function mal_content_updated_manually_node_presave($node) {
   global $user;
+  if (isset($node->storefield)) {
+    $node->changed = $node->storefield;
+    unset($node->storefield);
+  }
   if ($user->uid != 0) {
     $node->field_updated_by_editor[LANGUAGE_NONE][0]['value'] = $node->changed;
   }
@@ -21,5 +25,92 @@ function mal_content_updated_manually_views_pre_render(&$view) {
   global $user;
   if ($view->name == 'view_admin_view_old' && in_array('Malmo middle admin', $user->roles)) {
     unset($view->field['changed']);
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function mal_content_updated_manually_menu() {
+  $items = array();
+  $items['admin/config/ffw/batch_content_update_manually'] = array(
+    'title'           => 'Updated by editor batch',
+    'description'     => 'Fill Updated by editor field',
+    'page callback'   => 'drupal_get_form',
+    'page arguments'  => array('batch_content_update_manually_form'),
+    'access callback' => TRUE,
+  );
+
+  return $items;
+}
+
+/**
+ * Form builder function to allow choice of which batch to run.
+ */
+function batch_content_update_manually_form() {
+  $form['submit'] = array(
+    '#type'  => 'submit',
+    '#value' => 'Go',
+  );
+
+  return $form;
+}
+
+/**
+ * Submit handler.
+ *
+ * @param array $form
+ *   Form API form.
+ * @param array $form_state
+ *   Form API form.
+ */
+function batch_content_update_manually_form_submit($form, &$form_state) {
+  $batch = batch_content_update_manually_init();
+  batch_set($batch);
+}
+
+/**
+ * Custom batch init function.
+ */
+function batch_content_update_manually_init() {
+  $operations = array();
+  $nids = db_select('node', 'n')
+    ->fields('n', array('nid'))
+    ->execute()
+    ->fetchCol();
+  $nodes = node_load_multiple($nids);
+  foreach ($nodes as $node) {
+    $operations[] = array(
+      'batch_content_update_manually',
+      array(
+        $node
+      ),
+    );
+  }
+  $batch = array(
+    'operations' => $operations,
+    'finished'   => 'batch_content_update_manually_finished',
+  );
+
+  return $batch;
+}
+
+/**
+ * Batch operation function.
+ */
+function batch_content_update_manually($node, &$context) {
+  $node->storefield = $node->changed;
+  if (empty($node->field_updated_by_editor)) {
+    $node->field_updated_by_editor[LANGUAGE_NONE][0]['value'] = $node->storefield;
+  }
+  node_save($node);
+}
+
+/**
+ * Batch finished function.
+ */
+function batch_content_update_manually_finished($success, $results, $operations) {
+  if ($success) {
+    drupal_set_message(t('Conglaturation all nodes was updated'));
   }
 }
