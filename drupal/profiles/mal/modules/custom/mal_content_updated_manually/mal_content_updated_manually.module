@@ -38,7 +38,8 @@ function mal_content_updated_manually_menu() {
     'description'     => 'Fill Updated by editor field',
     'page callback'   => 'drupal_get_form',
     'page arguments'  => array('batch_content_update_manually_form'),
-    'access callback' => TRUE,
+    'access arguments'=> array('create users'),
+    'access callback' => 'user_access',
   );
 
   return $items;
