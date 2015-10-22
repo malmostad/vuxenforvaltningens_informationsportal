@@ -9,7 +9,7 @@
  */
 function mal_content_updated_manually_node_presave($node) {
   global $user;
-  if (isset($node->storefield)) {
+  if (!empty($node->storefield)) {
     $node->changed = $node->storefield;
     unset($node->storefield);
   }
@@ -49,9 +49,14 @@ function mal_content_updated_manually_menu() {
  * Form builder function to allow choice of which batch to run.
  */
 function batch_content_update_manually_form() {
+  $form['description'] = array(
+    '#type'   => 'markup',
+    '#markup' => t('Batch grabs all nodes and fills "Updated by editor" field.<br>
+                    It should be used just once to update current content.<br>'),
+  );
   $form['submit'] = array(
     '#type'  => 'submit',
-    '#value' => 'Go',
+    '#value' => t('Go'),
   );
 
   return $form;
@@ -75,11 +80,7 @@ function batch_content_update_manually_form_submit($form, &$form_state) {
  */
 function batch_content_update_manually_init() {
   $operations = array();
-  $nids = db_select('node', 'n')
-    ->fields('n', array('nid'))
-    ->execute()
-    ->fetchCol();
-  $nodes = node_load_multiple($nids);
+  $nodes = node_load_multiple(array(), TRUE);
   foreach ($nodes as $node) {
     $operations[] = array(
       'batch_content_update_manually',
@@ -112,6 +113,6 @@ function batch_content_update_manually($node, &$context) {
  */
 function batch_content_update_manually_finished($success, $results, $operations) {
   if ($success) {
-    drupal_set_message(t('Conglaturation all nodes was updated'));
+    drupal_set_message(t('Congratulations! All nodes were updated successfully'));
   }
 }
