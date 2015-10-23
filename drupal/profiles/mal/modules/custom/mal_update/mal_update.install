@@ -1152,11 +1152,17 @@ function mal_update_update_7091() {
   }
 }
 
-
-/*
- * Change url aliases.
+/**
+ * Change time zone for Updated by editor field.
  */
 function mal_update_update_7092() {
+  features_revert_module('content_type_course');
+}
+
+/**
+ * Change url aliases.
+ */
+function mal_update_update_7093() {
   foreach (
     array(
       'page_faq',
