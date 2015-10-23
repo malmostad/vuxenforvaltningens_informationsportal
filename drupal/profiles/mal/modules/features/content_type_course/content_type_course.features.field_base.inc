@@ -414,7 +414,7 @@ function content_type_course_field_default_field_bases() {
       ),
       'timezone_db' => 'UTC',
       'todate' => '',
-      'tz_handling' => 'site',
+      'tz_handling' => 'user',
     ),
     'translatable' => 0,
     'type' => 'datestamp',
