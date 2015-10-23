@@ -23,7 +23,7 @@ function separate_facet_render($subtype, $conf, $args, $context) {
 
   $block = new stdClass();
   if ($context->data->type == 'school') {
-    $block->content = l(t('View all school courses'), 'search-courses',
+    $block->content = l(t('View all school courses'), 'kurser-och-utbildningar',
       array('query' => array('f' => array('field_course_school:' . $context->data->nid))));
   }
 

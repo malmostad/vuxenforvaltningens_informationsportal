@@ -15,7 +15,7 @@ function page_schools_default_page_manager_pages() {
   $page->task = 'page';
   $page->admin_title = 'Schools';
   $page->admin_description = '';
-  $page->path = 'schools';
+  $page->path = 'utbildningsanordnare';
   $page->access = array();
   $page->menu = array();
   $page->arguments = array();

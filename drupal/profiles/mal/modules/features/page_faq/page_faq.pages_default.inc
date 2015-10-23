@@ -15,7 +15,7 @@ function page_faq_default_page_manager_pages() {
   $page->task = 'page';
   $page->admin_title = 'FAQ';
   $page->admin_description = '';
-  $page->path = 'faq';
+  $page->path = 'fragor-och-svar';
   $page->access = array();
   $page->menu = array();
   $page->arguments = array();

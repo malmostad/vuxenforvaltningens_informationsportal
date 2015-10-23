@@ -1158,3 +1158,24 @@ function mal_update_update_7091() {
 function mal_update_update_7092() {
   features_revert_module('content_type_course');
 }
+
+/**
+ * Change url aliases.
+ */
+function mal_update_update_7093() {
+  foreach (
+    array(
+      'page_faq',
+      'menu_user',
+      'menu_global',
+      'page_search',
+      'page_schools',
+      'page_main_layout',
+      'config_breadrumbs',
+      'config_url_aliases',
+      'page_user_planning',
+    ) as $module
+  ) {
+    features_revert_module($module);
+  }
+}
