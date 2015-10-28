@@ -1634,7 +1634,17 @@ footer.bigfoot {
   padding-left: 21px;
 }
 
+.logged-in .answer a[name] {
+  display: block;
+  margin-top: -60px;
+  padding-top: 60px;
+}
 
+.answer a[name] {
+  display: block;
+  margin-top: -20px;
+  padding-top: 20px;
+}
 
 // ---------media-------- //
 @media (max-width: 60em) {
