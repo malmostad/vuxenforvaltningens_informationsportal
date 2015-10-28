@@ -94,6 +94,21 @@
     }
   };
 
+  Drupal.behaviors.hash = {
+    attach: function(context, settings) {
+      var locationHash = window.location.hash,
+          answerAnchor = $('.answer').find('a' + locationHash),
+          anchorHash = answerAnchor.attr('id');
+
+      anchorHash = '#' + anchorHash;
+
+      if (locationHash === anchorHash) {
+        answerAnchor.parents('.answer').addClass('open-close')
+                    .parent().addClass('icon-open-close');
+      }
+    }
+  }
+
 })(jQuery);
 
 
