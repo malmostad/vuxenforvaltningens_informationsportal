@@ -512,7 +512,7 @@ function mal_update_update_7037() {
 
 /**
  * Revert user planning page.
- * 
+ *
  * Remove obsolete fields.
  */
 function mal_update_update_7038() {
@@ -1001,4 +1001,11 @@ function mal_update_update_7078() {
             'config_permissions',
   ) as $module)
   features_revert_module($module);
+}
+
+/**
+ * Revert feature My courses.
+ */
+function mal_update_update_7079() {
+  features_revert_module('user_subscribed_courses_view');
 }
