@@ -1179,3 +1179,10 @@ function mal_update_update_7093() {
     features_revert_module($module);
   }
 }
+
+/**
+ * Revert feature My courses.
+ */
+function mal_update_update_7094() {
+  features_revert_module('user_subscribed_courses_view');
+}
