@@ -264,9 +264,11 @@ function user_subscribed_courses_view_views_default_views() {
   $handler->display->display_options['fields']['field_course_form']['table'] = 'field_data_field_course_form';
   $handler->display->display_options['fields']['field_course_form']['field'] = 'field_course_form';
   $handler->display->display_options['fields']['field_course_form']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_course_form']['alter']['text'] = '<span class="course-form">[field_course_form]</span>
-[field_registration]';
-  $handler->display->display_options['fields']['field_course_form']['empty'] = '[field_registration]';
+  $handler->display->display_options['fields']['field_course_form']['alter']['text'] = '<div class="subscribed-course-wrapper">
+<span class="course-form">[field_course_form]</span>
+[field_registration]
+</div>';
+  $handler->display->display_options['fields']['field_course_form']['empty'] = '<div class="subscribed-course-wrapper">[field_registration]</div>';
   $handler->display->display_options['fields']['field_course_form']['type'] = 'taxonomy_term_reference_plain';
   /* Fält: Innehåll: Kontinuerlig */
   $handler->display->display_options['fields']['field_course_continuos']['id'] = 'field_course_continuos';
@@ -355,9 +357,11 @@ function user_subscribed_courses_view_views_default_views() {
   $handler->display->display_options['fields']['field_course_form']['table'] = 'field_data_field_course_form';
   $handler->display->display_options['fields']['field_course_form']['field'] = 'field_course_form';
   $handler->display->display_options['fields']['field_course_form']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_course_form']['alter']['text'] = '<span class="course-form">[field_course_form]</span>
-[field_registration]';
-  $handler->display->display_options['fields']['field_course_form']['empty'] = '[field_registration]';
+  $handler->display->display_options['fields']['field_course_form']['alter']['text'] = '<div class="subscribed-course-wrapper">
+<span class="course-form">[field_course_form]</span>
+[field_registration]
+</div>';
+  $handler->display->display_options['fields']['field_course_form']['empty'] = '<div class="subscribed-course-wrapper">[field_registration]</div>';
   $handler->display->display_options['fields']['field_course_form']['type'] = 'taxonomy_term_reference_plain';
   /* Fält: Innehåll: Kontinuerlig */
   $handler->display->display_options['fields']['field_course_continuos']['id'] = 'field_course_continuos';
@@ -445,9 +449,11 @@ function user_subscribed_courses_view_views_default_views() {
   $handler->display->display_options['fields']['field_course_form']['table'] = 'field_data_field_course_form';
   $handler->display->display_options['fields']['field_course_form']['field'] = 'field_course_form';
   $handler->display->display_options['fields']['field_course_form']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_course_form']['alter']['text'] = '<span class="course-form">[field_course_form]</span>
-[field_registration]';
-  $handler->display->display_options['fields']['field_course_form']['empty'] = '[field_registration]';
+  $handler->display->display_options['fields']['field_course_form']['alter']['text'] = '<div class="subscribed-course-wrapper">
+<span class="course-form">[field_course_form]</span>
+[field_registration]
+</div>';
+  $handler->display->display_options['fields']['field_course_form']['empty'] = '<div class="subscribed-course-wrapper">[field_registration]</div>';
   $handler->display->display_options['fields']['field_course_form']['type'] = 'taxonomy_term_reference_plain';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
@@ -514,9 +520,11 @@ function user_subscribed_courses_view_views_default_views() {
   $handler->display->display_options['fields']['field_course_form']['table'] = 'field_data_field_course_form';
   $handler->display->display_options['fields']['field_course_form']['field'] = 'field_course_form';
   $handler->display->display_options['fields']['field_course_form']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_course_form']['alter']['text'] = '<span class="course-form">[field_course_form]</span>
-[field_registration]';
-  $handler->display->display_options['fields']['field_course_form']['empty'] = '[field_registration]';
+  $handler->display->display_options['fields']['field_course_form']['alter']['text'] = '<div class="subscribed-course-wrapper">
+<span class="course-form">[field_course_form]</span>
+[field_registration]
+</div>';
+  $handler->display->display_options['fields']['field_course_form']['empty'] = '<div class="subscribed-course-wrapper">[field_registration]</div>';
   $handler->display->display_options['fields']['field_course_form']['type'] = 'taxonomy_term_reference_plain';
   /* Fält: Innehåll: Kontinuerlig */
   $handler->display->display_options['fields']['field_course_continuos']['id'] = 'field_course_continuos';
@@ -591,9 +599,11 @@ function user_subscribed_courses_view_views_default_views() {
   $handler->display->display_options['fields']['field_course_form']['table'] = 'field_data_field_course_form';
   $handler->display->display_options['fields']['field_course_form']['field'] = 'field_course_form';
   $handler->display->display_options['fields']['field_course_form']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_course_form']['alter']['text'] = '<span class="course-form">[field_course_form]</span>
-[field_registration]';
-  $handler->display->display_options['fields']['field_course_form']['empty'] = '[field_registration]';
+  $handler->display->display_options['fields']['field_course_form']['alter']['text'] = '<div class="subscribed-course-wrapper">
+<span class="course-form">[field_course_form]</span>
+[field_registration]
+</div>';
+  $handler->display->display_options['fields']['field_course_form']['empty'] = '<div class="subscribed-course-wrapper">[field_registration]</div>';
   $handler->display->display_options['fields']['field_course_form']['type'] = 'taxonomy_term_reference_plain';
   /* Fält: Innehåll: Kontinuerlig */
   $handler->display->display_options['fields']['field_course_continuos']['id'] = 'field_course_continuos';
@@ -649,8 +659,11 @@ function user_subscribed_courses_view_views_default_views() {
     t('[field_registration]'),
     t('Alla'),
     t('Course'),
-    t('<span class="course-form">[field_course_form]</span>
-[field_registration]'),
+    t('<div class="subscribed-course-wrapper">
+<span class="course-form">[field_course_form]</span>
+[field_registration]
+</div>'),
+    t('<div class="subscribed-course-wrapper">[field_registration]</div>'),
     t('View panes'),
     t('Flex and Distance course'),
     t('Flexkurser och distanskurser'),
