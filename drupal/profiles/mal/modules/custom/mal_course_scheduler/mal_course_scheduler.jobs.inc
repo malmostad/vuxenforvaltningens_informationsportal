@@ -23,9 +23,9 @@ function mal_course_scheduler_cron_task() {
   $query->leftJoin('field_data_field_course_application_period', 'fap', 'fap.entity_id=n.nid');
   $query->leftJoin('field_data_field_course_continuos', 'fc', 'fc.entity_id=n.nid');
   $or = db_or();
-  $or->condition('field_course_application_period_value2', REQUEST_TIME, '>');
+  $or->condition('field_course_application_period_value2', REQUEST_TIME, '>=');
   $or->condition('field_course_continuos_value', 1);
-  $query->condition('field_course_application_period_value', REQUEST_TIME, '<');
+  $query->condition('field_course_application_period_value', REQUEST_TIME, '=<');
   $query->condition($or);
   $query->addField('n', 'nid');
   $result = array();
@@ -38,7 +38,7 @@ function mal_course_scheduler_cron_task() {
   $result = $query
     ->entityCondition('entity_type', 'node')
     ->fieldCondition('field_course_application_period', 'value2', REQUEST_TIME, '<')
-    ->fieldCondition('field_course_date', 'value', strtotime("-2 week"), '>')
+    ->fieldCondition('field_course_date', 'value', strtotime("-2 week"), '>=')
     ->execute();
 
   mal_course_scheduler_set_taxonomy($result, variable_get('mal_generate_content_searchable_type_1', 75));
@@ -48,7 +48,7 @@ function mal_course_scheduler_cron_task() {
   $result = $query
     ->entityCondition('entity_type', 'node')
     ->fieldCondition('field_course_date', 'value', strtotime("-2 week"), '<')
-    ->fieldCondition('field_course_date', 'value2', strtotime("-6 month"), '>')
+    ->fieldCondition('field_course_date', 'value2', strtotime("-6 month"), '>=')
     ->execute();
 
   mal_course_scheduler_set_taxonomy($result, variable_get('mal_generate_content_searchable_type_2', 76));
