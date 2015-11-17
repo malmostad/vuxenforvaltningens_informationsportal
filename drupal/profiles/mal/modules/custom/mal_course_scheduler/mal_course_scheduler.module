@@ -53,7 +53,7 @@ function mal_course_scheduler_entity_presave($entity, $entity_type) {
 
     // Searchable now from app period gap.
     if (!empty($app_period['value']) && !empty($app_period['value2']) &&
-      $app_period['value'] <= REQUEST_TIME && $app_period['value2'] >= REQUEST_TIME) {
+        $app_period['value'] <= REQUEST_TIME && ($app_period['value2'] + 86400) >= REQUEST_TIME) {
       $entity->field_course_searchable_type[$searchable_lang][0]['tid'] = variable_get('mal_generate_content_searchable_type_0', 74);
       return;
     }
@@ -66,7 +66,7 @@ function mal_course_scheduler_entity_presave($entity, $entity_type) {
 
     // Regular app period ended.
     if (!empty($app_period['value2']) && !empty($date['value'])
-      && $app_period['value2'] < REQUEST_TIME && $date['value'] >= strtotime("-2 week")) {
+      && ($app_period['value2'] + 86400) < REQUEST_TIME && $date['value'] >= strtotime("-2 week")) {
       $entity->field_course_searchable_type[$searchable_lang][0]['tid'] = variable_get('mal_generate_content_searchable_type_1', 75);
       return;
     }

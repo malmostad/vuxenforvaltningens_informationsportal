@@ -23,9 +23,9 @@ function mal_course_scheduler_cron_task() {
   $query->leftJoin('field_data_field_course_application_period', 'fap', 'fap.entity_id=n.nid');
   $query->leftJoin('field_data_field_course_continuos', 'fc', 'fc.entity_id=n.nid');
   $or = db_or();
-  $or->condition('field_course_application_period_value2', REQUEST_TIME, '>=');
+  $or->condition('field_course_application_period_value2', REQUEST_TIME - 86400, '>=');
   $or->condition('field_course_continuos_value', 1);
-  $query->condition('field_course_application_period_value', REQUEST_TIME, '=<');
+  $query->condition('field_course_application_period_value', REQUEST_TIME, '<=');
   $query->condition($or);
   $query->addField('n', 'nid');
   $result = array();
@@ -37,7 +37,7 @@ function mal_course_scheduler_cron_task() {
   $query = new EntityFieldQuery();
   $result = $query
     ->entityCondition('entity_type', 'node')
-    ->fieldCondition('field_course_application_period', 'value2', REQUEST_TIME, '<')
+    ->fieldCondition('field_course_application_period', 'value2', REQUEST_TIME - 86400, '<')
     ->fieldCondition('field_course_date', 'value', strtotime("-2 week"), '>=')
     ->execute();
 
