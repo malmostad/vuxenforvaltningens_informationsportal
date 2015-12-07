@@ -1186,3 +1186,10 @@ function mal_update_update_7093() {
 function mal_update_update_7094() {
   features_revert_module('user_subscribed_courses_view');
 }
+
+/**
+ * Change url alias for nodes.
+ */
+function mal_update_update_7095() {
+  features_revert_module('config_url_aliases');
+}
