@@ -1,0 +1,9 @@
+name = View admin content
+core = 7.x
+package = Views
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = new_administration_nodes
+features_exclude[dependencies][ctools] = ctools
+project path = profiles/mal/modules/features

@@ -26,10 +26,10 @@
     # From installation profile = 'profile', from sql dump = 'sql'.
     workflow_type: 'sql'
     # htpasswd protection for securing backups.
-    backup_user: propeople
-    backup_pass: givemebackup
+    backup_user: sweden-ci-backup
+    backup_pass: XC8J5m50F46kxo74pOqMw3cI
     # URL to the source database. Can be overridden by CI server.
-    source_database: http://{{ backup_user }}:{{ backup_pass }}@95.85.26.139/backup/latest.sql.gz
+    source_database: http://{{ backup_user }}:{{ backup_pass }}@128.199.38.86/backup/latest_malmo.sql.gz
 
   tasks:
 
@@ -100,6 +100,10 @@
   - name: Creating settings.php
     sudo: yes
     shell: "cp sites/default/default.settings.php sites/default/settings.php"
+
+  - name: Adding base_url variable to settings.php
+    sudo: yes
+    lineinfile: dest='sites/default/settings.php' line='$base_url = \"{{ site_url }}\";'
 
   - name: Adding database variable to settings.php
     sudo: yes
@@ -193,6 +197,20 @@
     mysql_db: name=staging state=dump target={{ backup_folder }}/latest.sql.gz login_user={{ mysql_user }} login_password={{ mysql_pass }} login_host={{ mysql_host }}
     when: pp_environment == "staging"
 
+  - name: Set writable files dir
+    sudo: yes
+    file: dest=sites/default/files mode=777 state=directory
+
+  - name: Error messages to display settings
+    sudo: yes
+    shell: "{{ php_env_vars }} drush vset error_level 2"
+    when: pp_environment == "default"
+
+  - name: CSS | Compass compile
+    shell: "cd profiles/mal/themes/city_of_malmo/assets && compass compile"
+    sudo: yes
+    when: pp_environment == "demo" or pp_environment == "default"
+
   - name: Solr - clearing index
     sudo: yes
     shell: "{{ php_env_vars }} drush -y search-api-clear -l {{ site_url }}"
@@ -202,18 +220,3 @@
     sudo: yes
     shell: "{{ php_env_vars }} drush -y search-api-index -l {{ site_url }}"
     when: pp_environment == "demo" or pp_environment == "default"
-
-  - name: Error messages to display settings
-    sudo: yes
-    shell: "{{ php_env_vars }} drush vset error_level 2"
-    when: pp_environment == "default"
-
-  - name: Set writable files dir
-    sudo: yes
-    file: dest=sites/default/files mode=777 state=directory
-
-  - name: CSS | Compass compile
-    shell: "cd profiles/mal/themes/city_of_malmo/assets && compass compile"
-    sudo: yes
-    when: pp_environment == "demo" or pp_environment == "default"
-
